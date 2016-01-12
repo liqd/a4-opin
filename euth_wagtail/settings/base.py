@@ -118,7 +118,7 @@ LANGUAGES = [
   ('en', _('English')),
   ('it', _('Italien')),
   ('fr', _('French')),
-  ('se', _('Swedish')),
+  ('sv', _('Swedish')),
   ('sl', _('Slovakian')),
 ]
 
