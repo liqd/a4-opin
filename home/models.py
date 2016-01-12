@@ -21,11 +21,12 @@ class SimplePage(Page):
 
 	# Title
 	title_en = models.CharField(max_length=255)
-	title_de = models.CharField(max_length=255)
-	title_it = models.CharField(max_length=255)
-	title_fr = models.CharField(max_length=255)
-	title_sv = models.CharField(max_length=255)
-	title_sl = models.CharField(max_length=255)
+	title_de = models.CharField(max_length=255, blank=True)
+	title_it = models.CharField(max_length=255, blank=True)
+	title_fr = models.CharField(max_length=255, blank=True)
+	title_sv = models.CharField(max_length=255, blank=True)
+	title_sl = models.CharField(max_length=255, blank=True)
+	title_da = models.CharField(max_length=255, blank=True)
 
     # Body
 	body_en = StreamField([
@@ -38,31 +39,37 @@ class SimplePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-    ], null=True)
+    ], null=True, blank=True)
 
 	body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-    ], null=True)
+    ], null=True, blank=True)
 
 	body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-    ], null=True)
+    ], null=True, blank=True)
 
 	body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-    ], null=True)
+    ], null=True, blank=True)
 
 	body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-    ], null=True)
+    ], null=True, blank=True)
+
+	body_da = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
 
 	translated_title = TranslatedField(
         'title_de',
@@ -71,6 +78,7 @@ class SimplePage(Page):
         'title_fr',
         'title_sv',
         'title_sl',
+        'title_da',
     )
 
 	body = TranslatedField(
@@ -80,6 +88,7 @@ class SimplePage(Page):
         'body_fr',
         'body_sv',
         'body_sl',
+        'body_da',
     )
 
 SimplePage.content_panels = [
@@ -130,7 +139,15 @@ SimplePage.content_panels = [
 			FieldPanel('title_sl'),
 			StreamFieldPanel('body_sl')
 		],
-	 	heading = "Slovakian",
+	 	heading = "Slovene",
+	 	classname = "collapsible collapsed"
+	),
+	MultiFieldPanel (
+		[
+			FieldPanel('title_da'),
+			StreamFieldPanel('body_da')
+		],
+	 	heading = "Danish",
 	 	classname = "collapsible collapsed"
 	)
 
