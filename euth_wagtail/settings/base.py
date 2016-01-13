@@ -118,8 +118,9 @@ LANGUAGES = [
   ('en', _('English')),
   ('it', _('Italien')),
   ('fr', _('French')),
-  ('se', _('Swedish')),
-  ('sl', _('Slovakian')),
+  ('sv', _('Swedish')),
+  ('sl', _('Slovene')),
+  ('da', _('Danish')),
 ]
 
 # Static files (CSS, JavaScript, Images)
