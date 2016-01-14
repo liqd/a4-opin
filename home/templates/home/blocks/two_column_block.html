@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="row">
+ 
+      <div class="col-md-6">
+           {% include "home/includes/sf_blocks.html" with blocks=self.left_column only %}
+      </div>
+      <div class="col-md-6">
+           {% include "home/includes/sf_blocks.html" with blocks=self.right_column only %}
+     </div>
+ 
+</div>
