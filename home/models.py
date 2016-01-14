@@ -54,7 +54,6 @@ class SimplePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('two_columns', TwoColumnBlock()),
-        ('carousel', CarouselBlock()),
     ], null=True)
 
     body_de = StreamField([
@@ -62,7 +61,6 @@ class SimplePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('two_columns', TwoColumnBlock()),
-        ('carousel', CarouselBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
