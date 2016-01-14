@@ -17,19 +17,19 @@ class HomePage(Page):
     pass
 
 class TwoColumnBlock(blocks.StructBlock):
- 
+
     left_column = blocks.StreamBlock([
             ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
+            ('paragraph', blocks.TextBlock()),
             ('image', ImageChooserBlock()),
         ], icon='arrow-left', label='Left column content')
- 
+
     right_column = blocks.StreamBlock([
             ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
+            ('paragraph', blocks.TextBlock()),
             ('image', ImageChooserBlock()),
         ], icon='arrow-right', label='Right column content')
- 
+
     class Meta:
         template = 'home/blocks/two_column_block.html'
         icon = 'placeholder'
