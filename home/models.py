@@ -6,35 +6,76 @@ from contrib.translations.translations import TranslatedField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock
+from wagtail.wagtailcore.blocks import StructBlock, TextBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtaildocs.blocks import DocumentChooserBlock
+from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
 
+# Blocks, using StreamField
+
+class ImageTextBlock(blocks.StructBlock):
+ 
+    left_column = ImageChooserBlock()
+    right_column = TextBlock()
+ 
+    class Meta:
+        template = 'home/blocks/m_t_block.html'
+        icon = 'placeholder'
+        label = 'Image Text Block'
+
+
+class TextImageBlock(blocks.StructBlock):
+ 
+    left_column = TextBlock()
+    right_column = ImageChooserBlock()
+ 
+    class Meta:
+        template = 'home/blocks/m_t_block.html'
+        icon = 'placeholder'
+        label = 'Text Image Block'
+
+
+class EmbedTextBlock(blocks.StructBlock):
+ 
+    left_column = EmbedBlock()
+    right_column = TextBlock()
+ 
+    class Meta:
+        template = 'home/blocks/m_t_block.html'
+        icon = 'placeholder'
+        label = 'Video Text Block'
+
+
+class TextEmbedBlock(blocks.StructBlock):
+ 
+    left_column = TextBlock()
+    right_column = EmbedBlock()
+ 
+    class Meta:
+        template = 'home/blocks/m_t_block.html'
+        icon = 'placeholder'
+        label = 'Text Video Block'
+ 
+
+class ThreeImagesBlock(blocks.StructBlock):
+    
+    left_image = ImageChooserBlock()
+    middle_image = ImageChooserBlock()
+    right_image = ImageChooserBlock()
+    
+    class Meta:
+        template = 'home/blocks/3_im_block.html'
+        icon = 'placeholder'
+        label = 'Three Images Block'
+
+
+# Pages
 
 class HomePage(Page):
     pass
-
-class TwoColumnBlock(blocks.StructBlock):
- 
-    left_column = blocks.StreamBlock([
-            ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
-            ('image', ImageChooserBlock()),
-        ], icon='arrow-left', label='Left column content')
- 
-    right_column = blocks.StreamBlock([
-            ('heading', blocks.CharBlock(classname="full title")),
-            ('paragraph', blocks.RichTextBlock()),
-            ('image', ImageChooserBlock()),
-        ], icon='arrow-right', label='Right column content')
- 
-    class Meta:
-        template = 'home/blocks/two_column_block.html'
-        icon = 'placeholder'
-        label = 'Two Columns'
-
 
 
 class SimplePage(Page):
@@ -53,51 +94,49 @@ class SimplePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
-        ('carousel', CarouselBlock()),
+        ('image_text', ImageTextBlock()),
+        ('text_image', TextImageBlock()),
+        ('embed_text', EmbedTextBlock()),
+        ('text_embed', TextEmbedBlock()),
+        ('three_images', ThreeImagesBlock()),
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
-        ('carousel', CarouselBlock()),
+        ('image_text', ImageTextBlock()),
+        ('text_image', TextImageBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('two_columns', TwoColumnBlock()),
     ], null=True, blank=True)
 
     translated_title = TranslatedField(

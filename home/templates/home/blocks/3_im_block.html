@@ -1,0 +1,15 @@
+{% load i18n wagtailimages_tags %}
+
+<div class="row">
+ 
+      <div class="col-md-4">
+           {% image self.left_image width-900 class="img-responsive" %}
+      </div>
+      <div class="col-md-4">
+           {% image self.middle_image width-900 class="img-responsive" %}
+      </div>
+      <div class="col-md-4">
+           {% image self.right_image width-900 class="img-responsive" %}
+      </div>
+ 
+</div>
