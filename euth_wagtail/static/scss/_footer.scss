@@ -1,0 +1,37 @@
+$footer_background_color: #4D4D4D;
+$footer_color: #9E9E9E;
+$footer_height: 60px;
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: $footer_height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer_height;
+  background-color: $footer_background_color;
+}
+
+.container .text-muted {
+  margin: 20px;
+  color: $footer_color;
+}
+
+.text-muted > a {
+  color: $footer_color;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
