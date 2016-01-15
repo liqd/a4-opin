@@ -115,13 +115,13 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = [
-  ('de', _('German')),
-  ('en', _('English')),
-  ('it', _('Italien')),
-  ('fr', _('French')),
-  ('sv', _('Swedish')),
-  ('sl', _('Slovene')),
-  ('da', _('Danish')),
+    ('de', _('German')),
+    ('en', _('English')),
+    ('it', _('Italien')),
+    ('fr', _('French')),
+    ('sv', _('Swedish')),
+    ('sl', _('Slovene')),
+    ('da', _('Danish')),
 ]
 
 # Static files (CSS, JavaScript, Images)
@@ -143,6 +143,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'sass --scss {infile} {outfile}'),
+)
 
 # Wagtail settings
 

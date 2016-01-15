@@ -1,5 +1,7 @@
-{% load static wagtailuserbar %}
+{% load compress static wagtailuserbar %}
 {% load i18n %}
+{% load url_translations %}
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -14,8 +16,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/euth_wagtail.css' %}">
+
+        {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/all.scss' %}">
+        {% endcompress %}
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -24,11 +28,39 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Languages <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                    {% get_available_languages as languages %}
+                    {% for lang_code, lang_name in languages %}
+                        <li>
+                            <a href="{% translate_url lang_code %}">{{ lang_name }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </nav>
 
-        {% block content %}{% endblock %}
+        <ul>
+
+
+         </ul>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
