@@ -1,5 +1,6 @@
 {% load static wagtailuserbar %}
 {% load i18n %}
+{% load url_translations %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -23,6 +24,14 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        <ul>
+        {% get_available_languages as languages %}
+        {% for lang_code, lang_name in languages %}
+            <li>
+                <a href="{% translate_url lang_code %}">{{ lang_name }}</a>
+            </li>
+        {% endfor %}
+         </ul>
 
         {% block content %}{% endblock %}
 

@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-13 17:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#: euth_wagtail/settings/base.py:117 euth_wagtail/templates/base.html.py:30
+msgid "German"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:118 euth_wagtail/templates/base.html.py:28
+msgid "English"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:119
+msgid "Italien"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:120 euth_wagtail/templates/base.html.py:29
+msgid "French"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:121 euth_wagtail/templates/base.html.py:33
+msgid "Swedish"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:122 euth_wagtail/templates/base.html.py:32
+msgid "Slovene"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:123 euth_wagtail/templates/base.html.py:27
+msgid "Danish"
+msgstr ""
+
+#: euth_wagtail/templates/base.html:31
+msgid "Italian"
+msgstr ""
