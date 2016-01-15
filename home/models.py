@@ -53,7 +53,7 @@ class TextEmbedBlock(blocks.StructBlock):
  
     left_column = TextBlock()
     right_column = EmbedBlock()
- 
+
     class Meta:
         template = 'home/blocks/m_t_block.html'
         icon = 'placeholder'
