@@ -6,3 +6,4 @@ db.sqlite3
 .DS_Store
 *.mo
 /media
+.sass-cache
