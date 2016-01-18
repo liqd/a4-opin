@@ -1,7 +1,7 @@
 {% load i18n wagtailimages_tags %}
 
 <div class="row">
- 
+
       <div class="col-md-6">
 		  {% if self.left_column.width > 0 %}
              {% image self.left_column width-900 class="img-responsive" %}
@@ -16,5 +16,5 @@
              {{ self.right_column }}
           {% endif %}
      </div>
- 
+
 </div>
