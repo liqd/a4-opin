@@ -1,0 +1,7 @@
+{% load i18n wagtailimages_tags %}
+
+<ul class="carousel">
+    {% for block in self.body %}
+        <section>{{ block }}</section>
+    {% endfor %}
+</article>

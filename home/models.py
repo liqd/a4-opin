@@ -17,10 +17,10 @@ from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
 # Blocks, using StreamField
 
 class ImageTextBlock(blocks.StructBlock):
- 
+
     left_column = ImageChooserBlock()
     right_column = TextBlock()
- 
+
     class Meta:
         template = 'home/blocks/m_t_block.html'
         icon = 'placeholder'
@@ -28,10 +28,10 @@ class ImageTextBlock(blocks.StructBlock):
 
 
 class TextImageBlock(blocks.StructBlock):
- 
+
     left_column = TextBlock()
     right_column = ImageChooserBlock()
- 
+
     class Meta:
         template = 'home/blocks/m_t_block.html'
         icon = 'placeholder'
@@ -39,10 +39,10 @@ class TextImageBlock(blocks.StructBlock):
 
 
 class EmbedTextBlock(blocks.StructBlock):
- 
+
     left_column = EmbedBlock()
     right_column = TextBlock()
- 
+
     class Meta:
         template = 'home/blocks/m_t_block.html'
         icon = 'placeholder'
@@ -50,7 +50,7 @@ class EmbedTextBlock(blocks.StructBlock):
 
 
 class TextEmbedBlock(blocks.StructBlock):
- 
+
     left_column = TextBlock()
     right_column = EmbedBlock()
 
@@ -58,18 +58,32 @@ class TextEmbedBlock(blocks.StructBlock):
         template = 'home/blocks/m_t_block.html'
         icon = 'placeholder'
         label = 'Text Video Block'
- 
+
 
 class ThreeImagesBlock(blocks.StructBlock):
-    
+
     left_image = ImageChooserBlock()
+    left_image_text = TextBlock()
     middle_image = ImageChooserBlock()
+    middle_image_text = TextBlock()
     right_image = ImageChooserBlock()
-    
+    right_image_text = TextBlock()
+
+
     class Meta:
         template = 'home/blocks/3_im_block.html'
         icon = 'placeholder'
         label = 'Three Images Block'
+
+class CarouselBlock(blocks.StructBlock):
+
+    image = ImageChooserBlock()
+    text = TextBlock(required=False)
+
+    class Meta:
+        template = 'home/blocks/carousel_block.html'
+        icon='cogs'
+        label = 'Carousel'
 
 
 # Pages
@@ -92,6 +106,7 @@ class SimplePage(Page):
     # Body
     body_en = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('carousel', CarouselBlock()),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('image_text', ImageTextBlock()),
