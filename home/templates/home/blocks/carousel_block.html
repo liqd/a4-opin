@@ -1,7 +1,14 @@
 {% load i18n wagtailimages_tags %}
 
 <ul class="carousel">
-    {% for block in self.body %}
-        <section>{{ block }}</section>
+    {% for block in self %}
+        <li class="carousel-item">
+            <figure class="carousel-image">{% image block.image fill-900x200 class="img-responsive" %}</figure>
+            {% if block.text %}
+            <figcaption class="carousel-text">
+            {{ block.text }}
+            </figcaption>
+            {% endif %}
+        </li>
     {% endfor %}
-</article>
+</ul>
