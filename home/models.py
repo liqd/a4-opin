@@ -75,6 +75,16 @@ class ThreeImagesBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Three Images Block'
 
+class CollapsibleTextBlock(blocks.StructBlock):
+    
+    heading = TextBlock()
+    text = TextBlock()
+    
+    class Meta:
+        template = 'home/blocks/collaps_t_block.html'
+        icon = 'arrows-up-down'
+        label = 'Collapsible Text'
+
 
 class CarouselBlock(blocks.StructBlock):
 
@@ -114,6 +124,7 @@ class SimplePage(Page):
         ('embed_text', EmbedTextBlock()),
         ('text_embed', TextEmbedBlock()),
         ('three_images', ThreeImagesBlock()),
+        ('collapsible_text', CollapsibleTextBlock())
     ], null=True)
 
     body_de = StreamField([
@@ -235,3 +246,7 @@ SimplePage.content_panels = [
     )
 
 ]
+
+
+class AboutPage(Page):
+    pass

@@ -16,6 +16,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+$(document).ready(function()
+{
+  //hide the all of the element with class collapsible_body
+  $(".collapsible_body").hide();
+  //toggle the component with class collapsible_body
+  $(".collapsible_head").click(function()
+  {
+    $(this).next(".collapsible_body").slideToggle(600);
+  });
+});
+</script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 
         {% compress css %}
         <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/all.scss' %}">
