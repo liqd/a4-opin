@@ -75,13 +75,13 @@ class ThreeImagesBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Three Images Block'
 
+
 class CarouselBlock(blocks.StructBlock):
 
     image = ImageChooserBlock()
     text = TextBlock(required=False)
 
     class Meta:
-        template = 'home/blocks/carousel_block.html'
         icon='cogs'
         label = 'Carousel'
 
@@ -106,7 +106,7 @@ class SimplePage(Page):
     # Body
     body_en = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
-        ('carousel', CarouselBlock()),
+        ('carousel', blocks.ListBlock(CarouselBlock(), template = 'home/blocks/carousel_block.html', icon="cogs")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('image_text', ImageTextBlock()),
