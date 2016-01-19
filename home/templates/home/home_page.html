@@ -5,6 +5,8 @@
 
 {% block content %}
     
+    {% include "home/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+
     <h1>{% trans "Welcome to your new Wagtail site!" %}</h1>
 
     <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).

@@ -10,6 +10,7 @@ from wagtail.wagtailcore.blocks import StructBlock, TextBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.wagtailadmin.edit_handlers import InlinePanel
 from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
@@ -86,20 +87,41 @@ class CollapsibleTextBlock(blocks.StructBlock):
         label = 'Collapsible Text'
 
 
-class CarouselBlock(blocks.StructBlock):
+class CarouselItem(models.Model):
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    embed_url = models.URLField("Embed URL", blank=True)
 
-    image = ImageChooserBlock()
-    text = TextBlock(required=False)
+    panels = [
+        ImageChooserBlock('image'),
+        FieldPanel('embed_url'),
+    ]
 
     class Meta:
-        icon='cogs'
-        label = 'Carousel'
+        abstract = True
 
 
 # Pages
 
 class HomePage(Page):
-    pass
+
+    title_en = models.CharField(max_length=255)
+    carousel_items = CarouselItem()
+    
+    class Meta:
+        verbose_name = "Homepage"
+
+HomePage.content_panels = [
+    FieldPanel('title_en', classname="full title"),
+    InlinePanel('carousel_items', label="Carousel items"),
+]
+
+HomePage.promote_panels = Page.promote_panels
 
 
 class SimplePage(Page):
@@ -116,7 +138,6 @@ class SimplePage(Page):
     # Body
     body_en = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
-        ('carousel', blocks.ListBlock(CarouselBlock(), template = 'home/blocks/carousel_block.html', icon="cogs")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('image_text', ImageTextBlock()),
@@ -124,7 +145,7 @@ class SimplePage(Page):
         ('embed_text', EmbedTextBlock()),
         ('text_embed', TextEmbedBlock()),
         ('three_images', ThreeImagesBlock()),
-        ('collapsible_text', CollapsibleTextBlock())
+        ('collapsible_text', CollapsibleTextBlock()),
     ], null=True)
 
     body_de = StreamField([
