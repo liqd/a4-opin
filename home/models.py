@@ -10,10 +10,16 @@ from wagtail.wagtailcore.blocks import StructBlock, TextBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailadmin.edit_handlers import InlinePanel
 from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailadmin.edit_handlers import TabbedInterface
+from wagtail.wagtailadmin.edit_handlers import ObjectList
+
+from modelcluster.fields import ParentalKey
 
 # Blocks, using StreamField
 
@@ -70,17 +76,17 @@ class ThreeImagesBlock(blocks.StructBlock):
     right_image = ImageChooserBlock()
     right_image_text = TextBlock()
 
-
     class Meta:
         template = 'home/blocks/3_im_block.html'
         icon = 'placeholder'
         label = 'Three Images Block'
 
+
 class CollapsibleTextBlock(blocks.StructBlock):
-    
+
     heading = TextBlock()
     text = TextBlock()
-    
+
     class Meta:
         template = 'home/blocks/collaps_t_block.html'
         icon = 'arrows-up-down'
@@ -98,7 +104,7 @@ class CarouselItem(models.Model):
     embed_url = models.URLField("Embed URL", blank=True)
 
     panels = [
-        ImageChooserBlock('image'),
+        ImageChooserPanel('image'),
         FieldPanel('embed_url'),
     ]
 
@@ -106,22 +112,138 @@ class CarouselItem(models.Model):
         abstract = True
 
 
+class HomePageCarouselItem(Orderable, CarouselItem):
+    page = ParentalKey('home.HomePage', related_name='carousel_items')
+
+
 # Pages
 
 class HomePage(Page):
 
-    title_en = models.CharField(max_length=255)
-    carousel_items = CarouselItem()
-    
+    # Body
+    body_en = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+        ('image_text', ImageTextBlock()),
+        ('text_image', TextImageBlock()),
+        ('embed_text', EmbedTextBlock()),
+        ('text_embed', TextEmbedBlock()),
+        ('three_images', ThreeImagesBlock()),
+        ('collapsible_text', CollapsibleTextBlock()),
+    ], null=True)
+
+    body_de = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+        ('image_text', ImageTextBlock()),
+        ('text_image', TextImageBlock()),
+    ], null=True, blank=True)
+
+    body_it = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
+
+    body_fr = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
+
+    body_sv = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
+
+    body_sl = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
+
+    body_da = StreamField([
+        ('heading', blocks.CharBlock(classname="full title", icon="title")),
+        ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('image', ImageChooserBlock(icon="image")),
+    ], null=True, blank=True)
+
+    body = TranslatedField(
+        'body_de',
+        'body_it',
+        'body_en',
+        'body_fr',
+        'body_sv',
+        'body_sl',
+        'body_da',
+    )
+
     class Meta:
         verbose_name = "Homepage"
 
-HomePage.content_panels = [
-    FieldPanel('title_en', classname="full title"),
+    carousel_panels = [
     InlinePanel('carousel_items', label="Carousel items"),
-]
+    ]
 
-HomePage.promote_panels = Page.promote_panels
+    content_panels = [
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_en')
+        ],
+        heading="English",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_de')
+        ],
+        heading="German",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_it')
+        ],
+        heading="Italien",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_fr')
+        ],
+        heading="French",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_sv')
+        ],
+        heading="Swedish",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_sl')
+        ],
+        heading="Slovene",
+        classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+        [
+            StreamFieldPanel('body_da')
+        ],
+        heading="Danish",
+        classname="collapsible collapsed"
+        )
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(carousel_panels, heading='Carousel'),
+    ])
 
 
 class SimplePage(Page):
@@ -206,67 +328,67 @@ class SimplePage(Page):
         'body_da',
     )
 
-SimplePage.content_panels = [
+    content_panels = [
 
     FieldPanel('title'),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_en'),
             StreamFieldPanel('body_en')
         ],
-         heading = "English",
-         classname = "collapsible collapsed"
+        heading="English",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_de'),
             StreamFieldPanel('body_de')
         ],
-         heading = "German",
-         classname = "collapsible collapsed"
+        heading="German",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_it'),
             StreamFieldPanel('body_it')
         ],
-         heading = "Italien",
-         classname = "collapsible collapsed"
+        heading="Italien",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_fr'),
             StreamFieldPanel('body_fr')
         ],
-         heading = "French",
-         classname = "collapsible collapsed"
+        heading="French",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_sv'),
             StreamFieldPanel('body_sv')
         ],
-         heading = "Swedish",
-         classname = "collapsible collapsed"
+        heading="Swedish",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_sl'),
             StreamFieldPanel('body_sl')
         ],
-         heading = "Slovene",
-         classname = "collapsible collapsed"
+        heading="Slovene",
+        classname="collapsible collapsed"
     ),
-    MultiFieldPanel (
+    MultiFieldPanel(
         [
             FieldPanel('title_da'),
             StreamFieldPanel('body_da')
         ],
-         heading = "Danish",
-         classname = "collapsible collapsed"
+        heading="Danish",
+        classname="collapsible collapsed"
     )
 
-]
+    ]
 
 
 class AboutPage(Page):
