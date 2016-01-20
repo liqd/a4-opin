@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'compressor',
     'taggit',
+    'djangobower',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,7 +132,16 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
+    'djangobower.finders.BowerFinder',
 ]
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail/static/third-party')
+
+BOWER_INSTALLED_APPS = (
+    'jquery',
+    'bootstrap-sass-official',
+    'https://github.com/intllgnt/SSS.git'
+)
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),

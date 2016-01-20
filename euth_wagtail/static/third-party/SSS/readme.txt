@@ -1,1 +1,0 @@
-lovingly built by @intllgnt
