@@ -6,7 +6,7 @@ from contrib.translations.translations import TranslatedField
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock, TextBlock
+from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -76,6 +76,7 @@ class ThreeImagesBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Three Images Block'
 
+
 class CollapsibleTextBlock(blocks.StructBlock):
     
     heading = TextBlock()
@@ -87,41 +88,28 @@ class CollapsibleTextBlock(blocks.StructBlock):
         label = 'Collapsible Text'
 
 
-class CarouselItem(models.Model):
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    embed_url = models.URLField("Embed URL", blank=True)
+COLOUR_CHOICES = (("white","white"),("black","black"),("red","red"))
 
-    panels = [
-        ImageChooserBlock('image'),
-        FieldPanel('embed_url'),
-    ]
-
+class InfoBlock(blocks.StructBlock):
+    
+    background_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="white",required=True)
+    font_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="black",required=True)
+    heading = TextBlock()
+    image = ImageChooserBlock(required=False)
+    embedded_video = EmbedBlock(required=False)
+    text = TextBlock()
+    internal_link = URLBlock(required=False)
+    
     class Meta:
-        abstract = True
+        template = 'home/blocks/info_block.html'
+        icon = 'glyphicon glyphicon-blackboard'
+        label = 'Info Block'
 
 
 # Pages
 
 class HomePage(Page):
-
-    title_en = models.CharField(max_length=255)
-    carousel_items = CarouselItem()
-    
-    class Meta:
-        verbose_name = "Homepage"
-
-HomePage.content_panels = [
-    FieldPanel('title_en', classname="full title"),
-    InlinePanel('carousel_items', label="Carousel items"),
-]
-
-HomePage.promote_panels = Page.promote_panels
+	pass
 
 
 class SimplePage(Page):
@@ -146,6 +134,7 @@ class SimplePage(Page):
         ('text_embed', TextEmbedBlock()),
         ('three_images', ThreeImagesBlock()),
         ('collapsible_text', CollapsibleTextBlock()),
+        ('info_block', InfoBlock()),
     ], null=True)
 
     body_de = StreamField([
