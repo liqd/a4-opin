@@ -120,6 +120,15 @@ class HomePageCarouselItem(Orderable, CarouselItem):
 
 class HomePage(Page):
 
+    # Title
+    title_en = models.CharField(max_length=255, blank=True)
+    title_de = models.CharField(max_length=255, blank=True)
+    title_it = models.CharField(max_length=255, blank=True)
+    title_fr = models.CharField(max_length=255, blank=True)
+    title_sv = models.CharField(max_length=255, blank=True)
+    title_sl = models.CharField(max_length=255, blank=True)
+    title_da = models.CharField(max_length=255, blank=True)
+
     # Body
     body_en = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -181,6 +190,16 @@ class HomePage(Page):
         'body_da',
     )
 
+    translated_title = TranslatedField(
+        'title_de',
+        'title_it',
+        'title_en',
+        'title_fr',
+        'title_sv',
+        'title_sl',
+        'title_da',
+    )
+
     class Meta:
         verbose_name = "Homepage"
 
@@ -189,60 +208,64 @@ class HomePage(Page):
     ]
 
     content_panels = [
-        MultiFieldPanel(
+
+    FieldPanel('title'),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_en')
         ],
         heading="English",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_de')
         ],
         heading="German",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_it')
         ],
         heading="Italien",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_fr')
         ],
         heading="French",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_sv')
         ],
         heading="Swedish",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_sl')
         ],
         heading="Slovene",
         classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
+    ),
+    MultiFieldPanel(
         [
             StreamFieldPanel('body_da')
         ],
         heading="Danish",
         classname="collapsible collapsed"
-        )
-    ]
+    )
 
+    ]
     edit_handler = TabbedInterface([
         ObjectList(content_panels, heading='Content'),
         ObjectList(carousel_panels, heading='Carousel'),
+        ObjectList(Page.promote_panels, heading='Promote'),
+        ObjectList(Page.settings_panels, heading='Settings', classname="settings"),
     ])
 
 
