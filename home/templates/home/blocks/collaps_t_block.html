@@ -1,9 +1,8 @@
 {% load i18n wagtailimages_tags %}
 
 <div class="collapsible_list">
-  <h3 class="collapsible_head"> {{ self.heading }} </h3>
+  <h3 class="collapsible_head"> {{ self.heading }} <i class="glyphicon glyphicon-plus" style="float: right"></i></h3>
   <div class="collapsible_body">
-    <p> {{ self.text }} </p>
+    <p style="white-space: pre"> {{ self.text }} </p>
   </div>
- 
 </div>
