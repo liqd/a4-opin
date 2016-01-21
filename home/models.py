@@ -88,11 +88,11 @@ class CollapsibleTextBlock(blocks.StructBlock):
         label = 'Collapsible Text'
 
 
-COLOUR_CHOICES = (("white","white"),("black","black"),("red","red"))
+COLOUR_CHOICES = (("none","none"),("inverse","inverse"),("danger","danger"))
 
 class InfoBlock(blocks.StructBlock):
     
-    background_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="white",required=True)
+    background_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="none",required=True)
     font_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="black",required=True)
     heading = TextBlock()
     image = ImageChooserBlock(required=False)

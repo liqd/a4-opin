@@ -1,7 +1,7 @@
 {% load i18n wagtailimages_tags static %}
-<div class="info-div" style="background-color:{{ self.background_colour }}">
+<div class="info-div bg-{{ self.background_colour }}">
 
-    <h3><font color="{{ self.font_colour }}">{{ self.heading }}</font></h3>
+    <h3 class="text-{{ self.font_colour }}">{{ self.heading }}</h3>
 
     {% if self.image.width > 0 %}
        {% image self.image width-900 class="img-responsive info-img" %}
@@ -9,6 +9,6 @@
 		{{ self.embedded_video }}
     {% endif %}
 
-    <p><font color="{{ self.font_colour }}">{{ self.text }}</font></p>
+    <p class="text-{{ self.font_colour }}">{{ self.text }}</p>
 	<button href={{ self.internal_link }} class="start-now"></button>
 </div>
