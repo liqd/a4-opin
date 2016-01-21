@@ -99,10 +99,21 @@ COLOUR_CHOICES = (
 
 
 class InfoBlock(blocks.StructBlock):
+
     background_colour = blocks.ChoiceBlock(
         choices=COLOUR_CHOICES, default="none", required=True)
     font_colour = blocks.ChoiceBlock(
         choices=COLOUR_CHOICES, default="black", required=True)
+    heading = TextBlock()
+    image = ImageChooserBlock(required=False)
+    embedded_video = EmbedBlock(required=False)
+    text = TextBlock()
+    internal_link = URLBlock(required=False)
+
+    class Meta:
+        template = 'home/blocks/info_block.html'
+        icon = 'glyphicon glyphicon-blackboard'
+        label = 'Info Block'
 
 
 class CarouselItem(models.Model):
@@ -119,26 +130,6 @@ class CarouselItem(models.Model):
         ImageChooserPanel('image'),
         FieldPanel('embed_url'),
     ]
-
-COLOUR_CHOICES = (("white", "white"), ("black", "black"), ("red", "red"))
-
-
-class InfoBlock(blocks.StructBlock):
-
-    background_colour = blocks.ChoiceBlock(
-        choices=COLOUR_CHOICES, default="white", required=True)
-    font_colour = blocks.ChoiceBlock(
-        choices=COLOUR_CHOICES, default="black", required=True)
-    heading = TextBlock()
-    image = ImageChooserBlock(required=False)
-    embedded_video = EmbedBlock(required=False)
-    text = TextBlock()
-    internal_link = URLBlock(required=False)
-
-    class Meta:
-        template = 'home/blocks/info_block.html'
-        icon = 'glyphicon glyphicon-blackboard'
-        label = 'Info Block'
 
 
 class HomePageCarouselItem(Orderable, CarouselItem):
