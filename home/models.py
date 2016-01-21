@@ -94,13 +94,16 @@ class CollapsibleTextBlock(blocks.StructBlock):
         label = 'Collapsible Text'
 
 
+COLOUR_CHOICES = (
+    ("none", "none"), ("inverse", "inverse"), ("danger", "danger"))
 
-COLOUR_CHOICES = (("none","none"),("inverse","inverse"),("danger","danger"))
 
 class InfoBlock(blocks.StructBlock):
-    
-    background_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="none",required=True)
-    font_colour = blocks.ChoiceBlock(choices=COLOUR_CHOICES,default="black",required=True)
+    background_colour = blocks.ChoiceBlock(
+        choices=COLOUR_CHOICES, default="none", required=True)
+    font_colour = blocks.ChoiceBlock(
+        choices=COLOUR_CHOICES, default="black", required=True)
+
 
 class CarouselItem(models.Model):
     image = models.ForeignKey(
@@ -160,50 +163,49 @@ class HomePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('image_text', ImageTextBlock()),
-        ('text_image', TextImageBlock()),
-        ('embed_text', EmbedTextBlock()),
-        ('text_embed', TextEmbedBlock()),
-        ('three_images', ThreeImagesBlock()),
-        ('collapsible_text', CollapsibleTextBlock()),
+        ('info_block', InfoBlock()),
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('image_text', ImageTextBlock()),
-        ('text_image', TextImageBlock()),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('info_block', InfoBlock()),
     ], null=True, blank=True)
 
     body = TranslatedField(
@@ -312,21 +314,12 @@ class SimplePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('image_text', ImageTextBlock()),
-        ('text_image', TextImageBlock()),
-        ('embed_text', EmbedTextBlock()),
-        ('text_embed', TextEmbedBlock()),
-        ('three_images', ThreeImagesBlock()),
-        ('collapsible_text', CollapsibleTextBlock()),
-        ('info_block', InfoBlock()),
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('image_text', ImageTextBlock()),
-        ('text_image', TextImageBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
