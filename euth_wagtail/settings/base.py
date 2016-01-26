@@ -70,6 +70,8 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'euth_wagtail.urls'
 
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
