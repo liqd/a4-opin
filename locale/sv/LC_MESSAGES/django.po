@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-13 17:44+0100\n"
+"POT-Creation-Date: 2016-01-26 12:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: euth_wagtail/settings/base.py:117 euth_wagtail/templates/base.html.py:30
+#: euth_wagtail/settings/base.py:119
 msgid "German"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:118 euth_wagtail/templates/base.html.py:28
+#: euth_wagtail/settings/base.py:120
 msgid "English"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:119
+#: euth_wagtail/settings/base.py:121
 msgid "Italien"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:120 euth_wagtail/templates/base.html.py:29
+#: euth_wagtail/settings/base.py:122
 msgid "French"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:121 euth_wagtail/templates/base.html.py:33
+#: euth_wagtail/settings/base.py:123
 msgid "Swedish"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:122 euth_wagtail/templates/base.html.py:32
+#: euth_wagtail/settings/base.py:124
 msgid "Slovene"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:123 euth_wagtail/templates/base.html.py:27
+#: euth_wagtail/settings/base.py:125
 msgid "Danish"
 msgstr ""
 
-#: euth_wagtail/templates/base.html:31
-msgid "Italian"
+#: euth_wagtail/templates/base.html:60
+msgid "About"
+msgstr ""
+
+#: euth_wagtail/templates/base.html:61
+msgid "Get Involved"
+msgstr ""
+
+#: euth_wagtail/templates/base.html:62
+msgid "Start Your Project"
+msgstr ""
+
+#: euth_wagtail/templates/base.html:63
+msgid "Help Center"
 msgstr ""
