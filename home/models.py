@@ -20,6 +20,7 @@ from wagtail.wagtailadmin.edit_handlers import ObjectList
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
+from .blocks import HeroUnitBlock
 
 # Blocks, using StreamField
 
@@ -56,6 +57,8 @@ class HomePage(Page):
     title_sv = models.CharField(max_length=255, blank=True)
     title_sl = models.CharField(max_length=255, blank=True)
     title_da = models.CharField(max_length=255, blank=True)
+
+    hero_unit = HeroUnitBlock(icon="image")
 
     # Body
     body_en = StreamField([
@@ -137,6 +140,7 @@ class HomePage(Page):
     content_panels = [
 
         FieldPanel('title'),
+        FieldPanel('hero_unit'),
         MultiFieldPanel(
             [
                 StreamFieldPanel('body_en')

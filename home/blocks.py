@@ -96,3 +96,12 @@ class InfoBlock(blocks.StructBlock):
         template = 'home/blocks/info_block.html'
         icon = 'glyphicon glyphicon-blackboard'
         label = 'Info Block'
+
+class HeroUnitBlock(blocks.StructBlock):
+
+    background_image = ImageChooserBlock()
+
+    class Meta:
+        template = 'home/blocks/hero_unit.html'
+        icon = 'placeholder'
+        label = 'Hero Unit'
