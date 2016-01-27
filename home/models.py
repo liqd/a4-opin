@@ -196,6 +196,8 @@ class HomePage(Page):
             Page.settings_panels, heading='Settings', classname="settings"),
     ])
 
+    subpage_types = ['home.SimplePage', 'home.AboutPage']
+
 
 class SimplePage(Page):
 
