@@ -6,52 +6,52 @@
 
 // Core variables and mixins
 @import "bootstrap-variables";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/print";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/glyphicons";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
 // Core CSS
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/type";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/code";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/tables";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/forms";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/buttons";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
 // Components
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/component-animations";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/dropdowns";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/button-groups";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/input-groups";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/navs";
-@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/navbar";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
 
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/breadcrumbs";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/pagination";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/pager";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/labels";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/badges";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/jumbotron";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/thumbnails";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/alerts";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/progress-bars";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/media";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/list-group";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/panels";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/wells";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/close";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/pager";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/labels";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/badges";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/media";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/wells";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/close";
 
 // Components w/ JavaScript
-//@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/modals";
-//@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/tooltip";
-//@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/popovers";
-//@import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/carousel";
+//@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+//@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+//@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+//@import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
 
 // Utility classes
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
-// @import "../../third-party/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+// @import "../../third-party/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
