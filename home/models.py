@@ -58,7 +58,9 @@ class HomePage(Page):
     title_sl = models.CharField(max_length=255, blank=True)
     title_da = models.CharField(max_length=255, blank=True)
 
-    hero_unit = HeroUnitBlock(icon="image")
+    hero_unit = StreamField([
+        ('hero_unit', HeroUnitBlock(icon="image")),
+    ], null=True)
 
     # Body
     body_en = StreamField([
