@@ -20,8 +20,6 @@ from wagtail.wagtailadmin.edit_handlers import ObjectList
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
-from .blocks import HeroUnitBlock
-
 
 # Pages
 

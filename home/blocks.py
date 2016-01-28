@@ -1,5 +1,5 @@
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock
+from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock, CharBlock, BooleanBlock, PageChooserBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -77,32 +77,20 @@ class CollapsibleTextBlock(blocks.StructBlock):
         label = 'Collapsible Text'
 
 
-COLOUR_CHOICES = (
-    ("none", "none"), ("inverse", "inverse"), ("danger", "danger"))
+class CallToActionBlock(blocks.StructBlock):
+    internal_link = PageChooserBlock(required=False)
+    link_text = TextBlock()
 
 
 class InfoBlock(blocks.StructBlock):
 
-    background_colour = blocks.ChoiceBlock(
-        choices=COLOUR_CHOICES, default="none", required=True)
-    font_colour = blocks.ChoiceBlock(
-        choices=COLOUR_CHOICES, default="black", required=True)
-    heading = TextBlock()
+    title = CharBlock(classname="full title")
     image = ImageChooserBlock(required=False)
-    embedded_video = EmbedBlock(required=False)
     text = TextBlock()
-    internal_link = URLBlock(required=False)
+    button = CallToActionBlock(required=False)
+    highlight = BooleanBlock(required=False)
 
     class Meta:
         template = 'home/blocks/info_block.html'
         icon = 'glyphicon glyphicon-blackboard'
         label = 'Info Block'
-
-class HeroUnitBlock(blocks.StructBlock):
-
-    image = ImageChooserBlock()
-
-    class Meta:
-        template = 'home/blocks/hero_unit.html'
-        icon = 'placeholder'
-        label = 'Hero Unit'
