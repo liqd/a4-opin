@@ -84,7 +84,7 @@ class CallToActionBlock(blocks.StructBlock):
 
 class InfoBlock(blocks.StructBlock):
 
-    title = CharBlock(classname="full title")
+    title = CharBlock(classname="full title",required=False)
     image = ImageChooserBlock(required=False)
     text = TextBlock()
     button = CallToActionBlock(required=False)
