@@ -1,0 +1,27 @@
+.hero-unit {
+    position: relative;
+    text-align: center;
+
+    .page-title {
+        @include rem(font-size, 60px);
+        @include rem(top, 163px);
+        color: #fff;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        width: 100%;
+
+        &:before {
+            @include rem(height, 107px);
+            @include rem(margin-bottom, 10px);
+            background: url(../images/logo-white.png) no-repeat center top;
+            background-size: contain;
+            display: block;
+            content: " ";
+
+            .svgasimg & {
+                background-image: url(../images/logo-white.svg);
+            }
+        }
+    }
+}
