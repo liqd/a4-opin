@@ -1,0 +1,25 @@
+#main-menu {
+    .navbar-brand {
+        @include rem(font-size, 14px);
+        @include text-hide;
+        background: url(../images/logo.png) no-repeat left center;
+        width: 47px;
+
+        .svgasimg & {
+            background-image: url(../images/logo.svg);
+        }
+    }
+
+    a {
+        @include rem(padding-left, 40px);
+        font-weight: bold;
+        padding-right: 0;
+        text-transform: uppercase;
+    }
+
+    #language-selector {
+        a {
+            color: $brand-brand2;
+        }
+    }
+}

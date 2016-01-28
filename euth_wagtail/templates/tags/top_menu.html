@@ -2,7 +2,7 @@
 {% load url_translations wagtailcore_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" id="main-menu">
     <div class="container">
         <a class="navbar-brand" href="/">Euth</a>
         <div class="navbar-header">
@@ -14,12 +14,7 @@
             </button>
         </div>
         <div id="navbar-collapse" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                {% for menuitem in menuitems %}
-                <li><a href="{% pageurl menuitem %}">{{ menuitem.translated_title }}</a></li>
-                {% endfor %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" id="language-selector">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }} <span class="caret"></span>
                     </a>
@@ -34,6 +29,13 @@
                     {% endfor %}
                     </ul>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% for menuitem in menuitems %}
+                <li><a href="{% pageurl menuitem %}">{{ menuitem.translated_title }}</a></li>
+                {% endfor %}
+                <li><a href="#">Example page 1</a></li>
+                <li><a href="#">Example page 2</a></li>
             </ul>
         </div>
     </div>
