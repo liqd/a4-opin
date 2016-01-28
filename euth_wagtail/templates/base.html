@@ -1,4 +1,4 @@
-{% load compress static wagtailuserbar %}
+{% load base_tags compress static wagtailuserbar %}
 {% load i18n %}
 {% load url_translations %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -44,43 +44,11 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">Euth</a>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Navigation an/aus</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">{% trans "About" %}</a></li>
-                        <li><a href="#">{% trans "Get Involved" %}</a></li>
-                        <li><a href="#">{% trans "Start Your Project" %}</a></li>
-                        <li><a href="#">{% trans "Help Center" %}</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }} <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                            {% get_available_languages as languages %}
-                            {% for lang_code, lang_name in languages %}
-                                {% if lang_code != LANGUAGE_CODE %}
-                                <li>
-                                    <a href="{% translate_url lang_code %}">{{ lang_code }}</a>
-                                </li>
-                                {% endif %}
-                            {% endfor %}
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+        {% block menu %}
+        {% get_site_root as site_root %}
+        {% top_menu parent=site_root calling_page=self %}
+        {% endblock %}
 
 
         <div>
