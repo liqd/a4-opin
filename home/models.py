@@ -49,13 +49,21 @@ class HomePageCarouselItem(Orderable, CarouselItem):
 class HomePage(Page):
 
     # Title
-    title_en = models.CharField(max_length=255, blank=True)
+    title_en = models.CharField(max_length=255)
     title_de = models.CharField(max_length=255, blank=True)
     title_it = models.CharField(max_length=255, blank=True)
     title_fr = models.CharField(max_length=255, blank=True)
     title_sv = models.CharField(max_length=255, blank=True)
     title_sl = models.CharField(max_length=255, blank=True)
     title_da = models.CharField(max_length=255, blank=True)
+
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     # Body
     body_en = StreamField([
@@ -137,8 +145,10 @@ class HomePage(Page):
     content_panels = [
 
         FieldPanel('title'),
+        ImageChooserPanel('image'),
         MultiFieldPanel(
             [
+                FieldPanel('title_en'),
                 StreamFieldPanel('body_en')
             ],
             heading="English",
@@ -146,6 +156,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_de'),
                 StreamFieldPanel('body_de')
             ],
             heading="German",
@@ -153,6 +164,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_it'),
                 StreamFieldPanel('body_it')
             ],
             heading="Italien",
@@ -160,6 +172,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_fr'),
                 StreamFieldPanel('body_fr')
             ],
             heading="French",
@@ -167,6 +180,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_sv'),
                 StreamFieldPanel('body_sv')
             ],
             heading="Swedish",
@@ -174,6 +188,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_sl'),
                 StreamFieldPanel('body_sl')
             ],
             heading="Slovene",
@@ -181,6 +196,7 @@ class HomePage(Page):
         ),
         MultiFieldPanel(
             [
+                FieldPanel('title_da'),
                 StreamFieldPanel('body_da')
             ],
             heading="Danish",
