@@ -1,0 +1,17 @@
+.button {
+    @include rem(border-radius, 25px);
+    @include rem(font-size, $font-size-large);
+    @include rem(padding, 0 30px);
+    background: $brand-brand2;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 50px;
+    text-transform: uppercase;
+
+    &:focus, &:hover {
+        background: darken($brand-brand2, 10%);
+        color: #fff;
+        text-decoration: none;
+    }
+}

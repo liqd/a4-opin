@@ -2,6 +2,16 @@
     position: relative;
     text-align: center;
 
+    &, .hero-unit-image {
+        min-height: 573px;
+    }
+
+    .hero-unit-image {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
     .page-title {
         @include rem(font-size, 60px);
         @include rem(top, 163px);

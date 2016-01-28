@@ -1,13 +1,24 @@
 {% load i18n wagtailimages_tags static %}
-<div class="info-div bg-{{ self.background_colour }}">
-	<div class="container">
-	    <h3 class="text-{{ self.font_colour }}">{{ self.heading }}</h3>
+<div class="info-block bg-{{ self.background_colour }}">
+    <div class="container">
+    	<div class="container-narrow">
+            {% if self.heading %}
+    	    <h1 class="block-title">{{ self.heading }}</h1>
+            {% endif %}
 
-	    {% if self.image.width > 0 %}
-	       {% image self.image width-900 class="img-responsive info-img" %}
-	    {% endif %}
+    	    {% if self.image.width > 0 %}
+    	       {% image self.image width-900 class="info-box-image img-responsive info-img" %}
+    	    {% endif %}
 
-	    <p class="text-{{ self.font_colour }}">{{ self.text }}</p>
-		<button href={{ self.internal_link }} class="start-now"></button>
-	</div>
+            {% if self.text %}
+    	    <p class="info-box-text">{{ self.text }}</p>
+            {% endif %}
+
+            {% if self.internal_link %}
+                <a class="button" href="{{ self.button.internal_link }}">{{ self.button.link_text}}</a>
+            {% else %}
+                <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
+            {% endif %}
+    	</div>
+    </div>
 </div>
