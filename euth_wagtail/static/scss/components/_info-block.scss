@@ -1,0 +1,10 @@
+.info-block {
+    @include rem(font-size, $font-size-large);
+    @include rem(padding, 55px 0);
+    line-height: 1.4;
+    text-align: center;
+
+    .button {
+        @include rem(margin-top, 25px);
+    }
+}
