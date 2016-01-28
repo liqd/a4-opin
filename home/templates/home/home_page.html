@@ -5,9 +5,9 @@
 
 {% block content %}
 
-    <h1>{{ page.translated_title }}</h1>
 
-    <figure class="carousel-image">{% image page.image fill-900x200 class="img-responsive" %}</figure>
+    {% include "home/includes/hero_unit.html" with image=page.image title=page.translated_title %}
+
 
     <section class="page-body">
 	{{ page.body }}
