@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
 
-    {{ page.hero_unit }}
+
+    {% include "home/includes/hero_unit.html" with image=page.image title=page.translated_title %}
+
+
     <section class="page-body">
 	{{ page.body }}
 	</section>
