@@ -1,5 +1,5 @@
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock, CharBlock, BooleanBlock, PageChooserBlock
+from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock, CharBlock, BooleanBlock, PageChooserBlock, URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
@@ -78,6 +78,7 @@ class CollapsibleTextBlock(blocks.StructBlock):
 
 class CallToActionBlock(blocks.StructBlock):
     internal_link = PageChooserBlock(required=False)
+    external_link = URLBlock()
     link_text = TextBlock()
 
 
