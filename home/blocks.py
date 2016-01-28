@@ -3,6 +3,7 @@ from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+from contrib.translations.translations import TranslatedField
 
 
 
@@ -96,3 +97,12 @@ class InfoBlock(blocks.StructBlock):
         template = 'home/blocks/info_block.html'
         icon = 'glyphicon glyphicon-blackboard'
         label = 'Info Block'
+
+class HeroUnitBlock(blocks.StructBlock):
+
+    image = ImageChooserBlock()
+
+    class Meta:
+        template = 'home/blocks/hero_unit.html'
+        icon = 'placeholder'
+        label = 'Hero Unit'
