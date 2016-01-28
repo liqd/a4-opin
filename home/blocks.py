@@ -1,5 +1,11 @@
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock, CharBlock, BooleanBlock, PageChooserBlock, URLBlock
+from wagtail.wagtailcore.blocks import StructBlock
+from wagtail.wagtailcore.blocks import TextBlock
+from wagtail.wagtailcore.blocks import URLBlock
+from wagtail.wagtailcore.blocks import CharBlock
+from wagtail.wagtailcore.blocks import BooleanBlock
+from wagtail.wagtailcore.blocks import PageChooserBlock
+from wagtail.wagtailcore.blocks import URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
