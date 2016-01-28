@@ -3,6 +3,7 @@ from wagtail.wagtailcore.blocks import StructBlock, TextBlock, URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+from contrib.translations.translations import TranslatedField
 
 
 
@@ -99,7 +100,7 @@ class InfoBlock(blocks.StructBlock):
 
 class HeroUnitBlock(blocks.StructBlock):
 
-    background_image = ImageChooserBlock()
+    image = ImageChooserBlock()
 
     class Meta:
         template = 'home/blocks/hero_unit.html'

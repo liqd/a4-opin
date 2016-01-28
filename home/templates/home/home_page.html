@@ -5,8 +5,7 @@
 
 {% block content %}
 
-    {% include "home/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
-
+    {{ page.hero_unit }}
     <section class="page-body">
 	{{ page.body }}
 	</section>

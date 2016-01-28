@@ -22,28 +22,6 @@ from modelcluster.fields import ParentalKey
 from .blocks import InfoBlock
 from .blocks import HeroUnitBlock
 
-# Blocks, using StreamField
-
-
-class CarouselItem(models.Model):
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    embed_url = models.URLField("Embed URL", blank=True)
-
-    panels = [
-        ImageChooserPanel('image'),
-        FieldPanel('embed_url'),
-    ]
-
-
-class HomePageCarouselItem(Orderable, CarouselItem):
-    page = ParentalKey('home.HomePage', related_name='carousel_items')
-
 
 # Pages
 
@@ -135,14 +113,16 @@ class HomePage(Page):
     class Meta:
         verbose_name = "Homepage"
 
-    carousel_panels = [
-        InlinePanel('carousel_items', label="Carousel items"),
-    ]
-
     content_panels = [
 
         FieldPanel('title'),
-        FieldPanel('hero_unit'),
+        MultiFieldPanel(
+            [
+                StreamFieldPanel('hero_unit')
+            ],
+            heading="Hero Unit",
+            classname="collapsible collapsed"
+        ),
         MultiFieldPanel(
             [
                 StreamFieldPanel('body_en')
@@ -196,7 +176,6 @@ class HomePage(Page):
     ]
     edit_handler = TabbedInterface([
         ObjectList(content_panels, heading='Content'),
-        ObjectList(carousel_panels, heading='Carousel'),
         ObjectList(Page.promote_panels, heading='Promote'),
         ObjectList(
             Page.settings_panels, heading='Settings', classname="settings"),
