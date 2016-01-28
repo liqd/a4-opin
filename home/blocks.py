@@ -78,7 +78,7 @@ class CollapsibleTextBlock(blocks.StructBlock):
 
 class CallToActionBlock(blocks.StructBlock):
     internal_link = PageChooserBlock(required=False)
-    external_link = URLBlock()
+    external_link = URLBlock(required=False)
     link_text = TextBlock()
 
 
