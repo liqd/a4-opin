@@ -100,3 +100,13 @@ class InfoBlock(blocks.StructBlock):
         template = 'home/blocks/info_block.html'
         icon = 'glyphicon glyphicon-blackboard'
         label = 'Info Block'
+
+class VideoBlock(blocks.StructBlock):
+
+    title = CharBlock(classname="full title")
+    video = EmbedBlock()
+
+    class Meta:
+        template = 'home/blocks/video_block.html'
+        icon = 'placeholder'
+        label = 'Video Block'

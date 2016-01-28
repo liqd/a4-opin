@@ -21,6 +21,7 @@ from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
 from .blocks import ThreeImagesBlock
+from .blocks import VideoBlock
 
 # Pages
 
@@ -49,6 +50,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True)
 
     body_de = StreamField([
@@ -56,6 +58,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
@@ -63,6 +66,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
@@ -70,6 +74,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
@@ -77,6 +82,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
@@ -84,6 +90,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
@@ -91,6 +98,7 @@ class HomePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
     ], null=True, blank=True)
 
     body = TranslatedField(
