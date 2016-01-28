@@ -20,6 +20,7 @@ from wagtail.wagtailadmin.edit_handlers import ObjectList
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
+from .blocks import ThreeImagesBlock
 
 # Pages
 
@@ -204,42 +205,49 @@ class SimplePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
+        ('images',ThreeImagesBlock())
     ], null=True, blank=True)
 
     translated_title = TranslatedField(
