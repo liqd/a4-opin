@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n wagtailimages_tags %}
+
+{% block content %}
+<script type="text/javascript" src="https://frontend.advocate-europe.eu/static/js/AdhocracySDK.js"></script>
+<script type="text/javascript">
+    adhocracy.init('https://frontend.advocate-europe.eu', function(adhocracy) {
+        adhocracy.embed('.adhocracy_marker_1');
+        });
+</script>
+
+<div class="adhocracy_marker_1" data-widget="mercator2016" data-initial-url="/r/advocate-europe/2016" data-autoresize="false" data-autourl="true" data-locale="en" style="height:500px">
+
+
+{% endblock %}

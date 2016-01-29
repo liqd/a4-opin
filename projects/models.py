@@ -52,9 +52,9 @@ class ProjectPage(Page):
         related_name='+'
     )
 
-    COMMENTING_TEXT = 'CT'
-    IDEA_COLLECTION = 'IC'
-    MOBILE_POLLING = 'MP'
+    COMMENTING_TEXT = 'Commenting Text'
+    IDEA_COLLECTION = 'Idea Collection'
+    MOBILE_POLLING = 'Mobile Polling'
 
     PROJECTTYPE_CHOICES = (
         (COMMENTING_TEXT, 'Commenting Text'),
@@ -84,19 +84,19 @@ class ProjectPage(Page):
     teaser_da = models.TextField(blank=True)
 
     teaser = TranslatedField(
-        'body_de',
-        'body_it',
-        'body_en',
-        'body_fr',
-        'body_sv',
-        'body_sl',
-        'body_da',
+        'teaser_de',
+        'teaser_it',
+        'teaser_en',
+        'teaser_fr',
+        'teaser_sv',
+        'teaser_sl',
+        'teaser_da',
     )
 
     translated_title = TranslatedField(
         'title_de',
         'title_it',
-        'title_en',
+        'title',
         'title_fr',
         'title_sv',
         'title_sl',
@@ -104,79 +104,30 @@ class ProjectPage(Page):
     )
 
 
-    parent_page_types = []
+class ProjectsPage(Page):
+    title_de = models.CharField(max_length=255, blank=True)
+    title_it = models.CharField(max_length=255, blank=True)
+    title_fr = models.CharField(max_length=255, blank=True)
+    title_sv = models.CharField(max_length=255, blank=True)
+    title_sl = models.CharField(max_length=255, blank=True)
+    title_da = models.CharField(max_length=255, blank=True)
 
+    @property
+    def projects(self):
+        projects = ProjectPage.objects.all()
+        return projects
 
-    content_panels = [
+    translated_title = TranslatedField(
+        'title_de',
+        'title_it',
+        'title',
+        'title_fr',
+        'title_sv',
+        'title_sl',
+        'title_da',
+    )
 
-        FieldPanel('title'),
-        ImageChooserPanel('image'),
-        FieldPanel('projecttype'),
-        SnippetChooserPanel('organisation', Organisation),
-
-        MultiFieldPanel(
-            [
-                FieldPanel('title_en'),
-                FieldPanel('teaser_en')
-            ],
-            heading="English",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_de'),
-                FieldPanel('teaser_en')
-            ],
-            heading="German",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_it'),
-                FieldPanel('teaser_it')
-            ],
-            heading="Italien",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_fr'),
-                FieldPanel('teaser_fr')
-            ],
-            heading="French",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_sv'),
-                FieldPanel('teaser_sv')
-            ],
-            heading="Swedish",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_sl'),
-                FieldPanel('teaser_sl')
-            ],
-            heading="Slovene",
-            classname="collapsible collapsed"
-        ),
-        MultiFieldPanel(
-            [
-                FieldPanel('title_da'),
-                FieldPanel('teaser_da')
-            ],
-            heading="Danish",
-            classname="collapsible collapsed"
-        )
-
-    ]
-    edit_handler = TabbedInterface([
-        ObjectList(content_panels, heading='Content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(Page.settings_panels, heading='Settings', classname="settings"),
-    ])
+    subpage_types = ['projects.AdhocracyProjectPage']
 
 
 class AdhocracyProjectPage(ProjectPage):
@@ -246,8 +197,8 @@ class AdhocracyProjectPage(ProjectPage):
     edit_handler = TabbedInterface([
         ObjectList(content_panels, heading='Content'),
         ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(Page.settings_panels, heading='Settings', classname="settings"),
-        ObjectList(adhocracy_panel, heading='Adhocracy', classname="adhocracy"),
+        ObjectList(
+            Page.settings_panels, heading='Settings', classname="settings"),
+        ObjectList(
+            adhocracy_panel, heading='Adhocracy', classname="adhocracy"),
     ])
-
-

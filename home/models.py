@@ -25,6 +25,7 @@ from .blocks import VideoBlock
 
 # Pages
 
+
 class HomePage(Page):
 
     # Title
@@ -195,6 +196,7 @@ class HomePage(Page):
     ])
 
     parent_page_types = []
+    subpage_types = ['home.SimplePage', 'projects.ProjectsPage']
 
 
 class SimplePage(Page):
@@ -213,49 +215,49 @@ class SimplePage(Page):
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images',ThreeImagesBlock())
+        ('images', ThreeImagesBlock())
     ], null=True, blank=True)
 
     translated_title = TranslatedField(
