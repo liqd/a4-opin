@@ -103,8 +103,80 @@ class ProjectPage(Page):
         'title_da',
     )
 
+
     parent_page_types = []
 
+
+    content_panels = [
+
+        FieldPanel('title'),
+        ImageChooserPanel('image'),
+        FieldPanel('projecttype'),
+        SnippetChooserPanel('organisation', Organisation),
+
+        MultiFieldPanel(
+            [
+                FieldPanel('title_en'),
+                FieldPanel('teaser_en')
+            ],
+            heading="English",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_de'),
+                FieldPanel('teaser_en')
+            ],
+            heading="German",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_it'),
+                FieldPanel('teaser_it')
+            ],
+            heading="Italien",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_fr'),
+                FieldPanel('teaser_fr')
+            ],
+            heading="French",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_sv'),
+                FieldPanel('teaser_sv')
+            ],
+            heading="Swedish",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_sl'),
+                FieldPanel('teaser_sl')
+            ],
+            heading="Slovene",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_da'),
+                FieldPanel('teaser_da')
+            ],
+            heading="Danish",
+            classname="collapsible collapsed"
+        )
+
+    ]
+    edit_handler = TabbedInterface([
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(Page.promote_panels, heading='Promote'),
+        ObjectList(Page.settings_panels, heading='Settings', classname="settings"),
+    ])
 
 
 class AdhocracyProjectPage(ProjectPage):
