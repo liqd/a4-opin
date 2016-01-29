@@ -3,7 +3,7 @@ from wagtail.wagtailcore.blocks import StructBlock
 from wagtail.wagtailcore.blocks import TextBlock
 from wagtail.wagtailcore.blocks import URLBlock
 from wagtail.wagtailcore.blocks import CharBlock
-from wagtail.wagtailcore.blocks import BooleanBlock
+from wagtail.wagtailcore.blocks import ChoiceBlock
 from wagtail.wagtailcore.blocks import PageChooserBlock
 from wagtail.wagtailcore.blocks import URLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
@@ -85,7 +85,7 @@ class CollapsibleTextBlock(blocks.StructBlock):
 class CallToActionBlock(blocks.StructBlock):
     internal_link = PageChooserBlock(required=False)
     external_link = URLBlock(required=False)
-    link_text = TextBlock()
+    link_text = TextBlock(required=False)
 
 
 class InfoBlock(blocks.StructBlock):
@@ -94,7 +94,11 @@ class InfoBlock(blocks.StructBlock):
     image = ImageChooserBlock(required=False)
     text = TextBlock()
     button = CallToActionBlock(required=False)
-    highlight = BooleanBlock(required=False)
+    highlight = ChoiceBlock(choices=[
+        ('', 'None'),
+        ('highlight', 'Highlight'),
+        ('boxed', 'Boxed'),
+    ], icon='cup', required=False, help_text='How should this block be displayed?')
 
     class Meta:
         template = 'home/blocks/info_block.html'

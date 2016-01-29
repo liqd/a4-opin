@@ -1,10 +1,46 @@
 .info-block {
     @include rem(font-size, $font-size-large);
-    @include rem(padding, 55px 0);
+    @include rem(padding, $block-vpadding 0);
     line-height: 1.4;
     text-align: center;
 
     .button {
         @include rem(margin-top, 25px);
+    }
+
+    .container-inner {
+        @extend .container-narrow;
+    }
+
+    .info-box-text {
+        text-align: justify;
+    }
+
+    &.m-highlight,
+    &.m-boxed {
+        color: #fff;
+    }
+
+    &.m-highlight {
+        background: $brand-brand1;
+
+        .button {
+            @extend .button-alt;
+        }
+    }
+
+    &.m-boxed {
+        padding: 0;
+        .container-inner {
+            @extend .container-medium;
+            padding: $block-vpadding 0;
+            background: $brand-brand3;
+
+            .info-box-text {
+                @extend .col-md-10;
+                float: none;
+                margin: 0 auto;
+            }
+        }
     }
 }
