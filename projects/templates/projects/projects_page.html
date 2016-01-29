@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load i18n wagtailimages_tags wagtailcore_tags %}
 
 
 {% block content %}
@@ -7,44 +6,11 @@
 	<h1>{{ self.translated_title }}</h1>
 	<div class="row">
 	{% for project in self.projects %}
-	<div class="col-md-4 list-group">
-		<div class="list-group-item">
-			<a href="{% pageurl project %}">
-				{% image project.image fill-400x200 as original %}
-				<div class="list-group-item" style="background: url('{{ original.url }}'); height:200px;">
-                </div>
-			</a>
-		</div>
-		<div class="list-group-item">
-			<p>
-				<b>{{project.projecttype}}</b>
-			</p>
-			<h2>{{ project.translated_title }}</h2>
-			<p>{{ project.teaser }}</p>
-        </div>
-        <div class="list-group-item">
-			<div class="row">
-				<div class="col-md-4">
-				{% image project.organisation.logo fill-100x100 as image %}
-				<img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" />
-			</div>
-			<div class="col-md-8">
-				{{ project.organisation.title }}
-			</div>
-        </div>
-    </div>
-	</div>
+	{% include "projects/includes/project_tile.html" with project=project %}
 	{% if forloop.counter|divisibleby:3 %}
 	</div>
 	<div class="row">
     {% endif %}
     {% endfor %}
-
 </div>
-
-
-
-
-
-
 {% endblock %}
