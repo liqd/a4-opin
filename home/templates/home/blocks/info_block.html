@@ -1,9 +1,15 @@
 {% load i18n wagtailimages_tags static %}
-<div class="info-block bg-{{ self.background_colour }}">
+{% if self.highlight == "highlight" %}
+<div class="info-block m-highlight">
+{% elif self.highlight == "boxed" %}
+<div class="info-block m-boxed">
+{% else %}
+<div class="info-block">
+{% endif %}
     <div class="container">
-    	<div class="container-narrow">
-            {% if self.heading %}
-    	    <h1 class="block-title">{{ self.heading }}</h1>
+    	<div class="container-inner">
+            {% if self.title %}
+    	    <h1 class="block-title">{{ self.title }}</h1>
             {% endif %}
 
     	    {% if self.image.width > 0 %}

@@ -14,4 +14,15 @@
         color: #fff;
         text-decoration: none;
     }
+
+    &.button-alt {
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+
+        &:focus, &:hover {
+            background: #fff;
+            color: #000;
+        }
+    }
 }

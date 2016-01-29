@@ -1,4 +1,5 @@
 .video-block {
+    @include rem(padding-bottom, $block-vpadding);
     text-align: center;
 
     iframe {

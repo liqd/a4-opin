@@ -1,5 +1,13 @@
-.container-narrow {
-    @extend .col-md-8;
+.container-narrow,
+.container-medium {
     float: none;
     margin: 0 auto;
+}
+
+.container-narrow {
+    @extend .col-md-8;
+}
+
+.container-medium {
+    @extend .col-md-10;
 }
