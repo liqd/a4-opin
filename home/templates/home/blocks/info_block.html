@@ -22,7 +22,7 @@
 
             {% if self.internal_link %}
                 <a class="button" href="{{ self.button.internal_link }}">{{ self.button.link_text}}</a>
-            {% else %}
+            {% elif self.external_link %}
                 <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
             {% endif %}
     	</div>
