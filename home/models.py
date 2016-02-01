@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+
 from contrib.translations.translations import TranslatedField
 
 from wagtail.wagtailcore.models import Page
@@ -17,11 +18,13 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailadmin.edit_handlers import TabbedInterface
 from wagtail.wagtailadmin.edit_handlers import ObjectList
 
+
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
 from .blocks import ThreeImagesBlock
 from .blocks import VideoBlock
+from .blocks import NewsBlock
 
 # Pages
 
@@ -52,6 +55,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True)
 
     body_de = StreamField([
@@ -60,6 +64,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
@@ -68,6 +73,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
@@ -76,6 +82,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
@@ -84,6 +91,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
@@ -92,6 +100,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
@@ -100,6 +109,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body = TranslatedField(

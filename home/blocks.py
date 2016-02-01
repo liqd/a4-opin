@@ -10,6 +10,8 @@ from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
 
+import feedparser
+
 
 
 class ImageTextBlock(blocks.StructBlock):
@@ -114,3 +116,13 @@ class VideoBlock(blocks.StructBlock):
         template = 'home/blocks/video_block.html'
         icon = 'placeholder'
         label = 'Video Block'
+
+class NewsBlock(blocks.StructBlock):
+
+    title = CharBlock(classname="full title")
+    news = CharBlock(classname="full title")
+
+    class Meta:
+        template = 'home/blocks/news_block.html'
+        icon = 'placeholder'
+        label = 'News Block'
