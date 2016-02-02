@@ -1,6 +1,5 @@
 .video-block {
-    @include rem(padding-bottom, $block-vpadding);
-    text-align: center;
+    padding-top: 0;
 
     iframe {
         width: 100%;

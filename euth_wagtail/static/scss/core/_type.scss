@@ -1,8 +1,3 @@
 html {
     @include rem-baseline;
 }
-
-.block-title {
-    @include rem(font-size, $font-size-xlarge);
-    @include rem(margin, 0 0 25px 0);
-}

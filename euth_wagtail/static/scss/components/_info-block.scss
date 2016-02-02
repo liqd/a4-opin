@@ -1,8 +1,6 @@
 .info-block {
     @include rem(font-size, $font-size-large);
-    @include rem(padding, $block-vpadding 0);
     line-height: 1.4;
-    text-align: center;
 
     .button {
         @include rem(margin-top, 25px);
@@ -18,7 +16,7 @@
     }
 
     .info-box-image {
-        @include rem(margin-bottom, 35px);
+        @include rem(margin, 0 auto 35px);
     }
 
     &.m-highlight,
