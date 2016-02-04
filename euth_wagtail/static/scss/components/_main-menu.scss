@@ -1,4 +1,5 @@
 #main-menu {
+    // Height is set in bootstrap_variables
     .navbar-brand {
         @include rem(font-size, 14px);
         @include text-hide;
@@ -22,4 +23,8 @@
             color: $brand-brand2;
         }
     }
+}
+
+body {
+    @include rem(padding-top, $navbar-height);
 }

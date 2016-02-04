@@ -1,0 +1,48 @@
+.accordion-block {
+    text-align: left;
+
+    .panel {
+        @include rem(margin-bottom, 9px);
+    }
+
+    .accordion-link,
+    .panel-body {
+        background: $brand-brand1;
+        color: #fff;
+    }
+
+    .accordion-title {
+        margin: 0;
+
+        .accordion-link {
+            @include rem(font-size, $font-size-large);
+            @include rem(padding, 0 12px);
+            border: 1px solid $brand-brand1;
+            display: block;
+            font-family: $font-family-sans-serif;
+            line-height: 50px;
+            text-decoration: none;
+
+            &:after {
+                content: "x";
+                float: right;
+            }
+
+            &.collapsed {
+                border-color: $gray-light;
+                background: transparent;
+                color: #000;
+
+                &:after {
+                    content: "+";
+                }
+            }
+        }
+    }
+
+    .panel-body {
+        @include rem(font-size, $font-size-base);
+        @include rem(padding, 10px 42px 35px 42px);
+        line-height: 1.75;
+    }
+}

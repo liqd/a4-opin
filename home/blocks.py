@@ -4,11 +4,16 @@ from wagtail.wagtailcore.blocks import TextBlock
 from wagtail.wagtailcore.blocks import URLBlock
 from wagtail.wagtailcore.blocks import CharBlock
 from wagtail.wagtailcore.blocks import ChoiceBlock
+from wagtail.wagtailcore.blocks import BooleanBlock
 from wagtail.wagtailcore.blocks import PageChooserBlock
+from wagtail.wagtailcore.blocks import RichTextBlock
 from wagtail.wagtailcore.blocks import URLBlock
+from wagtail.wagtailcore.blocks import ListBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+
+import feedparser
 
 
 
@@ -64,6 +69,7 @@ class ThreeImagesBlock(blocks.StructBlock):
     middle_image_text = TextBlock()
     right_image = ImageChooserBlock()
     right_image_text = TextBlock()
+    circles = BooleanBlock()
 
     class Meta:
         template = 'home/blocks/3_im_block.html'
@@ -114,3 +120,49 @@ class VideoBlock(blocks.StructBlock):
         template = 'home/blocks/video_block.html'
         icon = 'placeholder'
         label = 'Video Block'
+
+class NewsBlock(blocks.StructBlock):
+
+    title = CharBlock(classname="full title")
+    news = CharBlock(classname="full title")
+
+    class Meta:
+        template = 'home/blocks/news_block.html'
+        icon = 'placeholder'
+        label = 'News Block'
+
+class WideImageBlock(blocks.StructBlock):
+
+    image = ImageChooserBlock()
+
+    class Meta:
+        template = 'home/blocks/wide_image_block.html'
+        icon = 'placeholder'
+        label = 'Wide Image Block'
+
+class ContactBlock(blocks.StructBlock):
+
+    title = CharBlock(classname="full title")
+    name_label = CharBlock(classname="full title")
+    email_label = CharBlock(classname="full title")
+    subject_label = CharBlock(classname="full title")
+    message_label = CharBlock(classname="full title")
+    submit_label = CharBlock(classname="full title")
+
+    class Meta:
+        template = 'home/blocks/contact_block.html'
+        icon = 'placeholder'
+        label = 'Contact Block'
+
+class AccordionItemBlock(blocks.StructBlock):
+    title = TextBlock(required=False)
+    content = TextBlock(required=False)
+
+class AccordionBlock(blocks.StructBlock):
+
+    accordion_items = ListBlock(AccordionItemBlock())
+
+    class Meta:
+        template = 'home/blocks/accordion_block.html'
+        icon = 'placeholder'
+        label = 'Accordion Block'

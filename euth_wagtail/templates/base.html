@@ -17,7 +17,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'third-party/bower_components/SSS/sss/sss.css' %}">
 
         {% compress css %}
         <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/all.scss' %}">
@@ -41,14 +40,20 @@
             {% block content %}{% endblock %}
         </div>
 
+        {% block footer %}
+        {% get_site_root as site_root %}
+        {% footer parent=site_root calling_page=self %}
+        {% endblock %}
+
         {# Global javascript #}
+        <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
         <script type="text/javascript" src="{% static 'third-party/bower_components/jquery/dist/jquery.js' %}"></script>
         <script type="text/javascript" src="{% static 'third-party/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'third-party/bower_components/SSS/sss/sss.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+
+
     </body>
 </html>

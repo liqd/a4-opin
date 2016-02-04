@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+
 from contrib.translations.translations import TranslatedField
 
 from wagtail.wagtailcore.models import Page
@@ -17,11 +18,16 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailadmin.edit_handlers import TabbedInterface
 from wagtail.wagtailadmin.edit_handlers import ObjectList
 
+
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
 from .blocks import ThreeImagesBlock
 from .blocks import VideoBlock
+from .blocks import NewsBlock
+from .blocks import WideImageBlock
+from .blocks import ContactBlock
+from .blocks import AccordionBlock
 
 # Pages
 
@@ -52,6 +58,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True)
 
     body_de = StreamField([
@@ -60,6 +67,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
@@ -68,6 +76,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
@@ -76,6 +85,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
@@ -84,6 +94,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
@@ -92,6 +103,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
@@ -100,6 +112,7 @@ class HomePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
+        ('news_block', NewsBlock()),
     ], null=True, blank=True)
 
     body = TranslatedField(
@@ -210,54 +223,91 @@ class SimplePage(Page):
     title_sl = models.CharField(max_length=255, blank=True)
     title_da = models.CharField(max_length=255, blank=True)
 
+    intro_en = models.CharField(max_length=255, blank=True)
+    intro_de = models.CharField(max_length=255, blank=True)
+    intro_it = models.CharField(max_length=255, blank=True)
+    intro_fr = models.CharField(max_length=255, blank=True)
+    intro_sv = models.CharField(max_length=255, blank=True)
+    intro_sl = models.CharField(max_length=255, blank=True)
+    intro_da = models.CharField(max_length=255, blank=True)
+
+    intro_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
     # Body
     body_en = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True)
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock())
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', ThreeImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form"))
     ], null=True, blank=True)
 
     translated_title = TranslatedField(
@@ -268,6 +318,17 @@ class SimplePage(Page):
         'title_sv',
         'title_sl',
         'title_da',
+    )
+
+
+    translated_intro = TranslatedField(
+        'intro_de',
+        'intro_it',
+        'intro_en',
+        'intro_fr',
+        'intro_sv',
+        'intro_sl',
+        'intro_da',
     )
 
     body = TranslatedField(
@@ -286,6 +347,8 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_en'),
+                FieldPanel('intro_en'),
+                ImageChooserPanel('intro_image'),
                 StreamFieldPanel('body_en')
             ],
             heading="English",
@@ -294,6 +357,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_de'),
+                FieldPanel('intro_de'),
                 StreamFieldPanel('body_de')
             ],
             heading="German",
@@ -302,6 +366,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_it'),
+                FieldPanel('intro_it'),
                 StreamFieldPanel('body_it')
             ],
             heading="Italien",
@@ -310,6 +375,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_fr'),
+                FieldPanel('intro_fr'),
                 StreamFieldPanel('body_fr')
             ],
             heading="French",
@@ -318,6 +384,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_sv'),
+                FieldPanel('intro_sv'),
                 StreamFieldPanel('body_sv')
             ],
             heading="Swedish",
@@ -326,6 +393,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_sl'),
+                FieldPanel('intro_sl'),
                 StreamFieldPanel('body_sl')
             ],
             heading="Slovene",
@@ -334,6 +402,7 @@ class SimplePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('title_da'),
+                FieldPanel('intro_da'),
                 StreamFieldPanel('body_da')
             ],
             heading="Danish",

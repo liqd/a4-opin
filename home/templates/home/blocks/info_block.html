@@ -1,10 +1,10 @@
 {% load i18n wagtailimages_tags static %}
 {% if self.highlight == "highlight" %}
-<div class="info-block m-highlight">
+<div class="info-block block m-highlight">
 {% elif self.highlight == "boxed" %}
-<div class="info-block m-boxed">
+<div class="info-block block m-boxed">
 {% else %}
-<div class="info-block">
+<div class="info-block block">
 {% endif %}
     <div class="container">
     	<div class="container-inner">
@@ -22,7 +22,7 @@
 
             {% if self.internal_link %}
                 <a class="button" href="{{ self.button.internal_link }}">{{ self.button.link_text}}</a>
-            {% else %}
+            {% elif self.external_link %}
                 <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
             {% endif %}
     	</div>

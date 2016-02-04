@@ -1,7 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
- 
+xxx
 {% if blocks %}
- 
+
                         {% for block in blocks %}
                             {% if block.block_type == 'heading' %}
                                 <h1>{{ block.value }}</h1>
@@ -13,5 +13,5 @@
                                </section>
                             {% endif %}
                         {% endfor %}
- 
+
 {% endif %}

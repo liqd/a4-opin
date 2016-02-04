@@ -2,11 +2,26 @@
 {% load i18n %}
 
 {% block content %}
-
-<h1 class="page-title">{{ page.translated_title }}</h1>
-
+{% include "home/includes/simple_header.html" with image=page.intro_image title=page.translated_title intro=page.translated_intro %}
 <section class="page-body">
-{{ page.body }}
+{% for block in self.body %}
+    {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
+    <div class="block-inner">
+        <div class="container">
+            <div class="container-narrow">
+            {% if block.block_type == 'image' %}
+                {{ block }}
+            {% elif block.block_type == 'heading' %}
+                <h2>{{ block.value }}</h2>
+            {% else %}
+                {{ block.value }}
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+        {{ block.value }}
+    {% endif %}
+{% endfor %}
 </section>
-
 {% endblock %}

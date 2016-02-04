@@ -1,0 +1,12 @@
+{% load i18n wagtailimages_tags %}
+<!-- FIXME: parse_feed self.news as news -->
+<section class="news-block block">
+<div class="container-narrow">
+    <h1 class="block-title">{{ self.title }}</h1>
+    <ul>
+    {% for entry in news %}
+        <li><a href="{{entry.link}}">{{entry.title}}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+</section>

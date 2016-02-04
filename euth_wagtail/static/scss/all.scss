@@ -1,12 +1,15 @@
-@import "euth_wagtail";
 @import "core/bootstrap";
 @import "core/fonts";
 @import "core/mixins";
 @import "core/type";
 @import "core/containers";
 @import "core/buttons";
+@import "core/blocks";
+@import "core/forms";
 @import "components/main-menu";
 @import "components/hero-unit";
 @import "components/info-block";
 @import "components/video-block";
-
+@import "components/three-images-block";
+@import "components/wide-image-block";
+@import "components/accordion-block";
