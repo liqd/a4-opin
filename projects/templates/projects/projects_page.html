@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-
-
 {% block content %}
-<div class="container" >
-	<h1>{{ self.translated_title }}</h1>
-	<div class="row">
-	{% for project in self.projects %}
-	{% include "projects/includes/project_tile.html" with project=project %}
-	{% if forloop.counter|divisibleby:3 %}
-	</div>
-	<div class="row">
-    {% endif %}
-    {% endfor %}
+<div class="container">
+    <div class="container-narrow" >
+    	<h1 class="block-title">{{ self.translated_title }}</h1>
+    	<div id="projects-grid" data-columns>
+    	{% for project in self.projects %}
+    	{% include "projects/includes/project_tile.html" with project=project %}
+        {% endfor %}
+        </div>
+    </div>
 </div>
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
 {% endblock %}

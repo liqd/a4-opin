@@ -24,6 +24,7 @@ $brand-danger:          #d9534f !default;
 $brand-brand1:           #018dd0; // Blue
 $brand-brand2:           #fab61b; // Yellow
 $brand-brand3:           #5dbeba; // Green
+$brand-brand4:           #ef3789; // Pink
 
 //== Blocks
 //
@@ -60,7 +61,7 @@ $font-family-base:        $font-family-sans-serif !default;
 $font-size-base:          16px !default;
 $font-size-large:         20px !default; // ~18px
 $font-size-xlarge:        30px !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-small:         12px !default; // ~12px
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px

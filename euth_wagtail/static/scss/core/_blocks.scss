@@ -1,13 +1,15 @@
+.block-title,
+.page-title {
+    @include rem(font-size, $font-size-xlarge);
+    @include rem(margin, 0 0 25px 0);
+    text-align: center;
+}
+
 .block, .block-inner {
     @include rem(padding, $block-vpadding 0);
     @include rem(font-size, $font-size-large);
     line-height: 1.4;
     text-align: center;
-
-    .block-title {
-        @include rem(font-size, $font-size-xlarge);
-        @include rem(margin, 0 0 25px 0);
-    }
 
     &.m-highlight,
     &.m-boxed, & input, & textarea {
