@@ -1,29 +1,16 @@
 {% load i18n wagtailimages_tags wagtailcore_tags %}
-
-<div class="col-md-4 list-group">
-	<div class="list-group-item">
-		<a href="{% pageurl project %}">
-			{% image project.image fill-400x200 as original %}
-			<div class="list-group-item" style="background: url('{{ original.url }}'); height:200px;">
-			</div>
-		</a>
-	</div>
-	<div class="list-group-item">
-		<p>
-			<b>{{project.projecttype}}</b>
-		</p>
-		<h2>{{ project.translated_title }}</h2>
-		<p>{{ project.teaser }}</p>
-	</div>
-	<div class="list-group-item">
-		<div class="row">
-			<div class="col-md-4">
-			{% image project.organisation.logo fill-100x100 as image %}
-				<img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" />
-			</div>
-			<div class="col-md-8">
-				{{ project.organisation.title }}
-			</div>
+{% image project.image fill-400x200 as original %}
+<div class="project-tile style-{{project.projecttype|slugify}}">
+	<a href="{% pageurl project %}" class="project-tile-image-link"style="background-image: url('{{ original.url }}');">
+		{% image project.image fill-400x200 class="project-tile-image img-responsive" %}
+	</a>
+	<div class="project-tile-body">
+		<p class="project-tile-type">{{project.projecttype}}</p>
+		<h2 class="project-tile-title">{{ project.translated_title }}</h2>
+		<p class="project-tile-teaser">{{ project.teaser }}</p>
+		<div class="project-tile-org">
+			{% image project.organisation.logo width-55 class="project-tile-org-image img-responsive" %}
+			<p class="project-tile-org-title">{{ project.organisation.title }}</p>
 		</div>
 	</div>
 </div>
