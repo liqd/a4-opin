@@ -40,6 +40,11 @@
             {% block content %}{% endblock %}
         </div>
 
+        {% block footer %}
+        {% get_site_root as site_root %}
+        {% footer parent=site_root calling_page=self %}
+        {% endblock %}
+
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
         <script type="text/javascript" src="{% static 'third-party/bower_components/jquery/dist/jquery.js' %}"></script>
@@ -48,5 +53,7 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+
+
     </body>
 </html>

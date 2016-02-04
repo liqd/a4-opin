@@ -1,0 +1,28 @@
+.form-control {
+    &, &:focus {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+label {
+    @include rem(font-size, $font-size-large);
+    font-weight: normal;
+}
+
+.form-horizontal {
+    .form-group:not(:last-child) {
+        border-bottom: 1px solid #fff;
+
+        input, textarea {
+            @include rem(margin-bottom, 7px);
+        }
+    }
+
+    .control-label {
+        @include rem(padding-bottom, 7px);
+        padding-left: 0;
+        text-align: left;
+    }
+}

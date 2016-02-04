@@ -1,0 +1,11 @@
+{% load i18n wagtailimages_tags static %}
+{% image image original as originalImage %}
+<header class="container-narrow block page-intro">
+    <h1 class="block-title">{{ title }}</h1>
+    {% if intro %}
+    <p class="intro-text">{{ intro }}</p>
+    {% endif %}
+    {% if image %}
+    <img src="{{ originalImage.url }}" alt="" class="responsive-image page-intro-image">
+    {% endif %}
+</header>

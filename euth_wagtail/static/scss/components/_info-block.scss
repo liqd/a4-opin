@@ -1,7 +1,4 @@
 .info-block {
-    @include rem(font-size, $font-size-large);
-    line-height: 1.4;
-
     .button {
         @include rem(margin-top, 25px);
     }
@@ -12,38 +9,9 @@
 
     .info-box-text {
         margin-bottom: 0;
-        text-align: justify;
     }
 
     .info-box-image {
         @include rem(margin, 0 auto 35px);
-    }
-
-    &.m-highlight,
-    &.m-boxed {
-        color: #fff;
-    }
-
-    &.m-highlight {
-        background: $brand-brand1;
-
-        .button {
-            @extend .button-alt;
-        }
-    }
-
-    &.m-boxed {
-        padding: 0;
-        .container-inner {
-            @extend .container-medium;
-            padding: $block-vpadding 0;
-            background: $brand-brand3;
-
-            .info-box-text {
-                @extend .col-md-10;
-                float: none;
-                margin: 0 auto;
-            }
-        }
     }
 }
