@@ -30,8 +30,7 @@
         {% wagtailuserbar %}
 
         {% block menu %}
-        {% get_site_root as site_root %}
-        {% top_menu parent=site_root calling_page=self %}
+        {% include "includes/top_menu.html" %}
         {% endblock %}
 
 
@@ -40,8 +39,7 @@
         </div>
 
         {% block footer %}
-        {% get_site_root as site_root %}
-        {% footer parent=site_root calling_page=self %}
+        {% include "includes/footer.html" %}
         {% endblock %}
 
         {# Global javascript #}

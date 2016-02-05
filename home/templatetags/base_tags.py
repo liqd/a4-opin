@@ -1,5 +1,6 @@
 from django import template
 #from django_feedparser.settings import *
+from home.models import NavigationMenu
 register = template.Library()
 
 
@@ -18,12 +19,12 @@ def top_menu(context, parent, calling_page=None):
         'request': context['request'],
     }
 
-@register.inclusion_tag('tags/footer.html', takes_context=True)
-def footer(context, parent, calling_page=None):
-    menuitems = parent.get_children().live().in_menu().specific()
 
-    return {
-        'calling_page': calling_page,
-        'menuitems': menuitems,
-        'request': context['request'],
-    }
+@register.assignment_tag(takes_context=False)
+def load_site_menu(menu_name):
+    menu = NavigationMenu.objects.filter(menu_name=menu_name)
+
+    if menu:
+        return menu[0].menu_items.all()
+    else:
+        return None
