@@ -20,9 +20,9 @@
     	    <p class="info-box-text">{{ self.text }}</p>
             {% endif %}
 
-            {% if self.internal_link %}
+            {% if self.button.internal_link %}
                 <a class="button" href="{{ self.button.internal_link }}">{{ self.button.link_text}}</a>
-            {% elif self.external_link %}
+            {% elif self.button.external_link %}
                 <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
             {% endif %}
     	</div>
