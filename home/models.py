@@ -17,8 +17,10 @@ from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailadmin.edit_handlers import TabbedInterface
 from wagtail.wagtailadmin.edit_handlers import ObjectList
+from wagtail.wagtailadmin.edit_handlers import PageChooserPanel
+from wagtail.wagtailsnippets.models import register_snippet
 
-
+from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
@@ -320,7 +322,6 @@ class SimplePage(Page):
         'title_da',
     )
 
-
     translated_intro = TranslatedField(
         'intro_de',
         'intro_it',
@@ -414,3 +415,85 @@ class SimplePage(Page):
 
 class AboutPage(Page):
     pass
+
+
+# Menu
+
+class LinkFields(models.Model):
+    link_page = models.ForeignKey(
+        'wagtailcore.Page',
+        related_name='+'
+    )
+
+    @property
+    def link(self):
+        return self.link_page.url
+
+    panels = [
+        PageChooserPanel('link_page')
+    ]
+
+    class Meta:
+        abstract = True
+
+
+class MenuItem(LinkFields):
+    menu_title = models.CharField(max_length=255)
+    menu_title_de = models.CharField(max_length=255, blank=True)
+    menu_title_it = models.CharField(max_length=255, blank=True)
+    menu_title_fr = models.CharField(max_length=255, blank=True)
+    menu_title_sv = models.CharField(max_length=255, blank=True)
+    menu_title_sl = models.CharField(max_length=255, blank=True)
+    menu_title_da = models.CharField(max_length=255, blank=True)
+
+    translated_menu_title = TranslatedField(
+        'menu_title_de',
+        'menu_title_it',
+        'menu_title',
+        'menu_title_fr',
+        'menu_title_sv',
+        'menu_title_sl',
+        'menu_title_da',
+    )
+
+    @property
+    def url(self):
+        return self.link
+
+    def __str__(self):
+        return self.title
+
+    panels = [
+        FieldPanel('menu_title'),
+        MultiFieldPanel(
+            [
+                FieldPanel('menu_title_de'),
+                FieldPanel('menu_title_it'),
+                FieldPanel('menu_title_fr'),
+                FieldPanel('menu_title_sv'),
+                FieldPanel('menu_title_sl'),
+                FieldPanel('menu_title_da'),
+            ],
+            heading="Translations",
+            classname="collapsible collapsed"
+        )] + LinkFields.panels
+
+
+class NavigationMenuItem(Orderable, MenuItem):
+    parent = ParentalKey('home.NavigationMenu', related_name='menu_items')
+
+
+class NavigationMenu(ClusterableModel):
+
+    menu_name = models.CharField(max_length=255, null=False, blank=False)
+
+    def __str__(self):
+        return self.menu_name
+
+
+NavigationMenu.panels = [
+    FieldPanel('menu_name', classname='full title'),
+    InlinePanel('menu_items', label="Menu Items")
+]
+
+register_snippet(NavigationMenu)
