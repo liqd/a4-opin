@@ -260,7 +260,8 @@ class SimplePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     body_it = StreamField([
@@ -269,7 +270,8 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     body_fr = StreamField([
@@ -279,7 +281,8 @@ class SimplePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     body_sv = StreamField([
@@ -289,7 +292,8 @@ class SimplePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     body_sl = StreamField([
@@ -299,7 +303,8 @@ class SimplePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     body_da = StreamField([
@@ -309,7 +314,8 @@ class SimplePage(Page):
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
         ('images', ThreeImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form"))
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True)
 
     translated_title = TranslatedField(
