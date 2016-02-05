@@ -1,5 +1,5 @@
 from django import template
-from django_feedparser.settings import *
+#from django_feedparser.settings import *
 register = template.Library()
 
 
