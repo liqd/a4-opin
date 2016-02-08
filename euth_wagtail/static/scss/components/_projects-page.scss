@@ -9,6 +9,11 @@
 .project-tile {
     @include rem(margin, 0 13px 13px 0);
     border: 1px solid $gray-lighter;
+    text-align: left;
+
+    img {
+        margin: 0;
+    }
 
     &.style-idea-collection {
         .project-tile-image-link {
