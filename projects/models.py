@@ -105,6 +105,7 @@ class ProjectPage(Page):
 
 
 class ProjectsPage(Page):
+    title_en = models.CharField(max_length=255, blank=True)
     title_de = models.CharField(max_length=255, blank=True)
     title_it = models.CharField(max_length=255, blank=True)
     title_fr = models.CharField(max_length=255, blank=True)
@@ -120,7 +121,7 @@ class ProjectsPage(Page):
     translated_title = TranslatedField(
         'title_de',
         'title_it',
-        'title',
+        'title_en',
         'title_fr',
         'title_sv',
         'title_sl',
@@ -128,6 +129,26 @@ class ProjectsPage(Page):
     )
 
     subpage_types = ['projects.AdhocracyProjectPage']
+
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+    ]
+
+    content_panels = [
+        FieldPanel('title_en'),
+        FieldPanel('title_de'),
+        FieldPanel('title_it'),
+        FieldPanel('title_fr'),
+        FieldPanel('title_sv'),
+        FieldPanel('title_sl'),
+        FieldPanel('title_da'),
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content')
+    ])
 
 
 class AdhocracyProjectPage(ProjectPage):
