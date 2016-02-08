@@ -22,6 +22,7 @@ class InlineImageBlock(blocks.StructBlock):
     link_text = TextBlock(required=False)
     no_border = BooleanBlock(required=False)
 
+
 class InlineImagesBlock(blocks.StructBlock):
 
     inline_images = ListBlock(InlineImageBlock())
@@ -44,7 +45,7 @@ class CallToActionBlock(blocks.StructBlock):
 
 class InfoBlock(blocks.StructBlock):
 
-    title = CharBlock(classname="full title",required=False)
+    title = CharBlock(classname="full title", required=False)
     image = ImageChooserBlock(required=False)
     text = TextBlock(required=False)
     button = CallToActionBlock(required=False)
@@ -53,12 +54,16 @@ class InfoBlock(blocks.StructBlock):
         ('highlight', 'Highlight'),
         ('boxed', 'Boxed'),
         ('boxed2', 'Boxed Variation'),
-    ], icon='cup', required=False, help_text='How should this block be displayed?')
+    ], icon='cup',
+        required=False,
+        help_text='How should this block be displayed?'
+    )
 
     class Meta:
         template = 'home/blocks/info_block.html'
-        icon = 'glyphicon glyphicon-blackboard'
+        icon = 'placeholder'
         label = 'Info Block'
+
 
 class VideoBlock(blocks.StructBlock):
 
@@ -70,6 +75,7 @@ class VideoBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Video Block'
 
+
 class NewsBlock(blocks.StructBlock):
 
     title = CharBlock(classname="full title")
@@ -80,6 +86,7 @@ class NewsBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'News Block'
 
+
 class WideImageBlock(blocks.StructBlock):
 
     image = ImageChooserBlock()
@@ -88,6 +95,7 @@ class WideImageBlock(blocks.StructBlock):
         template = 'home/blocks/wide_image_block.html'
         icon = 'placeholder'
         label = 'Wide Image Block'
+
 
 class ContactBlock(blocks.StructBlock):
 
@@ -103,9 +111,11 @@ class ContactBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Contact Block'
 
+
 class AccordionItemBlock(blocks.StructBlock):
     title = TextBlock(required=False)
     content = TextBlock(required=False)
+
 
 class AccordionBlock(blocks.StructBlock):
 
