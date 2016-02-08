@@ -41,7 +41,8 @@ class ProjectPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        help_text='The image that is displayed on a projecttile in a project list'
     )
 
     organisation = models.ForeignKey(
@@ -172,13 +173,21 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('height'),
     ]
 
-    content_panels = [
-
-        FieldPanel('title'),
-        FieldPanel('teaser_en'),
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
         ImageChooserPanel('image'),
         FieldPanel('projecttype'),
-        SnippetChooserPanel('organisation', Organisation),
+        SnippetChooserPanel('organisation', Organisation)
+    ]
+
+    content_panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('title_en'),
+                FieldPanel('teaser_en'),
+            ]
+        ),
         MultiFieldPanel(
             [
                 FieldPanel('title_de'),
@@ -230,10 +239,7 @@ class AdhocracyProjectPage(ProjectPage):
 
     ]
     edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
         ObjectList(content_panels, heading='Content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(
-            Page.settings_panels, heading='Settings', classname="settings"),
-        ObjectList(
-            adhocracy_panel, heading='Adhocracy', classname="adhocracy"),
+
     ])
