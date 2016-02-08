@@ -16,50 +16,6 @@ from wagtail.wagtailembeds.blocks import EmbedBlock
 #import feedparser
 
 
-
-class ImageTextBlock(blocks.StructBlock):
-
-    left_column = ImageChooserBlock()
-    right_column = TextBlock()
-
-    class Meta:
-        template = 'home/blocks/m_t_block.html'
-        icon = 'placeholder'
-        label = 'Image Text Block'
-
-
-class TextImageBlock(blocks.StructBlock):
-
-    left_column = TextBlock()
-    right_column = ImageChooserBlock()
-
-    class Meta:
-        template = 'home/blocks/m_t_block.html'
-        icon = 'placeholder'
-        label = 'Text Image Block'
-
-
-class EmbedTextBlock(blocks.StructBlock):
-
-    left_column = EmbedBlock()
-    right_column = TextBlock()
-
-    class Meta:
-        template = 'home/blocks/m_t_block.html'
-        icon = 'placeholder'
-        label = 'Video Text Block'
-
-
-class TextEmbedBlock(blocks.StructBlock):
-
-    left_column = TextBlock()
-    right_column = EmbedBlock()
-
-    class Meta:
-        template = 'home/blocks/m_t_block.html'
-        icon = 'placeholder'
-        label = 'Text Video Block'
-
 class InlineImageBlock(blocks.StructBlock):
     image = ImageChooserBlock()
     internal_link = PageChooserBlock(required=False)
@@ -77,17 +33,6 @@ class InlineImagesBlock(blocks.StructBlock):
         template = 'home/blocks/inline_images_block.html'
         icon = 'placeholder'
         label = 'Inline Images Block'
-
-
-class CollapsibleTextBlock(blocks.StructBlock):
-
-    heading = TextBlock()
-    text = TextBlock()
-
-    class Meta:
-        template = 'home/blocks/collaps_t_block.html'
-        icon = 'arrows-up-down'
-        label = 'Collapsible Text'
 
 
 class CallToActionBlock(blocks.StructBlock):
