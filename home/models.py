@@ -37,20 +37,29 @@ from .blocks import AccordionBlock
 class HomePage(Page):
 
     # Title
-    title_en = models.CharField(max_length=255)
-    title_de = models.CharField(max_length=255, blank=True)
-    title_it = models.CharField(max_length=255, blank=True)
-    title_fr = models.CharField(max_length=255, blank=True)
-    title_sv = models.CharField(max_length=255, blank=True)
-    title_sl = models.CharField(max_length=255, blank=True)
-    title_da = models.CharField(max_length=255, blank=True)
+    title_en = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_de = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_it = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_fr = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_sv = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_sl = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
 
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        verbose_name="Header Image",
+        help_text="The Image that is shown on top of the page"
     )
 
     # Body
@@ -140,11 +149,13 @@ class HomePage(Page):
     class Meta:
         verbose_name = "Homepage"
 
-    content_panels = [
-
+    general_panels = [
         FieldPanel('title', classname='title'),
         FieldPanel('slug'),
-        ImageChooserPanel('image'),
+        ImageChooserPanel('image')
+    ]
+
+    content_panels = [
 
         MultiFieldPanel(
             [
@@ -206,6 +217,7 @@ class HomePage(Page):
     ]
 
     edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
         ObjectList(content_panels, heading='Content')
     ])
 
