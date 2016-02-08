@@ -37,20 +37,29 @@ from .blocks import AccordionBlock
 class HomePage(Page):
 
     # Title
-    title_en = models.CharField(max_length=255)
-    title_de = models.CharField(max_length=255, blank=True)
-    title_it = models.CharField(max_length=255, blank=True)
-    title_fr = models.CharField(max_length=255, blank=True)
-    title_sv = models.CharField(max_length=255, blank=True)
-    title_sl = models.CharField(max_length=255, blank=True)
-    title_da = models.CharField(max_length=255, blank=True)
+    title_en = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_de = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_it = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_fr = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_sv = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_sl = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
 
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        verbose_name="Header Image",
+        help_text="The Image that is shown on top of the page"
     )
 
     # Body
@@ -140,10 +149,13 @@ class HomePage(Page):
     class Meta:
         verbose_name = "Homepage"
 
-    content_panels = [
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+        ImageChooserPanel('image')
+    ]
 
-        FieldPanel('title'),
-        ImageChooserPanel('image'),
+    content_panels = [
 
         MultiFieldPanel(
             [
@@ -203,11 +215,10 @@ class HomePage(Page):
         )
 
     ]
+
     edit_handler = TabbedInterface([
-        ObjectList(content_panels, heading='Content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(
-            Page.settings_panels, heading='Settings', classname="settings"),
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content')
     ])
 
     parent_page_types = []
@@ -217,21 +228,35 @@ class HomePage(Page):
 class SimplePage(Page):
 
     # Title
-    title_en = models.CharField(max_length=255)
-    title_de = models.CharField(max_length=255, blank=True)
-    title_it = models.CharField(max_length=255, blank=True)
-    title_fr = models.CharField(max_length=255, blank=True)
-    title_sv = models.CharField(max_length=255, blank=True)
-    title_sl = models.CharField(max_length=255, blank=True)
-    title_da = models.CharField(max_length=255, blank=True)
+    title_en = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_de = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_it = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_fr = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_sv = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_sl = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
 
-    intro_en = models.CharField(max_length=255, blank=True)
-    intro_de = models.CharField(max_length=255, blank=True)
-    intro_it = models.CharField(max_length=255, blank=True)
-    intro_fr = models.CharField(max_length=255, blank=True)
-    intro_sv = models.CharField(max_length=255, blank=True)
-    intro_sl = models.CharField(max_length=255, blank=True)
-    intro_da = models.CharField(max_length=255, blank=True)
+    intro_en = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_de = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_it = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_fr = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_sv = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_sl = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
 
     intro_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -251,7 +276,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_de = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -262,7 +287,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_it = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -272,7 +297,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_fr = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -283,7 +308,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_sv = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -294,7 +319,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_sl = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -305,7 +330,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     body_da = StreamField([
         ('heading', blocks.CharBlock(classname="full title", icon="title")),
@@ -316,7 +341,7 @@ class SimplePage(Page):
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
-    ], null=True, blank=True)
+    ], null=True, blank=True, verbose_name="body")
 
     translated_title = TranslatedField(
         'title_de',
@@ -348,14 +373,17 @@ class SimplePage(Page):
         'body_da',
     )
 
-    content_panels = [
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+        ImageChooserPanel('intro_image')
+    ]
 
-        FieldPanel('title'),
+    content_panels = [
         MultiFieldPanel(
             [
                 FieldPanel('title_en'),
                 FieldPanel('intro_en'),
-                ImageChooserPanel('intro_image'),
                 StreamFieldPanel('body_en')
             ],
             heading="English",
@@ -418,9 +446,10 @@ class SimplePage(Page):
 
     ]
 
-
-class AboutPage(Page):
-    pass
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content')
+    ])
 
 
 # Menu

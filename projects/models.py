@@ -41,7 +41,8 @@ class ProjectPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='+'
+        related_name='+',
+        help_text='The image that is displayed on a projecttile in a project list'
     )
 
     organisation = models.ForeignKey(
@@ -105,6 +106,7 @@ class ProjectPage(Page):
 
 
 class ProjectsPage(Page):
+    title_en = models.CharField(max_length=255, blank=True)
     title_de = models.CharField(max_length=255, blank=True)
     title_it = models.CharField(max_length=255, blank=True)
     title_fr = models.CharField(max_length=255, blank=True)
@@ -120,7 +122,7 @@ class ProjectsPage(Page):
     translated_title = TranslatedField(
         'title_de',
         'title_it',
-        'title',
+        'title_en',
         'title_fr',
         'title_sv',
         'title_sl',
@@ -128,6 +130,26 @@ class ProjectsPage(Page):
     )
 
     subpage_types = ['projects.AdhocracyProjectPage']
+
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+    ]
+
+    content_panels = [
+        FieldPanel('title_en'),
+        FieldPanel('title_de'),
+        FieldPanel('title_it'),
+        FieldPanel('title_fr'),
+        FieldPanel('title_sv'),
+        FieldPanel('title_sl'),
+        FieldPanel('title_da'),
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content')
+    ])
 
 
 class AdhocracyProjectPage(ProjectPage):
@@ -151,13 +173,21 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('height'),
     ]
 
-    content_panels = [
-
-        FieldPanel('title'),
-        FieldPanel('teaser_en'),
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
         ImageChooserPanel('image'),
         FieldPanel('projecttype'),
-        SnippetChooserPanel('organisation', Organisation),
+        SnippetChooserPanel('organisation', Organisation)
+    ]
+
+    content_panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('title_en'),
+                FieldPanel('teaser_en'),
+            ]
+        ),
         MultiFieldPanel(
             [
                 FieldPanel('title_de'),
@@ -209,10 +239,7 @@ class AdhocracyProjectPage(ProjectPage):
 
     ]
     edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
         ObjectList(content_panels, heading='Content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(
-            Page.settings_panels, heading='Settings', classname="settings"),
-        ObjectList(
-            adhocracy_panel, heading='Adhocracy', classname="adhocracy"),
+
     ])
