@@ -447,8 +447,8 @@ class SimplePage(Page):
     ]
 
     edit_handler = TabbedInterface([
-        ObjectList(general_panels, heading='General'),
-        ObjectList(content_panels, heading='Content')
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(general_panels, heading='General')
     ])
 
 
