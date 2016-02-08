@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <div class="container-narrow" >
+    <header class="container-narrow block page-intro" >
     	<h1 class="block-title">{{ self.translated_title }}</h1>
+    </header>
+    <section class="container-narrow block-inner page-body">
     	<div id="projects-grid" data-columns>
     	{% for project in self.projects %}
     	{% include "projects/includes/project_tile.html" with project=project %}
         {% endfor %}
         </div>
-    </div>
+    </section>
 </div>
 {% endblock %}
 {% block extra_js %}

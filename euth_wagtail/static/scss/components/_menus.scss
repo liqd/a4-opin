@@ -1,0 +1,82 @@
+#main-menu, #footer {
+    // Height is set in bootstrap_variables
+    .navbar-brand {
+        @include rem(font-size, 14px);
+        @include text-hide;
+        background: url(../images/logo.png) no-repeat left center;
+        width: 47px;
+
+        .svgasimg & {
+            background-image: url(../images/logo.svg);
+        }
+    }
+
+    a {
+        @include rem(padding-left, 40px);
+        color: #000;
+        font-weight: bold;
+        padding-right: 0;
+        text-transform: uppercase;
+
+        &:hover, &:focus {
+            background-color: transparent;
+            color: $brand-brand1;
+        }
+    }
+
+    #language-selector {
+        a {
+            color: $brand-brand2;
+        }
+    }
+}
+
+#footer {
+    @include rem(height, $footer-height);
+    border-top: 1px solid $gray-light;
+
+    a {
+        line-height: $footer-height;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+#socials {
+    margin: 0;
+
+    &, li {
+        float: left;
+    }
+
+    li {
+        @include rem(margin-right, 12px);
+        list-style: none;
+
+        a {
+            @include rem(font-size, 25px);
+            display: block;
+            padding: 0;
+        }
+
+        &.facebook a {
+            color: #3b589b;
+        }
+
+        &.twitter a {
+            color: #5ea9dd;
+        }
+
+        &.gplus a {
+            color: #dd4b39;
+        }
+
+        &.linkedin a {
+            color: #0086bf;
+        }
+    }
+}
+
+body {
+    @include rem(padding-top, $navbar-height);
+}
