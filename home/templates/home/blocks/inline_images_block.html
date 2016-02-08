@@ -5,7 +5,11 @@
         <div class="row">
         {% for item in self.inline_images %}
             <div class="col-md-{{self.columns}} inline-images-block-col">
+                {% if item.no_border %}
+                <figure class="m-no-border">
+                {% else %}
                 <figure>
+                {% endif %}
                 {% if item.internal_link %}
                 <a href="{{ item.internal_link.url }}">
                 {% endif %}

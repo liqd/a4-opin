@@ -30,6 +30,10 @@
             }
         }
 
+        .m-no-border .img-container:after {
+            display: none;
+        }
+
         .inline-images-text {
             @include rem(font-size, $font-size-large);
             @include rem(margin-top, 30px);

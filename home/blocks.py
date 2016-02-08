@@ -20,6 +20,7 @@ class InlineImageBlock(blocks.StructBlock):
     image = ImageChooserBlock()
     internal_link = PageChooserBlock(required=False)
     link_text = TextBlock(required=False)
+    no_border = BooleanBlock(required=False)
 
 class InlineImagesBlock(blocks.StructBlock):
 
