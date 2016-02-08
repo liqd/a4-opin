@@ -142,7 +142,8 @@ class HomePage(Page):
 
     content_panels = [
 
-        FieldPanel('title'),
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
         ImageChooserPanel('image'),
 
         MultiFieldPanel(
@@ -203,11 +204,9 @@ class HomePage(Page):
         )
 
     ]
+
     edit_handler = TabbedInterface([
-        ObjectList(content_panels, heading='Content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(
-            Page.settings_panels, heading='Settings', classname="settings"),
+        ObjectList(content_panels, heading='Content')
     ])
 
     parent_page_types = []
