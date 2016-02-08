@@ -24,7 +24,7 @@ from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
 
 from .blocks import InfoBlock
-from .blocks import ThreeImagesBlock
+from .blocks import InlineImagesBlock
 from .blocks import VideoBlock
 from .blocks import NewsBlock
 from .blocks import WideImageBlock
@@ -273,7 +273,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -284,7 +284,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -294,7 +294,7 @@ class SimplePage(Page):
         ('paragraph', blocks.TextBlock(icon="pilcrow")),
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -305,7 +305,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -316,7 +316,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -327,7 +327,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")
@@ -338,7 +338,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('image', ImageChooserBlock(icon="image")),
         ('wide_image', WideImageBlock(icon="image")),
-        ('images', ThreeImagesBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down"))
     ], null=True, blank=True, verbose_name="body")

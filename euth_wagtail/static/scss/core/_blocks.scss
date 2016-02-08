@@ -37,6 +37,10 @@
                 margin: 0 auto;
             }
         }
+
+        &.m-variation .container-inner {
+            background: $gray-lighter;
+        }
     }
 }
 
@@ -50,6 +54,11 @@
     img {
         @include rem(margin, 20px 0);
     }
+}
+
+.block-image {
+    @include rem(padding-bottom, $block-vpadding);
+    text-align: center;
 }
 
 .rich-text {

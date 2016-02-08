@@ -1,10 +1,14 @@
-.three-images-block {
+.inline-images-block {
+    padding-bottom: 0;
+
     figure {
         display: inline-block;
         text-align: center;
     }
 
-    .three-images-block-col {
+    .inline-images-block-col {
+        @include rem(padding-bottom, $block-vpadding);
+
         .img-container {
             position: relative;
 
@@ -26,7 +30,7 @@
             }
         }
 
-        .three-images-text {
+        .inline-images-text {
             @include rem(font-size, $font-size-large);
             @include rem(margin-top, 30px);
             color: $brand-brand1;
@@ -38,7 +42,7 @@
                 background: $brand-brand1;
             }
 
-            .three-images-text {
+            .inline-images-text {
                 color: $brand-brand2;
             }
         }
