@@ -60,21 +60,23 @@ class TextEmbedBlock(blocks.StructBlock):
         icon = 'placeholder'
         label = 'Text Video Block'
 
+class InlineImageBlock(blocks.StructBlock):
+    image = ImageChooserBlock()
+    internal_link = PageChooserBlock(required=False)
+    link_text = TextBlock(required=False)
 
-class ThreeImagesBlock(blocks.StructBlock):
+class InlineImagesBlock(blocks.StructBlock):
 
-    left_image = ImageChooserBlock()
-    left_image_text = TextBlock()
-    middle_image = ImageChooserBlock()
-    middle_image_text = TextBlock()
-    right_image = ImageChooserBlock()
-    right_image_text = TextBlock()
-    circles = BooleanBlock()
+    inline_images = ListBlock(InlineImageBlock())
+    columns = ChoiceBlock(choices=[
+        ('4', 'three columns'),
+        ('6', 'two columns'),
+    ], icon='cup', required=False, help_text='')
 
     class Meta:
-        template = 'home/blocks/3_im_block.html'
+        template = 'home/blocks/inline_images_block.html'
         icon = 'placeholder'
-        label = 'Three Images Block'
+        label = 'Inline Images Block'
 
 
 class CollapsibleTextBlock(blocks.StructBlock):
@@ -98,12 +100,13 @@ class InfoBlock(blocks.StructBlock):
 
     title = CharBlock(classname="full title",required=False)
     image = ImageChooserBlock(required=False)
-    text = TextBlock()
+    text = TextBlock(required=False)
     button = CallToActionBlock(required=False)
     highlight = ChoiceBlock(choices=[
         ('', 'None'),
         ('highlight', 'Highlight'),
         ('boxed', 'Boxed'),
+        ('boxed2', 'Boxed Variation'),
     ], icon='cup', required=False, help_text='How should this block be displayed?')
 
     class Meta:
