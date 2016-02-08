@@ -10,8 +10,7 @@ from wagtail.wagtailadmin.edit_handlers import ObjectList
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 
 
-class Organisation(models.Model):
-    title = models.CharField(max_length=255)
+class OrganisationPage(Page):
     link = models.URLField()
     logo = models.ForeignKey(
         'wagtailimages.Image',
@@ -27,11 +26,6 @@ class Organisation(models.Model):
         ImageChooserPanel('logo')
     ]
 
-    def __str__(self):
-        return self.title
-
-register_snippet(Organisation)
-
 
 class ProjectPage(Page):
 
@@ -43,14 +37,6 @@ class ProjectPage(Page):
         on_delete=models.SET_NULL,
         related_name='+',
         help_text='The image that is displayed on a projecttile in a project list'
-    )
-
-    organisation = models.ForeignKey(
-        'projects.Organisation',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
     )
 
     COMMENTING_TEXT = 'Commenting Text'
@@ -178,7 +164,6 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('slug'),
         ImageChooserPanel('image'),
         FieldPanel('projecttype'),
-        SnippetChooserPanel('organisation', Organisation)
     ]
 
     content_panels = [
