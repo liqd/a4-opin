@@ -1,8 +1,10 @@
 from django.db import models
 from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore.models import Orderable
 from contrib.translations.translations import TranslatedField
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailadmin.edit_handlers import InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailadmin.edit_handlers import TabbedInterface
@@ -10,6 +12,7 @@ from wagtail.wagtailadmin.edit_handlers import ObjectList
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from django_countries.fields import CountryField
 from wagtail.wagtailcore.fields import RichTextField
+from modelcluster.fields import ParentalKey
 
 
 class OrganisationPage(Page):
@@ -42,6 +45,15 @@ class OrganisationPage(Page):
     name_sl = models.CharField(max_length=255, blank=True)
     name_da = models.CharField(max_length=255, blank=True)
 
+    # Teaser
+    teaser_en = models.TextField(blank=True)
+    teaser_de = models.TextField(blank=True)
+    teaser_it = models.TextField(blank=True)
+    teaser_fr = models.TextField(blank=True)
+    teaser_sv = models.TextField(blank=True)
+    teaser_sl = models.TextField(blank=True)
+    teaser_da = models.TextField(blank=True)
+
     # Description
     description_en = RichTextField(blank=True)
     description_de = RichTextField(blank=True)
@@ -61,7 +73,17 @@ class OrganisationPage(Page):
         'description_da',
     )
 
-    translated_name = TranslatedField(
+    teaser = TranslatedField(
+        'teaser_de',
+        'teaser_it',
+        'teaser_en',
+        'teaser_fr',
+        'teaser_sv',
+        'teaser_sl',
+        'teaser_da',
+    )
+
+    translated_title = TranslatedField(
         'name_de',
         'name_it',
         'name_en',
@@ -70,6 +92,10 @@ class OrganisationPage(Page):
         'name_sl',
         'name_da',
     )
+
+    projects_panels = [
+        InlinePanel('organisation_projects', label="projects")
+    ]
 
     general_panels = [
         FieldPanel('title', classname="title"),
@@ -84,6 +110,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_en'),
+                FieldPanel('teaser_en'),
                 FieldPanel('description_en')
             ],
             heading="English",
@@ -92,6 +119,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_de'),
+                FieldPanel('teaser_de'),
                 FieldPanel('description_de')
             ],
             heading="German",
@@ -100,6 +128,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_it'),
+                FieldPanel('teaser_it'),
                 FieldPanel('description_it')
             ],
             heading="Italien",
@@ -108,6 +137,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_fr'),
+                FieldPanel('teaser_fr'),
                 FieldPanel('description_fr')
             ],
             heading="French",
@@ -116,6 +146,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_sv'),
+                FieldPanel('teaser_sv'),
                 FieldPanel('description_sv')
             ],
             heading="Swedish",
@@ -124,6 +155,7 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_sl'),
+                FieldPanel('teaser_sl'),
                 FieldPanel('description_sl')
             ],
             heading="Slovene",
@@ -132,11 +164,60 @@ class OrganisationPage(Page):
         MultiFieldPanel(
             [
                 FieldPanel('name_da'),
+                FieldPanel('teaser_da'),
                 FieldPanel('description_da')
             ],
             heading="Danish",
             classname="collapsible collapsed"
         )
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(projects_panels, heading='Projects')
+    ])
+
+
+class OrganisationsPage(Page):
+    title_en = models.CharField(max_length=255, blank=True)
+    title_de = models.CharField(max_length=255, blank=True)
+    title_it = models.CharField(max_length=255, blank=True)
+    title_fr = models.CharField(max_length=255, blank=True)
+    title_sv = models.CharField(max_length=255, blank=True)
+    title_sl = models.CharField(max_length=255, blank=True)
+    title_da = models.CharField(max_length=255, blank=True)
+
+    @property
+    def organisations(self):
+        organisations = OrganisationPage.objects.all()
+        return organisations
+
+    translated_title = TranslatedField(
+        'title_de',
+        'title_it',
+        'title_en',
+        'title_fr',
+        'title_sv',
+        'title_sl',
+        'title_da',
+    )
+
+    subpage_types = ['projects.OrganisationPage']
+
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+    ]
+
+    content_panels = [
+        FieldPanel('title_en'),
+        FieldPanel('title_de'),
+        FieldPanel('title_it'),
+        FieldPanel('title_fr'),
+        FieldPanel('title_sv'),
+        FieldPanel('title_sl'),
+        FieldPanel('title_da'),
     ]
 
     edit_handler = TabbedInterface([
@@ -170,6 +251,14 @@ class ProjectPage(Page):
 
     # Type
     projecttype = models.CharField(max_length=255, choices=PROJECTTYPE_CHOICES)
+
+    organisation = models.ForeignKey(
+        'projects.OrganisationPage',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
 
     # Title
     title_en = models.CharField(max_length=255)
@@ -283,6 +372,7 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('slug'),
         ImageChooserPanel('image'),
         FieldPanel('projecttype'),
+        FieldPanel('organisation')
     ]
 
     content_panels = [
@@ -342,8 +432,27 @@ class AdhocracyProjectPage(ProjectPage):
         )
 
     ]
+
     edit_handler = TabbedInterface([
         ObjectList(general_panels, heading='General'),
         ObjectList(content_panels, heading='Content'),
+        ObjectList(adhocracy_panel, heading='Adhocracy')
 
     ])
+
+
+class Project(models.Model):
+    project = models.ForeignKey(
+        ProjectPage)
+
+    panels = [
+        FieldPanel('project')
+    ]
+
+    class Meta:
+        abstract = True
+
+
+class ProjectOrganisations(Orderable, Project):
+    page = ParentalKey(
+        'projects.OrganisationPage', related_name='organisation_projects')
