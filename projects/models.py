@@ -455,4 +455,4 @@ class Project(models.Model):
 
 class ProjectOrganisations(Orderable, Project):
     page = ParentalKey(
-        'projects.OrganisationPage', related_name='organisation_projects')
+        'projects.OrganisationPage', related_name='organisation_projects', null=True, blank=True)
