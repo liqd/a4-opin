@@ -1,0 +1,79 @@
+#organisations-grid[data-columns]::before {
+    content: '3 .organisation-tile-container.size-1of3';
+}
+
+.organisation-tile-container {
+    float: left;
+}
+
+.organisation-tile {
+    @include rem(margin, 0 13px 13px 0);
+    border: 1px solid $gray-lighter;
+    text-align: left;
+
+    img {
+        margin: 0;
+    }
+}
+
+.organisation-tile-body {
+    @include rem(padding, 16px);
+    border-top: 1px solid $gray-lighter;
+}
+
+.organisation-tile-title {
+    @include rem(font-size, 18px);
+    @include rem(margin, 0 0 2px);
+    line-height: 1.33333333;
+}
+
+.organisation-tile-teaser {
+    @include rem(font-size, 14px);
+    @include rem(margin-bottom, 19px);
+    @include rem(padding-bottom, 18px);
+    border-bottom: 1px solid $gray-lighter;
+    line-height: 1.571428571;
+}
+
+.organisation-tile-image {
+    visibility: hidden;
+}
+
+.organisation-tile-image-link {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    display: block;
+}
+
+.organisation-tile-org {
+    overflow: hidden;
+
+    .organisation-tile-org-image {
+        @include rem(margin-right, 14px);
+    }
+
+    .organisation-tile-org-image,
+    .organisation-tile-org-title {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    .organisation-tile-org-title {
+        @include rem(font-size, 16px);
+        color: $gray;
+        font-weight: bold;
+    }
+}
+
+.size-1of4 {
+    width: 25%;
+}
+
+.size-1of3 {
+    width: 33.333%;
+}
+
+.size-1of2 {
+    width: 50%;
+}
