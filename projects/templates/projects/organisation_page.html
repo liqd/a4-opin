@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% block content %}
+<div class="container">
+    <header class="container-narrow block page-intro" >
+    	<h1 class="block-title">{{ self.translated_title }}</h1>
+    </header>
+    <div class="block-inner">
+    	<div class="container-narrow">
+    	{{ self.description | richtext }}
+    	</div>
+    </div>
+    <section class="container-narrow block-inner page-body">
+    	<div id="projects-grid" data-columns>
+    	{% for project in self.organisation_projects.all %}
+    	{% include "projects/includes/project_tile.html" with project=project.project %}
+        {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
+{% endblock %}
