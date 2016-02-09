@@ -222,7 +222,7 @@ class HomePage(Page):
     ])
 
     parent_page_types = []
-    subpage_types = ['home.SimplePage', 'projects.ProjectsPage', 'projects.OrganisationPage']
+    subpage_types = ['home.SimplePage', 'projects.ProjectsPage', 'projects.OrganisationsPage']
 
 
 class SimplePage(Page):
