@@ -8,6 +8,8 @@ from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
 from wagtail.wagtailadmin.edit_handlers import TabbedInterface
 from wagtail.wagtailadmin.edit_handlers import ObjectList
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
+from django_countries.fields import CountryField
+from wagtail.wagtailcore.fields import RichTextField
 
 
 class OrganisationPage(Page):
@@ -19,12 +21,128 @@ class OrganisationPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='The image that is displayed' +
+                  'on a organisationtile in an organisation list'
+    )
+    country = CountryField(help_text='Where is the' +
+                                     'Organisation located')
 
-    panels = [
-        FieldPanel('title'),
+    # Title
+    name_en = models.CharField(max_length=255, blank=True)
+    name_de = models.CharField(max_length=255, blank=True)
+    name_it = models.CharField(max_length=255, blank=True)
+    name_fr = models.CharField(max_length=255, blank=True)
+    name_sv = models.CharField(max_length=255, blank=True)
+    name_sl = models.CharField(max_length=255, blank=True)
+    name_da = models.CharField(max_length=255, blank=True)
+
+    # Description
+    description_en = RichTextField(blank=True)
+    description_de = RichTextField(blank=True)
+    description_it = RichTextField(blank=True)
+    description_fr = RichTextField(blank=True)
+    description_sv = RichTextField(blank=True)
+    description_sl = RichTextField(blank=True)
+    description_da = RichTextField(blank=True)
+
+    description = TranslatedField(
+        'description_de',
+        'description_it',
+        'description_en',
+        'description_fr',
+        'description_sv',
+        'description_sl',
+        'description_da',
+    )
+
+    translated_name = TranslatedField(
+        'name_de',
+        'name_it',
+        'name_en',
+        'name_fr',
+        'name_sv',
+        'name_sl',
+        'name_da',
+    )
+
+    general_panels = [
+        FieldPanel('title', classname="title"),
+        FieldPanel('slug'),
         FieldPanel('link'),
-        ImageChooserPanel('logo')
+        FieldPanel('country'),
+        ImageChooserPanel('logo'),
+        ImageChooserPanel('image'),
     ]
+
+    content_panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('name_en'),
+                FieldPanel('description_en')
+            ],
+            heading="English",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_de'),
+                FieldPanel('description_de')
+            ],
+            heading="German",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_it'),
+                FieldPanel('description_it')
+            ],
+            heading="Italien",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_fr'),
+                FieldPanel('description_fr')
+            ],
+            heading="French",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_sv'),
+                FieldPanel('description_sv')
+            ],
+            heading="Swedish",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_sl'),
+                FieldPanel('description_sl')
+            ],
+            heading="Slovene",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('name_da'),
+                FieldPanel('description_da')
+            ],
+            heading="Danish",
+            classname="collapsible collapsed"
+        )
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content')
+    ])
 
 
 class ProjectPage(Page):
@@ -36,7 +154,8 @@ class ProjectPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='The image that is displayed on a projecttile in a project list'
+        help_text='The image that is displayed' +
+                  'on a projecttile in a project list'
     )
 
     COMMENTING_TEXT = 'Commenting Text'

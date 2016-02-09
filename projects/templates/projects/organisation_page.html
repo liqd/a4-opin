@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% block content %}
+<div class="container">
+    <header class="container-narrow block page-intro" >
+    	<h1 class="block-title">{{ self.translated_name }}</h1>
+    </header>
+    <div class="block-inner">
+    	<div class="container-narrow">
+    	{{ self.description | richtext }}
+    	</div>
+    </div>
+
+</div>
+
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
+{% endblock %}
