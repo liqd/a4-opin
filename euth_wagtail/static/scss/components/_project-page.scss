@@ -7,9 +7,7 @@
 }
 
 .project-tile {
-    @include rem(margin, 0 13px 13px 0);
-    border: 1px solid $gray-lighter;
-    text-align: left;
+    @extend %tile;
 
     img {
         margin: 0;
@@ -59,15 +57,11 @@
 }
 
 .project-tile-title {
-    @include rem(font-size, 18px);
-    @include rem(margin, 0 0 2px);
-    line-height: 1.33333333;
+    @extend %tile-title;
 }
 
 .project-tile-teaser {
-    @include rem(font-size, 14px);
-    line-height: 1.571428571;
-    margin-bottom: 0;
+    @extend %tile-teaser-text;
 }
 
 .project-tile-image {

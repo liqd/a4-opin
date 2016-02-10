@@ -1,0 +1,18 @@
+%tile {
+    @include rem(margin, 0 13px 13px 0);
+    border: 1px solid $gray-lighter;
+    overflow: hidden;
+    text-align: left;
+}
+
+%tile-title {
+    @include rem(font-size, 18px);
+    @include rem(margin, 0 0 2px);
+    line-height: 1.33333333;
+}
+
+%tile-teaser-text {
+    @include rem(font-size, 14px);
+    line-height: 1.571428571;
+    margin-bottom: 0;
+}

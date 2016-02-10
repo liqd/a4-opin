@@ -8,7 +8,7 @@
     <section class="container-narrow block-inner page-body">
     	<div class="row">
     	{% for organisation in self.organisations %}
-    	{% include "projects/includes/organisation_item.html" with organisation=organisation %}
+    	{% include "projects/includes/organisation_tile.html" with organisation=organisation %}
         {% endfor %}
         </div>
     </section>

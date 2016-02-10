@@ -1,1 +1,13 @@
+.org-tile {
+    @extend %tile;
+    @include rem(padding, 10px 14px);
+    margin-right: 0;
+}
 
+.org-tile-title {
+    @extend %tile-title;
+}
+
+.org-tile-teaser {
+    @extend %tile-teaser-text;
+}
