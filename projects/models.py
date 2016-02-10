@@ -361,8 +361,6 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('embedurl'),
         FieldPanel('widget'),
         FieldPanel('initial_url'),
-        FieldPanel('autoresize'),
-        FieldPanel('autourl'),
         FieldPanel('locale'),
         FieldPanel('height'),
     ]

@@ -11,7 +11,7 @@
 </script>
 
 <div class="container">
-<div class="adhocracy_marker_1" data-widget="{{ self.widget }}" data-initial-url="{{ self.initial_url }}" data-autoresize="false" data-autourl="{{ self.autourl }}" data-locale="{% if self.locale %}{{ self.locale }}{% else %}{{ LANGUAGE_CODE }}{% endif %}" style="height:{{ self.height }}px">
+<div class="adhocracy_marker_1" data-widget="{{ self.widget }}" data-initial-url="{{ self.initial_url }}" data-autoresize="false" data-autourl="true" data-locale="{% if self.locale %}{{ self.locale }}{% else %}{{ LANGUAGE_CODE }}{% endif %}" style="height:{{ self.height }}px">
 </div>
 
 {% endblock %}
