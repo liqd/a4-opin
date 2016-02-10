@@ -54,7 +54,7 @@
         list-style: none;
 
         a {
-            @include rem(font-size, 25px);
+            @include rem(font-size, 35px);
             display: block;
             padding: 0;
         }
@@ -73,6 +73,11 @@
 
         &.linkedin a {
             color: #0086bf;
+        }
+
+        &.euth a {
+            color: #106CB6;
+            margin-top: -4px;
         }
     }
 }

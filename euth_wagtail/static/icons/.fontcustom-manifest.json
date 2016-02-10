@@ -1,15 +1,19 @@
 {
   "checksum": {
-    "previous": "6053e622082df2fef55e18e0099d53b211c13bcffa35928968d03a4a25a56114",
-    "current": "6053e622082df2fef55e18e0099d53b211c13bcffa35928968d03a4a25a56114"
+    "previous": "8f97b00257184d308bf533f4a5c4f545f0a3c40ce761a7ec39d19cade34cce73",
+    "current": "8f97b00257184d308bf533f4a5c4f545f0a3c40ce761a7ec39d19cade34cce73"
   },
   "fonts": [
-    "fontcustom/fontcustom_6053e622082df2fef55e18e0099d53b2.ttf",
-    "fontcustom/fontcustom_6053e622082df2fef55e18e0099d53b2.svg",
-    "fontcustom/fontcustom_6053e622082df2fef55e18e0099d53b2.woff",
-    "fontcustom/fontcustom_6053e622082df2fef55e18e0099d53b2.eot"
+    "fontcustom/fontcustom_8f97b00257184d308bf533f4a5c4f545.ttf",
+    "fontcustom/fontcustom_8f97b00257184d308bf533f4a5c4f545.svg",
+    "fontcustom/fontcustom_8f97b00257184d308bf533f4a5c4f545.woff",
+    "fontcustom/fontcustom_8f97b00257184d308bf533f4a5c4f545.eot"
   ],
   "glyphs": {
+    "euth": {
+      "codepoint": 61700,
+      "source": "./euth.svg"
+    },
     "facebook": {
       "codepoint": 61696,
       "source": "./facebook.svg"
@@ -37,7 +41,7 @@
     "font_design_size": 16,
     "font_em": 512,
     "font_name": "fontcustom",
-    "force": false,
+    "force": true,
     "input": {
       "templates": "./",
       "vectors": "./"
