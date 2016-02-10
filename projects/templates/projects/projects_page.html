@@ -5,7 +5,7 @@
     	<h1 class="block-title">{{ self.translated_title }}</h1>
     </header>
     <section class="container-narrow block-inner page-body">
-    	<div id="tile-grid" data-columns>
+    	<div id="project-tile-grid" data-columns>
     	{% for project in self.projects %}
     	{% include "projects/includes/project_tile.html" with project=project %}
         {% endfor %}
