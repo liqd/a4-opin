@@ -4,13 +4,12 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-
-
     {% include "home/includes/hero_unit.html" with image=page.image title=page.translated_title %}
-
-
     <section class="page-body">
 	{{ page.body }}
 	</section>
+{% endblock %}
 
+{% block footer %}
+{% include "includes/footer.html" %}
 {% endblock %}

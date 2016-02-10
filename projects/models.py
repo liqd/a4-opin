@@ -323,7 +323,8 @@ class ProjectsPage(Page):
         'title_da',
     )
 
-    subpage_types = ['projects.AdhocracyProjectPage']
+    subpage_types = [
+        'projects.AdhocracyProjectPage', 'projects.FlashpollProjectPage']
 
     general_panels = [
         FieldPanel('title', classname='title'),
@@ -361,8 +362,6 @@ class AdhocracyProjectPage(ProjectPage):
         FieldPanel('embedurl'),
         FieldPanel('widget'),
         FieldPanel('initial_url'),
-        FieldPanel('autoresize'),
-        FieldPanel('autourl'),
         FieldPanel('locale'),
         FieldPanel('height'),
     ]
@@ -441,6 +440,87 @@ class AdhocracyProjectPage(ProjectPage):
     ])
 
 
+class FlashpollProjectPage(ProjectPage):
+
+    embedurl = models.URLField()
+
+    flashpoll_panel = [
+        FieldPanel('embedurl')
+    ]
+
+    general_panels = [
+        FieldPanel('title', classname='title'),
+        FieldPanel('slug'),
+        ImageChooserPanel('image'),
+        FieldPanel('projecttype'),
+        FieldPanel('organisation')
+    ]
+
+    content_panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('title_en'),
+                FieldPanel('teaser_en'),
+            ]
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_de'),
+                FieldPanel('teaser_de')
+            ],
+            heading="German",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_it'),
+                FieldPanel('teaser_it')
+            ],
+            heading="Italien",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_fr'),
+                FieldPanel('teaser_fr')
+            ],
+            heading="French",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_sv'),
+                FieldPanel('teaser_sv')
+            ],
+            heading="Swedish",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_sl'),
+                FieldPanel('teaser_sl')
+            ],
+            heading="Slovene",
+            classname="collapsible collapsed"
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel('title_da'),
+                FieldPanel('teaser_da')
+            ],
+            heading="Danish",
+            classname="collapsible collapsed"
+        )
+
+    ]
+
+    edit_handler = TabbedInterface([
+        ObjectList(general_panels, heading='General'),
+        ObjectList(content_panels, heading='Content'),
+        ObjectList(flashpoll_panel, heading='Flashpoll')
+    ])
+
+
 class Project(models.Model):
     project = models.ForeignKey(
         ProjectPage)
@@ -455,4 +535,6 @@ class Project(models.Model):
 
 class ProjectOrganisations(Orderable, Project):
     page = ParentalKey(
-        'projects.OrganisationPage', related_name='organisation_projects', null=True, blank=True)
+        'projects.OrganisationPage',
+        related_name='organisation_projects',
+        null=True, blank=True)
