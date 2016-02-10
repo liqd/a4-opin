@@ -1,12 +1,12 @@
-#projects-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of3';
+#tile-grid[data-columns]::before {
+    content: '3 .tile-container.size-1of3';
 }
 
-.project-tile-container {
+.tile-container {
     float: left;
 }
 
-.project-tile {
+.tile {
     @include rem(margin, 0 13px 13px 0);
     border: 1px solid $gray-lighter;
     text-align: left;
@@ -16,87 +16,88 @@
     }
 
     &.style-idea-collection {
-        .project-tile-image-link {
+        .tile-image-link {
             background-color: $brand-brand1;
         }
 
-        .project-tile-title {
+        .tile-title {
             color: $brand-brand1;
         }
     }
 
     &.style-commenting-text {
-        .project-tile-image-link {
+        .tile-image-link {
             background-color: $brand-brand3;
         }
 
-        .project-tile-title {
+        .tile-title {
             color: $brand-brand3;
         }
     }
 
     &.style-mobile-polling {
-        .project-tile-image-link {
+        .tile-image-link {
             background-color: $brand-brand4;
         }
 
-        .project-tile-title {
+        .tile-title {
             color: $brand-brand4;
         }
     }
 }
 
-.project-tile-body {
+.tile-body {
     @include rem(padding, 16px);
     border-top: 1px solid $gray-lighter;
 }
 
-.project-tile-type {
+.tile-type {
     @include rem(font-size, $font-size-small);
     @include rem(margin, 0 0 5px);
     font-style: italic;
     font-weight: bold;
 }
 
-.project-tile-title {
+.tile-title {
     @include rem(font-size, 18px);
     @include rem(margin, 0 0 2px);
     line-height: 1.33333333;
 }
 
-.project-tile-teaser {
+.tile-teaser {
     @include rem(font-size, 14px);
-    @include rem(margin-bottom, 19px);
-    @include rem(padding-bottom, 18px);
-    border-bottom: 1px solid $gray-lighter;
     line-height: 1.571428571;
+    margin-bottom: 0;
 }
 
-.project-tile-image {
+.tile-image {
     visibility: hidden;
 }
 
-.project-tile-image-link {
+.tile-image-link {
     background-size: contain;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     display: block;
 }
 
-.project-tile-org {
+.tile-org {
+    @include rem(margin-top, 19px);
+    @include rem(padding-top, 18px);
+    border-top: 1px solid $gray-lighter;
     overflow: hidden;
 
-    .project-tile-org-image {
+    .tile-org-image {
         @include rem(margin-right, 14px);
     }
 
-    .project-tile-org-image,
-    .project-tile-org-title {
+    .tile-org-image,
+    .tile-org-title {
         display: inline;
         vertical-align: middle;
     }
 
-    .project-tile-org-title {
+    .tile-org-title {
         @include rem(font-size, 16px);
         color: $gray;
         font-weight: bold;
