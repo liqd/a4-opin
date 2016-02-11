@@ -24,15 +24,6 @@ class OrganisationPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='The image that is displayed' +
-                  'on a organisationtile in an organisation list'
-    )
     country = CountryField(help_text='Where is the' +
                                      'Organisation located')
 
@@ -103,7 +94,6 @@ class OrganisationPage(Page):
         FieldPanel('link'),
         FieldPanel('country'),
         ImageChooserPanel('logo'),
-        ImageChooserPanel('image'),
     ]
 
     content_panels = [
