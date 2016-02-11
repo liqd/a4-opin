@@ -24,15 +24,7 @@ class OrganisationPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='The image that is displayed' +
-                  'on a organisationtile in an organisation list'
-    )
+
     country = CountryField(help_text='Where is the' +
                                      'Organisation located')
 
@@ -46,13 +38,20 @@ class OrganisationPage(Page):
     name_da = models.CharField(max_length=255, blank=True)
 
     # Teaser
-    teaser_en = models.TextField(blank=True)
-    teaser_de = models.TextField(blank=True)
-    teaser_it = models.TextField(blank=True)
-    teaser_fr = models.TextField(blank=True)
-    teaser_sv = models.TextField(blank=True)
-    teaser_sl = models.TextField(blank=True)
-    teaser_da = models.TextField(blank=True)
+    teaser_en = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_de = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_it = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_fr = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sv = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sl = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_da = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
 
     # Description
     description_en = RichTextField(blank=True)
@@ -103,7 +102,6 @@ class OrganisationPage(Page):
         FieldPanel('link'),
         FieldPanel('country'),
         ImageChooserPanel('logo'),
-        ImageChooserPanel('image'),
     ]
 
     content_panels = [
@@ -114,7 +112,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_en')
             ],
             heading="English",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -123,7 +121,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_de')
             ],
             heading="German",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -132,7 +130,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_it')
             ],
             heading="Italien",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -141,7 +139,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_fr')
             ],
             heading="French",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -150,7 +148,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_sv')
             ],
             heading="Swedish",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -159,7 +157,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_sl')
             ],
             heading="Slovene",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -168,7 +166,7 @@ class OrganisationPage(Page):
                 FieldPanel('description_da')
             ],
             heading="Danish",
-            classname="collapsible collapsed"
+            classname="collapsible"
         )
     ]
 
@@ -261,7 +259,7 @@ class ProjectPage(Page):
     )
 
     # Title
-    title_en = models.CharField(max_length=255)
+    title_en = models.CharField(max_length=255, blank=True)
     title_de = models.CharField(max_length=255, blank=True)
     title_it = models.CharField(max_length=255, blank=True)
     title_fr = models.CharField(max_length=255, blank=True)
@@ -270,13 +268,20 @@ class ProjectPage(Page):
     title_da = models.CharField(max_length=255, blank=True)
 
     # teaser
-    teaser_en = models.TextField()
-    teaser_de = models.TextField(blank=True)
-    teaser_it = models.TextField(blank=True)
-    teaser_fr = models.TextField(blank=True)
-    teaser_sv = models.TextField(blank=True)
-    teaser_sl = models.TextField(blank=True)
-    teaser_da = models.TextField(blank=True)
+    teaser_en = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_de = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_it = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_fr = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sv = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sl = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_da = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
 
     teaser = TranslatedField(
         'teaser_de',
@@ -379,7 +384,9 @@ class AdhocracyProjectPage(ProjectPage):
             [
                 FieldPanel('title_en'),
                 FieldPanel('teaser_en'),
-            ]
+            ],
+            heading="English",
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -387,7 +394,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_de')
             ],
             heading="German",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -395,7 +402,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_it')
             ],
             heading="Italien",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -403,7 +410,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_fr')
             ],
             heading="French",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -411,7 +418,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_sv')
             ],
             heading="Swedish",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -419,7 +426,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_sl')
             ],
             heading="Slovene",
-            classname="collapsible collapsed"
+            classname="collapsible"
         ),
         MultiFieldPanel(
             [
@@ -427,7 +434,7 @@ class AdhocracyProjectPage(ProjectPage):
                 FieldPanel('teaser_da')
             ],
             heading="Danish",
-            classname="collapsible collapsed"
+            classname="collapsible"
         )
 
     ]

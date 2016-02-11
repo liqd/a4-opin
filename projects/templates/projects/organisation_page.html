@@ -2,22 +2,24 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% block content %}
 <div class="container">
-    <header class="container-narrow block page-intro" >
-    	<h1 class="block-title">{{ self.translated_title }}</h1>
+    <header class="container-narrow block">
+        {% image self.logo width-100 %}
+    	<h1 class="block-title org-title">{{ self.translated_title }}</h1>
     </header>
     <div class="block-inner">
     	<div class="container-narrow">
-        {% image self.image original class="organisation-image img-responsive" %}
     	{{ self.description | richtext }}
     	</div>
     </div>
-    <section class="container-narrow block-inner page-body">
+
+    <section class="container-narrow block-inner page-body {% if self.organisation_projects.all %} org-projects {% endif %}">
     	<div id="project-tile-grid" data-columns>
     	{% for project in self.organisation_projects.all %}
     	{% include "projects/includes/project_tile.html" with project=project.project %}
         {% endfor %}
         </div>
     </section>
+
 </div>
 {% endblock %}
 
