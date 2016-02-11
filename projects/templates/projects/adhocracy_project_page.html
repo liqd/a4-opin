@@ -13,18 +13,15 @@
 <div class="container">
 <div class="adhocracy_marker_1" data-widget="{{ self.widget }}" data-initial-url="{{ self.initial_url }}" data-autoresize="false" data-autourl="true" data-locale="{% if self.locale %}{{ self.locale }}{% else %}{{ LANGUAGE_CODE }}{% endif %}" style="height:{{ self.height }}px">
 </div>
-
 {% endblock %}
 
 
-{% block footer %}
-{% include "includes/footer.html" %}
-{% endblock %}
+
 
 {% block extra_js %}
 <script type="text/javascript">
 	var e = $('.adhocracy_marker_1');
-    e.height($(window).height() - e.offset().top - 99 );
+    e.height($(window).height() - e.offset().top - 3 );
 </script>
 {% endblock %}
 
