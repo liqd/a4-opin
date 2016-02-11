@@ -1,11 +1,17 @@
 {% load i18n wagtailimages_tags wagtailcore_tags %}
-{% image organisation.image fill-400x200 as original %}
+{% image organisation.logo width-80 as logo %}
 <div class="org-tile">
-	<a href="{% pageurl organisation %}" class="org-tile-image-link col-md-3"style="background-image: url('{{ original.url }}');">
-		{% image organisation.image fill-800x400 class="project-tile-image img-responsive" %}
+	<a href="{% pageurl organisation %}" class="org-tile-image-link col-md-3">
+		<div class="org-tile-logo-container">
+			<img src="{{ logo.url }}" width="{{ logo.width }}" alt="{{ logo.alt }}" class="org-tile-logo" />
+		</div>
 	</a>
 	<div class="org-tile-body col-md-9">
-		<h2 class="org-tile-title">{{ organisation.translated_title }}</h2>
+			<h2 class="org-tile-title">
+				<a href="{% pageurl organisation %}">
+					{{ organisation.translated_title }}
+				</a>
+			</h2>
 		<p class="org-tile-teaser">{{ organisation.teaser }}</p>
 	</div>
 </div>

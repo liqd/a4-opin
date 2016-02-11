@@ -1,13 +1,44 @@
 .org-tile {
     @extend %tile;
-    @include rem(padding, 10px 14px);
+    @include rem(padding, 18px 14px);
     margin-right: 0;
 }
 
 .org-tile-title {
     @extend %tile-title;
+
+    a {
+        color: $gray-dark;
+        padding-right: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover, &:focus {
+            background-color: transparent;
+            color: $brand-brand1;
+        }
+    }
 }
 
 .org-tile-teaser {
     @extend %tile-teaser-text;
+}
+
+.org-title {
+	@include rem(padding-top, 80px);
+}
+
+.org-projects {
+	border-top: 1px solid #eeeeee;
+	@include rem(padding-top, 80px);
+}
+
+.org-tile-logo-container {
+	position: relative;
+
+}
+
+.org-tile-logo {
+   	width: 80px;
+   	margin-left: 40px !important;
+   	margin-top: 40px !important;
 }
