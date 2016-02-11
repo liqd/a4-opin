@@ -9,7 +9,7 @@
 		<h2 class="project-tile-title">{{ project.translated_title }}</h2>
 		<p class="project-tile-teaser">{{ project.teaser }}</p>
 		<div class="project-tile-org">
-			{% image project.organisation.logo width-55 class="project-tile-org-image img-responsive" %}
+			<div class="project-tile-org-img-container">{% image project.organisation.logo width-55 class="project-tile-org-image img-responsive" %}</div>
 			<p class="project-tile-org-title">{{ project.organisation.title }}</p>
 		</div>
 	</div>

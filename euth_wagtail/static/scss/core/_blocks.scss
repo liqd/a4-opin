@@ -53,6 +53,10 @@
 
     img {
         @include rem(margin, 20px 0);
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
 }
 
@@ -67,6 +71,12 @@
 
     h2, h3, h4, h5, h6 {
         @extend .block-title;
+        @include rem(font-size, $font-size-large);
+        @include rem(margin, 0 0 $font-size-large);
         text-align: center;
+    }
+
+    p {
+        @include rem(margin, 0 0 $font-size-large);
     }
 }

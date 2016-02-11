@@ -79,17 +79,20 @@
     @include rem(margin-top, 19px);
     @include rem(padding-top, 18px);
     border-top: 1px solid $gray-lighter;
+    display: table;
     overflow: hidden;
+    width: 100%;
 
-    .project-tile-org-image {
-        @include rem(margin-right, 14px);
+    .project-tile-org-img-container {
+        @include rem(padding-right, 15px);
     }
 
-    .project-tile-org-image,
+    .project-tile-org-img-container,
     .project-tile-org-title {
-        display: inline;
+        display: table-cell;
         vertical-align: middle;
     }
+
 
     .project-tile-org-title {
         @include rem(font-size, 16px);

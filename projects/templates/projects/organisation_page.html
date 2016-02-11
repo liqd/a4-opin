@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 {% block content %}
 <div class="container">
     <header class="container-narrow block page-intro" >
@@ -7,11 +7,12 @@
     </header>
     <div class="block-inner">
     	<div class="container-narrow">
+        {% image self.image original class="organisation-image img-responsive" %}
     	{{ self.description | richtext }}
     	</div>
     </div>
     <section class="container-narrow block-inner page-body">
-    	<div id="projects-grid" data-columns>
+    	<div id="project-tile-grid" data-columns>
     	{% for project in self.organisation_projects.all %}
     	{% include "projects/includes/project_tile.html" with project=project.project %}
         {% endfor %}
