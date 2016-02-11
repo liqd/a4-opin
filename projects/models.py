@@ -37,13 +37,20 @@ class OrganisationPage(Page):
     name_da = models.CharField(max_length=255, blank=True)
 
     # Teaser
-    teaser_en = models.TextField(blank=True)
-    teaser_de = models.TextField(blank=True)
-    teaser_it = models.TextField(blank=True)
-    teaser_fr = models.TextField(blank=True)
-    teaser_sv = models.TextField(blank=True)
-    teaser_sl = models.TextField(blank=True)
-    teaser_da = models.TextField(blank=True)
+    teaser_en = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_de = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_it = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_fr = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sv = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sl = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_da = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
 
     # Description
     description_en = RichTextField(blank=True)
@@ -267,6 +274,20 @@ class ProjectPage(Page):
     teaser_sv = models.TextField(blank=True)
     teaser_sl = models.TextField(blank=True)
     teaser_da = models.TextField(blank=True)
+    teaser_en = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_de = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_it = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_fr = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sv = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_sl = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
+    teaser_da = models.TextField(
+        max_length=400, blank=True, help_text="Max. 400 Characters")
 
     teaser = TranslatedField(
         'teaser_de',
