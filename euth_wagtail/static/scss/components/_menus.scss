@@ -33,6 +33,7 @@
 
 #footer {
     @include rem(min-height, $footer-height);
+    @include rem(margin-top, 200px);
     border-top: 1px solid $gray-light;
 
     a {
