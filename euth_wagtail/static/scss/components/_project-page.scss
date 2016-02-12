@@ -1,6 +1,37 @@
-#project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of3';
+@media (min-width: $screen-xs-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of1';
+    }
+
 }
+
+
+@media (min-width: $screen-sm-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of2';
+    }
+
+}
+
+@media (min-width: $screen-md-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of3';
+    }
+
+}
+
+@media (min-width: $screen-lg-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of3';
+    }
+
+}
+
+
 
 .project-tile-container {
     float: left;
