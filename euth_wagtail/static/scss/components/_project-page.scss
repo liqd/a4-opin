@@ -1,5 +1,22 @@
-#project-tile-grid[data-columns]::before {
+@media (min-width: $screen-xs-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of1';
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+
+    #project-tile-grid[data-columns]::before {
+    content: '3 .project-tile-container.size-1of2';
+    }
+}
+
+@media (min-width: $screen-md-min) {
+
+    #project-tile-grid[data-columns]::before {
     content: '3 .project-tile-container.size-1of3';
+    }
 }
 
 .project-tile-container {
@@ -19,7 +36,10 @@
         }
 
         .project-tile-title {
-            color: $brand-brand1;
+            a {
+                text-decoration: none;
+                color: $brand-brand1;
+            }
         }
     }
 
@@ -29,7 +49,10 @@
         }
 
         .project-tile-title {
-            color: $brand-brand3;
+            a {
+                text-decoration: none;
+                color: $brand-brand3;
+            }
         }
     }
 
@@ -39,7 +62,10 @@
         }
 
         .project-tile-title {
-            color: $brand-brand4;
+            a {
+                text-decoration: none;
+                color: $brand-brand4;
+            }
         }
     }
 }
