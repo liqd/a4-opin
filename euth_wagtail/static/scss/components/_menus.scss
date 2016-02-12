@@ -32,7 +32,7 @@
 }
 
 #footer {
-    @include rem(height, $footer-height);
+    @include rem(min-height, $footer-height);
     border-top: 1px solid $gray-light;
 
     a {
@@ -40,6 +40,18 @@
         padding-top: 0;
         padding-bottom: 0;
     }
+}
+
+.footer-disclaimer {
+    @include rem(min-height, $footer-height);
+    border-top: 1px solid $gray-light;
+    @include rem(padding, 14px);
+
+    .footer-disclaimer-logo {
+        @include rem(height, 70px);
+        @include rem(padding-left, 40px);
+    }
+
 }
 
 #socials {
