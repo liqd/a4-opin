@@ -1,0 +1,68 @@
+#footer {
+    @extend #main-menu;
+    @include rem(min-height, $footer-height);
+    @include rem(margin-top, 200px);
+    border-top: 1px solid $gray-light;
+
+    a {
+        line-height: $footer-height;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.footer-disclaimer {
+    @include rem(min-height, $footer-height);
+    @include rem(padding, 14px);
+    border-top: 1px solid $gray-light;
+    float: left;
+    width: 100%;
+
+    .footer-disclaimer-logo {
+        @include rem(margin-right, 18px);
+        float: left;
+        max-width: 80px;
+    }
+
+}
+
+#socials {
+    margin: 0;
+    padding: 0;
+
+    &, li {
+        float: left;
+    }
+
+    li {
+        @include rem(margin-right, 12px);
+        list-style: none;
+
+        a {
+            @include rem(font-size, 35px);
+            display: block;
+            padding: 0;
+        }
+
+        &.facebook a {
+            color: #3b589b;
+        }
+
+        &.twitter a {
+            color: #5ea9dd;
+        }
+
+        &.gplus a {
+            color: #dd4b39;
+        }
+
+        &.linkedin a {
+            color: #0086bf;
+        }
+
+        &.euth a {
+            color: #106CB6;
+            margin-top: -4px;
+        }
+    }
+}
