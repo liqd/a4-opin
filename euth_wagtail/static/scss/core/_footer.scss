@@ -65,4 +65,8 @@
             margin-top: -4px;
         }
     }
+
+    @media (max-width: $screen-sm-min) {
+        width: 100%;
+    }
 }
