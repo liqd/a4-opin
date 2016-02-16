@@ -4,7 +4,7 @@
     <div class="container-narrow">
     {% for item in self.inline_images %}
         <div class="col-md-{{self.columns}} inline-images-block-col {{ self.columns|clear_class:forloop.counter }}">
-            <figure class="{{ item.no_border|border_class }}">
+            <figure>
             {% if item.internal_link %}
             <a href="{{ item.internal_link.url }}">
             {% endif %}
