@@ -9,3 +9,4 @@ db.sqlite3
 .sass-cache
 venv
 /euth_wagtail/static/third-party/bower_components/
+/node_modules
