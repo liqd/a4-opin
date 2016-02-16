@@ -139,13 +139,14 @@ STATICFILES_FINDERS = [
     'djangobower.finders.BowerFinder',
 ]
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail/static/third-party')
-
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-party')
 BOWER_INSTALLED_APPS = (
     'jquery',
     'bootstrap-sass',
     'salvattore'
 )
+BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
+
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
@@ -158,7 +159,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'sass --scss {infile} {outfile}'),
+    ('text/x-scss', os.path.join(BASE_DIR, 'node_modules', '.bin',  'node-sass') + ' {infile} {outfile}'),
 )
 
 # Wagtail settings
