@@ -28,3 +28,17 @@ def load_site_menu(menu_name):
         return menu[0].menu_items.all()
     else:
         return None
+
+@register.filter(name='border_class')
+def border_class(value):
+    if value:
+        return "m-no-border"
+    else:
+        return ""
+
+@register.filter(name='clear_class')
+def clear_class(columns_per_row, count):
+    if (count-1) % (12/int(columns_per_row)) == 0:
+        return "m-clear"
+    else:
+        return ""
