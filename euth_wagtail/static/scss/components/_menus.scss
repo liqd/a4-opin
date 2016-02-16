@@ -18,7 +18,7 @@
         padding-right: 0;
         text-transform: uppercase;
 
-        &:hover, &:focus {
+        &:hover, &:focus, &.is-active {
             background-color: transparent;
             color: $brand-brand1;
         }
