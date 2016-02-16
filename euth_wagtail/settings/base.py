@@ -161,8 +161,6 @@ MEDIA_URL = '/media/'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', os.path.join(BASE_DIR, 'node_modules', '.bin',  'node-sass') + ' {infile} {outfile}'),
 )
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
 
 # Wagtail settings
 
