@@ -16,7 +16,7 @@
 
         .accordion-link {
             @include rem(font-size, $font-size-large);
-            @include rem(padding, 0 12px);
+            @include rem(padding, 0 22px);
             border: 1px solid $brand-brand1;
             display: block;
             font-family: $font-family-sans-serif;
@@ -42,7 +42,7 @@
 
     .panel-body {
         @include rem(font-size, $font-size-base);
-        @include rem(padding, 10px 42px 35px 42px);
+        @include rem(padding, 0 22px 22px 22px);
         line-height: 1.75;
     }
 }
