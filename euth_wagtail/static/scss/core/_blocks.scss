@@ -80,3 +80,7 @@
         @include rem(margin, 0 0 $font-size-large);
     }
 }
+
+.m-clear {
+    clear: left;
+}
