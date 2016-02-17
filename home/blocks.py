@@ -124,3 +124,18 @@ class AccordionBlock(blocks.StructBlock):
         template = 'home/blocks/accordion_block.html'
         icon = 'placeholder'
         label = 'Accordion Block'
+
+
+class ImageTextItemBlock(blocks.StructBlock):
+    image = ImageChooserBlock()
+    text = TextBlock()
+
+
+class ImageTextBlockList(blocks.StructBlock):
+
+    imageTextBlockList = ListBlock(ImageTextItemBlock())
+
+    class Meta:
+        template = 'home/blocks/imageTextBlockList_block.html'
+        icon = 'placeholder'
+        label = 'Image Text Block'

@@ -1,0 +1,18 @@
+{% load i18n wagtailimages_tags static %}
+<section class="image-text-list-block">
+<div class="container">
+    <div class="container-narrow">
+        {% for item in self.imageTextBlockList  %}
+        {% image item.image width-80 as logo %}
+        <div class="row image-text-list-block-item">
+            <div class="col-md-2">
+                <div style="background-image: url({{ logo.url }}); min-height: {{logo.height}}px; background-repeat:no-repeat"></div>
+            </div>
+            <div class="col-md-10 image-text-list-block-item-text" style="line-height: {{logo.height}}px;">
+                <span>{{ item.text }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div
+</section>
