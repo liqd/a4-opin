@@ -2,6 +2,7 @@
     @extend %tile;
     @include rem(padding, 18px 14px);
     margin-right: 0;
+    position: relative;
 }
 
 .org-tile-title {
@@ -32,13 +33,16 @@
 	@include rem(padding-top, 80px);
 }
 
-.org-tile-logo-container {
-	position: relative;
-
+.org-tile-body {
+    padding-left: 0;
 }
 
-.org-tile-logo {
-   	width: 80px;
-   	margin-left: 40px !important;
-   	margin-top: 40px !important;
+.org-tile-image-link {
+    @extend .col-md-2;
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
 }

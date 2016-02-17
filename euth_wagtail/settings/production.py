@@ -1,5 +1,7 @@
 from .base import *
 
+COMPRESS = True
+COMPRESS_OFFLINE = True
 
 DEBUG = False
 

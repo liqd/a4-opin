@@ -10,23 +10,12 @@
         @include rem(padding-bottom, $block-vpadding);
 
         .img-container {
+            display: inline-block;
             position: relative;
 
             img {
                 position: relative;
                 z-index: 1;
-            }
-
-            &:after {
-                background: $brand-brand2;
-                border-radius: 50%;
-                content: "";
-                height: 125%;
-                left: -12.5%;
-                position: absolute;
-                top: -12.5%;
-                width: 125%;
-                z-index: 0;
             }
         }
 
@@ -42,10 +31,6 @@
         }
 
         &:nth-child(even) {
-            .img-container:after {
-                background: $brand-brand1;
-            }
-
             .inline-images-text {
                 color: $brand-brand2;
             }

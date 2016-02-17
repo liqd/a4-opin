@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <header class="container-narrow block">
-        {% image self.logo width-100 %}
+        {% image self.logo original %}
     	<h1 class="block-title org-title">{{ self.translated_title }}</h1>
     </header>
     <div class="block-inner">
@@ -13,7 +13,7 @@
     </div>
 
     <section class="container-narrow block-inner page-body {% if self.organisation_projects.all %} org-projects {% endif %}">
-    	<div id="project-tile-grid" data-columns>
+    	<div id="project-tile-grid" class="organisation-tiles" data-columns>
     	{% for project in self.organisation_projects.all %}
     	{% include "projects/includes/project_tile.html" with project=project.project %}
         {% endfor %}

@@ -109,6 +109,10 @@
     overflow: hidden;
     width: 100%;
 
+    .organisation-tiles & {
+        display: none;
+    }
+
     .project-tile-org-img-container {
         @include rem(padding-right, 15px);
 
