@@ -353,22 +353,14 @@ class ProjectsPage(Page):
 
 
 class AdhocracyProjectPage(ProjectPage):
-    adhocracySDK_url = models.URLField()
-    embedurl = models.URLField()
     widget = models.CharField(max_length=255)
     initial_url = models.CharField(max_length=255)
-    autoresize = models.BooleanField(default=False)
-    autourl = models.BooleanField(default=True)
-    locale = models.CharField(max_length=2, blank=True)
-    height = models.IntegerField()
+    locale = models.CharField(max_length=2, blank=True, help_text="Leave blank to use the language that is set in the CMS")
 
     adhocracy_panel = [
-        FieldPanel('adhocracySDK_url'),
-        FieldPanel('embedurl'),
         FieldPanel('widget'),
         FieldPanel('initial_url'),
-        FieldPanel('locale'),
-        FieldPanel('height'),
+        FieldPanel('locale')
     ]
 
     general_panels = [
