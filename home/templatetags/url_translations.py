@@ -11,7 +11,10 @@ register = template.Library()
 def do_translate_url(context, language):
 	try:
 		view = resolve(context['request'].path)
-		url = '/' + language + '/' + view.args[0]
+		if view.args:
+			url = '/' + language + '/' + view.args[0]
+		else:
+			url = '/'  + language + '/'
 	except Http404:
 		url = '/'  + language + '/'
 	return url
