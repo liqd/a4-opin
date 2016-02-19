@@ -1,21 +1,26 @@
 {% extends "base.html" %}
-{% load i18n wagtailimages_tags %}
+{% load i18n wagtailimages_tags base_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<script type="text/javascript" src="{{ self.adhocracySDK_url }}"></script>
+<script type="text/javascript" src="{% settings_value "ADHOCRACY_SDK" %}"></script>
 <script type="text/javascript">
-    adhocracy.init('{{ self.embedurl }}', function(adhocracy) {
+    adhocracy.init('{% settings_value "ADHOCRACY_URL" %}', function(adhocracy) {
         adhocracy.embed('.adhocracy_marker_1');
         });
 </script>
 
 <div class="container">
-<div class="adhocracy_marker_1" data-widget="{{ self.widget }}" data-initial-url="{{ self.initial_url }}" data-autoresize="false" data-autourl="true" data-locale="{% if self.locale %}{{ self.locale }}{% else %}{{ LANGUAGE_CODE }}{% endif %}" style="height:{{ self.height }}px">
+<div
+	class="adhocracy_marker_1"
+	data-widget="{{ self.widget }}"
+	data-initial-url="{{ self.initial_url }}"
+	data-autoresize="false"
+	data-autourl="true"
+	data-locale="{% if self.locale %}{{ self.locale }}{% else %}{{ LANGUAGE_CODE }}{% endif %}"
+	style="height:500px">
 </div>
 {% endblock %}
-
-
 
 
 {% block extra_js %}
