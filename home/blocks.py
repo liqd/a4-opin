@@ -113,7 +113,7 @@ class ContactBlock(blocks.StructBlock):
 
 class AccordionItemBlock(blocks.StructBlock):
     title = TextBlock(required=False)
-    content = TextBlock(required=False)
+    content = RichTextBlock(required=False)
 
 
 class AccordionBlock(blocks.StructBlock):
