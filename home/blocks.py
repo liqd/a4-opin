@@ -46,7 +46,7 @@ class InfoBlock(blocks.StructBlock):
 
     title = CharBlock(classname="full title", required=False)
     image = ImageChooserBlock(required=False)
-    text = TextBlock(required=False)
+    text = RichTextBlock(required=False)
     button = CallToActionBlock(required=False)
     highlight = ChoiceBlock(choices=[
         ('', 'None'),

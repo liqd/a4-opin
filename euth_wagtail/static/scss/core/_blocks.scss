@@ -22,6 +22,10 @@
         .button {
             @extend .button-alt;
         }
+
+        a {
+            color: $brand-brand2;
+        }
     }
 
     &.m-boxed {

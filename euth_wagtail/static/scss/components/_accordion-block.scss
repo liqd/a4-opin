@@ -11,6 +11,12 @@
         color: #fff;
     }
 
+    .panel-body {
+        a {
+            color: $brand-brand2;
+        }
+    }
+
     .accordion-title {
         margin: 0;
 
