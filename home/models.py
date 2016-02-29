@@ -301,6 +301,7 @@ class SimplePage(Page):
         ('rich_text', blocks.RichTextBlock(icon="pilcrow")),
         ('info_block', InfoBlock()),
         ('image', ImageChooserBlock(icon="image")),
+        ('wide_image', WideImageBlock(icon="image")),
         ('images', InlineImagesBlock(icon="image")),
         ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down")),
