@@ -1,4 +1,4 @@
-{% load i18n wagtailimages_tags static %}
+{% load i18n wagtailimages_tags wagtailcore_tags static %}
 {% if self.highlight == "highlight" %}
 <div class="info-block block m-highlight">
 {% elif self.highlight == "boxed" %}
@@ -19,7 +19,7 @@
     	    {% endif %}
 
             {% if self.text %}
-    	    <p class="info-box-text">{{ self.text }}</p>
+    	    <div class="info-box-text">{{ self.text | richtext }}</div>
             {% endif %}
 
             {% if self.button.internal_link %}
