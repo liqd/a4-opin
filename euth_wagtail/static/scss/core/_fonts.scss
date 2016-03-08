@@ -2,9 +2,9 @@
     font-family: 'helsinki';
     src: url('../fonts/helsinki-webfont.eot');
     src: url('../fonts/helsinki-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/helsinki-webfont.woff2') format('woff2'),
          url('../fonts/helsinki-webfont.woff') format('woff'),
-         url('../fonts/helsinki-webfont.ttf') format('truetype'),
-         url('../fonts/helsinki-webfont.svg#helsinkiregular') format('svg');
+         url('../fonts/helsinki-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
