@@ -10,7 +10,7 @@
 
 1. clone repository
 2. `cd euth_wagtail`
-3. install bower and sass `npm install bower node-sass`
+3. install bower and sass `npm install bower`
 4. create virtualenv (make sure to add virtualenv name to .gitignore)
 5. run `pip install -r requirements.txt`
 6. run `python manage.py migrate`

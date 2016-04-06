@@ -159,8 +159,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', os.path.join(BASE_DIR, 'node_modules', '.bin',  'node-sass') + ' {infile} {outfile}'),
+    ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+LIBSASS_SOURCEMAPS = True
 
 # Wagtail settings
 
