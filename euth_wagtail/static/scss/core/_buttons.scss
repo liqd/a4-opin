@@ -38,4 +38,8 @@
     transform-origin: 100% 0;
     top: 40%;
     z-index: 100;
+
+    @media (max-width: $screen-sm-min) {
+        display: none;
+    }
 }
