@@ -33,13 +33,16 @@
         {% include "includes/top_menu.html" %}
         {% endblock %}
 
-
         <div>
             {% block content %}{% endblock %}
         </div>
 
         {% block footer %}
 
+        {% endblock %}
+
+        {% block feedback %}
+        {% include "includes/feedback_button.html" %}
         {% endblock %}
 
         {# Global javascript #}
