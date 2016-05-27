@@ -21,7 +21,23 @@
     </section>
 
     <section class="container-narrow">
-        {% render_comment_list for self %}
+        {% comment %}{% render_comment_list for self %}{% endcomment %}
+        {% get_comment_list for self as comment_list %}
+        {% for comment in comment_list %}
+        <div>
+            <a name="c{{ comment.id }}"></a>
+            <div>
+                {{ comment.submit_date | date }}
+            </div>
+            <div>
+                {{ comment.user_name }}
+            </div>
+            <div>
+                {{ comment.comment }}
+            </div>
+
+        </div>
+        {% endfor %}
         {% if user.is_authenticated %}
         {% get_comment_form for self as form %}
             <form action="{% comment_form_target %}" method="POST">
@@ -36,7 +52,7 @@
             <input type="submit" value="Add comment" id="id_submit" />
             </form>
         {% else %}
-            <p>Please <a href="{% url 'auth_login' %}">log in</a> to leave a comment.</p>
+            <p>Please <a href="">log in</a> to leave a comment.</p>
         {% endif %}
     </section>
 

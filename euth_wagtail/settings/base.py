@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
+    'comments_api'
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -55,7 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
-    'django_comments'
+    'django_comments',
+    'rest_framework'
 ]
 
 MIDDLEWARE_CLASSES = [

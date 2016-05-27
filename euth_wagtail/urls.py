@@ -8,6 +8,8 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
+from comments_api import urls as comments_api_urls
+
 from search import views as search_views
 
 
@@ -16,6 +18,7 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^comments/', include('django_comments.urls')),
+    url(r'^api/', include(wagtail_urls)),
 ]
 
 urlpatterns += i18n_patterns('',
