@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
-    'comments_api'
+    'comments_api',
 
     'django.contrib.sites',
     'django.contrib.admin',

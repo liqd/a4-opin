@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^comments/', include('django_comments.urls')),
-    url(r'^api/', include(wagtail_urls)),
+    url(r'^api/', include(comments_api_urls)),
 ]
 
 urlpatterns += i18n_patterns('',
