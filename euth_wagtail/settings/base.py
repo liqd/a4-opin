@@ -46,14 +46,18 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
+    'comments_api',
 
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_countries'
+    'django_countries',
+    'django_comments',
+    'rest_framework'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -69,6 +73,8 @@ MIDDLEWARE_CLASSES = [
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'euth_wagtail.urls'
 
