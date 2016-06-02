@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags comments %}
+{% load wagtailcore_tags wagtailimages_tags comments react_comments %}
 {% block content %}
 <div class="container">
     <header class="container-narrow block">
@@ -21,6 +21,12 @@
     </section>
 
     <section class="container-narrow">
+    {% react_comments self%}
+
+
+    </section>
+
+    <!--<section class="container-narrow">
         {% comment %}{% render_comment_list for self %}{% endcomment %}
         {% get_comment_list for self as comment_list %}
         {% for comment in comment_list %}
@@ -54,7 +60,7 @@
         {% else %}
             <p>Please <a href="">log in</a> to leave a comment.</p>
         {% endif %}
-    </section>
+    </section>-->
 
 </div>
 {% endblock %}
