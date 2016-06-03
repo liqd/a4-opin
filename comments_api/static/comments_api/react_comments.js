@@ -39,12 +39,12 @@ var Comment = React.createClass({
 
   render: function() {
     return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.user_name}
-        </h2>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
-      </div>
+      h('div.comment', [
+        h('h2.commentAuthor', this.props.userName),
+        h('span', {
+          dangerouslySetInnerHTML: this.rawMarkup()
+        })
+      ])
     );
   }
 });
@@ -88,14 +88,14 @@ var CommentBox = React.createClass({
   },
   render: function() {
     return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm
-          subjectType={this.props.subjectType}
-          subjectId={this.props.subjectId}
-          onCommentSubmit={this.handleCommentSubmit} />
-      </div>
+      h('div.commentBox', [
+        h('h1', 'Comments'),
+        h(CommentList, { data: this.state.data }),
+        h(CommentForm, { subjectType: this.props.subjectType,
+                         subjectId: this.props.subjectId,
+                         onCommentSubmit: this.handleCommentSubmit
+                       }),
+      ])
     );
   }
 });
@@ -104,16 +104,12 @@ var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
       return (
-        <Comment user_name={comment.user_name} key={comment.id}>
-          {comment.comment}
-        </Comment>
+        h(Comment, { userName: comment.user_name }, comment.comment)
       );
     });
 
     return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
+      h('div.commentList', commentNodes)
     );
   }
 });
@@ -139,15 +135,18 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Say something..."
-          value={this.state.comment}
-          onChange={this.handleTextChange}
-        />
-        <input type="submit" value="Post" />
-      </form>
+      h('form.commentForm', { onSubmit: this.handleSubmit }, [
+        h('input', {
+          type: 'text',
+          placeholder: 'Say somehting..',
+          value: this.state.comment,
+          onChange: this.handleTextChange
+        }),
+        h('input', {
+          type: 'submit',
+          value: 'Post'
+        })
+      ])
     );
   }
 });
@@ -155,12 +154,12 @@ var CommentForm = React.createClass({
 window._opin = window._opin || {}
 
 window._opin.renderComment = function (subjectType, subjectId, target) {
-    ReactDOM.render(
-        <CommentBox
-         url="/api/comments/"
-         subjectType={subjectType}
-         subjectId={subjectId}
-         pollInterval={2000} />,
-        document.getElementById(target)
-    )
+  ReactDOM.render(
+    h(CommentBox, {
+      url: '/api/comments/',
+      subjectType: subjectType,
+      subjectId: subjectId,
+      pollInterval: 2000
+    }),
+    document.getElementById(target));
 }
