@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+<h2>Description</h2>
+{{process.description}}
+<h2>Phases</h2>
+<dl>
+  {% for phase in phases %}
+    <dt>{{ forloop.counter }}. {{phase.title}}</dt>
+    <dd>{{phase.description}}</dd>
+  {% endfor %}
+</dl>
+</header>
+<h2>Content</h2>
+// PLEASE ADD CONTENT HERE
+{% endblock %}

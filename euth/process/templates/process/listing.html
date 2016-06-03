@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<ul>
+{% for process in processes %}
+   <li>
+     <a href="{{process.get_absolute_url}}">{{process.title}}</a>
+     <div>
+       {{process.description}}
+     </div>
+   </li>
+{% endfor %}
+</ul>
+{% endblock %}
