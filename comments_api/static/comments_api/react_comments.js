@@ -91,7 +91,10 @@ var CommentBox = React.createClass({
       <div className="commentBox">
         <h1>Comments</h1>
         <CommentList data={this.state.data} />
-        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+        <CommentForm
+          subjectType={this.props.subjectType}
+          subjectId={this.props.subjectId}
+          onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
@@ -128,7 +131,10 @@ var CommentForm = React.createClass({
     if (!comment) {
       return;
     }
-    this.props.onCommentSubmit({comment: comment, object_pk: pk, content_type: contenttype});
+    this.props.onCommentSubmit({
+      comment: comment,
+      object_pk: this.props.subjectId,
+      content_type: this.props.subjectType});
     this.setState({comment: ''});
   },
   render: function() {
@@ -146,7 +152,15 @@ var CommentForm = React.createClass({
   }
 });
 
-ReactDOM.render(
-  <CommentBox url="/api/comments/" pollInterval={20000} />,
-  document.getElementById('content')
-);
+window._opin = window._opin || {}
+
+window._opin.renderComment = function (subjectType, subjectId, target) {
+    ReactDOM.render(
+        <CommentBox
+         url="/api/comments/"
+         subjectType={subjectType}
+         subjectId={subjectId}
+         pollInterval={2000} />,
+        document.getElementById(target)
+    )
+}
