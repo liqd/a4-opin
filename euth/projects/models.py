@@ -1,0 +1,53 @@
+import enum
+from django.conf import settings
+from django.db import models
+from django.utils import functional
+from model_utils import models as model_utils
+
+from ..organisations import models as org_models
+
+@enum.unique
+class Visibility(enum.Enum):
+    public = 1
+    private = 2
+
+class ProjectManager(models.Manager):
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+class Project(model_utils.TimeStampedModel):
+    slug = models.SlugField(max_length=512, unique=True)
+    name = models.CharField(max_length=512)
+    organisation = models.ForeignKey(org_models.Organisation, on_delete=models.CASCADE)
+    description = models.CharField(max_length=1024)
+    information = models.TextField(org_models.Organisation)
+    visibility = models.PositiveSmallIntegerField(
+        default = Visibility.public.value,
+        choices = [ (e.value, e.name) for e in Visibility ])
+    image = models.ImageField(upload_to='projects/backgrounds', blank=True)
+    participants = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='project_participant',
+        blank=True,
+    )
+    moderators = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='project_moderator'
+    )
+
+    objects = ProjectManager()
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('project-detail', args=[str(self.slug)])
+
+    @functional.cached_property
+    def is_private(self):
+        return self.visibility == Visibility.private.value
+
+    @functional.cached_property
+    def is_public(self):
+        return self.visibility == Visibility.public.value

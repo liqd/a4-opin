@@ -1,0 +1,16 @@
+[
+  {
+    "model": "euth_projects.project",
+    "pk": 1,
+    "fields": {
+      "name": "Aberdeen road alder",
+      "slug": "aberdeen-road-alder",
+      "organisation": [ "The treehouse conspiracy" ],
+      "description": "Build a new tree house on aberdeen road in an alder tree",
+      "information": "This is the content for the information page.",
+      "visibility": 1,
+      "participants": [],
+      "moderators": [["Tina"], ["Sam"]]
+    }
+  }
+]

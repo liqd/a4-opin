@@ -60,7 +60,8 @@ INSTALLED_APPS = [
 
     'euth.user_management',
     'euth.organisations',
-    'euth.comments'
+    'euth.projects',
+    'euth.comments',
 ]
 
 MIDDLEWARE_CLASSES = [
