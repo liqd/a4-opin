@@ -53,7 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_countries'
+    'django_countries',
+
+    'euth.user_management',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -109,7 +111,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -164,5 +166,8 @@ COMPRESS_PRECOMPILERS = (
 LIBSASS_SOURCEMAPS = True
 
 # Wagtail settings
+
+LOGIN_URL = 'wagtailadmin_login'
+LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
 WAGTAIL_SITE_NAME = "euth_wagtail"

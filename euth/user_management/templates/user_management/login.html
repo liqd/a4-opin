@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h2>Anmeldung</h2>
+
+{% if not request.user.is_authenticated %}
+    <div id="login">
+        <form class="form-horizontal" role="form" name="LoginForm" action="" method="post" >
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-errors">
+                    {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% endif %}
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label" for="username">Username</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label" for="password">Password</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-3">
+                    <button type="submit" value="Login" class="btn btn-primary">Anmelden</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% else %}
+Sie sind bereits angemeldet
+{% endif %}
+</div>
+{% endblock %}
