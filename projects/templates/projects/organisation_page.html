@@ -21,47 +21,8 @@
     </section>
 
     <section class="container-narrow">
-    {% react_comments self%}
-
-
+        {% react_comments self%}
     </section>
-
-    <!--<section class="container-narrow">
-        {% comment %}{% render_comment_list for self %}{% endcomment %}
-        {% get_comment_list for self as comment_list %}
-        {% for comment in comment_list %}
-        <div>
-            <a name="c{{ comment.id }}"></a>
-            <div>
-                {{ comment.submit_date | date }}
-            </div>
-            <div>
-                {{ comment.user_name }}
-            </div>
-            <div>
-                {{ comment.comment }}
-            </div>
-
-        </div>
-        {% endfor %}
-        {% if user.is_authenticated %}
-        {% get_comment_form for self as form %}
-            <form action="{% comment_form_target %}" method="POST">
-            {% csrf_token %}
-            {{ form.comment }}
-            {{ form.honeypot }}
-            {{ form.content_type }}
-            {{ form.object_pk }}
-            {{ form.timestamp }}
-            {{ form.security_hash }}
-            <input type="hidden" name="next" value="{{self.url}}" />
-            <input type="submit" value="Add comment" id="id_submit" />
-            </form>
-        {% else %}
-            <p>Please <a href="">log in</a> to leave a comment.</p>
-        {% endif %}
-    </section>-->
-
 </div>
 {% endblock %}
 
