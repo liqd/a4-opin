@@ -9,13 +9,18 @@ from rest_framework import permissions
 
 from .serializers import CommentSerializer
 from .permissions import IsUserOrReadOnly
+from rest_framework import filters
 
 
 class CommentViewSet(viewsets.ModelViewSet):
 
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.all().filter(
+        is_public=True, is_removed=False).order_by('-submit_date')
     serializer_class = CommentSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_fields = ('object_pk', 'content_type', 'user_name')
 
     def create(self, request):
 

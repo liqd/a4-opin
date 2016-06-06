@@ -4,5 +4,6 @@ django-libsass==0.3
 django-bower==5.0.4
 django-countries==3.4.1
 django-contrib-comments==1.7.1
+django-filter==0.13.0
 
 
