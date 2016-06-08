@@ -48,3 +48,54 @@
 		}
 	}
 }
+
+.comment {
+
+	& .icon::before {
+    	display: inline-block;
+    	margin-right: .5em;
+    	font: normal normal normal 14px/1 FontAwesome;
+    	font-size: inherit;
+    	text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+       transform: translate(0, 0);
+	}
+
+	& .nav {
+		padding: 10px 0 10px 0;
+
+		& .red {
+			color: $brand-brand4;
+		}
+
+		& .green {
+			color: $brand-brand3;
+		}
+
+		& .dark {
+			color: $gray-dark;
+		}
+
+		& li {
+			& a {
+				padding: 2px 7px 2px 7px;
+			}
+			& a:hover {
+				background-color: #fff;
+				text-decoration: none;
+			}
+			& a:focus {
+				background-color: #fff;
+				text-decoration: none;
+			}
+			& .active {
+				color: $gray-dark;
+			}
+		}
+	}
+}
+
+
+
+

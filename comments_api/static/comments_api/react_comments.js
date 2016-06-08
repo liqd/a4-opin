@@ -121,7 +121,11 @@ var Comment = React.createClass({
     },
 
     getInitialState: function() {
-        return { showChildComments: false, child_comments: this.props.child_comments };
+        return {
+            showChildComments: false,
+            child_comments: this.props.child_comments,
+            commentCount: this.props.child_comments.length
+        };
     },
 
     showComments: function(e) {
@@ -131,7 +135,21 @@ var Comment = React.createClass({
     },
 
     allowForm: function() {
-        return !(this.props.content_type === this.context.comments_contenttype)
+        return !(this.props.content_type === this.context.comments_contenttype);
+    },
+
+    allowRate: function() {
+        return true;
+    },
+
+    rateUp: function(e) {
+        e.preventDefault();
+        console.log('+1');
+    },
+
+    rateDown: function(e) {
+        e.preventDefault();
+        console.log('-1');
     },
 
     handleCommentSubmit: function(comment) {
@@ -143,7 +161,8 @@ var Comment = React.createClass({
             success: function(new_comment) {
                 var comments = this.state.child_comments;
                 var newComments = comments.concat([new_comment]);
-                this.setState({child_comments: newComments});
+                var newCount = newComments.length;
+                this.setState({child_comments: newComments, commentCount: newCount});
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.context.url, status, err.toString());
@@ -158,11 +177,47 @@ var Comment = React.createClass({
                 h('span', {
                     dangerouslySetInnerHTML: this.rawMarkup()
                 }),
-                h('div.commentSubmissionDate', this.props.submission_date),
-                this.allowForm() ? h('a.showChildComments', {
-                    href:'#',
-                    onClick: this.showComments,
-                },  "Answer" ) : null,
+                h('ul.nav.nav-pills', [
+                    h('li.entry', [
+                        h('a.commentSubmissionDate.dark', this.props.submission_date)
+                    ]),
+                    this.allowForm() ? h('li.entry',[
+                        h('a.icon.fa-comment-o.dark', {
+                                href:'#',
+                                onClick: this.showComments
+                            }, this.state.commentCount
+                        )
+                    ]) : null,
+                    this.allowRate() ? h('li.entry',[
+                        h('a.icon.fa-chevron-up.green', {
+                                href:'#',
+                                onClick: this.rateUp,
+                            }, this.state.commentCount
+                        )
+                    ]) : null,
+                    this.allowRate() ? h('li.entry',[
+                        h('a.icon.fa-chevron-down.red', {
+                                href:'#',
+                                onClick: this.rateDown,
+                            }, this.state.commentCount
+                        )
+                    ]) : null,
+                    h('li.entry', [
+                        h('a.icon.fa-ellipsis-h.dark', {
+                                href: ''
+                            }
+                        )
+                    ])
+                ]),
+                h('ul.nav.nav-pills.pull-right', [
+                    this.allowForm() ? h('li.entry',[
+                        h('a.icon.fa-reply', {
+                                href:'#',
+                                onClick: this.showComments
+                            }, 'Answer'
+                        )
+                    ]) : null
+                ]),
                 this.state.showChildComments ? h('div.child_comments_list', [
                     h(CommentList, { data: this.state.child_comments }),
                     h(CommentForm, { subjectType: this.context.comments_contenttype,
