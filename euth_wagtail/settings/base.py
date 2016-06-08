@@ -149,7 +149,8 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-
 BOWER_INSTALLED_APPS = (
     'jquery',
     'bootstrap-sass',
-    'salvattore'
+    'salvattore',
+    'fontawesome'
 )
 BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
 
