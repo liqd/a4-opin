@@ -4,8 +4,8 @@ from .. import sanatize_next
 register = template.Library()
 
 
-@register.inclusion_tag('user_management/indicator.html', takes_context=True)
-def userindicator(context, next_action=None):
+@register.inclusion_tag('user_management/indicator_menu.html', takes_context=True)
+def userindicator_menu(context, next_action=None):
     request = context['request']
     context = template.RequestContext(
         request,

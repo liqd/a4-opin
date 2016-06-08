@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="container">
-<h2>Anmeldung</h2>
+<h2>{% trans "Login" %}</h2>
 
 {% if not request.user.is_authenticated %}
     <div id="login">
@@ -42,7 +43,7 @@
     </div>
 
 {% else %}
-Sie sind bereits angemeldet
+{% trans "You are already logged in" %}
 {% endif %}
 </div>
 {% endblock %}

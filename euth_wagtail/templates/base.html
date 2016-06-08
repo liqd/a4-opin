@@ -1,7 +1,4 @@
-{% load base_tags compress static wagtailuserbar %}
-{% load i18n %}
-{% load url_translations %}
-{% load userindicator %}
+{% load base_tags compress i18n static url_translations wagtailuserbar %}
 {% get_current_language as LANGUAGE_CODE %}
 
 
@@ -33,7 +30,6 @@
         {% block menu %}
         {% include "includes/top_menu.html" %}
         {% endblock %}
-        {% userindicator %}
 
         <div>
             {% block content %}{% endblock %}
