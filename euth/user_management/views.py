@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
+from . import sanatize_next
 from .forms import LoginForm, RegisterForm, ActivateForm
 from .emails import send_registration
 
@@ -19,18 +20,15 @@ def login_user(request):
             user = form.login(request)
             if user:
                 login(request, user)
-                if request.GET.get('next'):
-                    return HttpResponseRedirect(request.GET.get('next'))
-                else:
-                    return HttpResponseRedirect(reverse('process-listing'))
+            return HttpResponseRedirect(sanatize_next(request))
     return render(request, 'user_management/login.html', {'form': form})
 
 
 def logout_user(request):
     logout(request)
-    next_step = request.POST.get('next') or request.GET.get('next')
-    if next_step:
-        return HttpResponseRedirect(next_step)
+    next_action = request.GET.get('next') or request.POST.get('next')
+    if next_action:
+        return HttpResponseRedirect(next_action)
     else:
         return render_to_response(
             'user_management/logout.html', context_instance=RequestContext(request))
@@ -41,6 +39,7 @@ def register_user(request):
     if request.method == 'POST':
         if form.is_valid():
             registration = form.register(request)
+            registration.nexts = sanatize_next(request)
             registration.save()
             send_registration(request, registration)
             return render(request, 'user_management/register_done.html')
@@ -59,8 +58,5 @@ def activate_user(request, token):
             user.backend = settings.AUTHENTICATION_BACKENDS[0]
             login(request, user)
 
-            if registration.nexts:
-                return HttpResponseRedirect(registration.nexts)
-            else:
-                return HttpResponseRedirect(reverse('process-listing'))
+            return HttpResponseRedirect(registration.nexts)
     return render(request, 'user_management/activate.html', {'form': form})
