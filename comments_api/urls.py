@@ -3,7 +3,7 @@ from rest_framework import routers
 from .api import CommentViewSet
 
 router = routers.DefaultRouter()
-router.register(r'comments', CommentViewSet, base_name='comments_api')
+router.register(r'comments', CommentViewSet, base_name='comments')
 
 urlpatterns = [
     url(r'^', include(router.urls)),

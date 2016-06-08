@@ -238,10 +238,10 @@ CommentForm.contextTypes = {
 
 window._opin = window._opin || {}
 
-window._opin.renderComment = function (subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target) {
+window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target) {
     ReactDOM.render(
       h(CommentBox, {
-        url: '/api/comments/',
+        url: url,
         subjectType: subjectType,
         subjectId: subjectId,
         comments_contenttype: comments_contenttype,
