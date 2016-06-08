@@ -66,8 +66,8 @@ var CommentBox = React.createClass({
         return {
             isAuthenticated: this.props.isAuthenticated,
             login_url: this.props.login_url,
-            handleCommentSubmit: this.handleCommentSubmit,
-            comments_contenttype: this.props.comments_contenttype
+            comments_contenttype: this.props.comments_contenttype,
+            submit_url: this.props.url
         };
     },
     render: function() {
@@ -90,8 +90,8 @@ var CommentBox = React.createClass({
 CommentBox.childContextTypes = {
     isAuthenticated: React.PropTypes.number,
     login_url: React.PropTypes.string,
-    handleCommentSubmit: React.PropTypes.func,
-    comments_contenttype: React.PropTypes.number
+    comments_contenttype: React.PropTypes.number,
+    submit_url: React.PropTypes.string
 };
 
 var CommentList = React.createClass({
@@ -121,7 +121,7 @@ var Comment = React.createClass({
     },
 
     getInitialState: function() {
-        return { showChildComments: false };
+        return { showChildComments: false, child_comments: this.props.child_comments };
     },
 
     showComments: function(e) {
@@ -132,6 +132,23 @@ var Comment = React.createClass({
 
     allowForm: function() {
         return !(this.props.content_type === this.context.comments_contenttype)
+    },
+
+    handleCommentSubmit: function(comment) {
+        $.ajax({
+            url: this.context.submit_url,
+            dataType: 'json',
+            type: 'POST',
+            data: comment,
+            success: function(new_comment) {
+                var comments = this.state.child_comments;
+                var newComments = comments.concat([new_comment]);
+                this.setState({child_comments: newComments});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.context.url, status, err.toString());
+            }.bind(this)
+        });
     },
 
     render: function() {
@@ -147,10 +164,10 @@ var Comment = React.createClass({
                     onClick: this.showComments,
                 },  "Answer" ) : null,
                 this.state.showChildComments ? h('div.child_comments_list', [
-                    h(CommentList, { data: this.props.child_comments }),
+                    h(CommentList, { data: this.state.child_comments }),
                     h(CommentForm, { subjectType: this.context.comments_contenttype,
                         subjectId: this.props.id,
-                        onCommentSubmit: this.context.handleCommentSubmit,
+                        onCommentSubmit: this.handleCommentSubmit,
                         rows: 1
                     })
                 ]) : null
@@ -161,7 +178,7 @@ var Comment = React.createClass({
 
 Comment.contextTypes = {
     comments_contenttype: React.PropTypes.number,
-    handleCommentSubmit: React.PropTypes.func
+    submit_url: React.PropTypes.string
 };
 
 var CommentForm = React.createClass({
