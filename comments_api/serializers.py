@@ -22,7 +22,7 @@ class CommentSerializer(serializers.ModelSerializer):
             app_label="django_comments", model="comment")
         pk = obj.pk
         children = Comment.objects.all().filter(
-            content_type=content_type, object_pk=pk)
+            content_type=content_type, object_pk=pk).order_by('submit_date')
         serializer = CommentSerializer(children, many=True)
         return serializer.data
 
