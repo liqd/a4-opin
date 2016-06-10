@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.contrib.auth.models import AnonymousUser, User, Permission
 from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
 
 from .models import Phase, PhaseType, ParticipationModule, Process
 from .permissions import permission_required
@@ -146,3 +147,81 @@ class ProcessTestCase(TestCase):
         request.user = AnonymousUser()
         response = wrapped(request, process_name='permission-moderator-check')
         self.assertEqual(response.status_code, 403)
+
+    def test_phase_dont_overlapp(self):
+        phase_type5 = self._create_dummy_phase_type(5)
+        phase_type6 = self._create_dummy_phase_type(6)
+        now = timezone.now()
+
+        process = self._create_process('closed-phases-overlap', [
+            (phase_type5, now - timedelta(2), None),
+            (phase_type6, now - timedelta(1), None),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type6)
+
+        try:
+            phase.full_clean()
+            self.fail('both phases are currently active')
+        except ValidationError as e:
+            pass
+
+        process = self._create_process('phase-starts-before-end', [
+            (phase_type5, now - timedelta(2), now),
+            (phase_type6, now - timedelta(1), None),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type6)
+        try:
+            phase.full_clean()
+            self.fail('new phase starts before old ended')
+        except ValidationError as e:
+            pass
+
+        process = self._create_process('phase-includes-other-phase', [
+            (phase_type5, now - timedelta(1), now + timedelta(1)),
+            (phase_type6, now - timedelta(2), now + timedelta(2)),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type6)
+        try:
+            phase.full_clean()
+            self.fail('phase includes other phase')
+        except ValidationError as e:
+            pass
+
+        process = self._create_process('phase-overlaps', [
+            (phase_type5, now - timedelta(2), now),
+            (phase_type6, now - timedelta(1), now + timedelta(1)),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type6)
+        try:
+            phase.full_clean()
+            self.fail('phase includes other phase')
+        except ValidationError as e:
+            pass
+
+    def test_phase_valid(self):
+        phase_type7 = self._create_dummy_phase_type(7)
+        now = timezone.now()
+
+        process = self._create_process('phase-zero-length', [
+            (phase_type7, now, now),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type7)
+        try:
+            phase.full_clean()
+        except ValidationError:
+            pass
+
+        process = self._create_process('phase-missing-start', [
+            (phase_type7, None, now),
+        ])
+        phase = Phase.objects.get(module__process=process,
+                                  phase_type=phase_type7)
+        try:
+            phase.full_clean()
+        except ValidationError:
+            pass

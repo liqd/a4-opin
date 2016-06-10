@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import Permission, User
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 
 class Process(models.Model):
@@ -71,6 +72,10 @@ class ParticipationModule(models.Model):
     )
     order = models.PositiveSmallIntegerField(db_index=True)
 
+    def __str__(self):
+        return '{}. module of {}'.format(
+            self.order, self.process)
+
 
 class Phase(models.Model):
 
@@ -87,6 +92,35 @@ class Phase(models.Model):
     date_start = models.DateTimeField(blank=True, null=True)
     date_end = models.DateTimeField(blank=True, null=True)
 
+    def clean(self):
+        if not self.date_start and self.date_end:
+            raise ValidationError("phase end requires start")
+
+        if self.date_start and self.date_end and self.date_start >= self.date_end:
+            raise ValidationError('phase end before start')
+
+        if not self.date_start:
+            return
+
+        qs = Phase.objects.filter(module__process=self.module.process)
+        for phase in qs:
+            if not phase.date_start:
+                continue
+
+            if not self.date_end:
+                if not phase.date_end:
+                    raise ValidationError(
+                        '{} and {} running'.format(
+                            phase, self))
+                elif phase.date_end > self.date_start:
+                    raise ValidationError(
+                        '{} ends after {} starts'.format(
+                            phase, self))
+            elif not (self.date_end <= phase.date_start or self.date_start >= phase.date_end):
+                raise ValidationError(
+                    '{} overlaps with {}'.format(
+                        phase, self))
+
     def __str__(self):
-        return '{} phase of process «{}»'.format(
-            quantityStr(self.order), self.process.name)
+        return '{} phase in {}'.format(
+            self.phase_type.name, self.module)
