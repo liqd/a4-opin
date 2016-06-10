@@ -110,9 +110,10 @@ class ProcessTestCase(TestCase):
         process = self._create_process('phase-ending-now', [
             (phase_type1, now - timedelta(2), now - timedelta(1)),
             (phase_type2, now - timedelta(1), now),
-            (phase_type3, None, None)
+            (phase_type3, now, None)
         ])
-        self.assertEqual(process.get_current_phase(now), None)
+        self.assertEqual(process.get_current_phase(now).phase_type,
+                         phase_type3)
 
     def test_permission_required_decorator(self):
         phase_type4 = self._create_dummy_phase_type(4)
