@@ -1,0 +1,5 @@
+[style]
+based_on_style = pep8
+split_before_first_argument = true
+split_before_bitwise_operator = true
+dedent_closing_brackets = true
