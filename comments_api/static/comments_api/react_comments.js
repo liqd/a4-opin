@@ -31,7 +31,8 @@ var CommentBox = React.createClass({
         },
         success: function(data) {
             var commentCount = data.length;
-            this.setState({data: data, commentCount: commentCount});
+            var commentString = this.getCommentString(commentCount);
+            this.setState({data: data, commentCount: commentCount, commentString: commentString});
         }.bind(this),
         error: function(xhr, status, err) {
             console.error(this.props.url, status, err.toString());
@@ -48,15 +49,28 @@ var CommentBox = React.createClass({
             var comments = this.state.data;
             var newComments = [new_comment].concat(comments);
             var newCommentcount = newComments.length;
-            this.setState({data: newComments, commentCount: newCommentcount});
+            var newCommentString = this.getCommentString(newCommentcount);
+            this.setState({data: newComments, commentCount: newCommentcount, commentString: newCommentString});
         }.bind(this),
         error: function(xhr, status, err) {
             console.error(this.props.url, status, err.toString());
         }.bind(this)
       });
     },
+    getCommentString: function(count) {
+        if(count===1){
+            return this.props.translations.translations.comments_i18n_sgl;
+        }
+        else {
+            return this.props.translations.translations.comments_i18n_pl;
+        }
+    },
     getInitialState: function() {
-        return {data: [], commentCount: 0};
+        return {
+            data: [],
+            commentCount: 0,
+            commentString: this.props.translations.translations.comments_i18n_sgl
+        };
     },
     componentDidMount: function() {
         this.loadCommentsFromServer();
@@ -67,13 +81,14 @@ var CommentBox = React.createClass({
             isAuthenticated: this.props.isAuthenticated,
             login_url: this.props.login_url,
             comments_contenttype: this.props.comments_contenttype,
-            submit_url: this.props.url
+            submit_url: this.props.url,
+            translations: this.props.translations
         };
     },
     render: function() {
         return (
             h('div.commentBox', [
-                h('div.comments_count', this.state.commentCount + " " + i18n_comments),
+                h('div.comments_count', this.state.commentCount + " " + this.state.commentString),
                 h(CommentForm, { subjectType: this.props.subjectType,
                     subjectId: this.props.subjectId,
                     onCommentSubmit: this.handleCommentSubmit,
@@ -91,7 +106,8 @@ CommentBox.childContextTypes = {
     isAuthenticated: React.PropTypes.number,
     login_url: React.PropTypes.string,
     comments_contenttype: React.PropTypes.number,
-    submit_url: React.PropTypes.string
+    submit_url: React.PropTypes.string,
+    translations: React.PropTypes.object
 };
 
 var CommentList = React.createClass({
@@ -184,7 +200,8 @@ var Comment = React.createClass({
                     this.allowForm() ? h('li.entry',[
                         h('a.icon.fa-comment-o.dark', {
                                 href:'#',
-                                onClick: this.showComments
+                                onClick: this.showComments,
+                                'aria-hidden': true
                             }, this.state.commentCount
                         )
                     ]) : null,
@@ -192,6 +209,7 @@ var Comment = React.createClass({
                         h('a.icon.fa-chevron-up.green', {
                                 href:'#',
                                 onClick: this.rateUp,
+                                'aria-hidden': true
                             }, this.state.commentCount
                         )
                     ]) : null,
@@ -199,12 +217,14 @@ var Comment = React.createClass({
                         h('a.icon.fa-chevron-down.red', {
                                 href:'#',
                                 onClick: this.rateDown,
+                                'aria-hidden': true
                             }, this.state.commentCount
                         )
                     ]) : null,
                     h('li.entry', [
                         h('a.icon.fa-ellipsis-h.dark', {
-                                href: ''
+                                href: '',
+                                'aria-hidden': true
                             }
                         )
                     ])
@@ -213,7 +233,8 @@ var Comment = React.createClass({
                     this.allowForm() ? h('li.entry',[
                         h('a.icon.fa-reply', {
                                 href:'#',
-                                onClick: this.showComments
+                                onClick: this.showComments,
+                                'aria-hidden': true
                             }, 'Answer'
                         )
                     ]) : null
@@ -262,7 +283,7 @@ var CommentForm = React.createClass({
                     h('div.form-group', [
                     h('textarea.form-control', {
                         type: 'text',
-                        placeholder: i18n_your_comment,
+                        placeholder: this.context.translations.translations.i18n_your_comment,
                         rows: this.props.rows,
                         value: this.state.comment,
                         onChange: this.handleTextChange,
@@ -279,7 +300,7 @@ var CommentForm = React.createClass({
         else {
             return(
                 h('div.comments_login', [
-                    h('a', {href: this.context.login_url}, i18n_please_loggin)
+                    h('a', {href: this.context.login_url}, this.context.translations.translations.i18n_please_loggin_to_comment)
                 ])
             );
         }
@@ -288,12 +309,13 @@ var CommentForm = React.createClass({
 
 CommentForm.contextTypes = {
     isAuthenticated: React.PropTypes.number,
-    login_url: React.PropTypes.string
+    login_url: React.PropTypes.string,
+    translations: React.PropTypes.object
 };
 
 window._opin = window._opin || {}
 
-window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target) {
+window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations) {
     ReactDOM.render(
       h(CommentBox, {
         url: url,
@@ -303,6 +325,7 @@ window._opin.renderComment = function (url,subjectType, subjectId, comments_cont
         isAuthenticated: isAuthenticated,
         login_url: login_url,
         pollInterval: 20000,
+        translations: translations
       }),
       document.getElementById(target));
 }

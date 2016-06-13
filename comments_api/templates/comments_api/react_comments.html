@@ -7,15 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
 <script src="{% static "comments_api/react_comments.js" %}"></script>
 
-<script type="text/javascript">
-	var i18n_comments = "{% trans "comments" %}"
-	var i18n_your_comment = "{% trans "your comment here ..." %}"
-	var i18n_please_loggin = "{% trans "Please login to comment" %}"
-</script>
-
-
-
 <div id="comments_for_{{contenttype}}_{{pk}}"></div>
 <script>
-  window._opin.renderComment( "{% url 'comments-list'%}",{{contenttype}}, {{pk}}, {{comments_conetenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}")
+  window._opin.renderComment( "{% url 'comments-list'%}",{{contenttype}}, {{pk}}, {{comments_conetenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", {{ translations | safe }})
 </script>
