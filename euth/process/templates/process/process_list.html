@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <ul>
-{% for process in processes %}
+{% for process in process_list %}
    <li>
      <a href="{{process.get_absolute_url}}">{{process.title}}</a>
      <div>

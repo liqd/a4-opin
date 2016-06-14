@@ -1,26 +1,21 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.urlresolvers import reverse
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 
-from . import models
-from .permissions import permission_required
-
-
-def listing(request):
-    context = {
-        'processes': models.Process.objects.all()
-    }
-    return render(request, 'process/listing.html', context)
+from .models import Process
 
 
-def detail(request, process_name):
-    process = get_object_or_404(models.Process, name=process_name)
-    phases = process.phase_set.order_by('order')
-    context = {
-        'process': process,
-        'phases': phases,
-        'breadcrumbs': [
-            ('/', reverse('process-listing')),
-            (process.title, None),
-        ]
-    }
-    return render(request, 'process/detail.html', context)
+class ProcessListView(ListView):
+    model = Process
+
+
+class ProcessDetailView(DetailView):
+    model = Process
+    slug_field = 'name'
+    slug_url_kwarg = 'process_name'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProcessDetailView, self).get_context_data(**kwargs)
+        context['phases'] = context['process'].phases
+        return context
