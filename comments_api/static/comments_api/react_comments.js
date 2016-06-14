@@ -256,7 +256,7 @@ var Comment = React.createClass({
     render: function() {
         return (
             h('div.comment', [
-                h('h3.commentAuthor', this.props.userName),
+                h('h3.commentAuthor', this.props.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
                         dangerouslySetInnerHTML: this.state.comment
                     }
