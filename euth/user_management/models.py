@@ -7,4 +7,4 @@ class Registration(models.Model):
     username = models.TextField(max_length=255)
     email = models.EmailField()
     password = models.TextField(max_length=128)
-    nexts = models.URLField(blank=True, null=True)
+    next_action = models.URLField(blank=True, null=True)

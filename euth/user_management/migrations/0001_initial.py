@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('username', models.TextField(max_length=255)),
                 ('email', models.EmailField(max_length=254)),
                 ('password', models.TextField(max_length=128)),
-                ('nexts', models.URLField(blank=True, null=True)),
+                ('next_action', models.URLField(blank=True, null=True)),
             ],
         ),
     ]
