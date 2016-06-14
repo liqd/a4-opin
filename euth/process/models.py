@@ -125,7 +125,7 @@ class Phase(models.Model):
                     raise ValidationError(
                         '{} ends after {} starts'.format(
                             phase, self))
-            elif not phase.self_date:
+            elif not phase.end_date:
                 if self.date_end > phase.date_start:
                     raise ValidationError(
                         '{} ends after {} starts'.format(
