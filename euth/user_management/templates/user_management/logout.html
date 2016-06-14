@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h2><small>Abmeldung</small></h2>
+	<div id="logout">
+	    <p>Sie haben sich erfolgreich abgemeldet!</p>
+	    <a href="{% url 'login' %}">Wieder anmelden</a>
+	</div>
+</div>
+{% endblock %}

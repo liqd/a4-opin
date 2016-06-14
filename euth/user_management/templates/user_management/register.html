@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n widget_tweaks %}
+{% block content %}
+<div class="container">
+<h2>{% trans "Register" %}</h2>
+<div class="skinny-form">
+    <header class="skinny-form-header">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="{% url 'login' %}?next={{next_action}}">Login</a></li>
+            <li role="presentation" class="active"><a href="{% url 'register' %}?next={{next_action}}">Register</a></li>
+        </ul>
+    </header>
+    <form class="skinny-form-inner" role="form" name="RegisterForm" action="" method="post" >
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="form-errors">
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+
+        <div class="form-group">
+            <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username.errors }}
+            {{ form.username|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email.errors }}
+            {{ form.email|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="{{ form.password.id_for_label }}">Password</label>
+            {{ form.password.errors }}
+            {{ form.password|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="{{ form.password_repeat.id_for_label }}">Password repeat</label>
+            {{ form.password_repeat.errors }}
+            {{ form.password_repeat|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" value="Register" class="btn btn-primary btn-cta">Register</button>
+    </form>
+</div>
+</div>
+
+{% endblock %}
