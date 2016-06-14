@@ -11,20 +11,22 @@
     }
   },
   {
-    "model": "process.phaseType",
-    "pk": 1,
-    "fields": {
-      "app_label": "dummy",
-      "name": "add",
-      "moderator_permissions": [],
-      "participant_permissions": []
-    }
-  },
-  {
     "model": "process.participationModule",
     "pk":  1,
     "fields": {
-
+      "process": 1,
+      "order": 1
+    }
+  },
+  {
+    "model": "process.phaseType",
+    "pk": 1,
+    "fields": {
+      "name": "add",
+      "moderator_permissions": [],
+      "participant_permissions": [],
+      "order": 1,
+      "module_type": [ "process", "participationmodule" ]
     }
   },
   {
@@ -34,9 +36,7 @@
       "title": "Coordination",
       "description": "In the coordination phase you can provide your ideas.",
       "phase_type": 1,
-      "order": 1,
-      "process": 1,
-      "participation_module": 1,
+      "module": 1,
       "date_start": "2016-03-01T18:00:00+00:00",
       "date_end": null
     }
