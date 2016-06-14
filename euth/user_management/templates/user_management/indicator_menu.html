@@ -26,58 +26,13 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login / Register"%}<span class="caret"></span></span>
         </a>
         <ul class="dropdown-menu">
-           <li>
-    	      <a href="#login">{% trans "login" %}</a>
-    	    </li>
-    	    <li>
-    	      <a href="#register">{% trans "register" %}</a>
-    	    </li>
+            <li>
+    			<a href="{% url 'login' %}?next={{next_action}}">{% trans "login" %}</a>
+    		</li>
+    		<li>
+    			<a href="{% url 'register' %}?next={{next_action}}">{% trans "register" %}</a>
+    		</li>
         </ul>
     </li>
 </ul>
-<div id="register" class="overlay">
-  <div class="popup">
-    <a class="close" href="#">x</a>
-    <h4 class="modal-title">Login</h4>
-    <div class="modal-content">
-      <form action="{% url 'register' %}">
-        {% csrf_token %}
-
-        <label class="col-lg-2 control-label" for="{{ register_form.username.id_for_label }}">Username</label>
-        {{ register_form.username }}
-
-        <label class="col-lg-2 control-label" for="{{ register_form.email.id_for_label }}">Email</label>
-        {{ register_form.email }}
-
-        <label class="col-lg-2 control-label" for="{{ register_form.password.id_for_label }}">Password</label>
-        {{ register_form.password }}
-
-        <label class="col-lg-2 control-label" for="{{ register_form.password_repeat.id_for_label }}">Password</label>
-        {{ register_form.password_repeat }}
-
-        <input type="hidden" name="next" value="{{ next_action }}" />
-        <button type="submit" value="Login" class="btn btn-primary">{% trans "register" %}</button>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="login" class="overlay">
-  <div class="popup">
-    <a class="close" href="#">x</a>
-    <h4 class="modal-title">Login</h4>
-    <div class="modal-content">
-      <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-
-        <label class="col-lg-2 control-label" for="{{ register_form.password_repeat.id_for_label }}">Username</label>
-        {{ login_form.username }}
-        <label class="col-lg-2 control-label" for="{{ register_form.password_repeat.id_for_label }}">Password</label>
-        {{ login_form.password }}
-
-        <input type="hidden" name="next" value="{{ next_action }}" />
-        <button type="submit" value="Login" class="btn btn-primary">{% trans "login" %}</button>
-      </form>
-    </div>
-  </div>
-</div>
 {% endif %}
