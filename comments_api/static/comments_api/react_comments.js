@@ -50,7 +50,10 @@ var CommentBox = React.createClass({
             var newComments = [new_comment].concat(comments);
             var newCommentcount = newComments.length;
             var newCommentString = this.getCommentString(newCommentcount);
-            this.setState({data: newComments, commentCount: newCommentcount, commentString: newCommentString});
+            this.setState({
+                data: newComments,
+                commentCount: newCommentcount,
+                commentString: newCommentString});
         }.bind(this),
         error: function(xhr, status, err) {
             console.error(this.props.url, status, err.toString());
@@ -82,7 +85,8 @@ var CommentBox = React.createClass({
             login_url: this.props.login_url,
             comments_contenttype: this.props.comments_contenttype,
             submit_url: this.props.url,
-            translations: this.props.translations
+            translations: this.props.translations,
+            user_name: this.props.user_name
         };
     },
     render: function() {
@@ -107,7 +111,8 @@ CommentBox.childContextTypes = {
     login_url: React.PropTypes.string,
     comments_contenttype: React.PropTypes.number,
     submit_url: React.PropTypes.string,
-    translations: React.PropTypes.object
+    translations: React.PropTypes.object,
+    user_name: React.PropTypes.string
 };
 
 var CommentList = React.createClass({
@@ -115,12 +120,11 @@ var CommentList = React.createClass({
         var commentNodes = this.props.data.map(function(comment) {
             return (
                 h(Comment, {
-                    userName: comment.user_name,
+                    user_name: comment.user_name,
                     child_comments: comment.child_comments,
                     submission_date: comment.submit_date,
                     id: comment.id,
                     content_type: comment.content_type,
-                    isChild: comment.isChild
                 }, comment.comment)
             );
         });
@@ -131,16 +135,25 @@ var CommentList = React.createClass({
 });
 
 var Comment = React.createClass({
-    rawMarkup: function() {
-        var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    rawMarkup: function(text) {
+        var rawMarkup = marked(text.toString(), {sanitize: true});
         return { __html: rawMarkup };
     },
 
     getInitialState: function() {
         return {
+            edit: false,
+            comment_raw: this.props.children,
+            comment: this.rawMarkup(this.props.children),
             showChildComments: false,
             child_comments: this.props.child_comments,
-            commentCount: this.props.child_comments.length
+            commentCount: this.props.child_comments.length,
+            editForm: h(CommentEditForm, {
+                comment: this.props.children,
+                rows: 5,
+                handleCancel: this.toggleEdit,
+                onCommentSubmit: this.handleCommentUpdate
+            })
         };
     },
 
@@ -148,6 +161,14 @@ var Comment = React.createClass({
         e.preventDefault();
         var newShowChildComment = !this.state.showChildComments;
         this.setState({showChildComments: newShowChildComment});
+    },
+
+    toggleEdit: function(e) {
+        if(e) {
+            e.preventDefault();
+        }
+        var newEdit = !this.state.edit;
+        this.setState({edit: newEdit});
     },
 
     allowForm: function() {
@@ -161,6 +182,10 @@ var Comment = React.createClass({
     rateUp: function(e) {
         e.preventDefault();
         console.log('+1');
+    },
+
+    isOwner: function() {
+        return this.props.user_name === this.context.user_name;
     },
 
     rateDown: function(e) {
@@ -186,19 +211,48 @@ var Comment = React.createClass({
         });
     },
 
+    handleCommentUpdate: function(comment) {
+        $.ajax({
+            url: this.context.submit_url + this.props.id + '/',
+            dataType: 'json',
+            type: 'PATCH',
+            data: comment,
+            success: function(new_comment) {
+                var updatedComment_raw = new_comment.comment;
+                var updatedComment = this.rawMarkup(updatedComment_raw);
+                var newForm = h(CommentEditForm, {
+                    comment: updatedComment_raw,
+                    rows: 5,
+                    handleCancel: this.toggleEdit,
+                    onCommentSubmit: this.handleCommentUpdate
+                });
+                this.setState({
+                    comment: updatedComment,
+                    comment_raw: updatedComment_raw,
+                    editForm: newForm
+                });
+                this.toggleEdit();
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.context.url, status, err.toString());
+            }.bind(this)
+        });
+    },
+
     render: function() {
         return (
             h('div.comment', [
                 h('h3.commentAuthor', this.props.userName),
-                h('span', {
-                    dangerouslySetInnerHTML: this.rawMarkup()
-                }),
+                this.state.edit ? this.state.editForm : h('span', {
+                    dangerouslySetInnerHTML: this.state.comment
+                }
+                ),
                 h('ul.nav.nav-pills', [
                     h('li.entry', [
-                        h('a.commentSubmissionDate.dark', this.props.submission_date)
+                        h('a.commentSubmissionDate.light', this.props.submission_date)
                     ]),
                     this.allowForm() ? h('li.entry',[
-                        h('a.icon.fa-comment-o.dark', {
+                        h('a.icon.fa-comment-o.light', {
                                 href:'#',
                                 onClick: this.showComments,
                                 'aria-hidden': true
@@ -221,13 +275,34 @@ var Comment = React.createClass({
                             }, this.state.commentCount
                         )
                     ]) : null,
-                    h('li.entry', [
-                        h('a.icon.fa-ellipsis-h.dark', {
-                                href: '',
-                                'aria-hidden': true
-                            }
-                        )
-                    ])
+                    this.context.isAuthenticated ? h('li.dropdown', {role: 'presentation'},[
+                        h('a.dropdown-toggle.icon.fa-ellipsis-h.light', {
+                            'data-toggle':'dropdown',
+                            href:'#',
+                            role:'button',
+                            'aria-haspopup': true,
+                            'aria-expanded': false,
+                            'aria-hidden': true
+                            }),
+                        h('ul.dropdown-menu', [
+                            this.isOwner() ? h('li', [
+                                h('a.icon.fa-pencil.light', {
+                                        href:'#',
+                                        onClick: this.toggleEdit,
+                                        'aria-hidden': true
+                                    }, 'Edit'
+                                )
+                            ]) : null,
+                            h('li', [
+                                h('a.icon.fa-ban.light', {
+                                        href:'#',
+                                        onClick: this.rateUp,
+                                        'aria-hidden': true
+                                    }, 'Report'
+                                )
+                            ])
+                        ])
+                    ]) : null,
                 ]),
                 h('ul.nav.nav-pills.pull-right', [
                     this.allowForm() ? h('li.entry',[
@@ -254,7 +329,9 @@ var Comment = React.createClass({
 
 Comment.contextTypes = {
     comments_contenttype: React.PropTypes.number,
-    submit_url: React.PropTypes.string
+    submit_url: React.PropTypes.string,
+    isAuthenticated: React.PropTypes.number,
+    user_name: React.PropTypes.string
 };
 
 var CommentForm = React.createClass({
@@ -313,9 +390,59 @@ CommentForm.contextTypes = {
     translations: React.PropTypes.object
 };
 
+var CommentEditForm = React.createClass({
+    getInitialState: function() {
+        return {comment: this.props.comment};
+    },
+    handleTextChange: function(e) {
+        this.setState({comment: e.target.value});
+    },
+    handleSubmit: function(e) {
+        e.preventDefault();
+        var comment = this.state.comment.trim();
+        if (!comment) {
+            return;
+        }
+        this.props.onCommentSubmit({
+            comment: comment
+        });
+    },
+    render: function() {
+        return (
+            h('form', { onSubmit: this.handleSubmit }, [
+                h('div.form-group', [
+                h('textarea.form-control', {
+                    type: 'text',
+                    placeholder: this.context.translations.translations.i18n_your_comment,
+                    rows: this.props.rows,
+                    value: this.state.comment,
+                    onChange: this.handleTextChange,
+                    required: 'required'
+                })
+            ]),
+            h('input.btn.btn-primary', {
+                type: 'submit',
+                value: 'Post'
+            }),
+            h('input.btn.btn-primary', {
+                type: 'submit',
+                value: 'Cancel',
+                onClick: this.props.handleCancel
+            })
+            ])
+        );
+    }
+});
+
+CommentEditForm.contextTypes = {
+    isAuthenticated: React.PropTypes.number,
+    login_url: React.PropTypes.string,
+    translations: React.PropTypes.object
+};
+
 window._opin = window._opin || {}
 
-window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations) {
+window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name) {
     ReactDOM.render(
       h(CommentBox, {
         url: url,
@@ -325,7 +452,8 @@ window._opin.renderComment = function (url,subjectType, subjectId, comments_cont
         isAuthenticated: isAuthenticated,
         login_url: login_url,
         pollInterval: 20000,
-        translations: translations
+        translations: translations,
+        user_name: user_name
       }),
       document.getElementById(target));
 }
