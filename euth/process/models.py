@@ -89,6 +89,9 @@ class ParticipationModule(models.Model):
 
 class Phase(models.Model):
 
+    class Meta:
+        unique_together = (("phase_type", "module"),)
+
     title = models.CharField(max_length=1024)
     description = models.TextField()
     module = models.ForeignKey(
@@ -102,42 +105,57 @@ class Phase(models.Model):
     date_start = models.DateTimeField(blank=True, null=True)
     date_end = models.DateTimeField(blank=True, null=True)
 
-    def clean(self):
+    @property
+    def is_open(self):
+        return self.date_start and not self.date_end
+
+    @property
+    def is_dated(self):
+        return self.date_start
+
+    def clean_dates(self):
         if not self.date_start and self.date_end:
-            raise ValidationError("phase end requires start")
+            raise ValidationError({ 'date_start': 'phase end requires start' })
 
-        if self.date_start and self.date_end and self.date_start >= self.date_end:
-            raise ValidationError('phase end before start')
+        if self.date_end and self.date_start >= self.date_end:
+            raise ValidationError({ 'date_end': 'phase end before start' })
 
-        if not self.date_start:
-            return
 
-        qs = Phase.objects.filter(module__process=self.module.process)
-        for phase in qs:
-            if self == phase:
-                continue
+    def clean_phases_overlapp(self):
+        qs = Phase.objects.filter(
+            module__process=self.module.process,
+            date_start__isnull=False
+        ).exclude(
+            pk__exact=self.pk
+        )
 
-            if not phase.date_start:
-                continue
+        for other in qs:
+            if self.is_open and other.is_open:
+                raise ValidationError({ 'date_end': '{} is also open'.format(other) })
+            elif (self.is_open and other.date_end > self.date_start):
+                raise ValidationError({ 'date_start': '{} starts after'.format(other) })
+            elif (other.is_open and self.date_end > other.date_start):
+                raise ValidationError({ 'date_end': '{} starts before'.format(other) })
+            elif not (self.date_end <= other.date_start or self.date_start >= other.date_end):
+                message = 'overlaps with {}'.format(other)
+                raise ValidationError({
+                    'date_end': message,
+                    'date_start': message,
+                })
 
-            if not self.date_end:
-                if not phase.date_end:
-                    raise ValidationError(
-                        '{} and {} running'.format(
-                            phase, self))
-                elif phase.date_end > self.date_start:
-                    raise ValidationError(
-                        '{} ends after {} starts'.format(
-                            phase, self))
-            elif not phase.date_end:
-                if self.date_end > phase.date_start:
-                    raise ValidationError(
-                        '{} ends after {} starts'.format(
-                            phase, self))
-            elif not (self.date_end <= phase.date_start or self.date_start >= phase.date_end):
-                raise ValidationError(
-                    '{} overlaps with {}'.format(
-                        phase, self))
+
+    def clean_module_constraint(self):
+        if self.phase_type.module_type != ContentType.objects.get_for_model(self.module):
+            raise ValidationError({
+                'phase_type': 'phase_type and module incompatbile',
+            })
+
+    def clean(self):
+        self.clean_dates()
+        if self.is_dated:
+            self.clean_phases_overlapp()
+        self.clean_module_constraint()
+
 
     def __str__(self):
         return '{}({}) of {}'.format(
