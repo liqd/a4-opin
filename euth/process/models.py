@@ -34,6 +34,13 @@ class Process(models.Model):
     def __str__(self):
         return 'process «{}»'.format(self.name)
 
+    @property
+    def phases(self):
+        phases = Phase.objects\
+                      .filter(module__process=self)\
+                      .order_by('module__order', 'phase_type__order')
+        return phases
+
 
 class PhaseType(models.Model):
 
