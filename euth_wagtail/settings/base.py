@@ -46,7 +46,11 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
+<<<<<<< HEAD
     'comments_api',
+=======
+    'widget_tweaks',
+>>>>>>> master
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -56,8 +60,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
+<<<<<<< HEAD
     'django_comments',
     'rest_framework'
+=======
+
+    'euth.user_management',
+>>>>>>> master
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -115,7 +124,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -147,7 +156,7 @@ STATICFILES_FINDERS = [
 
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-party')
 BOWER_INSTALLED_APPS = (
-    'jquery',
+    'jquery#2.2.4',
     'bootstrap-sass',
     'salvattore',
     'fontawesome'
@@ -171,5 +180,8 @@ COMPRESS_PRECOMPILERS = (
 LIBSASS_SOURCEMAPS = True
 
 # Wagtail settings
+
+LOGIN_URL = 'wagtailadmin_login'
+LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
 WAGTAIL_SITE_NAME = "euth_wagtail"

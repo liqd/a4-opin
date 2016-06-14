@@ -1,0 +1,10 @@
+Dear {{registration.username}},
+
+We have received your registration for {{sitename}} using this email address. Please visit the url
+below to activate your account.
+
+{{activation_url}}
+
+Best wishes
+
+{{sitename}} team

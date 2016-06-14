@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="activate">
+  <form id="ActivateForm" action="" method="post">
+    {% csrf_token %}
+    {{ form.token }}
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-3">
+        <button type="submit" value="Activate" class="btn btn-primary">Activate account</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
