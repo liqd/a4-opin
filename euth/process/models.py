@@ -110,6 +110,9 @@ class Phase(models.Model):
 
         qs = Phase.objects.filter(module__process=self.module.process)
         for phase in qs:
+            if self == phase:
+                continue
+
             if not phase.date_start:
                 continue
 
