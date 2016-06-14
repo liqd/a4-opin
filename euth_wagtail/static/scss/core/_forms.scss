@@ -26,3 +26,82 @@ label {
         text-align: left;
     }
 }
+
+.skinny-form {
+    @include rem(margin, 0 auto 40px);
+    @extend .col-md-4;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    float: none;
+    padding: 0;
+    text-align: center;
+
+    .form-group {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .form-control,
+    .control-label,
+    .btn {
+        @include rem(font-size, $font-size-small);
+    }
+
+    .form-control {
+        border-bottom: 2px solid $gray-light;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:hover, &:focus {
+            background: $gray-lighter;
+        }
+    }
+
+    .control-label {
+        color: $gray-light;
+    }
+
+    .btn-cta {
+        @include rem(border-radius, 40px);
+        @include rem(padding, 0 20px);
+        @include rem(top, 65px);
+        font-weight: bold;
+        line-height: 50px;
+        margin: -30px auto 0;
+        position: relative;
+        text-transform: uppercase;
+    }
+}
+
+.skinny-form-header {
+    @include rem(padding-top, 200px);
+    background: $brand-brand1 url('/static/images/logo.svg') no-repeat center 40%;
+    background-size: 35%;
+
+    .nav-tabs > li {
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        width: 50%;
+
+        > a {
+            border: 0;
+            border-radius: 0;
+            color: #fff;
+
+            &:hover, &:focus {
+                background: transparent;
+                border: 0;
+            }
+        }
+
+        &.active a {
+            color: $brand-brand1;
+        }
+    }
+}
+
+.skinny-form-inner {
+    @include rem(padding, 40px);
+}
