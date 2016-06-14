@@ -24,10 +24,15 @@ def react_comments(context, obj):
     user_name = context['request'].user.username
 
     translations = {
-        'comments_i18n_sgl': _("Comment"),
-        'comments_i18n_pl': _("Comments"),
-        'i18n_your_comment': _("Your comment here"),
-        'i18n_please_loggin_to_comment': _("Please login to comment")
+        'comments_i18n_sgl': _('Comment'),
+        'comments_i18n_pl': _('Comments'),
+        'i18n_your_comment': _('Your comment here'),
+        'i18n_please_loggin_to_comment': _('Please login to comment'),
+        'i18n_answer': _('Answer'),
+        'i18n_post': _('Post'),
+        'i18n_cancel': _('Cancel'),
+        'i18n_edit':_('Edit'),
+        'i18n_report':_('Report')
     }
 
     translations_json = json.dumps({

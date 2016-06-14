@@ -263,10 +263,10 @@ var Comment = React.createClass({
                 ),
                 h('ul.nav.nav-pills', [
                     h('li.entry', [
-                        h('a.commentSubmissionDate.light', this.props.submission_date)
+                        h('a.commentSubmissionDate.dark', this.props.submission_date)
                     ]),
                     this.allowForm() ? h('li.entry',[
-                        h('a.icon.fa-comment-o.light', {
+                        h('a.icon.fa-comment-o.dark', {
                                 href:'#',
                                 onClick: this.showComments,
                                 'aria-hidden': true
@@ -290,7 +290,7 @@ var Comment = React.createClass({
                         )
                     ]) : null,
                     this.context.isAuthenticated ? h('li.dropdown', {role: 'presentation'},[
-                        h('a.dropdown-toggle.icon.fa-ellipsis-h.light', {
+                        h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
                             'data-toggle':'dropdown',
                             href:'#',
                             role:'button',
@@ -300,19 +300,19 @@ var Comment = React.createClass({
                             }),
                         h('ul.dropdown-menu', [
                             this.isOwner() ? h('li', [
-                                h('a.icon.fa-pencil.light', {
+                                h('a.icon.fa-pencil.dark', {
                                         href:'#',
                                         onClick: this.toggleEdit,
                                         'aria-hidden': true
-                                    }, 'Edit'
+                                    }, this.context.translations.translations.i18n_edit
                                 )
                             ]) : null,
                             h('li', [
-                                h('a.icon.fa-ban.light', {
+                                h('a.icon.fa-ban.dark', {
                                         href:'#',
                                         onClick: this.rateUp,
                                         'aria-hidden': true
-                                    }, 'Report'
+                                    }, this.context.translations.translations.i18n_report
                                 )
                             ])
                         ])
@@ -324,7 +324,7 @@ var Comment = React.createClass({
                                 href:'#',
                                 onClick: this.showComments,
                                 'aria-hidden': true
-                            }, 'Answer'
+                            }, this.context.translations.translations.i18n_answer
                         )
                     ]) : null
                 ]),
@@ -345,7 +345,8 @@ Comment.contextTypes = {
     comments_contenttype: React.PropTypes.number,
     submit_url: React.PropTypes.string,
     isAuthenticated: React.PropTypes.number,
-    user_name: React.PropTypes.string
+    user_name: React.PropTypes.string,
+    translations: React.PropTypes.object
 };
 
 var CommentForm = React.createClass({
@@ -383,7 +384,7 @@ var CommentForm = React.createClass({
                 ]),
                 h('input.btn.btn-primary', {
                     type: 'submit',
-                    value: 'Post'
+                    value: this.context.translations.translations.i18n_post
                 })
             ])
             );
@@ -436,11 +437,11 @@ var CommentEditForm = React.createClass({
             ]),
             h('input.btn.btn-primary', {
                 type: 'submit',
-                value: 'Post'
+                value: this.context.translations.translations.i18n_post
             }),
             h('input.btn.btn-primary', {
                 type: 'submit',
-                value: 'Cancel',
+                value: this.context.translations.translations.i18n_cancel,
                 onClick: this.props.handleCancel
             })
             ])

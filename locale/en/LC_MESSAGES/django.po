@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 14:18+0200\n"
+"POT-Creation-Date: 2016-06-14 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,26 @@ msgstr "Your comment here"
 #: comments_api/templatetags/react_comments.py:30
 msgid "Please login to comment"
 msgstr "Please login to comment"
+
+#: comments_api/templatetags/react_comments.py:31
+msgid "Answer"
+msgstr "Answer"
+
+#: comments_api/templatetags/react_comments.py:32
+msgid "Post"
+msgstr "Post"
+
+#: comments_api/templatetags/react_comments.py:33
+msgid "Cancel"
+msgstr "Cancel"
+
+#: comments_api/templatetags/react_comments.py:34
+msgid "Edit"
+msgstr "Edit"
+
+#: comments_api/templatetags/react_comments.py:35
+msgid "Report"
+msgstr "Report"
 
 #: euth_wagtail/settings/base.py:129
 msgid "German"
