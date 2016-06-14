@@ -51,6 +51,8 @@
 
 .comment {
 
+	padding-top: 40px;
+
 	& .icon::before {
     	display: inline-block;
     	margin-right: .5em;
@@ -61,6 +63,7 @@
         -moz-osx-font-smoothing: grayscale;
        transform: translate(0, 0);
 	}
+
 
 	& .nav {
 		padding: 10px 0 10px 0;
@@ -80,6 +83,7 @@
 		& .light {
 			color: $gray-light;
 		}
+
 
 		& li {
 			& a {
