@@ -32,7 +32,14 @@ var CommentBox = React.createClass({
         success: function(data) {
             var commentCount = data.length;
             var commentString = this.getCommentString(commentCount);
-            this.setState({data: data, commentCount: commentCount, commentString: commentString});
+            var newCommentsList = h(CommentList, {
+                data: data
+            });
+            this.setState({
+                commentList: newCommentsList,
+                commentCount: commentCount,
+                commentString: commentString
+            });
         }.bind(this),
         error: function(xhr, status, err) {
             console.error(this.props.url, status, err.toString());
@@ -46,12 +53,15 @@ var CommentBox = React.createClass({
             type: 'POST',
             data: comment,
         success: function(new_comment) {
-            var comments = this.state.data;
+            var comments = this.state.commentList.props.data;
             var newComments = [new_comment].concat(comments);
             var newCommentcount = newComments.length;
             var newCommentString = this.getCommentString(newCommentcount);
+            var newCommentsList = h(CommentList, {
+                data: newComments
+            });
             this.setState({
-                data: newComments,
+                commentList: newCommentsList,
                 commentCount: newCommentcount,
                 commentString: newCommentString});
         }.bind(this),
@@ -70,9 +80,11 @@ var CommentBox = React.createClass({
     },
     getInitialState: function() {
         return {
-            data: [],
             commentCount: 0,
-            commentString: this.props.translations.translations.comments_i18n_sgl
+            commentString: this.props.translations.translations.comments_i18n_sgl,
+            commentList: h(CommentList, {
+                data: []
+            })
         };
     },
     componentDidMount: function() {
@@ -98,9 +110,7 @@ var CommentBox = React.createClass({
                     onCommentSubmit: this.handleCommentSubmit,
                     rows: 5
                 }),
-                h(CommentList, {
-                    data: this.state.data
-                })
+                this.state.commentList
             ])
         );
     }
@@ -117,19 +127,23 @@ CommentBox.childContextTypes = {
 
 var CommentList = React.createClass({
     render: function() {
-        var commentNodes = this.props.data.map(function(comment) {
-            return (
-                h(Comment, {
-                    user_name: comment.user_name,
-                    child_comments: comment.child_comments,
-                    submission_date: comment.submit_date,
-                    id: comment.id,
-                    content_type: comment.content_type,
-                }, comment.comment)
-            );
-        });
         return (
-            h('div.commentList', commentNodes)
+            h('div', [
+                this.props.data.map(function(comment) {
+                    return (
+                        h(Comment, {
+                            key: comment.id,
+                            user_name: comment.user_name,
+                            child_comments: comment.child_comments,
+                            submission_date: comment.submit_date,
+                            id: comment.id,
+                            content_type: comment.content_type,
+                            },
+                            comment.comment
+                        )
+                    );
+                })
+            ])
         );
     }
 });
@@ -143,9 +157,9 @@ var Comment = React.createClass({
     getInitialState: function() {
         return {
             edit: false,
+            showChildComments: false,
             comment_raw: this.props.children,
             comment: this.rawMarkup(this.props.children),
-            showChildComments: false,
             child_comments: this.props.child_comments,
             commentCount: this.props.child_comments.length,
             editForm: h(CommentEditForm, {
@@ -157,18 +171,18 @@ var Comment = React.createClass({
         };
     },
 
-    showComments: function(e) {
-        e.preventDefault();
-        var newShowChildComment = !this.state.showChildComments;
-        this.setState({showChildComments: newShowChildComment});
-    },
-
     toggleEdit: function(e) {
         if(e) {
             e.preventDefault();
         }
         var newEdit = !this.state.edit;
         this.setState({edit: newEdit});
+    },
+
+    showComments: function(e) {
+        e.preventDefault();
+        var newShowChildComment = !this.state.showChildComments;
+        this.setState({showChildComments: newShowChildComment});
     },
 
     allowForm: function() {
@@ -184,13 +198,13 @@ var Comment = React.createClass({
         console.log('+1');
     },
 
-    isOwner: function() {
-        return this.props.user_name === this.context.user_name;
-    },
-
     rateDown: function(e) {
         e.preventDefault();
         console.log('-1');
+    },
+
+    isOwner: function() {
+        return this.props.user_name === this.context.user_name;
     },
 
     handleCommentSubmit: function(comment) {
@@ -243,9 +257,9 @@ var Comment = React.createClass({
         return (
             h('div.comment', [
                 h('h3.commentAuthor', this.props.userName),
-                this.state.edit ? this.state.editForm : h('span', {
-                    dangerouslySetInnerHTML: this.state.comment
-                }
+                    this.state.edit ? this.state.editForm : h('span', {
+                        dangerouslySetInnerHTML: this.state.comment
+                    }
                 ),
                 h('ul.nav.nav-pills', [
                     h('li.entry', [
