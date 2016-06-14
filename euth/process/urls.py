@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.ProcessListView.as_view(), name='process-listing'),
-    url(r'^(?P<process_name>\w+)/$', views.ProcessDetailView.as_view(), name='process-detail'),
+    url(r'^(?P<process_slug>[-\w_]+)/$', views.ProcessDetailView.as_view(), name='process-detail'),
 ]

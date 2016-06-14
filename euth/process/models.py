@@ -7,8 +7,12 @@ from django.core.exceptions import ValidationError
 
 
 class Process(models.Model):
-    name = models.CharField(max_length=128, db_index=True, unique=True)
-    title = models.CharField(max_length=1024)
+    slug = models.SlugField(
+        max_length=512,
+        db_index=True,
+        unique=True,
+    )
+    title = models.CharField(max_length=512)
     description = models.TextField()
     participants = models.ManyToManyField(
         User,
@@ -29,10 +33,10 @@ class Process(models.Model):
         ).first()
 
     def get_absolute_url(self):
-        return reverse('process-detail', args=[str(self.name)])
+        return reverse('process-detail', args=[str(self.slug)])
 
     def __str__(self):
-        return self.name
+        return self.slug
 
     @property
     def phases(self):

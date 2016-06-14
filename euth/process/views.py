@@ -12,8 +12,7 @@ class ProcessListView(ListView):
 
 class ProcessDetailView(DetailView):
     model = Process
-    slug_field = 'name'
-    slug_url_kwarg = 'process_name'
+    slug_url_kwarg = 'process_slug'
 
     def get_context_data(self, **kwargs):
         context = super(ProcessDetailView, self).get_context_data(**kwargs)
