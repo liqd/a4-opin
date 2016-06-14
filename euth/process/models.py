@@ -32,7 +32,7 @@ class Process(models.Model):
         return reverse('process-detail', args=[str(self.name)])
 
     def __str__(self):
-        return 'process «{}»'.format(self.name)
+        return self.name
 
     @property
     def phases(self):
@@ -65,7 +65,7 @@ class PhaseType(models.Model):
     )
 
     def __str__(self):
-        return 'phase type «{}.{}»'.format(module_type.model, self.name)
+        return '{}.{}'.format(self.module_type.model, self.name)
 
 
 class ParticipationModule(models.Model):
@@ -80,8 +80,7 @@ class ParticipationModule(models.Model):
     order = models.PositiveSmallIntegerField(db_index=True)
 
     def __str__(self):
-        return '{}. module of {}'.format(
-            self.order, self.process)
+        return '{}({}) of {}'.format(self.__class__.__name__, self.order, self.process)
 
 
 class Phase(models.Model):
@@ -129,5 +128,5 @@ class Phase(models.Model):
                         phase, self))
 
     def __str__(self):
-        return '{} phase in {}'.format(
-            self.phase_type.name, self.module)
+        return '{}({}) of {}'.format(
+            self.phase_type, self.module.order, self.module.process)
