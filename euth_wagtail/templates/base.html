@@ -25,6 +25,15 @@
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third-party/bower_components/jquery/dist/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'third-party/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -45,16 +54,6 @@
         {% block feedback %}
         {% include "includes/feedback_button.html" %}
         {% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
-        <script type="text/javascript" src="{% static 'third-party/bower_components/jquery/dist/jquery.js' %}"></script>
-        <script type="text/javascript" src="{% static 'third-party/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
-
 
     </body>
 </html>
