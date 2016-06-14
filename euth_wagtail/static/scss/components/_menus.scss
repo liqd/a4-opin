@@ -24,9 +24,31 @@
         }
     }
 
+    .dropdown-menu a {
+        @include rem(padding-left, 20px);
+    }
+
     #language-selector {
         a {
             color: $brand-brand2;
+        }
+    }
+
+    #user-indicator {
+        > li > a {
+            margin-left: 40px;
+            min-width: 180px;
+            position: relative;
+
+            .inner {
+                border: 2px solid $brand-brand1;
+                display: block;
+                left: 0;
+                padding: 10px;
+                position: absolute;
+                top: 15px;
+                white-space: nowrap;
+            }
         }
     }
 }
