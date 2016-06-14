@@ -125,6 +125,11 @@ class Phase(models.Model):
                     raise ValidationError(
                         '{} ends after {} starts'.format(
                             phase, self))
+            elif not phase.self_date:
+                if self.date_end > phase.date_start:
+                    raise ValidationError(
+                        '{} ends after {} starts'.format(
+                            phase, self))
             elif not (self.date_end <= phase.date_start or self.date_start >= phase.date_end):
                 raise ValidationError(
                     '{} overlaps with {}'.format(
