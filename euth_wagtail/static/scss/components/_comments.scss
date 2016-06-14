@@ -47,6 +47,10 @@
 			margin: 0px 40px 0px 40px;
 		}
 	}
+
+	& .btn {
+		margin-right: 10px;
+	}
 }
 
 .comment {
@@ -63,7 +67,6 @@
         -moz-osx-font-smoothing: grayscale;
        transform: translate(0, 0);
 	}
-
 
 	& .nav {
 		padding: 10px 0 10px 0;
@@ -85,9 +88,15 @@
 		}
 
 
+		& .open a,
+		& .open a:hover,
+		& .open a:focus {
+			background-color: white;
+		}
+
 		& li {
 			& a {
-				padding: 2px 7px 2px 7px;
+				padding: 2px 14px 2px 0px;
 			}
 			& a:hover {
 				background-color: #fff;
@@ -100,6 +109,17 @@
 			& .active {
 				color: $gray-dark;
 			}
+		}
+
+		& .dropdown {
+
+			& a {
+				padding: 2px 7px 2px 7px;
+			}
+		}
+
+		& .dropdown-menu {
+			border-radius: 0px;
 		}
 	}
 }
