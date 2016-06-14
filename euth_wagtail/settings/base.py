@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
+    'widget_tweaks',
 
     'django.contrib.admin',
     'django.contrib.auth',

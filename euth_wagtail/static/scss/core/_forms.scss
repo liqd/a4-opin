@@ -94,10 +94,18 @@ label {
                 background: transparent;
                 border: 0;
             }
+
+            &:last-child {
+                margin-right: 0;
+            }
         }
 
         &.active a {
             color: $brand-brand1;
+
+            &:hover, &:focus {
+                background: #fff;
+            }
         }
     }
 }
