@@ -1,6 +1,8 @@
 from django import template
 from .. import sanatize_next
 
+from ..forms import RegisterForm, LoginForm
+
 register = template.Library()
 
 
@@ -11,6 +13,8 @@ def userindicator_menu(context, next_action=None):
         request,
         {
             'user': request.user,
-            'next_action': sanatize_next(request, next_action)
+            'next_action': sanatize_next(request, next_action),
+            'register_form': RegisterForm(None),
+            'login_form': LoginForm(None),
         })
     return context
