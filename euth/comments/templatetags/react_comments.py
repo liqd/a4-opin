@@ -9,13 +9,13 @@ from django.utils.translation import ugettext as _
 register = template.Library()
 
 
-@register.inclusion_tag('comments_api/react_comments.html', takes_context=True)
+@register.inclusion_tag('comments/react_comments.html', takes_context=True)
 def react_comments(context, obj):
 
     login_url = settings.LOGIN_URL + '?next=' + context['request'].path
 
-    comments_conetenttype = content_type = ContentType.objects.get(
-        app_label="django_comments", model="comment")
+    comments_contenttype = ContentType.objects.get(
+        app_label="comments", model="comment")
 
     contenttype = ContentType.objects.get_for_model(obj)
     pk = obj.pk
@@ -41,7 +41,7 @@ def react_comments(context, obj):
 
     context = {
         'obj': obj,
-        'comments_conetenttype': comments_conetenttype,
+        'comments_contenttype': comments_contenttype,
         'contenttype': contenttype.pk,
         'pk': pk,
         'is_authenticated': is_authenticated,

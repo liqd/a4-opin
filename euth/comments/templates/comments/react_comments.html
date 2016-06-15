@@ -1,13 +1,13 @@
-{% load staticfiles comments i18n %}
+{% load staticfiles i18n %}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
 <script src="http://uves.spline.de/react-hyperscript.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-<script src="{% static "comments_api/react_comments.js" %}"></script>
+<script src="{% static "comments/react_comments.js" %}"></script>
 
 <div id="comments_for_{{contenttype}}_{{pk}}"></div>
 <script>
-  window._opin.renderComment( "{% url 'comments-list'%}",{{contenttype}}, {{pk}}, {{comments_conetenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", {{ translations | safe }}, "{{ user_name }}")
+  window._opin.renderComment( "{% url 'comments-list'%}",{{contenttype}}, {{pk}}, {{comments_contenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", {{ translations | safe }}, "{{ user_name }}")
 </script>

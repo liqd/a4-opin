@@ -4,7 +4,7 @@ from rest_framework.test import APIClient
 from rest_framework.test import force_authenticate
 from rest_framework import status
 from django.contrib.auth.models import AnonymousUser, User, Permission
-from django_comments.models import Comment
+from .models import Comment
 from django.contrib.contenttypes.models import ContentType
 
 from django.core.urlresolvers import reverse
@@ -18,7 +18,7 @@ class CommentTestCase(TestCase):
         self.user2 = self._create_user('user2', 'password')
         self.comment1 = self._create_comment('comment', 1, self.user1)
         self.comment_contenttype = ContentType.objects.get(
-            app_label="django_comments", model="comment").pk
+            app_label="comments", model="comment").pk
 
     def _create_user(self, name, password):
         user = User.objects.create(
@@ -34,7 +34,6 @@ class CommentTestCase(TestCase):
             object_pk=object_pk,
             content_type=content_type,
             user=user,
-            site_id=1
         )
         return comment
 
