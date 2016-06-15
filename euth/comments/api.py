@@ -14,8 +14,7 @@ from rest_framework import filters
 
 class CommentViewSet(viewsets.ModelViewSet):
 
-    queryset = Comment.objects.all().filter(
-        is_removed=False).order_by('-submit_date')
+    queryset = Comment.objects.all().order_by('-submit_date')
     serializer_class = CommentSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
@@ -27,8 +26,26 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer = CommentSerializer(data=request.data)
 
         if serializer.is_valid():
-            obj = serializer.save(user=self.request.user)
+            serializer.save(user=self.request.user)
             return Response(serializer.data)
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self, request, pk=None):
+        comment = self.get_object()
+
+        serializer = CommentSerializer(comment, {}, partial=True)
+
+        if serializer.is_valid():
+            obj = serializer.save()
+            if request.user == comment.user:
+                obj.is_removed = True
+            if request.user.is_superuser:
+                obj.is_censored = True
+            obj.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
