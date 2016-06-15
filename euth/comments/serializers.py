@@ -7,6 +7,7 @@ class CommentSerializer(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField()
     child_comments = serializers.SerializerMethodField()
     submit_date = serializers.SerializerMethodField()
+    is_deleted = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
@@ -14,6 +15,8 @@ class CommentSerializer(serializers.ModelSerializer):
         exclude = ('user', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
+        if(obj.is_censored or obj.is_removed):
+            return 'deleted Comment'
         return str(obj.user)
 
     def get_child_comments(self, obj):
@@ -27,3 +30,6 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def get_submit_date(self, obj):
         return obj.submit_date.date()
+
+    def get_is_deleted(self, obj):
+        return (obj.is_censored or obj.is_removed)
