@@ -16,6 +16,9 @@ class CommentTestCase(TestCase):
         self.client = APIClient()
         self.user1 = self._create_user('user1', 'password')
         self.user2 = self._create_user('user2', 'password')
+        self.admin = self._create_user('admin', 'password')
+        self.admin.is_superuser = True
+        self.admin.save()
         self.comment1 = self._create_comment('comment', 1, self.user1)
         self.comment_contenttype = ContentType.objects.get(
             app_label="comments", model="comment").pk
@@ -98,3 +101,36 @@ class CommentTestCase(TestCase):
         url = reverse('comments-detail', kwargs={'pk': self.comment1.pk})
         response = self.client.get(url)
         self.assertEqual(len(response.data['child_comments']), 1)
+
+    def test_anonymous_user_can_not_delete_comment(self):
+        url = reverse('comments-detail', kwargs={'pk': self.comment1.pk})
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_authenticated_user_can_not_delete_comment(self):
+        url = reverse('comments-detail', kwargs={'pk': self.comment1.pk})
+        self.client.force_authenticate(user=self.user2)
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_creater_of_comment_can_set_removed_flag(self):
+        url = reverse('comments-detail', kwargs={'pk': self.comment1.pk})
+        self.client.force_authenticate(user=self.user1)
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['is_deleted'], True)
+        self.assertEqual(response.data['comment'], 'deleted by creator')
+
+    def test_admin_of_comment_can_set_censored_flag(self):
+        url = reverse('comments-detail', kwargs={'pk': self.comment1.pk})
+        self.client.force_authenticate(user=self.admin)
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['is_deleted'], True)
+        self.assertEqual(response.data['comment'], 'deleted by moderator')
+
+
+
+
+
+
