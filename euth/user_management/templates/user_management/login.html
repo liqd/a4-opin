@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n widget_tweaks %}
 
 {% block content %}
 <div class="container">
-<h2>{% trans "Login" %}</h2>
+<h2>{% trans "login" %}</h2>
 
 {% if not request.user.is_authenticated %}
     <div class="skinny-form">
@@ -29,20 +29,22 @@
             {% endif %}
 
             <div class="form-group">
-                <label class="control-label" for="username">Username</label>
-                <input class="form-control" type="text" id="username" name="username">
+                 <label class="control-label" for="username">{% trans "username" %}</label>
+                 {{ form.username.errors }}
+                 {{ form.username|add_class:"form-control" }}
             </div>
             <div class="form-group">
-                <label class="control-label" for="password">Password</label>
-                <input class="form-control" type="password" name="password" id="password">
+                 <label class="control-label" for="password">{% trans "password" %}</label>
+                 {{ form.password.errors }}
+                 {{ form.password|add_class:"form-control" }}
             </div>
 
-            <button type="submit" value="Login" class="btn btn-primary btn-cta">Anmelden</button>
+            <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>
         </form>
     </div>
 
 {% else %}
-{% trans "You are already logged in" %}
+{% trans "Already loggedin" %}
 {% endif %}
 </div>
 {% endblock %}

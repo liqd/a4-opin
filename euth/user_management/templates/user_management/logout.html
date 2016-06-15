@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
 <div class="container">
-	<h2><small>Abmeldung</small></h2>
+	<h2><small>{% trans "logout" %}</small></h2>
 	<div id="logout">
-	    <p>Sie haben sich erfolgreich abgemeldet!</p>
-	    <a href="{% url 'login' %}">Wieder anmelden</a>
+	    <p>{% trans "sucessfull logout" %}</p>
+	    <a href="{% url 'login' %}">{% trans "login" %}</a>
 	</div>
 </div>
 {% endblock %}
