@@ -24,10 +24,19 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
 
+        try:
+            comment = request.data['comment']
+            object_pk = request.data['object_pk']
+            content_type = request.data['content_type']
+        except:
+            comment = ''
+            object_pk = ''
+            content_type = ''
+
         data = {
-            'comment': request.data['comment'],
-            'object_pk': request.data['object_pk'],
-            'content_type': request.data['content_type'],
+            'comment': comment,
+            'object_pk': object_pk,
+            'content_type': content_type,
             'site': 1,
             'is_public': True,
             'is_removed': False,
