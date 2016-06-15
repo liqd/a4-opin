@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-26 12:34+0100\n"
+"POT-Creation-Date: 2016-06-14 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,46 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: euth_wagtail/settings/base.py:119
+#: comments_api/templatetags/react_comments.py:27
+msgid "Comment"
+msgstr "Comment"
+
+#: comments_api/templatetags/react_comments.py:28
+msgid "Comments"
+msgstr "Comments"
+
+#: comments_api/templatetags/react_comments.py:29
+msgid "Your comment here"
+msgstr "Your comment here"
+
+#: comments_api/templatetags/react_comments.py:30
+msgid "Please login to comment"
+msgstr "Please login to comment"
+
+#: comments_api/templatetags/react_comments.py:31
+msgid "Answer"
+msgstr "Answer"
+
+#: comments_api/templatetags/react_comments.py:32
+msgid "Post"
+msgstr "Post"
+
+#: comments_api/templatetags/react_comments.py:33
+msgid "Cancel"
+msgstr "Cancel"
+
+#: comments_api/templatetags/react_comments.py:34
+msgid "Edit"
+msgstr "Edit"
+
+#: comments_api/templatetags/react_comments.py:35
+msgid "Report"
+msgstr "Report"
+
+#: euth_wagtail/settings/base.py:129
 msgid "German"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:120
+#: euth_wagtail/settings/base.py:130
 msgid "English"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:121
+#: euth_wagtail/settings/base.py:131
 msgid "Italien"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:122
+#: euth_wagtail/settings/base.py:132
 msgid "French"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:123
+#: euth_wagtail/settings/base.py:133
 msgid "Swedish"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:124
+#: euth_wagtail/settings/base.py:134
 msgid "Slovene"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:125
+#: euth_wagtail/settings/base.py:135
 msgid "Danish"
-msgstr ""
-
-#: euth_wagtail/templates/base.html:60
-msgid "About"
-msgstr ""
-
-#: euth_wagtail/templates/base.html:61
-msgid "Get Involved"
-msgstr ""
-
-#: euth_wagtail/templates/base.html:62
-msgid "Start Your Project"
-msgstr ""
-
-#: euth_wagtail/templates/base.html:63
-msgid "Help Center"
 msgstr ""

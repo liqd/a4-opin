@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'taggit',
     'djangobower',
     'projects',
+    'comments_api',
     'widget_tweaks',
 
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +57,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
-
+    'django_comments',
+    'rest_framework',
     'euth.user_management',
 ]
 
@@ -72,6 +75,8 @@ MIDDLEWARE_CLASSES = [
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'euth_wagtail.urls'
 
@@ -146,7 +151,8 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-
 BOWER_INSTALLED_APPS = (
     'jquery#2.2.4',
     'bootstrap-sass',
-    'salvattore'
+    'salvattore',
+    'fontawesome'
 )
 BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
 
