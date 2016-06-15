@@ -23,7 +23,11 @@ class Comment(models.Model):
         if not self.id:
             self.submit_date = timezone.now()
         self.edit_date = timezone.now()
+        if self.is_removed:
+            self.comment = 'deleted by creator'
+        if self.is_censored:
+            self.comment = 'deleted by moderator'
         return super(Comment, self).save(*args, **kwargs)
 
     def __str__(self):
-        return str(self.date_created)
+        return str(self.submit_date)
