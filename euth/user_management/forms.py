@@ -77,9 +77,17 @@ class RegisterForm(forms.Form):
 class ActivateForm(forms.Form):
     token = forms.UUIDField(widget=forms.HiddenInput(), required=True)
 
-    def activate(self, request):
+    def clean_token(self):
         token = self.cleaned_data.get('token')
-        registration = Registration.objects.get(token=token)
+        registration = Registration.objects.filter(token=token).first()
+        if not registration:
+            raise ValidationError(_('invalid token'))
+        else:
+            self.cleaned_data['registration'] = registration
+        return token
+
+    def activate(self, request):
+        registration = self.cleaned_data.get('registration')
         user = User(username=registration.username,
                     email=registration.email,
                     password=registration.password)

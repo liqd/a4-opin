@@ -1,4 +1,4 @@
-Dear {{registration.username}},
+Dear {{reset.user.username}},
 
 We have received your password reset for {{reset.user.username}} on {{sitename}} using this email
 address. Please visit the url below to reset your password.
