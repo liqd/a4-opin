@@ -9,8 +9,8 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 
 from . import sanatize_next
-from .forms import LoginForm, RegisterForm, ActivateForm
-from .emails import send_registration
+from .forms import LoginForm, RegisterForm, ActivateForm, RequestResetForm, ResetForm
+from .emails import send_registration, send_reset
 
 
 def login_user(request):
@@ -77,3 +77,33 @@ def activate_user(request, token):
         else:
             status = 400
     return render(request, 'user_management/activate.html', {'form': form}, status=status)
+
+
+def reset_request(request):
+    form = RequestResetForm(request.POST or None)
+    next_action = sanatize_next(request)
+    if request.method == 'POST':
+        if form.is_valid():
+            reset = form.request_reset(request)
+            reset.next_action = next_action
+            reset.save()
+
+            send_reset(request, reset)
+            return render(request, 'user_management/reset_done.html')
+    return render(request, 'user_management/reset.html', {'form': form, 'next_action': next_action})
+
+
+def reset_password(request, token):
+    token = uuid.UUID(token)
+    form = ResetForm(request.POST or None, initial={'token': str(token)})
+    if request.method == 'POST':
+        if form.is_valid():
+            user, reset = form.reset_password(request)
+            user.save()
+            reset.delete()
+
+            user.backend = settings.AUTHENTICATION_BACKENDS[0]
+            login(request, user)
+
+            return HttpResponseRedirect(reset.next_action)
+    return render(request, 'user_management/reset_password.html', {'form': form})

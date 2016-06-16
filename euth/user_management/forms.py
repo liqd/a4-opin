@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
 from django.contrib.auth.hashers import make_password
 
-from .models import Registration
+from .models import Registration, Reset
 
 
 class LoginForm(forms.Form):
@@ -84,3 +84,54 @@ class ActivateForm(forms.Form):
                     email=registration.email,
                     password=registration.password)
         return user, registration
+
+class RequestResetForm(forms.Form):
+    username_or_email = forms.CharField(max_length=255)
+
+    def clean_username_or_email(self):
+        username_or_email = self.cleaned_data.get('username_or_email')
+        user = (User.objects.filter(username=username_or_email).first() or
+                User.objects.filter(email=username_or_email).first())
+        if not user:
+            raise ValidationError(_('unkown user'))
+        else:
+            self.cleaned_data['user'] = user
+            return username_or_email
+
+    def request_reset(self, request):
+        user = self.cleaned_data.get('user')
+        return Reset(user=user)
+
+
+class ResetForm(forms.Form):
+    token = forms.UUIDField(widget=forms.HiddenInput(), required=True)
+    password = forms.CharField(
+        widget=forms.PasswordInput,
+        min_length=8,
+        required=True)
+    password_repeat = forms.CharField(
+        widget=forms.PasswordInput,
+        required=True)
+
+    def clean_token(self):
+        token = self.cleaned_data.get('token')
+        reset = Reset.objects.filter(token=token).first()
+        if not reset:
+            ValidationError(_('invalid token'))
+        else:
+            self.cleaned_data['reset'] = reset
+        return token
+
+    def clean_password_repeat(self):
+        password1 = self.cleaned_data.get('password')
+        password2 = self.cleaned_data.get('password_repeat')
+        if password1 != password2:
+            raise ValidationError(_('passwords dont match'))
+        return password2
+
+    def reset_password(self, request):
+        reset = self.cleaned_data.get('reset')
+        password = self.cleaned_data.get('password')
+        user = reset.user
+        user.password = make_password(password)
+        return user, reset
