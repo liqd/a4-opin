@@ -28,7 +28,7 @@ label {
 }
 
 .skinny-form {
-    @include rem(margin, 0 auto 40px);
+    @include rem(margin, 55px auto 40px);
     @extend .col-md-4;
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
     float: none;

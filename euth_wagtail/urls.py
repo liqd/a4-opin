@@ -14,16 +14,15 @@ from euth.user_management import urls as user_urls
 from search import urls as search_urls
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(comments_api_urls)),
-    url(r'', include(user_urls)),
-)
+]
 
 urlpatterns += i18n_patterns(
+    url(r'', include(user_urls)),
     url(r'^adhocracy/', TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),
     url(r'', include(wagtail_urls)),

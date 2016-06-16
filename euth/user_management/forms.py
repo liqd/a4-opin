@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
 from django.contrib.auth.hashers import make_password
 
 from .models import Registration
@@ -17,7 +18,7 @@ class LoginForm(forms.Form):
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         if not user or not user.is_active:
-            raise ValidationError('password mismatch')
+            raise ValidationError(_('password mismatch'))
         return self.cleaned_data
 
     def login(self, request):
@@ -41,7 +42,7 @@ class RegisterForm(forms.Form):
         password1 = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('password_repeat')
         if password1 != password2:
-            raise ValidationError('passwords dont match')
+            raise ValidationError(_('passwords dont match'))
         return password2
 
     def clean_username(self):
@@ -52,7 +53,7 @@ class RegisterForm(forms.Form):
             username=username).first() is not None
 
         if user_exists or register_exits:
-            raise ValidationError('username taken')
+            raise ValidationError(_('username taken'))
         return username
 
     def clean_email(self):
@@ -60,7 +61,7 @@ class RegisterForm(forms.Form):
         user_exists = User.objects.filter(email=email).first()
         register_exists = Registration.objects.filter(email=email).first()
         if user_exists or register_exists:
-            raise ValidationError('email in use')
+            raise ValidationError(_('email in use'))
         return email
 
     def register(self, request):
