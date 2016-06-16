@@ -23,3 +23,4 @@
 
  * unit tests usings py.test
      * run `py.test`
+     * with coverage html `py.test --cov --cov-report=html`
