@@ -18,3 +18,8 @@
 8. run `python manage.py bower install`
 9. run `python manage.py runserver`
 10. Browse to  http://localhost:8000/admin
+
+## Tests
+
+ * unit tests usings py.test
+     * run `py.test`
