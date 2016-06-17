@@ -4,6 +4,7 @@ from .base import *
 
 mail_url = urlparse(os.environ['MAIL_URL'])
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = 1 if mail_url.scheme == "smtps" else 0
 EMAIL_HOST = mail_url.hostname
 EMAIL_PORT = mail_url.port or 587
 EMAIL_HOST_USER = unquote(mail_url.username)
