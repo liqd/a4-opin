@@ -1,3 +1,8 @@
+{% extends 'emails/email_base.html' %}
+{% block subject %}
+Reset password request for {{sitename}}
+{% endblock %}
+{% block content %}
 <p>Dear {{reset.user.username}},</p>
 
 <p>
@@ -6,7 +11,8 @@
 </p>
 
 <p>
-Best wishes&nbsp;
-&nbsp;
+Best wishes<br>
+<br>
 {{sitename}} team
 </p>
+{% endblock %}

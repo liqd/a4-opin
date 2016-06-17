@@ -1,7 +1,11 @@
+import os
+from email.encoders import encode_base64
+from email.mime.image import MIMEImage
+
 from django.conf import settings
 from django.template.loader import select_template
 from django.template import Context
-from django.core.mail import send_mail
+from django.core.mail.message import EmailMultiAlternatives
 from django.core.urlresolvers import reverse
 from django.utils.translation import get_language
 
@@ -11,13 +15,19 @@ def _send_email_with_template(receiver, template, context):
     plaintext = select_template([ 'emails/{}.{}.txt'.format(template, lang) for lang in languages ])
     html = select_template([ 'emails/{}.{}.html'.format(template, lang) for lang in languages ])
 
-    send_mail(
+    mail = EmailMultiAlternatives(
         subject=subject.render(context).strip(),
-        message=plaintext.render(context),
-        html_message=html.render(context),
+        body=plaintext.render(context),
         from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[receiver])
-
+        to=[ receiver ],
+    )
+    mail.mixed_subtype = 'related'
+    with open(os.path.join(settings.STATIC_ROOT, 'images', 'logo.png'), 'rb') as f:
+        opin_logo = MIMEImage(f.read())
+        opin_logo.add_header('Content-ID', '<{}>'.format('opin_logo'))
+        mail.attach(opin_logo)
+    mail.attach_alternative(html.render(context), 'text/html')
+    mail.send()
 
 def send_registration(request, registration):
     context = Context({'registration': registration,
