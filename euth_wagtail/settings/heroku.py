@@ -36,3 +36,5 @@ ADHOCRACY_SDK = 'https://a3-opin-stage.liqd.net/static/js/AdhocracySDK.js'
 
 SESSION_COOKIE_SECURE=True
 CSRF_COOKIE_SECURE=True
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
