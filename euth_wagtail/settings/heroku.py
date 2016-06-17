@@ -38,3 +38,6 @@ SESSION_COOKIE_SECURE=True
 CSRF_COOKIE_SECURE=True
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+COMPRESS = True
+COMPRESS_OFFLINE = True
