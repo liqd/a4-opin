@@ -5,7 +5,7 @@ participatory processes, build up by participation modules and phases. In this d
 describe exactly what a process is. It should be understanable by developers, project managers and
 user with good knowledge of the platform.
 
-##
+## Data model of a process
 
 Each process has some meta data, that will always be present. It needs to have a title, a
 description, information if it is private and at least one moderator. It can have an image and, a
