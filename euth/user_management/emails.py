@@ -1,7 +1,7 @@
 import os
+import pkg_resources
 from email.encoders import encode_base64
 from email.mime.image import MIMEImage
-
 from django.conf import settings
 from django.template.loader import select_template
 from django.template import Context
@@ -22,10 +22,10 @@ def _send_email_with_template(receiver, template, context):
         to=[ receiver ],
     )
     mail.mixed_subtype = 'related'
-    with open(os.path.join(settings.STATIC_ROOT, 'images', 'logo.png'), 'rb') as f:
-        opin_logo = MIMEImage(f.read())
-        opin_logo.add_header('Content-ID', '<{}>'.format('opin_logo'))
-        mail.attach(opin_logo)
+    f = pkg_resources.resource_stream('euth_wagtail', 'static/images/logo.png')
+    opin_logo = MIMEImage(f.read())
+    opin_logo.add_header('Content-ID', '<{}>'.format('opin_logo'))
+    mail.attach(opin_logo)
     mail.attach_alternative(html.render(context), 'text/html')
     mail.send()
 
