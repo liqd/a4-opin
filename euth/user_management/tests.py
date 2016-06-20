@@ -1,12 +1,11 @@
 import pytest
+from django.core import mail
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import AnonymousUser, User, Permission
 from django.test import TestCase
+
 from .forms import LoginForm
-
 from .models import Registration
-
-
 from .views import register_user
 from .views import login_user
 from .views import logout_user
@@ -105,8 +104,13 @@ def test_register(client):
             }
         )
     assert response.status_code == 200
-    assert Registration.objects.get(username='testuser2')
-    assert Registration.objects.get(email='testuser@liqd.de')
+    registration = Registration.objects.get(username='testuser2')
+    activation_url = reverse('activate', kwargs={'token': registration.token})
+    assert registration
+    assert registration.email == 'testuser@liqd.de'
+    assert len(mail.outbox) == 1
+    assert 'You created an account for' in mail.outbox[0].subject
+    assert activation_url in mail.outbox[0].body
 
 
 @pytest.mark.django_db
