@@ -16,13 +16,19 @@ from .emails import send_registration
 def login_user(request):
     form = LoginForm(request.POST or None)
     next_action = sanatize_next(request)
+    status = None
     if request.method == 'POST':
         if form.is_valid():
             user = form.login(request)
             if user:
                 login(request, user)
-            return HttpResponseRedirect(sanatize_next(request))
-    return render(request, 'user_management/login.html', {'form': form, 'next_action': next_action})
+                return HttpResponseRedirect(sanatize_next(request))
+        else:
+            status = 400
+    return render(request,
+                  'user_management/login.html',
+                  {'form': form, 'next_action': next_action},
+                  status=status)
 
 
 def logout_user(request):
@@ -38,6 +44,7 @@ def logout_user(request):
 def register_user(request):
     form = RegisterForm(request.POST or None)
     next_action = sanatize_next(request)
+    status = None
     if request.method == 'POST':
         if form.is_valid():
             registration = form.register(request)
@@ -45,12 +52,18 @@ def register_user(request):
             registration.save()
             send_registration(request, registration)
             return render(request, 'user_management/register_done.html')
-    return render(request, 'user_management/register.html', {'form': form, 'next_action': next_action})
+        else:
+            status = 400
+    return render(request,
+                  'user_management/register.html',
+                  {'form': form, 'next_action': next_action},
+                  status=status)
 
 
 def activate_user(request, token):
     token = uuid.UUID(token)
     form = ActivateForm(request.POST or None, initial={'token': str(token)})
+    status = None
     if request.method == 'POST':
         if form.is_valid():
             user, registration = form.activate(request)
@@ -61,4 +74,6 @@ def activate_user(request, token):
             login(request, user)
 
             return HttpResponseRedirect(registration.next_action)
-    return render(request, 'user_management/activate.html', {'form': form})
+        else:
+            status = 400
+    return render(request, 'user_management/activate.html', {'form': form}, status=status)
