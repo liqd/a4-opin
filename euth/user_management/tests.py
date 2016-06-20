@@ -65,7 +65,6 @@ def test_form_valid_login(rf, testuser):
     assert user == testuser
 
 
-@pytest.mark.django_db
 def test_form_invalid_login(rf, testuser):
     request = rf.post(
         '', {'username': 'testuser', 'password': 'wrong_password'})
@@ -74,8 +73,7 @@ def test_form_invalid_login(rf, testuser):
     assert form.errors['__all__'] == ['password mismatch']
 
 
-@pytest.mark.django_db
-def test_form_logout(testuser, rf, client):
+def test_logout(testuser, client):
     logged_in = client.login(username='testuser', password='password')
     assert logged_in == True
     logout_url = reverse('logout')
@@ -84,8 +82,7 @@ def test_form_logout(testuser, rf, client):
     assert '_auth_user_id' not in client.session
 
 
-@pytest.mark.django_db
-def test_form_logout_next(testuser, rf, client):
+def test_logout_with_next(testuser, client):
     logged_in = client.login(username='testuser', password='password')
     assert logged_in == True
     logout_url = reverse('logout')
@@ -95,7 +92,7 @@ def test_form_logout_next(testuser, rf, client):
 
 
 @pytest.mark.django_db
-def test_register(testuser, rf, client):
+def test_register(client):
     assert Registration.objects.all().count() == 0
     register_url = reverse('register')
     response = client.post(
@@ -110,7 +107,7 @@ def test_register(testuser, rf, client):
 
 
 @pytest.mark.django_db
-def test_register_invalid(testuser, rf, client):
+def test_register_invalid(client):
     assert Registration.objects.all().count() == 0
     register_url = reverse('register')
     response = client.post(
@@ -123,7 +120,6 @@ def test_register_invalid(testuser, rf, client):
         )
     assert Registration.objects.all().count() == 0
 
-@pytest.mark.django_db
 def test_activate_user(testregistration, client):
     assert User.objects.all().count() == 0
     token = testregistration.token
