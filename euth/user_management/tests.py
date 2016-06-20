@@ -32,24 +32,31 @@ def testregistration(db):
 
 
 @pytest.mark.django_db
-def test_get_login_view(rf):
+def test_login(client, testuser):
     login_url = reverse('login')
-    request = rf.get(login_url)
-    request.user = AnonymousUser()
-    response = login_user(request)
+    response = client.get(login_url)
     assert response.status_code == 200
 
-
-@pytest.mark.django_db
-def test_post_login_view(client, testuser):
-    login_url = reverse('login')
     response = client.post(
         login_url, {'username': 'testuser', 'password': 'password'})
     assert response.status_code == 302
     assert int(client.session['_auth_user_id']) == testuser.pk
 
 
-@pytest.mark.django_db
+def test_login_wrong_password(client, testuser):
+    login_url = reverse('login')
+    response = client.post(
+        login_url, {'username': 'testuser', 'password': 'wrong_password'})
+    assert response.status_code == 400
+
+
+def test_login_no_password(client, testuser):
+    login_url = reverse('login')
+    response = client.post(
+        login_url, {'username': 'testuser'})
+    assert response.status_code == 400
+
+
 def test_form_valid_login(rf, testuser):
     request = rf.post('', {'username': 'testuser', 'password': 'password'})
     form = LoginForm(request.POST)
