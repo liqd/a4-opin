@@ -9,8 +9,8 @@
     <div class="skinny-form">
         <header class="skinny-form-header">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="{% url 'login' %}?next={{next_action}}">Login</a></li>
-                <li role="presentation"><a href="{% url 'register' %}?next={{next_action}}">Register</a></li>
+                <li role="presentation" class="active"><a href="{% url 'login' %}?next={{next_action}}">{% trans "login" %}</a></li>
+                <li role="presentation"><a href="{% url 'register' %}?next={{next_action}}">{% trans "register" %}</a></li>
             </ul>
         </header>
         <form class="skinny-form-inner" role="form" name="LoginForm" action="" method="post" >
