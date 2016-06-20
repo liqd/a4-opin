@@ -27,7 +27,7 @@ def testregistration(db):
         email='testuser2@liqd.de',
         password='password',
         token='b628de97-2a3a-4699-b4a4-16e64e4590f5',
-        next_action='/de/')
+        next_action='/de/my_super_interesting_content')
     return testregistration
 
 
@@ -86,8 +86,9 @@ def test_logout_with_next(testuser, client):
     logged_in = client.login(username='testuser', password='password')
     assert logged_in == True
     logout_url = reverse('logout')
-    response = client.get(logout_url + '?next=/')
+    response = client.get(logout_url + '?next=/de/next_location')
     assert response.status_code == 302
+    assert response.url == '/de/next_location'
     assert '_auth_user_id' not in client.session
 
 
