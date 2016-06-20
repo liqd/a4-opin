@@ -82,6 +82,7 @@ def activate_user(request, token):
 def reset_request(request):
     form = RequestResetForm(request.POST or None)
     next_action = sanatize_next(request)
+    status = None
     if request.method == 'POST':
         if form.is_valid():
             reset = form.request_reset(request)
@@ -90,12 +91,17 @@ def reset_request(request):
 
             send_reset(request, reset)
             return render(request, 'user_management/reset_done.html')
-    return render(request, 'user_management/reset.html', {'form': form, 'next_action': next_action})
+        else:
+            status = 400
+    return render(request, 'user_management/reset.html',
+                  {'form': form, 'next_action': next_action},
+                  status=status)
 
 
 def reset_password(request, token):
     token = uuid.UUID(token)
     form = ResetForm(request.POST or None, initial={'token': str(token)})
+    status = None
     if request.method == 'POST':
         if form.is_valid():
             user, reset = form.reset_password(request)
@@ -106,4 +112,8 @@ def reset_password(request, token):
             login(request, user)
 
             return HttpResponseRedirect(reset.next_action)
-    return render(request, 'user_management/reset_password.html', {'form': form})
+        else:
+            status = 400
+    return render(request, 'user_management/reset_password.html',
+                  {'form': form},
+                  status=status)
