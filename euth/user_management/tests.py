@@ -104,8 +104,26 @@ def test_register(client):
                 'password_repeat': 'password'
             }
         )
-    assert Registration.objects.all().count() == 1
+    assert response.status_code == 200
+    assert Registration.objects.get(username='testuser2')
+    assert Registration.objects.get(email='testuser@liqd.de')
 
+
+@pytest.mark.django_db
+def test_reregister_same_username(client):
+    data = {
+        'username': 'testuser2',
+        'email':'testuser@liqd.de',
+        'password': 'password',
+        'password_repeat': 'password'
+    }
+    register_url = reverse('register')
+    response = client.post(register_url, data)
+    assert response.status_code == 200
+    data['email'] = 'anotheremail@liqd.de'
+    register_url = reverse('register')
+    response = client.post(register_url, data)
+    assert response.status_code == 400
 
 @pytest.mark.django_db
 def test_register_invalid(client):
@@ -119,21 +137,21 @@ def test_register_invalid(client):
                 'password_repeat': 'wrong_password'
             }
         )
-    assert Registration.objects.all().count() == 0
+    assert response.status_code == 400
+    assert not Registration.objects.filter(username='testuser2')
+
 
 def test_activate_user(testregistration, client):
     assert User.objects.all().count() == 0
     token = testregistration.token
     activate_url = reverse('activate', kwargs={'token': token})
-    client.post(activate_url, {})
-    #assert User.objects.all().count() == 1
+    response = client.get(activate_url)
+    assert response.status_code == 200
 
+    response = client.post(activate_url, {'token': token})
+    assert response.status_code == 302
+    assert response.url == '/de/my_super_interesting_content'
 
-
-
-
-
-
-
-
-
+    new_user = User.objects.get(username="testuser2")
+    assert new_user
+    assert new_user.email == 'testuser2@liqd.de'
