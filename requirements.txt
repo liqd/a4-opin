@@ -4,6 +4,7 @@ django-libsass==0.3
 django-bower==5.0.4
 django-countries==3.4.1
 django-filter==0.13.0
+django-model-utils==2.5
 django-widget-tweaks==1.4.1
 pytest-django==2.9.1
 pytest-cov==2.2.1

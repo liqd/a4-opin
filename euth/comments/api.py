@@ -14,7 +14,7 @@ from .permissions import IsUserOrReadOnly
 
 class CommentViewSet(viewsets.ModelViewSet):
 
-    queryset = Comment.objects.all().order_by('-submit_date')
+    queryset = Comment.objects.all().order_by('-created')
     serializer_class = CommentSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)

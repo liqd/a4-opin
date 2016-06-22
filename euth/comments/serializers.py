@@ -13,7 +13,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        read_only_fields = ('submit_date', 'edit_date')
+        read_only_fields = ('created', 'modified')
         exclude = ('user', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
@@ -32,7 +32,7 @@ class CommentSerializer(serializers.ModelSerializer):
             app_label="comments", model="comment")
         pk = obj.pk
         children = Comment.objects.all().filter(
-            content_type=content_type, object_pk=pk).order_by('submit_date')
+            content_type=content_type, object_pk=pk).order_by('created')
         serializer = CommentSerializer(children, many=True)
         return serializer.data
 
@@ -40,7 +40,7 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         Returns just the date of the datetime field
         """
-        return obj.submit_date.date()
+        return obj.created.date()
 
     def get_is_deleted(self, obj):
         """
