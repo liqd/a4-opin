@@ -18,5 +18,3 @@ deploy:
   app: opin-dev
   on:
     branch: master
-  run:
-    python manage.py --settings euth_wagtail.settings.heroku migrate
