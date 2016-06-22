@@ -1,0 +1,6 @@
+{
+  "name": "euth_wagtail",
+  "dependencies": {
+    "bower": "*"
+  }
+}
