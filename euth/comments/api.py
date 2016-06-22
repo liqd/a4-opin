@@ -1,15 +1,15 @@
-from django.utils import timezone
-from .models import Comment
-
-from rest_framework import viewsets
+from rest_framework import filters
 from rest_framework import generics
-from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
+from rest_framework import viewsets
+from rest_framework.response import Response
 
+from django.utils import timezone
+
+from .models import Comment
 from .serializers import CommentSerializer
 from .permissions import IsUserOrReadOnly
-from rest_framework import filters
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -22,7 +22,9 @@ class CommentViewSet(viewsets.ModelViewSet):
     filter_fields = ('object_pk', 'content_type', 'user')
 
     def create(self, request):
-
+        """
+        Sets the user of the request as user of the comment
+        """
         serializer = CommentSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -33,6 +35,11 @@ class CommentViewSet(viewsets.ModelViewSet):
                             status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
+        """
+        Checks if current user is the user of the comment
+        or if the user is admin and sets the flags accordingly.
+        NOTE: Comment is NOT deleted.
+        """
         comment = self.get_object()
 
         serializer = CommentSerializer(comment, {}, partial=True)
@@ -48,4 +55,3 @@ class CommentViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
-

@@ -1,13 +1,14 @@
-from django.test import TestCase
-from rest_framework.test import APIRequestFactory
 from rest_framework.test import APIClient
+from rest_framework.test import APIRequestFactory
 from rest_framework.test import force_authenticate
 from rest_framework import status
-from django.contrib.auth.models import AnonymousUser, User, Permission
-from .models import Comment
-from django.contrib.contenttypes.models import ContentType
 
+from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
+from django.test import TestCase
+
+from .models import Comment
 
 
 class CommentTestCase(TestCase):
@@ -128,9 +129,3 @@ class CommentTestCase(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['is_deleted'], True)
         self.assertEqual(response.data['comment'], 'deleted by moderator')
-
-
-
-
-
-

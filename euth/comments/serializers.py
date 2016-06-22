@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from .models import Comment
+
 from django.contrib.contenttypes.models import ContentType
+
+from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -15,11 +17,17 @@ class CommentSerializer(serializers.ModelSerializer):
         exclude = ('user', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
+        """
+        Don't show username if comment is marked removed or censored
+        """
         if(obj.is_censored or obj.is_removed):
-            return 'deleted Comment'
+            return 'unkonwn user'
         return str(obj.user)
 
     def get_child_comments(self, obj):
+        """
+        Returns the comments of a comment
+        """
         content_type = ContentType.objects.get(
             app_label="comments", model="comment")
         pk = obj.pk
@@ -29,7 +37,13 @@ class CommentSerializer(serializers.ModelSerializer):
         return serializer.data
 
     def get_submit_date(self, obj):
+        """
+        Returns just the date of the datetime field
+        """
         return obj.submit_date.date()
 
     def get_is_deleted(self, obj):
+        """
+        Returns true is one of the flags is set
+        """
         return (obj.is_censored or obj.is_removed)
