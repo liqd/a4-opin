@@ -1,0 +1,7 @@
+[run]
+source =
+    euth
+omit =
+    */migrations/*
+    */tests.py
+    */test_*.py

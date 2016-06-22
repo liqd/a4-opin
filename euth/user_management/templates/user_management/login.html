@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n widget_tweaks %}
 
 {% block content %}
 <div class="container">
@@ -9,8 +9,8 @@
     <div class="skinny-form">
         <header class="skinny-form-header">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="{% url 'login' %}?next={{next_action}}">Login</a></li>
-                <li role="presentation"><a href="{% url 'register' %}?next={{next_action}}">Register</a></li>
+                <li role="presentation" class="active"><a href="{% url 'login' %}?next={{next_action}}">{% trans "login" %}</a></li>
+                <li role="presentation"><a href="{% url 'register' %}?next={{next_action}}">{% trans "register" %}</a></li>
             </ul>
         </header>
         <form class="skinny-form-inner" role="form" name="LoginForm" action="" method="post" >
@@ -29,15 +29,25 @@
             {% endif %}
 
             <div class="form-group">
-                <label class="control-label" for="username">Username</label>
-                <input class="form-control" type="text" id="username" name="username">
+                <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
+                {% if form.username.errors %}
+                    {{ form.username|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.username|add_class:"form-control"}}
+                {% endif %}
+                {{ form.username.errors }}
             </div>
             <div class="form-group">
-                <label class="control-label" for="password">Password</label>
-                <input class="form-control" type="password" name="password" id="password">
+                <label class="control-label" for="{{ form.password.id_for_label }}">Password</label>
+                {% if form.password.errors %}
+                    {{ form.password|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.password|add_class:"form-control"}}
+                {% endif %}
+                {{ form.password.errors }}
             </div>
 
-            <button type="submit" value="Login" class="btn btn-primary btn-cta">Anmelden</button>
+            <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>
         </form>
     </div>
 

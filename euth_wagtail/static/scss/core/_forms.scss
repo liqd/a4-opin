@@ -28,7 +28,7 @@ label {
 }
 
 .skinny-form {
-    @include rem(margin, 0 auto 40px);
+    @include rem(margin, 55px auto 40px);
     @extend .col-md-4;
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
     float: none;
@@ -53,9 +53,18 @@ label {
         padding-left: 0;
         padding-right: 0;
 
+        &.form-error {
+            border-color: $brand-danger;
+        }
+
         &:hover, &:focus {
             background: $gray-lighter;
         }
+    }
+
+    .form-errors {
+        font-weight: bold;
+        color: $brand-danger;
     }
 
     .control-label {
@@ -71,6 +80,14 @@ label {
         margin: -30px auto 0;
         position: relative;
         text-transform: uppercase;
+    }
+
+    .errorlist {
+        @include rem(font-size, $font-size-small);
+        color: $brand-danger;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0;
     }
 }
 

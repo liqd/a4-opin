@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
 <div id="activate">
   <form id="ActivateForm" action="" method="post">
@@ -7,7 +7,7 @@
     {{ form.token }}
     <div class="form-group">
       <div class="col-lg-offset-2 col-lg-3">
-        <button type="submit" value="Activate" class="btn btn-primary">Activate account</button>
+        <button type="submit" value="Activate" class="btn btn-primary">{% trans "activate account" %}</button>
       </div>
     </div>
   </form>
