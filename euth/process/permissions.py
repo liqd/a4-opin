@@ -8,11 +8,11 @@ def permission_required(perm):
     def decorator(view_func):
         @wraps(view_func)
         def _wrap_view(request, *args, **kwargs):
-            process_name = kwargs.get("process_name")
-            if not process_name:
+            process_slug = kwargs.get("process_slug")
+            if not process_slug:
                 raise Exception(
-                    "No process_name given, can't determine process")
-            process = Process.objects.get(name=process_name)
+                    "No process_slug given, can't determine process")
+            process = Process.objects.get(slug=process_slug)
             active_phase = process.get_current_phase()
             is_participant = process.participants.filter(
                 id=request.user.id).first() is not None
