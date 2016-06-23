@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n staticfiles %}
+{% block content %}
+<header style="{% if organisation.background %}
+               background-image: url({{ organisation.background.url }});
+               {% else %}
+               background-color: rgb(1, 141, 208);
+               {% endif %}">
+  {% if organisation.logo %}
+  <img alt="{{ organisation.name }} logo" src="{{ organisation.logo.url }}"
+       style="display: block; margin-left: auto; margin-right: auto; padding: 10em;">
+  {% else %}
+    <img alt="opin logo" src="{% static "images/logo.png" %}"
+       style="display: block; margin-left: auto; margin-right: auto; padding: 10em;">
+  {% endif %}
+</header>
+<div class="container-narrow">
+  <h2>{{ organisation.name }}</h2>
+  <div class="panel panel-default">
+    <h3 id="heading-why" class="accordion-title">
+      <a class="accordion-link" role="button" data-toggle="collapse" href="#why" aria-expanded="false" aria-controls="why">
+        {% trans "Why are we part of OPIN" %}
+      </a>
+    </h3>
+    <div id="why" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-why" aria-expanded="false">
+      <div class="panel-body">
+        <div class="rich-text">{{ organisation.description_why | linebreaks }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <h3 id="heading-how" class="accordion-title">
+      <a class="accordion-link" role="button" data-toggle="collapse" href="#how" aria-expanded="false" aria-controls="how">
+        {% trans "How will we use OPIN" %}
+      </a>
+    </h3>
+    <div id="how" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-how" aria-expanded="false">
+      <div class="panel-body">
+        <div class="rich-text">{{ organisation.description_how  | linebreaks }}</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    {{ organisation.description | linebreaks }}
+  </div>
+  <article>
+    <h3>{% trans "projects" %}</h3>
+    <ul>
+      <li>Process 1</li>
+      <li>Process 2</li>
+      <li>Process 3</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

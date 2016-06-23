@@ -11,6 +11,7 @@ from wagtail.wagtailcore import urls as wagtail_urls
 
 from comments_api import urls as comments_api_urls
 from euth.user_management import urls as user_urls
+from euth.organisations import urls as organisations_urls
 from search import urls as search_urls
 
 
@@ -23,6 +24,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'', include(user_urls)),
+    url(r'^orgs/', include(organisations_urls)),
     url(r'^adhocracy/', TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),
     url(r'', include(wagtail_urls)),
