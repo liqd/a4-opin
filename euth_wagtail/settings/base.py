@@ -59,7 +59,9 @@ INSTALLED_APPS = [
     'django_countries',
     'django_comments',
     'rest_framework',
+
     'euth.user_management',
+    'euth.process',
 ]
 
 MIDDLEWARE_CLASSES = [

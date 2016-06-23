@@ -8,17 +8,17 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
-
 from comments_api import urls as comments_api_urls
 from euth.user_management import urls as user_urls
+from euth.process import urls as process_urls
 from search import urls as search_urls
-
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(comments_api_urls)),
+    url(r'^processes/', include(process_urls)),
 ]
 
 urlpatterns += i18n_patterns(

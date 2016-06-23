@@ -1,0 +1,44 @@
+[
+  {
+    "model": "process.process",
+    "pk": 1,
+    "fields": {
+      "name": "test_process",
+      "title": "A test process from the fixtures",
+      "description": "This is a test process imported from the test fixtures.",
+      "participants": [],
+      "moderators": [1]
+    }
+  },
+  {
+    "model": "process.participationModule",
+    "pk":  1,
+    "fields": {
+      "process": 1,
+      "order": 1
+    }
+  },
+  {
+    "model": "process.phaseType",
+    "pk": 1,
+    "fields": {
+      "name": "add",
+      "moderator_permissions": [],
+      "participant_permissions": [],
+      "order": 1,
+      "module_type": [ "process", "participationmodule" ]
+    }
+  },
+  {
+    "model": "process.phase",
+    "pk": 1,
+    "fields": {
+      "title": "Coordination",
+      "description": "In the coordination phase you can provide your ideas.",
+      "phase_type": 1,
+      "module": 1,
+      "date_start": "2016-03-01T18:00:00+00:00",
+      "date_end": null
+    }
+  }
+]
