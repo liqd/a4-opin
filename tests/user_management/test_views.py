@@ -155,7 +155,7 @@ def test_reset(client, user):
         'username_or_email': user.username,
         'next': '/de/my_nice_url'})
     assert response.status_code == 200
-    reset = Reset.objects.get(user__username=user.username)
+    reset = models.Reset.objects.get(user__username=user.username)
     assert reset
 
     reset_url = reverse('reset_password', kwargs={'token': reset.token })
@@ -172,7 +172,7 @@ def test_reset(client, user):
         'password_repeat': 'password1',
         'token': reset.token })
     assert response.status_code == 302
-    assert response.url == '/de/my_nice_url'
+    assert '/de/my_nice_url' in response.url
     assert user.password != User.objects.get(username=user.username).password
 
 
@@ -181,7 +181,7 @@ def test_request_reset_email(client, user):
     reset_req_url = reverse('reset_request')
     response = client.post(reset_req_url, { 'username_or_email': user.email })
     assert response.status_code == 200
-    reset = Reset.objects.get(user__username=user.username)
+    reset = models.Reset.objects.get(user__username=user.username)
     assert reset
 
 
@@ -197,17 +197,17 @@ def test_request_reset_error(client):
 
 @pytest.mark.django_db
 def test_reset_password_error(client, reset):
-    reset_url = reverse('reset_password', kwargs={'token': testreset.token })
+    reset_url = reverse('reset_password', kwargs={'token': reset.token })
     response = client.post(reset_url, {
         'password': 'password',
         'password_repeat': 'password_not_match',
-        'token': testreset.token })
+        'token': reset.token })
     assert response.status_code == 400
 
 
 @pytest.mark.django_db
 def test_reset_password_invalid(client, reset):
-    reset_url = reverse('reset_password', kwargs={'token': testreset.token })
+    reset_url = reverse('reset_password', kwargs={'token': reset.token })
     response = client.post(reset_url, {
         'password': 'password',
         'password_repeat': 'password',
