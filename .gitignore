@@ -10,3 +10,6 @@ db.sqlite3
 venv
 /euth_wagtail/static/third-party/bower_components/
 /node_modules
+/lib/python*
+/include/python*
+/bin
