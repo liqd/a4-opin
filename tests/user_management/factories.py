@@ -1,16 +1,5 @@
 import factory
 
-from django.contrib.auth.hashers import make_password
-
-
-class UserFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = 'auth.User'
-
-    username = factory.Faker('name')
-    password =  make_password('password')
-
-
 class RegistrationFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = 'user_management.Registration'
