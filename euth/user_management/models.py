@@ -11,17 +11,18 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         help_text=_('Required. 60 characters or fewer. Letters, digits, spaces and '
                     '@/./+/-/_ only.'),
         validators=[
-            validators.RegexValidator(r'^[ \w.@+-]+$',
-                                      _('Enter a valid username. '
-                                        'This value may contain only letters, digits, spaces'
-                                        'and @/./+/-/_ characters.'), 'invalid'),
+            validators.RegexValidator(r'^[\w]+[ \w.@+-]*$',
+                                      _('Enter a valid username. This value may contain only '
+                                        'letters, digits, spaces and @/./+/-/_ characters. It '
+                                        'must start with a digit or a letter.'),
+                                      'invalid'),
         ],
         error_messages={
-            'unique': _("A user with that username already exists."),
+            'unique': _('A user with that username already exists.'),
         })
     email = models.EmailField(_('email address'), unique=True,
         error_messages={
-            'unique': _("A user with that email address already exists."),
+            'unique': _('A user with that email address already exists.'),
        })
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin '
