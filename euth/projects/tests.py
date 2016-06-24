@@ -83,3 +83,17 @@ def test_visibility(project, private_project):
     assert not private_project.is_public
     assert not project.is_private
     assert private_project.is_private
+
+
+@pytest.mark.django_db
+def test_list_view(client, project):
+    url = reverse('project-list')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_detail_view(client, project):
+    project_url = reverse('project-detail', args=[project.slug])
+    response = client.get(project_url)
+    assert response.status_code == 200
