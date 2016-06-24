@@ -38,3 +38,8 @@ def test_detail_view(client, org):
 def test_absolute_url(org):
     url = reverse('organisation-detail', kwargs={ 'slug': org.slug })
     assert org.get_absolute_url() == url
+
+
+@pytest.mark.django_db
+def test_natural_keys(org):
+    assert models.Organisation.objects.get_by_natural_key(org.name) == org
