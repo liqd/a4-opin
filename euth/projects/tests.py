@@ -7,63 +7,15 @@ from django.contrib import auth
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
+from pytest_factoryboy import register
 
 from ..organisations import models as org_models
-from .  import models
+from . import models
+from . import factories
 
-
-@pytest.fixture
-def moderator():
-    moderator = auth.get_user_model().objects.create(
-        username='moderator',
-        email='moderator@liqd.de', )
-    return moderator
-
-
-@pytest.fixture
-def participant():
-    participant = auth.get_user_model().objects.create(
-        username='process_participant')
-    return participant
-
-
-@pytest.fixture
-def organisation(moderator):
-    organisation = org_models.Organisation.objects.create(
-        name='test',
-        slug='test',
-        description_why='Thats why!',
-        description_how='Thats how!',
-        description='This is test!')
-    organisation.initiators.add(moderator)
-    return organisation
-
-
-@pytest.fixture
-def project(request, organisation, moderator, participant):
-    project = models.Project.objects.create(
-        organisation=organisation,
-        slug='process',
-        name='Process',
-        description='Discuss discuss discuss!',
-    )
-    project.moderators.add(moderator)
-    project.participants.add(participant)
-    return project
-
-
-@pytest.fixture
-def private_project(request, organisation, moderator, participant):
-    project = models.Project.objects.create(
-        organisation=organisation,
-        slug='private_process',
-        name='Process (private)',
-        description='Discuss discuss discuss!',
-        visibility=models.Visibility.private.value,
-    )
-    project.moderators.add(moderator)
-    project.participants.add(participant)
-    return project
+from ..organisations import factories as org_factories
+register(org_factories.OrganisationFactory)
+register(factories.ProjectFactory)
 
 
 @pytest.mark.django_db
@@ -78,11 +30,15 @@ def test_get_by_natural_key(project):
 
 
 @pytest.mark.django_db
-def test_visibility(project, private_project):
+def test_is_public(project):
     assert project.is_public
-    assert not private_project.is_public
     assert not project.is_private
-    assert private_project.is_private
+
+@pytest.mark.django_db
+@pytest.mark.parametrize('project__visibility', [models.Visibility.private.value])
+def test_is_privat(project):
+    assert not project.is_public
+    assert project.is_private
 
 
 @pytest.mark.django_db
