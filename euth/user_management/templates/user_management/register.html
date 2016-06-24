@@ -2,6 +2,7 @@
 {% load i18n widget_tweaks %}
 {% block content %}
 <div class="container">
+<h2>{% trans "Register" %}</h2>
 <div class="skinny-form">
     <header class="skinny-form-header">
         <ul class="nav nav-tabs" role="tablist">
@@ -25,30 +26,46 @@
         {% endif %}
 
         <div class="form-group">
-            <label class="control-label" for="{{ form.username.id_for_label }}">{% trans "username" %}</label>
+            <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
+            {% if form.username.errors %}
+                {{ form.username|add_class:"form-control form-error" }}
+            {% else %}
+                {{ form.username|add_class:"form-control"}}
+            {% endif %}
             {{ form.username.errors }}
-            {{ form.username|add_class:"form-control" }}
         </div>
 
         <div class="form-group">
-            <label class="control-label" for="{{ form.email.id_for_label }}">{% trans "email" %}</label>
+            <label class="control-label" for="{{ form.email.id_for_label }}">Email</label>
+            {% if form.email.errors %}
+                {{ form.email|add_class:"form-control form-error" }}
+            {% else %}
+                {{ form.email|add_class:"form-control"}}
+            {% endif %}
             {{ form.email.errors }}
-            {{ form.email|add_class:"form-control" }}
         </div>
 
         <div class="form-group">
-            <label class="control-label" for="{{ form.password.id_for_label }}">{% trans "password" %}</label>
+            <label class="control-label" for="{{ form.password.id_for_label }}">Password</label>
+            {% if form.password.errors %}
+                {{ form.password|add_class:"form-control form-error" }}
+            {% else %}
+                {{ form.password|add_class:"form-control"}}
+            {% endif %}
             {{ form.password.errors }}
-            {{ form.password|add_class:"form-control" }}
         </div>
 
         <div class="form-group">
-            <label class="control-label" for="{{ form.password_repeat.id_for_label }}">{% trans "password repeat" %}</label>
+            <label class="control-label" for="{{ form.password_repeat.id_for_label }}">Password repeat</label>
+            {% if form.password_repeat.errors %}
+                {{ form.password_repeat|add_class:"form-control form-error" }}
+            {% else %}
+                {{ form.password_repeat|add_class:"form-control"}}
+            {% endif %}
             {{ form.password_repeat.errors }}
-            {{ form.password_repeat|add_class:"form-control" }}
         </div>
 
-        <button type="submit" value="register" class="btn btn-primary btn-cta">{% trans "register" %}</button>
+        <button type="submit" value="Register" class="btn btn-primary btn-cta">{% trans "register" %}</button>
     </form>
 </div>
 </div>
