@@ -1,18 +1,11 @@
 import pytest
 
-from pytest_factoryboy import register
-
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import AnonymousUser, User, Permission
 
-from . import factories
-from . import forms
-from . import models
-
-register(factories.UserFactory)
-register(factories.RegistrationFactory)
-
+from euth.user_management import forms
+from euth.user_management import models
 
 @pytest.mark.django_db
 def test_login(client, user):
@@ -102,7 +95,6 @@ def test_register(client):
     assert 'You created an account for' in mail.outbox[0].subject
     assert activation_url in mail.outbox[0].body
 
-
 @pytest.mark.django_db
 def test_reregister_same_username(client):
     data = {
@@ -150,5 +142,4 @@ def test_activate_user(registration, client):
 
     new_user = User.objects.get(username=registration.username)
     assert new_user
-    #print(registration.email)
     assert new_user.email == registration.email
