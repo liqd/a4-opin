@@ -10,6 +10,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     username = factory.Faker('name')
     password = make_password('password')
+    email = factory.Faker('email')
 
 
 class AdminFactory(factory.django.DjangoModelFactory):
