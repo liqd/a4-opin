@@ -8,11 +8,13 @@ from django.contrib.contenttypes.models import ContentType
 
 apiclient = APIClient()
 
+
 @pytest.mark.django_db
-def test_anonymous_user_can_not_comment(client):
+def test_anonymous_user_can_not_comment():
+    apiclient.force_authenticate(user=None)
     url = reverse('comments-list')
     data = {}
-    response = client.post(url, data, format='json')
+    response = apiclient.post(url, data, format='json')
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
@@ -58,7 +60,8 @@ def test_authenticated_user_can_not_edit_comment_of_other_user(user2, comment):
 
 
 @pytest.mark.django_db
-def test_anonoymous_user_can_not_edit_comment(comment):
+def test_anonymous_user_can_not_edit_comment(comment):
+    apiclient.force_authenticate(user=None)
     data = {'comment': 'comment comment comment'}
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.patch(url, data, format='json')
@@ -88,6 +91,7 @@ def test_authenticated_user_can_reply_to_comment(user2, comment):
 
 @pytest.mark.django_db
 def test_anonymous_user_can_not_delete_comment(comment):
+    apiclient.force_authenticate(user=None)
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.delete(url)
     assert response.status_code == status.HTTP_403_FORBIDDEN
