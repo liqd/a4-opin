@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'projects',
     'comments_api',
     'widget_tweaks',
+    'webpack_loader',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -156,8 +157,18 @@ BOWER_INSTALLED_APPS = (
 )
 BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': False,
+        'BUNDLE_DIR_NAME': 'bundles/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
 
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'node_modules'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
