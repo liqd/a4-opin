@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'compressor',
     'taggit',
-    'djangobower',
     'projects',
     'comments_api',
     'widget_tweaks',
@@ -145,17 +144,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
-    'djangobower.finders.BowerFinder',
 ]
-
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-party')
-BOWER_INSTALLED_APPS = (
-    'jquery#2.2.4',
-    'bootstrap-sass',
-    'salvattore',
-    'fontawesome'
-)
-BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
 
 WEBPACK_LOADER = {
     'DEFAULT': {
