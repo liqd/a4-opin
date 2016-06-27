@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags staticfiles %}
 {% block content %}
 <div class="container">
     <header class="container-narrow block page-intro" >
@@ -20,5 +20,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
+<script type="text/javascript" src="{% static "salvattore/dist/salvattore.min.js" %}"></script>
 {% endblock %}

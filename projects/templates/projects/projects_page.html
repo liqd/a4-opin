@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content staticfiles %}
 <div class="container">
     <header class="container-narrow block page-intro" >
     	<h1 class="block-title">{{ self.translated_title }}</h1>
@@ -19,5 +19,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
+<script type="text/javascript" src="{% static "salvattore/dist/salvattore.min.js" %}"></script>
 {% endblock %}

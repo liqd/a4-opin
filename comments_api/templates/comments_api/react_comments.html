@@ -1,7 +1,3 @@
-{% load staticfiles comments i18n webpack_loader %}
-
-{% render_bundle 'main' %}
-
 <div id="comments_for_{{contenttype}}_{{pk}}"></div>
 <script>
   window.Opin.renderComment( "{% url 'comments-list'%}",{{contenttype}}, {{pk}}, {{comments_conetenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", {{ translations | safe }}, "{{ user_name }}")

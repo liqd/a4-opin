@@ -2,6 +2,7 @@ var $ = require("jquery");
 var React = require("react");
 var ReactDOM = require("react-dom");
 var h = require("react-hyperscript");
+var marked = require("marked");
 
 var getCookie = function getCookie(c_name) {
   if (document.cookie.length > 0) {
