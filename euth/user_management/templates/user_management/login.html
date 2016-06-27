@@ -47,6 +47,10 @@
                 {{ form.password.errors }}
             </div>
 
+            <div class="form-group">
+              <a href="{% url 'reset_request' %}?next={{next_action}}">{% trans "reset password" %}</a>
+            </div>
+
             <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>
         </form>
     </div>
