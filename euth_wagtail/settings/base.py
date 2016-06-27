@@ -174,7 +174,8 @@ LIBSASS_SOURCEMAPS = True
 
 # Wagtail settings
 
-LOGIN_URL = 'wagtailadmin_login'
-LOGIN_REDIRECT_URL = 'wagtailadmin_home'
-
 WAGTAIL_SITE_NAME = "euth_wagtail"
+
+# Authentification
+
+LOGIN_URL = 'login'
