@@ -7,9 +7,6 @@ from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
 
 apiclient = APIClient()
-comment_contenttype = ContentType.objects.get(
-    app_label="comments", model="comment").pk
-
 
 @pytest.mark.django_db
 def test_anonymous_user_can_not_comment(client):
@@ -70,6 +67,8 @@ def test_anonoymous_user_can_not_edit_comment(comment):
 
 @pytest.mark.django_db
 def test_authenticated_user_can_reply_to_comment(user2, comment):
+    comment_contenttype = ContentType.objects.get(
+    app_label="comments", model="comment").pk
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(url)
     assert len(response.data['child_comments']) == 0

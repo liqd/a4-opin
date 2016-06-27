@@ -20,3 +20,13 @@ class AdminFactory(factory.django.DjangoModelFactory):
     username = factory.Faker('name')
     password = make_password('password')
     is_superuser = True
+
+
+class ContentTypeFactory(factory.django.DjangoModelFactory):
+
+    class Meta:
+        model = 'contenttypes.ContentType'
+
+    app_label = factory.Faker('name')
+    model = factory.Faker('name')
+    name = factory.Faker('name')
