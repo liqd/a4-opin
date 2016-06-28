@@ -1,23 +1,19 @@
 .image-text-list-block {
 
-	@include rem(padding, 20px 0px 20px 0px);
+    @include rem(padding, 20px 0px 20px 0px);
 
-	.image-text-list-block-item {
+    .image-text-list-block-item {
 
-		@include rem(padding, 10px 0px 10px 0px);
+        @include rem(padding, 10px 0px 10px 0px);
 
-		.image-text-list-block-item-text {
-			display: inline-block;
-		  	position: relative;
+        .image-text-list-block-item-text {
+            display: inline-block;
+            position: relative;
 
-			span {
-		  		display: inline-block;
-		  		vertical-align: middle;
-			}
-		}
-	}
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
 }
-
-
-
-

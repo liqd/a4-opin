@@ -43,3 +43,23 @@
         display: none;
     }
 }
+
+.logout-button-form {
+
+    & .btn {
+        background-color: transparent;
+        padding: 0px;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        &:focus, &:hover {
+            outline: none;
+        }
+    }
+
+}
