@@ -9,9 +9,7 @@
     "marked": "0.3.5",
     "bootstrap-sass": "3.3.6",
     "salvattore": "1.0.9",
-    "font-awesome": "4.6.3"
-  },
-  "devDependencies": {
+    "font-awesome": "4.6.3",
     "webpack": "1.13.1",
     "webpack-bundle-tracker": "0.0.93"
   },
