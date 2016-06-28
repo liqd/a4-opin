@@ -208,8 +208,7 @@ var Comment = React.createClass({
         return this.props.user_name === this.context.user_name;
     },
 
-    onDelete: function(e) {
-        e.preventDefault();
+    onDelete: function() {
         $.ajax({
             url: this.context.submit_url + this.props.id + '/',
             dataType: 'json',
@@ -281,6 +280,14 @@ var Comment = React.createClass({
     render: function() {
         return (
             h('div.comment', [
+                this.isOwner() ? h(Modal, {
+                    name: 'comment_delete_' + this.props.id,
+                    question: this.context.translations.translations.i18n_ask_delete,
+                    handler: this.onDelete,
+                    action: this.context.translations.translations.i18n_delete,
+                    abort: this.context.translations.translations.i18n_abort,
+                    btnStyle: 'danger'
+                }) : null,
                 h('h3.commentAuthor', this.state.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
                         dangerouslySetInnerHTML: this.state.comment
@@ -314,7 +321,7 @@ var Comment = React.createClass({
                             }, this.state.commentCount
                         )
                     ]) : null,
-                    this.context.isAuthenticated ? h('li.dropdown', {role: 'presentation'},[
+                    this.context.isAuthenticated && !this.state.isDeleted ? h('li.dropdown', {role: 'presentation'},[
                         h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
                             'data-toggle':'dropdown',
                             href:'#',
@@ -334,8 +341,9 @@ var Comment = React.createClass({
                             ]) : null,
                             this.isOwner() ? h('li', [
                                 h('a.icon.icon-remove-sign.dark', {
-                                        href:'#',
-                                        onClick: this.onDelete,
+                                        href: '#',
+                                        'data-toggle': 'modal',
+                                        'data-target': '#comment_delete_' + this.props.id,
                                         'aria-hidden': true
                                     }, this.context.translations.translations.i18n_delete
                                  )
@@ -373,6 +381,23 @@ var Comment = React.createClass({
         );
     }
 });
+
+    var Modal = React.createClass({
+        'render': function() {
+            return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
+                h('div.modal-dialog', { role: 'document' }, [
+                    h('div.modal-content', [
+                        h('div.modal-body', this.props.question),
+                        h('div.modal-footer', [
+                            h('button.btn.btn-default', {type: 'button', 'data-dismiss': 'modal'}, this.props.abort),
+                            h('button.btn.btn-' + (this.props.btnStyle || 'primary'), {type: 'button', 'data-dismiss': 'modal', onClick: this.props.handler}, this.props.action),
+                        ])
+                    ])
+                ])
+            ])
+        }
+    });
+
 
 Comment.contextTypes = {
     comments_contenttype: React.PropTypes.number,

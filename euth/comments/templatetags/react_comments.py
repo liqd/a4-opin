@@ -33,7 +33,9 @@ def react_comments(context, obj):
         'i18n_cancel': _('Cancel'),
         'i18n_edit':_('Edit'),
         'i18n_report':_('Report'),
-        'i18n_delete':_('Delete')
+        'i18n_delete':_('Delete'),
+        'i18n_abort':_('Abort'),
+        'i18n_ask_delete':_('Do you really want to delete this comment?'),
     }
 
     translations_json = json.dumps({
