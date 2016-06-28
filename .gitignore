@@ -8,7 +8,7 @@ db.sqlite3
 /media
 .sass-cache
 venv
-/euth_wagtail/static/third-party/bower_components/
+/euth_wagtail/static/bundles
 /node_modules
 /lib/python*
 /include/python*
