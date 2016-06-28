@@ -8,19 +8,24 @@
 
 ## How to start
 
-1. clone repository
-2. `cd euth_wagtail`
-3. install bower and sass `npm install bower`
-4. create virtualenv (make sure to add virtualenv name to .gitignore)
-5. run `pip install -r requirements.txt`
-6. run `python manage.py migrate`
-7. run `python manage.py createsuperuser`
-8. run `python manage.py bower install`
-9. run `python manage.py runserver`
-10. Browse to  http://localhost:8000/admin
+Install the application and its dependencies.
+
+```
+git clone https://github.com/liqd/euth_wagtail.git  # clone repository
+cd euth_wagtail
+npm install                                         # install webpack
+npm run build                                       # run webpack
+python3 -m venv .                                   # setup virualenv
+bin/python3 -m pip install -r requirements.txt      # install requirements
+bin/python manage.py migrate
+bin/python manage.py createsuperuser
+bin/python manage.py runserver
+```
+Service should now be running on [localhost:8000](http://localhost:8000/admin)
 
 ## Tests
 
- * unit tests usings py.test
-     * run `py.test`
-     * with coverage html `py.test --cov --cov-report=html`
+Unitest are working with py.test.
+
+ * run `py.test`
+ * with coverage html `py.test --cov --cov-report=html`
