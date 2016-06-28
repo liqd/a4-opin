@@ -158,6 +158,7 @@ var Comment = React.createClass({
         return {
             edit: false,
             showChildComments: false,
+            user_name: this.props.user_name,
             comment_raw: this.props.children,
             comment: this.rawMarkup(this.props.children),
             child_comments: this.props.child_comments,
@@ -205,6 +206,30 @@ var Comment = React.createClass({
 
     isOwner: function() {
         return this.props.user_name === this.context.user_name;
+    },
+
+    onDelete: function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: this.context.submit_url + this.props.id + '/',
+            dataType: 'json',
+            type: 'DELETE',
+            success: function(updated_comment) {
+                this.setState({
+                    user_name: updated_comment.user_name,
+                    comment_raw: updated_comment.comment,
+                    comment: this.rawMarkup(updated_comment.comment)
+                });
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.context.submit_url + this.props.id + '/', status, err.toString());
+            }.bind(this)
+        });
+    },
+
+    onReport: function(e) {
+        e.preventDefault();
+        console.log('clicked report');
     },
 
     handleCommentSubmit: function(comment) {
@@ -256,7 +281,7 @@ var Comment = React.createClass({
     render: function() {
         return (
             h('div.comment', [
-                h('h3.commentAuthor', this.props.user_name),
+                h('h3.commentAuthor', this.state.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
                         dangerouslySetInnerHTML: this.state.comment
                     }
@@ -307,10 +332,18 @@ var Comment = React.createClass({
                                     }, this.context.translations.translations.i18n_edit
                                 )
                             ]) : null,
+                            this.isOwner() ? h('li', [
+                                h('a.icon.icon-remove-sign.dark', {
+                                        href:'#',
+                                        onClick: this.onDelete,
+                                        'aria-hidden': true
+                                    }, this.context.translations.translations.i18n_delete
+                                 )
+                            ]) : null,
                             h('li', [
                                 h('a.icon.fa-ban.dark', {
                                         href:'#',
-                                        onClick: this.rateUp,
+                                        onClick: this.onReport,
                                         'aria-hidden': true
                                     }, this.context.translations.translations.i18n_report
                                 )
