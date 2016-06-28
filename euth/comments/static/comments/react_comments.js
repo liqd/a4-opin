@@ -293,7 +293,7 @@ var Comment = React.createClass({
                     handler: this.onDelete,
                     action: this.context.translations.translations.i18n_delete,
                     abort: this.context.translations.translations.i18n_abort,
-                    btnStyle: 'danger'
+                    btnStyle: 'cta'
                 }) : null,
                 h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.state.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
@@ -347,7 +347,7 @@ var Comment = React.createClass({
                                 )
                             ]) : null,
                             this.isOwner() ? h('li', [
-                                h('a.icon.icon-remove-sign.dark', {
+                                h('a.icon.fa-trash-o.dark', {
                                         href: '#',
                                         'data-toggle': 'modal',
                                         'data-target': '#comment_delete_' + this.props.id,
@@ -394,10 +394,35 @@ var Comment = React.createClass({
             return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
                 h('div.modal-dialog', { role: 'document' }, [
                     h('div.modal-content', [
-                        h('div.modal-body', this.props.question),
+                        h('div.modal-header', [
+                            h('button.close', {
+                                type:'button',
+                                'data-dismiss':'modal',
+                                'aria-label':this.props.abort
+                            }, [
+                                h('i.fa.fa-times', {
+                                    'aria-hidden' : true
+                                })
+                            ])
+                        ]),
+                        h('div.modal-body', [
+                            h('h3', this.props.question)
+                        ]),
                         h('div.modal-footer', [
-                            h('button.btn.btn-default', {type: 'button', 'data-dismiss': 'modal'}, this.props.abort),
-                            h('button.btn.btn-' + (this.props.btnStyle || 'primary'), {type: 'button', 'data-dismiss': 'modal', onClick: this.props.handler}, this.props.action),
+                            h('div.row', [
+                                h('button.btn.btn-' + (this.props.btnStyle || 'primary'),
+                                {
+                                    type: 'button',
+                                    'data-dismiss': 'modal',
+                                    onClick: this.props.handler},
+                                this.props.action)
+                            ]),
+                            h('div.row', [
+                                h('button.btn', {
+                                    type: 'button',
+                                    'data-dismiss': 'modal'
+                            }, this.props.abort)
+                            ])
                         ])
                     ])
                 ])
