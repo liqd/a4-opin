@@ -1,17 +1,21 @@
-(function () {
-    function getCookie(c_name)
-    {
-        if (document.cookie.length > 0) {
-            var c_start = document.cookie.indexOf(c_name + "=");
-            if (c_start != -1) {
-                c_start = c_start + c_name.length + 1;
-                var c_end = document.cookie.indexOf(";", c_start);
-                if (c_end == -1) c_end = document.cookie.length;
-                return unescape(document.cookie.substring(c_start,c_end));
-            }
-        }
-    return "";
+var $ = require("jquery");
+var React = require("react");
+var ReactDOM = require("react-dom");
+var h = require("react-hyperscript");
+var marked = require("marked");
+
+var getCookie = function getCookie(c_name) {
+  if (document.cookie.length > 0) {
+    var c_start = document.cookie.indexOf(c_name + "=");
+    if (c_start != -1) {
+      c_start = c_start + c_name.length + 1;
+      var c_end = document.cookie.indexOf(";", c_start);
+      if (c_end == -1) c_end = document.cookie.length;
+      return unescape(document.cookie.substring(c_start,c_end));
+    }
   }
+  return "";
+}
 
 $(function () {
     $.ajaxSetup({
@@ -516,9 +520,8 @@ CommentEditForm.contextTypes = {
     translations: React.PropTypes.object
 };
 
-window._opin = window._opin || {}
 
-window._opin.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name) {
+module.exports.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name) {
     ReactDOM.render(
       h(CommentBox, {
         url: url,
@@ -532,5 +535,4 @@ window._opin.renderComment = function (url,subjectType, subjectId, comments_cont
         user_name: user_name
       }),
       document.getElementById(target));
-}
-}());
+};

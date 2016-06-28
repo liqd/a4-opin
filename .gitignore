@@ -13,3 +13,4 @@ venv
 /lib/python*
 /include/python*
 /bin
+/webpack-stats.json
