@@ -138,6 +138,7 @@ var CommentList = React.createClass({
                             submission_date: comment.submit_date,
                             id: comment.id,
                             content_type: comment.content_type,
+                            is_deleted: comment.is_deleted
                             },
                             comment.comment
                         )
@@ -163,6 +164,7 @@ var Comment = React.createClass({
             comment: this.rawMarkup(this.props.children),
             child_comments: this.props.child_comments,
             commentCount: this.props.child_comments.length,
+            is_deleted: this.props.is_deleted,
             editForm: h(CommentEditForm, {
                 comment: this.props.children,
                 rows: 5,
@@ -191,7 +193,7 @@ var Comment = React.createClass({
     },
 
     allowRate: function() {
-        return true;
+        return !(this.state.is_deleted);
     },
 
     rateUp: function(e) {
@@ -217,7 +219,8 @@ var Comment = React.createClass({
                 this.setState({
                     user_name: updated_comment.user_name,
                     comment_raw: updated_comment.comment,
-                    comment: this.rawMarkup(updated_comment.comment)
+                    comment: this.rawMarkup(updated_comment.comment),
+                    is_deleted: updated_comment.is_deleted,
                 });
             }.bind(this),
             error: function(xhr, status, err) {
@@ -288,7 +291,7 @@ var Comment = React.createClass({
                     abort: this.context.translations.translations.i18n_abort,
                     btnStyle: 'danger'
                 }) : null,
-                h('h3.commentAuthor', this.state.user_name),
+                h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.state.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
                         dangerouslySetInnerHTML: this.state.comment
                     }
@@ -321,7 +324,7 @@ var Comment = React.createClass({
                             }, this.state.commentCount
                         )
                     ]) : null,
-                    this.context.isAuthenticated && !this.state.isDeleted ? h('li.dropdown', {role: 'presentation'},[
+                    this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'},[
                         h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
                             'data-toggle':'dropdown',
                             href:'#',
