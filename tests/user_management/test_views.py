@@ -92,7 +92,7 @@ def test_register(client):
     assert registration
     assert registration.email == 'testuser@liqd.de'
     assert len(mail.outbox) == 1
-    assert 'You created an account for' in mail.outbox[0].subject
+    assert 'You requested to register to' in mail.outbox[0].subject
     assert activation_url in mail.outbox[0].body
 
 @pytest.mark.django_db
