@@ -1,12 +1,13 @@
 import factory
 
+from django.conf import settings
 from django.contrib.auth.hashers import make_password
 
 
 class UserFactory(factory.django.DjangoModelFactory):
 
     class Meta:
-        model = 'auth.User'
+        model = settings.AUTH_USER_MODEL
 
     username = factory.Faker('name')
     password = make_password('password')
@@ -16,7 +17,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 class AdminFactory(factory.django.DjangoModelFactory):
 
     class Meta:
-        model = 'auth.User'
+        model = settings.AUTH_USER_MODEL
 
     username = factory.Faker('name')
     password = make_password('password')

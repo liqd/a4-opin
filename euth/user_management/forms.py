@@ -10,27 +10,27 @@ from .models import Registration, Reset
 User = get_user_model()
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=255, required=True)
+    email = forms.EmailField(max_length=255, required=True)
     password = forms.CharField(widget=forms.PasswordInput, required=True)
 
     def clean(self):
-        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
+        user = authenticate(username=email, password=password)
         if not user or not user.is_active:
             raise ValidationError(_('password mismatch'))
         return self.cleaned_data
 
     def login(self, request):
-        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
+        user = authenticate(username=email, password=password)
         return user
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=255, required=True)
     email = forms.EmailField(max_length=255, required=True)
+    username = forms.CharField(max_length=255, required=True)
     password = forms.CharField(
         widget=forms.PasswordInput,
         min_length=8,

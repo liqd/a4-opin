@@ -2,10 +2,13 @@ import pytest
 
 from django.core import mail
 from django.core.urlresolvers import reverse
-from django.contrib.auth.models import AnonymousUser, User, Permission
+from django.contrib import auth
+from django.contrib.auth.models import AnonymousUser, Permission
 
 from euth.user_management import forms
 from euth.user_management import models
+
+User = auth.get_user_model()
 
 @pytest.mark.django_db
 def test_login(client, user):
@@ -14,7 +17,7 @@ def test_login(client, user):
     assert response.status_code == 200
 
     response = client.post(
-        login_url, {'username': user.username, 'password': 'password'})
+        login_url, {'email': user.email, 'password': 'password'})
     assert response.status_code == 302
     assert int(client.session['_auth_user_id']) == user.pk
 
@@ -23,7 +26,7 @@ def test_login(client, user):
 def test_login_wrong_password(client, user):
     login_url = reverse('login')
     response = client.post(
-        login_url, {'username': user.username, 'password': 'wrong_password'})
+        login_url, {'email': user.email, 'password': 'wrong_password'})
     assert response.status_code == 400
 
 
@@ -31,13 +34,13 @@ def test_login_wrong_password(client, user):
 def test_login_no_password(client, user):
     login_url = reverse('login')
     response = client.post(
-        login_url, {'username': user.username})
+        login_url, {'email': user.email})
     assert response.status_code == 400
 
 
 @pytest.mark.django_db
 def test_form_valid_login(rf, user):
-    request = rf.post('', {'username': user.username, 'password': 'password'})
+    request = rf.post('', {'email': user.email, 'password': 'password'})
     form = forms.LoginForm(request.POST)
     assert form.is_valid() == True
     testuser = form.login(request)
@@ -55,7 +58,7 @@ def test_form_invalid_login(rf, user):
 
 @pytest.mark.django_db
 def test_logout(user, client):
-    logged_in = client.login(username=user.username, password='password')
+    logged_in = client.login(email=user.email, password='password')
     assert logged_in == True
     logout_url = reverse('logout')
     response = client.get(logout_url)
@@ -65,7 +68,7 @@ def test_logout(user, client):
 
 @pytest.mark.django_db
 def test_logout_with_next(user, client):
-    logged_in = client.login(username=user.username, password='password')
+    logged_in = client.login(email=user.email, password='password')
     assert logged_in == True
     logout_url = reverse('logout')
     response = client.get(logout_url + '?next=/de/next_location')
@@ -140,9 +143,9 @@ def test_activate_user(registration, client):
     assert response.status_code == 302
     assert registration.next_action in response.url
 
-    new_user = User.objects.get(username=registration.username)
+    new_user = User.objects.get(email=registration.email)
     assert new_user
-    assert new_user.email == registration.email
+    assert new_user.username == registration.username
 
 
 @pytest.mark.django_db
