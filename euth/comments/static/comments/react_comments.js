@@ -366,7 +366,7 @@ var Comment = React.createClass({
                         ])
                     ]) : null,
                 ]),
-                h('ul.nav.nav-pills.pull-right', [
+                !this.state.is_deleted ? h('ul.nav.nav-pills.pull-right', [
                     this.allowForm() ? h('li.entry',[
                         h('a.icon.fa-reply', {
                                 href:'#',
@@ -375,7 +375,7 @@ var Comment = React.createClass({
                             }, this.context.translations.translations.i18n_answer
                         )
                     ]) : null
-                ]),
+                ]) : null,
                 this.state.showChildComments ? h('div.child_comments_list', [
                     h(CommentList, { data: this.state.child_comments }),
                     h(CommentForm, { subjectType: this.context.comments_contenttype,
