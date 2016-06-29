@@ -22,7 +22,7 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         if(obj.is_censored or obj.is_removed):
             return 'unkonwn user'
-        return str(obj.user)
+        return str(obj.user.username)
 
     def get_child_comments(self, obj):
         """

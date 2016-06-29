@@ -113,6 +113,12 @@ DATABASES = {
 }
 
 
+# Auth
+# https://docs.djangoproject.com/en/1.8/topics/auth/customizing/
+
+AUTH_USER_MODEL = 'user_management.User'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

@@ -28,13 +28,13 @@
             {% endif %}
 
             <div class="form-group">
-                <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
-                {% if form.username.errors %}
-                    {{ form.username|add_class:"form-control form-error" }}
+                <label class="control-label" for="{{ form.username.id_for_label }}">Email</label>
+                {% if form.email.errors %}
+                    {{ form.email|add_class:"form-control form-error" }}
                 {% else %}
-                    {{ form.username|add_class:"form-control"}}
+                    {{ form.email|add_class:"form-control"}}
                 {% endif %}
-                {{ form.username.errors }}
+                {{ form.email.errors }}
             </div>
             <div class="form-group">
                 <label class="control-label" for="{{ form.password.id_for_label }}">Password</label>
