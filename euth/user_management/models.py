@@ -1,4 +1,5 @@
 import uuid
+from django.conf import settings
 from django.core import validators
 from django.db import models
 from django.contrib.auth import models as auth_models
@@ -37,7 +38,6 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-from django.contrib.auth.models import User
 
 class Registration(models.Model):
     token = models.UUIDField(default=uuid.uuid4, unique=True)
@@ -50,7 +50,7 @@ class Registration(models.Model):
 class Reset(models.Model):
     token = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
     next_action = models.URLField(blank=True, null=True)
