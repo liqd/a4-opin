@@ -16,6 +16,7 @@
   "scripts": {
     "webpack:build": "webpack --config ./webpack.config.js --progress --colors",
     "heroku-postbuild": "npm run webpack:build",
-    "build": "npm run webpack:build"
+    "build": "npm run webpack:build",
+    "watch": "webpack --config ./webpack.config.js --progress --colors --watch"
   }
 }

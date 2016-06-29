@@ -29,3 +29,8 @@ Unitest are working with py.test.
 
  * run `py.test`
  * with coverage html `py.test --cov --cov-report=html`
+
+## Development
+
+ * for python and css/scss just use `bin/python manage.py runserver`
+ * for js / react keep webpack running `npm run watch`
