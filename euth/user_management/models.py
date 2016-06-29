@@ -31,7 +31,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     is_active = models.BooleanField(_('active'), default=True,
         help_text=_('Designates whether this user should be treated as '
                     'active. Unselect this instead of deleting accounts.'))
-    date_joined = fields.AutoCreatedField
+    date_joined = fields.AutoCreatedField()
 
     objects = auth_models.UserManager()
 
@@ -54,4 +54,3 @@ class Reset(models.Model):
         on_delete=models.CASCADE
     )
     next_action = models.URLField(blank=True, null=True)
-    date_created = models.DateTimeField(auto_now_add=True)
