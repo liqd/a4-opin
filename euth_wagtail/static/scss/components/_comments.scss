@@ -1,130 +1,107 @@
 .comments_count {
-	background-color: $gray-lighter;
-	padding: 20px;
-	text-transform: uppercase;
+    background-color: $gray-lighter;
+    padding: 20px;
+    text-transform: uppercase;
 }
-
 .commentBox {
-	margin: 0px 30px 0px 30px;
-	& .comments_login {
-		margin-top: 30px;
-	}
-	& textarea {
-		border: 1px solid $gray-light;
-		border-radius: 0;
+    margin: 0px 30px 0px 30px;
+
+    & .comments_login {
+        margin-top: 30px;
+    }
+    & textarea {
+        border: 1px solid $gray-light;
+        border-radius: 0;
         -moz-border-radius: 0;
         margin-top: 30px;
-	}
-
-	& textarea:focus {
-		border: 1px solid $gray-light;
-		border-radius: 0;
+    }
+    & textarea:focus {
+        border: 1px solid $gray-light;
+        border-radius: 0;
         -moz-border-radius: 0;
         margin-top: 30px;
-	}
-
-	& .btn {
-		border-radius: 0;
+    }
+    & .btn {
+        border-radius: 0;
         -moz-border-radius: 0;
-	}
+        margin-right: 10px;
+    }
+    & .btn-primary {
+        background-color: $brand-brand1;
+        text-transform: uppercase;
+    }
+    & .comment {
+        margin: 40px 0px 40px 0px;
 
-	& .btn-primary {
-		background-color: $brand-brand1;
-		text-transform: uppercase;
-	}
-
-	& .comment {
-		margin: 40px 0px 40px 0px;
-
-		& .commentAuthor {
-			color: $brand-brand1;
-			text-transform: none;
-			font-family: $font-family-sans-serif;
-			@include rem(font-size, $font-size-large);
-		}
-
-                & .commentDeletedAuthor {
-                        color: $gray;
-                        text-transform: none;
-			font-family: $font-family-sans-serif;
-			@include rem(font-size, $font-size-large);
-                }
-
-		& .child_comments_list {
-			margin: 0px 40px 0px 40px;
-		}
-	}
-
-	& .btn {
-		margin-right: 10px;
-	}
+        & .commentAuthor {
+            color: $brand-brand1;
+            text-transform: none;
+            font-family: $font-family-sans-serif;
+            @include rem(font-size, $font-size-large);
+        }
+        & .commentDeletedAuthor {
+            color: $gray;
+            text-transform: none;
+            font-family: $font-family-sans-serif;
+            @include rem(font-size, $font-size-large);
+        }
+        & .child_comments_list {
+            margin: 0px 40px 0px 40px;
+        }
+    }
 }
-
 .comment {
-
-	& .icon::before {
-    	display: inline-block;
-    	margin-right: .5em;
-    	font: normal normal normal 14px/1 FontAwesome;
-    	font-size: inherit;
-    	text-rendering: auto;
+    & .icon::before {
+        display: inline-block;
+        margin-right: .5em;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-       transform: translate(0, 0);
-	}
+        transform: translate(0, 0);
+    }
+    & .nav {
+        padding: 10px 0 10px 0;
 
-	& .nav {
-		padding: 10px 0 10px 0;
-
-		& .red {
-			color: $brand-brand4;
-		}
-
-		& .green {
-			color: $brand-brand3;
-		}
-
-		& .dark {
-			color: $gray-dark;
-		}
-
-		& .light {
-			color: $gray-light;
-		}
-
-
-		& .open a,
-		& .open a:hover,
-		& .open a:focus {
-			background-color: white;
-		}
-
-		& li {
-			& a {
-				padding: 2px 14px 2px 0px;
-			}
-			& a:hover {
-				background-color: #fff;
-				text-decoration: none;
-			}
-			& a:focus {
-				background-color: #fff;
-				text-decoration: none;
-			}
-			& .active {
-				color: $gray-dark;
-			}
-		}
-
-		& .dropdown {
-
-			& a {
-				padding: 2px 7px 2px 7px;
-			}
-		}
-
-		& .dropdown-menu {
-			border-radius: 0px;
-		}
-	}
+        & .red {
+            color: $brand-brand4;
+        }
+        & .green {
+            color: $brand-brand3;
+        }
+        & .dark {
+            color: $gray-dark;
+        }
+        & .light {
+            color: $gray-light;
+        }
+        & .open a, & .open a:hover, & .open a:focus {
+            background-color: white;
+        }
+        & li {
+            & a {
+                padding: 2px 14px 2px 0px;
+            }
+            & a:hover {
+                background-color: #fff;
+                text-decoration: none;
+            }
+            & a:focus {
+                background-color: #fff;
+                text-decoration: none;
+            }
+            & .active {
+                color: $gray-dark;
+            }
+        }
+        & .dropdown {
+            & a {
+                padding: 2px 7px 2px 7px;
+            }
+        }
+        & .dropdown-menu {
+            border-radius: 0px;
+        }
+    }
 }

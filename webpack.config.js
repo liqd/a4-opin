@@ -5,7 +5,7 @@ module.exports = {
   output: {
     libraryTarget: 'var',
     library: 'Opin',
-    path: './static/bundles/',
+    path: './euth_wagtail/static/bundles/',
     filename: '[name]-[hash].js'
   },
   externals: {
