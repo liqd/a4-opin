@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'compressor',
     'taggit',
     'projects',
-    'comments_api',
     'widget_tweaks',
     'webpack_loader',
 
@@ -57,9 +56,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
-    'django_comments',
     'rest_framework',
     'euth.user_management',
+    'euth.comments'
 ]
 
 MIDDLEWARE_CLASSES = [

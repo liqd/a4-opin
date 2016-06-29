@@ -142,6 +142,7 @@ var CommentList = React.createClass({
                             submission_date: comment.submit_date,
                             id: comment.id,
                             content_type: comment.content_type,
+                            is_deleted: comment.is_deleted
                             },
                             comment.comment
                         )
@@ -162,10 +163,12 @@ var Comment = React.createClass({
         return {
             edit: false,
             showChildComments: false,
+            user_name: this.props.user_name,
             comment_raw: this.props.children,
             comment: this.rawMarkup(this.props.children),
             child_comments: this.props.child_comments,
             commentCount: this.props.child_comments.length,
+            is_deleted: this.props.is_deleted,
             editForm: h(CommentEditForm, {
                 comment: this.props.children,
                 rows: 5,
@@ -194,7 +197,7 @@ var Comment = React.createClass({
     },
 
     allowRate: function() {
-        return true;
+        return !(this.state.is_deleted);
     },
 
     rateUp: function(e) {
@@ -209,6 +212,30 @@ var Comment = React.createClass({
 
     isOwner: function() {
         return this.props.user_name === this.context.user_name;
+    },
+
+    onDelete: function() {
+        $.ajax({
+            url: this.context.submit_url + this.props.id + '/',
+            dataType: 'json',
+            type: 'DELETE',
+            success: function(updated_comment) {
+                this.setState({
+                    user_name: updated_comment.user_name,
+                    comment_raw: updated_comment.comment,
+                    comment: this.rawMarkup(updated_comment.comment),
+                    is_deleted: updated_comment.is_deleted,
+                });
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.context.submit_url + this.props.id + '/', status, err.toString());
+            }.bind(this)
+        });
+    },
+
+    onReport: function(e) {
+        e.preventDefault();
+        console.log('clicked report');
     },
 
     handleCommentSubmit: function(comment) {
@@ -260,7 +287,15 @@ var Comment = React.createClass({
     render: function() {
         return (
             h('div.comment', [
-                h('h3.commentAuthor', this.props.user_name),
+                this.isOwner() ? h(Modal, {
+                    name: 'comment_delete_' + this.props.id,
+                    question: this.context.translations.translations.i18n_ask_delete,
+                    handler: this.onDelete,
+                    action: this.context.translations.translations.i18n_delete,
+                    abort: this.context.translations.translations.i18n_abort,
+                    btnStyle: 'cta'
+                }) : null,
+                h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.state.user_name),
                     this.state.edit ? this.state.editForm : h('span', {
                         dangerouslySetInnerHTML: this.state.comment
                     }
@@ -293,7 +328,7 @@ var Comment = React.createClass({
                             }, this.state.commentCount
                         )
                     ]) : null,
-                    this.context.isAuthenticated ? h('li.dropdown', {role: 'presentation'},[
+                    this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'},[
                         h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
                             'data-toggle':'dropdown',
                             href:'#',
@@ -311,10 +346,19 @@ var Comment = React.createClass({
                                     }, this.context.translations.translations.i18n_edit
                                 )
                             ]) : null,
+                            this.isOwner() ? h('li', [
+                                h('a.icon.fa-trash-o.dark', {
+                                        href: '#',
+                                        'data-toggle': 'modal',
+                                        'data-target': '#comment_delete_' + this.props.id,
+                                        'aria-hidden': true
+                                    }, this.context.translations.translations.i18n_delete
+                                 )
+                            ]) : null,
                             h('li', [
                                 h('a.icon.fa-ban.dark', {
                                         href:'#',
-                                        onClick: this.rateUp,
+                                        onClick: this.onReport,
                                         'aria-hidden': true
                                     }, this.context.translations.translations.i18n_report
                                 )
@@ -344,6 +388,48 @@ var Comment = React.createClass({
         );
     }
 });
+
+    var Modal = React.createClass({
+        'render': function() {
+            return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
+                h('div.modal-dialog', { role: 'document' }, [
+                    h('div.modal-content', [
+                        h('div.modal-header', [
+                            h('button.close', {
+                                type:'button',
+                                'data-dismiss':'modal',
+                                'aria-label':this.props.abort
+                            }, [
+                                h('i.fa.fa-times', {
+                                    'aria-hidden' : true
+                                })
+                            ])
+                        ]),
+                        h('div.modal-body', [
+                            h('h3', this.props.question)
+                        ]),
+                        h('div.modal-footer', [
+                            h('div.row', [
+                                h('button.btn.btn-' + (this.props.btnStyle || 'primary'),
+                                {
+                                    type: 'button',
+                                    'data-dismiss': 'modal',
+                                    onClick: this.props.handler},
+                                this.props.action)
+                            ]),
+                            h('div.row', [
+                                h('button.btn', {
+                                    type: 'button',
+                                    'data-dismiss': 'modal'
+                            }, this.props.abort)
+                            ])
+                        ])
+                    ])
+                ])
+            ])
+        }
+    });
+
 
 Comment.contextTypes = {
     comments_contenttype: React.PropTypes.number,
