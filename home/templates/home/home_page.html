@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n wagtailimages_tags %}
+{% load i18n wagtailimages_tags react_comments %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -8,6 +8,9 @@
     <section class="page-body">
 	{{ page.body }}
     </section>
+    <div class="container-narrow">
+      {% react_comments page %}
+    </div>
 {% endblock %}
 
 {% block footer %}

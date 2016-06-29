@@ -3,7 +3,6 @@
 
 {% block content %}
 <div class="container">
-<h2>{% trans "Login" %}</h2>
 
 {% if not request.user.is_authenticated %}
     <div class="skinny-form">
@@ -45,6 +44,10 @@
                     {{ form.password|add_class:"form-control"}}
                 {% endif %}
                 {{ form.password.errors }}
+            </div>
+
+            <div class="form-group">
+              <a href="{% url 'reset_request' %}?next={{next_action}}">{% trans "reset password" %}</a>
             </div>
 
             <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>

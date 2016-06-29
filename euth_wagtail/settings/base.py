@@ -44,10 +44,9 @@ INSTALLED_APPS = [
     'modelcluster',
     'compressor',
     'taggit',
-    'djangobower',
     'projects',
-    'comments_api',
     'widget_tweaks',
+    'webpack_loader',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -57,11 +56,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_countries',
-    'django_comments',
     'rest_framework',
 
     'euth.user_management',
     'euth.organisations',
+    'euth.comments'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -146,20 +145,20 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
-    'djangobower.finders.BowerFinder',
 ]
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'euth_wagtail', 'static', 'third-party')
-BOWER_INSTALLED_APPS = (
-    'jquery#2.2.4',
-    'bootstrap-sass',
-    'salvattore',
-    'fontawesome'
-)
-BOWER_PATH = os.path.join(BASE_DIR, 'node_modules', '.bin', 'bower')
-
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': False,
+        'BUNDLE_DIR_NAME': 'bundles/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
 
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'node_modules'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
@@ -176,7 +175,8 @@ LIBSASS_SOURCEMAPS = True
 
 # Wagtail settings
 
-LOGIN_URL = 'wagtailadmin_login'
-LOGIN_REDIRECT_URL = 'wagtailadmin_home'
-
 WAGTAIL_SITE_NAME = "euth_wagtail"
+
+# Authentification
+
+LOGIN_URL = 'login'

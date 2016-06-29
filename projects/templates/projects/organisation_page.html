@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags comments react_comments %}
+{% load wagtailcore_tags wagtailimages_tags comments staticfiles %}
 {% block content %}
 <div class="container">
     <header class="container-narrow block">
@@ -20,6 +20,9 @@
         </div>
     </section>
 
+    <section class="container-narrow">
+        {% react_comments self%}
+    </section>
 </div>
 {% endblock %}
 
@@ -28,5 +31,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="/static/third-party/bower_components/salvattore/dist/salvattore.min.js"></script>
+<script type="text/javascript" src="{% static "salvattore/dist/salvattore.min.js" %}"></script>
 {% endblock %}

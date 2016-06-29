@@ -1,5 +1,7 @@
-from django.conf.urls import include, url
 from rest_framework import routers
+
+from django.conf.urls import include, url
+
 from .api import CommentViewSet
 
 router = routers.DefaultRouter()

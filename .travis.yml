@@ -3,10 +3,10 @@ python:
   - "3.5"
 cache: pip
 install:
-  - npm install bower
+  - npm install
+  - npm run build
   - pip install -r requirements.txt
   - pip install coveralls
-  - python manage.py bower install
 script:
   - py.test --cov
 after_success:

@@ -1,0 +1,66 @@
+.modal-content {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    text-align: center;
+
+    & .modal-footer {
+        padding-top: 60px;
+        border: none;
+        text-align: center;
+    }
+
+    & .modal-header {
+        border: none;
+    }
+
+    & .modal-body {
+        padding: 0 60px 0 60px;
+    }
+
+    & .close {
+
+        opacity: 1;
+
+        &:focus, &:hover {
+            outline: none;
+        }
+
+        & i {
+            color: $gray-darker;
+        }
+    }
+
+    & .btn {
+        background-color: transparent;
+        padding: 0px;
+        text-transform: uppercase;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        &:focus, &:hover {
+            outline: none;
+        }
+    }
+
+    .row {
+        padding-top: 10px;
+    }
+
+    .btn-cta {
+        @include rem(border-radius, 40px);
+        @include rem(padding, 0 20px);
+        @extend .btn-primary;
+        font-weight: bold;
+        line-height: 50px;
+        position: relative;
+        text-transform: uppercase;
+
+        &:focus, &:hover {
+            outline: none;
+        }
+    }
+}
+

@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-<div id="activate">
-  <form id="ActivateForm" action="" method="post">
-    {% csrf_token %}
-    {{ form.token }}
-    <div class="form-group">
-      <div class="col-lg-offset-2 col-lg-3">
-        <button type="submit" value="Activate" class="btn btn-primary">{% trans "activate account" %}</button>
-      </div>
+
+<div class="container">
+    <div class="skinny-form">
+        <header class="skinny-form-header"></header>
+        <form class="skinny-form-inner" id="ActivateForm" action="" method="post">
+        {% csrf_token %}
+
+            <h2>{% trans 'Welcome to Opin!' %}</h2>
+
+            <p>{% trans 'Please activate your Account' %}</p>
+
+            {% if form.non_field_errors %}
+            <div class="form-errors">
+            {% for error in form.non_field_errors %}
+            <p class="alert alert-danger">{{ error }}</p>
+            {% endfor %}
+            </div>
+            {% endif %}
+
+            {{ form.token }}
+            {{ form.token.errors }}
+            <button type="submit" value="Activate" class="btn btn-primary btn-cta">{% trans "activate account" %}</button>
+        </form>
     </div>
-  </form>
 </div>
 {% endblock %}

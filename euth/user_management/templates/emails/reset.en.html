@@ -1,0 +1,21 @@
+{% extends 'emails/email_base.html' %}
+{% block subject %}
+Reset password request for {{sitename}}
+{% endblock %}
+{% block content %}
+<h2>You requested to reset your password</h2>
+
+
+<p>Dear {{reset.user.username}},</p>
+
+<p>
+  We have received your password reset for {{reset.user.username}} on {{sitename}} using this email
+  address. Please visit <a href={{reset_url}}>{{sitename}}</a> to reset the password.
+</p>
+
+<p>
+Best wishes<br>
+<br>
+{{sitename}} team
+</p>
+{% endblock %}
