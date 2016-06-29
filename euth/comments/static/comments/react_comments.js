@@ -406,7 +406,7 @@ var Comment = React.createClass({
                             ])
                         ]),
                         h('div.modal-body', [
-                            h('h3', this.props.question)
+                            h('h3.modal-title', this.props.question)
                         ]),
                         h('div.modal-footer', [
                             h('div.row', [

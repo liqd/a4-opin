@@ -3,21 +3,36 @@
     -moz-border-radius: 0;
     text-align: center;
 
-    & .modal-footer {
-        padding-top: 60px;
+    .modal-footer {
+        @include rem(padding, 60px 0);
         border: none;
         text-align: center;
     }
 
-    & .modal-header {
+    .modal-title {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+
+        &:before {
+            @include rem(height, 100px);
+            @include rem(margin-bottom, 40px);
+            background: url(/static/images/attention.svg) no-repeat center top;
+            background-size: contain;
+            content: "";
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .modal-header {
         border: none;
     }
 
-    & .modal-body {
+    .modal-body {
         padding: 0 60px 0 60px;
     }
 
-    & .close {
+    .close {
 
         opacity: 1;
 
@@ -30,7 +45,7 @@
         }
     }
 
-    & .btn {
+    .btn {
         background-color: transparent;
         padding: 0px;
         text-transform: uppercase;
