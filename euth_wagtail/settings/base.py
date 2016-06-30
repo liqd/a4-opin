@@ -57,7 +57,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_countries',
     'rest_framework',
+
     'euth.user_management',
+    'euth.organisations',
     'euth.comments'
 ]
 
