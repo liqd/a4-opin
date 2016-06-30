@@ -6,11 +6,6 @@ from model_utils import models as model_utils
 
 from ..organisations import models as org_models
 
-@enum.unique
-class Visibility(enum.Enum):
-    public = 1
-    private = 2
-
 class ProjectManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
@@ -21,9 +16,8 @@ class Project(model_utils.TimeStampedModel):
     organisation = models.ForeignKey(org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(max_length=1024)
     information = models.TextField(org_models.Organisation)
-    visibility = models.PositiveSmallIntegerField(
-        default = Visibility.public.value,
-        choices = [ (e.value, e.name) for e in Visibility ])
+    is_public = models.BooleanField(default=True)
+    is_draft = models.BooleanField(default=True)
     image = models.ImageField(upload_to='projects/backgrounds', blank=True)
     participants = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
@@ -46,8 +40,4 @@ class Project(model_utils.TimeStampedModel):
 
     @functional.cached_property
     def is_private(self):
-        return self.visibility == Visibility.private.value
-
-    @functional.cached_property
-    def is_public(self):
-        return self.visibility == Visibility.public.value
+        return not self.is_public

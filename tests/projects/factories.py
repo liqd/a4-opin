@@ -15,7 +15,8 @@ class ProjectFactory(factory.django.DjangoModelFactory):
     organisation = factory.SubFactory(org_factories.OrganisationFactory)
     description = factory.Faker('text')
     information = factory.Faker('paragraphs')
-    visibility = models.Visibility.public.value
+    is_public = True
+    is_draft = False
 
     @factory.post_generation
     def moderators(self, create, extracted, **kwargs):

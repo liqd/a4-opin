@@ -20,7 +20,7 @@ def test_is_public(project):
     assert not project.is_private
 
 @pytest.mark.django_db
-@pytest.mark.parametrize('project__visibility', [models.Visibility.private.value])
+@pytest.mark.parametrize('project__is_public', [False])
 def test_is_privat(project):
     assert not project.is_public
     assert project.is_private
