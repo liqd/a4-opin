@@ -35,10 +35,15 @@
 }
 
 .org-logo {
+    @include rem(padding, 60px 0);
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 10em;
+
+    @media (max-width: $screen-sm-min) {
+        @include rem(padding, 20px);
+        max-width: 100%;
+    }
 }
 
 .org-tile-teaser {
