@@ -1,3 +1,8 @@
+import bleach
+from dateutil import parser
+import feedparser
+
+from django.utils.html import strip_tags
 from django import template
 from django.conf import settings
 from home.models import NavigationMenu
@@ -7,6 +12,7 @@ register = template.Library()
 @register.assignment_tag(takes_context=True)
 def get_site_root(context):
     return context['request'].site.root_page
+
 
 @register.inclusion_tag('tags/top_menu.html', takes_context=True)
 def top_menu(context, parent, calling_page=None):
@@ -18,6 +24,34 @@ def top_menu(context, parent, calling_page=None):
         'request': context['request'],
     }
 
+
+@register.inclusion_tag('includes/rss_import.html', takes_context=True)
+def import_rss(context, rss_import):
+
+    feeds = feedparser.parse(rss_import.url)
+    entry = feeds.entries[0]
+
+    try:
+        published = parser.parse(entry["published"])
+    except:
+        published = ''
+
+    return {
+        'title': rss_import.translated_rss_title,
+        'latest_entry': {
+            'published': published,
+            'title': entry.title,
+            'link': entry.link,
+            'description': bleach.clean(entry.summary,
+                                        tags=[],
+                                        attributes={},
+                                        styles=[],
+                                        strip=True
+                                        )
+        }
+    }
+
+
 @register.assignment_tag(takes_context=False)
 def load_site_menu(menu_name):
     menu = NavigationMenu.objects.filter(menu_name=menu_name)
@@ -27,12 +61,14 @@ def load_site_menu(menu_name):
     else:
         return None
 
+
 @register.filter(name='clear_class')
 def clear_class(columns_per_row, count):
     if (count-1) % (12/int(columns_per_row)) == 0:
         return "m-clear"
     else:
         return ""
+
 
 @register.simple_tag
 def settings_value(name):
