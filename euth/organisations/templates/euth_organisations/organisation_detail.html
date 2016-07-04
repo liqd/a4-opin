@@ -4,12 +4,14 @@
 <header class="org-header" style="{% if organisation.background %}
     background-image: url({{ organisation.background.url }});{% endif %}">
         {% if organisation.logo %}
-    <img alt="{{ organisation.name }} logo" class="org-opin-logo" src="{{ organisation.logo.url }}">
+    <img alt="{{ organisation.name }} logo" class="org-logo" src="{{ organisation.logo.url }}">
         {% else %}
-    <img alt="opin logo" class="org-opin-logo" src="{% static "images/logo.png" %}">
+    <img alt="opin logo" class="org-logo" src="{% static "images/logo.png" %}">
   {% endif %}
 </header>
-<div class="container-narrow accordion-block">
+<div class="container org-page">
+<div class="container-narrow">
+<div class="accordion-block">
   <h2>{{ organisation.name }}</h2>
   <div class="panel panel-default">
     <h3 id="heading-why" class="accordion-title">
@@ -35,7 +37,8 @@
       </div>
     </div>
   </div>
-  <div>
+  </div>
+  <div class="org-description">
     {{ organisation.description | linebreaks }}
   </div>
   <article>
@@ -45,6 +48,8 @@
       <li>Process 2</li>
       <li>Process 3</li>
     </ul>
+</article>
   </div>
+
 </div>
 {% endblock %}

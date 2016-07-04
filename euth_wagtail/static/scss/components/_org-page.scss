@@ -1,3 +1,9 @@
+.org-page {
+    h2, h3 {
+        text-align: center;
+    }
+}
+
 .org-header {
     background-color: #018DD0;
 }
@@ -24,7 +30,11 @@
     }
 }
 
-.org-opin-logo {
+.org-description {
+    @include rem(margin-bottom, 40px);
+}
+
+.org-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;

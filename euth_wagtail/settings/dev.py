@@ -13,6 +13,7 @@ SECRET_KEY = 'b*1ljsb!x7@d_o$sohx-&q-7n*#r=lwhy542zxk(e=fj%ey3xp'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
 ADHOCRACY_SDK = "http://localhost:6551/static/js/AdhocracySDK.js"
 ADHOCRACY_URL = "http://localhost:6551"
 
@@ -20,3 +21,4 @@ try:
     from .local import *
 except ImportError:
     pass
+
