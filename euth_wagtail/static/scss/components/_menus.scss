@@ -52,6 +52,13 @@
                 position: absolute;
                 top: 15px;
                 white-space: nowrap;
+
+                @media (max-width: $screen-sm-min) {
+                    border: none;
+                    display: inline-block;
+                    padding: 0;
+                    position: static;
+                }
             }
 
             @media (max-width: $screen-sm-min) {
