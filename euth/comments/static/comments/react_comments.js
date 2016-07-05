@@ -381,7 +381,7 @@ var Comment = React.createClass({
                     h(CommentForm, { subjectType: this.context.comments_contenttype,
                         subjectId: this.props.id,
                         onCommentSubmit: this.handleCommentSubmit,
-                        rows: 1
+                        rows: 3
                     })
                 ]) : null
             ])
