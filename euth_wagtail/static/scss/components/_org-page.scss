@@ -1,3 +1,13 @@
+.org-page {
+    h2, h3 {
+        text-align: center;
+    }
+}
+
+.org-header {
+    background-color: #018DD0;
+}
+
 .org-tile {
     @extend %tile;
     @include rem(padding, 18px 14px);
@@ -17,6 +27,22 @@
             background-color: transparent;
             color: $brand-brand1;
         }
+    }
+}
+
+.org-description {
+    @include rem(margin-bottom, 40px);
+}
+
+.org-logo {
+    @include rem(padding, 60px 0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $screen-sm-min) {
+        @include rem(padding, 20px);
+        max-width: 100%;
     }
 }
 
