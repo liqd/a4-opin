@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_countries',
     'rest_framework',
+    'autofixture',
 
     'euth.user_management',
     'euth.organisations',
