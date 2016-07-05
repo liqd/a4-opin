@@ -26,6 +26,10 @@
 
     .dropdown-menu a {
         @include rem(padding-left, 20px);
+
+        @media (max-width: $screen-sm-min) {
+            @include rem(margin-left, 40px);
+        }
     }
 
     #language-selector {
@@ -48,6 +52,10 @@
                 position: absolute;
                 top: 15px;
                 white-space: nowrap;
+            }
+
+            @media (max-width: $screen-sm-min) {
+                margin-left: 0;
             }
         }
     }
