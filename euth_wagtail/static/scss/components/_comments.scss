@@ -49,6 +49,10 @@
             margin: 0px 40px 0px 40px;
         }
     }
+
+    @media (max-width: $screen-sm-min) {
+        margin: 0;
+    }
 }
 .comment {
     & .icon::before {
