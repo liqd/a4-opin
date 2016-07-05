@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.db import models
+
 from model_utils import models as model_utils
 
+from ..contrib import validators
 
 class OrganisationManager(models.Manager):
     def get_by_natural_key(self, name):
@@ -15,8 +17,10 @@ class Organisation(model_utils.TimeStampedModel):
     description_how = models.TextField()
     description = models.TextField()
     initiators = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    image = models.ImageField(upload_to='organisations/images', blank=True)
-    logo = models.ImageField(upload_to='organisations/logos', blank=True)
+    image = models.ImageField(upload_to='organisations/images', blank=True,
+                              validators=[validators.validate_hero_image])
+    logo = models.ImageField(upload_to='organisations/logos', blank=True,
+                             validators=[validators.validate_logo])
 
     objects = OrganisationManager()
 
