@@ -35,9 +35,9 @@ Unitest are working with py.test.
  * for python and css/scss just use `bin/python manage.py runserver`
  * for js / react keep webpack running `npm run watch`
 
- ## Testdata
+## Testdata
 
- You can use autofixtures to create some data, e.g. run:
+You can use autofixtures to create some data, e.g. run:
 
  * to create Users:
 ```
