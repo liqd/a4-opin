@@ -1,13 +1,15 @@
-from autofixture import register, AutoFixture
-from .. import generators
+from autofixture import generators, register, AutoFixture
+from faker import Factory
+
 from .models import User
 
+fake = Factory.create()
 
 
 class UserAutoFixture(AutoFixture):
 
     field_values = {
-        'username': generators.FakeNameGenerator(),
+        'username': generators.CallableGenerator(fake.name)
     }
 
 register(User, UserAutoFixture)

@@ -1,14 +1,16 @@
+from autofixture import register, AutoFixture, generators
+from faker import Factory
+
 from .models import Organisation
-from autofixture import register, AutoFixture
-from faker import Faker
-from .. import generators
+
+fake = Factory.create()
 
 
 class OrganisationAutoFixture(AutoFixture):
 
     field_values = {
-        'name': generators.FakeOrganisationNameGenerator(),
-        'slug': generators.FakeSlugGenerator(),
+        'name': generators.CallableGenerator(fake.company),
+        'slug': generators.CallableGenerator(fake.slug),
     }
 
 register(Organisation, OrganisationAutoFixture)
