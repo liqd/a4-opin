@@ -1,4 +1,5 @@
 .accordion-block {
+    @include rem(margin-bottom, 40px);
     text-align: left;
 
     .panel {

@@ -1,6 +1,5 @@
 .comments_count {
-    background-color: $gray-lighter;
-    padding: 20px;
+    padding: 20px 0;
     text-transform: uppercase;
 }
 .commentBox {
@@ -13,7 +12,6 @@
         border: 1px solid $gray-light;
         border-radius: 0;
         -moz-border-radius: 0;
-        margin-top: 30px;
     }
     & textarea:focus {
         border: 1px solid $gray-light;
@@ -31,8 +29,6 @@
         text-transform: uppercase;
     }
     & .comment {
-        margin: 40px 0px 40px 0px;
-
         & .commentAuthor {
             color: $brand-brand1;
             text-transform: none;
@@ -48,6 +44,10 @@
         & .child_comments_list {
             margin: 0px 40px 0px 40px;
         }
+    }
+
+    @media (max-width: $screen-sm-min) {
+        margin: 0;
     }
 }
 .comment {
