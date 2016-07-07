@@ -18,4 +18,4 @@ def test_list_view(client, organisation_factory):
     response = client.get(url)
     assert len(response.context[-1]['object_list']) == 10
     assert response.context['is_paginated']
-    assert response.status_code == 300
+    assert response.status_code == 200

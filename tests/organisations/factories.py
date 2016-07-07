@@ -6,9 +6,10 @@ class OrganisationFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = 'euth_organisations.Organisation'
+        django_get_or_create = ('name',)
 
     name = factory.Faker('company')
-    slug = factory.Faker('slug')
+    slug = factory.Sequence(lambda n: 'organisation%d' % n)
     description_why = factory.Faker('text')
     description_how = factory.Faker('text')
     description = factory.Faker('text')
