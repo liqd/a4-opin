@@ -33,6 +33,7 @@
     @include rem(margin-top, $navbar-height);
     @include rotate(90);
     border: 2px solid #fff;
+    border-width: 0 2px 2px 2px;
     position: fixed;
     background: $brand-brand1;
     right: 0;
