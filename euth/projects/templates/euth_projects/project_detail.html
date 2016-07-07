@@ -3,20 +3,40 @@
 {% block content %}
 <header style="{% if project.background %}
                background-image: url({{ project.background.url }});
-               {% else %}
-               background-color: rgb(1, 141, 208);
-               {% endif %}">
-  <h2>{{ project.name }}</h2>
-  <div>{{ project.description }} </div>
+               {% endif %}" class="euth-hero-unit">
+    <div class="euth-hero-unit-header">
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.description }}</p>
+        <a href="#" class="button">Create Proposal</a>
+    </div>
 </header>
-<div class="container-narrow">
-  <article>
-    <h3>{% trans "info" %}</h3>
-    {{ project.description }}
-  </article>
-  <article>
-    <h3>{% trans "participation" %}</h3>
-    Display the currently active participation module here!
-  </article>
+<nav class="tabs">
+    <div class="container">
+        <ul class="container-narrow">
+            <li class="col-md-4"><a href="#" class="m-selected">Informations</a></li>
+            <li class="col-md-4 dropdown">
+                <a href="#panel-info" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Idea Collection <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Text Commenting</a></li>
+                    <li><a href="#">Offline Workshop</a></li>
+                    <li><a href="#">Result</a></li>
+                </ul>
+            </li>
+            <li class="col-md-4"><a href="#panel-participation">Offline Workshop</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="container-narrow">
+      <article id="panel-info" class="tab-panel">
+        <h3>{% trans "info" %}</h3>
+        {{ project.description }}
+      </article>
+      <article id="panel-participation" class="tab-panel">
+        <h3>{% trans "participation" %}</h3>
+        Display the currently active participation module here!
+      </article>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,39 @@
+.euth-hero-unit {
+    background-color: $brand-brand1;
+    text-align: center;
+    min-height: 340px;
+}
+
+.euth-hero-unit-logo {
+    @include rem(padding, 60px 0);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $screen-sm-min) {
+        @include rem(padding, 20px);
+        max-width: 100%;
+    }
+}
+
+.euth-hero-unit-header {
+    @include rem(padding-top, 75px);
+    color: #fff;
+
+    .m-dark-text {
+        color: #000;
+    }
+
+    h1 {
+        @extend .euth-hero-unit-title;
+    }
+
+    .button {
+        @include rem(margin-top, 13px);
+        // background-color: $brand-brand1;
+    }
+}
+
+.euth-hero-unit-title {
+    @include rem(font-size, 28px);
+}

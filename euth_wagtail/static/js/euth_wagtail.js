@@ -6,4 +6,8 @@ $(document).ready(function() {
     {
       $(this).next(".collapsible_body").slideToggle(600);
     });
+
+    if($(".tab-panel").length>0) {
+        $(".tab-panel:not(:first-child)").hide();
+    }
 });
