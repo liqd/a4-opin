@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n staticfiles %}
+{% block content %}
+<div class="container">
+    <header class="container-narrow block page-intro" >
+      <h1 class="block-title">{% trans 'Organisations' %}</h1>
+    </header>
+    <section class="container-narrow block-inner page-body">
+      <div class="row">
+      {% for object in object_list %}
+      {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
+      {% endfor %}
+      </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
