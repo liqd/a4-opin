@@ -4,17 +4,29 @@ from django.core.urlresolvers import resolve
 from django.http import Http404
 from django.utils import translation
 
+
 register = template.Library()
 
 
-@register.simple_tag(takes_context=True, name='translate_url')
-def do_translate_url(context, language):
-	try:
-		view = resolve(context['request'].path)
-		if view.args:
-			url = '/' + language + '/' + view.args[0]
-		else:
-			url = '/'  + language + '/'
-	except Http404:
-		url = '/'  + language + '/'
-	return url
+@register.simple_tag(takes_context=True)
+def translate_url(context, lang=None, *args, **kwargs):
+    """
+    Get active page's url by a specified language
+    Usage: {% translate_url 'en' %}
+    """
+    path = context['request'].path
+    cur_language = translation.get_language()
+
+    try:
+        view = resolve(path)
+        translation.activate(lang)
+        url = reverse(
+            view.view_name,
+            args=view.args,
+            kwargs=view.kwargs,
+        )
+    except Http404:
+        url = '/'  + lang + '/'
+    finally:
+        translation.activate(cur_language)
+    return url
