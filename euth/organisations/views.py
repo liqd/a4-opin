@@ -10,4 +10,4 @@ class OrganisationDetailView(generic.DetailView):
 
 class OrganisationListView(generic.ListView):
     model = models.Organisation
-    paginate_by = 5
+    paginate_by = 10
