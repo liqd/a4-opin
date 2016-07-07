@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags comments staticfiles %}
+{% load wagtailcore_tags wagtailimages_tags staticfiles %}
 {% block content %}
 <div class="container">
     <header class="container-narrow block">
@@ -20,9 +20,6 @@
         </div>
     </section>
 
-    <section class="container-narrow">
-        {% react_comments self%}
-    </section>
 </div>
 {% endblock %}
 
