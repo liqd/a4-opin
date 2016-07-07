@@ -5,3 +5,4 @@ omit =
     */migrations/*
     */tests.py
     */test_*.py
+    */autofixtures.py
