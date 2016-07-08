@@ -172,20 +172,19 @@ var CommentList = React.createClass({
   }
 })
 
+var markdown2html = function (text) {
+  var rawMarkup = marked(text.toString(), {sanitize: true})
+  return { __html: rawMarkup }
+}
+
 var Comment = React.createClass({
-  rawMarkup: function (text) {
-    var rawMarkup = marked(text.toString(), {sanitize: true})
-    return { __html: rawMarkup }
-  },
 
   getInitialState: function () {
     return {
       edit: false,
       showChildComments: false,
-      comment_raw: this.props.children,
-      comment: this.rawMarkup(this.props.children),
+      comment: this.props.children,
       commentCount: this.props.child_comments.length,
-      is_deleted: this.props.is_deleted,
       editForm: h(CommentEditForm, {
         comment: this.props.children,
         rows: 5,
@@ -265,17 +264,15 @@ var Comment = React.createClass({
       type: 'PATCH',
       data: comment,
       success: function (newComment) {
-        var updatedCommentRaw = newComment.comment
-        var updatedComment = this.rawMarkup(updatedCommentRaw)
+        var updatedComment = newComment.comment
         var newForm = h(CommentEditForm, {
-          comment: updatedCommentRaw,
+          comment: updatedComment,
           rows: 5,
           handleCancel: this.toggleEdit,
           onCommentSubmit: this.handleCommentUpdate
         })
         this.setState({
           comment: updatedComment,
-          comment_raw: updatedCommentRaw,
           editForm: newForm
         })
         this.toggleEdit()
@@ -299,9 +296,9 @@ var Comment = React.createClass({
         abort: this.context.translations.translations.i18n_abort,
         btnStyle: 'cta'
       }) : null,
-      h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
+      h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
       this.state.edit ? this.state.editForm : h('span', {
-        dangerouslySetInnerHTML: this.state.comment
+        dangerouslySetInnerHTML: markdown2html(this.state.comment)
       }
       ),
       h('ul.nav.nav-pills', [
@@ -566,7 +563,6 @@ CommentBox.contextTypes = {
   translations: React.PropTypes.object,
   language: React.PropTypes.string
 }
-
 
 module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, translations, userName, language) {
   ReactDOM.render(
