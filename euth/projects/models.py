@@ -15,7 +15,7 @@ class Project(model_utils.TimeStampedModel):
     name = models.CharField(max_length=512)
     organisation = models.ForeignKey(org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(max_length=1024)
-    information = models.TextField(org_models.Organisation)
+    information = models.TextField()
     is_public = models.BooleanField(default=True)
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(upload_to='projects/backgrounds', blank=True)
