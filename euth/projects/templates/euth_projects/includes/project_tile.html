@@ -1,0 +1,10 @@
+{% load i18n thumbnail %}
+<div class="project-tile style-{{project.projecttype|slugify}}">
+    <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"style="background-image: url('{{ project.image|thumbnail_url:'project_thumbnail' }}');">
+        <img src="{{ project.image|thumbnail_url:'project_thumbnail'}}" class="project-tile-image img-responsive"></a>
+    </a>
+    <div class="project-tile-body">
+        <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>
+        <p class="project-tile-teaser">{{ project.description }}</p>
+    </div>
+</div>
