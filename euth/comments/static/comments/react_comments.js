@@ -2,6 +2,7 @@ var $ = require('jquery')
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
+var update = require('react-addons-update')
 var marked = require('marked')
 var moment = require('moment')
 var cookie = require('js-cookie')
@@ -25,11 +26,8 @@ var CommentBox = React.createClass({
       success: function (data) {
         var commentCount = data.length
         var commentString = this.getCommentString(commentCount)
-        var newCommentsList = h(CommentList, {
-          data: data
-        })
         this.setState({
-          commentList: newCommentsList,
+          comments: data,
           commentCount: commentCount,
           commentString: commentString
         })
@@ -46,20 +44,44 @@ var CommentBox = React.createClass({
       type: 'POST',
       data: comment,
       success: function (newComment) {
-        var comments = this.state.commentList.props.data
+        var comments = this.state.comments
         var newComments = [newComment].concat(comments)
         var newCommentcount = newComments.length
         var newCommentString = this.getCommentString(newCommentcount)
-        var newCommentsList = h(CommentList, {
-          data: newComments
-        })
         this.setState({
-          commentList: newCommentsList,
+          comments: newComments,
           commentCount: newCommentcount,
           commentString: newCommentString})
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString())
+      }.bind(this)
+    })
+  },
+  handleCommentDelete: function (index, parentIndex) {
+    var comments = this.state.comments
+    var comment = comments[index]
+    if (typeof parentIndex !== 'undefined') {
+      comment = comments[parentIndex].child_comments[index]
+    }
+
+    $.ajax({
+      url: 'http://localhost:8000/api/comments/' + comment.id + '/',
+      dataType: 'json',
+      type: 'DELETE',
+      success: function (updatedComment) {
+        var diff = {}
+        if (typeof parentIndex !== 'undefined') {
+          diff[parentIndex] = { child_comments: {} }
+          diff[parentIndex].child_comments[index] = { $merge: updatedComment }
+        } else {
+          diff[index] = { $merge: updatedComment }
+        }
+        comments = update(comments, diff)
+        this.setState({ comments: comments })
+      }.bind(this),
+      error: function (xhr, status, err) {
+        console.error(this.context.submit_url + this.props.id + '/', status, err.toString())
       }.bind(this)
     })
   },
@@ -74,9 +96,7 @@ var CommentBox = React.createClass({
     return {
       commentCount: 0,
       commentString: this.props.translations.translations.comments_i18n_sgl,
-      commentList: h(CommentList, {
-        data: []
-      })
+      comments: []
     }
   },
   componentDidMount: function () {
@@ -98,13 +118,17 @@ var CommentBox = React.createClass({
   render: function () {
     return (
     h('div.commentBox', [
-      h('div.comments_count', this.state.commentCount + ' ' + this.state.commentString),
-      h(CommentForm, { subjectType: this.props.subjectType,
+      h('div.comments_count', [ this.state.commentCount, ' ', this.getCommentString(this.state.commentCount) ]),
+      h(CommentForm, {
+        subjectType: this.props.subjectType,
         subjectId: this.props.subjectId,
         onCommentSubmit: this.handleCommentSubmit,
         rows: 5
       }),
-      this.state.commentList
+      h(CommentList, {
+        data: this.state.comments,
+        handleCommentDelete: this.handleCommentDelete
+      })
     ])
     )
   }
@@ -124,7 +148,7 @@ var CommentList = React.createClass({
   render: function () {
     return (
     h('div', [
-      this.props.data.map(function (comment) {
+      this.props.data.map(function (comment, index) {
         return (
         h(Comment, {
           key: comment.id,
@@ -134,12 +158,15 @@ var CommentList = React.createClass({
           modified: comment.modified,
           id: comment.id,
           content_type: comment.content_type,
-          is_deleted: comment.is_deleted
+          is_deleted: comment.is_deleted,
+          index: index,
+          parentIndex: this.props.parentIndex,
+          handleCommentDelete: this.props.handleCommentDelete
         },
           comment.comment
         )
         )
-      })
+      }.bind(this))
     ])
     )
   }
@@ -155,10 +182,8 @@ var Comment = React.createClass({
     return {
       edit: false,
       showChildComments: false,
-      user_name: this.props.user_name,
       comment_raw: this.props.children,
       comment: this.rawMarkup(this.props.children),
-      child_comments: this.props.child_comments,
       commentCount: this.props.child_comments.length,
       is_deleted: this.props.is_deleted,
       editForm: h(CommentEditForm, {
@@ -204,25 +229,6 @@ var Comment = React.createClass({
 
   isOwner: function () {
     return this.props.user_name === this.context.user_name
-  },
-
-  onDelete: function () {
-    $.ajax({
-      url: this.context.submit_url + this.props.id + '/',
-      dataType: 'json',
-      type: 'DELETE',
-      success: function (updatedComment) {
-        this.setState({
-          user_name: updatedComment.user_name,
-          comment_raw: updatedComment.comment,
-          comment: this.rawMarkup(updatedComment.comment),
-          is_deleted: updatedComment.is_deleted
-        })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.context.submit_url + this.props.id + '/', status, err.toString())
-      }.bind(this)
-    })
   },
 
   onReport: function (e) {
@@ -286,12 +292,14 @@ var Comment = React.createClass({
       this.isOwner() ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
         question: this.context.translations.translations.i18n_ask_delete,
-        handler: this.onDelete,
+        handler: function () {
+          this.props.handleCommentDelete(this.props.index, this.props.parentIndex)
+        }.bind(this),
         action: this.context.translations.translations.i18n_delete,
         abort: this.context.translations.translations.i18n_abort,
         btnStyle: 'cta'
       }) : null,
-      h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.state.user_name),
+      h('h3.' + (this.state.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
       this.state.edit ? this.state.editForm : h('span', {
         dangerouslySetInnerHTML: this.state.comment
       }
@@ -380,7 +388,11 @@ var Comment = React.createClass({
         ]) : null
       ]) : null,
       this.state.showChildComments ? h('div.child_comments_list', [
-        h(CommentList, { data: this.state.child_comments }),
+        h(CommentList, {
+          data: this.props.child_comments,
+          parentIndex: this.props.index,
+          handleCommentDelete: this.props.handleCommentDelete
+        }),
         h(CommentForm, { subjectType: this.context.comments_contenttype,
           subjectId: this.props.id,
           onCommentSubmit: this.handleCommentSubmit,
@@ -559,7 +571,7 @@ module.exports.renderComment = function (url, subjectType, subjectId, commentsCo
       login_url: loginUrl,
       pollInterval: 20000,
       translations: translations,
-      userName: userName,
+      user_name: userName,
       language: language
     }),
     document.getElementById(target))
