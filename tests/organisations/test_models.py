@@ -29,4 +29,4 @@ def test_image_validation_image_too_small(organisation_factory, smallImage):
 @pytest.mark.django_db
 def test_image_big_enough(organisation_factory, bigImage):
     organisation = organisation_factory(image=bigImage, logo=bigImage)
-    assert organisation.full_clean() == None
+    assert organisation.full_clean() is None
