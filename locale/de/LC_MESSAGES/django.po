@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 18:04+0200\n"
+"POT-Creation-Date: 2016-07-05 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,66 +18,236 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: comments_api/templatetags/react_comments.py:27
+#: euth/comments/templatetags/react_comments.py:28
 msgid "Comment"
 msgstr "Kommentar"
 
-#: comments_api/templatetags/react_comments.py:28
+#: euth/comments/templatetags/react_comments.py:29
 msgid "Comments"
 msgstr "Kommentare"
 
-#: comments_api/templatetags/react_comments.py:29
+#: euth/comments/templatetags/react_comments.py:30
 msgid "Your comment here"
 msgstr "Schreib hier Deinen Kommentar hin ..."
 
-#: comments_api/templatetags/react_comments.py:30
+#: euth/comments/templatetags/react_comments.py:31
 msgid "Please login to comment"
 msgstr "Bitte melde Dich an"
 
-#: comments_api/templatetags/react_comments.py:31
+#: euth/comments/templatetags/react_comments.py:32
 msgid "Answer"
 msgstr "Antworten"
 
-#: comments_api/templatetags/react_comments.py:32
+#: euth/comments/templatetags/react_comments.py:33
 msgid "Post"
 msgstr "Abschicken"
 
-#: comments_api/templatetags/react_comments.py:33
+#: euth/comments/templatetags/react_comments.py:34
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: comments_api/templatetags/react_comments.py:34
+#: euth/comments/templatetags/react_comments.py:35
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: comments_api/templatetags/react_comments.py:35
+#: euth/comments/templatetags/react_comments.py:36
 msgid "Report"
 msgstr "Melden"
 
-#: euth_wagtail/settings/base.py:129
+#: euth/comments/templatetags/react_comments.py:37
+msgid "Delete"
+msgstr ""
+
+#: euth/comments/templatetags/react_comments.py:38
+msgid "Abort"
+msgstr ""
+
+#: euth/comments/templatetags/react_comments.py:39
+msgid "Do you really want to delete this comment?"
+msgstr ""
+
+#: euth/comments/templatetags/react_comments.py:40
+msgid "Latest edit"
+msgstr "Zuletzt bearbeitet"
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html:18
+msgid "Why are we part of OPIN"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html:30
+msgid "How will we use OPIN"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html:44
+msgid "projects"
+msgstr ""
+
+#: euth/user_management/forms.py:21
+msgid "password mismatch"
+msgstr ""
+
+#: euth/user_management/forms.py:45 euth/user_management/forms.py:137
+msgid "passwords dont match"
+msgstr ""
+
+#: euth/user_management/forms.py:56
+msgid "username taken"
+msgstr ""
+
+#: euth/user_management/forms.py:64
+msgid "email in use"
+msgstr ""
+
+#: euth/user_management/forms.py:84 euth/user_management/forms.py:128
+msgid "invalid token"
+msgstr ""
+
+#: euth/user_management/forms.py:104
+msgid "unkown user"
+msgstr ""
+
+#: euth/user_management/models.py:11
+msgid "username"
+msgstr ""
+
+#: euth/user_management/models.py:12
+msgid ""
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+msgstr ""
+
+#: euth/user_management/models.py:16
+msgid ""
+"Enter a valid username. This value may contain only letters, digits, spaces "
+"and @/./+/-/_ characters. It must start with a digit or a letter."
+msgstr ""
+
+#: euth/user_management/models.py:22
+msgid "A user with that username already exists."
+msgstr ""
+
+#: euth/user_management/models.py:24
+msgid "email address"
+msgstr ""
+
+#: euth/user_management/models.py:26
+msgid "A user with that email address already exists."
+msgstr ""
+
+#: euth/user_management/models.py:28
+msgid "staff status"
+msgstr ""
+
+#: euth/user_management/models.py:29
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: euth/user_management/models.py:31
+msgid "active"
+msgstr ""
+
+#: euth/user_management/models.py:32
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: euth/user_management/templates/user_management/activate.html:11
+msgid "Welcome to Opin!"
+msgstr ""
+
+#: euth/user_management/templates/user_management/activate.html:13
+msgid "Please activate your Account"
+msgstr ""
+
+#: euth/user_management/templates/user_management/activate.html:25
+msgid "activate account"
+msgstr ""
+
+#: euth/user_management/templates/user_management/indicator_menu.html:18
+#: euth/user_management/templates/user_management/logout.html:5
+msgid "logout"
+msgstr ""
+
+#: euth/user_management/templates/user_management/indicator_menu.html:28
+msgid "Login / Register"
+msgstr ""
+
+#: euth/user_management/templates/user_management/indicator_menu.html:32
+#: euth/user_management/templates/user_management/login.html:11
+#: euth/user_management/templates/user_management/login.html:53
+#: euth/user_management/templates/user_management/logout.html:8
+#: euth/user_management/templates/user_management/register.html:8
+msgid "login"
+msgstr ""
+
+#: euth/user_management/templates/user_management/indicator_menu.html:35
+#: euth/user_management/templates/user_management/login.html:12
+#: euth/user_management/templates/user_management/register.html:9
+#: euth/user_management/templates/user_management/register.html:67
+msgid "register"
+msgstr ""
+
+#: euth/user_management/templates/user_management/login.html:50
+#: euth/user_management/templates/user_management/reset_password.html:35
+msgid "reset password"
+msgstr ""
+
+#: euth/user_management/templates/user_management/login.html:58
+msgid "You are already logged in"
+msgstr ""
+
+#: euth/user_management/templates/user_management/logout.html:7
+msgid "sucessfull logout"
+msgstr ""
+
+#: euth/user_management/templates/user_management/register_done.html:4
+msgid "Registration successfull. Check your email account."
+msgstr ""
+
+#: euth/user_management/templates/user_management/reset.html:22
+msgid "username or email"
+msgstr ""
+
+#: euth/user_management/templates/user_management/reset.html:27
+msgid "reset"
+msgstr ""
+
+#: euth/user_management/templates/user_management/reset_done.html:4
+msgid "Reset successfull. Check your email account."
+msgstr ""
+
+#: euth/user_management/templates/user_management/reset_password.html:21
+msgid "password"
+msgstr ""
+
+#: euth/user_management/templates/user_management/reset_password.html:27
+msgid "password repeat"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:138
 msgid "German"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:130
+#: euth_wagtail/settings/base.py:139
 msgid "English"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:131
+#: euth_wagtail/settings/base.py:140
 msgid "Italien"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:132
+#: euth_wagtail/settings/base.py:141
 msgid "French"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:133
+#: euth_wagtail/settings/base.py:142
 msgid "Swedish"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:134
+#: euth_wagtail/settings/base.py:143
 msgid "Slovene"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:135
+#: euth_wagtail/settings/base.py:144
 msgid "Danish"
 msgstr ""

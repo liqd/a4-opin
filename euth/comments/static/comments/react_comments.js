@@ -3,6 +3,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 var h = require("react-hyperscript");
 var marked = require("marked");
+var moment = require("moment");
 
 var getCookie = function getCookie(c_name) {
   if (document.cookie.length > 0) {
@@ -94,6 +95,7 @@ var CommentBox = React.createClass({
     componentDidMount: function() {
         this.loadCommentsFromServer();
         setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+        moment.locale(this.props.language);
     },
     getChildContext: function() {
         return {
@@ -102,7 +104,8 @@ var CommentBox = React.createClass({
             comments_contenttype: this.props.comments_contenttype,
             submit_url: this.props.url,
             translations: this.props.translations,
-            user_name: this.props.user_name
+            user_name: this.props.user_name,
+            language: this.props.language
         };
     },
     render: function() {
@@ -126,7 +129,8 @@ CommentBox.childContextTypes = {
     comments_contenttype: React.PropTypes.number,
     submit_url: React.PropTypes.string,
     translations: React.PropTypes.object,
-    user_name: React.PropTypes.string
+    user_name: React.PropTypes.string,
+    language: React.PropTypes.string
 };
 
 var CommentList = React.createClass({
@@ -140,6 +144,7 @@ var CommentList = React.createClass({
                             user_name: comment.user_name,
                             child_comments: comment.child_comments,
                             submission_date: comment.submit_date,
+                            modified: comment.modified,
                             id: comment.id,
                             content_type: comment.content_type,
                             is_deleted: comment.is_deleted
@@ -238,6 +243,10 @@ var Comment = React.createClass({
         console.log('clicked report');
     },
 
+    isNotUpdated: function() {
+        return this.props.submission_date == this.props.modified;
+    },
+
     handleCommentSubmit: function(comment) {
         $.ajax({
             url: this.context.submit_url,
@@ -301,9 +310,15 @@ var Comment = React.createClass({
                     }
                 ),
                 h('ul.nav.nav-pills', [
-                    h('li.entry', [
-                        h('a.commentSubmissionDate.dark', this.props.submission_date)
-                    ]),
+                    h('li.entry',
+                        [
+                            this.isNotUpdated() ? h('a.commentSubmissionDate.dark',
+                            moment(this.props.submission_date).format("D MMM YY")) :
+                            h('a.commentSubmissionDate.dark',
+                            this.context.translations.translations.i18n_latest_edit + ' ' +
+                            moment(this.props.modified).fromNow())
+                        ]
+                    ),
                     this.allowForm() ? h('li.entry',[
                         h('a.icon.fa-comment-o.dark', {
                                 href:'#',
@@ -546,7 +561,7 @@ CommentEditForm.contextTypes = {
 };
 
 
-module.exports.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name) {
+module.exports.renderComment = function (url,subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name, language) {
     ReactDOM.render(
       h(CommentBox, {
         url: url,
@@ -557,7 +572,8 @@ module.exports.renderComment = function (url,subjectType, subjectId, comments_co
         login_url: login_url,
         pollInterval: 20000,
         translations: translations,
-        user_name: user_name
+        user_name: user_name,
+        language: language
       }),
       document.getElementById(target));
 };

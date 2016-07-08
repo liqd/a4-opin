@@ -5,6 +5,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from django.utils.translation import ugettext as _
+from django import utils
 
 register = template.Library()
 
@@ -36,7 +37,10 @@ def react_comments(context, obj):
         'i18n_delete':_('Delete'),
         'i18n_abort':_('Abort'),
         'i18n_ask_delete':_('Do you really want to delete this comment?'),
+        'i18n_latest_edit': _('Latest edit')
     }
+
+    language = utils.translation.get_language()
 
     translations_json = json.dumps({
         'translations': translations,
@@ -50,7 +54,8 @@ def react_comments(context, obj):
         'is_authenticated': is_authenticated,
         'user_name': user_name,
         'login_url': login_url,
-        'translations': translations_json
+        'translations': translations_json,
+        'language': language
     }
 
     return context
