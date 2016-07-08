@@ -12,12 +12,20 @@
     "react-hyperscript": "2.4.0",
     "salvattore": "1.0.9",
     "webpack": "1.13.1",
-    "webpack-bundle-tracker": "0.0.93"
+    "webpack-bundle-tracker": "0.0.93",
+    "react-addons-update": "~15.1.0",
+    "js-cookie": "~2.1.2"
+  },
+  "devDependencies": {
+    "standard-format": "2.2.2",
+    "standard": "7.1.2",
+    "husky": "0.11.4"
   },
   "scripts": {
     "webpack:build": "webpack --config ./webpack.config.js --progress --colors",
     "heroku-postbuild": "npm run webpack:build",
     "build": "npm run webpack:build",
-    "watch": "webpack --config ./webpack.config.js --progress --colors --watch"
+    "watch": "webpack --config ./webpack.config.js --progress --colors --watch",
+    "prepush": "cd euth; standard"
   }
 }
