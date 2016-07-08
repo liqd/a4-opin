@@ -3,7 +3,7 @@ from django.db import models
 
 from model_utils import models as model_utils
 
-from ..contrib import validators
+from euth.contrib import validators
 
 class OrganisationManager(models.Manager):
     def get_by_natural_key(self, name):
