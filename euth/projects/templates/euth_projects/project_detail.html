@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<header style="{% if project.background %}
+               background-image: url({{ project.background.url }});
+               {% else %}
+               background-color: rgb(1, 141, 208);
+               {% endif %}">
+  <h2>{{ project.name }}</h2>
+  <div>{{ project.description }} </div>
+</header>
+<div class="container-narrow">
+  <article>
+    <h3>{% trans "info" %}</h3>
+    {{ project.description }}
+  </article>
+  <article>
+    <h3>{% trans "participation" %}</h3>
+    Display the currently active participation module here!
+  </article>
+</div>
+{% endblock %}
