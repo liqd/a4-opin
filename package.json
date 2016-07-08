@@ -13,7 +13,8 @@
     "salvattore": "1.0.9",
     "webpack": "1.13.1",
     "webpack-bundle-tracker": "0.0.93",
-    "react-addons-update": "~15.1.0"
+    "react-addons-update": "~15.1.0",
+    "js-cookie": "~2.1.2"
   },
   "devDependencies": {
     "standard-format": "2.2.2",
