@@ -24,12 +24,8 @@ var CommentBox = React.createClass({
         content_type: this.props.subjectType
       },
       success: function (comments) {
-        var commentCount = comments.length
-        var commentString = this.getCommentString(commentCount)
         this.setState({
-          comments: comments,
-          commentCount: commentCount,
-          commentString: commentString
+          comments: comments
         })
       }.bind(this),
       error: function (xhr, status, err) {
@@ -45,13 +41,10 @@ var CommentBox = React.createClass({
       data: comment,
       success: function (newComment) {
         var comments = this.state.comments
-        var newComments = [newComment].concat(comments)
-        var newCommentcount = newComments.length
-        var newCommentString = this.getCommentString(newCommentcount)
+        comments = [newComment].concat(comments)
         this.setState({
-          comments: newComments,
-          commentCount: newCommentcount,
-          commentString: newCommentString})
+          comments: comments
+        })
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString())
@@ -94,8 +87,6 @@ var CommentBox = React.createClass({
   },
   getInitialState: function () {
     return {
-      commentCount: 0,
-      commentString: this.props.translations.translations.comments_i18n_sgl,
       comments: []
     }
   },
@@ -118,7 +109,7 @@ var CommentBox = React.createClass({
   render: function () {
     return (
     h('div.commentBox', [
-      h('div.comments_count', [ this.state.commentCount, ' ', this.getCommentString(this.state.commentCount) ]),
+      h('div.comments_count', [ this.state.comments.length, ' ', this.getCommentString(this.state.comments.length) ]),
       h(CommentForm, {
         subjectType: this.props.subjectType,
         subjectId: this.props.subjectId,
@@ -183,7 +174,6 @@ var Comment = React.createClass({
     return {
       edit: false,
       showChildComments: false,
-      commentCount: this.props.child_comments.length,
       editForm: h(CommentEditForm, {
         comment: this.props.children,
         rows: 5,
@@ -244,12 +234,11 @@ var Comment = React.createClass({
       dataType: 'json',
       type: 'POST',
       data: comment,
-      success: function (newComment) {
+      success: (function (newComment) {
         var comments = this.state.child_comments
-        var newComments = comments.concat([newComment])
-        var newCount = newComments.length
-        this.setState({child_comments: newComments, commentCount: newCount})
-      }.bind(this),
+        comments = comments.concat([newComment])
+        this.setState({child_comments: comments })
+      }).bind(this),
       error: function (xhr, status, err) {
         console.error(this.context.url, status, err.toString())
       }.bind(this)
@@ -316,7 +305,7 @@ var Comment = React.createClass({
             href: '#',
             onClick: this.showComments,
             'aria-hidden': true
-          }, this.state.commentCount
+          }, this.props.child_comments.length
           )
         ]) : null,
         this.allowRate() ? h('li.entry', [
@@ -324,7 +313,7 @@ var Comment = React.createClass({
             href: '#',
             onClick: this.rateUp,
             'aria-hidden': true
-          }, this.state.commentCount
+          }, this.props.child_comments.length
           )
         ]) : null,
         this.allowRate() ? h('li.entry', [
@@ -332,7 +321,7 @@ var Comment = React.createClass({
             href: '#',
             onClick: this.rateDown,
             'aria-hidden': true
-          }, this.state.commentCount
+          }, this.props.child_comments.length
           )
         ]) : null,
         this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
