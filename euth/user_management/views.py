@@ -1,8 +1,10 @@
 import uuid
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.utils.translation import ugettext as _
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.conf import settings
@@ -50,7 +52,9 @@ def register_user(request):
             registration.next_action = next_action
             registration.save()
             send_registration(request, registration)
-            return render(request, 'user_management/register_done.html')
+            messages.add_message(request, messages.SUCCESS, _(
+                'Registration successfull. Check your email account.'))
+            return HttpResponseRedirect(next_action)
         else:
             status = 400
     return render(request,
@@ -87,9 +91,10 @@ def reset_request(request):
             reset = form.request_reset(request)
             reset.next_action = next_action
             reset.save()
-
             send_reset(request, reset)
-            return render(request, 'user_management/reset_done.html')
+            messages.add_message(request, messages.SUCCESS, _(
+                'Reset successfull. Check your email account.'))
+            return HttpResponseRedirect(next_action)
         else:
             status = 400
     return render(request, 'user_management/reset.html',

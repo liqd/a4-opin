@@ -42,6 +42,14 @@
         {% include "includes/top_menu.html" %}
         {% endblock %}
 
+        {% for message in messages %}
+            <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} role="alert">
+                <div class="container-narrow alert-text">
+                {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+
         <div>
             {% block content %}{% endblock %}
         </div>
