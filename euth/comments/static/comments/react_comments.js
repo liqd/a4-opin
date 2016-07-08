@@ -183,7 +183,6 @@ var Comment = React.createClass({
     return {
       edit: false,
       showChildComments: false,
-      comment: this.props.children,
       commentCount: this.props.child_comments.length,
       editForm: h(CommentEditForm, {
         comment: this.props.children,
@@ -298,7 +297,7 @@ var Comment = React.createClass({
       }) : null,
       h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
       this.state.edit ? this.state.editForm : h('span', {
-        dangerouslySetInnerHTML: markdown2html(this.state.comment)
+        dangerouslySetInnerHTML: markdown2html(this.props.children)
       }
       ),
       h('ul.nav.nav-pills', [
