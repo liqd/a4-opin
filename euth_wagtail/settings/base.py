@@ -150,7 +150,8 @@ LANGUAGES = [
 
 THUMBNAIL_ALIASES = {
     '': {
-        'organisation_thumbnail': {'size': (80, 80), 'crop': True }
+        'organisation_thumbnail': {'size': (100, 100), 'crop': True },
+        'project_thumbnail': {'size': (800, 400), 'crop': True }
     }
 }
 # Static files (CSS, JavaScript, Images)
