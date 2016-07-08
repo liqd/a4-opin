@@ -33,21 +33,56 @@ var CommentBox = React.createClass({
       }.bind(this)
     })
   },
-  handleCommentSubmit: function (comment) {
+  updateStateComment: function(index, parentIndex, updatedComment) {
+    var comments = this.state.comments
+    var diff = {}
+    if (typeof parentIndex !== 'undefined') {
+      diff[parentIndex] = { child_comments: {} }
+      diff[parentIndex].child_comments[index] = { $merge: updatedComment }
+    } else {
+      diff[index] = { $merge: updatedComment }
+    }
+    comments = update(comments, diff)
+    this.setState({ comments: comments })
+  },
+  handleCommentSubmit: function (comment, parentIndex) {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       type: 'POST',
       data: comment,
-      success: function (newComment) {
+      success: function (comment) {
         var comments = this.state.comments
-        comments = [newComment].concat(comments)
+        var diff = {}
+        if (typeof parentIndex !== 'undefined') {
+          diff[parentIndex] = { child_comments: { $push: [ comment ] } }
+        } else {
+          diff = { $unshift: [ comment ] }
+        }
         this.setState({
-          comments: comments
+          comments: update(comments, diff)
         })
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString())
+      }.bind(this)
+    })
+  },
+  handleCommentModify: function (commentText, index, parentIndex) {
+    var comments = this.state.comments
+    var comment = comments[index]
+    if (typeof parentIndex !== 'undefined') {
+      comment = comments[parentIndex].child_comments[index]
+    }
+
+    $.ajax({
+      url: 'http://localhost:8000/api/comments/' + comment.id + '/',
+      dataType: 'json',
+      type: 'PATCH',
+      data: { comment: commentText, id: comment.id },
+      success: this.updateStateComment.bind(this, index, parentIndex),
+      error: function (xhr, status, err) {
+        console.error(this.context.submit_url + comment.id + '/', status, err.toString())
       }.bind(this)
     })
   },
@@ -62,19 +97,9 @@ var CommentBox = React.createClass({
       url: 'http://localhost:8000/api/comments/' + comment.id + '/',
       dataType: 'json',
       type: 'DELETE',
-      success: function (updatedComment) {
-        var diff = {}
-        if (typeof parentIndex !== 'undefined') {
-          diff[parentIndex] = { child_comments: {} }
-          diff[parentIndex].child_comments[index] = { $merge: updatedComment }
-        } else {
-          diff[index] = { $merge: updatedComment }
-        }
-        comments = update(comments, diff)
-        this.setState({ comments: comments })
-      }.bind(this),
+      success: this.updateStateComment.bind(this, index, parentIndex),
       error: function (xhr, status, err) {
-        console.error(this.context.submit_url + this.props.id + '/', status, err.toString())
+        console.error(this.context.submit_url + comment.id + '/', status, err.toString())
       }.bind(this)
     })
   },
@@ -118,7 +143,9 @@ var CommentBox = React.createClass({
       }),
       h(CommentList, {
         comments: this.state.comments,
-        handleCommentDelete: this.handleCommentDelete
+        handleCommentDelete: this.handleCommentDelete,
+        handleCommentSubmit: this.handleCommentSubmit,
+        handleCommentModify: this.handleCommentModify
       })
     ])
     )
@@ -152,7 +179,9 @@ var CommentList = React.createClass({
           is_deleted: comment.is_deleted,
           index: index,
           parentIndex: this.props.parentIndex,
-          handleCommentDelete: this.props.handleCommentDelete
+          handleCommentDelete: this.props.handleCommentDelete,
+          handleCommentSubmit: this.props.handleCommentSubmit,
+          handleCommentModify: this.props.handleCommentModify
         },
           comment.comment
         )
@@ -173,13 +202,7 @@ var Comment = React.createClass({
   getInitialState: function () {
     return {
       edit: false,
-      showChildComments: false,
-      editForm: h(CommentEditForm, {
-        comment: this.props.children,
-        rows: 5,
-        handleCancel: this.toggleEdit,
-        onCommentSubmit: this.handleCommentUpdate
-      })
+      showChildComments: false
     }
   },
 
@@ -228,49 +251,6 @@ var Comment = React.createClass({
     return this.props.submission_date === this.props.modified
   },
 
-  handleCommentSubmit: function (comment) {
-    $.ajax({
-      url: this.context.submit_url,
-      dataType: 'json',
-      type: 'POST',
-      data: comment,
-      success: (function (newComment) {
-        var comments = this.state.child_comments
-        comments = comments.concat([newComment])
-        this.setState({child_comments: comments })
-      }).bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.context.url, status, err.toString())
-      }.bind(this)
-    })
-  },
-
-  handleCommentUpdate: function (comment) {
-    $.ajax({
-      url: this.context.submit_url + this.props.id + '/',
-      dataType: 'json',
-      type: 'PATCH',
-      data: comment,
-      success: function (newComment) {
-        var updatedComment = newComment.comment
-        var newForm = h(CommentEditForm, {
-          comment: updatedComment,
-          rows: 5,
-          handleCancel: this.toggleEdit,
-          onCommentSubmit: this.handleCommentUpdate
-        })
-        this.setState({
-          comment: updatedComment,
-          editForm: newForm
-        })
-        this.toggleEdit()
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.context.url, status, err.toString())
-      }.bind(this)
-    })
-  },
-
   render: function () {
     return (
     h('div.comment', [
@@ -285,7 +265,17 @@ var Comment = React.createClass({
         btnStyle: 'cta'
       }) : null,
       h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
-      this.state.edit ? this.state.editForm : h('span', {
+      this.state.edit
+        ? h(CommentEditForm,{
+          comment: this.props.children,
+          rows: 5,
+          handleCancel: this.toggleEdit,
+          onCommentSubmit: function (newComment) {
+            this.props.handleCommentModify(newComment.comment, this.props.index, this.props.parentIndex)
+            this.state.edit = false
+          }.bind(this)
+        })
+        : h('span', {
         dangerouslySetInnerHTML: markdown2html(this.props.children)
       }
       ),
@@ -376,11 +366,14 @@ var Comment = React.createClass({
         h(CommentList, {
           comments: this.props.child_comments,
           parentIndex: this.props.index,
-          handleCommentDelete: this.props.handleCommentDelete
+          handleCommentDelete: this.props.handleCommentDelete,
+          handleCommentModify: this.props.handleCommentModify
         }),
-        h(CommentForm, { subjectType: this.context.comments_contenttype,
+        h(CommentForm, {
+          subjectType: this.context.comments_contenttype,
           subjectId: this.props.id,
-          onCommentSubmit: this.handleCommentSubmit,
+          onCommentSubmit: this.props.handleCommentSubmit,
+          parentIndex: this.props.index,
           rows: 3
         })
       ]) : null
@@ -456,7 +449,7 @@ var CommentForm = React.createClass({
       comment: comment,
       object_pk: this.props.subjectId,
       content_type: this.props.subjectType
-    })
+    }, this.props.parentIndex)
     this.setState({comment: ''})
   },
   render: function () {
