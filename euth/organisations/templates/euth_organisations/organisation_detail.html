@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n staticfiles thumbnail %}
 {% block content %}
-<header class="org-header" style="{% if organisation.background %} background-image: url({{ organisation.background.url }});{% endif %}">
+<header class="org-header" style="{% if organisation.image %} background-image: url({{ organisation.image.url }});{% endif %}">
   {% if organisation.logo %}
   <img alt="{{ organisation.name }} logo" class="org-logo" src="{{ organisation.logo|thumbnail_url:'organisation_thumbnail' }}">
   {% else %}
