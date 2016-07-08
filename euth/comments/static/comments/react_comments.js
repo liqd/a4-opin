@@ -45,9 +45,9 @@ var CommentBox = React.createClass({
       dataType: 'json',
       type: 'POST',
       data: comment,
-      success: function (new_comment) {
+      success: function (newComment) {
         var comments = this.state.commentList.props.data
-        var newComments = [new_comment].concat(comments)
+        var newComments = [newComment].concat(comments)
         var newCommentcount = newComments.length
         var newCommentString = this.getCommentString(newCommentcount)
         var newCommentsList = h(CommentList, {
@@ -56,7 +56,7 @@ var CommentBox = React.createClass({
         this.setState({
           commentList: newCommentsList,
           commentCount: newCommentcount,
-        commentString: newCommentString})
+          commentString: newCommentString})
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString())
@@ -66,7 +66,7 @@ var CommentBox = React.createClass({
   getCommentString: function (count) {
     if (count === 1) {
       return this.props.translations.translations.comments_i18n_sgl
-    }else {
+    } else {
       return this.props.translations.translations.comments_i18n_pl
     }
   },
@@ -211,12 +211,12 @@ var Comment = React.createClass({
       url: this.context.submit_url + this.props.id + '/',
       dataType: 'json',
       type: 'DELETE',
-      success: function (updated_comment) {
+      success: function (updatedComment) {
         this.setState({
-          user_name: updated_comment.user_name,
-          comment_raw: updated_comment.comment,
-          comment: this.rawMarkup(updated_comment.comment),
-          is_deleted: updated_comment.is_deleted
+          user_name: updatedComment.user_name,
+          comment_raw: updatedComment.comment,
+          comment: this.rawMarkup(updatedComment.comment),
+          is_deleted: updatedComment.is_deleted
         })
       }.bind(this),
       error: function (xhr, status, err) {
@@ -231,7 +231,7 @@ var Comment = React.createClass({
   },
 
   isNotUpdated: function () {
-    return this.props.submission_date == this.props.modified
+    return this.props.submission_date === this.props.modified
   },
 
   handleCommentSubmit: function (comment) {
@@ -240,9 +240,9 @@ var Comment = React.createClass({
       dataType: 'json',
       type: 'POST',
       data: comment,
-      success: function (new_comment) {
+      success: function (newComment) {
         var comments = this.state.child_comments
-        var newComments = comments.concat([new_comment])
+        var newComments = comments.concat([newComment])
         var newCount = newComments.length
         this.setState({child_comments: newComments, commentCount: newCount})
       }.bind(this),
@@ -258,18 +258,18 @@ var Comment = React.createClass({
       dataType: 'json',
       type: 'PATCH',
       data: comment,
-      success: function (new_comment) {
-        var updatedComment_raw = new_comment.comment
-        var updatedComment = this.rawMarkup(updatedComment_raw)
+      success: function (newComment) {
+        var updatedCommentRaw = newComment.comment
+        var updatedComment = this.rawMarkup(updatedCommentRaw)
         var newForm = h(CommentEditForm, {
-          comment: updatedComment_raw,
+          comment: updatedCommentRaw,
           rows: 5,
           handleCancel: this.toggleEdit,
           onCommentSubmit: this.handleCommentUpdate
         })
         this.setState({
           comment: updatedComment,
-          comment_raw: updatedComment_raw,
+          comment_raw: updatedCommentRaw,
           editForm: newForm
         })
         this.toggleEdit()
@@ -299,11 +299,12 @@ var Comment = React.createClass({
       h('ul.nav.nav-pills', [
         h('li.entry',
           [
-            this.isNotUpdated() ? h('a.commentSubmissionDate.dark',
-              moment(this.props.submission_date).format('D MMM YY')) :
-              h('a.commentSubmissionDate.dark',
-                this.context.translations.translations.i18n_latest_edit + ' ' +
-                moment(this.props.modified).fromNow())
+            this.isNotUpdated()
+              ? h('a.commentSubmissionDate.dark',
+                  moment(this.props.submission_date).format('D MMM YY'))
+              : h('a.commentSubmissionDate.dark',
+                  this.context.translations.translations.i18n_latest_edit + ' ' +
+                  moment(this.props.modified).fromNow())
           ]
         ),
         this.allowForm() ? h('li.entry', [
@@ -416,7 +417,8 @@ var Modal = React.createClass({
                 {
                   type: 'button',
                   'data-dismiss': 'modal',
-                onClick: this.props.handler},
+                  onClick: this.props.handler
+                },
                 this.props.action)
             ]),
             h('div.row', [
@@ -456,7 +458,8 @@ var CommentForm = React.createClass({
     this.props.onCommentSubmit({
       comment: comment,
       object_pk: this.props.subjectId,
-    content_type: this.props.subjectType})
+      content_type: this.props.subjectType
+    })
     this.setState({comment: ''})
   },
   render: function () {
@@ -479,7 +482,7 @@ var CommentForm = React.createClass({
         })
       ])
       )
-    }else {
+    } else {
       return (
       h('div.comments_login', [
         h('a', {href: this.context.login_url}, this.context.translations.translations.i18n_please_loggin_to_comment)
@@ -545,18 +548,18 @@ CommentEditForm.contextTypes = {
   translations: React.PropTypes.object
 }
 
-module.exports.renderComment = function (url, subjectType, subjectId, comments_contenttype, isAuthenticated, login_url, target, translations, user_name, language) {
+module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, translations, userName, language) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
       subjectType: subjectType,
       subjectId: subjectId,
-      comments_contenttype: comments_contenttype,
+      comments_contenttype: commentsContenttype,
       isAuthenticated: isAuthenticated,
-      login_url: login_url,
+      login_url: loginUrl,
       pollInterval: 20000,
       translations: translations,
-      user_name: user_name,
+      userName: userName,
       language: language
     }),
     document.getElementById(target))
