@@ -33,7 +33,7 @@ var CommentBox = React.createClass({
       }.bind(this)
     })
   },
-  updateStateComment: function(index, parentIndex, updatedComment) {
+  updateStateComment: function (index, parentIndex, updatedComment) {
     var comments = this.state.comments
     var diff = {}
     if (typeof parentIndex !== 'undefined') {
@@ -266,7 +266,7 @@ var Comment = React.createClass({
       }) : null,
       h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
       this.state.edit
-        ? h(CommentEditForm,{
+        ? h(CommentEditForm, {
           comment: this.props.children,
           rows: 5,
           handleCancel: this.toggleEdit,
@@ -276,8 +276,8 @@ var Comment = React.createClass({
           }.bind(this)
         })
         : h('span', {
-        dangerouslySetInnerHTML: markdown2html(this.props.children)
-      }
+          dangerouslySetInnerHTML: markdown2html(this.props.children)
+        }
       ),
       h('ul.nav.nav-pills', [
         h('li.entry',
@@ -540,7 +540,7 @@ CommentEditForm.contextTypes = {
 
 CommentBox.contextTypes = {
   authenticatedUserName: React.PropTypes.string,
-  loginUrl: React.PropTypes.string,
+  login_url: React.PropTypes.string,
   translations: React.PropTypes.object,
   language: React.PropTypes.string
 }
