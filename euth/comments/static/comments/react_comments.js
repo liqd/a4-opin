@@ -23,11 +23,11 @@ var CommentBox = React.createClass({
         object_pk: this.props.subjectId,
         content_type: this.props.subjectType
       },
-      success: function (data) {
-        var commentCount = data.length
+      success: function (comments) {
+        var commentCount = comments.length
         var commentString = this.getCommentString(commentCount)
         this.setState({
-          comments: data,
+          comments: comments,
           commentCount: commentCount,
           commentString: commentString
         })
@@ -126,7 +126,7 @@ var CommentBox = React.createClass({
         rows: 5
       }),
       h(CommentList, {
-        data: this.state.comments,
+        comments: this.state.comments,
         handleCommentDelete: this.handleCommentDelete
       })
     ])
@@ -148,7 +148,7 @@ var CommentList = React.createClass({
   render: function () {
     return (
     h('div', [
-      this.props.data.map(function (comment, index) {
+      this.props.comments.map(function (comment, index) {
         return (
         h(Comment, {
           key: comment.id,
@@ -389,7 +389,7 @@ var Comment = React.createClass({
       ]) : null,
       this.state.showChildComments ? h('div.child_comments_list', [
         h(CommentList, {
-          data: this.props.child_comments,
+          comments: this.props.child_comments,
           parentIndex: this.props.index,
           handleCommentDelete: this.props.handleCommentDelete
         }),
@@ -559,6 +559,14 @@ CommentEditForm.contextTypes = {
   login_url: React.PropTypes.string,
   translations: React.PropTypes.object
 }
+
+CommentBox.contextTypes = {
+  authenticatedUserName: React.PropTypes.string,
+  loginUrl: React.PropTypes.string,
+  translations: React.PropTypes.object,
+  language: React.PropTypes.string
+}
+
 
 module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, translations, userName, language) {
   ReactDOM.render(
