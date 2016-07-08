@@ -13,3 +13,4 @@ psycopg2==2.6.1
 gunicorn==19.6
 whitenoise==3.2
 django-autofixture==0.12.1
+easy-thumbnails==2.3

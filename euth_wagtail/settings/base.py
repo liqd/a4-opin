@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'projects',
     'widget_tweaks',
     'webpack_loader',
+    'easy_thumbnails',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -145,6 +146,12 @@ LANGUAGES = [
     ('da', _('Danish')),
 ]
 
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'organisation_thumbnail': {'size': (80, 80), 'crop': True }
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
