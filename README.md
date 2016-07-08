@@ -47,6 +47,10 @@ python manage.py loadtestdata user_management.User:<number of users you want to 
 ```
 python manage.py loadtestdata euth_organisations.Organisation:<number of organisations you want to create>
 ```
+* to create Projects:
+```
+python manage.py loadtestdata euth_projects.Project:<number of projects you want to create>
+```
 * to create Comments on the homepage:
 ```
 python manage.py loadtestdata comments.Comment:<number of comments you want to create>
