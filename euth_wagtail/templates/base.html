@@ -30,9 +30,6 @@
         <script type="text/javascript" src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
         {% render_bundle 'main' %}
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -60,6 +57,10 @@
 
         {% block feedback %}
         {% include "includes/feedback_button.html" %}
+        {% endblock %}
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
         {% endblock %}
 
     </body>
