@@ -29,6 +29,7 @@
         <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
+        <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
         {% render_bundle 'main' %}
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

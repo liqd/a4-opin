@@ -6,6 +6,7 @@ var update = require('react-addons-update')
 var marked = require('marked')
 var moment = require('moment')
 var cookie = require('js-cookie')
+var django = require('django')
 
 $(function () {
   $.ajaxSetup({
@@ -134,7 +135,8 @@ var CommentBox = React.createClass({
   render: function () {
     return (
     h('div.commentBox', [
-      h('div.comments_count', [ this.state.comments.length, ' ', this.getCommentString(this.state.comments.length) ]),
+      h('div.comments_count',
+        this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)),
       h(CommentForm, {
         subjectType: this.props.subjectType,
         subjectId: this.props.subjectId,
@@ -256,12 +258,12 @@ var Comment = React.createClass({
     h('div.comment', [
       this.isOwner() ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
-        question: this.context.translations.translations.i18n_ask_delete,
+        question: django.gettext('Do you really want to delete this comment?'),
         handler: function () {
           this.props.handleCommentDelete(this.props.index, this.props.parentIndex)
         }.bind(this),
-        action: this.context.translations.translations.i18n_delete,
-        abort: this.context.translations.translations.i18n_abort,
+        action: django.gettext('Delete'),
+        abort: django.gettext('Abort'),
         btnStyle: 'cta'
       }) : null,
       h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
@@ -286,8 +288,7 @@ var Comment = React.createClass({
               ? h('a.commentSubmissionDate.dark',
                   moment(this.props.submission_date).format('D MMM YY'))
               : h('a.commentSubmissionDate.dark',
-                  this.context.translations.translations.i18n_latest_edit + ' ' +
-                  moment(this.props.modified).fromNow())
+                  django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
           ]
         ),
         this.allowForm() ? h('li.entry', [
@@ -329,7 +330,7 @@ var Comment = React.createClass({
                 href: '#',
                 onClick: this.toggleEdit,
                 'aria-hidden': true
-              }, this.context.translations.translations.i18n_edit
+              }, django.gettext('Edit')
               )
             ]) : null,
             this.isOwner() ? h('li', [
@@ -338,15 +339,14 @@ var Comment = React.createClass({
                 'data-toggle': 'modal',
                 'data-target': '#comment_delete_' + this.props.id,
                 'aria-hidden': true
-              }, this.context.translations.translations.i18n_delete
-              )
+              }, django.gettext('Delete'))
             ]) : null,
             h('li', [
               h('a.icon.fa-ban.dark', {
                 href: '#',
                 onClick: this.onReport,
                 'aria-hidden': true
-              }, this.context.translations.translations.i18n_report
+              }, django.gettext('Report')
               )
             ])
           ])
@@ -358,7 +358,7 @@ var Comment = React.createClass({
             href: '#',
             onClick: this.showComments,
             'aria-hidden': true
-          }, this.context.translations.translations.i18n_answer
+          }, django.gettext('Anwser')
           )
         ]) : null
       ]) : null,
@@ -428,8 +428,7 @@ Comment.contextTypes = {
   comments_contenttype: React.PropTypes.number,
   submit_url: React.PropTypes.string,
   isAuthenticated: React.PropTypes.number,
-  user_name: React.PropTypes.string,
-  translations: React.PropTypes.object
+  user_name: React.PropTypes.string
 }
 
 var CommentForm = React.createClass({
@@ -459,7 +458,7 @@ var CommentForm = React.createClass({
         h('div.form-group', [
           h('textarea.form-control', {
             type: 'text',
-            placeholder: this.context.translations.translations.i18n_your_comment,
+            placeholder: django.gettext('Your comment here'),
             rows: this.props.rows,
             value: this.state.comment,
             onChange: this.handleTextChange,
@@ -468,14 +467,14 @@ var CommentForm = React.createClass({
         ]),
         h('input.btn.btn-primary', {
           type: 'submit',
-          value: this.context.translations.translations.i18n_post
+          value: django.gettext('post')
         })
       ])
       )
     } else {
       return (
       h('div.comments_login', [
-        h('a', {href: this.context.login_url}, this.context.translations.translations.i18n_please_loggin_to_comment)
+        h('a', {href: this.context.login_url}, django.gettext('Please login to comment'))
       ])
       )
     }
@@ -484,8 +483,7 @@ var CommentForm = React.createClass({
 
 CommentForm.contextTypes = {
   isAuthenticated: React.PropTypes.number,
-  login_url: React.PropTypes.string,
-  translations: React.PropTypes.object
+  login_url: React.PropTypes.string
 }
 
 var CommentEditForm = React.createClass({
@@ -511,7 +509,7 @@ var CommentEditForm = React.createClass({
       h('div.form-group', [
         h('textarea.form-control', {
           type: 'text',
-          placeholder: this.context.translations.translations.i18n_your_comment,
+          placeholder: django.gettext('Your comment here'),
           rows: this.props.rows,
           value: this.state.comment,
           onChange: this.handleTextChange,
@@ -520,11 +518,11 @@ var CommentEditForm = React.createClass({
       ]),
       h('input.btn.btn-primary', {
         type: 'submit',
-        value: this.context.translations.translations.i18n_post
+        value: django.gettext('post')
       }),
       h('input.btn.btn-primary', {
         type: 'submit',
-        value: this.context.translations.translations.i18n_cancel,
+        value: django.gettext('cancle'),
         onClick: this.props.handleCancel
       })
     ])
@@ -534,18 +532,10 @@ var CommentEditForm = React.createClass({
 
 CommentEditForm.contextTypes = {
   isAuthenticated: React.PropTypes.number,
-  login_url: React.PropTypes.string,
-  translations: React.PropTypes.object
+  login_url: React.PropTypes.string
 }
 
-CommentBox.contextTypes = {
-  authenticatedUserName: React.PropTypes.string,
-  login_url: React.PropTypes.string,
-  translations: React.PropTypes.object,
-  language: React.PropTypes.string
-}
-
-module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, translations, userName, language) {
+module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
@@ -555,7 +545,6 @@ module.exports.renderComment = function (url, subjectType, subjectId, commentsCo
       isAuthenticated: isAuthenticated,
       login_url: loginUrl,
       pollInterval: 20000,
-      translations: translations,
       user_name: userName,
       language: language
     }),

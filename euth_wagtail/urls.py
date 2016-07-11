@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import javascript_catalog
 from django.views.generic import TemplateView
 
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
@@ -14,6 +15,10 @@ from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 
 from search import urls as search_urls
+
+js_info_dict = {
+    'packages': ('euth.comments',),
+}
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
@@ -29,6 +34,7 @@ urlpatterns += i18n_patterns(
     url(r'^projects/', include(projects_urls)),
     url(r'^adhocracy/', TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),
+    url(r'^jsi18n/$', javascript_catalog, js_info_dict, name='javascript-catalog'),
     url(r'', include(wagtail_urls)),
 )
 
