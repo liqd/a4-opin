@@ -181,7 +181,7 @@ WEBPACK_LOADER = {
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/jquery/dist'),
-    os.path.join(BASE_DIR, 'node_modules/salvatore/dist'),
+    os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
     os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/javascripts'),
     os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/stylesheets'),
     os.path.join(BASE_DIR, 'node_modules/font-awesome'),
