@@ -9,7 +9,8 @@ module.exports = {
     filename: '[name].js'
   },
   externals: {
-    'jquery': 'jQuery'
+    'jquery': 'jQuery',
+    'django': 'django'
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})

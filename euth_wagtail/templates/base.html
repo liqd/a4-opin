@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
 
         {% compress css %}
         <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/all.scss' %}">
@@ -26,13 +26,11 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
-        <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bootstrap.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
+        <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
         {% render_bundle 'main' %}
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -55,11 +53,15 @@
         </div>
 
         {% block footer %}
-
+        {% include "includes/footer.html" %}
         {% endblock %}
 
         {% block feedback %}
         {% include "includes/feedback_button.html" %}
+        {% endblock %}
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
         {% endblock %}
 
     </body>

@@ -35,6 +35,17 @@ Unitest are working with py.test.
  * for python and css/scss just use `bin/python manage.py runserver`
  * for js / react keep webpack running `npm run watch`
 
+## Locales
+
+The project relies on the django i18n framework (also for the transaltions in js)
+
+```
+bin/python manage.py makemessages -d djangojs
+bin/python manage.py makemessages -d django
+bin/python manage.py compilemessages
+```
+
+
 ## Testdata
 
 You can use autofixtures to create some data, e.g. run:
@@ -55,7 +66,3 @@ python manage.py loadtestdata euth_projects.Project:<number of projects you want
 ```
 python manage.py loadtestdata comments.Comment:<number of comments you want to create>
 ```
-
-
-
-

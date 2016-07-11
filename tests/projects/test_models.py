@@ -24,3 +24,16 @@ def test_is_public(project):
 def test_is_privat(project):
     assert not project.is_public
     assert project.is_private
+
+@pytest.mark.django_db
+def test_image_validation_image_too_small(project_factory, smallImage):
+    project = project_factory(image=smallImage)
+    with pytest.raises(Exception) as e:
+        project.full_clean()
+    assert 'Image must be at least 600 pixels high' in str(e)
+
+
+@pytest.mark.django_db
+def test_image_big_enough(project_factory, bigImage):
+    project = project_factory(image=bigImage)
+    assert project.full_clean() is None
