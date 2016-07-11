@@ -1,21 +1,27 @@
+from model_utils import models as model_utils
+from parler.models import TranslatableModel, TranslatedFields, TranslatableManager
+
 from django.conf import settings
 from django.db import models
 
-from model_utils import models as model_utils
-
 from euth.contrib import validators
 
-class OrganisationManager(models.Manager):
+class OrganisationManager(TranslatableManager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
 
-class Organisation(model_utils.TimeStampedModel):
+class Organisation(model_utils.TimeStampedModel, TranslatableModel):
     name = models.CharField(max_length=512, unique=True)
     slug = models.SlugField(max_length=512, unique=True)
-    description_why = models.TextField()
-    description_how = models.TextField()
-    description = models.TextField()
+
+    translations = TranslatedFields(
+        title = models.CharField(max_length=512),
+        description_why = models.TextField(),
+        description_how = models.TextField(),
+        description = models.TextField(),
+    )
+
     initiators = models.ManyToManyField(settings.AUTH_USER_MODEL)
     image = models.ImageField(upload_to='organisations/images', blank=True,
                               validators=[validators.validate_hero_image])
