@@ -31,9 +31,6 @@
         <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
         <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
         {% render_bundle 'main' %}
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -56,11 +53,15 @@
         </div>
 
         {% block footer %}
-
+        {% include "includes/footer.html" %}
         {% endblock %}
 
         {% block feedback %}
         {% include "includes/feedback_button.html" %}
+        {% endblock %}
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
         {% endblock %}
 
     </body>
