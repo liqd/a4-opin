@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'webpack_loader',
     'easy_thumbnails',
+    'parler',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -146,6 +147,10 @@ LANGUAGES = [
     ('sl', _('Slovene')),
     ('da', _('Danish')),
 ]
+
+PARLER_LANGUAGES = {
+    1:[{'code': language_code } for language_code, language in LANGUAGES]
+}
 
 
 THUMBNAIL_ALIASES = {
