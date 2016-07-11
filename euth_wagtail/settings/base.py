@@ -147,6 +147,8 @@ LANGUAGES = [
     ('da', _('Danish')),
 ]
 
+ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg')
+
 
 THUMBNAIL_ALIASES = {
     '': {
