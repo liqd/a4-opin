@@ -5,6 +5,6 @@
     </a>
     <div class="project-tile-body">
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>
-        <p class="project-tile-teaser">{{ project.description }}</p>
+        <p class="project-tile-teaser">{{ project.description|truncatechars:250 }}</p>
     </div>
 </div>
