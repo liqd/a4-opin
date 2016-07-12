@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-<header style="{% if project.background %}
-               background-image: url({{ project.background.url }});
+<header style="{% if project.image %}
+               background-image: url({{ project.image.url }});
                {% endif %}" class="euth-hero-unit">
     <div class="container">
         <div class="container-narrow">
