@@ -4,10 +4,14 @@
 <header style="{% if project.background %}
                background-image: url({{ project.background.url }});
                {% endif %}" class="euth-hero-unit">
-    <div class="euth-hero-unit-header">
-        <h1>{{ project.name }}</h1>
-        <p>{{ project.description }}</p>
-        <a href="#" class="button">Create Proposal</a>
+    <div class="container">
+        <div class="container-narrow">
+            <div class="euth-hero-unit-header">
+                <h1>{{ project.name }}</h1>
+                <p>{{ project.description }}</p>
+                <a href="#" class="button">Create Proposal</a>
+            </div>
+        </div>
     </div>
 </header>
 <nav class="tabs">
