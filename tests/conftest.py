@@ -24,3 +24,13 @@ def smallImage():
 @pytest.fixture
 def bigImage():
     return factory.django.ImageField(width=1400, height=1400)
+
+
+@pytest.fixture
+def ImageBMP():
+    return factory.django.ImageField(width=1400, height=1400, format='BMP')
+
+
+@pytest.fixture
+def ImagePNG():
+    return factory.django.ImageField(width=1400, height=1400, format='PNG')
