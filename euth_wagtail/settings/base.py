@@ -157,7 +157,7 @@ ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg')
 THUMBNAIL_ALIASES = {
     '': {
         'organisation_thumbnail': {'size': (400, 400), 'crop': 'smart' }, #for Logo on Organisation Detail Page
-        'organisation_heroimmage': {'size': (1500, 500), 'crop': 'smart'}, #for Background on Organisation Detail Page
+        'heroimage': {'size': (1500, 500), 'crop': 'smart'}, #for Background on Organisation Detail Page
         'project_thumbnail': {'size': (800, 400), 'crop': 'smart' } #for Projecttile on Organisation Detail Page
     }
 }
