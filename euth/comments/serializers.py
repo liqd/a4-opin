@@ -7,14 +7,12 @@ from .models import Comment
 class CommentSerializer(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField()
     child_comments = serializers.SerializerMethodField()
-    submit_date = serializers.SerializerMethodField()
-    modified = serializers.SerializerMethodField()
     is_deleted = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
-        read_only_fields = ('modified', 'submit_date', 'id', 'user_name')
-        exclude = ('user', 'is_censored', 'is_removed', 'created')
+        read_only_fields = ('modified', 'created', 'id', 'user_name')
+        exclude = ('user', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
         """
@@ -35,20 +33,6 @@ class CommentSerializer(serializers.ModelSerializer):
             content_type=content_type, object_pk=pk).order_by('created')
         serializer = CommentSerializer(children, many=True)
         return serializer.data
-
-    def get_submit_date(self, obj):
-        """
-        Returns the datetime without seconds of the datetime field.
-        If this is not done create and modified field will never be the same.
-        """
-        return obj.created.replace(second=0, microsecond=0)
-
-    def get_modified(self, obj):
-        """
-        Returns the datetime without seconds of the datetime field.
-        If this is not done create and modified field will never be the same.
-        """
-        return obj.modified.replace(second=0, microsecond=0)
 
     def get_is_deleted(self, obj):
         """

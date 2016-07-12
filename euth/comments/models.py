@@ -4,6 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from model_utils.models import TimeStampedModel
 
+from euth.contrib.base_models import TimeStampedModel
 
 class Comment(TimeStampedModel):
 
