@@ -10,4 +10,14 @@ $(document).ready(function() {
     if($(".tab-panel").length>0) {
         $(".tab-panel:not(:first-child)").hide();
     }
+
+    $(".tab").click(function() {
+        var t = $(this);
+        var link = t.attr("href");
+        $(".tab-panel").hide();
+        $(".tab").removeClass("m-selected");
+        $(this).addClass("m-selected");
+        $(link).show();
+        return false;
+    });
 });
