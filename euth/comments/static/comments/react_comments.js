@@ -172,7 +172,7 @@ var CommentList = React.createClass({
           key: comment.id,
           user_name: comment.user_name,
           child_comments: comment.child_comments,
-          submission_date: comment.submit_date,
+          created: comment.created,
           modified: comment.modified,
           id: comment.id,
           content_type: comment.content_type,
@@ -247,10 +247,6 @@ var Comment = React.createClass({
     console.log('clicked report')
   },
 
-  isNotUpdated: function () {
-    return this.props.submission_date === this.props.modified
-  },
-
   render: function () {
     return (
     h('div.comment', [
@@ -282,9 +278,9 @@ var Comment = React.createClass({
       h('ul.nav.nav-pills', [
         h('li.entry',
           [
-            this.isNotUpdated()
+            this.props.modified == null
               ? h('a.commentSubmissionDate.dark',
-                  moment(this.props.submission_date).format('D MMM YY'))
+                  moment(this.props.created).format('D MMM YY'))
               : h('a.commentSubmissionDate.dark',
                   django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
           ]
