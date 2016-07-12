@@ -1,10 +1,11 @@
+from parler.admin import TranslatableAdmin, TranslatableModelForm
+
 from django.contrib import admin
 
-from . import models
+from euth.organisations import models
 
 
-class OrganisationAdmin(admin.ModelAdmin):
+class OrganisationAdmin(TranslatableAdmin):
     prepopulated_fields = {'slug': ('name',)}
-
 
 admin.site.register(models.Organisation, OrganisationAdmin)

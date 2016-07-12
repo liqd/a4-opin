@@ -1,7 +1,9 @@
 *.pyc
 __pycache__
+.cache
 myvenv
 db.sqlite3
+test_db.sqlite3
 /static
 .DS_Store
 *.mo
@@ -14,3 +16,4 @@ venv
 /include/python*
 /bin
 /webpack-stats.json
+/euth_wagtail/settings/local.py

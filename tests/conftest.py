@@ -1,4 +1,5 @@
 import pytest
+import factory
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 
@@ -13,3 +14,13 @@ register(factories.ContentTypeFactory)
 @pytest.fixture
 def apiclient():
     return APIClient()
+
+
+@pytest.fixture
+def smallImage():
+    return factory.django.ImageField(width=200, height=200)
+
+
+@pytest.fixture
+def bigImage():
+    return factory.django.ImageField(width=1400, height=1400)

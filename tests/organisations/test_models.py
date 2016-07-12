@@ -1,4 +1,5 @@
 import pytest
+import factory
 
 from django.core.urlresolvers import reverse
 
@@ -15,3 +16,17 @@ def test_absolute_url(organisation):
 def test_natural_keys(organisation):
     assert models.Organisation.objects.get_by_natural_key(
         organisation.name) == organisation
+
+
+@pytest.mark.django_db
+def test_image_validation_image_too_small(organisation_factory, smallImage):
+    organisation = organisation_factory(image=smallImage, logo=smallImage)
+    with pytest.raises(Exception) as e:
+        organisation.full_clean()
+    assert 'Image must be at least 600 pixels high' in str(e)
+
+
+@pytest.mark.django_db
+def test_image_big_enough(organisation_factory, bigImage):
+    organisation = organisation_factory(image=bigImage, logo=bigImage)
+    assert organisation.full_clean() is None

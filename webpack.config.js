@@ -1,4 +1,4 @@
-var BundleTracker = require('webpack-bundle-tracker');
+var BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {
   entry: './euth_wagtail/static/js/app.js',
@@ -6,12 +6,13 @@ module.exports = {
     libraryTarget: 'var',
     library: 'Opin',
     path: './euth_wagtail/static/bundles/',
-    filename: '[name]-[hash].js'
+    filename: '[name].js'
   },
   externals: {
-    'jquery': 'jQuery'
+    'jquery': 'jQuery',
+    'django': 'django'
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
   ]
-};
+}

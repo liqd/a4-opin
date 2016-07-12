@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'projects',
     'widget_tweaks',
     'webpack_loader',
+    'easy_thumbnails',
+    'parler',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -57,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_countries',
     'rest_framework',
+    'autofixture',
 
     'euth.user_management',
     'euth.organisations',
@@ -145,6 +148,18 @@ LANGUAGES = [
     ('da', _('Danish')),
 ]
 
+PARLER_LANGUAGES = {
+    1:[{'code': language_code } for language_code, language in LANGUAGES]
+}
+
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'organisation_thumbnail': {'size': (400, 400), 'crop': 'smart' }, #for Logo on Organisation Detail Page
+        'organisation_heroimmage': {'size': (1500, 500), 'crop': 'smart'}, #for Background on Organisation Detail Page
+        'project_thumbnail': {'size': (800, 400), 'crop': 'smart' } #for Projecttile on Organisation Detail Page
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -165,7 +180,11 @@ WEBPACK_LOADER = {
 }
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'node_modules'),
+    os.path.join(BASE_DIR, 'node_modules/jquery/dist'),
+    os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
+    os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/javascripts'),
+    os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/stylesheets'),
+    os.path.join(BASE_DIR, 'node_modules/font-awesome'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 

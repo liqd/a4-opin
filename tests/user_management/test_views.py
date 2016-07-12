@@ -89,7 +89,7 @@ def test_register(client):
             'password_repeat': 'password'
         }
     )
-    assert response.status_code == 200
+    assert response.status_code == 302
     registration = models.Registration.objects.get(username='testuser2')
     activation_url = reverse('activate', kwargs={'token': registration.token})
     assert registration
@@ -108,7 +108,7 @@ def test_reregister_same_username(client):
     }
     register_url = reverse('register')
     response = client.post(register_url, data)
-    assert response.status_code == 200
+    assert response.status_code == 302
     data['email'] = 'anotheremail@liqd.de'
     register_url = reverse('register')
     response = client.post(register_url, data)
@@ -157,7 +157,7 @@ def test_reset(client, user):
     response = client.post(reset_req_url, {
         'username_or_email': user.username,
         'next': '/de/my_nice_url'})
-    assert response.status_code == 200
+    assert response.status_code == 302
     reset = models.Reset.objects.get(user__username=user.username)
     assert reset
 
@@ -183,7 +183,7 @@ def test_reset(client, user):
 def test_request_reset_email(client, user):
     reset_req_url = reverse('reset_request')
     response = client.post(reset_req_url, { 'username_or_email': user.email })
-    assert response.status_code == 200
+    assert response.status_code == 302
     reset = models.Reset.objects.get(user__username=user.username)
     assert reset
 
