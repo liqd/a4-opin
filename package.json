@@ -7,6 +7,7 @@
     "jquery": "2.2.4",
     "marked": "0.3.5",
     "moment": "^2.14.1",
+    "owl.carousel": "~2.1.4",
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-hyperscript": "2.4.0",
