@@ -20,4 +20,19 @@ $(document).ready(function() {
         $(link).show();
         return false;
     });
+
+    $('.owl-carousel').owlCarousel({
+        center: true,
+        items:3,
+        loop:true,
+        dots: false,
+        nav:true,
+        margin:10,
+        navText: ['<i class="fa fa-chevron-right"></i>','<i class="fa fa-chevron-left"></i>'],
+        responsive:{
+            600:{
+                items:3
+            }
+        }
+    });
 });
