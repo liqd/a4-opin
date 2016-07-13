@@ -155,6 +155,7 @@ PARLER_LANGUAGES = {
     1:[{'code': language_code } for language_code, language in LANGUAGES]
 }
 
+ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg')
 
 THUMBNAIL_ALIASES = {
     '': {

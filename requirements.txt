@@ -16,3 +16,4 @@ django-autofixture==0.12.1
 easy-thumbnails==2.3
 django-parler==1.6.4
 django-autoslug==1.9.3
+python-magic==0.4.12

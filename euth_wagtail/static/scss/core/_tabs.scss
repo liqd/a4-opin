@@ -1,0 +1,31 @@
+.tabs {
+    background-color: $gray-lighter;
+
+    .container-narrow {
+        margin: 0 auto;
+    }
+
+    ul, li {
+        list-style-type: none;
+    }
+
+    a {
+        color: #000;
+        display: block;
+        font-weight: bold;
+        line-height: 77px;
+        text-align: center;
+        text-transform: uppercase;
+
+        &.m-selected {
+            background: #fff;
+            color: $brand-brand1;
+        }
+    }
+
+    .dropdown-menu {
+        @include rem(margin-left, -100px);
+        @include rem(width, 200px);
+        left: 50%;
+    }
+}
