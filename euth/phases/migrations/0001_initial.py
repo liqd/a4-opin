@@ -7,18 +7,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('modules', '0001_initial'),
+        ('euth_modules', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Phase',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=512)),
                 ('description', models.TextField()),
                 ('permissions', models.CharField(max_length=128)),
-                ('module', models.ForeignKey(to='modules.Module')),
+                ('module', models.ForeignKey(to='euth_modules.Module')),
             ],
         ),
     ]
