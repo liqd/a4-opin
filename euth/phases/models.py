@@ -6,11 +6,21 @@ from . import content
 from .validators import validate_content
 
 
+class PhasesManager(models.Manager):
+    def active_phase(self, project):
+        return self.filter(module__project=project).order_by('type').first()
+
+    def all_phases(self, project):
+        return self.filter(module__project=project).order_by('type')
+
+
 class Phase(models.Model):
     name = models.CharField(max_length=512)
     description = models.TextField()
     type = models.CharField(max_length=128, validators=[validate_content])
     module = models.ForeignKey(modules_models.Module, on_delete=models.CASCADE)
+
+    objects = PhasesManager()
 
     def __str__(self):
         return '{} ({})'.format(self.name, self.type)
