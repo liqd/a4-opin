@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load widget_tweaks i18n %}
+{% block content %}
+<div class="container-narrow">
+    <div class="back-link">
+        <a href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'Back to project' %}</a>
+    </div>
+    {% include "euth_projects/includes/project_list_tile.html" with project=project %}
+
+    {% if mode == 'create' %}
+    <div class="black-divider">
+        {% trans 'create new idea'%}
+        <a href="">
+            <span class='black-divider-info'><i class="fa fa-question" aria-hidden="true"></i></span>
+        </a>
+    </div>
+    {% elif mode == 'update' %}
+    <div class="black-divider">
+        {% trans 'update idea'%}
+        <a href="">
+            <span class='black-divider-info'><i class="fa fa-question" aria-hidden="true"></i></span>
+        </a>
+    </div>
+    {% endif %}
+    <div class="general-form">
+        <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group {% if field.errors %}has-error {% endif %}">
+                        <label for="exampleInputEmail1">{{ field.label }}</label>
+                        {% render_field field class="form-control" %}
+                        {% if field.errors %}
+                        <span class="help-block">{{ field.errors.0 }}</span>
+                        {% endif %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="submit-button">{% trans 'post'%}</button>
+                {% if mode == 'create' %}
+                <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                {% elif mode == 'update' %}
+                <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

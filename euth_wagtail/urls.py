@@ -13,6 +13,7 @@ from euth.comments import urls as comments_urls
 from euth.user_management import urls as user_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
+from euth.ideas import urls as ideas_urls
 
 from search import urls as search_urls
 
@@ -32,6 +33,7 @@ urlpatterns += i18n_patterns(
     url(r'', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
+    url(r'^ideas/', include(ideas_urls)),
     url(r'^adhocracy/', TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),
     url(r'^jsi18n/$', javascript_catalog, js_info_dict, name='javascript-catalog'),

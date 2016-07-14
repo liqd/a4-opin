@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n react_comments %}
+
+{% block content %}
+<div class="container-narrow">
+    <div class="row">
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="{% url 'project-detail' idea.project.slug %}">{% trans 'back to project'%}</a></li>
+
+            {% if request.user == idea.creator %}
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{% url 'idea-update' idea.slug %}">{% trans 'Edit' %}</a>
+                    </li>
+                    <li>
+                        <a href="">{% trans 'Delete' %}</a>
+                    </li>
+                </ul>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+    {% if idea.image %}
+    <div class="row">
+        <img src="{{ idea.image.url }}" style="width: 100%;">
+    </div>
+    {% endif %}
+    <div class="row">
+        <h1>{{ idea.name }}</h1>
+    </div>
+    <div class="row">
+        <p>{{ idea.creator.username }}</p>
+    </div>
+    <div class="row">
+        <p>{{ idea.description |linebreaks }}</p>
+    </div>
+    <div class="row">
+        {% react_comments idea %}
+    </div>
+</div>
+{% endblock %}
