@@ -1,4 +1,5 @@
 .euth-hero-unit {
+    @include rem(padding-bottom, 40px);
     background-color: $brand-brand1;
     text-align: center;
     min-height: 340px;
