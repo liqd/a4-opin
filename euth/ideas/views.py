@@ -16,22 +16,29 @@ class IdeaUpdateView(generic.UpdateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['project'] = self.object.project
+        return context
+
     def get_object(self):
-        qs = super(IdeaUpdateView, self).get_object()
+        qs = super().get_object()
         if self.request.user == qs.creator:
             return qs
         else:
             raise exceptions.PermissionDenied
 
 
-class IdeaCreateView(generic.CreateView, views.SuccessMessageMixin):
+class IdeaCreateView(generic.CreateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
-    success_message = "Idea updated successfully"
 
     def get_context_data(self, **kwargs):
-        context = super(IdeaCreateView, self).get_context_data(**kwargs)
-        context['slug'] = self.kwargs.get(self.slug_url_kwarg)
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs.get(self.slug_url_kwarg)
+        context['slug'] = slug
+        module = Module.objects.get(slug=slug)
+        context['project'] = module.project
         return context
 
     def form_valid(self, form):
@@ -39,4 +46,4 @@ class IdeaCreateView(generic.CreateView, views.SuccessMessageMixin):
         slug = self.kwargs.get(self.slug_url_kwarg)
         module = Module.objects.get(slug=slug)
         form.instance.module = module
-        return super(IdeaCreateView, self).form_valid(form)
+        return super().form_valid(form)
