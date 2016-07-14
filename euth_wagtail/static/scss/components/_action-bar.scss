@@ -1,0 +1,8 @@
+.back-link {
+    @include rem(padding, 35px 0px 35px 0px);
+
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+}

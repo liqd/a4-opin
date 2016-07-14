@@ -23,6 +23,33 @@
     float: left;
 }
 
+.project-list-tile {
+    @extend .tile-list;
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
+
+
+    .project-tile-image-link {
+        @extend .tile-image-link;
+    }
+
+    .project-tile-body {
+        border: none;
+        @include rem(padding, 0px 107px 0px 0px);
+
+    }
+
+    .project-tile-title {
+        @include rem(width, 222.5px);
+        @include rem(height, 56px);
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        @include rem(font-size, 20px);
+        @include rem(line-height, 1.4);
+        text-align: justify;
+    }
+
+}
+
 .project-tile {
     @extend %tile;
 

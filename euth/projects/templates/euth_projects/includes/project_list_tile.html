@@ -1,0 +1,22 @@
+{% load static thumbnail %}
+<div class="project-list-tile">
+        {% if project.image %}
+        <a href="{% url 'project-detail' project.slug %}" class="col-md-2 col-sm-2 col-xs-3 project-tile-image-link" style="background-size: cover; background-image: url({{ project.image.url }});">
+        </a>
+        {% else %}
+        <a href="{% url 'project-detail' project.slug %}" class="col-md-2 col-sm-2 col-xs-3 project-tile-image-link" style="background-size: cover; background-image: url({% static 'images/logo.png' %})">
+        </a>
+        {% endif %}
+        <div class="project-tile-body col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-9 col-xs-offset-3">
+            <h2 class="project-tile-title">
+                <a href="{% url 'project-detail' project.slug %}">
+                {{ project.name }}
+                </a>
+            </h2>
+            <p class="project-tile-teaser">{{ project.description | truncatechars:185 }}</p>
+            <div class="avatar-small">
+                <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
+                <div class="name">{{ project.organisation }}</div>
+            </div>
+        </div>
+</div>
