@@ -16,3 +16,19 @@
     line-height: 1.571428571;
     margin-bottom: 0;
 }
+
+.tile-list {
+    @extend %tile;
+    @include rem(padding, 14px 18px);
+    margin-right: 0;
+    position: relative;
+}
+
+.tile-image-link {
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}

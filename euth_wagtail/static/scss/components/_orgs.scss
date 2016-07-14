@@ -10,7 +10,7 @@
 
 .org-tile {
     @extend %tile;
-    @include rem(padding, 18px 14px);
+    @include rem(padding, 14px 18px);
     margin-right: 0;
     position: relative;
 }
