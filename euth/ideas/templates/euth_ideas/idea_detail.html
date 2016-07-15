@@ -37,7 +37,7 @@
         <p>{{ idea.creator.username }}</p>
     </div>
     <div class="row">
-        <p>{{ idea.description |linebreaks }}</p>
+        <p>{{ idea.description |safe }}</p>
     </div>
     <div class="row">
         {% react_comments idea %}
