@@ -15,7 +15,7 @@ fixtures:
 	bin/python3 manage.py loadtestdata euth_projects.Project:2
 
 watch:
-	trap 'kill %1'; \
+	trap 'kill %1' SIGINIT; \
 	npm run watch & \
 	bin/python3 manage.py runserver 8000
 
