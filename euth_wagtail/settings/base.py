@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'easy_thumbnails',
     'parler',
+    'ckeditor',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -127,6 +128,17 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'user_management.User'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink']
+        ]
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
