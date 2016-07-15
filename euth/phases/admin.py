@@ -1,5 +1,20 @@
+from django import forms
 from django.contrib import admin
 
-from . import models
+from . import models, content
 
-admin.site.register(models.Phase)
+
+class PhaseForm(forms.ModelForm):
+    type = forms.ChoiceField(choices=content.as_choices)
+
+    class Meta:
+        fields = '__all__'
+        model = models.Phase
+
+
+class PhaseAdmin(admin.ModelAdmin):
+    model = models.Phase
+    form = PhaseForm
+
+
+admin.site.register(models.Phase, PhaseAdmin)
