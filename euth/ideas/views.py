@@ -5,8 +5,13 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 
 from euth.modules.models import Module
+from euth.projects import mixins
 
 from . import models
+
+
+class IdeaListView(mixins.ProjectMixin, generic.ListView):
+    model = models.Idea
 
 
 class IdeaDetailView(generic.DetailView):

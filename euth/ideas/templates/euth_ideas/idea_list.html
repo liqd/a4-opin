@@ -1,0 +1,13 @@
+{% extends 'euth_projects/project_detail.html' %}
+{% load i18n %}
+
+{% block phase_cta %}
+<a href="{% url 'idea-create' slug=module.slug %}" class="button">{% trans 'Create Proposal' %}</a>
+{% endblock %}
+
+{% block phase_content %}
+{% for idea in idea_list %}
+<a href="{% url 'idea-detail' idea.slug %}" >{{ idea.name }}</a>
+<div>{{ idea.description | truncatechars:120 }}</div>
+{% endfor %}
+{% endblock %}
