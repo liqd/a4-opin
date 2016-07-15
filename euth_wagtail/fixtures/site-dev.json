@@ -6,5 +6,17 @@
       "domain": "localhost:8000",
       "name": "Opin development"
     }
+  },
+  {
+    "model": "user_management.user",
+    "pk": 1,
+    "fields": {
+      "email": "admin@liqd.de",
+      "username": "admin",
+      "password": "pbkdf2_sha256$20000$2sgrOX9fSpHE$PctfUABBDXH0lbjC6yIZHOwOJXDQhOp8l8b8MhfQTgY=",
+      "is_staff": true,
+      "is_active": true,
+      "is_superuser": true
+    }
   }
 ]
