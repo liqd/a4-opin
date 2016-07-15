@@ -17,3 +17,4 @@ easy-thumbnails==2.3
 django-parler==1.6.4
 django-autoslug==1.9.3
 python-magic==0.4.12
+html5lib==0.9999999
