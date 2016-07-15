@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class TimeStampedModel(models.Model):
 
     created = models.DateTimeField(editable=False, default=timezone.now)
@@ -10,6 +11,6 @@ class TimeStampedModel(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        if not self.pk is None:
+        if self.pk is not None:
             self.modified = timezone.now()
         super(TimeStampedModel, self).save(*args, **kwargs)
