@@ -9,7 +9,7 @@
             <div class="euth-hero-unit-header">
                 <h1>{{ project.name }}</h1>
                 <p>{{ project.description }}</p>
-                <a href="#" class="button">Create Proposal</a>
+                {% block phase_cta %}{% endblock %}
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
       </article>
       <article id="panel-participation" class="tab-panel">
         <h3>{% trans "participation" %}</h3>
-        Display the currently active participation module here!
+        {% block phase_content %}{% endblock %}
       </article>
     </div>
 </div>
