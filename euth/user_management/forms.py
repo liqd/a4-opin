@@ -2,12 +2,13 @@ from django import forms
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
-from django.forms import ModelForm
 from django.utils.translation import ugettext as _
 
 from .models import Registration, Reset
 
+
 User = get_user_model()
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(max_length=255, required=True)
@@ -92,6 +93,7 @@ class ActivateForm(forms.Form):
                     email=registration.email,
                     password=registration.password)
         return user, registration
+
 
 class RequestResetForm(forms.Form):
     username_or_email = forms.CharField(max_length=255)

@@ -2,9 +2,8 @@ import uuid
 
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import login, logout
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
@@ -40,7 +39,8 @@ def logout_user(request):
         return HttpResponseRedirect(next_action)
     else:
         return render_to_response(
-            'user_management/logout.html', context_instance=RequestContext(request))
+            'user_management/logout.html',
+            context_instance=RequestContext(request))
 
 
 def register_user(request):
@@ -80,7 +80,8 @@ def activate_user(request, token):
             return HttpResponseRedirect(registration.next_action)
         else:
             status = 400
-    return render(request, 'user_management/activate.html', {'form': form}, status=status)
+    return render(request, 'user_management/activate.html',
+                  {'form': form}, status=status)
 
 
 def reset_request(request):

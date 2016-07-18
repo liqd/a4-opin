@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 
-_usermanagement_views = [ 'login', 'logout', 'register', 'reset_request' ]
+_usermanagement_views = ['login', 'logout', 'register', 'reset_request']
+
 
 def sanatize_next(request):
     """
@@ -8,7 +9,7 @@ def sanatize_next(request):
     """
     next_action = request.get_full_path()
 
-    invalid_next_views = [ reverse(u) for u in _usermanagement_views ]
+    invalid_next_views = [reverse(u) for u in _usermanagement_views]
     if request.path in invalid_next_views:
         next_action = request.GET.get('next')\
             or request.POST.get('next')\
