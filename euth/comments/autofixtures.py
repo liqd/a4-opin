@@ -8,7 +8,8 @@ from .models import Comment
 
 class CommentAutoFixture(AutoFixture):
 
-    homepage_contenttype = ContentType.objects.get(app_label='home', model='homepage')
+    homepage_contenttype = ContentType.objects.get(app_label='home',
+                                                   model='homepage')
     homepage_id = HomePage.objects.first().pk
 
     field_values = {

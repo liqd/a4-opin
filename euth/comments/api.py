@@ -1,5 +1,4 @@
-from django.utils import timezone
-from rest_framework import filters, generics, permissions, status, viewsets
+from rest_framework import filters, permissions, status, viewsets
 from rest_framework.response import Response
 
 from .models import Comment
