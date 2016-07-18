@@ -8,7 +8,7 @@ fake = Factory.create()
 
 class IdeaAutoFixture(AutoFixture):
 
-    IMAGESIZES = ((1300,600),)
+    IMAGESIZES = ((1300, 600),)
 
     field_values = {
         'name': generators.CallableGenerator(fake.company),
