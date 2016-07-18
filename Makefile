@@ -53,6 +53,8 @@ coverage:
 	$(VIRTUAL_ENV)/py.test --reuse-db --cov --cov-report=html
 
 lint:
-	$(VIRTUAL_ENV)/isort -rc -c $(SOURCE_DIRS)
-	$(VIRTUAL_ENV)/flake8 $(SOURCE_DIRS) --exclude migrations,settings
-	npm run lint
+	EXIT_STATUS=0; \
+	$(VIRTUAL_ENV)/isort -rc -c $(SOURCE_DIRS) ||  EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
+	npm run lint ||  EXIT_STATUS=$$?; \
+	exit $${EXIT_STATUS}
