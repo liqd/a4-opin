@@ -1,0 +1,23 @@
+.owl-carousel {
+    position: relative;
+
+    .owl-prev,
+    .owl-next {
+        @include rem(font-size, 40px);
+        @include rem(margin-top, -20px);
+        position: absolute;
+        top: 50%;
+    }
+
+    .owl-next {
+        @include rem(left, -40px);
+    }
+
+    .owl-prev {
+        @include rem(right, -40px);
+    }
+
+    .project-tile {
+        margin: 0;
+    }
+}
