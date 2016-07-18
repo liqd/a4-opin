@@ -1,7 +1,24 @@
-all: install fixtures
+all: help
 
 VIRTUAL_ENV ?= bin
 SOURCE_DIRS = euth euth_wagtail home search projects
+
+help:
+	@echo OPIN development tools
+	@echo
+	@echo It will either use a exisiting virtualenv if it was entered
+	@echo before or create a new one in the same directory.
+	@echo
+	@echo usage:
+	@echo
+	@echo   make install      -- install dev setup
+	@echo   make fixtures     -- load example data
+	@echo   make watch	  -- development server
+	@echo   make test         -- tests on exiting database
+	@echo   make test-clean   -- test on new database
+	@echo   make lint	  -- lint javascript and python
+	@echo   make locales      -- create new po and mo files
+	@echo
 
 install:
 	npm install
