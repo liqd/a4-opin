@@ -164,7 +164,7 @@ def test_reset(client, user):
     reset_url = reverse('reset_password', kwargs={'token': reset.token })
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [user.email]
-    assert 'Reset password request for testserver' in mail.outbox[0].subject
+    assert 'Reset password request' in mail.outbox[0].subject
     assert reset_url in mail.outbox[0].body
 
     response = client.get(reset_url)
