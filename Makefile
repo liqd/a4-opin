@@ -1,7 +1,7 @@
 all: install fixtures
 
 VIRTUAL_ENV ?= bin
-SOURCE_DIRS = euth euth_wagtail homepage search projects
+SOURCE_DIRS = euth euth_wagtail home search projects
 
 install:
 	npm install
@@ -24,3 +24,11 @@ watch:
 
 server:
 	$(VIRTUAL_ENV)/python3 manage.py runserver 8000
+
+test:
+	$(VIRTUAL_ENV)/py.test
+
+lint:
+	$(VIRTUAL_ENV)/isort -rc -c $(SOURCE_DIRS)
+	$(VIRTUAL_ENV)/flake8 $(SOURCE_DIRS) --exclude migrations,settings
+	npm run lint
