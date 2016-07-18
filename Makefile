@@ -44,7 +44,13 @@ server:
 	$(VIRTUAL_ENV)/python3 manage.py runserver 8000
 
 test:
-	$(VIRTUAL_ENV)/py.test
+	$(VIRTUAL_ENV)/py.test --reuse-db
+
+test-clean:
+	$(VIRTUAL_ENV)/py.test --reuse-db --create-db
+
+coverage:
+	$(VIRTUAL_ENV)/py.test --reuse-db --cov --cov-report=html
 
 lint:
 	$(VIRTUAL_ENV)/isort -rc -c $(SOURCE_DIRS)
