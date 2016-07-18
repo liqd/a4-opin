@@ -1,9 +1,6 @@
 import pytest
-import factory
 
 from django.core.urlresolvers import reverse
-
-from euth.ideas import models
 
 
 @pytest.mark.django_db

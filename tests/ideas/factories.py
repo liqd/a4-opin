@@ -1,9 +1,9 @@
 import factory
-import random
+from tests.factories import UserFactory
 
 from euth.ideas import models as idea_models
+
 from ..modules.factories import ModuleFactory
-from tests.factories import UserFactory
 
 
 class IdeaFactory(factory.django.DjangoModelFactory):

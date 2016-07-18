@@ -23,7 +23,7 @@ def test_create_view(client, module, user):
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
     assert response.status_code == 200
-    idea = {'name':'Idea', 'description':'description'}
+    idea = {'name': 'Idea', 'description': 'description'}
     client.post(url, idea)
     assert response.status_code == 200
     count = Idea.objects.all().count()
@@ -39,6 +39,6 @@ def test_update_view(client, idea, user):
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
     assert response.status_code == 200
-    data = {'description':'description'}
+    data = {'description': 'description'}
     response = client.post(url, data)
     assert response.status_code == 200
