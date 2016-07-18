@@ -33,6 +33,7 @@ fixtures:
 	$(VIRTUAL_ENV)/python3 manage.py loadtestdata user_management.User:20
 	$(VIRTUAL_ENV)/python3 manage.py loadtestdata euth_organisations.Organisation:5
 	$(VIRTUAL_ENV)/python3 manage.py loadtestdata euth_projects.Project:2
+	$(VIRTUAL_ENV)/python3 manage.py loadtestdata comments.Comment:10
 
 watch:
 	trap 'kill %1' SIGINIT; \
