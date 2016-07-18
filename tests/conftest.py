@@ -1,5 +1,5 @@
-import pytest
 import factory
+import pytest
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 

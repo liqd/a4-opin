@@ -1,7 +1,6 @@
 import factory
-from django.contrib.contenttypes.models import ContentType
-from tests.factories import UserFactory
-from tests.factories import ContentTypeFactory
+from tests.factories import ContentTypeFactory, UserFactory
+
 
 class CommentFactory(factory.django.DjangoModelFactory):
     class Meta:

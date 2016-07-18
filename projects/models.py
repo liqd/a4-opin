@@ -1,18 +1,14 @@
 from django.db import models
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.models import Orderable
-from contrib.translations.translations import TranslatedField
-from wagtail.wagtailsnippets.models import register_snippet
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailadmin.edit_handlers import InlinePanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
-from wagtail.wagtailadmin.edit_handlers import TabbedInterface
-from wagtail.wagtailadmin.edit_handlers import ObjectList
-from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from django_countries.fields import CountryField
-from wagtail.wagtailcore.fields import RichTextField
 from modelcluster.fields import ParentalKey
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, InlinePanel,
+                                                MultiFieldPanel, ObjectList,
+                                                TabbedInterface)
+from wagtail.wagtailcore.fields import RichTextField
+from wagtail.wagtailcore.models import Orderable, Page
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+
+from contrib.translations.translations import TranslatedField
 
 
 class OrganisationPage(Page):
@@ -355,7 +351,9 @@ class ProjectsPage(Page):
 class AdhocracyProjectPage(ProjectPage):
     widget = models.CharField(max_length=255)
     initial_url = models.CharField(max_length=255)
-    locale = models.CharField(max_length=2, blank=True, help_text="Leave blank to use the language that is set in the CMS")
+    locale = models.CharField(max_length=2, blank=True,
+                              help_text=("Leave blank to use the language "
+                                         "that is set in the CMS"))
 
     adhocracy_panel = [
         FieldPanel('widget'),

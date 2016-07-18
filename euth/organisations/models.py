@@ -1,10 +1,11 @@
-from model_utils import models as model_utils
-from parler.models import TranslatableModel, TranslatedFields, TranslatableManager
-
 from django.conf import settings
 from django.db import models
+from model_utils import models as model_utils
+from parler.models import (TranslatableManager, TranslatableModel,
+                           TranslatedFields)
 
 from euth.contrib import validators
+
 
 class OrganisationManager(TranslatableManager):
     def get_by_natural_key(self, name):
@@ -16,10 +17,10 @@ class Organisation(model_utils.TimeStampedModel, TranslatableModel):
     slug = models.SlugField(max_length=512, unique=True)
 
     translations = TranslatedFields(
-        title = models.CharField(max_length=512),
-        description_why = models.TextField(),
-        description_how = models.TextField(),
-        description = models.TextField(),
+        title=models.CharField(max_length=512),
+        description_why=models.TextField(),
+        description_how=models.TextField(),
+        description=models.TextField(),
     )
 
     initiators = models.ManyToManyField(settings.AUTH_USER_MODEL)

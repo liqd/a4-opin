@@ -27,6 +27,7 @@
     "heroku-postbuild": "npm run webpack:build",
     "build": "npm run webpack:build",
     "watch": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "prepush": "cd euth; standard"
+    "lint": "cd euth; standard",
+    "prepush": "make lint"
   }
 }

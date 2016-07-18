@@ -1,4 +1,4 @@
-from autofixture import register, AutoFixture, generators
+from autofixture import AutoFixture, generators, register
 from faker import Factory
 
 from .models import Idea
@@ -8,7 +8,7 @@ fake = Factory.create()
 
 class IdeaAutoFixture(AutoFixture):
 
-    IMAGESIZES = ((1300,600),)
+    IMAGESIZES = ((1300, 600),)
 
     field_values = {
         'name': generators.CallableGenerator(fake.company),

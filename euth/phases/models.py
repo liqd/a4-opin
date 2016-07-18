@@ -1,6 +1,4 @@
-from django.conf import settings
 from django.db import models
-from model_utils import models as model_utils
 
 from euth.modules import models as modules_models
 

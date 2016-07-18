@@ -1,15 +1,9 @@
-from rest_framework import filters
-from rest_framework import generics
-from rest_framework import status
-from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework import filters, permissions, status, viewsets
 from rest_framework.response import Response
 
-from django.utils import timezone
-
 from .models import Comment
-from .serializers import CommentSerializer
 from .permissions import IsUserOrReadOnly
+from .serializers import CommentSerializer
 
 
 class CommentViewSet(viewsets.ModelViewSet):
