@@ -8,8 +8,8 @@ fake = Factory.create()
 
 class OrganisationAutoFixture(AutoFixture):
 
-    IMAGESIZES = ((1300,600),)
-    LOGOSIZES = ((400,400),)
+    IMAGESIZES = ((1300, 600),)
+    LOGOSIZES = ((400, 400),)
 
     field_values = {
         'name': generators.CallableGenerator(fake.company),

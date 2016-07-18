@@ -17,10 +17,10 @@ class Organisation(model_utils.TimeStampedModel, TranslatableModel):
     slug = models.SlugField(max_length=512, unique=True)
 
     translations = TranslatedFields(
-        title = models.CharField(max_length=512),
-        description_why = models.TextField(),
-        description_how = models.TextField(),
-        description = models.TextField(),
+        title=models.CharField(max_length=512),
+        description_why=models.TextField(),
+        description_how=models.TextField(),
+        description=models.TextField(),
     )
 
     initiators = models.ManyToManyField(settings.AUTH_USER_MODEL)

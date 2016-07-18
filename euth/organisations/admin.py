@@ -1,5 +1,5 @@
 from django.contrib import admin
-from parler.admin import TranslatableAdmin, TranslatableModelForm
+from parler.admin import TranslatableAdmin
 
 from euth.organisations import models
 
