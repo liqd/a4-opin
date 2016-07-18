@@ -58,3 +58,8 @@ lint:
 	$(VIRTUAL_ENV)/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
 	npm run lint ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
+
+locales:
+	$(VIRTUAL_ENV)/python manage.py makemessages -d djangojs
+	$(VIRTUAL_ENV)/python manage.py makemessages -d django
+	$(VIRTUAL_ENV)/python manage.py compilemessages
