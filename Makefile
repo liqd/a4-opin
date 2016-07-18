@@ -7,7 +7,7 @@ install:
 	npm install
 	npm run build
 	if [ ! -f $(VIRTUAL_ENV)/python3 ]; then python3 -m venv .; fi
-	$(VIRTUAL_ENV)/python3 -m pip install -r requirements.txt
+	$(VIRTUAL_ENV)/python3 -m pip install -r requirements/dev.txt
 	$(VIRTUAL_ENV)/python3 manage.py migrate
 	$(VIRTUAL_ENV)/python3 manage.py loaddata site-dev
 
