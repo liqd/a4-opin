@@ -140,6 +140,15 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+BLEACH_LIST = {
+    'default' : {
+        'tags': ['p','strong','em','u','ol','li','ul','a'],
+        'attributes': {
+            'a': ['href', 'rel']
+        }
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

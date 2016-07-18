@@ -1,3 +1,5 @@
+import bleach
+
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 
@@ -6,6 +8,7 @@ from euth.modules import models as module_models
 from django.utils.functional import cached_property
 
 from euth.contrib import validators
+from contrib.transforms import html_transforms
 
 
 class Idea(module_models.Item):
@@ -21,6 +24,10 @@ class Idea(module_models.Item):
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('idea-detail', args=[str(self.slug)])
+
+    def clean(self):
+        self.description = html_transforms.clean_html_field(
+            self.description)
 
     @cached_property
     def project(self):
