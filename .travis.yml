@@ -5,7 +5,7 @@ cache: pip
 install:
   - npm install
   - npm run build
-  - pip install -r requirements.txt
+  - pip install -r requirements/dev.py
   - pip install coveralls
 script:
   - py.test --cov
