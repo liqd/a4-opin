@@ -6,7 +6,6 @@ from django.utils.translation import ugettext as _
 
 from .models import Registration, Reset
 
-
 User = get_user_model()
 
 

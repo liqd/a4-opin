@@ -1,7 +1,7 @@
 all: help
 
 VIRTUAL_ENV ?= .
-SOURCE_DIRS = euth euth_wagtail home search projects
+SOURCE_DIRS = euth euth_wagtail home search projects tests
 
 help:
 	@echo OPIN development tools

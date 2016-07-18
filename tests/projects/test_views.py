@@ -1,6 +1,6 @@
 import pytest
-
 from django.core.urlresolvers import reverse
+
 
 @pytest.mark.django_db
 def test_list_view(client, project):
