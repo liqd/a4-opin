@@ -7,8 +7,6 @@ from wagtail.wagtailadmin.edit_handlers import (FieldPanel, InlinePanel,
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable, Page
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
-from wagtail.wagtailsnippets.models import register_snippet
 
 from contrib.translations.translations import TranslatedField
 
@@ -353,7 +351,9 @@ class ProjectsPage(Page):
 class AdhocracyProjectPage(ProjectPage):
     widget = models.CharField(max_length=255)
     initial_url = models.CharField(max_length=255)
-    locale = models.CharField(max_length=2, blank=True, help_text="Leave blank to use the language that is set in the CMS")
+    locale = models.CharField(max_length=2, blank=True,
+                              help_text=("Leave blank to use the language "
+                                         "that is set in the CMS"))
 
     adhocracy_panel = [
         FieldPanel('widget'),

@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import include, patterns, url
+from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -32,9 +32,11 @@ urlpatterns += i18n_patterns(
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^ideas/', include(ideas_urls)),
-    url(r'^adhocracy/', TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
+    url(r'^adhocracy/',
+        TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),
-    url(r'^jsi18n/$', javascript_catalog, js_info_dict, name='javascript-catalog'),
+    url(r'^jsi18n/$', javascript_catalog,
+        js_info_dict, name='javascript-catalog'),
     url(r'', include(wagtail_urls)),
 )
 
@@ -46,4 +48,5 @@ if settings.DEBUG:
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

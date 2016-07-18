@@ -1,14 +1,9 @@
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
-                                        ListBlock, PageChooserBlock,
-                                        RichTextBlock, StructBlock, TextBlock,
-                                        URLBlock)
-from wagtail.wagtaildocs.blocks import DocumentChooserBlock
+from wagtail.wagtailcore.blocks import (CharBlock, ChoiceBlock, ListBlock,
+                                        PageChooserBlock, RichTextBlock,
+                                        TextBlock, URLBlock)
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
-
-
-#import feedparser
 
 
 class InlineImageBlock(blocks.StructBlock):

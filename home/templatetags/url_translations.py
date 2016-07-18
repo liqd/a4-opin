@@ -24,7 +24,7 @@ def translate_url(context, lang=None, *args, **kwargs):
             kwargs=view.kwargs,
         )
     except Http404:
-        url = '/'  + lang + '/'
+        url = '/' + lang + '/'
     finally:
         translation.activate(cur_language)
     return url
