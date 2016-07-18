@@ -5,10 +5,11 @@ cache: pip
 install:
   - npm install
   - npm run build
-  - pip install -r requirements/dev.py
+  - pip install -r requirements/dev.txt
   - pip install coveralls
 script:
   - py.test --cov
+  - make lint
 after_success:
   - coveralls
 deploy:
