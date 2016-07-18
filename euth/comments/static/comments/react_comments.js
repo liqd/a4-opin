@@ -77,13 +77,13 @@ var CommentBox = React.createClass({
     }
 
     $.ajax({
-      url: 'http://localhost:8000/api/comments/' + comment.id + '/',
+      url: this.props.url + comment.id + '/',
       dataType: 'json',
       type: 'PATCH',
       data: { comment: commentText, id: comment.id },
       success: this.updateStateComment.bind(this, index, parentIndex),
       error: function (xhr, status, err) {
-        console.error(this.context.submit_url + comment.id + '/', status, err.toString())
+        console.error(this.props.url + comment.id + '/', status, err.toString())
       }.bind(this)
     })
   },
@@ -95,12 +95,12 @@ var CommentBox = React.createClass({
     }
 
     $.ajax({
-      url: 'http://localhost:8000/api/comments/' + comment.id + '/',
+      url: this.props.url + comment.id + '/',
       dataType: 'json',
       type: 'DELETE',
       success: this.updateStateComment.bind(this, index, parentIndex),
       error: function (xhr, status, err) {
-        console.error(this.context.submit_url + comment.id + '/', status, err.toString())
+        console.error(this.props.url + comment.id + '/', status, err.toString())
       }.bind(this)
     })
   },
@@ -126,7 +126,6 @@ var CommentBox = React.createClass({
       isAuthenticated: this.props.isAuthenticated,
       login_url: this.props.login_url,
       comments_contenttype: this.props.comments_contenttype,
-      submit_url: this.props.url,
       translations: this.props.translations,
       user_name: this.props.user_name,
       language: this.props.language
@@ -158,7 +157,6 @@ CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.number,
   login_url: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
-  submit_url: React.PropTypes.string,
   translations: React.PropTypes.object,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
@@ -426,7 +424,6 @@ var Modal = React.createClass({
 
 Comment.contextTypes = {
   comments_contenttype: React.PropTypes.number,
-  submit_url: React.PropTypes.string,
   isAuthenticated: React.PropTypes.number,
   user_name: React.PropTypes.string
 }
