@@ -21,10 +21,13 @@ $(document).ready(function() {
         return false;
     });
 
+    var projectCount = $("#project-tile-grid .project-tile").length;
+    var loop = (projectCount<4) ? false : true;
+
     $('.owl-carousel').owlCarousel({
-        center: true,
+        center: loop,
         items:3,
-        loop:true,
+        loop: loop,
         dots: false,
         nav:true,
         margin:10,
