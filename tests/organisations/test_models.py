@@ -1,6 +1,4 @@
 import pytest
-import factory
-
 from django.core.urlresolvers import reverse
 
 from euth.organisations import models
@@ -33,7 +31,7 @@ def test_image_big_enough(organisation_factory, bigImage):
 
 
 @pytest.mark.django_db
-def test_image_validation_image_type_not_allowed(organisation_factory, ImageBMP):
+def test_image_validation_type_not_allowed(organisation_factory, ImageBMP):
     organisation = organisation_factory(image=ImageBMP, logo=ImageBMP)
     with pytest.raises(Exception) as e:
         organisation.full_clean()

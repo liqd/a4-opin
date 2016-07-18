@@ -2,13 +2,12 @@ import bleach
 
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
-
 from django.db import models
-from euth.modules import models as module_models
 from django.utils.functional import cached_property
 
 from euth.contrib import validators
 from contrib.transforms import html_transforms
+from euth.modules import models as module_models
 
 
 class Idea(module_models.Item):

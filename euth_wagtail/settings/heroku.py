@@ -1,5 +1,6 @@
 import os
-from urllib.parse import urlparse, unquote
+from urllib.parse import unquote, urlparse
+
 from .base import *
 
 mail_url = urlparse(os.environ['MAIL_URL'])
@@ -22,6 +23,19 @@ if db_url.scheme == 'postgres':
             'HOST': db_url.hostname,
             'PORT': db_url.port or 5432,
         }
+    }
+
+storage_url = urlparse(os.environ['STORAGE_URL'])
+
+if storage_url.sheme == 'sftp':
+    DEFAULT_FILE_STORAGE = 'storages.backends.sftpstorage'
+    MEDIA_URL = 'https://opin-dev.liqd.net/media'
+    SFTP_STORAGE_HOST = storage_url.host
+    SFTP_STORAGE_ROOT = storage_url.path
+    SFTP_STORAGE_PARAMS = {
+        'port': storage_url.port,
+        'user': storage_url.username,
+        'password': storage_url.password,
     }
 
 ALLOWED_HOSTS = [
@@ -61,6 +75,10 @@ LOGGING = {
 
 MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + [
     'whitenoise.middleware.WhiteNoiseMiddleware'
+]
+
+INSTALLED_APPS = INSTALLED_APPS + [
+    'storages',
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

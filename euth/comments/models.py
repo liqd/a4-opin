@@ -1,10 +1,8 @@
-from model_utils.models import TimeStampedModel
-
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.utils import timezone
+from model_utils.models import TimeStampedModel
 
 
 class Comment(TimeStampedModel):

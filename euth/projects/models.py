@@ -1,12 +1,10 @@
-import enum
 from django.conf import settings
 from django.db import models
 from django.utils import functional
 from model_utils import models as model_utils
 
-from ..organisations import models as org_models
-
 from euth.contrib import validators
+from euth.organisations import models as org_models
 
 
 class ProjectManager(models.Manager):

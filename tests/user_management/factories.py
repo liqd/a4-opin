@@ -2,6 +2,7 @@ import factory
 
 from ..factories import UserFactory
 
+
 class RegistrationFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = 'user_management.Registration'
@@ -11,6 +12,7 @@ class RegistrationFactory(factory.django.DjangoModelFactory):
     password = 'password'
     token = factory.Faker('uuid4')
     next_action = factory.Faker('uri_path')
+
 
 class ResetFactory(factory.django.DjangoModelFactory):
     class Meta:

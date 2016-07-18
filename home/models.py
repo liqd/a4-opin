@@ -1,36 +1,26 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from modelcluster.fields import ParentalKey
+from modelcluster.models import ClusterableModel
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, InlinePanel,
+                                                MultiFieldPanel, ObjectList,
+                                                PageChooserPanel,
+                                                StreamFieldPanel,
+                                                TabbedInterface)
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailcore.models import Orderable, Page
+from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailsnippets.models import register_snippet
 
 from contrib.translations.translations import TranslatedField
 
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailimages.blocks import ImageChooserBlock
+from .blocks import (AccordionBlock, ContactBlock, ImageTextBlockList,
+                     InfoBlock, InlineImagesBlock, NewsBlock, VideoBlock,
+                     WideImageBlock)
 
-from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailadmin.edit_handlers import InlinePanel
-from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailadmin.edit_handlers import TabbedInterface
-from wagtail.wagtailadmin.edit_handlers import ObjectList
-from wagtail.wagtailadmin.edit_handlers import PageChooserPanel
-from wagtail.wagtailsnippets.models import register_snippet
-
-from modelcluster.models import ClusterableModel
-from modelcluster.fields import ParentalKey
-
-from .blocks import InfoBlock
-from .blocks import InlineImagesBlock
-from .blocks import VideoBlock
-from .blocks import NewsBlock
-from .blocks import WideImageBlock
-from .blocks import ContactBlock
-from .blocks import AccordionBlock
-from .blocks import ImageTextBlockList
 
 # Pages
 
@@ -224,7 +214,9 @@ class HomePage(Page):
 
     parent_page_types = []
     subpage_types = [
-        'home.SimplePage', 'projects.ProjectsPage', 'projects.OrganisationsPage']
+        'home.SimplePage',
+        'projects.ProjectsPage',
+        'projects.OrganisationsPage']
 
 
 class SimplePage(Page):

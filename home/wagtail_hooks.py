@@ -1,6 +1,5 @@
-from django.utils.html import format_html
 from django.conf import settings
-
+from django.utils.html import format_html
 from wagtail.wagtailcore import hooks
 
 

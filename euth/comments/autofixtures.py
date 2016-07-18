@@ -1,12 +1,15 @@
+from autofixture import AutoFixture, generators, register
 from django.contrib.contenttypes.models import ContentType
 
-from .models import Comment
 from home.models import HomePage
-from autofixture import generators, register, AutoFixture
+
+from .models import Comment
+
 
 class CommentAutoFixture(AutoFixture):
 
-    homepage_contenttype = ContentType.objects.get(app_label='home', model='homepage')
+    homepage_contenttype = ContentType.objects.get(app_label='home',
+                                                   model='homepage')
     homepage_id = HomePage.objects.first().pk
 
     field_values = {
