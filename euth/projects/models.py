@@ -48,5 +48,10 @@ class Project(model_utils.TimeStampedModel):
         return reverse('project-detail', args=[str(self.slug)])
 
     @functional.cached_property
+    def other_projects(self):
+        other_projects = self.organisation.project_set.all().exclude(slug=self.slug)
+        return other_projects
+
+    @functional.cached_property
     def is_private(self):
         return not self.is_public
