@@ -1,14 +1,11 @@
-from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
+from django.views.generic import detail, list
 
 from . import models
 
 
-class ProjectListView(ListView):
+class ProjectListView(list.ListView):
     model = models.Project
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(detail.DetailView):
     model = models.Project

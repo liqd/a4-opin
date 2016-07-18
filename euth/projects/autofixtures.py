@@ -5,7 +5,7 @@ from .models import Project
 
 fake = Factory.create()
 
-IMAGESIZES = ((1300,600),)
+IMAGESIZES = ((1300, 600),)
 
 
 class ProjectAutoFixture(AutoFixture):
