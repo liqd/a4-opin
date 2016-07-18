@@ -37,7 +37,7 @@
         <h3>{% trans "info" %}</h3>
         {{ project.description }}
 
-        {% include "euth_projects/includes/project_carousel.html" with projects=project.organisation.project_set.all %}
+        {% include "euth_projects/includes/project_carousel.html" with projects=project.other_projects %}
 
       </article>
       <article id="panel-participation" class="tab-panel">
