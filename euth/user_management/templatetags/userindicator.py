@@ -1,4 +1,5 @@
 from django import template
+
 from .. import sanatize_next
 
 register = template.Library()

@@ -1,17 +1,18 @@
 import uuid
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login, logout
+
+from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render_to_response
+from django.contrib.auth import authenticate, login, logout
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
-from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-from django.conf import settings
 
 from . import sanatize_next
-from .forms import LoginForm, RegisterForm, ActivateForm, RequestResetForm, ResetForm
 from .emails import send_registration, send_reset
+from .forms import (ActivateForm, LoginForm, RegisterForm, RequestResetForm,
+                    ResetForm)
 
 
 def login_user(request):

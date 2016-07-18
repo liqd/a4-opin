@@ -1,17 +1,12 @@
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import StructBlock
-from wagtail.wagtailcore.blocks import TextBlock
-from wagtail.wagtailcore.blocks import URLBlock
-from wagtail.wagtailcore.blocks import CharBlock
-from wagtail.wagtailcore.blocks import ChoiceBlock
-from wagtail.wagtailcore.blocks import BooleanBlock
-from wagtail.wagtailcore.blocks import PageChooserBlock
-from wagtail.wagtailcore.blocks import RichTextBlock
-from wagtail.wagtailcore.blocks import URLBlock
-from wagtail.wagtailcore.blocks import ListBlock
-from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailcore.blocks import (BooleanBlock, CharBlock, ChoiceBlock,
+                                        ListBlock, PageChooserBlock,
+                                        RichTextBlock, StructBlock, TextBlock,
+                                        URLBlock)
 from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.wagtailimages.blocks import ImageChooserBlock
+
 
 #import feedparser
 

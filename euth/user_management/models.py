@@ -1,11 +1,12 @@
 import uuid
+
 from django.conf import settings
+from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
-from django.contrib.auth import models as auth_models
 from django.utils.translation import ugettext_lazy as _
-
 from model_utils import fields
+
 
 class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     username = models.CharField(_('username'), max_length=60, unique=True,

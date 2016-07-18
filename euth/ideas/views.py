@@ -3,8 +3,8 @@ from django.core import exceptions
 from django.shortcuts import render
 from django.views import generic
 
-
 from euth.modules.models import Module
+
 from . import models
 
 

@@ -1,10 +1,11 @@
-from model_utils import models as model_utils
-from parler.models import TranslatableModel, TranslatedFields, TranslatableManager
-
 from django.conf import settings
 from django.db import models
+from model_utils import models as model_utils
+from parler.models import (TranslatableManager, TranslatableModel,
+                           TranslatedFields)
 
 from euth.contrib import validators
+
 
 class OrganisationManager(TranslatableManager):
     def get_by_natural_key(self, name):

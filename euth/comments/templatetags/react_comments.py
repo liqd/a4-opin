@@ -1,10 +1,9 @@
 import json
 
-from django import template
-from django.core.serializers.json import DjangoJSONEncoder
-from django.contrib.contenttypes.models import ContentType
+from django import template, utils
 from django.conf import settings
-from django import utils
+from django.contrib.contenttypes.models import ContentType
+from django.core.serializers.json import DjangoJSONEncoder
 
 register = template.Library()
 

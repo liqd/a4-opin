@@ -1,14 +1,16 @@
 import os
-import pkg_resources
 from email.encoders import encode_base64
 from email.mime.image import MIMEImage
+
+import pkg_resources
 from django.conf import settings
-from django.template.loader import select_template
-from django.template import Context
 from django.contrib.sites import shortcuts
 from django.core.mail.message import EmailMultiAlternatives
 from django.core.urlresolvers import reverse
+from django.template import Context
+from django.template.loader import select_template
 from django.utils.translation import get_language
+
 
 def _send_email_with_template(receiver, template, context):
     languages = [ get_language(), 'en' ]

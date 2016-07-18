@@ -1,9 +1,9 @@
 from django import forms
+from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
-from django.contrib.auth import authenticate, get_user_model
 from django.utils.translation import ugettext as _
-from django.contrib.auth.hashers import make_password
 
 from .models import Registration, Reset
 

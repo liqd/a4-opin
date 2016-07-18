@@ -1,4 +1,4 @@
-from autofixture import register, AutoFixture, generators
+from autofixture import AutoFixture, generators, register
 from faker import Factory
 
 from .models import Project

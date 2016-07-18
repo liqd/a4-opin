@@ -1,6 +1,8 @@
 from django import template
 from django.conf import settings
+
 from home.models import NavigationMenu
+
 register = template.Library()
 
 
