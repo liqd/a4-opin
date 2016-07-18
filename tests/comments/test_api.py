@@ -1,9 +1,7 @@
 import pytest
-
-from rest_framework import status
-
-from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
+from django.core.urlresolvers import reverse
+from rest_framework import status
 
 
 @pytest.mark.django_db
@@ -47,7 +45,7 @@ def test_authenticated_user_can_edit_own_comment(comment, apiclient):
 
 
 @pytest.mark.django_db
-def test_authenticated_user_can_not_edit_comment_of_other_user(user2, comment, apiclient):
+def test_user_can_not_edit_comment_of_other_user(user2, comment, apiclient):
     apiclient.force_authenticate(user=user2)
     data = {'comment': 'comment comment comment'}
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
@@ -66,8 +64,8 @@ def test_anonymous_user_can_not_edit_comment(comment, apiclient):
 
 @pytest.mark.django_db
 def test_authenticated_user_can_reply_to_comment(user2, comment, apiclient):
-    comment_contenttype = ContentType.objects.get(
-    app_label="comments", model="comment").pk
+    comment_contenttype = ContentType.objects.get(app_label="comments",
+                                                  model="comment").pk
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(url)
     assert len(response.data['child_comments']) == 0
@@ -107,7 +105,7 @@ def test_creater_of_comment_can_set_removed_flag(comment, user, apiclient):
     apiclient.force_authenticate(user=user)
     response = apiclient.delete(url)
     assert response.status_code == status.HTTP_200_OK
-    assert response.data['is_deleted'] == True
+    assert response.data['is_deleted'] is True
     assert response.data['comment'] == 'deleted by creator'
 
 
@@ -117,5 +115,5 @@ def test_admin_of_comment_can_set_censored_flag(comment, admin, apiclient):
     apiclient.force_authenticate(user=admin)
     response = apiclient.delete(url)
     assert response.status_code == status.HTTP_200_OK
-    assert response.data['is_deleted'] == True
+    assert response.data['is_deleted'] is True
     assert response.data['comment'] == 'deleted by moderator'

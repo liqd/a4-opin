@@ -1,5 +1,6 @@
 import os
-from urllib.parse import urlparse, unquote
+from urllib.parse import unquote, urlparse
+
 from .base import *
 
 mail_url = urlparse(os.environ['MAIL_URL'])

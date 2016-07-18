@@ -13,7 +13,9 @@ venv
 /euth_wagtail/static/bundles
 /node_modules
 /lib/python*
+/lib64
 /include/python*
 /bin
+/pyvenv.cfg
 /webpack-stats.json
 /euth_wagtail/settings/local.py
