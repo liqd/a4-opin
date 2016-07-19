@@ -29,7 +29,7 @@ $(document).ready(function() {
         items: 3,
         loop: loop,
         dots: false,
-        nav: false,
+        nav: true,
         margin:10,
         navText: ['<i class="fa fa-chevron-right"></i>','<i class="fa fa-chevron-left"></i>'],
         responsive:{

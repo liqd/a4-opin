@@ -10,11 +10,11 @@
     }
 
     .owl-next {
-        @include rem(left, -40px);
+        @include rem(left, -50px);
     }
 
     .owl-prev {
-        @include rem(right, -40px);
+        @include rem(right, -50px);
     }
 
     .project-tile {
