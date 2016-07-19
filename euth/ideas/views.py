@@ -1,6 +1,6 @@
+from django.contrib import messages
 from django.core import exceptions
 from django.core.urlresolvers import reverse
-from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.views import generic
 
@@ -58,7 +58,7 @@ class IdeaDeleteView(generic.DeleteView):
 
     def get_object(self):
         qs = super().get_object()
-        if self.request.user == qs.creator or self.request.user.is_superuser :
+        if self.request.user == qs.creator or self.request.user.is_superuser:
             return qs
         else:
             raise exceptions.PermissionDenied
@@ -68,4 +68,5 @@ class IdeaDeleteView(generic.DeleteView):
         return super(IdeaDeleteView, self).delete(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('project-detail', kwargs={'slug': self.object.project.slug })
+        return reverse('project-detail',
+                       kwargs={'slug': self.object.project.slug})
