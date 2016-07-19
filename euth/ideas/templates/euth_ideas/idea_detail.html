@@ -10,7 +10,7 @@
                     <a href="{% url 'project-detail' idea.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
                 </li>
             </ul>
-            {% if request.user == idea.creator %}
+            {% if request.user == idea.creator or request.user.is_superuser %}
             <ul class="nav navbar-nav navbar-right">
                 <li id="fat-menu" class="dropdown">
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="">{% trans 'Delete' %}</a>
+                            <a href="" data-toggle="modal" data-target="#myModal">{% trans 'Delete' %}</a>
                         </li>
                     </ul>
                 </li>
@@ -46,8 +46,11 @@
     <div>
         <p>{{ idea.description |linebreaks }}</p>
     </div>
+
     <div>
         {% react_comments idea %}
     </div>
+
 </div>
+{% include "euth_ideas/includes/modal.html" with idea=idea %}
 {% endblock %}
