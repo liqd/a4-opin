@@ -12,3 +12,7 @@
 .container-medium {
     @extend .col-md-10;
 }
+
+body {
+    overflow-x: hidden;
+}

@@ -33,8 +33,11 @@ $(document).ready(function() {
         margin:10,
         navText: ['<i class="fa fa-chevron-right"></i>','<i class="fa fa-chevron-left"></i>'],
         responsive:{
-            600:{
-                items:3
+            0: {
+                items: 1
+            },
+            768:{
+                items: 3
             }
         }
     });
