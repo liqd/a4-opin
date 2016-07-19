@@ -22,6 +22,7 @@
     }
 
     .owl-stage-outer {
-        overflow: visible;
+        @include rem(margin, -20px);
+        @include rem(padding, 20px);
     }
 }
