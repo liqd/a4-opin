@@ -9,7 +9,6 @@ install:
   - pip install coveralls
 script:
   - py.test --cov
-  - make lint
 after_success:
   - coveralls
 deploy:
