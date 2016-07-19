@@ -2,8 +2,14 @@
 {% load widget_tweaks i18n %}
 {% block content %}
 <div class="container-narrow">
-    <div class="back-link">
-        <a href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'Back to project' %}</a>
+    <div class="action-bar">
+        <nav class="navbar navbar-default navbar-static">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                </li>
+            </ul>
+        </nav>
     </div>
     {% include "euth_projects/includes/project_list_tile.html" with project=project %}
 
