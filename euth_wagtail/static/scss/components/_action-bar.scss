@@ -1,8 +1,69 @@
-.back-link {
-    @include rem(padding, 35px 0px 35px 0px);
+.action-bar {
 
-    a {
-        color: $black;
-        text-decoration: none;
+    nav {
+        background-color: transparent;
+        border-color: transparent;
+        margin: 0px;
+
+        li {
+            a {
+                @include rem(padding, 35px 15px 35px 0px);
+            }
+        }
+    }
+
+    .dropdown {
+        li {
+            a {
+                @include rem(padding, 10px);
+                text-align: center;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        border-radius: 0px;
+        margin-top: -40px !important;
+
+        .divider {
+            margin: 0px;
+        }
+
+        li {
+            a {
+                text-transform: uppercase;
+                @include rem(font-size, 12px);
+                @include rem(letter-spacing, -0.2px);
+                font-family: $font-family-sans-serif;
+            }
+        }
+    }
+
+    .navbar-default,
+    .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        background-color: transparent;
+    }
+
+    .open {
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+
+        a, a:focus, a:hover {
+            background-color: transparent;
+        }
+
+    }
+
+    .dropdown-toggle {
+        background-color: transparent;
+
+        &:focus, &:hover, &:active, &:visited {
+            outline: none;
+            background-color: transparent;
+            box-shadow: none;
+        }
     }
 }

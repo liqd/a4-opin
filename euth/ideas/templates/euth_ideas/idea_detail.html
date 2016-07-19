@@ -1,45 +1,53 @@
 {% extends "base.html" %}
-{% load i18n react_comments %}
+{% load i18n react_comments thumbnail%}
 
 {% block content %}
 <div class="container-narrow">
-    <div class="row">
-        <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="{% url 'project-detail' idea.project.slug %}">{% trans 'back to project'%}</a></li>
-
+    <div class="action-bar">
+        <nav class="navbar navbar-default navbar-static">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'project-detail' idea.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                </li>
+            </ul>
             {% if request.user == idea.creator %}
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{% url 'idea-update' idea.slug %}">{% trans 'Edit' %}</a>
-                    </li>
-                    <li>
-                        <a href="">{% trans 'Delete' %}</a>
-                    </li>
-                </ul>
-            </li>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="fat-menu" class="dropdown">
+                    <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="drop">
+                        <li>
+                            <a href="{% url 'idea-update' idea.slug %}">{% trans 'Edit' %}</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="">{% trans 'Delete' %}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             {% endif %}
+        </nav>
+    </div>
 
-        </ul>
-    </div>
     {% if idea.image %}
-    <div class="row">
-        <img src="{{ idea.image.url }}" style="width: 100%;">
-    </div>
+    <img class="idea-image" src="{{ idea.image.url }}" style="width: 100%;">
     {% endif %}
-    <div class="row">
+
+    <div class="idea-title">
         <h1>{{ idea.name }}</h1>
     </div>
-    <div class="row">
-        <p>{{ idea.creator.username }}</p>
+
+    <div class="avatar-small">
+        <img src=""></img>
+        <div class="name">{{ idea.creator.username }}</div>
     </div>
-    <div class="row">
+
+    <div>
         <p>{{ idea.description |safe }}</p>
     </div>
-    <div class="row">
+
+    <div>
         {% react_comments idea %}
     </div>
 </div>
