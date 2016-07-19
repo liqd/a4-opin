@@ -23,6 +23,7 @@ class Idea(module_models.Item):
         return reverse('idea-detail', args=[str(self.slug)])
 
     def clean(self):
+        super().clean()
         self.description = html_transforms.clean_html_field(
             self.description)
 
