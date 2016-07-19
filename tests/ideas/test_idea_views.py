@@ -39,6 +39,9 @@ def test_update_view(client, idea, user):
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
     assert response.status_code == 200
-    data = {'description': 'description'}
+    data = {'description': 'description', 'name': idea.name }
     response = client.post(url, data)
-    assert response.status_code == 200
+    id = idea.pk
+    updated_idea = Idea.objects.get(id=id)
+    assert updated_idea.description == 'description'
+    assert response.status_code == 302
