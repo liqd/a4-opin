@@ -26,10 +26,10 @@ $(document).ready(function() {
 
     $('.owl-carousel').owlCarousel({
         center: loop,
-        items:3,
+        items: 3,
         loop: loop,
         dots: false,
-        nav:true,
+        nav: false,
         margin:10,
         navText: ['<i class="fa fa-chevron-right"></i>','<i class="fa fa-chevron-left"></i>'],
         responsive:{
