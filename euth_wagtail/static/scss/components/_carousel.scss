@@ -17,6 +17,12 @@
         @include rem(right, -50px);
     }
 
+    @media (max-width: $screen-sm-min) {
+        .owl-prev,.owl-next {
+            display: none;
+        }
+    }
+
     .project-tile {
         margin: 0;
     }
