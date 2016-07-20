@@ -104,13 +104,6 @@ var CommentBox = React.createClass({
       }.bind(this)
     })
   },
-  getCommentString: function (count) {
-    if (count === 1) {
-      return this.props.translations.translations.comments_i18n_sgl
-    } else {
-      return this.props.translations.translations.comments_i18n_pl
-    }
-  },
   getInitialState: function () {
     return {
       comments: []
@@ -126,7 +119,6 @@ var CommentBox = React.createClass({
       isAuthenticated: this.props.isAuthenticated,
       login_url: this.props.login_url,
       comments_contenttype: this.props.comments_contenttype,
-      translations: this.props.translations,
       user_name: this.props.user_name,
       language: this.props.language
     }
@@ -157,7 +149,6 @@ CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.number,
   login_url: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
-  translations: React.PropTypes.object,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
 }
