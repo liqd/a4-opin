@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load widget_tweaks i18n %}
+{% load widget_tweaks i18n base_tags %}
 {% block content %}
 <div class="container-narrow">
     <div class="action-bar">
@@ -31,13 +31,14 @@
     <div class="general-form">
         <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
                 {% csrf_token %}
+                {{ form.media }}
                 {% for field in form %}
                 <div class="form-group {% if field.errors %}has-error {% endif %}">
-                        <label for="exampleInputEmail1">{{ field.label }}</label>
-                        {% render_field field class="form-control" %}
-                        {% if field.errors %}
-                        <span class="help-block">{{ field.errors.0 }}</span>
-                        {% endif %}
+                    <label>{{ field.label }}</label>
+                    {% render_field field class="form-control" %}
+                    {% if field.errors %}
+                    <span class="help-block">{{ field.errors.0 }}</span>
+                    {% endif %}
                 </div>
                 {% endfor %}
                 <button type="submit" class="submit-button">{% trans 'post'%}</button>

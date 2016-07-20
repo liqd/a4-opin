@@ -44,7 +44,7 @@
     </div>
 
     <div>
-        <p>{{ idea.description |linebreaks }}</p>
+        <p>{{ idea.description |safe }}</p>
     </div>
 
     <div>
@@ -52,5 +52,7 @@
     </div>
 
 </div>
+
 {% include "euth_ideas/includes/modal.html" with idea=idea %}
+
 {% endblock %}
