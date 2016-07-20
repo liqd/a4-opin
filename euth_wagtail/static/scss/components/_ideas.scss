@@ -1,0 +1,12 @@
+.idea-image {
+    width: 100%;
+}
+
+.idea-title {
+    h1 {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        color: $brand-brand1;
+        @include rem(font-size, 24px);
+    }
+}
