@@ -1,4 +1,7 @@
+import os
 import pytest
+
+from django.conf import settings
 from django.core.urlresolvers import reverse
 
 from euth.organisations import models
@@ -42,3 +45,19 @@ def test_image_validation_type_not_allowed(organisation_factory, ImageBMP):
 def test_image_validation_image_type_allowed(organisation_factory, ImagePNG):
     organisation = organisation_factory(image=ImagePNG, logo=ImagePNG)
     assert organisation.full_clean() is None
+
+
+@pytest.mark.django_db
+def test_delete_organisation(organisation_factory, ImagePNG):
+    organisation = organisation_factory(image=ImagePNG, logo=ImagePNG)
+    image_path = os.path.join(settings.MEDIA_ROOT, organisation.image.path)
+    logo_path = os.path.join(settings.MEDIA_ROOT, organisation.logo.path)
+    assert os.path.isfile(image_path)
+    assert os.path.isfile(logo_path)
+    count = models.Organisation.objects.all().count()
+    assert count == 1
+    organisation.delete()
+    assert not os.path.isfile(image_path)
+    assert not os.path.isfile(logo_path)
+    count = models.Organisation.objects.all().count()
+    assert count == 0
