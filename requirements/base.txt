@@ -14,3 +14,4 @@ django-autoslug==1.9.3
 python-magic==0.4.12
 html5lib==0.9999999
 bleach==1.4.3
+django-autofixture==0.12.1
