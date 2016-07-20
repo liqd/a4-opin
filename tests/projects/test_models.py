@@ -1,8 +1,9 @@
 import os
-import pytest
 
+import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from easy_thumbnails.files import get_thumbnailer
 
 from euth.projects import models
 
@@ -46,13 +47,20 @@ def test_image_big_enough(project_factory, bigImage):
 
 
 @pytest.mark.django_db
-def test_delete_organisation(project_factory, ImagePNG):
+def test_delete_project(project_factory, ImagePNG):
     project = project_factory(image=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, project.image.path)
+    thumbnailer = get_thumbnailer(project.image)
+    thumbnail = thumbnailer.generate_thumbnail(
+        {'size': (800, 400), 'crop': 'smart'})
+    thumbnailer.save_thumbnail(thumbnail)
+    thumbnail_path = os.path.join(settings.MEDIA_ROOT, thumbnail.path)
+    assert os.path.isfile(thumbnail_path)
     assert os.path.isfile(image_path)
     count = models.Project.objects.all().count()
     assert count == 1
     project.delete()
+    assert not os.path.isfile(thumbnail_path)
     assert not os.path.isfile(image_path)
     count = models.Project.objects.all().count()
     assert count == 0

@@ -1,8 +1,9 @@
 import os
-import pytest
 
+import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from easy_thumbnails.files import get_thumbnailer
 
 from euth.organisations import models
 
@@ -52,11 +53,31 @@ def test_delete_organisation(organisation_factory, ImagePNG):
     organisation = organisation_factory(image=ImagePNG, logo=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, organisation.image.path)
     logo_path = os.path.join(settings.MEDIA_ROOT, organisation.logo.path)
+
+    thumbnailer_image = get_thumbnailer(organisation.image)
+    thumbnail_image = thumbnailer_image.generate_thumbnail(
+        {'size': (800, 400), 'crop': 'smart'})
+    thumbnailer_image.save_thumbnail(thumbnail_image)
+    thumbnail_image_path = os.path.join(
+        settings.MEDIA_ROOT, thumbnail_image.path)
+
+    thumbnailer_logo = get_thumbnailer(organisation.logo)
+    thumbnail_logo = thumbnailer_logo.generate_thumbnail(
+        {'size': (800, 400), 'crop': 'smart'})
+    thumbnailer_logo.save_thumbnail(thumbnail_logo)
+    thumbnail_logo_path = os.path.join(
+        settings.MEDIA_ROOT, thumbnail_logo.path)
+
+    assert os.path.isfile(thumbnail_image_path)
+    assert os.path.isfile(thumbnail_logo_path)
     assert os.path.isfile(image_path)
     assert os.path.isfile(logo_path)
     count = models.Organisation.objects.all().count()
     assert count == 1
+
     organisation.delete()
+    assert not os.path.isfile(thumbnail_image_path)
+    assert not os.path.isfile(thumbnail_logo_path)
     assert not os.path.isfile(image_path)
     assert not os.path.isfile(logo_path)
     count = models.Organisation.objects.all().count()
