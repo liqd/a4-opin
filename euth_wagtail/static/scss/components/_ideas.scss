@@ -1,5 +1,6 @@
 .idea-image {
     width: 100%;
+    @include rem(margin-bottom, 36px);
 }
 
 .idea-title {
@@ -7,6 +8,20 @@
         font-family: $font-family-sans-serif;
         font-weight: bold;
         color: $brand-brand1;
-        @include rem(font-size, 24px);
+        @include rem(font-size, 28px);
+        @include rem(line-height, 1)
+        text-align: justify;
+        @include rem(margin, 0px 0px 6px 0px);
+    }
+}
+
+.idea-description {
+    @include rem(margin, 43px 0px 85px 0px);
+
+    p {
+        font-family: $font-family-sans-serif;
+        @include rem(font-size, 16px);
+        @include rem(line-height, 1.6);
+        color: $text-grey;
     }
 }

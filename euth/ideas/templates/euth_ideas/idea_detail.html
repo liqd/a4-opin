@@ -12,7 +12,7 @@
             </ul>
             {% if request.user == idea.creator %}
             <ul class="nav navbar-nav navbar-right">
-                <li id="fat-menu" class="dropdown">
+                <li class="dropdown">
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="drop">
@@ -43,7 +43,7 @@
         <div class="name">{{ idea.creator.username }}</div>
     </div>
 
-    <div>
+    <div class="idea-description">
         <p>{{ idea.description |safe }}</p>
     </div>
 
