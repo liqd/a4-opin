@@ -44,8 +44,9 @@
     </div>
 
     <div>
-        <p>{{ idea.description |linebreaks }}</p>
+        <p>{{ idea.description |safe }}</p>
     </div>
+
     <div>
         {% react_comments idea %}
     </div>
