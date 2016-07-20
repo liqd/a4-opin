@@ -3,7 +3,7 @@ import os
 import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from easy_thumbnails.files import get_thumbnailer
+from tests import helpers
 
 from euth.projects import models
 
@@ -50,11 +50,7 @@ def test_image_big_enough(project_factory, bigImage):
 def test_delete_project(project_factory, ImagePNG):
     project = project_factory(image=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, project.image.path)
-    thumbnailer = get_thumbnailer(project.image)
-    thumbnail = thumbnailer.generate_thumbnail(
-        {'size': (800, 400), 'crop': 'smart'})
-    thumbnailer.save_thumbnail(thumbnail)
-    thumbnail_path = os.path.join(settings.MEDIA_ROOT, thumbnail.path)
+    thumbnail_path = helpers.createThumbnail(project.image)
     assert os.path.isfile(thumbnail_path)
     assert os.path.isfile(image_path)
     count = models.Project.objects.all().count()
