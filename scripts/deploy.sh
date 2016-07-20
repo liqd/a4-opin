@@ -2,7 +2,7 @@
 
 if [ -n ${TRAVIS_SSH_SECRET} ]; then
     SSH_ID_ARG="-i ~/id_rsa"
-    cat <<EOF | openssl enc -d -passin env:TRAVIS_SSH_SECRET > ~/id_rsa
+    cat <<EOF | openssl enc -d -pass env:TRAVIS_SSH_SECRET > ~/id_rsa
 LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVB
 b0o0V3QrWUs0MHprTmliMS94Qk96d0s1bWtJak5kM1pISkxvbEM4cFZGY2FSMHpa
 CnRUM0FzK1NVTnRCZmVKOW5sQ25ZNDVpUmJ5aFdyZ1l2U1p3UnZTTDUvelE5a0hn
