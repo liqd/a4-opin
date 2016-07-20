@@ -6,7 +6,7 @@ from .models import Organisation
 
 
 @receiver(post_delete, sender=Organisation)
-def delete_images_for_Organusation(sender, instance, **kwargs):
+def delete_images_for_organisation(sender, instance, **kwargs):
     thumbnailer = get_thumbnailer(instance.image)
     thumbnailer.delete_thumbnails()
     thumbnailer = get_thumbnailer(instance.logo)
