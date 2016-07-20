@@ -132,6 +132,7 @@ var CommentBox = React.createClass({
         subjectType: this.props.subjectType,
         subjectId: this.props.subjectId,
         onCommentSubmit: this.handleCommentSubmit,
+        placeholder: django.gettext('Your comment here'),
         rows: 5
       }),
       h(CommentList, {
@@ -363,6 +364,7 @@ var Comment = React.createClass({
           subjectId: this.props.id,
           onCommentSubmit: this.props.handleCommentSubmit,
           parentIndex: this.props.index,
+          placeholder: django.gettext('Your reply here'),
           rows: 3
         })
       ]) : null
@@ -446,7 +448,7 @@ var CommentForm = React.createClass({
         h('div.form-group', [
           h('textarea.form-control', {
             type: 'text',
-            placeholder: django.gettext('Your comment here'),
+            placeholder: this.props.placeholder,
             rows: this.props.rows,
             value: this.state.comment,
             onChange: this.handleTextChange,
