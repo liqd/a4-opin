@@ -10,7 +10,7 @@ from euth.modules import models as module_models
 
 class Idea(module_models.Item):
     slug = AutoSlugField(populate_from='name', unique=True)
-    name = models.CharField(max_length=512)
+    name = models.CharField(max_length=120)
     description = RichTextField()
     image = models.ImageField(upload_to='ideas/images', blank=True,
                               validators=[validators.validate_hero_image])
