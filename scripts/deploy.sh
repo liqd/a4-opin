@@ -1,8 +1,10 @@
 #!/bin/sh
 
+set -e -v
+
 if [ -n ${TRAVIS_SSH_SECRET} ]; then
-    SSH_ID_ARG="-i ~/id_rsa"
-    cat <<EOF | openssl enc -d -pass env:TRAVIS_SSH_SECRET > ~/id_rsa
+    SSH_ID_ARG="-i ${HOME}/id_rsa"
+    cat <<EOF | openssl enc -d -pass env:TRAVIS_SSH_SECRET -a -out ~/id_rsa
 LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVB
 b0o0V3QrWUs0MHprTmliMS94Qk96d0s1bWtJak5kM1pISkxvbEM4cFZGY2FSMHpa
 CnRUM0FzK1NVTnRCZmVKOW5sQ25ZNDVpUmJ5aFdyZ1l2U1p3UnZTTDUvelE5a0hn
@@ -37,8 +39,9 @@ STFrMnZud2hHV1h3dGtwYWpjcTV0Ckg2a0ZYUUtCZ0ZJSWNsQ1lJSHVTZ0tkbVZa
 dzcveXppUHVFSTZjaUdnTTV3TVBqNnZQUmlJMkh6bVBTelR0U28Kc3c2cjFDK3J3
 Y0NMYlFJSDQrMEd1Sy9JcDhoWDB1VUxxdlZLeG9DWG04MGJTampPWDVVSkltaElW
 cUROd0FSTQpDTTR2TXYyNU50cWhZOXdyVTVlK1RUWk5WbUNCZk5Lcy9GTlh2Y01C
+ZG5rY1JsSnJsSmpUCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
 EOF
+    chmod 600 ~/id_rsa
 fi
 
-GIT_URL=$(git config --get remote.origin.url)
-ssh benhabib.liqd.net -p 22037 ${SSH_ID_ARG} deploy ${GIT_URL} to dev
+ssh -p 22036 ${SSH_ID_ARG} build@benhabib.liqd.net deploy euth_wagtail master dev
