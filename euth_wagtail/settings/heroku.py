@@ -65,3 +65,4 @@ MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+SECURE_SSL_REDIRECT = True
