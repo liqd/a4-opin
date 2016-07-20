@@ -1,8 +1,8 @@
 from autoslug import AutoSlugField
-from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.functional import cached_property
 
+from ckeditor.fields import RichTextField
 from contrib.transforms import html_transforms
 from euth.contrib import validators
 from euth.modules import models as module_models
