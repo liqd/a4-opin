@@ -13,7 +13,6 @@ class PhaseForm(forms.ModelForm):
 
 
 class PhaseAdmin(admin.ModelAdmin):
-    model = models.Phase
     form = PhaseForm
 
 
