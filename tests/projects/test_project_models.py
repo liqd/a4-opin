@@ -60,3 +60,19 @@ def test_delete_project(project_factory, ImagePNG):
     assert not os.path.isfile(image_path)
     count = models.Project.objects.all().count()
     assert count == 0
+
+
+@pytest.mark.django_db
+def test_image_deleted_after_update(project_factory, ImagePNG):
+    project = project_factory(image=ImagePNG)
+    image_path = os.path.join(settings.MEDIA_ROOT, project.image.path)
+    thumbnail_path = helpers.createThumbnail(project.image)
+
+    assert os.path.isfile(image_path)
+    assert os.path.isfile(thumbnail_path)
+
+    project.image = None
+    project.save()
+
+    assert not os.path.isfile(image_path)
+    assert not os.path.isfile(thumbnail_path)
