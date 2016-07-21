@@ -7,6 +7,4 @@ from .models import Project
 
 @receiver(post_delete, sender=Project)
 def delete_images_for_project(sender, instance, **kwargs):
-    thumbnailer = get_thumbnailer(instance.image)
-    thumbnailer.delete_thumbnails()
-    instance.image.delete(False)
+    services.delete_images([instance.image])

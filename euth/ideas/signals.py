@@ -10,9 +10,7 @@ from .models import Idea
 
 @receiver(post_delete, sender=Idea)
 def delete_images_for_Idea(sender, instance, **kwargs):
-    thumbnailer = get_thumbnailer(instance.image)
-    thumbnailer.delete_thumbnails()
-    instance.image.delete(False)
+    services.delete_images([instance.image])
 
 
 @receiver(post_delete, sender=Idea)
