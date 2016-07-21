@@ -6,7 +6,8 @@ from . import content
 from .validators import validate_content
 
 
-class PhasesManager(models.Manager):
+class PhasesQuerySet(models.QuerySet):
+
     def active_phase(self, project):
         return self.filter(module__project=project).order_by('type').first()
 
@@ -20,7 +21,7 @@ class Phase(models.Model):
     type = models.CharField(max_length=128, validators=[validate_content])
     module = models.ForeignKey(modules_models.Module, on_delete=models.CASCADE)
 
-    objects = PhasesManager()
+    objects = PhasesQuerySet.as_manager()
 
     def __str__(self):
         return '{} ({})'.format(self.name, self.type)
