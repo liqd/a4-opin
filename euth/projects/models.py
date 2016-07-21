@@ -1,9 +1,8 @@
 from django.conf import settings
 from django.db import models
 from django.utils import functional
-from model_utils import models as model_utils
 
-from euth.contrib import validators
+from euth.contrib import base_models, validators
 from euth.organisations import models as org_models
 
 
@@ -13,7 +12,7 @@ class ProjectManager(models.Manager):
         return self.get(name=name)
 
 
-class Project(model_utils.TimeStampedModel):
+class Project(base_models.TimeStampedModel):
     slug = models.SlugField(max_length=512, unique=True)
     name = models.CharField(max_length=512)
     organisation = models.ForeignKey(
