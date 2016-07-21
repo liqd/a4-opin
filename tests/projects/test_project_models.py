@@ -1,5 +1,9 @@
+import os
+
 import pytest
+from django.conf import settings
 from django.core.urlresolvers import reverse
+from tests import helpers
 
 from euth.projects import models
 
@@ -40,3 +44,19 @@ def test_image_validation_image_too_small(project_factory, smallImage):
 def test_image_big_enough(project_factory, bigImage):
     project = project_factory(image=bigImage)
     assert project.full_clean() is None
+
+
+@pytest.mark.django_db
+def test_delete_project(project_factory, ImagePNG):
+    project = project_factory(image=ImagePNG)
+    image_path = os.path.join(settings.MEDIA_ROOT, project.image.path)
+    thumbnail_path = helpers.createThumbnail(project.image)
+    assert os.path.isfile(thumbnail_path)
+    assert os.path.isfile(image_path)
+    count = models.Project.objects.all().count()
+    assert count == 1
+    project.delete()
+    assert not os.path.isfile(thumbnail_path)
+    assert not os.path.isfile(image_path)
+    count = models.Project.objects.all().count()
+    assert count == 0
