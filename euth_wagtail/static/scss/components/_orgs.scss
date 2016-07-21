@@ -56,10 +56,13 @@
 }
 
 .org-tile-image-link {
-    background-repeat: no-repeat;
-    background-position: center center;
-    left: 0;
-    position: absolute;
-    top: 0;
-    height: 100%;
+    display: block;
+
+    img {
+        max-width: 100%;
+    }
+
+    @media (max-width: $screen-sm-min) {
+        padding: 0;
+    }
 }
