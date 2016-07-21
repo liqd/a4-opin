@@ -8,7 +8,7 @@ from euth.projects import models as project_models
 class Module(models.Model):
     name = models.CharField(max_length=512, unique=True)
     slug = models.SlugField(max_length=512, unique=True)
-    description = models.TextField
+    description = models.TextField(null=True, blank=True)
     weight = models.PositiveIntegerField()
     project = models.ForeignKey(
         project_models.Project, on_delete=models.CASCADE)
