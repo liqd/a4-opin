@@ -18,14 +18,14 @@ class Idea(module_models.Item):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        self.description = html_transforms.clean_html_field(
+            self.description)
+        super(Idea, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('idea-detail', args=[str(self.slug)])
-
-    def clean(self):
-        super().clean()
-        self.description = html_transforms.clean_html_field(
-            self.description)
 
     @cached_property
     def project(self):
