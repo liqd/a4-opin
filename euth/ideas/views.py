@@ -1,3 +1,4 @@
+from braces.views import LoginRequiredMixin
 from django.core import exceptions
 from django.views import generic
 
@@ -10,7 +11,7 @@ class IdeaDetailView(generic.DetailView):
     model = models.Idea
 
 
-class IdeaUpdateView(generic.UpdateView):
+class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
 
@@ -28,7 +29,7 @@ class IdeaUpdateView(generic.UpdateView):
             raise exceptions.PermissionDenied
 
 
-class IdeaCreateView(generic.CreateView):
+class IdeaCreateView(LoginRequiredMixin, generic.CreateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
 

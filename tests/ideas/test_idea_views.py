@@ -1,5 +1,4 @@
 import pytest
-
 from django.core.urlresolvers import reverse
 
 from euth.ideas.models import Idea
