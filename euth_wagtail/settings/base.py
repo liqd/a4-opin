@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'euth.user_management',
     'euth.organisations',
     'euth.projects',
-    'euth.comments',
+    'euth.comments.apps.CommentConfig',
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
