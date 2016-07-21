@@ -1,3 +1,3 @@
-from .contents import content
+from .contents import content, PhaseContent
 
-__all__ = ['content']
+__all__ = ['content', 'PhaseContent']
