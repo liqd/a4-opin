@@ -19,4 +19,4 @@ def delete_images_for_Idea(sender, instance, **kwargs):
 def delete_comments_for_Idea(sender, instance, **kwargs):
     contenttype = ContentType.objects.get_for_model(instance)
     pk = instance.pk
-    services.deleteComments(contenttype, pk)
+    services.delete_comments(contenttype, pk)
