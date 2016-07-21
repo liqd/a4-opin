@@ -1,6 +1,7 @@
 from django.views.generic import detail, list
 
 from euth.phases import models as phases_models
+
 from . import models
 
 

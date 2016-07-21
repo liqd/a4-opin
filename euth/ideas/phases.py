@@ -1,6 +1,6 @@
 from euth import phases
 
-from . import views, apps
+from . import apps, views
 
 
 class CollectPhase(phases.PhaseContent):

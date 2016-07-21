@@ -2,6 +2,7 @@ from django.core import exceptions
 from django.views import generic
 
 from euth.phases import models as phases_models
+
 from . import models
 
 
