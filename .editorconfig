@@ -16,3 +16,4 @@ indent_size = 2
 # isort configruation
 [*.py]
 skip=migrations
+known_third_party=ckeditor

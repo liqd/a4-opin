@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load i18n thumbnail %}
 {% block content %}
-<header style="{% if project.image %}
-               background-image: url({{ project.image |thumbnail_url:'heroimage' }});
+<header style="{% if view.project.image %}
+               background-image: url({{ view.project.image |thumbnail_url:'heroimage' }});
                {% endif %}" class="euth-hero-unit">
     <div class="container">
         <div class="container-narrow">
             <div class="euth-hero-unit-header">
-                <h1>{{ project.name }}</h1>
-                <p>{{ project.description }}</p>
-                <a href="#" class="button">Create Proposal</a>
+                <h1>{{ view.project.name }}</h1>
+                <p>{{ view.project.description }}</p>
+                {% block phase_cta %}{% endblock %}
             </div>
         </div>
     </div>
@@ -35,14 +35,15 @@
     <div class="container-narrow">
       <article id="panel-info" class="tab-panel">
         <h3>{% trans "info" %}</h3>
-        {{ project.description }}
+
+        {{ view.project.description }}
 
         {% include "euth_projects/includes/project_carousel.html" with projects=project.other_projects %}
 
       </article>
       <article id="panel-participation" class="tab-panel">
         <h3>{% trans "participation" %}</h3>
-        Display the currently active participation module here!
+        {% block phase_content %}{% endblock %}
       </article>
     </div>
 </div>

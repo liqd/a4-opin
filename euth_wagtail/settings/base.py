@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'easy_thumbnails',
     'parler',
+    'ckeditor',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -65,7 +66,7 @@ INSTALLED_APPS = [
     'euth.user_management',
     'euth.organisations',
     'euth.projects',
-    'euth.comments',
+    'euth.comments.apps.CommentConfig',
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
@@ -128,6 +129,26 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'user_management.User'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink']
+        ]
+    }
+}
+
+BLEACH_LIST = {
+    'default' : {
+        'tags': ['p','strong','em','u','ol','li','ul','a'],
+        'attributes': {
+            'a': ['href', 'rel']
+        }
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

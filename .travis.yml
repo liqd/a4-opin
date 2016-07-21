@@ -9,13 +9,19 @@ install:
   - pip install coveralls
 script:
   - py.test --cov
-  - make lint
 after_success:
   - coveralls
 deploy:
-  provider: heroku
-  api_key:
-    secure: "ZCL4Z04SjfouJpqD4VFjwSL2KCAnw8B+eFIAkXcJ5nIhh9FfS2jhAFniW/CFSgzQSBybxubkceMzdXAZBUuOgdQj+FOI31ce4W1NNSK+/wMMTtySQ9jBwrWbDJ8mktIIhGdGCPo7QzYVU8n88YLi83HRr/QzLioMethlTOkZlwkP0Z2cPYmSb20dUKHjTn8qGuQF6LCQ3bwMeZZSXXdmTBVFmv3Xmby5wodpvuNZpWDVBF1lmYnZ0N6G9heAERQJQBzzVkCYp06YKyxjLix/cLWveDCAPNLNZvYNSMaVhFZrvdb3wsw0tID+CuSJfR7QEN8UlEaksNoOOOFvEHlcRJ9zr+styvlr2wdt2pNtPBt90wFeoSXncfraWEvUSQEoN9GQm0MM3hZE1EmcXragmAPN2wIIb7vETlmfBuRlzKvJuJflIPAnuvN7B4+qKAjfsjFOtPqVZGSW7TSIaQ85tkfwvkxwiqJxZ9kBZXbhW/RRLn7LKswLFDE1k7XgX1id+1zxm1EbyvNSAxDGD3u5jPt5SP+CQ80cMXBc6Ob/aoeOVA/dQ7cEqtQpsX4stBsL4ioRqDXKC/fcQsmKhBY4v+dkEhMko4kQ33pZr5RmeUAmd17Iqp4jmrco6Ic4UnpTtgPl3wDQLh4816i9pLbqhvprlmb00u+hVgXy9zSSt2o="
-  app: opin-dev
-  on:
-    branch: master
+  - provider: heroku
+    api_key:
+      secure: "ZCL4Z04SjfouJpqD4VFjwSL2KCAnw8B+eFIAkXcJ5nIhh9FfS2jhAFniW/CFSgzQSBybxubkceMzdXAZBUuOgdQj+FOI31ce4W1NNSK+/wMMTtySQ9jBwrWbDJ8mktIIhGdGCPo7QzYVU8n88YLi83HRr/QzLioMethlTOkZlwkP0Z2cPYmSb20dUKHjTn8qGuQF6LCQ3bwMeZZSXXdmTBVFmv3Xmby5wodpvuNZpWDVBF1lmYnZ0N6G9heAERQJQBzzVkCYp06YKyxjLix/cLWveDCAPNLNZvYNSMaVhFZrvdb3wsw0tID+CuSJfR7QEN8UlEaksNoOOOFvEHlcRJ9zr+styvlr2wdt2pNtPBt90wFeoSXncfraWEvUSQEoN9GQm0MM3hZE1EmcXragmAPN2wIIb7vETlmfBuRlzKvJuJflIPAnuvN7B4+qKAjfsjFOtPqVZGSW7TSIaQ85tkfwvkxwiqJxZ9kBZXbhW/RRLn7LKswLFDE1k7XgX1id+1zxm1EbyvNSAxDGD3u5jPt5SP+CQ80cMXBc6Ob/aoeOVA/dQ7cEqtQpsX4stBsL4ioRqDXKC/fcQsmKhBY4v+dkEhMko4kQ33pZr5RmeUAmd17Iqp4jmrco6Ic4UnpTtgPl3wDQLh4816i9pLbqhvprlmb00u+hVgXy9zSSt2o="
+    app: opin-dev
+    on:
+      branch: master
+  - provider: script
+    script: scripts/deploy.sh
+    on:
+      branch: master
+env:
+  global:
+    secure: UnvkJbwu7jxzb5Faa8jrsheIsoJ3MU53qmNRdazIUW52O7ZrwqZZ0ihZAo/IdWLAvfavBPxXBmm605L5MXJksEvVfj3/y6qG+//gZ0PkPPKa3t5bRcCKBu79/TK6okPJwlL/beJKvNRoALfCIVP2fQa54bu/0h8nMsW9IYG1o3jpKKYo7R1i7psakRohzfDKfn/asgkKgVSp0ppr9i670F9gzScnTAZ8XrBYIYqfAEGfZqxqSmvmLIf1vUXalFKXdSCer9UoF4bbOgDT1iNvbelRmDRQUDA+2tpah/NXr9evvCkGk55T5hjND860W/3sDxLJI0+A+LHbWCGZAacWc2zJ/n/Q6RHIrW1q5rin8QYYcrY8c4CBOjDaS8twqtsjFaot9CWEpgGYP1WUH0xUsav9CfmkkfmM+b7B2mvPqyGOwnOqHg1xscelMqBetwQIjiJUuuoqbqkjgLbXjTu3CLuuSDVI/pBcbae6k3y5tqbcDYNj6gvBwN+4laEnH2N4Z6eRpp1IdrG09NnDHTICQ7+ysAdQsmNLsc7gNr1rl/8iWQ2GMgS7EyLThTN+8PqtPUHvEkvyJ35j7Cp+bOkYAOuQrhXj9GtTPmrzezyMBtnXF81hVdvhGh1M+OlOBbzNQOvMNzHGmgJRx6ZF8+AjCxE3T6JUhE9QkKqpjG9CkJ8=

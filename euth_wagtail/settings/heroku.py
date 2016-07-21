@@ -25,19 +25,6 @@ if db_url.scheme == 'postgres':
         }
     }
 
-storage_url = urlparse(os.environ['STORAGE_URL'])
-
-if storage_url.sheme == 'sftp':
-    DEFAULT_FILE_STORAGE = 'storages.backends.sftpstorage'
-    MEDIA_URL = 'https://opin-dev.liqd.net/media'
-    SFTP_STORAGE_HOST = storage_url.host
-    SFTP_STORAGE_ROOT = storage_url.path
-    SFTP_STORAGE_PARAMS = {
-        'port': storage_url.port,
-        'user': storage_url.username,
-        'password': storage_url.password,
-    }
-
 ALLOWED_HOSTS = [
     'localhost',
     'opin-dev.liqd.de',
@@ -77,8 +64,5 @@ MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-INSTALLED_APPS = INSTALLED_APPS + [
-    'storages',
-]
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+SECURE_SSL_REDIRECT = True

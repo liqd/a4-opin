@@ -1,9 +1,17 @@
+from django.contrib import messages
 from django.core import exceptions
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 from django.views import generic
 
 from euth.modules.models import Module
+from euth.projects import mixins
 
 from . import models
+
+
+class IdeaListView(mixins.ProjectMixin, generic.ListView):
+    model = models.Idea
 
 
 class IdeaDetailView(generic.DetailView):
@@ -47,3 +55,23 @@ class IdeaCreateView(generic.CreateView):
         module = Module.objects.get(slug=slug)
         form.instance.module = module
         return super().form_valid(form)
+
+
+class IdeaDeleteView(generic.DeleteView):
+    model = models.Idea
+    success_message = _("Your Idea has been deleted")
+
+    def get_object(self):
+        qs = super().get_object()
+        if self.request.user == qs.creator or self.request.user.is_superuser:
+            return qs
+        else:
+            raise exceptions.PermissionDenied
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(IdeaDeleteView, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('project-detail',
+                       kwargs={'slug': self.object.project.slug})

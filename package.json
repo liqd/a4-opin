@@ -28,6 +28,6 @@
     "build": "npm run webpack:build",
     "watch": "webpack --config ./webpack.config.js --progress --colors --watch",
     "lint": "cd euth; standard",
-    "prepush": "make lint"
+    "precommit": "make lint"
   }
 }
