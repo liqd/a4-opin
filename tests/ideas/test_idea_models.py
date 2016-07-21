@@ -10,9 +10,7 @@ def test_absolute_url(idea):
 
 
 @pytest.mark.django_db
-def test_clean(idea):
-    assert '<script>' in idea.description
-    idea.clean()
+def test_save(idea):
     assert '<script>' not in idea.description
 
 
