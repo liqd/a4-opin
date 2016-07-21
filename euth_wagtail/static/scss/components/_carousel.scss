@@ -17,7 +17,7 @@
         @include rem(right, -50px);
     }
 
-    @media (max-width: $screen-sm-min) {
+    @media (max-width: $screen-md-min) {
         .owl-prev,.owl-next {
             display: none;
         }
@@ -29,6 +29,10 @@
 
     .owl-stage-outer {
         overflow: visible;
+
+        @media (max-width: $screen-md-min) {
+            overflow: hidden;
+        }
     }
 
     .owl-item:not(.active) {
