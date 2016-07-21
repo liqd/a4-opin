@@ -125,22 +125,26 @@ var CommentBox = React.createClass({
   },
   render: function () {
     return (
-    h('div.commentBox', [
-      h('div.comments_count',
+    h('div', [
+      h('div.black-divider',
         this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)),
-      h(CommentForm, {
-        subjectType: this.props.subjectType,
-        subjectId: this.props.subjectId,
-        onCommentSubmit: this.handleCommentSubmit,
-        placeholder: django.gettext('Your comment here'),
-        rows: 5
-      }),
-      h(CommentList, {
-        comments: this.state.comments,
-        handleCommentDelete: this.handleCommentDelete,
-        handleCommentSubmit: this.handleCommentSubmit,
-        handleCommentModify: this.handleCommentModify
-      })
+      h('div.commentBox', [
+        h(CommentForm, {
+          subjectType: this.props.subjectType,
+          subjectId: this.props.subjectId,
+          onCommentSubmit: this.handleCommentSubmit,
+          placeholder: django.gettext('Your comment here'),
+          rows: 5
+        }),
+        h('div.comment-list', [
+          h(CommentList, {
+            comments: this.state.comments,
+            handleCommentDelete: this.handleCommentDelete,
+            handleCommentSubmit: this.handleCommentSubmit,
+            handleCommentModify: this.handleCommentModify
+          })
+        ])
+      ])
     ])
     )
   }
@@ -267,7 +271,7 @@ var Comment = React.createClass({
             this.state.edit = false
           }.bind(this)
         })
-        : h('span', {
+        : h('span.comment-text', {
           dangerouslySetInnerHTML: markdown2html(this.props.children)
         }
       ),
@@ -281,6 +285,8 @@ var Comment = React.createClass({
                   django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
           ]
         ),
+
+        /*
         this.allowForm() ? h('li.entry', [
           h('a.icon.fa-comment-o.dark', {
             href: '#',
@@ -289,6 +295,8 @@ var Comment = React.createClass({
           }, this.props.child_comments.length
           )
         ]) : null,
+        */
+
         this.allowRate() ? h('li.entry', [
           h('a.icon.fa-chevron-up.green', {
             href: '#',
@@ -314,37 +322,39 @@ var Comment = React.createClass({
             'aria-expanded': false,
             'aria-hidden': true
           }),
-          h('ul.dropdown-menu', [
-            this.isOwner() ? h('li', [
-              h('a.icon.fa-pencil.dark', {
+          h('ul.dropdown-menu', [].concat(
+            this.isOwner() ? [ h('li', [
+              h('a', {
                 href: '#',
                 onClick: this.toggleEdit,
                 'aria-hidden': true
               }, django.gettext('Edit')
               )
-            ]) : null,
-            this.isOwner() ? h('li', [
-              h('a.icon.fa-trash-o.dark', {
+            ]),
+            h('li.divider'),
+            h('li', [
+              h('a', {
                 href: '#',
                 'data-toggle': 'modal',
                 'data-target': '#comment_delete_' + this.props.id,
                 'aria-hidden': true
               }, django.gettext('Delete'))
-            ]) : null,
-            h('li', [
-              h('a.icon.fa-ban.dark', {
+            ]),
+            h('li.divider')] : [],
+            [h('li', [
+              h('a', {
                 href: '#',
                 onClick: this.onReport,
                 'aria-hidden': true
               }, django.gettext('Report')
               )
             ])
-          ])
+          ]))
         ]) : null
       ]),
       !this.state.is_deleted ? h('ul.nav.nav-pills.pull-right', [
         this.allowForm() ? h('li.entry', [
-          h('a.icon.fa-reply', {
+          h('a.icon.fa-reply.dark', {
             href: '#',
             onClick: this.showComments,
             'aria-hidden': true
@@ -444,7 +454,7 @@ var CommentForm = React.createClass({
   render: function () {
     if (this.context.isAuthenticated) {
       return (
-      h('form', { onSubmit: this.handleSubmit }, [
+      h('form.general-form', { onSubmit: this.handleSubmit }, [
         h('div.form-group', [
           h('textarea.form-control', {
             type: 'text',
@@ -455,7 +465,7 @@ var CommentForm = React.createClass({
             required: 'required'
           })
         ]),
-        h('input.btn.btn-primary', {
+        h('input.submit-button', {
           type: 'submit',
           value: django.gettext('post')
         })
@@ -495,7 +505,7 @@ var CommentEditForm = React.createClass({
   },
   render: function () {
     return (
-    h('form', { onSubmit: this.handleSubmit }, [
+    h('form.general-form', { onSubmit: this.handleSubmit }, [
       h('div.form-group', [
         h('textarea.form-control', {
           type: 'text',
@@ -506,11 +516,11 @@ var CommentEditForm = React.createClass({
           required: 'required'
         })
       ]),
-      h('input.btn.btn-primary', {
+      h('input.submit-button', {
         type: 'submit',
         value: django.gettext('post')
       }),
-      h('input.btn.btn-primary', {
+      h('input.cancel-button', {
         type: 'submit',
         value: django.gettext('cancle'),
         onClick: this.props.handleCancel

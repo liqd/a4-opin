@@ -9,7 +9,7 @@
         font-weight: bold;
         color: $brand-brand1;
         @include rem(font-size, 28px);
-        @include rem(line-height, 1)
+        @include rem(line-height, 1);
         text-align: justify;
         @include rem(margin, 0px 0px 6px 0px);
     }
