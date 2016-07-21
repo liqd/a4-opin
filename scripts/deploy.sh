@@ -44,4 +44,4 @@ EOF
     chmod 600 ~/id_rsa
 fi
 
-ssh -p 22036 ${SSH_ID_ARG} build@benhabib.liqd.net deploy euth_wagtail master dev
+ssh -p 22036 ${SSH_ID_ARG} -oStrictHostKeyChecking=no build@benhabib.liqd.net deploy euth_wagtail master dev
