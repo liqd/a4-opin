@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block phase_cta %}
-<a href="{% url 'idea-create' slug=module.slug %}" class="button">{% trans 'Create Proposal' %}</a>
+<a href="{% url 'idea-create' slug=view.module.slug %}" class="button">{% trans 'Create Proposal' %}</a>
 {% endblock %}
 
 {% block phase_content %}

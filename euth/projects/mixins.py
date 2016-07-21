@@ -1,10 +1,11 @@
 from django.core import exceptions
+from django.views import generic
 
 from euth.phases import models as phases_models
 from . import models
 
 
-class ProjectMixin():
+class ProjectMixin(generic.base.ContextMixin):
 
     def dispatch(self, *args, **kwargs):
         if 'project' not in kwargs:
@@ -15,10 +16,3 @@ class ProjectMixin():
         self.phase = phases_models.Phase.objects.active_phase(self.project)
         self.module = self.phase.module if self.phase else None
         return super(ProjectMixin, self).dispatch(*args, **kwargs)
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(ProjectMixin, self).get_context_data(*args, **kwargs)
-        context['project'] = self.project
-        context['phase'] = self.phase
-        context['module'] = self.module
-        return context
