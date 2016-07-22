@@ -4,8 +4,8 @@ from django.conf import settings
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from model_utils import fields
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
                              'only letters, digits, spaces and @/./+/-/_ '
@@ -42,7 +42,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
                                    help_text=IS_STAFF_HELP)
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=IS_ACTIVE_HELP)
-    date_joined = fields.AutoCreatedField()
+    date_joined = models.DateTimeField(editable=False, default=timezone.now)
 
     objects = auth_models.UserManager()
 
