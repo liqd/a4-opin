@@ -12,8 +12,8 @@ class PhaseForm(forms.ModelForm):
         model = models.Phase
 
 
-class PhaseAdmin(admin.ModelAdmin):
+class PhaseInline(admin.TabularInline):
+    model = models.Phase
     form = PhaseForm
-
-
-admin.site.register(models.Phase, PhaseAdmin)
+    extra = 0
+    min_num = 1
