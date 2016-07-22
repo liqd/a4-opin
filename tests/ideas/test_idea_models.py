@@ -1,6 +1,6 @@
 import os
-import pytest
 
+import pytest
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
