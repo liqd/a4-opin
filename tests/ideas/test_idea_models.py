@@ -1,6 +1,6 @@
 import os
-
 import pytest
+
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
@@ -17,9 +17,7 @@ def test_absolute_url(idea):
 
 
 @pytest.mark.django_db
-def test_clean(idea):
-    assert '<script>' in idea.description
-    idea.clean()
+def test_save(idea):
     assert '<script>' not in idea.description
 
 

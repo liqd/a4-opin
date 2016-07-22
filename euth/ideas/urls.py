@@ -1,11 +1,10 @@
 from django.conf.urls import url
-from django.contrib.auth.decorators import login_required
 
 from . import views
 
 urlpatterns = [
     url(r'create/module/(?P<slug>[-\w_]+)/$',
-        login_required(views.IdeaCreateView.as_view()), name='idea-create'),
+        views.IdeaCreateView.as_view(), name='idea-create'),
     url(r'^(?P<slug>[-\w_]+)/edit/$',
         views.IdeaUpdateView.as_view(), name='idea-update'),
     url(r'^(?P<slug>[-\w_]+)/delete/$',
