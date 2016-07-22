@@ -70,3 +70,26 @@ def test_delete_organisation(organisation_factory, ImagePNG):
     assert not os.path.isfile(logo_path)
     count = models.Organisation.objects.all().count()
     assert count == 0
+
+
+@pytest.mark.django_db
+def test_image_deleted_after_update(organisation_factory, ImagePNG):
+    organisation = organisation_factory(image=ImagePNG, logo=ImagePNG)
+    image_path = os.path.join(settings.MEDIA_ROOT, organisation.image.path)
+    logo_path = os.path.join(settings.MEDIA_ROOT, organisation.logo.path)
+    thumbnail_image_path = helpers.createThumbnail(organisation.image)
+    thumbnail_logo_path = helpers.createThumbnail(organisation.logo)
+
+    assert os.path.isfile(thumbnail_image_path)
+    assert os.path.isfile(thumbnail_logo_path)
+    assert os.path.isfile(image_path)
+    assert os.path.isfile(logo_path)
+
+    organisation.image = None
+    organisation.logo = None
+    organisation.save()
+
+    assert not os.path.isfile(thumbnail_image_path)
+    assert not os.path.isfile(thumbnail_logo_path)
+    assert not os.path.isfile(image_path)
+    assert not os.path.isfile(logo_path)
