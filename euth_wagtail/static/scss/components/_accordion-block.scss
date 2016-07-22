@@ -23,16 +23,19 @@
 
         .accordion-link {
             @include rem(font-size, $font-size-large);
-            @include rem(padding, 0 22px);
+            @include rem(padding, 22px 30px 15px 22px);
             border: 1px solid $brand-brand1;
             display: block;
             font-family: $font-family-sans-serif;
-            line-height: 50px;
+            line-height: 1.2;
+            position: relative;
             text-decoration: none;
 
             &:after {
+                @include rem(right, 22px);
+                @include rem(top, 22px);
                 content: "x";
-                float: right;
+                position: absolute;
             }
 
             &.collapsed {
