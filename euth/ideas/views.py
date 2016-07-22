@@ -1,5 +1,4 @@
 from braces.views import LoginRequiredMixin
-
 from django.contrib import messages
 from django.core import exceptions
 from django.core.urlresolvers import reverse

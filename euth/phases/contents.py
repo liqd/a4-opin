@@ -1,10 +1,10 @@
 class PhaseContent():
     @property
     def identifier(self):
-        return '{s.app}:{s.weight:03d}:{s.phase}'.format(s=self)
+        return '{s.app}:{w:03d}:{s.phase}'.format(s=self, w=self.weight % 1000)
 
     def __str__(self):
-        return '{s.__class__.__name__}({s.app}:{s.phase})'.format(s=self)
+        return '{s.__class__.__name__} ({s.app}:{s.phase})'.format(s=self)
 
 
 class PhaseContents():
