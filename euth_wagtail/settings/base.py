@@ -216,6 +216,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/javascripts'),
     os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/stylesheets'),
     os.path.join(BASE_DIR, 'node_modules/font-awesome'),
+    os.path.join(BASE_DIR, 'node_modules/owl.carousel/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 

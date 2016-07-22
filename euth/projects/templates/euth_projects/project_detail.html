@@ -17,7 +17,7 @@
 <nav class="tabs">
     <div class="container">
         <ul class="container-narrow">
-            <li class="col-md-4"><a href="#" class="m-selected">Informations</a></li>
+            <li class="col-md-4"><a href="#panel-info" class="m-selected tab">Informations</a></li>
             <li class="col-md-4 dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Idea Collection <span class="caret"></span></a>
@@ -27,7 +27,7 @@
                     <li><a href="#">Result</a></li>
                 </ul>
             </li>
-            <li class="col-md-4"><a href="#panel-participation">Offline Workshop</a></li>
+            <li class="col-md-4"><a href="#panel-participation" class="tab">Offline Workshop</a></li>
         </ul>
     </div>
 </nav>
@@ -35,7 +35,11 @@
     <div class="container-narrow">
       <article id="panel-info" class="tab-panel">
         <h3>{% trans "info" %}</h3>
+
         {{ view.project.description }}
+
+        {% include "euth_projects/includes/project_carousel.html" with projects=project.other_projects %}
+
       </article>
       <article id="panel-participation" class="tab-panel">
         <h3>{% trans "participation" %}</h3>
