@@ -270,7 +270,7 @@ var Comment = React.createClass({
       h('ul.nav.nav-pills', [
         h('li.entry',
           [
-            this.props.modified == null
+            this.props.modified === null
               ? h('a.commentSubmissionDate.dark',
                   moment(this.props.created).format('D MMM YY'))
               : h('a.commentSubmissionDate.dark',
