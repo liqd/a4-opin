@@ -1,6 +1,7 @@
-import freezegun
 import pytest
 from django.utils import timezone
+
+import freezegun
 
 
 @pytest.mark.django_db
