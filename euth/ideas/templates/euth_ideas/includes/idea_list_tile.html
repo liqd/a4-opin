@@ -1,0 +1,28 @@
+{% load i18n thumbnail static %}
+<div class="idea-list-tile">
+    {% if idea.image %}
+    <a href="{% url 'idea-detail' idea.slug %}" class="col-md-2 col-sm-2 col-xs-3 idea-tile-image-link" style="background-size: cover; background-image: url({{ idea.image.url }});">
+    </a>
+    {% else %}
+    <a href="{% url 'idea-detail' idea.slug %}" class="col-md-2 col-sm-2 col-xs-3 idea-tile-image-link" style="background-size: cover; background-image: url({% static 'images/logo.png' %})">
+    </a>
+    {% endif %}
+    <div class="idea-tile-body col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-9 col-xs-offset-3">
+        <div class="row">
+            <div class="col-lg-10">
+                <h3 class="idea-tile-title">
+                    <a href="{% url 'idea-detail' idea.slug %}">
+                    {{ idea.name }}
+                    </a>
+                </h3>
+            </div>
+            <div class="col-lg-2 pull-right">
+                <span class="idea-comments-count"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ idea.comments.count }}</span>
+            </div>
+        </div>
+        <div class="avatar-small">
+            <div class="name">{{ idea.creator.username }} <span class="idea-date"> {{ idea.created | date }}</span></div>
+        </div>
+    </div>
+</div>
+
