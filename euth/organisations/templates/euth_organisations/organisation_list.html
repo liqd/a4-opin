@@ -5,13 +5,21 @@
     <header class="container-narrow block page-intro" >
       <h1 class="block-title">{% trans 'Organisations' %}</h1>
     </header>
-    <section class="container-narrow block-inner page-body">
-      <div class="row">
-      {% for object in object_list %}
-      {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
-      {% endfor %}
-      </div>
-      {% if is_paginated %}
+
+
+    <section class="block-inner page-body org-grid">
+        <div class="row">
+            <div class="input-gigantic">
+                <input type="text" class="input-gigantic-field" placeholder="Search an Organization by name" />
+                <i class="fa fa-search input-gigantic-icon"></i>
+            </div>
+        </div>
+        <div class="row">
+            {% for object in object_list %}
+            {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
+            {% endfor %}
+        </div>
+        {% if is_paginated %}
         <div class=row>
           <nav class="pull-right">
             <ul class="pagination">
@@ -35,8 +43,8 @@
             </ul>
           </nav>
         </div>
-    {% endif %}
-    </section>
+        {% endif %}
+        </section>
 </div>
 {% endblock %}
 

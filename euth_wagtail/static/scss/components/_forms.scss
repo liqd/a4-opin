@@ -26,3 +26,25 @@
     }
 
 }
+
+.input-gigantic {
+    @include rem(margin, 0 5px 40px 5px);
+    position : relative;
+
+    .input-gigantic-field {
+        @include rem(height, 75px);
+        @include rem(padding, 0 30px);
+        border: 1px solid $gray-light;
+        color: $black;
+        display: block;
+        font-size: $font-size-small;
+        width: 100%;
+    }
+
+    .input-gigantic-icon {
+        @include rem(font-size, 44px);
+        @include rem(right, 21px);
+        @include rem(top, 16px);
+        position: absolute;
+    }
+}

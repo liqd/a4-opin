@@ -57,10 +57,6 @@
 
     img {
         @include rem(margin, 20px 0);
-
-        &:first-child {
-            margin-top: 0;
-        }
     }
 }
 
