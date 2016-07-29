@@ -1,5 +1,5 @@
 %tile {
-    @include rem(margin, 0 13px 13px 0);
+    @include rem(margin-bottom, 0 13px 13px 0);
     box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: left;
@@ -9,7 +9,9 @@
     @include rem(font-size, $font-size-large);
     @include rem(margin, 0 0 10px);
     font-weight: bold;
+    letter-spacing: 2px;
     line-height: 1.4;
+    text-align: center;
 }
 
 %tile-teaser-text {
@@ -29,6 +31,13 @@
         float: left;
         width: auto;
     }
+}
+
+%tile-location {
+    @include rem(margin-bottom, 10px);
+    font-size: $font-size-small;
+    display: block;
+    text-align: center;
 }
 
 .tile-list {
