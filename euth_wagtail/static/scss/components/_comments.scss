@@ -9,11 +9,13 @@
         border: 1px solid $warm-grey;
         border-radius: 0;
         -moz-border-radius: 0;
+        @include rem(font-size, 14px);
     }
     & textarea:focus {
         border: 1px solid $warm-grey;
         border-radius: 0;
         -moz-border-radius: 0;
+        @include rem(font-size, 14px);
     }
     & .comment {
         @include rem(margin-bottom, 88px);
@@ -43,6 +45,10 @@
         & .child_comments_list {
             margin: 0px 40px 0px 40px;
         }
+        & .general-form {
+            @include rem(margin-bottom, 88px);
+        }
+
     }
 
     @media (max-width: $screen-sm-min) {
@@ -106,6 +112,14 @@
         }
         & .dropdown-menu {
             @extend .custom-dropdown-menu;
+        }
+    }
+
+    & .action-bar {
+        & li {
+            & a {
+                font-weight: bold;
+            }
         }
     }
 }

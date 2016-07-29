@@ -243,6 +243,13 @@ var Comment = React.createClass({
     console.log('clicked report')
   },
 
+  pluralizeString: function (number) {
+    var fmts = django.ngettext('View %s reply',
+        'View %s Replies', number)
+    var s = django.interpolate(fmts, [number])
+    return s
+  },
+
   render: function () {
     return (
     h('div.comment', [
@@ -281,18 +288,6 @@ var Comment = React.createClass({
                   django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
           ]
         ),
-
-        /*
-        this.allowForm() ? h('li.entry', [
-          h('a.icon.fa-comment-o.dark', {
-            href: '#',
-            onClick: this.showComments,
-            'aria-hidden': true
-          }, this.props.child_comments.length
-          )
-        ]) : null,
-        */
-
         this.allowRate() ? h('li.entry', [
           h('a.icon.fa-chevron-up.green', {
             href: '#',
@@ -348,15 +343,27 @@ var Comment = React.createClass({
           ]))
         ]) : null
       ]),
-      !this.state.is_deleted ? h('ul.nav.nav-pills.pull-right', [
-        this.allowForm() ? h('li.entry', [
-          h('a.icon.fa-reply.dark', {
-            href: '#',
-            onClick: this.showComments,
-            'aria-hidden': true
-          }, django.gettext('Anwser')
-          )
-        ]) : null
+      !this.state.is_deleted ? h('div.action-bar', [
+        h('nav.navbar.navbar-default.navbar-static', [
+          this.props.child_comments.length > 0 ? h('ul.nav.navbar-nav', [
+            h('li', [
+              h('a', {
+                href: '#',
+                onClick: this.showComments
+              }, this.pluralizeString(this.props.child_comments.length))
+            ])
+          ]) : null,
+          h('ul.nav.navbar-nav.navbar-right', [
+            this.allowForm() ? h('li.entry', [
+              h('a.icon.fa-reply.dark', {
+                href: '#',
+                onClick: this.showComments,
+                'aria-hidden': true
+              }, django.gettext('Anwser')
+              )
+            ]) : null
+          ])
+        ])
       ]) : null,
       this.state.showChildComments ? h('div.child_comments_list', [
         h(CommentList, {
