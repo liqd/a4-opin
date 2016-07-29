@@ -8,18 +8,19 @@ from . import models
 class ProjectListView(list.ListView):
     model = models.Project
 
-    @property
-    def project(self):
-        return self.object
-
 
 class ProjectDetailView(detail.DetailView):
     model = models.Project
 
+    @property
+    def project(self):
+        """ Emulate ProjectMixin interface for template sharing. """
+        return self.object
+
 project_detail_view = ProjectDetailView.as_view()
 
 
-def dispatchProjectView(*args, **kwargs):
+def dispatch_project_view(*args, **kwargs):
     project = models.Project.objects.get(slug=kwargs['slug'])
     active_phase = phases_models.Phase.objects.active_phase(project)
 

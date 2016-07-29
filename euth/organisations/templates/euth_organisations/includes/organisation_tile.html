@@ -1,25 +1,30 @@
 {% load i18n static %}
-<div class="org-tile">
-    {% if organisation.logo %}
-    <a href="{% url 'organisation-detail' organisation.slug %}" class="col-sm-3 org-tile-image-link">
-    <img src="{{ organisation.logo.url }}" alt=""/>
-    </a>
-    <div class="org-tile-body col-sm-9">
-        <h2 class="org-tile-title">
-            <a href="{% url 'organisation-detail' organisation.slug %}">
-                {{ organisation.name }}
-            </a>
-        </h2>
-        <p class="org-tile-teaser">{{ organisation.description | truncatechars:400 }}</p>
+<div class="col-sm-4">
+    <div class="org-tile">
+        {% if organisation.image %}
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}}); background-size:cover;">
+        {% else %}
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link">
+        {% endif %}
+        <span class="content">
+            {% if organisation.logo %}
+            <img src="{{ organisation.logo.url }}" alt=""/>
+            {% else %}
+            <img src="/static/images/logo.svg" alt="Opin" />
+            {% endif %}
+        </span>
+        </a>
+        <div class="org-tile-body">
+            <!--<span class="org-tile-location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                FIXME: Dummy location !!
+            </span>-->
+            <h2 class="org-tile-title">
+                <a href="{% url 'organisation-detail' organisation.slug %}">
+                    {{ organisation.name }}
+                </a>
+            </h2>
+            <p class="org-tile-teaser">{{ organisation.description | truncatechars:150 }}</p>
+        </div>
     </div>
-    {% else %}
-    <div class="org-tile-body">
-        <h2 class="org-tile-title">
-            <a href="{% url 'organisation-detail' organisation.slug %}">
-                {{ organisation.name }}
-            </a>
-        </h2>
-        <p class="org-tile-teaser">{{ organisation.description | truncatechars:400 }}</p>
-    </div>
-    {% endif %}
 </div>
