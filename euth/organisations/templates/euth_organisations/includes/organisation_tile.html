@@ -1,8 +1,11 @@
 {% load i18n static %}
 <div class="col-sm-4">
     <div class="org-tile">
-        <!-- FIXME: actual background-image in here -->
-        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url(/static/images/__dummy_tile_bg.jpg)">
+        {% if organisation.image %}
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}}); background-size:cover;">
+        {% else %}
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link">
+        {% endif %}
         <span class="content">
             {% if organisation.logo %}
             <img src="{{ organisation.logo.url }}" alt=""/>
