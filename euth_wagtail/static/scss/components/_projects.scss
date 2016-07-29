@@ -132,3 +132,15 @@
 .size-1of2 {
     width: 50%;
 }
+
+.project-other-projects {
+
+    & .black-divider {
+        @include rem(margin, 224px 0px 10px 0px);
+
+        & .black-divider-text {
+            text-align: center;
+
+        }
+    }
+}
