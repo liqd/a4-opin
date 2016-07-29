@@ -1,3 +1,33 @@
+.custom-dropdown {
+    li {
+        a {
+            @include rem(padding, 10px);
+            text-align: center;
+        }
+    }
+}
+
+.custom-dropdown-menu {
+    @include rem(border-radius, 3px)
+    border: solid 1px $warm-grey;
+
+    .divider {
+        margin: 0px;
+        background-color: $warm-grey;
+    }
+
+    li {
+        a {
+            text-transform: uppercase;
+            @include rem(font-size, 12px);
+            @include rem(letter-spacing, -0.2px);
+            font-family: $font-family-sans-serif;
+            color: $black;
+            @include rem(font-size, 12px);
+        }
+    }
+}
+
 .action-bar {
 
     nav {
@@ -33,36 +63,14 @@
 
     }
     .dropdown {
-        li {
-            a {
-                @include rem(padding, 10px);
-                text-align: center;
-            }
-        }
+        @extend .custom-dropdown;
     }
 
     .navbar {
         li {
             .dropdown-menu {
-                @include rem(border-radius, 3px)
+                @extend .custom-dropdown-menu;
                 margin-top: -40px !important;
-                border: solid 1px $warm-grey;
-
-                .divider {
-                    margin: 0px;
-                    background-color: $warm-grey;
-                }
-
-                li {
-                    a {
-                        text-transform: uppercase;
-                        @include rem(font-size, 12px);
-                        @include rem(letter-spacing, -0.2px);
-                        font-family: $font-family-sans-serif;
-                        color: $black;
-                        @include rem(font-size, 12px);
-                    }
-                }
             }
         }
     }

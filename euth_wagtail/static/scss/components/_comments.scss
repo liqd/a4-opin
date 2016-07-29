@@ -1,53 +1,62 @@
-.comments_count {
-    padding: 20px 0;
-    text-transform: uppercase;
-}
 .commentBox {
-    margin: 0px 30px 0px 30px;
+    @include rem(margin, 0px 134px 0px 134px);
+    @include rem(padding-top, 35px);
 
     & .comments_login {
-        margin-top: 30px;
+        @include rem(margin-top, 30px);
     }
     & textarea {
-        border: 1px solid $gray-light;
+        border: 1px solid $warm-grey;
         border-radius: 0;
         -moz-border-radius: 0;
+        @include rem(font-size, 14px);
     }
     & textarea:focus {
-        border: 1px solid $gray-light;
+        border: 1px solid $warm-grey;
         border-radius: 0;
         -moz-border-radius: 0;
-    }
-    & .btn {
-        border-radius: 0;
-        -moz-border-radius: 0;
-        margin-right: 10px;
-    }
-    & .btn-primary {
-        background-color: $brand-brand1;
-        text-transform: uppercase;
+        @include rem(font-size, 14px);
     }
     & .comment {
+        @include rem(margin-bottom, 88px);
+
         & .commentAuthor {
-            color: $brand-brand1;
-            text-transform: none;
+            color: $black;
             font-family: $font-family-sans-serif;
-            @include rem(font-size, $font-size-large);
+            text-align: justify;
+            font-weight: bold;
+            @include rem(font-size, 16px);
         }
         & .commentDeletedAuthor {
             color: $gray;
-            text-transform: none;
             font-family: $font-family-sans-serif;
-            @include rem(font-size, $font-size-large);
+            text-align: justify;
+            @include rem(font-size, 16px);
+        }
+        & .comment-text {
+            & p {
+                font-family: $font-family-sans-serif;
+                @include rem(font-size, 14px);
+                @include rem(line-height, 1.6);
+                text-align: justify;
+                color: $text-grey;
+            }
         }
         & .child_comments_list {
             margin: 0px 40px 0px 40px;
         }
+        & .general-form {
+            @include rem(margin-bottom, 88px);
+        }
+
     }
 
     @media (max-width: $screen-sm-min) {
         margin: 0;
     }
+}
+.comment-list {
+    @include rem('padding-top', 79px);
 }
 .comment {
     & .icon::before {
@@ -61,7 +70,7 @@
         transform: translate(0, 0);
     }
     & .nav {
-        padding: 10px 0 10px 0;
+        padding: 0;
 
         & .red {
             color: $brand-brand4;
@@ -70,7 +79,7 @@
             color: $brand-brand3;
         }
         & .dark {
-            color: $gray-dark;
+            color: $black;
         }
         & .light {
             color: $gray-light;
@@ -81,6 +90,10 @@
         & li {
             & a {
                 padding: 2px 14px 2px 0px;
+                font-family: $font-family-sans-serif;
+                @include rem(font-size, 14px);
+                @include rem(line-height, 1.6);
+                text-align: justify;
             }
             & a:hover {
                 background-color: #fff;
@@ -95,12 +108,18 @@
             }
         }
         & .dropdown {
-            & a {
-                padding: 2px 7px 2px 7px;
-            }
+            @extend .custom-dropdown;
         }
         & .dropdown-menu {
-            border-radius: 0px;
+            @extend .custom-dropdown-menu;
+        }
+    }
+
+    & .action-bar {
+        & li {
+            & a {
+                font-weight: bold;
+            }
         }
     }
 }
