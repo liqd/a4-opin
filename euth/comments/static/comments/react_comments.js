@@ -244,8 +244,8 @@ var Comment = React.createClass({
   },
 
   pluralizeString: function (number) {
-    var fmts = django.ngettext('View %s reply',
-        'View %s Replies', number)
+    var fmts = django.ngettext('view %s reply',
+        'view %s replies', number)
     var s = django.interpolate(fmts, [number])
     return s
   },
@@ -359,7 +359,7 @@ var Comment = React.createClass({
                 href: '#',
                 onClick: this.showComments,
                 'aria-hidden': true
-              }, django.gettext('Anwser')
+              }, django.gettext('Answer')
               )
             ]) : null
           ])
