@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
-from model_utils import models as model_utils
 
+from euth.contrib import base_models
 from euth.projects import models as project_models
 
 
@@ -17,7 +17,7 @@ class Module(models.Model):
         return "{} ({})".format(self.project, self.weight)
 
 
-class Item(model_utils.TimeStampedModel):
+class Item(base_models.TimeStampedModel):
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
     creator = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

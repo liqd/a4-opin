@@ -33,7 +33,7 @@ def test_create_view(client, module, user):
 def test_update_view(client, idea, user):
     url = reverse('idea-update', kwargs={'slug': idea.slug})
     response = client.get(url)
-    assert response.status_code == 403
+    assert response.status_code == 302
     login_url = reverse('login')
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)

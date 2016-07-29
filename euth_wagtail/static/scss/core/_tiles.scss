@@ -1,20 +1,43 @@
 %tile {
     @include rem(margin, 0 13px 13px 0);
-    border: 1px solid $gray-lighter;
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: left;
 }
 
 %tile-title {
-    @include rem(font-size, 18px);
-    @include rem(margin, 0 0 2px);
-    line-height: 1.33333333;
+    @include rem(font-size, $font-size-large);
+    @include rem(margin, 0 0 10px);
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    text-align: center;
 }
 
 %tile-teaser-text {
-    @include rem(font-size, 14px);
+    @include rem(font-size, $font-size-small);
+    @include rem(margin-bottom, 10px);
     line-height: 1.571428571;
     margin-bottom: 0;
+}
+
+%tile-org {
+    @include rem(margin, 25px 0 0);
+    font-weight: bold;
+    line-height: 30px;
+
+    img.project-tile-org-avatar {
+        @include rem(margin-right, 9px);
+        float: left;
+        width: auto;
+    }
+}
+
+%tile-location {
+    @include rem(margin-bottom, 10px);
+    font-size: $font-size-small;
+    display: block;
+    text-align: center;
 }
 
 .tile-list {

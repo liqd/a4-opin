@@ -1,10 +1,9 @@
 from django.conf import settings
 from django.db import models
-from model_utils import models as model_utils
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
-from euth.contrib import validators
+from euth.contrib import base_models, validators
 
 
 class OrganisationManager(TranslatableManager):
@@ -12,7 +11,7 @@ class OrganisationManager(TranslatableManager):
         return self.get(name=name)
 
 
-class Organisation(model_utils.TimeStampedModel, TranslatableModel):
+class Organisation(base_models.TimeStampedModel, TranslatableModel):
     name = models.CharField(max_length=512, unique=True)
     slug = models.SlugField(max_length=512, unique=True)
 

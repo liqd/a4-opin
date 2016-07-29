@@ -1,3 +1,4 @@
+from braces.views import LoginRequiredMixin
 from django.contrib import messages
 from django.core import exceptions
 from django.core.urlresolvers import reverse
@@ -5,15 +6,20 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 
 from euth.modules.models import Module
+from euth.projects import mixins
 
 from . import models
+
+
+class IdeaListView(mixins.ProjectMixin, generic.ListView):
+    model = models.Idea
 
 
 class IdeaDetailView(generic.DetailView):
     model = models.Idea
 
 
-class IdeaUpdateView(generic.UpdateView):
+class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
 
@@ -31,7 +37,7 @@ class IdeaUpdateView(generic.UpdateView):
             raise exceptions.PermissionDenied
 
 
-class IdeaCreateView(generic.CreateView):
+class IdeaCreateView(LoginRequiredMixin, generic.CreateView):
     model = models.Idea
     fields = ['name', 'description', 'image']
 

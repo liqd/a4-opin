@@ -1,9 +1,11 @@
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.functional import cached_property
 
 from contrib.transforms import html_transforms
+from euth.comments import models as comment_models
 from euth.contrib import validators
 from euth.modules import models as module_models
 
@@ -18,15 +20,23 @@ class Idea(module_models.Item):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        self.description = html_transforms.clean_html_field(
+            self.description)
+        super(Idea, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('idea-detail', args=[str(self.slug)])
 
-    def clean(self):
-        super().clean()
-        self.description = html_transforms.clean_html_field(
-            self.description)
-
     @cached_property
     def project(self):
         return self.module.project
+
+    @cached_property
+    def comments(self):
+        contenttype = ContentType.objects.get_for_model(self)
+        pk = self.id
+        comments = comment_models.Comment.objects.all().filter(
+            content_type=contenttype, object_pk=pk)
+        return comments
