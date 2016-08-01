@@ -86,6 +86,26 @@
             }
         }
 
+        .idea-meta {
+            padding-right: 0;
+
+            .idea-meta-item {
+                @include rem(margin-right, 15px);
+
+                &.idea-upvotes i {
+                    color: $brand-success;
+                }
+
+                &.idea-downvotes i {
+                    color: $brand-danger;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
     }
 
     .idea-date {
