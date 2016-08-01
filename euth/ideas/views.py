@@ -14,6 +14,9 @@ from . import models
 class IdeaListView(mixins.ProjectMixin, generic.ListView):
     model = models.Idea
 
+    def get_queryset(self):
+        return models.Idea.objects.filter(module=self.module).order_by('name')
+
 
 class IdeaDetailView(generic.DetailView):
     model = models.Idea
