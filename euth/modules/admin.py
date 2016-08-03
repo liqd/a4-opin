@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from euth.phases import admin as phase_admin
+
 from . import models
 
 
