@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments thumbnail%}
+{% load i18n react_comments react_rates thumbnail%}
 
 {% block content %}
 <div class="container-narrow">
@@ -41,6 +41,10 @@
     <div class="avatar-small">
         <img src=""></img>
         <div class="name">{{ idea.creator.username }}</div>
+    </div>
+
+    <div>
+        {% react_rates idea %}
     </div>
 
     <div class="idea-description">
