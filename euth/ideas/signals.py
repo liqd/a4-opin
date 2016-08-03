@@ -29,3 +29,10 @@ def delete_comments_for_Idea(sender, instance, **kwargs):
     contenttype = ContentType.objects.get_for_model(instance)
     pk = instance.pk
     services.delete_comments(contenttype, pk)
+
+
+@receiver(post_delete, sender=Idea)
+def delete_rates_for_Idea(sender, instance, **kwargs):
+    contenttype = ContentType.objects.get_for_model(instance)
+    pk = instance.pk
+    services.delete_rates(contenttype, pk)

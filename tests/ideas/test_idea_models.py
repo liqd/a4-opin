@@ -8,6 +8,7 @@ from tests import helpers
 
 from euth.comments import models as comments_models
 from euth.ideas import models as idea_models
+from euth.rates import models as rate_models
 
 
 @pytest.mark.django_db
@@ -33,7 +34,7 @@ def test_project(idea):
 
 
 @pytest.mark.django_db
-def test_delete_idea(idea_factory, comment_factory, ImagePNG):
+def test_delete_idea(idea_factory, comment_factory, rate_factory, ImagePNG):
     idea = idea_factory(image=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, idea.image.path)
     thumbnail_path = helpers.createThumbnail(idea.image)
@@ -41,22 +42,27 @@ def test_delete_idea(idea_factory, comment_factory, ImagePNG):
 
     for i in range(5):
         comment_factory(object_pk=idea.id, content_type=contenttype)
-
     comment_count = comments_models.Comment.objects.all().count()
+
+    rate_factory(object_pk=idea.id, content_type=contenttype)
+    rate_count = rate_models.Rate.objects.all().count()
 
     assert os.path.isfile(image_path)
     assert os.path.isfile(thumbnail_path)
     count = idea_models.Idea.objects.all().count()
     assert count == 1
     assert comment_count == 5
+    assert rate_count == 1
 
     idea.delete()
     assert not os.path.isfile(image_path)
     assert not os.path.isfile(thumbnail_path)
     count = idea_models.Idea.objects.all().count()
     comment_count = comments_models.Comment.objects.all().count()
+    rate_count = rate_models.Rate.objects.all().count()
     assert count == 0
     assert comment_count == 0
+    assert rate_count == 0
 
 
 @pytest.mark.django_db
