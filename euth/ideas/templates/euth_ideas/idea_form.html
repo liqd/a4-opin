@@ -30,23 +30,49 @@
     {% endif %}
     <div class="general-form">
         <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
-                {% csrf_token %}
-                {{ form.media }}
-                {% for field in form %}
-                <div class="form-group {% if field.errors %}has-error {% endif %}">
-                    <label>{{ field.label }}</label>
-                    {% render_field field class="form-control" %}
-                    {% if field.errors %}
-                    <span class="help-block">{{ field.errors.0 }}</span>
-                    {% endif %}
-                </div>
-                {% endfor %}
-                <button type="submit" class="submit-button">{% trans 'post'%}</button>
-                {% if mode == 'create' %}
-                <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
-                {% elif mode == 'update' %}
-                <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+            {% csrf_token %}
+            {{ form.media }}
+            <div class="form-group">
+                <label class="control-label" for="{{ form.name.id_for_label }}">{% trans 'Title of the proposal'%}</label>
+                {% if form.name.errors %}
+                    {{ form.name|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.name|add_class:"form-control"}}
                 {% endif %}
+                {{ form.name.errors }}
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
+                {% if form.name.errors %}
+                    {{ form.description|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.description|add_class:"form-control"}}
+                {% endif %}
+                {{ form.description.errors }}
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="{{ form.image.id_for_label }}">{% trans 'Upload a picture'%}</label>
+                <div class="input-group form-control-upload">
+                    {% if form.image.errors %}
+                    <input type="text" class="form-control form-control-file-dummy form-error" placeholder="{% trans 'Select a picture from your local folder'%}">
+                    {% else %}
+                    <input type="text" class="form-control form-control-file-dummy" placeholder="{% trans 'Select a picture from your local folder'%}">
+                    {% endif %}
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" title="{% trans 'Upload a picture'%}"><i class="fa fa-cloud-upload"></i></button>
+                    </span>
+                    {{ form.image|add_class:"form-control form-control-file"}}
+                </div>
+                {{ form.image.errors }}
+            </div>
+
+            <button type="submit" class="submit-button">{% trans 'post'%}</button>
+            {% if mode == 'create' %}
+            <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+            {% elif mode == 'update' %}
+            <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+            {% endif %}
+
         </form>
     </div>
 </div>

@@ -41,4 +41,8 @@ $(document).ready(function() {
             }
         }
     });
+
+    $(".form-control-file").change(function() {
+      $(this).parent().find(".form-control-file-dummy").val($(this).val());
+    });
 });

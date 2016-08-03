@@ -1,8 +1,8 @@
 .general-form {
 
-    & .form-group {
+    .form-group {
 
-        & label {
+        label {
             @include rem(font-size, 14px);
             @include rem(height, 19px);
             font-weight: bold;
@@ -11,10 +11,34 @@
             color: $black;
         }
 
-        & .form-control {
+        .form-control {
             border: 1px solid $warm-grey;
-            border-radius: 0px;
-            @include rem(min-height, 76px);
+        }
+
+        .form-control-upload {
+            @include rem(width, 400px);
+            position: relative;
+
+            .form-control-file {
+                cursor: pointer;
+                left: 0;
+                position: absolute;
+                opacity: 0;
+                top: 0;
+            }
+
+            .btn {
+                @include rem(font-size, 30px);
+                @include rem(width, 76px);
+                background: $brand-success;
+                border: 0;
+                color: #fff;
+            }
+        }
+
+        .input-group-btn .btn, .form-control {
+            @include rem(height, 76px);
+            border-radius: 0;
         }
 
         @include rem(margin-bottom, 40px);
