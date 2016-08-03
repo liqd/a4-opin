@@ -56,6 +56,7 @@
 
     .idea-tile-image-link {
         @extend .tile-image-link;
+        background-color: $brand-brand1;
     }
 
     .idea-comments-count {
