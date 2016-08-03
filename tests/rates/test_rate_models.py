@@ -34,3 +34,17 @@ def test_rate_value_can_be_0(rate_factory):
 def test_rate_value_can_be_minus1(rate_factory):
     rate = rate_factory(value=-1)
     assert rate.value == -1
+
+
+@pytest.mark.django_db
+def test_user_can_rate_once(rate_factory, rate, user):
+
+    with pytest.raises(Exception) as e:
+        rate_factory(
+            value=1,
+            user=rate.user,
+            content_type=rate.content_type,
+            object_pk=rate.object_pk
+        )
+
+    assert 'UNIQUE constraint failed' in str(e)
