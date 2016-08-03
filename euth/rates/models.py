@@ -16,6 +16,9 @@ class Rate(TimeStampedModel):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     value = models.IntegerField()
 
+    class Meta:
+        unique_together = (('content_type', 'object_pk', 'user'))
+
     def __str__(self):
         return str(self.value)
 
