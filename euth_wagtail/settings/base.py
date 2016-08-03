@@ -182,7 +182,7 @@ PARLER_LANGUAGES = {
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
 
-ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg')
+ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg', 'image/gif')
 
 THUMBNAIL_ALIASES = {
     '': {
