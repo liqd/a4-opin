@@ -10,20 +10,18 @@ def react_rates(context, obj):
 
     login_url = settings.LOGIN_URL + '?next=' + context['request'].path
 
-    rates_contenttype = ContentType.objects.get(
-        app_label="euth_rates", model="rate")
-
     contenttype = ContentType.objects.get_for_model(obj)
     pk = obj.pk
 
     is_authenticated = int(context['request'].user.is_authenticated())
+    user_name = context['request'].user.username
 
     context = {
         'login_url': login_url,
-        'rates_contenttype': rates_contenttype,
-        'contenttype': contenttype,
+        'contenttype': contenttype.pk,
         'object_id': pk,
-        'is_authenticated': is_authenticated
+        'is_authenticated': is_authenticated,
+        'user_name': user_name
     }
 
     return context
