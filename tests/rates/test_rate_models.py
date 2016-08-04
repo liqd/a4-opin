@@ -1,5 +1,7 @@
 import pytest
 
+from django.db import IntegrityError
+
 
 @pytest.mark.django_db
 def test_rate_value(rate):
@@ -47,4 +49,4 @@ def test_user_can_rate_once(rate_factory, rate, user):
             object_pk=rate.object_pk
         )
 
-    assert 'UNIQUE constraint failed' in str(e)
+    assert e.type == IntegrityError
