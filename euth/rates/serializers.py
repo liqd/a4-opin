@@ -8,8 +8,8 @@ class RateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rate
-        read_only_fields = ('modified', 'created', 'id', 'user_name')
-        exclude = ('user',)
+        read_only_fields = ('id', 'user_name')
+        exclude = ('user', 'modified', 'created')
 
     def get_user_name(self, obj):
         return str(obj.user.username)
