@@ -8,10 +8,15 @@
         font-family: $font-family-sans-serif;
         font-weight: bold;
         color: $brand-brand1;
+        float: left;
         @include rem(font-size, 28px);
         @include rem(line-height, 1);
         text-align: justify;
         @include rem(margin, 0px 0px 6px 0px);
+
+        @media (max-width: $screen-sm-min) {
+            float: none;
+        }
     }
 }
 
@@ -23,6 +28,65 @@
         @include rem(font-size, 16px);
         @include rem(line-height, 1.6);
         color: $text-grey;
+    }
+}
+
+.idea-rate {
+    overflow: hidden;
+    text-align: right;
+
+    .idea-rate-btn {
+        @include rem(margin-left, 7px);
+        @include rem(padding, 0 13px);
+        border: 1px solid $brand-success;
+        display: inline-block;
+        line-height: 36px;
+
+        i {
+            color: $brand-success;
+        }
+
+        &.idea-rate-down {
+            border-color: $brand-danger;
+
+            i {
+                color: $brand-danger;
+            }
+
+            &:hover, &:focus, &.is-selected {
+                background: $brand-danger;
+            }
+        }
+
+        &.idea-rate-up {
+            &:hover, &:focus, &.is-selected {
+                background: $brand-success;
+            }
+        }
+
+        &:hover, &:focus, &.is-selected {
+            &, i {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    @media (max-width: $screen-sm-min) {
+        text-align: center;
+
+        .idea-rate-btn {
+            @include rem(border-radius, 20px 0 0 20px);
+            @include rem(font-size, $font-size-large);
+            @include rem(padding, 0 20px 0 60px);
+            line-height: 60px;
+            margin: 0;
+
+            &.idea-rate-down {
+                @include rem(border-radius, 0 20px 20px 0);
+                @include rem(padding, 0 60px 0 20px);
+            }
+        }
     }
 }
 
