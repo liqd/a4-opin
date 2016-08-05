@@ -13,7 +13,7 @@ class RateViewSet(viewsets.ModelViewSet):
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('object_pk', 'content_type', 'user')
+    filter_fields = ('object_pk', 'content_type', 'user', 'value')
 
     def create(self, request):
         """

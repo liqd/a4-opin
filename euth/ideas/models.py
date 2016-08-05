@@ -8,6 +8,7 @@ from contrib.transforms import html_transforms
 from euth.comments import models as comment_models
 from euth.contrib import validators
 from euth.modules import models as module_models
+from euth.rates import models as rate_models
 
 
 class Idea(module_models.Item):
@@ -40,3 +41,19 @@ class Idea(module_models.Item):
         comments = comment_models.Comment.objects.all().filter(
             content_type=contenttype, object_pk=pk)
         return comments
+
+    @cached_property
+    def negative_rates(self):
+        contenttype = ContentType.objects.get_for_model(self)
+        pk = self.id
+        negative_rates = rate_models.Rate.objects.all().filter(
+            content_type=contenttype, object_pk=pk, value=-1).count()
+        return negative_rates
+
+    @cached_property
+    def positive_rates(self):
+        contenttype = ContentType.objects.get_for_model(self)
+        pk = self.id
+        positive_rates = rate_models.Rate.objects.all().filter(
+            content_type=contenttype, object_pk=pk, value=1).count()
+        return positive_rates

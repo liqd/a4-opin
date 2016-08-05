@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments thumbnail%}
+{% load i18n react_comments react_rates thumbnail%}
 
 {% block content %}
 <div class="container-narrow">
@@ -44,14 +44,18 @@
             <div class="name">{{ idea.creator.username }}</div>
         </div>
 
-        <div class="idea-description">
-            <p>{{ idea.description |safe }}</p>
-        </div>
 
-        <div class="idea-rate">
-            <a class="idea-rate-btn idea-rate-up is-selected" href="#" title="{% trans 'Vote Up' %}"><i class="fa fa-chevron-up"></i> 33</a><a
-            class="idea-rate-btn idea-rate-down" href="#" title="{% trans 'Vote Down' %}"><i class="fa fa-chevron-down"></i> 33</a>
-        </div>
+    <div class="idea-description">
+        <p>{{ idea.description |safe }}</p>
+    </div>
+
+    {% react_rates idea %}
+
+    <!--<div class="idea-rate">
+        <a class="idea-rate-btn idea-rate-up is-selected" href="#" title="{% trans 'Vote Up' %}"><i class="fa fa-chevron-up"></i> 33</a>
+        <a class="idea-rate-btn idea-rate-down" href="#" title="{% trans 'Vote Down' %}"><i class="fa fa-chevron-down"></i> 33</a>
+    </div>-->
+
 
         <div>
             {% react_comments idea %}
