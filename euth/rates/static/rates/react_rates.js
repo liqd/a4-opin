@@ -120,6 +120,14 @@ var RateBox = React.createClass({
       this.handleRateModify(number, this.state.userRateId)
     } else this.handleRateCreate(-1)
   },
+  getRateUpstyle: function () {
+    if (this.state.userRate === 1) return 'a.idea-rate-btn.idea-rate-up.is-selected'
+    else return 'a.idea-rate-btn.idea-rate-up'
+  },
+  getRateDownstyle: function () {
+    if (this.state.userRate === -1) return 'a.idea-rate-btn.idea-rate-down.is-selected'
+    else return 'a.idea-rate-btn.idea-rate-down'
+  },
   getInitialState: function () {
     return {
       positiveRates: 0,
@@ -133,6 +141,7 @@ var RateBox = React.createClass({
     setInterval(this.loadRatesFromServer, this.props.pollInterval)
   },
   render: function () {
+    /*
     return (
       h('ul.nav.nav-pills', [
         h('li.entry', [
@@ -154,6 +163,30 @@ var RateBox = React.createClass({
       ]
     )
   )
+  */
+    return (
+      h('div.idea-rate', [
+        h(this.getRateUpstyle(), {
+          href: '#',
+          title: 'Vote Up',
+          onClick: this.rateUp
+        }, [
+          h('i.fa.fa-chevron-up', [
+            h('span', ' ' + this.state.positiveRates)
+          ])
+        ]
+        ),
+        h(this.getRateDownstyle(), {
+          href: '#',
+          title: 'Vote Down',
+          onClick: this.rateDown
+        }, [
+          h('i.fa.fa-chevron-down', [
+            h('span', ' ' + this.state.negativeRates)
+          ])
+        ])
+      ])
+    )
   }
 })
 

@@ -50,6 +50,10 @@
 
         i {
             color: $brand-success;
+
+            span {
+                font-family: $font-family-sans-serif;
+            }
         }
 
         &.idea-rate-down {
@@ -59,18 +63,18 @@
                 color: $brand-danger;
             }
 
-            &:hover, &:focus, &.is-selected {
+            &.is-selected {
                 background: $brand-danger;
             }
         }
 
         &.idea-rate-up {
-            &:hover, &:focus, &.is-selected {
+            &.is-selected {
                 background: $brand-success;
             }
         }
 
-        &:hover, &:focus, &.is-selected {
+        &.is-selected {
             &, i {
                 color: #fff;
                 text-decoration: none;
