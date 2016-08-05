@@ -46,6 +46,10 @@
             .navbar-nav {
                 float: left;
                 margin: 0;
+
+                li {
+                    float: left;
+                }
             }
 
             .navbar-right {
