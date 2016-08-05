@@ -141,56 +141,59 @@ var RateBox = React.createClass({
     setInterval(this.loadRatesFromServer, this.props.pollInterval)
   },
   render: function () {
-    /*
-    return (
-      h('ul.nav.nav-pills', [
-        h('li.entry', [
-          h('a.icon.fa-chevron-up.green', {
-            href: '#',
-            onClick: this.rateUp,
-            'aria-hidden': true
-          }, this.state.positiveRates + ' (+)'
+    if (this.props.style === 'comments') {
+      return (
+        h('ul.nav.navbar-nav', [
+          h('li.entry', [
+            h('a.icon.fa-chevron-up.comment-rate-up', {
+              href: '#',
+              onClick: this.rateUp,
+              'aria-hidden': true
+            }, this.state.positiveRates
           )
-        ]),
-        h('li.entry', [
-          h('a.icon.fa-chevron-down.red', {
-            href: '#',
-            onClick: this.rateDown,
-            'aria-hidden': true
-          }, this.state.negativeRates + ' (-)'
-          )
-        ])
-      ]
-    )
-  )
-  */
-    return (
-      h('div.idea-rate', [
-        h(this.getRateUpstyle(), {
-          href: '#',
-          title: 'Vote Up',
-          onClick: this.rateUp
-        }, [
-          h('i.fa.fa-chevron-up', [
-            h('span', ' ' + this.state.positiveRates)
-          ])
-        ]
-        ),
-        h(this.getRateDownstyle(), {
-          href: '#',
-          title: 'Vote Down',
-          onClick: this.rateDown
-        }, [
-          h('i.fa.fa-chevron-down', [
-            h('span', ' ' + this.state.negativeRates)
+          ]),
+          h('li.entry', [
+            h('a.icon.fa-chevron-down.comment-rate-down', {
+              href: '#',
+              onClick: this.rateDown,
+              'aria-hidden': true
+            }, this.state.negativeRates
+            )
           ])
         ])
-      ])
-    )
+      )
+    }
+    if (this.props.style === 'ideas') {
+      return (
+        h('div.idea-rate', [
+          h(this.getRateUpstyle(), {
+            href: '#',
+            title: 'Vote Up',
+            onClick: this.rateUp
+          }, [
+            h('i.fa.fa-chevron-up', [
+              h('span', ' ' + this.state.positiveRates)
+            ])
+          ]
+          ),
+          h(this.getRateDownstyle(), {
+            href: '#',
+            title: 'Vote Down',
+            onClick: this.rateDown
+          }, [
+            h('i.fa.fa-chevron-down', [
+              h('span', ' ' + this.state.negativeRates)
+            ])
+          ])
+        ])
+      )
+    }
   }
 })
 
-module.exports.renderRates = function (url, loginUrl, contentType, objectId, isAuthenticated, username, target) {
+module.exports.RateBox = RateBox
+
+module.exports.renderRates = function (url, loginUrl, contentType, objectId, isAuthenticated, username, style, target) {
   ReactDOM.render(
     h(RateBox, {
       url: url,
@@ -199,7 +202,8 @@ module.exports.renderRates = function (url, loginUrl, contentType, objectId, isA
       objectId: objectId,
       isAuthenticated: isAuthenticated,
       pollInterval: 20000,
-      username: username
+      username: username,
+      style: style
     }),
     document.getElementById(target)
   )

@@ -69,23 +69,44 @@
         -moz-osx-font-smoothing: grayscale;
         transform: translate(0, 0);
     }
+    & .navbar-default {
+        background-color: transparent;
+        border: none;
+    }
+    & .navbar {
+        min-height: initial;
+        margin-bottom: 0px;
+    }
     & .nav {
         padding: 0;
 
-        & .red {
-            color: $brand-brand4;
+        & .comment-rate-up {
+            color: $brand-danger;
+            font-weight: normal;
+
+            &:hover, &:focus {
+                color: $brand-danger;
+                font-weight: normal;
+            }
         }
-        & .green {
-            color: $brand-brand3;
+        & .comment-rate-down {
+            color: $brand-success;
+            font-weight: normal;
+
+            &:hover, &:focus {
+                color: $brand-success;
+                font-weight: normal;
+            }
         }
         & .dark {
             color: $black;
+            font-weight: normal;
         }
         & .light {
             color: $gray-light;
         }
         & .open a, & .open a:hover, & .open a:focus {
-            background-color: white;
+            background-color: transparent;
         }
         & li {
             & a {
@@ -96,11 +117,11 @@
                 text-align: justify;
             }
             & a:hover {
-                background-color: #fff;
+                background-color: transparent;
                 text-decoration: none;
             }
             & a:focus {
-                background-color: #fff;
+                background-color: transparent;
                 text-decoration: none;
             }
             & .active {
