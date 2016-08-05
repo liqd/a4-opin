@@ -1,3 +1,5 @@
+var Rates = require('../../../../euth/rates/static/rates/react_rates')
+
 var $ = require('jquery')
 var React = require('react')
 var ReactDOM = require('react-dom')
@@ -118,6 +120,7 @@ var CommentBox = React.createClass({
     return {
       isAuthenticated: this.props.isAuthenticated,
       login_url: this.props.login_url,
+      ratesUrls: this.props.ratesUrls,
       comments_contenttype: this.props.comments_contenttype,
       user_name: this.props.user_name,
       language: this.props.language
@@ -153,6 +156,7 @@ var CommentBox = React.createClass({
 CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.number,
   login_url: React.PropTypes.string,
+  ratesUrls: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
@@ -224,16 +228,6 @@ var Comment = React.createClass({
     return !(this.state.is_deleted)
   },
 
-  rateUp: function (e) {
-    e.preventDefault()
-    console.log('+1')
-  },
-
-  rateDown: function (e) {
-    e.preventDefault()
-    console.log('-1')
-  },
-
   isOwner: function () {
     return this.props.user_name === this.context.user_name
   },
@@ -253,6 +247,7 @@ var Comment = React.createClass({
   render: function () {
     return (
     h('div.comment', [
+
       this.isOwner() ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
         question: django.gettext('Do you really want to delete this comment?'),
@@ -263,6 +258,7 @@ var Comment = React.createClass({
         abort: django.gettext('Abort'),
         btnStyle: 'cta'
       }) : null,
+
       h('h3.' + (this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'), this.props.user_name),
       this.state.edit
         ? h(CommentEditForm, {
@@ -274,76 +270,87 @@ var Comment = React.createClass({
             this.state.edit = false
           }.bind(this)
         })
+
         : h('span.comment-text', {
           dangerouslySetInnerHTML: markdown2html(this.props.children)
         }
       ),
-      h('ul.nav.nav-pills', [
-        h('li.entry',
-          [
-            this.props.modified === null
-              ? h('a.commentSubmissionDate.dark',
-                  moment(this.props.created).format('D MMM YY'))
-              : h('a.commentSubmissionDate.dark',
-                  django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
-          ]
-        ),
-        this.allowRate() ? h('li.entry', [
-          h('a.icon.fa-chevron-up.green', {
-            href: '#',
-            onClick: this.rateUp,
-            'aria-hidden': true
-          }, this.props.child_comments.length
-          )
-        ]) : null,
-        this.allowRate() ? h('li.entry', [
-          h('a.icon.fa-chevron-down.red', {
-            href: '#',
-            onClick: this.rateDown,
-            'aria-hidden': true
-          }, this.props.child_comments.length
-          )
-        ]) : null,
-        this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
-          h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
-            'data-toggle': 'dropdown',
-            href: '#',
-            role: 'button',
-            'aria-haspopup': true,
-            'aria-expanded': false,
-            'aria-hidden': true
-          }),
-          h('ul.dropdown-menu', [].concat(
-            this.isOwner() ? [ h('li', [
-              h('a', {
-                href: '#',
-                onClick: this.toggleEdit,
-                'aria-hidden': true
-              }, django.gettext('Edit')
-              )
-            ]),
-            h('li.divider'),
-            h('li', [
-              h('a', {
-                href: '#',
-                'data-toggle': 'modal',
-                'data-target': '#comment_delete_' + this.props.id,
-                'aria-hidden': true
-              }, django.gettext('Delete'))
-            ]),
-            h('li.divider')] : [],
-            [h('li', [
-              h('a', {
-                href: '#',
-                onClick: this.onReport,
-                'aria-hidden': true
-              }, django.gettext('Report')
-              )
+
+      h('div.action-bar', [
+
+        h('nav.navbar.navbar-default.navbar-static', [
+
+          h('ul.nav.navbar-nav', [
+            h('li.entry', [
+              this.props.modified === null
+                ? h('a.commentSubmissionDate.dark',
+                    moment(this.props.created).format('D MMM YY'))
+                : h('a.commentSubmissionDate.dark',
+                    django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
             ])
-          ]))
-        ]) : null
+          ]),
+
+          this.allowRate() ? h(Rates.RateBox, {
+            url: this.context.ratesUrls,
+            loginUrl: this.context.login_url,
+            contentType: this.context.comments_contenttype,
+            objectId: this.props.id,
+            isAuthenticated: this.context.isAuthenticated,
+            pollInterval: 20000,
+            username: this.context.user_name,
+            style: 'comments'
+          }
+          ) : null,
+
+          h('ul.nav.navbar-nav', [
+
+            this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
+              h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
+                'data-toggle': 'dropdown',
+                href: '#',
+                role: 'button',
+                'aria-haspopup': true,
+                'aria-expanded': false,
+                'aria-hidden': true
+              }),
+
+              h('ul.dropdown-menu', [].concat(
+                this.isOwner() ? [ h('li', [
+                  h('a', {
+                    href: '#',
+                    onClick: this.toggleEdit,
+                    'aria-hidden': true
+                  }, django.gettext('Edit')
+                  )
+                ]),
+                h('li.divider'),
+                h('li', [
+                  h('a', {
+                    href: '#',
+                    'data-toggle': 'modal',
+                    'data-target': '#comment_delete_' + this.props.id,
+                    'aria-hidden': true
+                  }, django.gettext('Delete'))
+                ]),
+                h('li.divider')] : [],
+                [h('li', [
+                  h('a', {
+                    href: '#',
+                    onClick: this.onReport,
+                    'aria-hidden': true
+                  }, django.gettext('Report')
+                  )
+                ])
+              ]))
+
+            ]) : null // end li.dropdown
+
+          ])
+        ])
       ]),
+
       !this.state.is_deleted ? h('div.action-bar', [
+
         h('nav.navbar.navbar-default.navbar-static', [
           this.props.child_comments.length > 0 ? h('ul.nav.navbar-nav', [
             h('li', [
@@ -353,6 +360,7 @@ var Comment = React.createClass({
               }, this.pluralizeString(this.props.child_comments.length))
             ])
           ]) : null,
+
           h('ul.nav.navbar-nav.navbar-right', [
             this.allowForm() ? h('li.entry', [
               h('a.icon.fa-reply.dark', {
@@ -364,14 +372,17 @@ var Comment = React.createClass({
             ]) : null
           ])
         ])
-      ]) : null,
+      ]) : null, // end div.action-bar
+
       this.state.showChildComments ? h('div.child_comments_list', [
+
         h(CommentList, {
           comments: this.props.child_comments,
           parentIndex: this.props.index,
           handleCommentDelete: this.props.handleCommentDelete,
           handleCommentModify: this.props.handleCommentModify
         }),
+
         h(CommentForm, {
           subjectType: this.context.comments_contenttype,
           subjectId: this.props.id,
@@ -380,7 +391,8 @@ var Comment = React.createClass({
           placeholder: django.gettext('Your reply here'),
           rows: 3
         })
-      ]) : null
+      ]) : null // end div.child_comments_list
+
     ])
     )
   }
@@ -431,7 +443,10 @@ var Modal = React.createClass({
 Comment.contextTypes = {
   comments_contenttype: React.PropTypes.number,
   isAuthenticated: React.PropTypes.number,
-  user_name: React.PropTypes.string
+  user_name: React.PropTypes.string,
+  login_url: React.PropTypes.string,
+  ratesUrls: React.PropTypes.string,
+  contentType: React.PropTypes.number
 }
 
 var CommentForm = React.createClass({
@@ -538,10 +553,11 @@ CommentEditForm.contextTypes = {
   login_url: React.PropTypes.string
 }
 
-module.exports.renderComment = function (url, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language) {
+module.exports.renderComment = function (url, ratesUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
+      ratesUrls: ratesUrls,
       subjectType: subjectType,
       subjectId: subjectId,
       comments_contenttype: commentsContenttype,
