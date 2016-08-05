@@ -50,7 +50,7 @@ def test_authenticated_user_can_rate_higher_1(rate, apiclient):
     url = reverse('rates-detail', kwargs={'pk': rate.pk})
     response = apiclient.patch(url, data, format='json')
     assert response.status_code == status.HTTP_200_OK
-    assert response.data['value'] == 0
+    assert response.data['value'] == 1
 
 
 @pytest.mark.django_db
@@ -60,7 +60,7 @@ def test_authenticated_user_can_rate_lower_minus1(rate, apiclient):
     url = reverse('rates-detail', kwargs={'pk': rate.pk})
     response = apiclient.patch(url, data, format='json')
     assert response.status_code == status.HTTP_200_OK
-    assert response.data['value'] == 0
+    assert response.data['value'] == -1
 
 
 @pytest.mark.django_db

@@ -27,6 +27,9 @@ class Rate(TimeStampedModel):
         return super().save(*args, **kwargs)
 
     def _get_value(self, number):
-        if number > 1 or number < -1:
-            return 0
-        return number
+        if number > 1:
+            return 1
+        elif number < -1:
+            return -1
+        else:
+            return number
