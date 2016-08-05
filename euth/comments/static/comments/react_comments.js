@@ -290,7 +290,7 @@ var Comment = React.createClass({
             ])
           ]),
 
-          this.allowRate() ? h(Rates.RateBox, {
+          this.allowRate() && !this.props.is_deleted ? h(Rates.RateBox, {
             url: this.context.ratesUrls,
             loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
@@ -304,7 +304,7 @@ var Comment = React.createClass({
 
           h('ul.nav.navbar-nav', [
 
-            this.context.isAuthenticated && !this.state.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
+            this.context.isAuthenticated && !this.props.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
               h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
                 'data-toggle': 'dropdown',
                 href: '#',
@@ -349,7 +349,7 @@ var Comment = React.createClass({
         ])
       ]),
 
-      !this.state.is_deleted ? h('div.action-bar', [
+      !this.props.is_deleted ? h('div.action-bar', [
 
         h('nav.navbar.navbar-default.navbar-static', [
           this.props.child_comments.length > 0 ? h('ul.nav.navbar-nav', [
