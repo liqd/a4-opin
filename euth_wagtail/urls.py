@@ -30,7 +30,6 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(router.urls)),
-    url(r'', include(user_urls)),
 ]
 
 urlpatterns += i18n_patterns(
