@@ -128,13 +128,6 @@ var RateBox = React.createClass({
         number = -1
       }
       this.handleRateModify(number, this.state.userRateId)
-  getRateUpstyle: function () {
-    if (this.state.userRate === 1) return 'a.idea-rate-btn.idea-rate-up.is-selected'
-    else return 'a.idea-rate-btn.idea-rate-up'
-  },
-  getRateDownstyle: function () {
-    if (this.state.userRate === -1) return 'a.idea-rate-btn.idea-rate-down.is-selected'
-    else return 'a.idea-rate-btn.idea-rate-down'
     } else {
       this.handleRateCreate(-1)
     }
@@ -177,7 +170,7 @@ var RateBox = React.createClass({
     if (this.props.style === 'ideas') {
       return (
         h('div.idea-rate', [
-          h(this.getRateUpstyle(), {
+          h('a.idea-rate-btn.idea-rate-up' + (this.state.userRate === 1 ? '.is-selected' : ''), {
             href: '#',
             title: 'Vote Up',
             onClick: this.rateUp
@@ -187,7 +180,7 @@ var RateBox = React.createClass({
             ])
           ]
           ),
-          h(this.getRateDownstyle(), {
+          h('a.idea-rate-btn.idea-rate-down' + (this.state.userRate === -1 ? '.is-selected' : ''), {
             href: '#',
             title: 'Vote Down',
             onClick: this.rateDown
