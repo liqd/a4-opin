@@ -78,8 +78,12 @@ var RateBox = React.createClass({
         userRateId = value.id
         userRateIndex = index
       }
-      if (value.value === 1) positiveRates++
-      if (value.value === -1) negativeRates++
+      if (value.value === 1) {
+        positiveRates++
+      }
+      if (value.value === -1) {
+        negativeRates++
+      }
     })
     this.setState({
       positiveRates: positiveRates,
