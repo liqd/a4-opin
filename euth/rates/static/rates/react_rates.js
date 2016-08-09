@@ -105,11 +105,15 @@ var RateBox = React.createClass({
     }
     if (this.state.userHasRated) {
       var number
-      if (this.state.userRate === 1) number = 0
-      else if (this.state.userRate === 0) number = 1
-      else number = 1
+      if (this.state.userRate === 1) {
+        number = 0
+      } else {
+        number = 1
+      }
       this.handleRateModify(number, this.state.userRateId)
-    } else this.handleRateCreate(1)
+    } else {
+      this.handleRateCreate(1)
+    }
   },
   rateDown: function (e) {
     e.preventDefault()
@@ -118,12 +122,12 @@ var RateBox = React.createClass({
     }
     if (this.state.userHasRated) {
       var number
-      if (this.state.userRate === -1) number = 0
-      else if (this.state.userRate === 0) number = -1
-      else number = -1
+      if (this.state.userRate === -1) {
+        number = 0
+      } else {
+        number = -1
+      }
       this.handleRateModify(number, this.state.userRateId)
-    } else this.handleRateCreate(-1)
-  },
   getRateUpstyle: function () {
     if (this.state.userRate === 1) return 'a.idea-rate-btn.idea-rate-up.is-selected'
     else return 'a.idea-rate-btn.idea-rate-up'
@@ -131,6 +135,9 @@ var RateBox = React.createClass({
   getRateDownstyle: function () {
     if (this.state.userRate === -1) return 'a.idea-rate-btn.idea-rate-down.is-selected'
     else return 'a.idea-rate-btn.idea-rate-down'
+    } else {
+      this.handleRateCreate(-1)
+    }
   },
   getInitialState: function () {
     return {
