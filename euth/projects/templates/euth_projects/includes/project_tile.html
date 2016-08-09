@@ -5,7 +5,7 @@
     </a>
     <div class="project-tile-body">
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>
-        <p class="project-tile-teaser">{{ project.description|truncatechars:250 }}</p>
+        <p class="project-tile-teaser">{{ project.description|truncatechars:200 }}</p>
         <p class="project-tile-org">
             <img src="" class="project-tile-org-avatar" alt=""/>
             Liquid Democracy e.V.
