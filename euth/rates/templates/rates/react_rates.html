@@ -1,5 +1,4 @@
 <div id="rates_for_{{contenttype}}_{{pk}}"></div>
 <script>
-  window.Opin.renderRates("{% url 'rates-list'%}", "{{ login_url }}", {{contenttype}}, {{object_id}}, {{is_authenticated}}, "{{user_name}}", "ideas", "rates_for_{{contenttype}}_{{pk}}")
+  window.Opin.renderRates("{% url 'rates-list'%}", "{{ login_url }}", {{contenttype}}, {{object_id}}, {% if authenticated_as %}"{{ authenticated_as|escapejs }}"{% else %}null{% endif %}, "ideas", "rates_for_{{contenttype}}_{{pk}}")
 </script>
-

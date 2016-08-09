@@ -70,7 +70,7 @@ var RateBox = React.createClass({
     var userRate = 0
     var userRateId = -1
     var userRateIndex = -1
-    var username = this.props.username
+    var username = this.props.authenticatedAs
     $.each(rates, function (index, value) {
       if (value.user_name === username) {
         userHasRated = true
@@ -100,8 +100,9 @@ var RateBox = React.createClass({
   },
   rateUp: function (e) {
     e.preventDefault()
-    if (!this.props.isAuthenticated) {
+    if (this.props.authenticatedAs === null) {
       window.location.href = this.props.loginUrl
+      return
     }
     if (this.state.userHasRated) {
       var number
@@ -117,8 +118,9 @@ var RateBox = React.createClass({
   },
   rateDown: function (e) {
     e.preventDefault()
-    if (!this.props.isAuthenticated) {
-      window.location.replace('/' + this.props.loginUrl)
+    if (this.props.authenticatedAs === null) {
+      window.location.href = this.props.loginUrl
+      return
     }
     if (this.state.userHasRated) {
       var number
@@ -197,16 +199,15 @@ var RateBox = React.createClass({
 
 module.exports.RateBox = RateBox
 
-module.exports.renderRates = function (url, loginUrl, contentType, objectId, isAuthenticated, username, style, target) {
+module.exports.renderRates = function (url, loginUrl, contentType, objectId, authenticatedAs, style, target) {
   ReactDOM.render(
     h(RateBox, {
       url: url,
       loginUrl: loginUrl,
       contentType: contentType,
       objectId: objectId,
-      isAuthenticated: isAuthenticated,
+      authenticatedAs: authenticatedAs,
       pollInterval: 20000,
-      username: username,
       style: style
     }),
     document.getElementById(target)

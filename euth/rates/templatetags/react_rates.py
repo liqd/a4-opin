@@ -13,15 +13,16 @@ def react_rates(context, obj):
     contenttype = ContentType.objects.get_for_model(obj)
     pk = obj.pk
 
-    is_authenticated = int(context['request'].user.is_authenticated())
-    user_name = context['request'].user.username
+    if context['request'].user.is_authenticated():
+        authenticated_as = context['request'].user.username
+    else:
+        authenticated_as = None
 
     context = {
         'login_url': login_url,
         'contenttype': contenttype.pk,
         'object_id': pk,
-        'is_authenticated': is_authenticated,
-        'user_name': user_name
+        'authenticated_as': authenticated_as,
     }
 
     return context
