@@ -97,7 +97,7 @@ var RateBox = React.createClass({
   rateUp: function (e) {
     e.preventDefault()
     if (!this.props.isAuthenticated) {
-      window.location.replace('/' + this.props.loginUrl)
+      window.location.href = this.props.loginUrl
     }
     if (this.state.userHasRated) {
       var number
