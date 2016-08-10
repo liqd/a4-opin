@@ -1,4 +1,4 @@
 <div id="comments_for_{{contenttype}}_{{pk}}"></div>
 <script>
-  window.Opin.renderComment( "{% url 'comments-list'%}", "{% url 'rates-list'%}" ,{{contenttype}}, {{pk}}, {{comments_contenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", "{{ user_name }}", "{{ language }}")
+  window.Opin.renderComment( "{% url 'comments-list'%}", "{% url 'rates-list'%}" ,{{contenttype}}, {{pk}}, {{comments_contenttype.pk }}, {{is_authenticated}}, "{{ login_url }}", "comments_for_{{contenttype}}_{{pk}}", "{{ user_name|escapejs }}", "{{ language }}")
 </script>

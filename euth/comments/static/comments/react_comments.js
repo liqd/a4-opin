@@ -295,9 +295,8 @@ var Comment = React.createClass({
             loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
             objectId: this.props.id,
-            isAuthenticated: this.context.isAuthenticated,
+            authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
             pollInterval: 20000,
-            username: this.context.user_name,
             style: 'comments'
           }
           ) : null,
