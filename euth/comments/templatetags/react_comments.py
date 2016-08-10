@@ -1,6 +1,6 @@
 from django import template, utils
-from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
+from django.core.urlresolvers import reverse
 
 register = template.Library()
 
@@ -8,7 +8,7 @@ register = template.Library()
 @register.inclusion_tag('comments/react_comments.html', takes_context=True)
 def react_comments(context, obj):
 
-    login_url = settings.LOGIN_URL + '?next=' + context['request'].path
+    login_url = reverse('login') + '?next=' + context['request'].path
 
     comments_contenttype = ContentType.objects.get(
         app_label="comments", model="comment")
