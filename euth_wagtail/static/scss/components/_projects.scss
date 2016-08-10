@@ -41,6 +41,7 @@
 
 .project-tile {
     @extend %tile;
+    min-height: 470px;
 
     img {
         margin: 0;
