@@ -14,8 +14,31 @@ from . import models
 class IdeaListView(mixins.ProjectMixin, generic.ListView):
     model = models.Idea
 
+    crud_allowed = False
+    comment_allowed = False
+    rate_allowed = False
+
     def get_queryset(self):
         return models.Idea.objects.filter(module=self.module).order_by('name')
+
+
+class CollectPhaseView(IdeaListView):
+    crud_allowed = True
+    comment_allowed = True
+
+
+class RatePhaseView(IdeaListView):
+    rate_allowed = True
+
+
+class CommentPhaseView(IdeaListView):
+    comment_allowed = True
+
+
+class UniversalPhaseView(IdeaListView):
+    crud_allowed = True
+    comment_allowed = True
+    rate_allowed = True
 
 
 class IdeaDetailView(generic.DetailView):
