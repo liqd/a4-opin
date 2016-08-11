@@ -49,18 +49,14 @@
         </div>
 
 
-    <div class="idea-description">
-        <p>{{ idea.description |safe }}</p>
-    </div>
-
-    {% react_rates idea %}
-
-
-        <div>
-            {% react_comments idea %}
+        <div class="idea-description">
+            <p>{{ idea.description |safe }}</p>
         </div>
-    </div>
 
+        {% react_rates idea %}
+
+        {% react_comments idea %}
+    </div>
 </div>
 
 {% include "euth_ideas/includes/modal.html" with idea=idea %}
