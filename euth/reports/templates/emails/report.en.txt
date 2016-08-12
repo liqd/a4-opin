@@ -1,0 +1,13 @@
+We have received a report request for A ressource of type {{ name }} on {{site.name}} with the following reason:
+
+{{ description }}
+
+{% if admin_url%}
+To view and edit this resource follow this link go to the following url.
+
+{{ protocol }}://{{site.domain}}{{admin_url}}
+{% endif %}
+
+Best wishes
+
+{{site.name}} team
