@@ -1,9 +1,9 @@
 from rest_framework import mixins, permissions, status, viewsets
 from rest_framework.response import Response
 
+from . import emails
 from .models import Report
 from .serializers import ReportSerializer
-from . import emails
 
 
 class ReportViewSet(mixins.CreateModelMixin,
