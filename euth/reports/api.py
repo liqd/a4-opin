@@ -3,6 +3,7 @@ from rest_framework.response import Response
 
 from .models import Report
 from .serializers import ReportSerializer
+from . import emails
 
 
 class ReportViewSet(mixins.CreateModelMixin,
@@ -19,7 +20,10 @@ class ReportViewSet(mixins.CreateModelMixin,
         serializer = ReportSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save(user=self.request.user)
+            report = serializer.save(user=self.request.user)
+            emails.send_email_to_moderators(request, report)
+            emails.send_email_to_creator(request, report)
+
             return Response(serializer.data)
         else:
             return Response(serializer.errors,
