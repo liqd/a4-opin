@@ -7,5 +7,4 @@ class ReportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Report
-        read_only_fields = ('description')
         exclude = ('user', 'modified', 'created')
