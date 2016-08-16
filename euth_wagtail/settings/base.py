@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.rates.apps.RatesConfig',
+    'euth.dashboard.apps.DashboardConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
