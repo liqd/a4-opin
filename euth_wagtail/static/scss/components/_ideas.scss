@@ -145,10 +145,14 @@
         border: none;
 
         h3 {
+            @include rem(font-size, 28px);
             margin: 0;
             padding: 0;
-            @include rem(font-size, 28px);
             line-height: 1.17;
+
+            @media (max-width: $screen-sm-min) {
+                @include rem(font-size, $font-size-medium);
+            }
 
             a {
                 color: $black;
@@ -173,6 +177,11 @@
 
                 &:last-child {
                     margin-right: 0;
+                }
+
+                @media (max-width: $screen-sm-min) {
+                    @include rem(font-size, $font-size-small);
+                    @include rem(margin-right, 5px);
                 }
             }
         }
