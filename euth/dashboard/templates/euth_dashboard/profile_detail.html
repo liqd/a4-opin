@@ -1,6 +1,28 @@
 {% extends "euth_dashboard/base_dashboard.html" %}
-{% load i18n %}
+{% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
 <h1>{% trans 'Profile' %}</h1>
+
+<div class="general-form">
+    <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            {% for field in form %}
+            <div class="form-group {% if field.errors %}has-error {% endif %}">
+                <label>{{ field.label }}</label>
+                {% render_field field class="form-control" %}
+                {% if field.errors %}
+                <span class="help-block">{{ field.errors.0 }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="submit-button">{% trans 'post'%}</button>
+            {% if mode == 'create' %}
+            <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+            {% elif mode == 'update' %}
+            <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+            {% endif %}
+    </form>
+</div>
 {% endblock %}
