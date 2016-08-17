@@ -10,6 +10,11 @@
     <h2>{{ view.phase.name }}</h2>
     <p class="idea-list-description">{{ view.phase.description }}</p>
 
+    <button class="idea-list-button">
+        <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
+        Create New Proposal
+    </button>
+
     {% for idea in idea_list %}
     {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
     {% endfor %}

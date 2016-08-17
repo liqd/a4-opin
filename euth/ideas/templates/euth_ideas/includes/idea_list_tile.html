@@ -1,13 +1,13 @@
 {% load i18n thumbnail static %}
 <div class="idea-list-tile">
     {% if idea.image %}
-    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link col-md-2 col-sm-2 col-xs-3" style="background-size: cover; background-image: url({{ idea.image.url }});">
+    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link" style="background-image: url({{ idea.image.url }});">
     </a>
     {% else %}
-    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link col-md-2 col-sm-2 col-xs-3">
+    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link">
     </a>
     {% endif %}
-    <div class="idea-tile-body col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-9 col-xs-offset-3">
+    <div class="idea-tile-body">
         <div class="row">
             <div class="col-lg-8">
                 <h3 class="idea-tile-title">
