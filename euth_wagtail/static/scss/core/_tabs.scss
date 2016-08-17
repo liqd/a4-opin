@@ -29,3 +29,22 @@
         left: 50%;
     }
 }
+
+.tab-panel {
+    @include rem(margin, 53px 0 86px);
+
+    > h3, .idea-list > h2, .tab-panel-title {
+        @include rem(font-size, $font-size-large);
+        @include rem(margin, 0 0 12px);
+        text-transform: uppercase;
+    }
+
+    .tab-panel-description {
+        @include rem(font-size, $font-size-medium);
+        line-height: 1.56;
+
+        .idea-list {
+            padding-top: 0;
+        }
+    }
+}

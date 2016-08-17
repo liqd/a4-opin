@@ -41,11 +41,15 @@
 <div class="container">
     <div class="container-narrow">
         <article id="panel-info" class="tab-panel">
-        <h3>{% trans "info" %}</h3>
-        {{ view.project.description }}
+            <h3 class="tab-panel-title">{% trans "info" %}</h3>
+            <div class="tab-panel-description">
+            {{ view.project.description }}
+            </div>
         </article>
         <article id="panel-participation" class="tab-panel">
-        {% block phase_content %}{% endblock %}
+            <div class="tab-panel-description">
+            {% block phase_content %}{% endblock %}
+            </div>
         </article>
         <article id="panel-offline" class="tab-panel">
         </article>
