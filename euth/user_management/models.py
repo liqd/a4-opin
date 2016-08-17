@@ -4,8 +4,13 @@ from django.conf import settings
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
+from django.db.models.signals import post_delete, post_init, post_save
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+
+from euth.contrib import validators as euth_validators
+from euth.contrib import services
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
                              'only letters, digits, spaces and @/./+/-/_ '
@@ -32,12 +37,12 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
                                 validators=[USERNAME_VALIDATOR],
                                 error_messages={
                                     'unique': _(USERNAME_NOT_UNIQUE),
-                                })
+    })
 
     email = models.EmailField(_('email address'), unique=True,
                               error_messages={
                                   'unique': EMAIL_NOT_UNIQUE,
-                              })
+    })
     is_staff = models.BooleanField(_('staff status'), default=False,
                                    help_text=IS_STAFF_HELP)
     is_active = models.BooleanField(_('active'), default=True,
@@ -78,3 +83,20 @@ class Reset(models.Model):
         on_delete=models.CASCADE
     )
     next_action = models.URLField(blank=True, null=True)
+
+
+@receiver(post_init, sender=User)
+def backup_image_path(sender, instance, **kwargs):
+    instance._current_image_file = instance.avatar
+
+
+@receiver(post_save, sender=User)
+def delete_old_image(sender, instance, **kwargs):
+    if hasattr(instance, '_current_image_file'):
+        if instance._current_image_file != instance.avatar:
+            services.delete_images([instance._current_image_file])
+
+
+@receiver(post_delete, sender=User)
+def delete_images_for_User(sender, instance, **kwargs):
+    services.delete_images([instance.avatar])
