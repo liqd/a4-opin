@@ -23,6 +23,7 @@
 
 .org-tile-title {
     @extend %tile-title;
+    text-align: center;
 
     a {
         color: $gray-dark;
@@ -71,17 +72,21 @@
     @include aspect-ratio(35, 26);
     background-color: $brand-brand1;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     display: block;
-    position: relative;
     text-align: center;
 
     &:after {
-        width: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 25px solid #fff;
+        bottom: 0;
+        content: " ";
         height: 0;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-bottom: 30px solid #fff;
+        left: 50%;
+        margin-left: -25px;
+        position: absolute;
+        width: 0;
     }
 
     img {

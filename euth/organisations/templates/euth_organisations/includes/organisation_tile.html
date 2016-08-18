@@ -2,7 +2,7 @@
 <div class="col-sm-4">
     <div class="org-tile">
         {% if organisation.image %}
-        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}}); background-size:cover;">
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}});">
         {% else %}
         <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link">
         {% endif %}
@@ -24,7 +24,7 @@
                     {{ organisation.name }}
                 </a>
             </h2>
-            <p class="org-tile-teaser">{{ organisation.description | truncatechars:150 }}</p>
+            <p class="org-tile-teaser">{{ organisation.description | truncatechars:200 }}</p>
         </div>
     </div>
 </div>
