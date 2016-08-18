@@ -1,4 +1,4 @@
-from rest_framework import filters, permissions, status, viewsets
+from rest_framework import filters, mixins, permissions, status, viewsets
 from rest_framework.response import Response
 
 from .models import Rate
@@ -6,7 +6,10 @@ from .permissions import IsUserOrReadOnly
 from .serializers import RateSerializer
 
 
-class RateViewSet(viewsets.ModelViewSet):
+class RateViewSet(mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
+                  viewsets.GenericViewSet):
 
     queryset = Rate.objects.all()
     serializer_class = RateSerializer
