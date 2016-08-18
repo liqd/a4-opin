@@ -22,7 +22,10 @@ class RateViewSet(mixins.CreateModelMixin,
         """
         Sets the user of the request as user of the rate
         """
-        serializer = RateSerializer(data=request.data)
+        serializer = RateSerializer(
+            data=request.data,
+            context={'request': request}
+        )
 
         if serializer.is_valid():
             serializer.save(user=self.request.user)
@@ -38,7 +41,12 @@ class RateViewSet(mixins.CreateModelMixin,
         """
         rate = self.get_object()
 
-        serializer = RateSerializer(rate, {}, partial=True)
+        serializer = RateSerializer(
+            rate,
+            {},
+            partial=True,
+            context={'request': request}
+        )
 
         if serializer.is_valid():
             obj = serializer.save()
