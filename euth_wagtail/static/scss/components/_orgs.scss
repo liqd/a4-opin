@@ -97,3 +97,16 @@
         padding: 0;
     }
 }
+
+.org-badge {
+    font-size: $font-size-medium;
+
+    .org-badge-image {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &, .org-badge-image {
+        @include rem(margin-bottom, 20px);
+    }
+}
