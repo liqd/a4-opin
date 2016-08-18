@@ -181,7 +181,11 @@ var CommentList = React.createClass({
           parentIndex: this.props.parentIndex,
           handleCommentDelete: this.props.handleCommentDelete,
           handleCommentSubmit: this.props.handleCommentSubmit,
-          handleCommentModify: this.props.handleCommentModify
+          handleCommentModify: this.props.handleCommentModify,
+          positiveRates: comment.rates.positive_rates,
+          negativeRates: comment.rates.negative_rates,
+          userRate: comment.rates.current_user_rate_value,
+          userRateId: comment.rates.current_user_rate_id
         },
           comment.comment
         )
@@ -297,7 +301,11 @@ var Comment = React.createClass({
             objectId: this.props.id,
             authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
             pollInterval: 20000,
-            style: 'comments'
+            style: 'comments',
+            positiveRates: this.props.positiveRates,
+            negativeRates: this.props.negativeRates,
+            userRate: this.props.userRate,
+            userRateId: this.props.userRateId
           }
           ) : null,
 
