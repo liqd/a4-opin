@@ -17,7 +17,8 @@ class ReportViewSet(mixins.CreateModelMixin,
         """
         Sets the user of the request as user of the report
         """
-        serializer = ReportSerializer(data=request.data)
+        serializer = ReportSerializer(
+            data=request.data, context={'request': request})
 
         if serializer.is_valid():
             report = serializer.save(user=self.request.user)
