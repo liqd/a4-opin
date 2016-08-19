@@ -1,25 +1,25 @@
 {% extends 'email_base.html' %}
 {% block subject %}
-A ressource of type {{ name }} on {{site.name}} has been reported.
+A {{ name }} on {{site.name}} has been reported.
 {% endblock %}
 {% block content %}
-<h2>A ressource of type {{ name }} on {{site.name}} has been reported.</h2>
+<h2>A {{ name }} on {{site.name}} has been reported.</h2>
 
 <p>
-  We have received a report request for a ressource of type {{ name }} on {{site.name}} with the following reason:
+  We have received a report for a {{ name }} on {{site.name}} with the following reason:
 <p>
 <p>
     "{{ description }}"
 </p>
 {% if admin_url %}
 <p>
-  To view and edit this resource follow this link go <a href="{{admin_url}}">here</a>
+  To view and edit this {{ name }} follow this link go <a href="{{admin_url}}">here</a>
 </p>
 {% endif %}
 
 <p>
 Best wishes<br>
 <br>
-{{sitename}} team
+{{site.name}} team
 </p>
 {% endblock %}

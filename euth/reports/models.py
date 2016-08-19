@@ -17,7 +17,7 @@ class Report(TimeStampedModel):
     description = models.TextField(max_length=1024)
 
     class Meta:
-        unique_together = (('content_type', 'object_pk', 'user'))
+        unique_together = ('content_type', 'object_pk', 'user')
 
     def __str__(self):
         return "{}_{}".format(str(self.content_type), str(self.object_pk))

@@ -1,1 +1,1 @@
-A resource of type '{{ name }}' has been reported on {{ sitename }}
+A {{ name }} has been reported on {{ sitename }}
