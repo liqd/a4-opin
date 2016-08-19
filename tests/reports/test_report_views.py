@@ -21,7 +21,7 @@ def test_anonymous_user_can_not_view_reportlist(apiclient):
 
 
 @pytest.mark.django_db
-def test_authenticated_user_can_report(apiclient, user):
+def test_authenticated_user_can_not_report_invalid_data(apiclient, user):
     apiclient.force_authenticate(user=user)
     url = reverse('reports-list')
     data = {}
@@ -52,7 +52,7 @@ def test_authenticated_user_can_post(apiclient, user, comment, admin):
     assert response.status_code == status.HTTP_200_OK
     assert response.data['description'] == 'This comment sucks'
     assert len(mail.outbox) == 2
-    assert 'A resource of type \'Comment\' has been reported' in mail.outbox[
+    assert 'A Comment has been reported' in mail.outbox[
         0].subject
     assert 'A Comment that you created' in mail.outbox[
         1].subject
