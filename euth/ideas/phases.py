@@ -1,6 +1,6 @@
 from euth import phases
 
-from . import apps, views
+from . import apps, models, views
 
 
 class CollectPhase(phases.PhaseContent):
@@ -9,8 +9,13 @@ class CollectPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'collect'
-    view = views.CollectPhaseView
+    view = views.IdeaListView
     weight = 20
+
+    features = {
+        'crud': (models.Idea,),
+        'comment': (models.Idea,),
+    }
 
 phases.content.register(CollectPhase())
 
@@ -21,8 +26,13 @@ class RatePhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'rate'
-    view = views.RatePhaseView
+    view = views.IdeaListView
     weight = 30
+
+    features = {
+        'rate': (models.Idea,)
+    }
+
 
 phases.content.register(RatePhase())
 
@@ -33,8 +43,13 @@ class CommentPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'comment'
-    view = views.CommentPhaseView
+    view = views.IdeaListView
     weight = 40
+
+    features = {
+        'comment': (models.Idea,),
+    }
+
 
 phases.content.register(CommentPhase())
 
@@ -45,7 +60,14 @@ class UniversalPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'universal'
-    view = views.UniversalPhaseView
+    view = views.IdeaListView
     weight = 50
+
+    features = {
+        'crud': (models.Idea,),
+        'comment': (models.Idea,),
+        'rate':  (models.Idea,),
+    }
+
 
 phases.content.register(UniversalPhase())

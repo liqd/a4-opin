@@ -10,7 +10,7 @@
                     <a href="{% url 'project-detail' idea.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
                 </li>
             </ul>
-            {% if request.user == idea.creator or request.user.is_superuser %}
+            {% if request.user == idea.creator and view.crud_enabled or request.user.is_superuser %}
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -48,14 +48,13 @@
             <div class="name">{{ idea.creator.username }}</div>
         </div>
 
-
         <div class="idea-description">
             <p>{{ idea.description |safe }}</p>
         </div>
 
-        {% react_rates idea %}
+        {% react_rates idea view.rate_enabled %}
 
-        {% react_comments idea %}
+        {% react_comments idea view.comment_enabled %}
     </div>
 </div>
 

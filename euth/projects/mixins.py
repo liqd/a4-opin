@@ -16,4 +16,9 @@ class ProjectMixin(generic.base.ContextMixin):
         self.project = models.Project.objects.get(slug=kwargs['project'])
         self.phase = phases_models.Phase.objects.active_phase(self.project)
         self.module = self.phase.module if self.phase else None
+
+        self.comment_enabled = self.phase.has_feature('comment', self.model)
+        self.crud_enabled = self.phase.has_feature('crud', self.model)
+        self.rate_enabeld = self.phase.has_feature('rate', self.model)
+
         return super(ProjectMixin, self).dispatch(*args, **kwargs)

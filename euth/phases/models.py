@@ -29,3 +29,6 @@ class Phase(models.Model):
     @property
     def view(self):
         return content[self.type].view
+
+    def has_feature(self, feature, model):
+        return content[self.type].has_feature(feature, model)

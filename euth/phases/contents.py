@@ -1,10 +1,16 @@
 class PhaseContent():
+
+    features = {}
+
     @property
     def identifier(self):
         return '{s.app}:{w:03d}:{s.phase}'.format(s=self, w=self.weight % 1000)
 
     def __str__(self):
         return '{s.__class__.__name__} ({s.app}:{s.phase})'.format(s=self)
+
+    def has_feature(self, feature, model):
+        return model in self.features.get(feature, [])
 
 
 class PhaseContents():
