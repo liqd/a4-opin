@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('rates/react_rates.html', takes_context=True)
-def react_rates(context, obj):
+def react_rates(context, obj, enabled=True):
 
     login_url = reverse('login') + '?next=' + context['request'].path
 
@@ -39,6 +39,7 @@ def react_rates(context, obj):
         'negative_rates': obj.negative_rates,
         'user_rate': user_rate_value,
         'user_rate_id': user_rate_id,
+        'is_read_only': not enabled,
     }
 
     return context

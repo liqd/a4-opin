@@ -62,6 +62,9 @@ var RateBox = React.createClass({
       window.location.href = this.props.loginUrl
       return
     }
+    if (this.props.isReadOnly) {
+      return
+    }
     if (this.state.userHasRated) {
       var number
       if (this.state.userRate === 1) {
@@ -78,6 +81,9 @@ var RateBox = React.createClass({
     e.preventDefault()
     if (this.props.authenticatedAs === null) {
       window.location.href = this.props.loginUrl
+      return
+    }
+    if (this.props.isReadOnly) {
       return
     }
     if (this.state.userHasRated) {
@@ -157,20 +163,22 @@ var RateBox = React.createClass({
 
 module.exports.RateBox = RateBox
 
-module.exports.renderRates = function (url, positiveRates, negativeRates, userRate, userRateId, loginUrl, contentType, objectId, authenticatedAs, style, target) {
+
+module.exports.renderRates = function (url, positiveRates, negativeRates, userRate, userRateId, loginUrl, contentType, objectId, authenticatedAs, style, target, isReadOnly) {
   ReactDOM.render(
     h(RateBox, {
       url: url,
       positiveRates: positiveRates,
       negativeRates: negativeRates,
-      userRate: (userRate === 'None') ? null : parseInt(userRate),
-      userRateId: (userRateId === 'None') ? null : parseInt(userRateId),
+      userRate: userRate,
+      userRateId: userRateId,
       loginUrl: loginUrl,
       contentType: contentType,
       objectId: objectId,
       authenticatedAs: authenticatedAs,
       pollInterval: 20000,
-      style: style
+      style: style,
+      isReadOnly: isReadOnly
     }),
     document.getElementById(target)
   )
