@@ -21,3 +21,7 @@ class Item(base_models.TimeStampedModel):
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
     creator = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    @property
+    def process(self):
+        return self.module.project

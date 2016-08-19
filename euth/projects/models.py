@@ -53,3 +53,8 @@ class Project(base_models.TimeStampedModel):
     @functional.cached_property
     def is_private(self):
         return not self.is_public
+
+    @functional.cached_property
+    def active_phase(self):
+        module = self.module_set.first()
+        return module.phase_set.order_by('type').first()
