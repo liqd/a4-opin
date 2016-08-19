@@ -15,10 +15,9 @@ def send_email_to_moderators(request, report):
         name = obj._meta.verbose_name.title()
 
         try:
-            admin_url = urlresolvers.reverse("admin:%s_%s_change" %
-                                             (obj._meta.app_label,
-                                              obj._meta.model_name),
-                                             args=(obj.pk,))
+            url = "admin:{m.app_label}_{m.model_name}_change".format(
+                m=obj._meta)
+            admin_url = urlresolvers.reverse(url, args=(obj.pk,))
             admin_url = request.build_absolute_uri(
                 admin_url)
         except:

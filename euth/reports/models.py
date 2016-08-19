@@ -20,4 +20,4 @@ class Report(TimeStampedModel):
         unique_together = (('content_type', 'object_pk', 'user'))
 
     def __str__(self):
-        return str(self.content_type) + '_' + str(self.object_pk)
+        return "{}_{}".format(str(self.content_type), str(self.object_pk))
