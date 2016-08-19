@@ -1,4 +1,4 @@
-from rest_framework import filters, mixins, permissions, status, viewsets
+from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
 from .models import Rate
@@ -8,7 +8,6 @@ from .serializers import RateSerializer
 
 class RateViewSet(mixins.CreateModelMixin,
                   mixins.UpdateModelMixin,
-                  mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
 
     queryset = Rate.objects.all()
@@ -40,19 +39,8 @@ class RateViewSet(mixins.CreateModelMixin,
         NOTE: Rate is NOT deleted.
         """
         rate = self.get_object()
+        rate.value = 0
+        rate.save()
+        serializer = self.get_serializer(rate)
+        return Response(serializer.data)
 
-        serializer = RateSerializer(
-            rate,
-            {},
-            partial=True,
-            context={'request': request}
-        )
-
-        if serializer.is_valid():
-            obj = serializer.save()
-            obj.value = 0
-            obj.save()
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)

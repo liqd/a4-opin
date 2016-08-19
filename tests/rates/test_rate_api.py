@@ -46,7 +46,7 @@ def test_authenticated_user_can_post_valid_data(user, apiclient):
         'content_type': 1
     }
     response = apiclient.post(url, data, format='json')
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
 
 
 @pytest.mark.django_db
@@ -131,7 +131,7 @@ def test_meta_info_of_rate(rate_factory, comment,  apiclient, user, user2):
     }
     response = apiclient.post(url, data, format='json')
     rate_id = response.data['id']
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
     assert response.data['value'] == 1
     assert response.data['meta_info']['positive_rates_on_same_object'] == 1
     assert response.data['meta_info']['user_rate_on_same_object_value'] == 1
@@ -139,7 +139,7 @@ def test_meta_info_of_rate(rate_factory, comment,  apiclient, user, user2):
     apiclient.force_authenticate(user2)
     response = apiclient.post(url, data, format='json')
     rate_id = response.data['id']
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
     assert response.data['value'] == 1
     assert response.data['meta_info']['positive_rates_on_same_object'] == 2
     assert response.data['meta_info']['user_rate_on_same_object_value'] == 1
