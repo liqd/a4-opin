@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from euth.contrib.base_models import TimeStampedModel
 
@@ -21,6 +21,7 @@ class Comment(TimeStampedModel):
 
     class Meta:
         verbose_name = _("Comment")
+        verbose_name_plural = _("Comments")
 
     def __str__(self):
         return str(self.created)
