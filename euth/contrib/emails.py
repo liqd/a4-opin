@@ -1,7 +1,7 @@
 from email.mime.image import MIMEImage
 
-import pkg_resources
 from django.conf import settings
+from django.contrib.staticfiles import finders
 from django.core.mail.message import EmailMultiAlternatives
 from django.template.loader import select_template
 from django.utils.translation import get_language
@@ -23,7 +23,8 @@ def send_email_with_template(receivers, template, context):
         to=receivers,
     )
     mail.mixed_subtype = 'related'
-    f = pkg_resources.resource_stream('euth_wagtail', 'static/images/logo.png')
+    filename = finders.find('images/logo.png')
+    f = open(filename, 'rb')
     opin_logo = MIMEImage(f.read())
     opin_logo.add_header('Content-ID', '<{}>'.format('opin_logo'))
     mail.attach(opin_logo)
