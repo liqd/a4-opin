@@ -6,7 +6,7 @@ from tests import helpers
 
 
 @pytest.mark.django_db
-def test_delete_idea(user_factory, ImagePNG):
+def test_delete_user_signal(user_factory, ImagePNG):
     user = user_factory(avatar=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, user.avatar.path)
 

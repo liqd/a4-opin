@@ -1,7 +1,8 @@
 from django.db.models import signals
 from django.dispatch import receiver
 
-from . import models, services
+from euth.contrib import services
+from . import models
 
 
 @receiver(signals.post_init, sender=models.User)

@@ -6,4 +6,4 @@ class UsersConfig(AppConfig):
     label = 'user_management'
 
     def ready(self):
-        import euth.projects.signals  # noqa:F401
+        import euth.user_management.signals  # noqa:F401
