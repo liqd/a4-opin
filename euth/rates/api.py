@@ -1,4 +1,4 @@
-from rest_framework import filters, mixins, permissions, viewsets
+from rest_framework import filters, mixins, permissions, status, viewsets
 from rest_framework.response import Response
 
 from .models import Rate
@@ -43,4 +43,3 @@ class RateViewSet(mixins.CreateModelMixin,
         rate.save()
         serializer = self.get_serializer(rate)
         return Response(serializer.data)
-

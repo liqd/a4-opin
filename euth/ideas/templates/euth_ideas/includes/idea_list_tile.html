@@ -1,22 +1,22 @@
 {% load i18n thumbnail static %}
 <div class="idea-list-tile">
     {% if idea.image %}
-    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link col-md-2 col-sm-2 col-xs-3" style="background-size: cover; background-image: url({{ idea.image.url }});">
+    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link" style="background-image: url({{ idea.image.url }});">
     </a>
     {% else %}
-    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link col-md-2 col-sm-2 col-xs-3">
+    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link">
     </a>
     {% endif %}
-    <div class="idea-tile-body col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-9 col-xs-offset-3">
+    <div class="idea-tile-body">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-xs-8">
                 <h3 class="idea-tile-title">
                     <a href="{% url 'idea-detail' idea.slug %}">
                     {{ idea.name }}
                     </a>
                 </h3>
             </div>
-            <div class="col-lg-4 pull-right idea-meta">
+            <div class="col-xs-4 pull-right idea-meta">
                 <!-- FIXME: votes -->
                 <span class="idea-upvotes idea-meta-item">{{ idea.positive_rates }} <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
                 <span class="idea-downvotes idea-meta-item">{{ idea.negative_rates }} <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
