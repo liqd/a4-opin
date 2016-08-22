@@ -7,7 +7,6 @@ django-model-utils==2.5
 django-webpack-loader==0.3.0
 django-filter==0.13.0
 django-widget-tweaks==1.4.1
-psycopg2==2.6.1
 easy-thumbnails==2.3
 django-parler==1.6.4
 django-autoslug==1.9.3
