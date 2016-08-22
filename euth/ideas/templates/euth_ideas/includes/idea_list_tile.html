@@ -17,16 +17,19 @@
                 </h3>
             </div>
             <div class="col-xs-4 pull-right idea-meta">
-                <!-- FIXME: votes -->
                 <span class="idea-upvotes idea-meta-item">{{ idea.positive_rates }} <i class="fa fa-chevron-up" aria-hidden="true"></i></span>
                 <span class="idea-downvotes idea-meta-item">{{ idea.negative_rates }} <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                 <span class="idea-comments-count idea-meta-item"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ idea.comments.count }}</span>
             </div>
         </div>
         <div class="avatar-small">
-            <!-- FIXME: logo -->
-            <img src="/static/images/logo.svg" width="30" height="30" alt=""/><div class="name">{{ idea.creator.username }} <span class="idea-date"> {{ idea.created | date }}</span></div>
+            {% if idea.creator.avatar %}
+            <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small'}}" width="30" height="30" alt=""/>
+            {% else %}
+            <img src="/static/images/logo.svg" width="30" height="30" alt=""/>
+            {% endif %}
+            <div class="name">{{ idea.creator.username }} <span class="idea-date"> {{ idea.created | date }}</span>
+            </div>
         </div>
     </div>
 </div>
-

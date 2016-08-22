@@ -10,6 +10,11 @@
                 <a href="{% url 'admin:index' %}">Admin</a>
             </li>
             {% endif %}
+            {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'dashboard-overview' %}">Dashboard</a>
+            </li>
+            {% endif %}
             <li>
                 <a href="">
                     <form class="logout-button-form" action="{% url 'logout' %}" method="post" >
