@@ -1,3 +1,4 @@
+from tests.apps.blog import models
 from tests.apps.blog.phases import BlogPhase
 
 from euth.phases import PhaseContent, content
@@ -19,3 +20,16 @@ def test_phase_content():
 
     assert phase.identifier == 'dummy:999:phase'
     assert str(phase) == 'DummyPhase (dummy:phase)'
+
+
+def test_phase_features():
+    class DummyPhase(PhaseContent):
+        app = 'dummy'
+        phase = 'phase'
+        weight = 9999
+        features = {
+            'comment': (models.Post,)
+        }
+
+    phase = DummyPhase()
+    assert phase.has_feature('comment', models.Post)

@@ -1,4 +1,5 @@
 import pytest
+from tests.apps.blog import models as blog_models
 from tests.apps.blog import views as blog_views
 
 from euth.phases import models
@@ -21,3 +22,8 @@ def test_manager_active_phase(phase_factory):
 @pytest.mark.django_db
 def test_blogapp_phase_view(phase):
     assert phase.view == blog_views.PostDetail
+
+
+@pytest.mark.django_db
+def test_blogapp_phase_feature(phase):
+    assert phase.has_feature('comment', blog_models.Post)
