@@ -1,4 +1,5 @@
 var Rates = require('../../../../euth/rates/static/rates/react_rates')
+var Report = require('../../../../euth/reports/static/reports/react_reports')
 
 var $ = require('jquery')
 var React = require('react')
@@ -232,11 +233,6 @@ var Comment = React.createClass({
     return this.props.user_name === this.context.user_name
   },
 
-  onReport: function (e) {
-    e.preventDefault()
-    console.log('clicked report')
-  },
-
   pluralizeString: function (number) {
     var fmts = django.ngettext('view %s reply',
         'view %s replies', number)
@@ -247,6 +243,14 @@ var Comment = React.createClass({
   render: function () {
     return (
     h('div.comment', [
+
+      h(Report.ReportModal, {
+        name: 'report_comment_' + this.props.id,
+        title: django.gettext('You are reporting a comment'),
+        btnStyle: 'cta',
+        objectId: this.props.id,
+        contentType: this.context.comments_contenttype
+      }),
 
       this.isOwner() ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
@@ -335,7 +339,8 @@ var Comment = React.createClass({
                 [h('li', [
                   h('a', {
                     href: '#',
-                    onClick: this.onReport,
+                    'data-toggle': 'modal',
+                    'data-target': '#report_comment_' + this.props.id,
                     'aria-hidden': true
                   }, django.gettext('Report')
                   )
