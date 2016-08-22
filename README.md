@@ -4,6 +4,7 @@
 
  * nodejs (+ npm)
  * python 3.x (+ virtualenv + pip)
+ * libmagic
 
 
 ## Setup and development
