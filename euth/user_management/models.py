@@ -4,13 +4,10 @@ from django.conf import settings
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
-from django.db.models.signals import post_delete, post_init, post_save
-from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from euth.contrib import validators as euth_validators
-from euth.contrib import services
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
                              'only letters, digits, spaces and @/./+/-/_ '
@@ -83,20 +80,3 @@ class Reset(models.Model):
         on_delete=models.CASCADE
     )
     next_action = models.URLField(blank=True, null=True)
-
-
-@receiver(post_init, sender=User)
-def backup_image_path(sender, instance, **kwargs):
-    instance._current_image_file = instance.avatar
-
-
-@receiver(post_save, sender=User)
-def delete_old_image(sender, instance, **kwargs):
-    if hasattr(instance, '_current_image_file'):
-        if instance._current_image_file != instance.avatar:
-            services.delete_images([instance._current_image_file])
-
-
-@receiver(post_delete, sender=User)
-def delete_images_for_User(sender, instance, **kwargs):
-    services.delete_images([instance.avatar])

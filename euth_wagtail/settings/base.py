@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'autofixture',
 
-    'euth.user_management',
+    'euth.user_management.apps.UsersConfig',
     'euth.organisations',
     'euth.projects',
     'euth.comments.apps.CommentConfig',
