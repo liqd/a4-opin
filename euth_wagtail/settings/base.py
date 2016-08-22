@@ -191,6 +191,7 @@ THUMBNAIL_ALIASES = {
         'heroimage': {'size': (1500, 500), 'crop': 'smart'},
         'project_thumbnail': {'size': (800, 400), 'crop': 'smart' },
         'avatar_small': {'size': (31, 31), 'crop': 'smart' },
+        'avatar_medium': {'size': (90, 90), 'crop': 'smart' },
     }
 }
 # Static files (CSS, JavaScript, Images)

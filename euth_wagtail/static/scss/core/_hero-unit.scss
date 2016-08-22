@@ -29,7 +29,7 @@
 }
 
 .euth-hero-unit-header {
-    @include rem(padding-top, 75px);
+    @include rem(padding-top, 53px);
     color: #fff;
 
     .m-dark-text {
@@ -40,6 +40,10 @@
         @extend .euth-hero-unit-title;
     }
 
+    p {
+        @extend .euth-hero-unit-description;
+    }
+
     .button {
         @include rem(margin-top, 13px);
         // background-color: $brand-brand1;
@@ -47,5 +51,13 @@
 }
 
 .euth-hero-unit-title {
-    @include rem(font-size, 28px);
+    @include rem(font-size, $font-size-xlarge);
+    @include rem(margin, 0 0 20px);
+    letter-spacing: 3px;
+}
+
+.euth-hero-unit-description {
+    @include rem(padding, 0 70px);
+    line-height: 1.63;
+    margin-bottom: 0;
 }
