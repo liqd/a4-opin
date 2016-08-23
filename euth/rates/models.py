@@ -63,3 +63,7 @@ class Rate(TimeStampedModel):
         }
 
         return result
+
+    def update(self, value):
+        self.value = 0
+        self.save()

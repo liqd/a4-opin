@@ -26,7 +26,6 @@ class RateViewSet(mixins.CreateModelMixin,
         NOTE: Rate is NOT deleted.
         """
         rate = self.get_object()
-        rate.value = 0
-        rate.save()
+        rate.update(0)
         serializer = self.get_serializer(rate)
         return Response(serializer.data)
