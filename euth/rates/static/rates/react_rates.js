@@ -96,7 +96,7 @@ var RateBox = React.createClass({
     return {
       positiveRates: this.props.positiveRates,
       negativeRates: this.props.negativeRates,
-      userHasRated: this.props.userRate,
+      userHasRated: this.props.userRate !== null,
       userRate: this.props.userRate,
       userRateId: this.props.userRateId
     }
