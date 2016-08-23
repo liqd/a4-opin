@@ -544,7 +544,7 @@ var CommentEditForm = React.createClass({
       }),
       h('input.cancel-button', {
         type: 'submit',
-        value: django.gettext('cancle'),
+        value: django.gettext('cancel'),
         onClick: this.props.handleCancel
       })
     ])

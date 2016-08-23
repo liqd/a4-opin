@@ -10,6 +10,7 @@ from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from euth.comments.api import CommentViewSet
+from euth.dashboard import urls as dashboard_urls
 from euth.ideas import urls as ideas_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
@@ -36,6 +37,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'', include(user_urls)),
+    url(r'^dashboard/', include(dashboard_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^ideas/', include(ideas_urls)),

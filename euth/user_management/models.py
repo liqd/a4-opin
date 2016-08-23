@@ -7,6 +7,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from euth.contrib import validators as euth_validators
+
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
                              'only letters, digits, spaces and @/./+/-/_ '
                              'characters. It must start with a digit or a '
@@ -32,17 +34,19 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
                                 validators=[USERNAME_VALIDATOR],
                                 error_messages={
                                     'unique': _(USERNAME_NOT_UNIQUE),
-                                })
+    })
 
     email = models.EmailField(_('email address'), unique=True,
                               error_messages={
                                   'unique': EMAIL_NOT_UNIQUE,
-                              })
+    })
     is_staff = models.BooleanField(_('staff status'), default=False,
                                    help_text=IS_STAFF_HELP)
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=IS_ACTIVE_HELP)
     date_joined = models.DateTimeField(editable=False, default=timezone.now)
+    avatar = models.ImageField(upload_to='user_management/images', blank=True,
+                               validators=[euth_validators.validate_logo])
 
     objects = auth_models.UserManager()
 

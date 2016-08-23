@@ -63,15 +63,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'autofixture',
 
-    'euth.user_management',
-    'euth.organisations',
-    'euth.projects',
+    'euth.user_management.apps.UsersConfig',
+    'euth.organisations.apps.OrganisationsConfig',
+    'euth.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.rates.apps.RatesConfig',
     'euth.reports.apps.ReportConfig',
+    'euth.dashboard.apps.DashboardConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -191,6 +192,7 @@ THUMBNAIL_ALIASES = {
         'heroimage': {'size': (1500, 500), 'crop': 'smart'},
         'project_thumbnail': {'size': (800, 400), 'crop': 'smart' },
         'avatar_small': {'size': (31, 31), 'crop': 'smart' },
+        'avatar_medium': {'size': (90, 90), 'crop': 'smart' },
     }
 }
 # Static files (CSS, JavaScript, Images)

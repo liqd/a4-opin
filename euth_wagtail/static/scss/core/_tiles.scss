@@ -41,18 +41,23 @@
     text-align: center;
 }
 
+$tile-list-thumbnail-size: 120px;
+
 .tile-list {
     @extend %tile;
-    @include rem(padding, 14px 18px);
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1);
     margin-right: 0;
+    min-height: $tile-list-thumbnail-size;
     position: relative;
 }
 
 .tile-image-link {
+    @include rem(height, $tile-list-thumbnail-size);
+    @include rem(width, $tile-list-thumbnail-size);
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: cover;
     left: 0;
     position: absolute;
     top: 0;
-    height: 100%;
 }

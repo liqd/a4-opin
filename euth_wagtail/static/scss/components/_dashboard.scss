@@ -1,0 +1,40 @@
+.dashboard {
+    @include rem(padding, 113px 0px 0px 0px);
+}
+
+.dashboard-nav {
+
+    & a, a:active, a:focus, a:visited {
+        text-decoration: none;
+    }
+
+    & .list-group-item-heading {
+        background-color: $gray-lighter;
+        @include rem(padding, 20px 0px 20px 60px);
+        margin: 0px;
+        @include rem(font-size, 14px);
+        color: $black;
+
+        i {
+            color: $gray;
+        }
+    }
+
+    & .selected {
+        background-color: white;
+        color: $brand-brand1;
+        text-decoration: none;
+
+        i {
+            color: $brand-brand1;
+        }
+    }
+}
+
+.dashboard-content {
+    & h1 {
+        margin: 0px;
+        @include rem(font-size, 30px);
+    }
+}
+
