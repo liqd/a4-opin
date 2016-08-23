@@ -5,7 +5,8 @@
  * nodejs (+ npm)
  * python 3.x (+ virtualenv + pip)
  * libmagic
-
+ * libjpeg
+ * libpq (only if postgres should be used)
 
 ## Setup and development
 
