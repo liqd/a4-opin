@@ -96,8 +96,8 @@
 }
 
 .org-badge-title {
-    font-size: $font-size-medium;
-    margin-bottom: 20px;
+    font-size: rem(font-size, $font-size-medium);
+    margin-bottom: rem(font-size, 20px);
 }
 
 .orgs-social-links {
@@ -109,7 +109,7 @@
     }
 
     a {
-        font-size: 17px;
+        font-size: rem(font-size, 17px);
         color: #fff;
 
         &:hover {
