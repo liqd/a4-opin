@@ -9,7 +9,7 @@ from euth.modules import mixins as modules_mixins
 from euth.modules.models import Module
 from euth.projects import mixins
 
-from . import models
+from . import forms, models
 
 
 class IdeaListView(mixins.ProjectMixin, generic.ListView):
@@ -25,7 +25,7 @@ class IdeaDetailView(generic.DetailView, modules_mixins.ItemMixin):
 
 class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = models.Idea
-    fields = ['name', 'description', 'image']
+    form_class = forms.IdeaForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -43,7 +43,7 @@ class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class IdeaCreateView(LoginRequiredMixin, generic.CreateView):
     model = models.Idea
-    fields = ['name', 'description', 'image']
+    form_class = forms.IdeaForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
