@@ -16,8 +16,5 @@ class Report(TimeStampedModel):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     description = models.TextField(max_length=1024)
 
-    class Meta:
-        unique_together = ('content_type', 'object_pk', 'user')
-
     def __str__(self):
         return "{}_{}".format(str(self.content_type), str(self.object_pk))
