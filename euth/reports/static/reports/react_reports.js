@@ -12,10 +12,32 @@ $(function () {
 
 var ReportModal = React.createClass({
   getInitialState: function () {
-    return {report: ''}
+    return {
+      report: '',
+      showSuccessMessage: false,
+      showErrorMessage: false,
+      showReportForm: true
+    }
   },
   handleTextChange: function (e) {
     this.setState({report: e.target.value})
+  },
+  resetModal: function () {
+    if (!$('#' + this.props.name).is(':visible')) {
+      this.setState({
+        report: '',
+        showSuccessMessage: false,
+        showErrorMessage: false,
+        showReportForm: true,
+        errors: null
+      })
+    } else {
+      setTimeout(this.resetModal, 500)
+    }
+  },
+  closeModal: function () {
+    $('#' + this.props.name).modal('hide')
+    this.resetModal()
   },
   submitReport: function (e) {
     $.ajax({
@@ -29,11 +51,17 @@ var ReportModal = React.createClass({
       },
       success: function (report) {
         this.setState({
-          report: ''
+          report: '',
+          showSuccessMessage: true,
+          showReportForm: false,
+          showErrorMessage: false
         })
       }.bind(this),
       error: function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString())
+        this.setState({
+          report: '',
+          errors: JSON.parse(xhr.responseText)
+        })
       }.bind(this)
     })
   },
@@ -44,7 +72,7 @@ var ReportModal = React.createClass({
           h('div.modal-header', [
             h('button.close', {
               type: 'button',
-              'data-dismiss': 'modal',
+              'onClick': this.closeModal,
               'aria-label': this.props.abort
             }, [
               h('i.fa.fa-times', {
@@ -52,20 +80,24 @@ var ReportModal = React.createClass({
               })
             ])
           ]),
-          h('div.modal-body', [
+          this.state.showSuccessMessage ? h('div.modal-body', [
+            h('h3.modal-title', this.props.title),
+            h('div.alert.alert-success', django.gettext('Your report has been sent'))
+          ]) : null,
+          this.state.showReportForm ? h('div.modal-body', [
             h('h3.modal-title', this.props.title),
             h('div.form-group', [
               h('textarea.form-control', {
                 type: 'text',
                 placeholder: django.gettext('Your report here'),
                 rows: 5,
-                required: 'required',
                 value: this.state.report,
                 onChange: this.handleTextChange
               })
-            ])
-          ]),
-          h('div.modal-footer', [
+            ]),
+            this.state.errors ? h('span.help-block', this.state.errors.description) : null
+          ]) : null,
+          this.state.showReportForm ? h('div.modal-footer', [
             h('div.row', [
               h('button.btn.btn-' + (this.props.btnStyle || 'primary'),
                 {
@@ -77,15 +109,14 @@ var ReportModal = React.createClass({
             h('div.row', [
               h('button.btn', {
                 type: 'button',
-                'data-dismiss': 'modal'
+                'onClick': this.closeModal
               }, django.gettext('Abort'))
             ])
-          ])
+          ]) : null
         ])
       ])
     ])
   }
-
 })
 
 module.exports.ReportModal = ReportModal
