@@ -1,8 +1,0 @@
-{% load i18n wagtailimages_tags static %}
-{% image image width-768 as smallImage %}
-{% image image original as originalImage %}
-<section class="hero-unit">
-    <div class="hero-unit-image visible-lg visible-xl" style="background-image: url({{ originalImage.url }})"></div>
-    <div class="hero-unit-image visible-xs visible-sm visible-md" style="background-image: url({{ smallImage.url }})"></div>
-    <h1 class="page-title">{{ page.translated_title }}</h1>
-</section>

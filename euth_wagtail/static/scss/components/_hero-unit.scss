@@ -1,37 +1,64 @@
-.hero-unit {
-    position: relative;
+.euth-hero-unit {
+    background-size: cover;
     text-align: center;
+    min-height: 400px;
+    position: relative;
+    @include rem(padding, 40px 0);
 
-    &, .hero-unit-image {
-        min-height: 573px;
-    }
+    // centering the container vertically and horizontally
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .hero-unit-image {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-    }
-
-    .page-title {
-        @include rem(font-size, 60px);
-        @include rem(top, 163px);
-        color: #fff;
+    &:after {
+        background: rgba(0,0,0,0.5);
+        content: '\A';
         left: 0;
-        margin: 0;
+        min-height: 100%;
         position: absolute;
+        top: 0;
         width: 100%;
-
-        &:before {
-            @include rem(height, 107px);
-            @include rem(margin-bottom, 10px);
-            background: url(../images/logo-white.png) no-repeat center top;
-            background-size: contain;
-            display: block;
-            content: " ";
-
-            .svgasimg & {
-                background-image: url(../images/logo-white.svg);
-            }
-        }
     }
+
+}
+
+.euth-hero-unit-logo {
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @include rem(margin-bottom, 20px);
+    max-width: 150px;
+
+    @media (max-width: $screen-sm-min) {
+        @include rem(padding, 20px);
+        max-width: 100%;
+    }
+}
+
+.euth-hero-unit-header {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+
+    .m-dark-text {
+        color: #000;
+    }
+
+    .button {
+        @include rem(margin-top, 13px);
+    }
+}
+
+.euth-hero-unit-title {
+    @include rem(font-size, $font-size-xlarge);
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.euth-hero-unit-description {
+    @include rem(margin-top, 20px);
+    @include rem(padding, 0 70px);
+    line-height: 1.63;
+    margin-bottom: 0;
 }
