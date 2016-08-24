@@ -43,6 +43,10 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
     form_class = forms.IdeaForm
     permission_required = 'ideas.create_idea'
 
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
     def dispatch(self, *args, **kwargs):
         mod_slug = self.kwargs[self.slug_url_kwarg]
         self.module = Module.objects.get(slug=mod_slug)
@@ -69,6 +73,10 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = models.Idea
     success_message = _("Your Idea has been deleted")
     permission_required = 'ideas.create_idea'
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
