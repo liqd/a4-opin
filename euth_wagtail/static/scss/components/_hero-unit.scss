@@ -36,6 +36,20 @@
     }
 }
 
+.euth-hero-unit-image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 .euth-hero-unit-header {
     color: #fff;
     position: relative;
@@ -61,4 +75,31 @@
     @include rem(padding, 0 70px);
     line-height: 1.63;
     margin-bottom: 0;
+}
+
+.euth-home-hero .euth-hero-unit-title {
+    @include rem(font-size, 60px);
+    @include rem(top, 163px);
+    color: #fff;
+    &:after {
+        background: rgba(0,0,0,0.5);
+        content: '\A';
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    &:before {
+        @include rem(height, 107px);
+        @include rem(margin-bottom, 10px);
+        background: url(../images/logo-white.png) no-repeat center top;
+        background-size: contain;
+        display: block;
+        content: " ";
+        .svgasimg & {
+            background-image: url(../images/logo-white.svg);
+        }
+    }
 }
