@@ -1,4 +1,4 @@
-from rest_framework import filters, permissions, status, viewsets
+from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
 from .models import Rate
@@ -6,27 +6,19 @@ from .permissions import IsUserOrReadOnly
 from .serializers import RateSerializer
 
 
-class RateViewSet(viewsets.ModelViewSet):
+class RateViewSet(mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin,
+                  viewsets.GenericViewSet):
 
     queryset = Rate.objects.all()
     serializer_class = RateSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_fields = ('object_pk', 'content_type', 'user', 'value')
+    filter_fields = ('object_pk', 'content_type')
 
-    def create(self, request):
-        """
-        Sets the user of the request as user of the rate
-        """
-        serializer = RateSerializer(data=request.data)
-
-        if serializer.is_valid():
-            serializer.save(user=self.request.user)
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
     def destroy(self, request, pk=None):
         """
@@ -34,14 +26,6 @@ class RateViewSet(viewsets.ModelViewSet):
         NOTE: Rate is NOT deleted.
         """
         rate = self.get_object()
-
-        serializer = RateSerializer(rate, {}, partial=True)
-
-        if serializer.is_valid():
-            obj = serializer.save()
-            obj.value = 0
-            obj.save()
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+        rate.update(0)
+        serializer = self.get_serializer(rate)
+        return Response(serializer.data)

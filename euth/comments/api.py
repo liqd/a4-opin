@@ -19,7 +19,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         """
         Sets the user of the request as user of the comment
         """
-        serializer = CommentSerializer(data=request.data)
+        serializer = CommentSerializer(
+            data=request.data,
+            context={'request': request})
 
         if serializer.is_valid():
             serializer.save(user=self.request.user)
@@ -36,7 +38,12 @@ class CommentViewSet(viewsets.ModelViewSet):
         """
         comment = self.get_object()
 
-        serializer = CommentSerializer(comment, {}, partial=True)
+        serializer = CommentSerializer(
+            comment,
+            {},
+            partial=True,
+            context={'request': request}
+        )
 
         if serializer.is_valid():
             obj = serializer.save()

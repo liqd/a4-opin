@@ -11,24 +11,6 @@ $(function () {
 })
 
 var RateBox = React.createClass({
-
-  loadRatesFromServer: function () {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      cache: false,
-      data: {
-        object_pk: this.props.objectId,
-        content_type: this.props.contentType
-      },
-      success: function (rates) {
-        this.updateRateList(rates)
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString())
-      }.bind(this)
-    })
-  },
   handleRateCreate: function (number) {
     $.ajax({
       url: this.props.url,
@@ -40,8 +22,13 @@ var RateBox = React.createClass({
         value: number
       },
       success: function (data) {
-        this.state.rates.push(data)
-        this.updateRateList(this.state.rates)
+        this.setState({
+          positiveRates: data.meta_info.positive_rates_on_same_object,
+          negativeRates: data.meta_info.negative_rates_on_same_object,
+          userRate: data.meta_info.user_rate_on_same_object_value,
+          userHasRated: true,
+          userRateId: data.id
+        })
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(status, err.toString())
@@ -55,44 +42,15 @@ var RateBox = React.createClass({
       type: 'PATCH',
       data: { value: number },
       success: function (data) {
-        this.updateUserRate(data)
-        this.updateRateList(this.state.rates)
+        this.setState({
+          positiveRates: data.meta_info.positive_rates_on_same_object,
+          negativeRates: data.meta_info.negative_rates_on_same_object,
+          userRate: data.meta_info.user_rate_on_same_object_value
+        })
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(status, err.toString())
       }
-    })
-  },
-  updateRateList: function (rates) {
-    var positiveRates = 0
-    var negativeRates = 0
-    var userHasRated = false
-    var userRate = 0
-    var userRateId = -1
-    var userRateIndex = -1
-    var username = this.props.authenticatedAs
-    $.each(rates, function (index, value) {
-      if (value.user_name === username) {
-        userHasRated = true
-        userRate = value.value
-        userRateId = value.id
-        userRateIndex = index
-      }
-      if (value.value === 1) {
-        positiveRates++
-      }
-      if (value.value === -1) {
-        negativeRates++
-      }
-    })
-    this.setState({
-      positiveRates: positiveRates,
-      negativeRates: negativeRates,
-      rates: rates,
-      userHasRated: userHasRated,
-      userRate: userRate,
-      userRateId: userRateId,
-      userRateIndex: userRateIndex
     })
   },
   updateUserRate: function (data) {
@@ -136,15 +94,15 @@ var RateBox = React.createClass({
   },
   getInitialState: function () {
     return {
-      positiveRates: 0,
-      negativeRates: 0,
-      userHasRated: false,
-      userRate: 0
+      positiveRates: this.props.positiveRates,
+      negativeRates: this.props.negativeRates,
+      userHasRated: this.props.userRate !== null,
+      userRate: this.props.userRate,
+      userRateId: this.props.userRateId
     }
   },
   componentDidMount: function () {
-    this.loadRatesFromServer()
-    setInterval(this.loadRatesFromServer, this.props.pollInterval)
+    this.getInitialState()
   },
   render: function () {
     if (this.props.style === 'comments') {
@@ -199,10 +157,14 @@ var RateBox = React.createClass({
 
 module.exports.RateBox = RateBox
 
-module.exports.renderRates = function (url, loginUrl, contentType, objectId, authenticatedAs, style, target) {
+module.exports.renderRates = function (url, positiveRates, negativeRates, userRate, userRateId, loginUrl, contentType, objectId, authenticatedAs, style, target) {
   ReactDOM.render(
     h(RateBox, {
       url: url,
+      positiveRates: positiveRates,
+      negativeRates: negativeRates,
+      userRate: (userRate === 'None') ? null : parseInt(userRate),
+      userRateId: (userRateId === 'None') ? null : parseInt(userRateId),
       loginUrl: loginUrl,
       contentType: contentType,
       objectId: objectId,

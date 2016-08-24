@@ -117,3 +117,34 @@ def test_admin_of_comment_can_set_censored_flag(comment, admin, apiclient):
     assert response.status_code == status.HTTP_200_OK
     assert response.data['is_deleted'] is True
     assert response.data['comment'] == 'deleted by moderator'
+
+
+@pytest.mark.django_db
+def test_rate_info(comment, rate_factory, user, user2, apiclient):
+    ct = ContentType.objects.get_for_model(comment)
+    pk = comment.pk
+    rates_url = reverse('rates-list')
+    apiclient.force_authenticate(user)
+    data = {
+        'value': 1,
+        'object_pk': pk,
+        'content_type': ct.pk
+    }
+    apiclient.post(rates_url, data, format='json')
+    comment_url = reverse('comments-detail', kwargs={'pk': comment.pk})
+    response = apiclient.get(comment_url, format='json')
+    assert response.data['rates']['positive_rates'] == 1
+    assert response.data['rates']['current_user_rate_value'] == 1
+    apiclient.force_authenticate(user2)
+    response = apiclient.get(comment_url, format='json')
+    assert response.data['rates']['positive_rates'] == 1
+    assert response.data['rates']['current_user_rate_value'] is None
+    data = {
+        'value': -1,
+        'object_pk': pk,
+        'content_type': ct.pk
+    }
+    apiclient.post(rates_url, data, format='json')
+    response = apiclient.get(comment_url, format='json')
+    assert response.data['rates']['positive_rates'] == 1
+    assert response.data['rates']['current_user_rate_value'] == -1

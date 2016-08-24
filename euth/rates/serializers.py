@@ -4,12 +4,13 @@ from .models import Rate
 
 
 class RateSerializer(serializers.ModelSerializer):
-    user_name = serializers.SerializerMethodField()
+    meta_info = serializers.SerializerMethodField()
 
     class Meta:
         model = Rate
-        read_only_fields = ('id', 'user_name')
+        read_only_fields = ('id', 'meta_info')
         exclude = ('user', 'modified', 'created')
 
-    def get_user_name(self, obj):
-        return str(obj.user.username)
+    def get_meta_info(self, obj):
+        user = self.context['request'].user
+        return obj.get_meta_info(user)
