@@ -63,14 +63,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'autofixture',
 
-    'euth.user_management',
-    'euth.organisations',
-    'euth.projects',
+    'euth.user_management.apps.UsersConfig',
+    'euth.organisations.apps.OrganisationsConfig',
+    'euth.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.rates.apps.RatesConfig',
+    'euth.dashboard.apps.DashboardConfig'
 ]
 
 MIDDLEWARE_CLASSES = [

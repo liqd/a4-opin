@@ -43,6 +43,7 @@ def test_delete_idea(idea_factory, comment_factory, rate_factory, ImagePNG):
     for i in range(5):
         comment_factory(object_pk=idea.id, content_type=contenttype)
     comment_count = comments_models.Comment.objects.all().count()
+    assert comment_count == len(idea.comments)
 
     rate_factory(object_pk=idea.id, content_type=contenttype)
     rate_count = rate_models.Rate.objects.all().count()
