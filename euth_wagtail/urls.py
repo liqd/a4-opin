@@ -15,6 +15,7 @@ from euth.ideas import urls as ideas_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.rates.api import RateViewSet
+from euth.reports.api import ReportViewSet
 from euth.user_management import urls as user_urls
 from search import urls as search_urls
 
@@ -25,12 +26,13 @@ js_info_dict = {
 router = routers.DefaultRouter()
 router.register(r'comments', CommentViewSet, base_name='comments')
 router.register(r'rates', RateViewSet, base_name='rates')
+router.register(r'reports', ReportViewSet, base_name='reports')
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-    url(r'^api/', include(router.urls)),
+    url(r'^api/', include(router.urls))
 ]
 
 urlpatterns += i18n_patterns(

@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.rates.apps.RatesConfig',
+    'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig'
 ]
 
