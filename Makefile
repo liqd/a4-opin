@@ -32,6 +32,7 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loaddata site-dev
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata user_management.User:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.Organisation:5
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.OrganisationTranslation:4
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_projects.Project:2
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata comments.Comment:10
 
