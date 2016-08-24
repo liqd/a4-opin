@@ -20,38 +20,39 @@
         </div>
     </div>
 </header>
+<div class="accordion-block">
+    <div class="container">
+        <div class="container-narrow">
+            <h2 class="accordion-title" id="organisation-title">
+                <a class="accordion-link collapsed" role="button" data-toggle="collapse" href="#organisation-panel" aria-expanded="false" aria-controls="organisation-panel">
+                    {% trans "More info about" %} {{ organisation.name }}
+                </a>
+            </h2>
+
+            <div class="panel panel-default panel-collapse collapse" id="organisation-panel" role="tabpanel" aria-labelledby="organisation-title" aria-expanded="false">
+                <div class="panel-body">
+                    <h4>
+                        {% trans "Why are we part of OPIN" %}
+                    </h4>
+                    <div class="rich-text">{{ organisation.description_why | linebreaks }}</div>
+
+                    <h4>
+                        {% trans "How will we use OPIN" %}
+                    </h4>
+                    <div class="rich-text">{{ organisation.description_how  | linebreaks }}</div>
+
+                    <h4>{% trans "More info about the organisation" %}</h4>
+                    <div class="org-description">
+                        {{ organisation.description | linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container org-page">
     <div class="container-narrow">
-        <div class="accordion-block">
-            <div class="panel panel-default">
-                <h3 id="heading-why" class="accordion-title">
-                    <a class="accordion-link collapsed" role="button" data-toggle="collapse" href="#why" aria-expanded="false" aria-controls="why">
-                    {% trans "Why are we part of OPIN" %}
-                    </a>
-                </h3>
-                <div id="why" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-why" aria-expanded="false">
-                    <div class="panel-body">
-                        <div class="rich-text">{{ organisation.description_why | linebreaks }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <h3 id="heading-how" class="accordion-title">
-                    <a class="accordion-link collapsed" role="button" data-toggle="collapse" href="#how" aria-expanded="false" aria-controls="how">
-                        {% trans "How will we use OPIN" %}
-                    </a>
-                </h3>
-                <div id="how" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-how" aria-expanded="false">
-                    <div class="panel-body">
-                        <div class="rich-text">{{ organisation.description_how  | linebreaks }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="org-description">
-            {{ organisation.description | linebreaks }}
-        </div>
-
         <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
             <div id="project-tile-grid" class="organisation-tiles" data-columns>
             {% for project in organisation.project_set.all %}
@@ -59,7 +60,6 @@
             {% endfor %}
             </div>
         </section>
-
     </div>
 </div>
 {% endblock %}
