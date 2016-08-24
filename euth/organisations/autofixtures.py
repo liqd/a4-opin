@@ -15,7 +15,11 @@ class OrganisationAutoFixture(AutoFixture):
         'name': generators.CallableGenerator(fake.company),
         'slug': generators.CallableGenerator(fake.slug),
         'image': generators.ImageGenerator(sizes=IMAGESIZES),
-        'logo': generators.ImageGenerator(sizes=LOGOSIZES)
+        'logo': generators.ImageGenerator(sizes=LOGOSIZES),
+        'facebook_handle': 'LIQDeV',
+        'twitter_handle': 'bunnybuddhism',
+        'instragram_handle': 'insta.plane',
+        'webpage': 'https://example.com',
     }
 
 register(Organisation, OrganisationAutoFixture)
