@@ -1,15 +1,10 @@
 .accordion-block {
     @include rem(margin-bottom, 40px);
     text-align: left;
+    background: #F4F4F4;
 
     .panel {
         @include rem(margin-bottom, 9px);
-    }
-
-    .accordion-link,
-    .panel-body {
-        background: $brand-brand1;
-        color: #fff;
     }
 
     .panel-body {
@@ -20,22 +15,23 @@
 
     .accordion-title {
         margin: 0;
+        @include rem(padding, 30px 0);
+        text-align: center;
 
         .accordion-link {
-            @include rem(font-size, $font-size-large);
-            @include rem(padding, 22px 30px 15px 22px);
-            border: 1px solid $brand-brand1;
+            @include rem(font-size, $font-size-medium);
+            @include rem(padding, 20px 0);
+            color: $black;
             display: block;
             font-family: $font-family-sans-serif;
             line-height: 1.2;
-            position: relative;
             text-decoration: none;
 
             &:after {
-                @include rem(right, 22px);
-                @include rem(top, 22px);
-                content: "x";
-                position: absolute;
+                content: "–";
+                @include rem(font-size, $font-size-large);
+                vertical-align: middle;
+                @include rem(margin-left, 25px);
             }
 
             &.collapsed {
@@ -51,8 +47,12 @@
     }
 
     .panel-body {
+        @include rem(padding-bottom, 105px);
         @include rem(font-size, $font-size-base);
-        @include rem(padding, 0 22px 22px 22px);
         line-height: 1.75;
+    }
+
+    .rich-text {
+        @include rem(padding-bottom, 10px);
     }
 }
