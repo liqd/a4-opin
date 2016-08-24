@@ -1,7 +1,8 @@
 import pytest
 from django.core.urlresolvers import reverse
 
-from euth.ideas.models import Idea
+from euth.ideas import models, phases
+from test.utils import add_phase_to_project
 
 
 @pytest.mark.django_db
@@ -13,7 +14,8 @@ def test_detail_view(client, idea):
 
 @pytest.mark.django_db
 def test_create_view(client, module, user):
-    count = Idea.objects.all().count()
+    add_phase_to_project(module.project, phases.CollectPhase().identifier)
+    count = models.Idea.objects.all().count()
     assert count == 0
     url = reverse('idea-create', kwargs={'slug': module.slug})
     response = client.get(url)
@@ -25,12 +27,13 @@ def test_create_view(client, module, user):
     idea = {'name': 'Idea', 'description': 'description'}
     client.post(url, idea)
     assert response.status_code == 200
-    count = Idea.objects.all().count()
+    count = models.Idea.objects.all().count()
     assert count == 1
 
 
 @pytest.mark.django_db
 def test_update_view(client, idea, user):
+    add_phase_to_project(idea.project, phases.CollectPhase().identifier)
     url = reverse('idea-update', kwargs={'slug': idea.slug})
     response = client.get(url)
     assert response.status_code == 302
@@ -41,6 +44,6 @@ def test_update_view(client, idea, user):
     data = {'description': 'description', 'name': idea.name}
     response = client.post(url, data)
     id = idea.pk
-    updated_idea = Idea.objects.get(id=id)
+    updated_idea = models.Idea.objects.get(id=id)
     assert updated_idea.description == 'description'
     assert response.status_code == 302

@@ -12,9 +12,9 @@ django-widget-tweaks==1.4.1
 easy-thumbnails==2.3
 django-parler==1.6.4
 django-autoslug==1.9.3
+django-braces==1.9.0
 python-magic==0.4.12
 html5lib==0.9999999
 bleach==1.4.3
 django-autofixture==0.12.1
-django-braces==1.9.0
 rules==1.1.1
