@@ -2,6 +2,7 @@ from django.db.models import signals
 from django.dispatch import receiver
 
 from euth.contrib import services
+
 from . import models
 
 
