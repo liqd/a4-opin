@@ -49,10 +49,8 @@ def test_authenticated_user_can_post(apiclient, user, comment, admin):
         'description': 'This comment sucks'
     }
     response = apiclient.post(url, data, format='json')
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
     assert response.data['description'] == 'This comment sucks'
     assert len(mail.outbox) == 2
-    assert 'A Comment has been reported' in mail.outbox[
-        0].subject
-    assert 'A Comment that you created' in mail.outbox[
-        1].subject
+    assert 'A Comment has been reported' in mail.outbox[0].subject
+    assert 'A Comment that you created' in mail.outbox[1].subject
