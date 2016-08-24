@@ -77,29 +77,33 @@
     margin-bottom: 0;
 }
 
-.euth-home-hero .euth-hero-unit-title {
-    @include rem(font-size, 60px);
-    @include rem(top, 163px);
-    color: #fff;
-    &:after {
-        background: rgba(0,0,0,0.5);
-        content: '\A';
-        left: 0;
-        margin: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
+.euth-home-hero {
+    border: solid 5px $brand-brand3;
 
-    &:before {
-        @include rem(height, 107px);
-        @include rem(margin-bottom, 10px);
-        background: url(../images/logo-white.png) no-repeat center top;
-        background-size: contain;
-        display: block;
-        content: " ";
-        .svgasimg & {
-            background-image: url(../images/logo-white.svg);
+    .euth-hero-unit-title {
+        @include rem(font-size, 60px);
+        @include rem(top, 163px);
+        color: #fff;
+        &:after {
+            background: rgba(0, 0, 0, 0.5);
+            content: '\A';
+            left: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        &:before {
+            @include rem(height, 107px);
+            @include rem(margin-bottom, 10px);
+            background: url(../images/logo-white.png) no-repeat center top;
+            background-size: contain;
+            display: block;
+            content: " ";
+            .svgasimg & {
+                background-image: url(../images/logo-white.svg);
+            }
         }
     }
 }
