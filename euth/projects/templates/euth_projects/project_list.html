@@ -4,11 +4,11 @@
 {% for process in process_list %}
    <li>
      {% if process.background %}
-     <img alt="{{process.name}}" src="{{process.background.url}}">
+     <img alt="{{ process.name }}" src="{{ process.background.url|thumbnail_url:'preview_list' }}">
      {% endif %}
-     <a href="{{process.get_absolute_url}}">{{process.name}}</a>
+     <a href="{{ process.get_absolute_url }}">{{ process.name }}</a>
      <div>
-       {{process.description}}
+       {{ process.description }}
      </div>
    </li>
 {% endfor %}

@@ -1,16 +1,16 @@
-{% load i18n static %}
+{% load i18n thumbnail static %}
 <div class="col-sm-4">
     <div class="org-tile">
         {% if organisation.image %}
-        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}});">
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{ organisation.image.url|thumbnail_url:'organisation_thumbnail' }});">
         {% else %}
         <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link">
         {% endif %}
         <span class="content">
             {% if organisation.logo %}
-            <img src="{{ organisation.logo.url }}" alt=""/>
+            <img src="{{ organisation.logo.url|thumbnail_url:'avatar-medium' }}" alt=""/>
             {% else %}
-            <img src="/static/images/logo.svg" alt="Opin" />
+            <img src="{% static "images/logo.svg" %}" alt="Opin" />
             {% endif %}
         </span>
         </a>
