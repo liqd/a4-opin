@@ -1,7 +1,13 @@
 {% load i18n thumbnail %}
-<div class="project-tile">
-    <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"style="background-image: url('{{ project.image|thumbnail_url:'project_thumbnail' }}');">
-        <img src="{{ project.image|thumbnail_url:'project_thumbnail'}}" class="project-tile-image img-responsive"></a>
+<div class="project-tile {{ project.is_public|yesno:'public,private' }} {% if project.days_left <= 5 %} running-out {% endif %}">
+    <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
+       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/logo.svg{% endif %}');">
+        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/logo.svg{% endif %}" class="project-tile-image img-responsive">
+        {% if project.days_left <= 5 %}
+        <p class="project-tile-badge">{{ project.days_left }} days left</p>
+        {% elif project.is_public == False %}
+        <p class="project-tile-badge">private</p>
+        {% endif %}
     </a>
     <div class="project-tile-body">
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>

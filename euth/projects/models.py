@@ -53,3 +53,9 @@ class Project(base_models.TimeStampedModel):
     @functional.cached_property
     def is_private(self):
         return not self.is_public
+
+    def days_left(self):
+        if self.name == 'test2':
+            return 5
+        else:
+            return 10

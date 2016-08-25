@@ -75,9 +75,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="container-narrow">
-            {% include "euth_projects/includes/project_carousel.html" with projects=view.project.other_projects %}
-        </div>
+        {% include "euth_projects/includes/project_carousel.html" with projects=view.project.other_projects %}
     </div>
 </div>
 {% endif %}

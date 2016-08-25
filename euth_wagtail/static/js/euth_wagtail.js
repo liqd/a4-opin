@@ -25,19 +25,19 @@ $(document).ready(function() {
     var loop = (projectCount<4) ? false : true;
 
     $('.owl-carousel').owlCarousel({
-        center: loop,
-        items: 3,
+        center: false,
+        items: 4,
         loop: loop,
         dots: false,
         nav: true,
-        margin:10,
-        navText: ['<i class="fa fa-chevron-right"></i>','<i class="fa fa-chevron-left"></i>'],
+        margin: 20,
+        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
         responsive:{
             0: {
                 items: 1
             },
             768:{
-                items: 3
+                items: 4
             }
         }
     });
