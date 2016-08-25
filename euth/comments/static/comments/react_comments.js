@@ -133,7 +133,7 @@ var CommentBox = React.createClass({
       h('div.black-divider',
         this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)),
       h('div.commentBox', [
-        h(CommentForm, {
+        this.props.isReadOnly ? null : h(CommentForm, {
           subjectType: this.props.subjectType,
           subjectId: this.props.subjectId,
           onCommentSubmit: this.handleCommentSubmit,
@@ -145,7 +145,8 @@ var CommentBox = React.createClass({
             comments: this.state.comments,
             handleCommentDelete: this.handleCommentDelete,
             handleCommentSubmit: this.handleCommentSubmit,
-            handleCommentModify: this.handleCommentModify
+            handleCommentModify: this.handleCommentModify,
+            isReadOnly: this.props.isReadOnly
           })
         ])
       ])
@@ -186,7 +187,8 @@ var CommentList = React.createClass({
           positiveRates: comment.rates.positive_rates,
           negativeRates: comment.rates.negative_rates,
           userRate: comment.rates.current_user_rate_value,
-          userRateId: comment.rates.current_user_rate_id
+          userRateId: comment.rates.current_user_rate_id,
+          isReadOnly: this.props.isReadOnly
         },
           comment.comment
         )
@@ -226,11 +228,7 @@ var Comment = React.createClass({
   },
 
   allowForm: function () {
-    return !(this.props.content_type === this.context.comments_contenttype)
-  },
-
-  allowRate: function () {
-    return !(this.state.is_deleted)
+    return !this.props.isReadOnly && this.props.content_type !== this.context.comments_contenttype
   },
 
   isOwner: function () {
@@ -298,7 +296,7 @@ var Comment = React.createClass({
             ])
           ]),
 
-          this.allowRate() && !this.props.is_deleted ? h(Rates.RateBox, {
+          !this.props.is_deleted ? h(Rates.RateBox, {
             url: this.context.ratesUrls,
             loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
@@ -309,9 +307,9 @@ var Comment = React.createClass({
             positiveRates: this.props.positiveRates,
             negativeRates: this.props.negativeRates,
             userRate: this.props.userRate,
-            userRateId: this.props.userRateId
-          }
-          ) : null,
+            userRateId: this.props.userRateId,
+            isReadOnly: this.props.isReadOnly
+          }) : null,
 
           h('ul.nav.navbar-nav', [
 
@@ -326,7 +324,7 @@ var Comment = React.createClass({
               }),
 
               h('ul.dropdown-menu', [].concat(
-                this.isOwner() ? [ h('li', [
+                this.isOwner() && !this.props.isReadOnly ? [ h('li', [
                   h('a', {
                     href: '#',
                     onClick: this.toggleEdit,
@@ -565,7 +563,7 @@ CommentEditForm.contextTypes = {
   login_url: React.PropTypes.string
 }
 
-module.exports.renderComment = function (url, ratesUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language) {
+module.exports.renderComment = function (url, ratesUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language, isReadOnly) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
@@ -577,7 +575,8 @@ module.exports.renderComment = function (url, ratesUrls, subjectType, subjectId,
       login_url: loginUrl,
       pollInterval: 20000,
       user_name: userName,
-      language: language
+      language: language,
+      isReadOnly: isReadOnly
     }),
     document.getElementById(target))
 }

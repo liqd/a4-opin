@@ -6,7 +6,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('comments/react_comments.html', takes_context=True)
-def react_comments(context, obj):
+def react_comments(context, obj, enabled=True):
 
     login_url = reverse('login') + '?next=' + context['request'].path
 
@@ -29,7 +29,8 @@ def react_comments(context, obj):
         'is_authenticated': is_authenticated,
         'user_name': user_name,
         'login_url': login_url,
-        'language': language
+        'language': language,
+        'is_read_only': not enabled,
     }
 
     return context

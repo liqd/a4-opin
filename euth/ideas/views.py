@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.views import generic
 
+from euth.modules import mixins as modules_mixins
 from euth.modules.models import Module
 from euth.projects import mixins
 
@@ -18,7 +19,7 @@ class IdeaListView(mixins.ProjectMixin, generic.ListView):
         return models.Idea.objects.filter(module=self.module).order_by('name')
 
 
-class IdeaDetailView(generic.DetailView):
+class IdeaDetailView(generic.DetailView, modules_mixins.ItemMixin):
     model = models.Idea
 
 

@@ -1,6 +1,6 @@
 from euth import phases
 
-from . import apps, views
+from . import apps, models, views
 
 
 class BlogPhase(phases.PhaseContent):
@@ -8,5 +8,9 @@ class BlogPhase(phases.PhaseContent):
     phase = 'phase'
     view = views.PostDetail
     weight = 20
+
+    features = {
+        'comment': (models.Post, )
+    }
 
 phases.content.register(BlogPhase())

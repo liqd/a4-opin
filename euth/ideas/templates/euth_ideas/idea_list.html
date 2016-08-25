@@ -6,12 +6,14 @@
     <h2>{{ view.phase.name }}</h2>
     <p class="idea-list-description">{{ view.phase.description }}</p>
 
+    {% if view.crud_enabled %}
     <button class="idea-list-button">
         <a href="{% url 'idea-create' slug=view.module.slug %}">
             <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
             {% trans 'Create Proposal' %}
         </a>
     </button>
+    {% endif %}
 
     {% for idea in idea_list %}
     {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
