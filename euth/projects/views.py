@@ -1,12 +1,8 @@
-from django.views.generic import detail, list
+from django.views.generic import detail
 
 from euth.phases import models as phases_models
 
 from . import models
-
-
-class ProjectListView(list.ListView):
-    model = models.Project
 
 
 class ProjectDetailView(detail.DetailView):
