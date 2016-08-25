@@ -228,7 +228,7 @@ var Comment = React.createClass({
   },
 
   allowForm: function () {
-    return !this.props.isReadOnly && !(this.props.content_type === this.context.comments_contenttype)
+    return !this.props.isReadOnly && this.props.content_type !== this.context.comments_contenttype
   },
 
   isOwner: function () {
