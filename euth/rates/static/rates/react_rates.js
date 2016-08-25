@@ -163,7 +163,6 @@ var RateBox = React.createClass({
 
 module.exports.RateBox = RateBox
 
-
 module.exports.renderRates = function (url, positiveRates, negativeRates, userRate, userRateId, loginUrl, contentType, objectId, authenticatedAs, style, target, isReadOnly) {
   ReactDOM.render(
     h(RateBox, {
