@@ -1,15 +1,15 @@
-from braces.views import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
 from django.views import generic
+from rules.compat import access_mixins as mixins
 
 from euth.user_management import models as user_models
 
 from . import forms
 
 
-class DashboardProfileView(LoginRequiredMixin,
+class DashboardProfileView(mixins.LoginRequiredMixin,
                            SuccessMessageMixin,
                            generic.UpdateView):
 
@@ -25,6 +25,6 @@ class DashboardProfileView(LoginRequiredMixin,
         return self.request.path
 
 
-class DashboardOverviewView(LoginRequiredMixin, generic.TemplateView):
+class DashboardOverviewView(mixins.LoginRequiredMixin, generic.TemplateView):
 
     template_name = "euth_dashboard/dashboard_overview.html"
