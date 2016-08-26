@@ -7,7 +7,7 @@
 
 .block, .block-inner {
     @include rem(padding, $block-vpadding 0);
-    @include rem(font-size, $font-size-large);
+    @include rem(font-size, $font-size-medium);
     line-height: 1.4;
     text-align: center;
 
@@ -25,6 +25,38 @@
 
         a {
             color: $brand-brand2;
+        }
+    }
+
+    &.m-accent {
+        background-color: #f3f3f3;
+    }
+
+    &.m-highlight-purple {
+        background: #3c487d;
+        @include rem(padding, 140px 0);
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button {
+            @extend .button-alt;
+        }
+        p,
+        h3,
+        a,
+        & {
+            text-align: left;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+        .more {
+            float: right;
         }
     }
 
