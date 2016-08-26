@@ -47,6 +47,13 @@ class Project(base_models.TimeStampedModel):
         from django.core.urlresolvers import reverse
         return reverse('project-detail', args=[str(self.slug)])
 
+    def has_member(self, user):
+        return (
+            self.is_public
+            or (user in self.participants.all())
+            or (user in self.moderators.all())
+        )
+
     @functional.cached_property
     def other_projects(self):
         other_projects = self.organisation.project_set.all().exclude(
@@ -71,5 +78,3 @@ class Project(base_models.TimeStampedModel):
             today = timezone.now().replace(hour=0, minute=0, second=0)
             time_delta = self.active_phase.end_date - today
             return time_delta.days
-        else:
-            return None
