@@ -58,3 +58,9 @@ class Project(base_models.TimeStampedModel):
     def active_phase(self):
         module = self.module_set.first()
         return module.phase_set.order_by('type').first()
+
+    def days_left(self):
+        if self.name == 'test2':
+            return 5
+        else:
+            return 10

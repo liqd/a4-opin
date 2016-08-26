@@ -7,14 +7,24 @@
         @include rem(margin-top, -20px);
         position: absolute;
         top: 50%;
+        opacity: 0;
+
+        transition: opacity, 0.3s;
     }
 
-    .owl-next {
-        @include rem(left, -50px);
+    &:hover {
+        .owl-prev,
+        .owl-next {
+            opacity: 1;
+        }
     }
 
     .owl-prev {
-        @include rem(right, -50px);
+        @include rem(left, -70px);
+    }
+
+    .owl-next {
+        @include rem(right, -70px);
     }
 
     @media (max-width: $screen-md-min) {

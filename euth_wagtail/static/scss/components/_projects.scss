@@ -41,10 +41,44 @@
 
 .project-tile {
     @extend %tile;
-    min-height: 470px;
+    min-height: 390px;
+    position: relative;
+    @include rem(padding-bottom, 50px);
 
     img {
         margin: 0;
+    }
+
+    &.public .project-tile-image-link {
+        border: solid 5px $brand-brand3;
+    }
+    &.private .project-tile-badge {
+        background-color: $brand-brand1;
+        text-transform: uppercase;
+    }
+    &.private .project-tile-image-link {
+        border: solid 5px $brand-brand1;
+    }
+    &.running-out .project-tile-badge {
+        background-color: #c8423a;
+    }
+    &.running-out .project-tile-image-link {
+        border: solid 5px #c8423a;
+    }
+    &.no-image .project-tile-image-link {
+        background-position: 50% 50%;
+        background-size: 150px;
+        height: 173px;
+        background-color: $brand-brand2;
+    }
+    &.no-image .project-tile-image-link img {
+        display: block;
+        height: 163px;
+        margin: 0 auto;
+    }
+
+    .project-tile-org-avatar {
+        border-radius: 50%;
     }
 
     &.style-idea-collection {
@@ -85,6 +119,26 @@
             }
         }
     }
+
+    .project-tile-org {
+        position: absolute;
+        @include rem(bottom, 16px);
+        @include rem(left, 16px);
+    }
+}
+
+.project-tile-badge {
+    border-radius: 100px;
+    @include rem(padding, 4px 20px);
+    position: absolute;
+    @include rem(left, 27px);
+    @include rem(bottom, 10px);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 2;
+    letter-spacing: -0.2px;
 }
 
 .project-tile-body {
@@ -116,6 +170,7 @@
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     display: block;
+    position: relative;
 }
 
 .project-tile-org {

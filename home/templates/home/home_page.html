@@ -5,7 +5,58 @@
 
 {% block content %}
     {% include "home/includes/wagtail_hero_unit.html" with image=page.image title=page.translated_title %}
+    {% include "euth_projects/includes/project_carousel.html" with projects=view.project.other_projects %}
+
     <section class="page-body">
+        <div class="columns-block block m-accent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="/media/original_images/Howto_05.png" alt="" class="block-image">
+                        <h3 class="block-title">Langer Text für zwei Spalten.</h3>
+                        <p class="block-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate error eum facere laborum, magnam molestiae rerum similique? Architecto commodi dolorem ducimus esse illo in magnam nostrum sunt, ut. Minus, sint!
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="/media/original_images/Howto_06.png" alt="" class="block-image">
+                        <h3 class="block-title">Langer Text für garantiert drei Spalten.</h3>
+                        <p class="block-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate error eum facere laborum, magnam molestiae rerum similique? Architecto commodi dolorem ducimus esse illo in magnam nostrum sunt, ut. Minus, sint!
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="/media/original_images/Howto_04.png" alt="" class="block-image">
+                        <h3 class="block-title">Opin.me Roadmap</h3>
+                        <p class="block-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate error eum facere laborum, magnam molestiae rerum similique? Architecto commodi dolorem ducimus esse illo in magnam nostrum sunt, ut. Minus, sint!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-block block m-highlight-purple">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="/media/images/About_map.2e16d0ba.fill-800x400.png" alt="">
+                    </div>
+                    <div class="col-sm-7">
+                        <h3 class="block-title">Opin.me Roadmap</h3>
+                        <div class="info-box-text"><div class="rich-text">
+                            <p>
+                                OPIN platform and features are developed within the European innovation project EUth. The first 3 features have been released in March 2016, more will come with further releases in spring and autumn 2017.
+                            </p>
+
+                            <p>
+                                We are glad about any feedback, please contact us at <a href="#">info@opin.me</a>.
+                                <a href="#" class="more">read more</a>
+                            </p>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	{{ page.body }}
     </section>
 {% endblock %}
