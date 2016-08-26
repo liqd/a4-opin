@@ -1,5 +1,5 @@
 {% load i18n static %}
-<div class="col-sm-4">
+<div class="col-md-4 col-sm-6">
     <div class="org-tile">
         {% if organisation.image %}
         <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{organisation.image.url}});">
@@ -15,10 +15,9 @@
         </span>
         </a>
         <div class="org-tile-body">
-            <!--<span class="org-tile-location">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                FIXME: Dummy location !!
-            </span>-->
+            <span class="org-tile-location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Berlin, Germany
+            </span>
             <h2 class="org-tile-title">
                 <a href="{% url 'organisation-detail' organisation.slug %}">
                     {{ organisation.name }}

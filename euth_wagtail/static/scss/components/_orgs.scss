@@ -1,5 +1,6 @@
 .org-tile {
     @extend %tile;
+    margin: 0;
     position: relative;
 
     &:nth-child(3) {
@@ -8,13 +9,16 @@
 }
 
 .org-grid {
-    .col-sm-4 {
-        @include rem(padding, 0 5px 10px 5px);
+    .col-sm-6 {
+        @include rem(padding, 0 10px 20px 10px);
     }
 
-    .col-sm-4:nth-child(3n+1){
+    .col-sm-6:nth-child(3n+1){
         clear: left;
     }
+    //@media (max-width: $scree) {
+    //
+    //}
 }
 
 .org-tile-title {
@@ -82,12 +86,27 @@
     }
 
     img {
-        @include rem(margin-left, -75px);
-        @include rem(margin-top, -75px);
-        max-width: 150px;
+        max-width: 90px;
+        margin: 0;
         left: 50%;
         position: absolute;
         top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .content:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include rem(margin-left, -75px);
+        @include rem(margin-top, -75px);
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+        background-color: #ffffff;
+        border: solid 4px #f3f3f3;
     }
 
     @media (max-width: $screen-sm-min) {
