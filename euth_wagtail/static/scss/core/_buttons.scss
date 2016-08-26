@@ -25,6 +25,17 @@
             color: #000;
         }
     }
+    &.button-alt-dark {
+        background: transparent;
+        border: 1px solid currentColor;
+        color: $black;
+        @include rem(font-size, $font-size-small)
+
+        &:focus, &:hover {
+            background: #fff;
+            color: lighten($black, 20%);
+        }
+    }
 }
 
 .feedback-button {

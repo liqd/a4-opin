@@ -118,3 +118,16 @@
         }
     }
 }
+
+.org-page .loader {
+    margin-top: 60px;
+    text-align: center;
+}
+.org-page .button-alt-dark {
+    display: inline-block;
+    clear: left;
+}
+
+.org-projects {
+    @include clearfix();
+}
