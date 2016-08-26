@@ -48,6 +48,10 @@ class Project(base_models.TimeStampedModel):
         return reverse('project-detail', args=[str(self.slug)])
 
     def has_member(self, user):
+        """
+        Everybody is member of all public projects and private projects can
+        be joined as moderator or participant.
+        """
         return (
             self.is_public
             or (user in self.participants.all())
