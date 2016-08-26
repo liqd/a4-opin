@@ -1,8 +1,8 @@
 {% load i18n thumbnail %}
-<div class="project-tile {{ project.is_public|yesno:'public,private' }} {% if project.days_left <= 5 %} running-out {% endif %}">
+<div class="project-tile {{ project.is_public|yesno:'public,private' }} {% if not project.image %} no-image {% endif %} {% if project.days_left <= 5 %} running-out {% endif %}">
     <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
-       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/logo.svg{% endif %}');">
-        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/logo.svg{% endif %}" class="project-tile-image img-responsive">
+       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');">
+        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
         {% if project.days_left <= 5 %}
         <p class="project-tile-badge">{{ project.days_left }} days left</p>
         {% elif project.is_public == False %}

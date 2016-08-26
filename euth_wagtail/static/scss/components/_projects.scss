@@ -50,7 +50,7 @@
     }
 
     &.public .project-tile-image-link {
-        border: solid 5px $brand-brand2;
+        border: solid 5px $brand-brand3;
     }
     &.private .project-tile-badge {
         background-color: $brand-brand1;
@@ -64,6 +64,17 @@
     }
     &.running-out .project-tile-image-link {
         border: solid 5px #c8423a;
+    }
+    &.no-image .project-tile-image-link {
+        background-position: 50% 50%;
+        background-size: 150px;
+        height: 173px;
+        background-color: $brand-brand2;
+    }
+    &.no-image .project-tile-image-link img {
+        display: block;
+        height: 163px;
+        margin: 0 auto;
     }
 
     .project-tile-org-avatar {
