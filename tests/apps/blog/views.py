@@ -1,7 +1,7 @@
-from django.views.generic import detail
+from django.views.generic import list
 
 from . import models
 
 
-class PostDetail(detail.DetailView):
+class PostList(list.ListView):
     model = models.Post

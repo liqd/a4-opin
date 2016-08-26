@@ -43,7 +43,7 @@ def test_manager_active_phases(phase_factory):
 
 @pytest.mark.django_db
 def test_blogapp_phase_view(phase):
-    assert phase.view == blog_views.PostDetail
+    assert phase.view == blog_views.PostList
 
 
 @pytest.mark.django_db
