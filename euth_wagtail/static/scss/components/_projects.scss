@@ -1,21 +1,21 @@
-@media (min-width: $screen-xs-min) {
+@media (max-width: $screen-xs) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of1';
+    content: '1 .project-tile-container.size-1of1';
     }
 }
 
-@media (min-width: $screen-sm-min) {
+@media (min-width: $screen-xs + 1) and (max-width: $screen-sm-max) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of2';
+    content: '2 .project-tile-container.size-1of2';
     }
 }
 
 @media (min-width: $screen-md-min) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of3';
+    content: '4 .project-tile-container.size-1of4';
     }
 }
 
@@ -42,9 +42,36 @@
 .project-tile {
     @extend %tile;
     min-height: 470px;
+    position: relative;
+    @include rem(padding-bottom, 50px);
+    margin: 0 10px 10px 0;
 
     img {
         margin: 0;
+    }
+
+    &.public .project-tile-image-link {
+        border: solid 5px $brand-brand3;
+    }
+    &.private .project-tile-badge {
+        background-color: $brand-brand1;
+        text-transform: uppercase;
+    }
+    &.private .project-tile-image-link {
+        border: solid 5px $brand-brand1;
+    }
+    &.running-out .project-tile-badge {
+        background-color: #c8423a;
+    }
+    &.running-out .project-tile-image-link {
+        border: solid 5px #c8423a;
+    }
+    &.no-image .project-tile-image-link img {
+        width: 100%;
+    }
+
+    .project-tile-org-avatar {
+        border-radius: 50%;
     }
 
     &.style-idea-collection {
@@ -112,7 +139,7 @@
 }
 
 .project-tile-image-link {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     display: block;

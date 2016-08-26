@@ -16,6 +16,8 @@
                 <img alt="opin logo" class="euth-hero-unit-logo" src="{% static "images/logo.png" %}">
                 {% endif %}
                 <h1 class="euth-hero-unit-title">{{ organisation.name }}</h1>
+                <p class="org-location"><i class="fa fa-map-marker"></i>  Berlin, Germany</p>
+                <a href="#project-tile-grid" class="button button-white">Go to projects</a>
             </div>
         </div>
     </div>
@@ -52,15 +54,13 @@
 </div>
 
 <div class="container org-page">
-    <div class="container-narrow">
-        <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
-            <div id="project-tile-grid" class="organisation-tiles" data-columns>
-            {% for project in organisation.project_set.all %}
-            {% include "euth_projects/includes/project_tile.html" with project=project %}
-            {% endfor %}
-            </div>
-        </section>
-    </div>
+    <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
+        <div id="project-tile-grid" class="organisation-tiles" data-columns>
+        {% for project in organisation.project_set.all %}
+        {% include "euth_projects/includes/project_tile.html" with project=project %}
+        {% endfor %}
+        </div>
+    </section>
 </div>
 {% endblock %}
 

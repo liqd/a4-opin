@@ -66,12 +66,11 @@
 
 .euth-hero-unit-title {
     @include rem(font-size, $font-size-xlarge);
-    margin: 0;
+    @include rem(margin, 0 0 20px 0);
     letter-spacing: 3px;
 }
 
 .euth-hero-unit-description {
-    @include rem(margin-top, 20px);
     @include rem(padding, 0 70px);
     line-height: 1.63;
     margin-bottom: 0;
@@ -101,5 +100,14 @@
         .svgasimg & {
             background-image: url(../images/logo-white.svg);
         }
+    }
+}
+
+.euth-hero-unit-video {
+    .close {
+        position: absolute;
+        top: -25px;
+        right: -20px;
+        font-size: 30px;
     }
 }
