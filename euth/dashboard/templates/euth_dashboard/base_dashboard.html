@@ -19,11 +19,14 @@
                             <i class="fa fa-rocket" aria-hidden="true"></i> Organisations
                         </h4>
                     </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">
-                            <i class="fa fa-clone" aria-hidden="true"></i> Projects
+                    -->
+                    {% url 'dashboard-project-list' as dashboard_project_list %}
+                    <a href="{{dashboard_project_list}}" class="list-group-item">
+                        <h4 class="list-group-item-heading {% selected request dashboard_project_list %}">
+                            <i class="fa fa-clone" aria-hidden="true"></i> {% trans 'Projects' %}
                         </h4>
                     </a>
+                    <!--
                     <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">
                             <i class="fa fa-check" aria-hidden="true"></i> Moderation

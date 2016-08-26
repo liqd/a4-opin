@@ -1,0 +1,25 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Projects' %}</h1>
+
+<a href="#">Create project</a>
+
+{% if project_list|length == 0 %}
+{% trans 'No projects created' %}
+{% else %}
+<ul>
+  {% for project in project_list %}
+  <li>
+    {{ project.name }} in
+    {{ project.organisation.name }} created
+    {{ project.created }}
+    <a href="{% url 'dashboard-project-edit' project.slug %}">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Edit a project' %}</h1>
+
+<div class="general-form">
+    <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        <label>{{ field.label }}</label>
+        {% render_field field class="form-control" %}
+        {% for error in field.errors %}
+        <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      {% if project.is_draft %}
+      <button type="submit" name="save_draft" class="submit-button">{% trans 'save draft' %}</button>
+      {% else %}
+      <button type="submit" name="save_draft" class="submit-button">{% trans 'unpublish' %}</button>
+      {% endif %}
+      <button type="submit" name="publish" class="submit-button">{% trans 'save and publish' %}</button>
+
+{% endblock %}
