@@ -4,9 +4,11 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    {% include "home/includes/wagtail_hero_unit.html" with image=page.image title=page.translated_title %}
-    {% include "euth_projects/includes/project_carousel.html" with projects=view.project.other_projects %}
 
+    {% include "home/includes/wagtail_hero_unit.html" with image=page.image title=page.translated_title %}
+    <div class="container">
+          {% include "euth_projects/includes/project_carousel.html" with projects=page.featured_projects %}
+    </div>
     <section class="page-body">
         <div class="columns-block block m-accent">
             <div class="container">

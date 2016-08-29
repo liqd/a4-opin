@@ -17,6 +17,8 @@ from wagtail.wagtailsnippets.models import register_snippet
 
 from contrib.translations.translations import TranslatedField
 
+from euth.projects import models as prj_models
+
 from .blocks import (AccordionBlock, ContactBlock, ImageTextBlockList,
                      InfoBlock, InlineImagesBlock, NewsBlock, VideoBlock,
                      WideImageBlock)
@@ -217,6 +219,10 @@ class HomePage(Page):
         'home.SimplePage',
         'projects.ProjectsPage',
         'projects.OrganisationsPage']
+
+    @property
+    def featured_projects(self):
+        return prj_models.Project.objects.featured()
 
 
 class SimplePage(Page):

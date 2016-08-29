@@ -11,6 +11,9 @@ class ProjectManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
+    def featured(self):
+        return self.filter(is_draft=False).order_by('-created')[:8]
+
 
 class Project(base_models.TimeStampedModel):
     slug = models.SlugField(max_length=512, unique=True)
