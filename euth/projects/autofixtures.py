@@ -14,6 +14,7 @@ class ProjectAutoFixture(AutoFixture):
         'name': generators.CallableGenerator(fake.company),
         'slug': generators.CallableGenerator(fake.slug),
         'image': generators.ImageGenerator(sizes=IMAGESIZES),
+        'is_draft': generators.ChoicesGenerator(values=[True, False, False]),
     }
 
 register(Project, ProjectAutoFixture)

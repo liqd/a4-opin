@@ -16,4 +16,6 @@ class IdeaAutoFixture(AutoFixture):
         'image': generators.ImageGenerator(sizes=IMAGESIZES),
     }
 
+    follow_pk = True
+
 register(Idea, IdeaAutoFixture)
