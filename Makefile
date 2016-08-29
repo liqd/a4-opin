@@ -37,7 +37,7 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata comments.Comment:10
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_modules.Module:10
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_phases.Phase:10
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Ideas:40
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
 watch:
 	trap 'kill %1' SIGINIT; \
