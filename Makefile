@@ -32,11 +32,10 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loaddata site-dev
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata user_management.User:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.Organisation:5
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.OrganisationTranslation:4
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_projects.Project:20
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata comments.Comment:10
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_modules.Module:10
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_phases.Phase:10
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.OrganisationTranslation:8
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_projects.Project:10
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_modules.Module:15
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_phases.Phase:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
 watch:
