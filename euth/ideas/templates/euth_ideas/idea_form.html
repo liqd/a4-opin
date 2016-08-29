@@ -51,20 +51,14 @@
                 {{ form.description.errors }}
             </div>
             <div class="form-group">
-                <label class="control-label" for="{{ form.image.id_for_label }}">{% trans 'Upload a picture'%}</label>
-                <div class="input-group form-control-upload">
-                    {% if form.image.errors %}
-                    <input type="text" class="form-control form-control-file-dummy form-error" placeholder="{% trans 'Select a picture from your local folder'%}">
-                    {% else %}
-                    <input type="text" class="form-control form-control-file-dummy" placeholder="{% trans 'Select a picture from your local folder'%}">
-                    {% endif %}
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" title="{% trans 'Upload a picture'%}"><i class="fa fa-cloud-upload"></i></button>
-                    </span>
-                    {{ form.image|add_class:"form-control form-control-file"}}
+                <div class="input-group form-control-upload row">
+                    <div class="col-sm-8 col-md-9">
+                        {{ form.image|add_class:"form-control form-control-file"}}
+                    </div>
                 </div>
                 {{ form.image.errors }}
             </div>
+
 
             <button type="submit" class="submit-button">{% trans 'post'%}</button>
             {% if mode == 'create' %}
