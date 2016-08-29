@@ -8,15 +8,15 @@
                 {% if organisation.has_social_share %}
                 <ul class="orgs-social-links">
                   {% if organisation.facebook_handle  %}
-                  <li><a href="https://www.facebook.com/{{organisation.handle_facebook}}"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://www.facebook.com/{{ organisation.facebook_handle }}"><i class="fa fa-facebook"></i></a></li>
                   {% endif %}
                   {% if organisation.twitter_handle %}
-                  <li><a href="https://twitter.com/{{organisation.handle_twitter}}"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://twitter.com/{{ organisation.twitter_handle }}"><i class="fa fa-twitter"></i></a></li>
                   {% endif %}
                   {% if organisation.instagram_handle %}
-                  <li><a href="https://www.instagram.com/{{organisation.handle_instagram}}"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.instagram.com/{{ organisation.instagram_handle }}"><i class="fa fa-instagram"></i></a></li>
                   {% endif %}
-                  {% if organisation.webpage %}<li><a href="{{organisation.webpage}}"><i class="fa fa-link"></i></a></li>
+                  {% if organisation.webpage %}<li><a href="{{ organisation.webpage }}"><i class="fa fa-link"></i></a></li>
                   {% endif %}
                 </ul>
                 {% endif %}
