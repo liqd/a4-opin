@@ -36,6 +36,11 @@ class ImageInputWidget(widgets.ClearableFileInput):
 
         if self.is_initial(value):
             substitutions['url'] = conditional_escape(value.url)
+            substitutions['filename'] = basename(value.name)
+            snippets['img'] = (
+                '<img src="{url}" class="img-responsive" alt="" />'
+            )
+
             if not self.is_required:
                 snippets['button'] = (
                     '<label for="image-clear_id" class="btn btn-danger"'
@@ -45,11 +50,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
                     .render('image-clear', False,
                             attrs={'id': 'image-clear_id',
                                    'class': 'clear-image'})
-            snippets['img'] = (
-                '<img src="{url}" class="img-responsive" alt="" />'
-            )
-            substitutions['url'] = conditional_escape(value.url)
-        elif not self.is_initial(value):
+        else:
             snippets['button'] = (
                 '<label for="id_image" class="btn btn-default"'
                 'title="{upload_title}">'
