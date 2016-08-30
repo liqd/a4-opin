@@ -1,5 +1,6 @@
 from django.db import models
 
+
 from euth.modules import models as modules_models
 
 from . import content
@@ -20,6 +21,8 @@ class Phase(models.Model):
     description = models.TextField()
     type = models.CharField(max_length=128, validators=[validate_content])
     module = models.ForeignKey(modules_models.Module, on_delete=models.CASCADE)
+    start_date = models.DateTimeField(blank=True, null=True)
+    end_date = models.DateTimeField(blank=True, null=True)
 
     objects = PhasesQuerySet.as_manager()
 

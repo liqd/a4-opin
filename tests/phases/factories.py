@@ -14,3 +14,5 @@ class PhaseFactory(factory.django.DjangoModelFactory):
     description = factory.Faker('text')
     type = 'blog:020:phase'
     module = factory.SubFactory(module_factories.ModuleFactory)
+    start_date = factory.Faker('date')
+    end_date = factory.Faker('date')
