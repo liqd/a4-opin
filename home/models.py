@@ -187,12 +187,22 @@ class InfoBlock(core_blocks.StructBlock):
     button = CallToActionBlock(required=False)
     highlight = core_blocks.ChoiceBlock(choices=[
         ('', 'None'),
-        ('highlight', 'Highlight'),
+        ('highlight', 'Highlight (blue)'),
         ('boxed', 'Boxed'),
         ('boxed2', 'Boxed Variation'),
+        ('highlight-purple', 'Highlight (purple)')
     ], icon='cup',
         required=False,
         help_text='How should this block be displayed?'
+    )
+    alignment = core_blocks.ChoiceBlock(
+        choices=[
+            ('vertical', 'vertical'),
+            ('horizontal', 'horizontal'),
+        ],
+        icon='cup',
+        default='vertical',
+        help_text='How should the text and image be aligned?'
     )
 
     class Meta:

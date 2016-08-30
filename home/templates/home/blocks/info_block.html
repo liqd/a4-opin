@@ -5,10 +5,38 @@
 <div class="info-block block m-boxed">
 {% elif self.highlight == "boxed2" %}
 <div class="info-block block m-boxed m-variation">
+{% elif self.highlight == "highlight-purple" %}
+<div class="info-block block m-highlight-purple">
 {% else %}
 <div class="info-block block">
 {% endif %}
-    <div class="container">
+     <div class="container">
+       {% if self.alignment = 'horizontal' %}
+        <div class="row">
+             <div class="col-sm-5">
+                 {% if self.image.width > 0 %}
+    	             {% image self.image width-900 class="info-box-image img-responsive info-img" %}
+    	         {% endif %}
+            </div>
+            <div class="col-sm-7">
+                {% if self.title %}
+    	            <h3 class="block-title">{{ self.title }}</h1>
+                {% endif %}
+
+                <div class="info-box-text">
+                    {% if self.text %}
+                       {{ self.text | richtext }}
+                    {% endif %}
+                </div>
+
+                {% if self.button.internal_link %}
+                    <a class="button" href="{{ self.button.internal_link.url }}">{{ self.button.link_text}}</a>
+                {% elif self.button.external_link %}
+                    <a class="button" href="{{ self.button.external_link.url }}">{{ self.button.link_text}}</a>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
     	<div class="container-inner">
             {% if self.title %}
     	    <h1 class="block-title">{{ self.title }}</h1>
@@ -28,5 +56,6 @@
                 <a class="button" href="{{ self.button.external_link.url }}">{{ self.button.link_text}}</a>
             {% endif %}
     	</div>
+        {% endif %}
     </div>
 </div>
