@@ -6,6 +6,8 @@ from django.views import generic
 
 from euth.user_management import models as user_models
 
+from . import forms
+
 
 class DashboardProfileView(LoginRequiredMixin,
                            SuccessMessageMixin,
@@ -13,7 +15,7 @@ class DashboardProfileView(LoginRequiredMixin,
 
     model = user_models.User
     template_name = "euth_dashboard/profile_detail.html"
-    fields = ['avatar', 'email']
+    form_class = forms.ProfileForm
     success_message = _("Your profile was successfully updated")
 
     def get_object(self):

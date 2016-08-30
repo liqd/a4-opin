@@ -42,13 +42,14 @@ class ImageInputWidget(widgets.ClearableFileInput):
             )
 
             if not self.is_required:
+                substitutions['checkbox_id'] = self.clear_checkbox_id(name)
                 snippets['button'] = (
-                    '<label for="image-clear_id" class="btn btn-danger"'
+                    '<label for="{checkbox_id}" class="btn btn-danger"'
                     'title="{clear_title}"><i class="fa fa-trash"></i></label>'
                 )
                 snippets['checkbox'] = widgets.CheckboxInput()\
-                    .render('image-clear', False,
-                            attrs={'id': 'image-clear_id',
+                    .render(self.clear_checkbox_name(name), False,
+                            attrs={'id': '{checkbox_id}',
                                    'class': 'clear-image'})
         else:
             snippets['button'] = (
