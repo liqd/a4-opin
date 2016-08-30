@@ -2,13 +2,13 @@
 <div class="col-md-4 col-sm-6">
     <div class="org-tile">
         {% if organisation.image %}
-        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{ organisation.image.url|thumbnail_url:'organisation_thumbnail' }});">
+        <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link" style="background-image:url({{ organisation.image|thumbnail_url:'organisation_thumbnail' }});">
         {% else %}
         <a href="{% url 'organisation-detail' organisation.slug %}" class="org-tile-image-link">
         {% endif %}
         <span class="content">
             {% if organisation.logo %}
-            <img src="{{ organisation.logo.url|thumbnail_url:'avatar-medium' }}" alt=""/>
+            <img src="{{ organisation.logo|thumbnail_url:'avatar_medium' }}" alt=""/>
             {% else %}
             <img src="{% static "images/logo.svg" %}" alt="Opin" />
             {% endif %}
