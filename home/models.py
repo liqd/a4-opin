@@ -14,7 +14,6 @@ from wagtail.wagtailsnippets import blocks as snippet_blocks
 from wagtail.wagtailsnippets.models import register_snippet
 
 from contrib.translations.translations import TranslatedField
-
 from euth.projects import models as prj_models
 
 
