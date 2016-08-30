@@ -62,8 +62,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
                 {button}
             </span>
             {alert}
-            {checkbox}
         </div>
+        {checkbox}
         {img}
         """.format(**snippets).format(**substitutions)
 
