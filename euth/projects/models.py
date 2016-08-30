@@ -59,8 +59,11 @@ class Project(base_models.TimeStampedModel):
 
     @functional.cached_property
     def active_phase(self):
-        module = self.module_set.first()
-        return module.phase_set.order_by('type').first()
+        from euth.phases import models as phase_models
+        return phase_models.Phase.objects\
+                                 .filter(module__project=self)\
+                                 .active_phases()\
+                                 .first()
 
     def days_left(self):
         if self.name == 'test2':
