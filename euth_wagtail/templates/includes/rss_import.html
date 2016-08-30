@@ -1,0 +1,11 @@
+{% if latest_entry %}
+<div class="row">
+<h3 class="block-title">{{ title }}</h3>
+</div>
+    <div class="rss-feed-entry">
+        <div class="rss-feed-entry-date"><small>{{ latest_entry.published | date:"d M y" }}</small></div>
+        <a href="{{ latest_entry.link }}" target="_blank">{{ latest_entry.title }}</a>
+        <p>{{ latest_entry.description|truncatechars:300 }}</p>
+    </div>
+</div>
+{% endif %}

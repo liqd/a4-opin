@@ -205,6 +205,7 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
+
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': False,
@@ -214,6 +215,7 @@ WEBPACK_LOADER = {
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
     }
 }
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/jquery/dist'),

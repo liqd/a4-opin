@@ -1,8 +1,8 @@
 .general-form {
 
-    & .form-group {
+    .form-group {
 
-        & label {
+        label {
             @include rem(font-size, 14px);
             @include rem(height, 19px);
             font-weight: bold;
@@ -11,10 +11,82 @@
             color: $black;
         }
 
-        & .form-control {
+        .form-control {
             border: 1px solid $warm-grey;
-            border-radius: 0px;
-            @include rem(min-height, 76px);
+        }
+
+        .form-control-upload {
+            position: relative;
+            display: block;
+
+            .form-control-file {
+                cursor: pointer;
+                float: none;
+                left: 0;
+                position: absolute;
+                opacity: 0;
+                top: 0;
+            }
+
+            .btn {
+                line-height: 65px;
+            }
+
+            .btn-default {
+                @include rem(font-size, 30px);
+                @include rem(width, 76px);
+                background: $brand-success;
+                border: 0;
+                color: #fff;
+            }
+
+            .btn-danger {
+                @include rem(font-size, 30px);
+                @include rem(width, 76px);
+                background: $brand-danger;
+                border: 0;
+                color: #fff;
+            }
+
+            .alert-info {
+                clear: left;
+                @include rem(margin-top, 20px);
+            }
+
+            .form-control {
+                float: none;
+            }
+
+            .clear-image {
+                display: none;
+            }
+
+            .clear-image:checked + img {
+                opacity: 0.2;
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+            }
+
+            @media (min-width: $screen-sm) {
+                .input-group-btn {
+                    position: absolute;
+                    z-index: 10;
+                    top: 0;
+                    right: 0;
+                    width: auto;
+                }
+            }
+        }
+
+        .upload-wrapper {
+            position: relative;
+            @include rem(margin-bottom, 20px);
+            @include clearfix();
+        }
+
+        .input-group-btn .btn, .form-control {
+            @include rem(height, 76px);
+            border-radius: 0;
         }
 
         @include rem(margin-bottom, 40px);

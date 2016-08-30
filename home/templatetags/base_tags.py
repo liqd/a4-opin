@@ -1,3 +1,6 @@
+import bleach
+import feedparser
+from dateutil import parser
 from django import template
 from django.conf import settings
 
@@ -19,6 +22,33 @@ def top_menu(context, parent, calling_page=None):
         'calling_page': calling_page,
         'menuitems': menuitems,
         'request': context['request'],
+    }
+
+
+@register.inclusion_tag('includes/rss_import.html', takes_context=True)
+def import_rss(context, rss_import):
+
+    feeds = feedparser.parse(rss_import.url)
+    entry = feeds.entries[0]
+
+    try:
+        published = parser.parse(entry["published"])
+    except:
+        published = ''
+
+    return {
+        'title': rss_import.translated_rss_title,
+        'latest_entry': {
+            'published': published,
+            'title': entry.title,
+            'link': entry.link,
+            'description': bleach.clean(entry.summary,
+                                        tags=[],
+                                        attributes={},
+                                        styles=[],
+                                        strip=True
+                                        )
+        }
     }
 
 
