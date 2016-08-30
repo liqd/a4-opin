@@ -11,7 +11,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
             .render(name, value, attrs)
 
         substitutions = {
-            'filename': basename(value.name),
+            'filename': '',
             'file_placeholder': ugettext(
                 'Select a picture from your local folder.'
             ),
@@ -35,6 +35,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
         }
 
         if self.is_initial(value):
+            substitutions['url'] = conditional_escape(value.url)
             if not self.is_required:
                 snippets['button'] = (
                     '<label for="image-clear_id" class="btn btn-danger"'
