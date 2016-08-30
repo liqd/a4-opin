@@ -11,6 +11,9 @@ class ProjectManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
 
+    def featured(self):
+        return self.filter(is_draft=False).order_by('-created')[:8]
+
 
 class Project(base_models.TimeStampedModel):
     slug = models.SlugField(max_length=512, unique=True)
@@ -58,3 +61,9 @@ class Project(base_models.TimeStampedModel):
     def active_phase(self):
         module = self.module_set.first()
         return module.phase_set.order_by('type').first()
+
+    def days_left(self):
+        if self.name == 'test2':
+            return 5
+        else:
+            return 10

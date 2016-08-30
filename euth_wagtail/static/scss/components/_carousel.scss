@@ -7,14 +7,28 @@
         @include rem(margin-top, -20px);
         position: absolute;
         top: 50%;
+        opacity: 0;
+
+        transition: opacity, 0.3s;
     }
 
-    .owl-next {
-        @include rem(left, -50px);
+    .owl-stage {
+        display: flex;
+    }
+
+    &:hover {
+        .owl-prev,
+        .owl-next {
+            opacity: 1;
+        }
     }
 
     .owl-prev {
-        @include rem(right, -50px);
+        @include rem(left, -70px);
+    }
+
+    .owl-next {
+        @include rem(right, -70px);
     }
 
     @media (max-width: $screen-md-min) {
@@ -30,12 +44,20 @@
     .owl-stage-outer {
         overflow: visible;
 
-        @media (max-width: $screen-md-min) {
-            overflow: hidden;
-        }
+        //@media (max-width: $screen-md-min) {
+        //    overflow: hidden;
+        //}
     }
 
     .owl-item:not(.active) {
         opacity: 0.4;
+
+        .project-tile {
+            box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
+        }
     }
+}
+
+.home-carousel {
+    @include rem(padding, 20px 0 30px);
 }

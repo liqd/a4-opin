@@ -41,10 +41,10 @@
 
 .project-tile {
     @extend %tile;
-    min-height: 470px;
-    position: relative;
-    @include rem(padding-bottom, 50px);
-    margin: 0 10px 10px 0;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     img {
         margin: 0;
@@ -66,8 +66,16 @@
     &.running-out .project-tile-image-link {
         border: solid 5px #c8423a;
     }
+    &.no-image .project-tile-image-link {
+        background-position: 50% 50%;
+        background-size: 150px;
+        height: 173px;
+        background-color: $brand-brand2;
+    }
     &.no-image .project-tile-image-link img {
-        width: 100%;
+        display: block;
+        height: 163px;
+        margin: 0 auto;
     }
 
     .project-tile-org-avatar {
@@ -114,9 +122,26 @@
     }
 }
 
+.project-tile-badge {
+    border-radius: 100px;
+    @include rem(padding, 4px 20px);
+    position: absolute;
+    @include rem(left, 27px);
+    @include rem(bottom, 10px);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 2;
+    letter-spacing: -0.2px;
+}
+
 .project-tile-body {
     @include rem(padding, 16px);
     border-top: 1px solid $gray-lighter;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-tile-type {
@@ -132,6 +157,7 @@
 
 .project-tile-teaser {
     @extend %tile-teaser-text;
+    flex: 1 0 auto;
 }
 
 .project-tile-image {
@@ -143,6 +169,10 @@
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     display: block;
+    position: relative;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .project-tile-org {

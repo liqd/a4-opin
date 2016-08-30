@@ -1,13 +1,19 @@
 {% load i18n thumbnail %}
-<div class="project-tile">
-    <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"style="background-image: url('{{ project.image|thumbnail_url:'project_thumbnail' }}');">
-        <img src="{{ project.image|thumbnail_url:'project_thumbnail'}}" class="project-tile-image img-responsive"></a>
+<div class="project-tile {{ project.is_public|yesno:'public,private' }} {% if not project.image %} no-image {% endif %} {% if project.days_left <= 5 %} running-out {% endif %}">
+    <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
+       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');">
+        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
+        {% if project.days_left <= 5 %}
+        <p class="project-tile-badge">{{ project.days_left }} days left</p>
+        {% elif project.is_public == False %}
+        <p class="project-tile-badge">private</p>
+        {% endif %}
     </a>
     <div class="project-tile-body">
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>
         <p class="project-tile-teaser">{{ project.description|truncatechars:200 }}</p>
         <p class="project-tile-org">
-            <img src="{{ project.organisation.logo.url }}" class="project-tile-org-avatar" height="30" width="30" alt=""/>
+            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_medium' }}" class="project-tile-org-avatar" height="30" width="30" alt=""/>
             {{ project.organisation.name }}
         </p>
     </div>

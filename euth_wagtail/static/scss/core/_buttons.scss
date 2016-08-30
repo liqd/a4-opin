@@ -27,6 +27,23 @@
     }
 }
 
+.button-white {
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: $brand-brand1;
+    @include rem(font-size, $font-size-small);
+
+    .fa-link {
+        margin-right: 10px;
+    }
+
+    &:hover, &:focus {
+        background-color: #f4f4f4;
+        color: darken($brand-brand1, 10%);
+    }
+}
+
 .feedback-button {
     @extend .button;
     @include rem(border-radius, 0 0 25px 25px);
