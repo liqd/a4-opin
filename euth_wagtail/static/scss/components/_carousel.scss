@@ -51,6 +51,10 @@
 
     .owl-item:not(.active) {
         opacity: 0.4;
+
+        .project-tile {
+            box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
+        }
     }
 }
 
