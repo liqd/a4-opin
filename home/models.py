@@ -336,6 +336,8 @@ class HomePage(Page):
         help_text="The Image that is shown on top of the page"
     )
 
+    videoplayer_url = models.URLField()
+
     # Body
     body_en = StreamField([
         ('image', image_blocks.ImageChooserBlock(icon="image")),
@@ -427,6 +429,7 @@ class HomePage(Page):
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
         ImageChooserPanel('image'),
+        edit_handlers.FieldPanel('videoplayer_url'),
     ]
 
     content_panels = [
