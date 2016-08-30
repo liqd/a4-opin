@@ -13,6 +13,8 @@ class OrganisationFactory(factory.django.DjangoModelFactory):
     description_why = factory.Faker('text')
     description_how = factory.Faker('text')
     description = factory.Faker('text')
+    country = factory.Faker('country_code')
+    place = factory.Faker('city')
 
     @factory.post_generation
     def initiators(self, create, extracted, **kwargs):

@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django_countries import fields as countries_fields
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
@@ -31,6 +32,8 @@ class Organisation(base_models.TimeStampedModel, TranslatableModel):
     facebook_handle = models.CharField(max_length=200, blank=True)
     instagram_handle = models.CharField(max_length=200, blank=True)
     webpage = models.URLField(blank=True)
+    country = countries_fields.CountryField()
+    place = models.CharField(max_length=200)
 
     objects = OrganisationManager()
 

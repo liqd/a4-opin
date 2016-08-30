@@ -16,7 +16,7 @@
         </a>
         <div class="org-tile-body">
             <span class="org-tile-location">
-                <i class="fa fa-map-marker" aria-hidden="true"></i> Berlin, Germany
+                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ organisation.place }}, {{ organisation.country.name }}
             </span>
             <h2 class="org-tile-title">
                 <a href="{% url 'organisation-detail' organisation.slug %}">
