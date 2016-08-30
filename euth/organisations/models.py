@@ -27,11 +27,21 @@ class Organisation(base_models.TimeStampedModel, TranslatableModel):
                               validators=[validators.validate_hero_image])
     logo = models.ImageField(upload_to='organisations/logos', blank=True,
                              validators=[validators.validate_logo])
+    twitter_handle = models.CharField(max_length=200, blank=True)
+    facebook_handle = models.CharField(max_length=200, blank=True)
+    instagram_handle = models.CharField(max_length=200, blank=True)
+    webpage = models.URLField(blank=True)
 
     objects = OrganisationManager()
 
     def __str__(self):
         return self.name
+
+    def has_social_share(self):
+        return (
+            self.twitter_handle or self.facebook_handle
+            or self.instagram_handle or self.webpage
+        )
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse

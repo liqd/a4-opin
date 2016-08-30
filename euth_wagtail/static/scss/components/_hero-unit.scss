@@ -66,12 +66,11 @@
 
 .euth-hero-unit-title {
     @include rem(font-size, $font-size-xlarge);
-    margin: 0;
+    @include rem(margin, 0 0 20px 0);
     letter-spacing: 3px;
 }
 
 .euth-hero-unit-description {
-    @include rem(margin-top, 20px);
     @include rem(padding, 0 70px);
     line-height: 1.63;
     margin-bottom: 0;

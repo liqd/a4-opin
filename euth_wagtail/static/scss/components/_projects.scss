@@ -1,21 +1,21 @@
-@media (min-width: $screen-xs-min) {
+@media (max-width: $screen-xs) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of1';
+    content: '1 .project-tile-container.size-1of1';
     }
 }
 
-@media (min-width: $screen-sm-min) {
+@media (min-width: $screen-xs + 1) and (max-width: $screen-sm-max) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of2';
+    content: '2 .project-tile-container.size-1of2';
     }
 }
 
 @media (min-width: $screen-md-min) {
 
     #project-tile-grid[data-columns]::before {
-    content: '3 .project-tile-container.size-1of3';
+    content: '4 .project-tile-container.size-1of4';
     }
 }
 
