@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.utils import functional
+from django.utils import functional, timezone
 
 from euth.contrib import base_models, validators
 from euth.organisations import models as org_models
@@ -66,7 +66,7 @@ class Project(base_models.TimeStampedModel):
                                  .first()
 
     def days_left(self):
-        if self.name == 'test2':
-            return 5
+        if self.active_phase():
+            self.active_phase().end_date - timezone.now()
         else:
-            return 10
+            return None
