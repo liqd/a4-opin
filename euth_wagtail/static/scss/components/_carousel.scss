@@ -12,6 +12,10 @@
         transition: opacity, 0.3s;
     }
 
+    .owl-stage {
+        display: flex;
+    }
+
     &:hover {
         .owl-prev,
         .owl-next {
@@ -40,12 +44,16 @@
     .owl-stage-outer {
         overflow: visible;
 
-        @media (max-width: $screen-md-min) {
-            overflow: hidden;
-        }
+        //@media (max-width: $screen-md-min) {
+        //    overflow: hidden;
+        //}
     }
 
     .owl-item:not(.active) {
         opacity: 0.4;
     }
+}
+
+.home-carousel {
+    @include rem(padding, 20px 0 30px);
 }

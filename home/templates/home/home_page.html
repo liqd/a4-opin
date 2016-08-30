@@ -6,7 +6,7 @@
 {% block content %}
 
     {% include "home/includes/wagtail_hero_unit.html" with image=page.image title=page.translated_title %}
-    <div class="container">
+    <div class="container home-carousel">
           {% include "euth_projects/includes/project_carousel.html" with projects=page.featured_projects %}
     </div>
     <section class="page-body">

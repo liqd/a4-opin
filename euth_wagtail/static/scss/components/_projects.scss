@@ -42,8 +42,9 @@
 .project-tile {
     @extend %tile;
     min-height: 390px;
-    position: relative;
-    @include rem(padding-bottom, 50px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     img {
         margin: 0;
@@ -119,12 +120,6 @@
             }
         }
     }
-
-    .project-tile-org {
-        position: absolute;
-        @include rem(bottom, 16px);
-        @include rem(left, 16px);
-    }
 }
 
 .project-tile-badge {
@@ -144,6 +139,9 @@
 .project-tile-body {
     @include rem(padding, 16px);
     border-top: 1px solid $gray-lighter;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-tile-type {
@@ -159,6 +157,7 @@
 
 .project-tile-teaser {
     @extend %tile-teaser-text;
+    flex: 1 0 auto;
 }
 
 .project-tile-image {
@@ -166,11 +165,14 @@
 }
 
 .project-tile-image-link {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     display: block;
     position: relative;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .project-tile-org {
