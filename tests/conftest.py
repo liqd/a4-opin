@@ -1,7 +1,12 @@
 import factory
 import pytest
+from dateutil.parser import parse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
+from tests.modules import factories as mod_factories
+from tests.organisations import factories as org_factories
+from tests.phases import factories as ph_factories
+from tests.projects import factories as prj_factories
 
 from . import factories
 
@@ -9,6 +14,28 @@ register(factories.UserFactory)
 register(factories.UserFactory, 'user2')
 register(factories.AdminFactory, 'admin')
 register(factories.ContentTypeFactory)
+
+register(org_factories.OrganisationFactory)
+register(prj_factories.ProjectFactory)
+register(prj_factories.ProjectFactory, 'active_project')
+register(mod_factories.ModuleFactory)
+register(mod_factories.ModuleFactory, 'active_module')
+register(ph_factories.PhaseFactory)
+register(
+    ph_factories.PhaseFactory, 'active_phase',
+    start_date=parse('2013-01-02 00:00:00 UTC'),
+    end_date=parse('2013-01-03 00:00:00 UTC')
+)
+
+
+@pytest.fixture
+def active_module__project(active_project):
+    return active_project
+
+
+@pytest.fixture
+def active_phase__module(active_module):
+    return active_module
 
 
 @pytest.fixture
