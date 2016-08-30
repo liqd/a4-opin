@@ -50,11 +50,6 @@
 	@include rem(padding-top, 80px);
 }
 
-.org-projects {
-	border-top: 1px solid #eeeeee;
-	@include rem(padding-top, 80px);
-}
-
 .org-tile-body {
     @include rem(padding, 30px 50px 58px);
     min-height: 290px;
@@ -95,9 +90,14 @@
     }
 }
 
-.org-badge-title {
-    font-size: rem(font-size, $font-size-medium);
-    margin-bottom: rem(font-size, 20px);
+.org-badge-title,
+.org-location {
+    @include  rem(font-size, $font-size-medium);
+    @include rem(font-size, 20px);
+}
+
+.org-location .fa {
+    @include rem(margin-right, 10px);
 }
 
 .orgs-social-links {
