@@ -17,6 +17,7 @@ from contrib.translations.translations import TranslatedField
 
 from euth.projects import models as prj_models
 
+
 # Snippets
 class RSSImport(models.Model):
     url = models.URLField(null=True, blank=True)
@@ -200,6 +201,25 @@ class InfoBlock(core_blocks.StructBlock):
         label = 'Info Block'
 
 
+class ColumnBlock(core_blocks.StructBlock):
+    title_col1 = core_blocks.CharBlock(classname="full title", required=False)
+    image_col1 = image_blocks.ImageChooserBlock(required=False)
+    text_col1 = core_blocks.RichTextBlock(required=False)
+
+    title_col2 = core_blocks.CharBlock(classname="full title", required=False)
+    image_col2 = image_blocks.ImageChooserBlock(required=False)
+    text_col2 = core_blocks.RichTextBlock(required=False)
+
+    title_col3 = core_blocks.CharBlock(classname="full title", required=False)
+    image_col3 = image_blocks.ImageChooserBlock(required=False)
+    text_col3 = core_blocks.RichTextBlock(required=False)
+
+    class Meta:
+        template = 'home/blocks/column_block.html'
+        icon = 'placeholder'
+        label = 'Column Block'
+
+
 class VideoBlock(core_blocks.StructBlock):
 
     title = core_blocks.CharBlock(classname="full title")
@@ -313,6 +333,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True)
 
     body_de = StreamField([
@@ -321,6 +342,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body_it = StreamField([
@@ -329,6 +351,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body_fr = StreamField([
@@ -337,6 +360,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body_sv = StreamField([
@@ -345,6 +369,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body_sl = StreamField([
@@ -353,6 +378,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body_da = StreamField([
@@ -361,6 +387,7 @@ class HomePage(Page):
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
+        ('column_block', ColumnBlock()),
     ], null=True, blank=True)
 
     body = TranslatedField(

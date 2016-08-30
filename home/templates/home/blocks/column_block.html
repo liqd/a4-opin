@@ -1,0 +1,52 @@
+{% load wagtailimages_tags %}
+<div class="columns-block block m-accent">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        {% if self.image_col1.width > 0 %}
+            {% image self.image_col1 width-730 class="info-box-image img-responsive info-img" %}
+        {% endif %}
+
+        {% if self.title_col1 %}
+        <h3 class="block-title">{{ self.title_col1 }}</h3>
+        {% endif %}
+
+        {% if self.text_col1 %}
+        <p class="block-body">
+          {{ self.text_col1 }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="col-sm-4">
+        {% if self.image_col2.width > 0 %}
+            {% image self.image_col2 width-730 class="info-box-image img-responsive info-img" %}
+        {% endif %}
+
+        {% if self.title_col2 %}
+        <h3 class="block-title">{{ self.title_col2 }}</h3>
+        {% endif %}
+
+        {% if self.text_col2 %}
+        <p class="block-body">
+          {{ self.text_col2 }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="col-sm-4">
+        {% if self.image_col3.width > 0 %}
+            {% image self.image_col3 width-730 class="info-box-image img-responsive info-img" %}
+        {% endif %}
+
+        {% if self.title_col3 %}
+        <h3 class="block-title">{{ self.title_col3 }}</h3>
+        {% endif %}
+
+        {% if self.text_col3 %}
+        <p class="block-body">
+          {{ self.text_col3 }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
