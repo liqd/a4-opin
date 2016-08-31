@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.utils import functional
+from django.utils import functional, timezone
 
 from euth.contrib import base_models, validators
 from euth.organisations import models as org_models
@@ -59,11 +59,17 @@ class Project(base_models.TimeStampedModel):
 
     @functional.cached_property
     def active_phase(self):
-        module = self.module_set.first()
-        return module.phase_set.order_by('type').first()
+        from euth.phases import models as phase_models
+        return phase_models.Phase.objects\
+                                 .filter(module__project=self)\
+                                 .active_phases()\
+                                 .first()
 
+    @property
     def days_left(self):
-        if self.name == 'test2':
-            return 5
+        if self.active_phase:
+            today = timezone.now().replace(hour=0, minute=0, second=0)
+            time_delta = self.active_phase.end_date - today
+            return time_delta.days
         else:
-            return 10
+            return None

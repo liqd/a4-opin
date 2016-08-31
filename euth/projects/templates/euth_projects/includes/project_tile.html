@@ -3,9 +3,11 @@
     <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
        style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');">
         <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
-        {% if project.days_left <= 5 %}
-        <p class="project-tile-badge">{{ project.days_left }} days left</p>
-        {% elif project.is_public == False %}
+        {% if project.days_left >= 1 and project.days_left <= 5 %}
+        <p class="project-tile-badge">{% blocktrans count days=project.days_left %}{{ days }} day left{% plural %}{{ days }} days left{% endblocktrans %}</p>
+        {% elif project.days_left == 0 %}
+        <p class="project-tile-badge">{% trans 'a few hours left' %}</p>
+        {% elif not project.is_public %}
         <p class="project-tile-badge">private</p>
         {% endif %}
     </a>

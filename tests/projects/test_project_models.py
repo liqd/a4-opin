@@ -1,8 +1,10 @@
 import os
+from datetime import timedelta
 
 import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from freezegun import freeze_time
 from tests import helpers
 
 from euth.projects import models
@@ -30,6 +32,18 @@ def test_is_public(project):
 def test_is_privat(project):
     assert not project.is_public
     assert project.is_private
+
+
+@pytest.mark.django_db
+def test_no_days_left(active_project, active_phase):
+    with freeze_time(active_phase.end_date):
+        assert active_project.days_left is None
+
+
+@pytest.mark.django_db
+def test_one_day_left(active_project, active_phase):
+    with freeze_time(active_phase.end_date - timedelta(days=1)):
+        assert active_project.days_left == 1
 
 
 @pytest.mark.django_db
