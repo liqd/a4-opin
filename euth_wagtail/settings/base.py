@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'django_countries',
     'rest_framework',
     'autofixture',
+    'rules.apps.AutodiscoverRulesConfig',
+
 
     'euth.user_management.apps.UsersConfig',
     'euth.organisations.apps.OrganisationsConfig',
@@ -131,6 +133,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/auth/customizing/
 
 AUTH_USER_MODEL = 'user_management.User'
+
+AUTHENTICATION_BACKENDS = (
+    'rules.permissions.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 CKEDITOR_CONFIGS = {
     'default': {

@@ -1,27 +1,45 @@
-from django.views.generic import detail
+from django.shortcuts import render
+from django.views import generic
+from rules.contrib import views as rules_views
 
-from . import models
+from . import mixins, models
 
 
-class ProjectDetailView(detail.DetailView):
+class ProjectDetailView(rules_views.PermissionRequiredMixin,
+                        mixins.PhaseDispatchMixin,
+                        generic.DetailView):
+
     model = models.Project
+    permission_required = 'projects.view_project'
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def handle_no_permission(self):
+        """
+        Check if user clould join
+        """
+        membership_impossible = (
+            not self.request.user.is_authenticated()
+            or self.project.is_draft
+            or self.project.has_member(self.request.user)
+        )
+
+        if membership_impossible:
+            return super().handle_no_permission()
+        else:
+            return self._render_request_membership()
+
+    def _render_request_membership(self):
+        return render(self.request,
+                      'euth_projects/project_membership_request.html',
+                      context={'project': self.project},
+                      status=403)
 
     @property
     def project(self):
-        """ Emulate ProjectMixin interface for template sharing. """
-        return self.object
-
-project_detail_view = ProjectDetailView.as_view()
-
-
-def dispatch_project_view(*args, **kwargs):
-    project = models.Project.objects.get(slug=kwargs['slug'])
-    active_phase = project.active_phase
-
-    if active_phase:
-        kwargs['project'] = kwargs['slug']
-        view = active_phase.view.as_view()
-    else:
-        view = project_detail_view
-
-    return view(*args, **kwargs)
+        """
+        Emulate ProjectMixin interface for template sharing.
+        """
+        return self.get_object()

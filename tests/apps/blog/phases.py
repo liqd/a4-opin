@@ -6,7 +6,7 @@ from . import apps, models, views
 class BlogPhase(phases.PhaseContent):
     app = apps.BlogConfig.label
     phase = 'phase'
-    view = views.PostDetail
+    view = views.PostList
     weight = 20
 
     features = {
