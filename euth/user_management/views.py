@@ -73,8 +73,7 @@ def activate_user(request, token):
             user, registration = form.activate(request)
             user.save()
             registration.delete()
-
-            user.backend = settings.AUTHENTICATION_BACKENDS[0]
+            user.backend = settings.AUTHENTICATION_BACKENDS[-1]
             login(request, user)
 
             return HttpResponseRedirect(registration.next_action)
