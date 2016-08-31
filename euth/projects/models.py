@@ -68,7 +68,8 @@ class Project(base_models.TimeStampedModel):
     @property
     def days_left(self):
         if self.active_phase:
-            time_delta = self.active_phase.end_date - timezone.now()
+            today = timezone.now().replace(hour=0, minute=0, second=0)
+            time_delta = self.active_phase.end_date - today
             return time_delta.days
         else:
             return None
