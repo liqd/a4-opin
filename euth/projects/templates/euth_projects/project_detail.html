@@ -8,7 +8,9 @@
         <div class="container-narrow">
             <div class="euth-hero-unit-header">
                 {% if view.project.organisation.logo %}
-                <img src="{{ view.project.organisation.logo|thumbnail_url:'avatar_medium'}}" class="euth-hero-unit-logo" alt="" />
+                <div class="euth-hero-unit-logo">
+                    <img src="{{ view.project.organisation.logo|thumbnail_url:'avatar_medium'}}" alt="" />
+                </div>
                 {% endif %}
                 <p class="org-badge-title">{{ view.project.organisation }}</p>
                 <h1 class="euth-hero-unit-title">{{ view.project.name }}</h1>

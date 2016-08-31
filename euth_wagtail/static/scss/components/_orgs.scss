@@ -122,10 +122,11 @@
 
     li {
         display: inline-block;
+        @include rem(margin, 0 10px);
     }
 
     a {
-        font-size: rem(font-size, 17px);
+        @include rem(font-size, 24px);
         color: #fff;
 
         &:hover {
