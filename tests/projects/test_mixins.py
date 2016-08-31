@@ -6,6 +6,7 @@ from tests.apps.blog import models as blog_models
 
 from euth.projects import mixins, models
 
+
 @pytest.fixture
 def view_with_phase_dispatch():
     class FakeProjectDetailView(mixins.PhaseDispatchMixin, View):
@@ -14,7 +15,6 @@ def view_with_phase_dispatch():
         def get(self, request, *args, **kwargs):
             return HttpResponse('project_detail')
     return FakeProjectDetailView.as_view()
-
 
 
 @pytest.mark.django_db
