@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-
 from euth.modules import models as modules_models
 
 from . import content
