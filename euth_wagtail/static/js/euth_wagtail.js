@@ -6,18 +6,13 @@ $(document).ready(function () {
     $(this).next(".collapsible_body").slideToggle(600);
   });
 
-  if ($(".tab-panel").length > 0) {
-    $(".tab-panel:not(:first-child)").hide();
-  }
-
-  $(".tab").click(function () {
-    var t = $(this);
-    var link = t.attr("href");
-    $(".tab-panel").hide();
-    $(".tab").removeClass("m-selected");
-    $(this).addClass("m-selected");
-    $(link).show();
-    return false;
+  if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    if (history.pushState)  {
+      history.pushState(null, null, '#'+$(e.target).attr('href').substr(1));
+    } else {
+      location.hash = '#'+$(e.target).attr('href').substr(1);
+    }
   });
 
   var projectCount = $("#project-tile-grid .project-tile").length;

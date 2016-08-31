@@ -9,6 +9,11 @@
         list-style-type: none;
     }
 
+    li.active a {
+        background: #fff;
+        color: $brand-brand1;
+    }
+
     a {
         color: #000;
         display: block;
@@ -16,11 +21,6 @@
         line-height: 77px;
         text-align: center;
         text-transform: uppercase;
-
-        &.m-selected {
-            background: #fff;
-            color: $brand-brand1;
-        }
     }
 
     .dropdown-menu {
@@ -32,6 +32,14 @@
 
 .tab-panel {
     @include rem(margin, 53px 0 86px);
+
+    .js & {
+        display: none;
+    }
+
+    &.active {
+        display: block;
+    }
 
     > h3, .idea-list > h2, .tab-panel-title {
         @include rem(font-size, $font-size-large);
