@@ -23,20 +23,20 @@
 <nav class="tabs">
     <div class="container">
         <ul>
-            <li class="col-md-4"><a href="#panel-info" class="m-selected tab">Informations</a></li>
-            <li class="col-md-4"><a href="#panel-participation" class="tab">Participation</a></li>
-            <li class="col-md-4"><a href="#panel-offline" class="tab">Offline Workshop</a></li>
+            <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}"><a href="#panel-info" data-toggle="tab" class="tab">Informations</a></li>
+            <li class="col-md-4 {% if view.project.active_phase %} active {% endif %}"><a href="#panel-participation" data-toggle="tab" class="tab">Participation</a></li>
+            <li class="col-md-4"><a href="#panel-offline" data-toggle="tab" class="tab">Offline Workshop</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <article id="panel-info" class="tab-panel">
+    <article id="panel-info" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
         <h3 class="tab-panel-title">{% trans "info" %}</h3>
         <div class="tab-panel-description">
             {{ view.project.description }}
         </div>
     </article>
-    <article id="panel-participation" class="tab-panel">
+    <article id="panel-participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
         <div class="tab-panel-description">
         {% block phase_content %}{% endblock %}
         </div>
