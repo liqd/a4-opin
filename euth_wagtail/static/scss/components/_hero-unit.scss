@@ -27,13 +27,30 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    @include rem(width, 90px);
+    @include rem(height, 90px);
     @include rem(margin-bottom, 20px);
-    max-width: 150px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
 
-    @media (max-width: $screen-sm-min) {
-        @include rem(padding, 20px);
-        max-width: 100%;
+    .org-header & {
+        @include rem(width, 150px);
+        @include rem(height, 150px);
     }
+
+    img {
+        max-width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+.org-header .euth-hero-unit-logo img {
+    max-width: 70%;
 }
 
 .euth-hero-unit-image {
