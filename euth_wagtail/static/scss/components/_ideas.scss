@@ -13,6 +13,10 @@
         text-align: justify;
         @include rem(margin, 0px 0px 6px 0px);
         max-width: 70%;
+
+        @media (max-width: $screen-sm-min) {
+            max-width: none;
+        }
     }
 }
 
@@ -86,17 +90,8 @@
         position: static;
         text-align: center;
 
-        .idea-rate-btn {
-            @include rem(border-radius, 20px 0 0 20px);
-            @include rem(font-size, $font-size-large);
-            @include rem(padding, 0 15px 0 40px);
-            line-height: 50px;
-            margin: 0;
-
-            &.idea-rate-down {
-                @include rem(border-radius, 0 20px 20px 0);
-                @include rem(padding, 0 40px 0 15px);
-            }
+        .idea-rate-up {
+            margin-left: 0;
         }
     }
 }
