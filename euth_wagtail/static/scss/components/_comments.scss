@@ -75,27 +75,44 @@
     }
     & .navbar {
         min-height: initial;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
     & .nav {
         padding: 0;
 
+        & .comment-rate-up,
+        & .comment-rate-down {
+            font-weight: normal;
+            border: 1px solid currentColor;
+            @include rem(padding-left, 10px);
+        }
+
         & .comment-rate-up {
             color: $brand-success;
-            font-weight: normal;
 
             &:hover, &:focus {
                 color: $brand-success;
                 font-weight: normal;
             }
+
+            &.is-selected {
+                background-color: $brand-success;
+                border-color: $brand-success;
+                color: #fff;
+            }
         }
         & .comment-rate-down {
             color: $brand-danger;
-            font-weight: normal;
+            @include rem(margin, 0 10px);
 
             &:hover, &:focus {
                 color: $brand-danger;
                 font-weight: normal;
+            }
+            &.is-selected {
+                background-color: $brand-danger;
+                border-color: $brand-danger;
+                color: #fff;
             }
         }
         & .dark {

@@ -115,7 +115,7 @@ var RateBox = React.createClass({
       return (
         h('ul.nav.navbar-nav', [
           h('li.entry', [
-            h('a.icon.fa-chevron-up.comment-rate-up', {
+            h('a.icon.fa-chevron-up.comment-rate-up' + (this.state.userRate === 1 ? '.is-selected' : ''), {
               href: '#',
               onClick: this.rateUp,
               'aria-hidden': true
@@ -123,7 +123,7 @@ var RateBox = React.createClass({
           )
           ]),
           h('li.entry', [
-            h('a.icon.fa-chevron-down.comment-rate-down', {
+            h('a.icon.fa-chevron-down.comment-rate-down' + (this.state.userRate === -1 ? '.is-selected' : ''), {
               href: '#',
               onClick: this.rateDown,
               'aria-hidden': true
