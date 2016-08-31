@@ -119,7 +119,10 @@
         @include rem(line-height, 1.6);
         text-align: justify;
         color: $black;
-        @include rem(margin-bottom, 86px);
+    }
+
+    .badge-group {
+        @include rem(margin-bottom, 50px);
     }
 }
 
