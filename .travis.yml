@@ -12,12 +12,6 @@ script:
 after_success:
   - coveralls
 deploy:
-  - provider: heroku
-    api_key:
-      secure: "ZCL4Z04SjfouJpqD4VFjwSL2KCAnw8B+eFIAkXcJ5nIhh9FfS2jhAFniW/CFSgzQSBybxubkceMzdXAZBUuOgdQj+FOI31ce4W1NNSK+/wMMTtySQ9jBwrWbDJ8mktIIhGdGCPo7QzYVU8n88YLi83HRr/QzLioMethlTOkZlwkP0Z2cPYmSb20dUKHjTn8qGuQF6LCQ3bwMeZZSXXdmTBVFmv3Xmby5wodpvuNZpWDVBF1lmYnZ0N6G9heAERQJQBzzVkCYp06YKyxjLix/cLWveDCAPNLNZvYNSMaVhFZrvdb3wsw0tID+CuSJfR7QEN8UlEaksNoOOOFvEHlcRJ9zr+styvlr2wdt2pNtPBt90wFeoSXncfraWEvUSQEoN9GQm0MM3hZE1EmcXragmAPN2wIIb7vETlmfBuRlzKvJuJflIPAnuvN7B4+qKAjfsjFOtPqVZGSW7TSIaQ85tkfwvkxwiqJxZ9kBZXbhW/RRLn7LKswLFDE1k7XgX1id+1zxm1EbyvNSAxDGD3u5jPt5SP+CQ80cMXBc6Ob/aoeOVA/dQ7cEqtQpsX4stBsL4ioRqDXKC/fcQsmKhBY4v+dkEhMko4kQ33pZr5RmeUAmd17Iqp4jmrco6Ic4UnpTtgPl3wDQLh4816i9pLbqhvprlmb00u+hVgXy9zSSt2o="
-    app: opin-dev
-    on:
-      branch: master
   - provider: script
     script: scripts/deploy.sh
     on:
