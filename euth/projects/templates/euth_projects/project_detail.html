@@ -1,25 +1,7 @@
 {% extends "base.html" %}
-{% load i18n thumbnail %}
+{% load i18n %}
 {% block content %}
-<header class="euth-hero-unit" style="{% if view.project.image %}
-               background-image: url({{ view.project.image |thumbnail_url:'heroimage' }});
-               {% endif %}">
-    <div class="container">
-        <div class="container-narrow">
-            <div class="euth-hero-unit-header">
-                {% if view.project.organisation.logo %}
-                <div class="euth-hero-unit-logo">
-                    <img src="{{ view.project.organisation.logo|thumbnail_url:'avatar_medium'}}" alt="" />
-                </div>
-                {% endif %}
-                <p class="org-badge-title">{{ view.project.organisation }}</p>
-                <h1 class="euth-hero-unit-title">{{ view.project.name }}</h1>
-                <p class="euth-hero-unit-description">{{ view.project.description | truncatechars:200 }}</p>
-                {% block phase_cta %}{% endblock %}
-            </div>
-        </div>
-    </div>
-</header>
+{% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
 <nav class="tabs">
     <div class="container">
         <ul>
