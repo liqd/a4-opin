@@ -1,19 +1,18 @@
 {% extends 'email_base.html' %}
 {% block subject %}
-You created an account for {{sitename}}
+You created an account for {{site.name}}
 {% endblock %}
 {% block content %}
-<h2>You requested to register to {{sitename}}</h2>
+<h2>You requested to register to {{site.name}}</h2>
 <p>Dear {{registration.username}},</p>
 
 <p>
-  We have received your registration request for {{site.name}} using this email address. Please visit
-  <a href="{{activation_url}}">{{site.name}}</a> to activate your account.
+  We have received your registration request for {{site.name}} using this email address.
+    To activate your account please click the following link
+  <a href="{{activation_url}}" style="display: block; margin-top: 10px;">{{activation_url}}</a>
 </p>
 
-<p>
-Best wishes<br>
-<br>
-{{sitename}} team
+<p style="margin-top: 20px;">
+    <a href="{{activation_url}}" class="button">activate</a>
 </p>
 {% endblock %}
