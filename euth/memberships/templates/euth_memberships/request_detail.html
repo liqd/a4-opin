@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
+{% if join_request %}
+<p>
+    {% blocktrans with date=join_request.created %}
+    You have applied on {{ date }}. Your request is awaiting moderation.
+    {% endblocktrans %}
+</p>
+{% else %}
+<form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="submit-button">{% trans 'request membership' %}</button>
+</form>
+{% endif %}
+{% endblock %}
