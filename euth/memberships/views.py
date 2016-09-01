@@ -1,13 +1,14 @@
 from django.http import Http404
 from django.shortcuts import redirect
 from django.views import generic
+from rules.compat import access_mixins as mixin
 
 from euth.projects import models as prj_models
 
 from . import models
 
 
-class RequestView(generic.DetailView):
+class RequestView(mixin.LoginRequiredMixin, generic.DetailView):
     """
     Displays membership request if it exists or allows to create one.
     """
