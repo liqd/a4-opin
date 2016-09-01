@@ -46,6 +46,9 @@ class Email():
         else:
             return [getattr(self.object, 'user_key')]
 
+    def get_receiver_emails(self):
+        return [receiver.email for receiver in self.get_receivers()]
+
     def get_attachments(self):
         return []
 
@@ -56,7 +59,7 @@ class Email():
     def dispatch(self, object, *args, **kwargs):
         self.object = object
         languages = [get_language(), self.fallback_language]
-        receivers = [receiver.email for receiver in self.get_receivers()]
+        receivers = self.get_receiver_emails()
         context = self.get_context()
         attachments = self.get_attachments()
         template = self.template_name
@@ -109,26 +112,18 @@ class OpinEmail(Email):
         return attachments + [opin_logo]
 
 
-def send_email_with_template(receivers, template, context):
-    languages = [get_language(), 'en']
-    subject = select_template(['emails/{}.{}.subject'.format(template, lang)
-                               for lang in languages])
-    plaintext = select_template(['emails/{}.{}.txt'.format(template, lang)
-                                 for lang in languages])
-    html = select_template(['emails/{}.{}.html'.format(template, lang)
-                            for lang in languages])
+def send_email_with_template(receivers, template, additional_context):
 
-    mail = EmailMultiAlternatives(
-        subject=subject.render(context).strip(),
-        body=plaintext.render(context),
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        to=receivers,
-    )
-    mail.mixed_subtype = 'related'
-    filename = finders.find('images/logo.png')
-    f = open(filename, 'rb')
-    opin_logo = MIMEImage(f.read())
-    opin_logo.add_header('Content-ID', '<{}>'.format('opin_logo'))
-    mail.attach(opin_logo)
-    mail.attach_alternative(html.render(context), 'text/html')
-    mail.send()
+    class EmailWithTemplate(OpinEmail):
+        template_name = template
+
+        def get_receiver_emails(self):
+            return receivers
+
+        def get_context(self):
+            context = super().get_context()
+            for d in additional_context.dicts:
+                context.update(d)
+            return context
+
+    EmailWithTemplate.send(None)
