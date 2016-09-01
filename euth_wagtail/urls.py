@@ -12,6 +12,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.ideas import urls as ideas_urls
+from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.rates.api import RateViewSet
@@ -41,6 +42,7 @@ urlpatterns += i18n_patterns(
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^ideas/', include(ideas_urls)),
+    url(r'^memberships/', include(memberships_urls)),
     url(r'^adhocracy/',
         TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^search/', include(search_urls)),

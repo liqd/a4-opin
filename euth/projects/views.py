@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views import generic
 from rules.contrib import views as rules_views
 
@@ -29,13 +29,11 @@ class ProjectDetailView(rules_views.PermissionRequiredMixin,
         if membership_impossible:
             return super().handle_no_permission()
         else:
-            return self._render_request_membership()
+            return self._redirect_membership_request()
 
-    def _render_request_membership(self):
-        return render(self.request,
-                      'euth_projects/project_membership_request.html',
-                      context={'project': self.project},
-                      status=403)
+    def _redirect_membership_request(self):
+        return redirect('memberships-request',
+                        project_slug=self.project.slug)
 
     @property
     def project(self):

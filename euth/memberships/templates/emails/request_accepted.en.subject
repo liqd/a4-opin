@@ -1,0 +1,1 @@
+Your membership request to {{ request.project.name }} accepted

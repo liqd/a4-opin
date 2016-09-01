@@ -21,9 +21,8 @@ def test_detail_private_project(client, project, user):
 
     client.login(username=user.email, password='password')
     response = client.get(project_url)
-    assert response.status_code == 403
-    assert template_used(response,
-                         'euth_projects/project_membership_request.html')
+    assert response.status_code == 302
+    assert redirect_target(response) == 'memberships-request'
 
     project.participants.add(user)
     response = client.get(project_url)
