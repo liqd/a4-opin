@@ -67,7 +67,7 @@ var ReportModal = React.createClass({
   },
   render: function () {
     return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
-      h('div.modal-dialog', { role: 'document' }, [
+      h('div.modal-dialog.modal-lg', { role: 'document' }, [
         h('div.modal-content', [
           h('div.modal-header', [
             h('button.close', {
@@ -80,16 +80,18 @@ var ReportModal = React.createClass({
               })
             ])
           ]),
-          this.state.showSuccessMessage ? h('div.modal-body', [
-            h('h3.modal-title', this.props.title),
-            h('div.alert.alert-success', django.gettext('Your report has been sent'))
+          this.state.showSuccessMessage ? h('div.modal-body.success', [
+            h('h3.modal-title', [
+              h('i.fa.fa-check'),
+              'Thank you! We are taking care of it.'
+            ])
           ]) : null,
           this.state.showReportForm ? h('div.modal-body', [
             h('h3.modal-title', this.props.title),
             h('div.form-group', [
-              h('textarea.form-control', {
+              h('textarea.form-control.report-message', {
                 type: 'text',
-                placeholder: django.gettext('Your report here'),
+                placeholder: django.gettext('Your message here'),
                 rows: 5,
                 value: this.state.report,
                 onChange: this.handleTextChange
@@ -99,7 +101,7 @@ var ReportModal = React.createClass({
           ]) : null,
           this.state.showReportForm ? h('div.modal-footer', [
             h('div.row', [
-              h('button.btn.btn-' + (this.props.btnStyle || 'primary'),
+              h('button.submit-button',
                 {
                   type: 'button',
                   'onClick': this.submitReport
@@ -107,7 +109,7 @@ var ReportModal = React.createClass({
                 django.gettext('Send Report'))
             ]),
             h('div.row', [
-              h('button.btn', {
+              h('button.cancel-button', {
                 type: 'button',
                 'onClick': this.closeModal
               }, django.gettext('Abort'))

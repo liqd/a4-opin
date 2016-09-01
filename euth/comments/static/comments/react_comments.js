@@ -248,7 +248,7 @@ var Comment = React.createClass({
 
       h(Report.ReportModal, {
         name: 'report_comment_' + this.props.id,
-        title: django.gettext('You are reporting a comment'),
+        title: django.gettext('Are you sure you want to report this item?'),
         btnStyle: 'cta',
         objectId: this.props.id,
         contentType: this.context.comments_contenttype
@@ -411,7 +411,7 @@ var Comment = React.createClass({
 var Modal = React.createClass({
   'render': function () {
     return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
-      h('div.modal-dialog', { role: 'document' }, [
+      h('div.modal-dialog.modal-lg', { role: 'document' }, [
         h('div.modal-content', [
           h('div.modal-header', [
             h('button.close', {
@@ -429,7 +429,7 @@ var Modal = React.createClass({
           ]),
           h('div.modal-footer', [
             h('div.row', [
-              h('button.btn.btn-' + (this.props.btnStyle || 'primary'),
+              h('button.submit-button',
                 {
                   type: 'button',
                   'data-dismiss': 'modal',
@@ -438,7 +438,7 @@ var Modal = React.createClass({
                 this.props.action)
             ]),
             h('div.row', [
-              h('button.btn', {
+              h('button.cancel-button', {
                 type: 'button',
                 'data-dismiss': 'modal'
               }, this.props.abort)
