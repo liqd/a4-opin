@@ -19,12 +19,10 @@
     </div>
 
     {% if view.crud_enabled %}
-    <button class="idea-list-button">
-        <a href="{% url 'idea-create' slug=view.module.slug %}">
-            <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
-            {% trans 'Create Proposal' %}
-        </a>
-    </button>
+    <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button">
+        <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
+        {% trans 'Create Proposal' %}
+    </a>
     {% endif %}
 
     {% for idea in idea_list %}

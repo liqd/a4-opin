@@ -127,6 +127,14 @@
     .idea-tile-image-link {
         @extend .tile-image-link;
         background-color: $brand-brand1;
+        bottom: 0;
+        height: auto;
+        @media (max-width: $screen-sm-min) {
+            position: static;
+            display: block;
+            width: 100%;
+            height: 150px;
+        }
     }
 
     .idea-comments-count {
@@ -141,6 +149,11 @@
         @include rem(margin-left, $tile-list-thumbnail-size);
         @include rem(padding, 24px 43px 0 28px);
         border: none;
+
+        @media (max-width: $screen-sm-min) {
+            @include rem(padding, 12px 24px);
+            margin: 0;
+        }
 
         h3 {
             @include rem(font-size, 28px);
@@ -159,11 +172,21 @@
         }
 
         .idea-meta {
-            padding-right: 0;
             text-align: right;
+
+            @media (max-width: $screen-sm-min) {
+                display: flex;
+                flex: 0 0 auto;
+                justify-content: space-between;
+                @include rem(margin-bottom, 10px);
+            }
+            @media (min-width: $screen-sm-min) {
+                padding-right: 0;
+            }
 
             .idea-meta-item {
                 @include rem(margin-right, 15px);
+                white-space: nowrap;
 
                 &.idea-upvotes i {
                     color: $brand-success;
@@ -188,11 +211,13 @@
 
     .idea-date {
         font-weight: normal;
+        white-space: nowrap;
     }
 }
 
 .idea-list-button {
     @extend .idea-list-tile;
+    display: block;
     @include rem(font-size, $font-size-large);
     background: transparent;
     border: 2px solid $brand-success;
@@ -200,6 +225,13 @@
     text-align: center;
     text-transform: uppercase;
     width: 100%;
+    color: $black;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+    @media (max-width: $screen-xs) {
+        @include rem(font-size, $font-size-medium);
+    }
 
     .idea-list-button-icon {
         @include rem(height, $tile-list-thumbnail-size);
@@ -207,7 +239,11 @@
         background: $brand-success;
         color: #fff;
         float: left;
-        height: $tile-list-thumbnail-size;
+
+        @media (max-width: $screen-xs) {
+            // -2px border
+            width: $tile-list-thumbnail-size - 20px - 2px;
+        }
 
         &:before {
             @include rem(font-size, 50px);
