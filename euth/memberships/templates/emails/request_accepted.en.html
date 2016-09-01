@@ -1,0 +1,19 @@
+{% extends 'email_base.html' %}
+{% block subject %}
+Your membership request to {{ request.project.name }} accepted
+{% endblock %}
+{% block content %}
+<h2>Your membership request to {{ request.project.name }} on {{ request.site.name }}</h2>
+<p>Dear {{ receiver.username }},</p>
+
+<p>
+  Your membership request was approved, you are now participant of
+  <a href={% email.get_url 'project-detail' slug=request.project.slug %}>{{ request.project.name }}</a>.
+</p>
+
+<p>
+Best wishes<br>
+<br>
+{{ site.name }} team
+</p>
+{% endblock %}
