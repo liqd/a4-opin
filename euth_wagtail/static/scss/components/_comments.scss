@@ -18,7 +18,7 @@
         @include rem(font-size, 14px);
     }
     & .comment {
-        @include rem(margin-bottom, 88px);
+        @include rem(margin-bottom, 50px);
 
         & .commentAuthor {
             color: $black;
@@ -154,6 +154,7 @@
     }
 
     & .action-bar {
+        @include rem(margin-bottom, 10px)
         & li {
             & a {
                 font-weight: bold;
