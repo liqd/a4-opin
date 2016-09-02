@@ -27,6 +27,15 @@
     }
 }
 
+.btn-cta {
+    @include rem(border-radius, 40px);
+    @include rem(padding, 0 20px);
+    font-weight: bold;
+    line-height: 50px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
 .button-white {
     line-height: 40px;
     border-radius: 25px;

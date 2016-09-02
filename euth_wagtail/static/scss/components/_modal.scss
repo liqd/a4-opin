@@ -106,3 +106,15 @@
     @include rem(margin-top, 80px);
 }
 
+.modal.permission {
+    .modal-title:before {
+        content: none;
+    }
+
+    .modal-title .fa {
+        display: block;
+        text-align: center;
+        font-size: 100px;
+    }
+}
+
