@@ -140,8 +140,8 @@ class ResetForm(forms.Form):
     def clean_password_repeat(self):
         password1 = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('password_repeat')
-        if password1 != password2:
-            raise ValidationError(_('passwords dont match'))
+        if password1 and password1 != password2:
+            raise ValidationError(_('passwords don\'t match'))
         return password2
 
     def reset_password(self, request):
