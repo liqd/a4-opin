@@ -23,22 +23,6 @@
     float: left;
 }
 
-.project-list-tile {
-    @extend .tile-list;
-    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
-
-
-    .project-tile-image-link {
-        @extend .tile-image-link;
-    }
-
-    .project-tile-body {
-        border: none;
-        @include rem(padding, 0px 107px 0px 0px);
-
-    }
-}
-
 .project-tile {
     @extend %tile;
     min-height: 390px;

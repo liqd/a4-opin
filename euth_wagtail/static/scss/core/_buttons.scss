@@ -113,3 +113,18 @@
     }
 
 }
+
+.button-row {
+    @media (max-width: $screen-xs) {
+        a, button {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    @media (min-width: $screen-xs) {
+        .col-xs-6 {
+            width: auto;
+        }
+    }
+}
