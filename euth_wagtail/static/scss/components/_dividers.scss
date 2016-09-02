@@ -1,20 +1,9 @@
 .black-divider {
-    @include rem(margin, 40px 0px 40px 0px);
-    @include rem(padding, 21px 0px 21px 18px);
+    @include rem(margin, 40px 0);
+    @include rem(padding, 20px 40px 20px 20px);
     @include rem(font-size, 18px);
     background: $black;
     color: white;
     text-transform: uppercase;
-    text-align: justify;
     position: relative;
-
-    .black-divider-info {
-        background-color: white;
-        position: absolute;
-        right:13px;
-        width: 25px;
-        border-radius: 50%;
-        color: $black;
-        text-align: center
-    }
 }

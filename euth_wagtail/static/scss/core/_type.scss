@@ -4,3 +4,9 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.sans-serif {
+    font-family: $font-family-sans-serif;
+    // for headings
+    font-weight: bold;
+}

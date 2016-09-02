@@ -254,3 +254,7 @@
         line-height: $tile-list-thumbnail-size;
     }
 }
+
+.proposals-project {
+    @include rem(margin-bottom, 30px);
+}

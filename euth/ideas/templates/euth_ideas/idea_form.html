@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load widget_tweaks i18n base_tags %}
+{% load widget_tweaks i18n thumbnail base_tags %}
 {% block content %}
-<div class="container-narrow">
+<div class="container">
     <div class="action-bar">
         <nav class="navbar navbar-default navbar-static">
             <ul class="nav navbar-nav">
@@ -11,23 +11,26 @@
             </ul>
         </nav>
     </div>
-    {% include "euth_projects/includes/project_list_tile.html" with project=project %}
 
     {% if mode == 'create' %}
     <div class="black-divider">
-        {% trans 'create new idea'%}
-        <a href="">
-            <span class='black-divider-info'><i class="fa fa-question" aria-hidden="true"></i></span>
-        </a>
+        {% trans 'create new proposal for this project'%}
     </div>
     {% elif mode == 'update' %}
     <div class="black-divider">
         {% trans 'update idea'%}
-        <a href="">
-            <span class='black-divider-info'><i class="fa fa-question" aria-hidden="true"></i></span>
-        </a>
     </div>
     {% endif %}
+    <div class="proposals-project">
+        <h3 class="sans-serif">
+            {{ project.name }}
+        </h3>
+        <p class="project-tile-teaser">{{ project.description | truncatechars:185 }}</p>
+        <div class="avatar-small">
+            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
+            <div class="name">{{ project.organisation }}</div>
+        </div>
+    </div>
     <div class="general-form">
         <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
             {% csrf_token %}
@@ -53,20 +56,25 @@
             <div class="form-group">
                 <div class="input-group form-control-upload row">
                     <div class="col-sm-8 col-md-9">
+                        <label>Upload a picture</label>
+                        <p class="text-warning">Please make sure the image is at least 1300x600 px in dimensions and at most 5 MB in file size.</p>
                         {{ form.image|add_class:"form-control form-control-file"}}
                     </div>
                 </div>
                 {{ form.image.errors }}
             </div>
-
-
-            <button type="submit" class="submit-button">{% trans 'post'%}</button>
-            {% if mode == 'create' %}
-            <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
-            {% elif mode == 'update' %}
-            <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
-            {% endif %}
-
+            <div class="row button-row">
+                <div class="col-xs-6 col-sm-2">
+                    <button type="submit" class="submit-button">{% trans 'post'%}</button>
+                </div>
+                <div class="col-xs-6">
+                    {% if mode == 'create' %}
+                    <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                    {% elif mode == 'update' %}
+                    <a href="{% url 'idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                    {% endif %}
+                </div>
+            </div>
         </form>
     </div>
 </div>
