@@ -15,6 +15,12 @@ class LoginForm(forms.Form):
 
     def clean(self):
         email = self.cleaned_data.get('email')
+        if email and not User.objects.filter(email=email):
+            if Registration.objects.filter(email=email):
+                raise ValidationError(_('account not activated'))
+            else:
+                raise ValidationError(_('account doesn\'t exist'))
+
         password = self.cleaned_data.get('password')
         user = authenticate(username=email, password=password)
         if not user or not user.is_active:
