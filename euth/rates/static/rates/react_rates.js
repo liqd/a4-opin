@@ -136,7 +136,7 @@ var RateBox = React.createClass({
     if (this.props.style === 'ideas') {
       return (
         h('div.idea-rate', [
-          h('a.idea-rate-btn.idea-rate-up' + (this.state.userRate === 1 ? '.is-selected' : ''), {
+          h('a.idea-rate-btn.idea-rate-up' + (this.props.isReadOnly ? '.is-read-only' : '') + (this.state.userRate === 1 ? '.is-selected' : ''), {
             href: '#',
             title: 'Vote Up',
             onClick: this.rateUp
@@ -146,7 +146,7 @@ var RateBox = React.createClass({
             ])
           ]
           ),
-          h('a.idea-rate-btn.idea-rate-down' + (this.state.userRate === -1 ? '.is-selected' : ''), {
+          h('a.idea-rate-btn.idea-rate-down' + (this.props.isReadOnly ? '.is-read-only' : '') + (this.state.userRate === -1 ? '.is-selected' : ''), {
             href: '#',
             title: 'Vote Down',
             onClick: this.rateDown
