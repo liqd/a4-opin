@@ -277,7 +277,7 @@ var Comment = React.createClass({
           }.bind(this)
         })
 
-        : h('span.comment-text', {
+        : h('div.comment-text', {
           dangerouslySetInnerHTML: markdown2html(this.props.children)
         }
       ),
