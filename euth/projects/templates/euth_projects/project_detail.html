@@ -15,7 +15,7 @@
     <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
         <h3 class="tab-panel-title">{% trans "info" %}</h3>
         <div class="tab-panel-description">
-            {{ view.project.description }}
+            {{ view.project.information |safe }}
         </div>
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
