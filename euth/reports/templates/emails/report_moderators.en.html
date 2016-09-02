@@ -7,19 +7,14 @@ A {{ name }} on {{site.name}} has been reported.
 
 <p>
   We have received a report for a {{ name }} on {{site.name}} with the following reason:
-<p>
+</p>
 <p>
     "{{ description }}"
 </p>
 {% if admin_url %}
 <p>
-  To view and edit this {{ name }} follow this link go <a href="{{admin_url}}">here</a>
+  To view and edit this {{ name }} click the following link:
+    <a href="{{admin_url}}" style="margin-top: 20px;" class="button">edit {{ name }}</a>
 </p>
 {% endif %}
-
-<p>
-Best wishes<br>
-<br>
-{{site.name}} team
-</p>
 {% endblock %}
