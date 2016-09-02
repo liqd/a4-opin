@@ -4,18 +4,15 @@ Reset password request for {{sitename}}
 {% endblock %}
 {% block content %}
 <h2>You requested to reset your password</h2>
-
-
 <p>Dear {{reset.user.username}},</p>
 
 <p>
   We have received your password reset for {{reset.user.username}} on {{site.name}} using this email
-  address. Please visit <a href={{reset_url}}>{{site.name}}</a> to reset the password.
+  address. Please click the following link to reset your password:
+    <a href="{{reset_url}}" style="display: block; margin-top: 10px;">{{reset_url}}</a>
 </p>
 
-<p>
-Best wishes<br>
-<br>
-{{sitename}} team
+<p style="margin-top: 20px;">
+    <a href="{{reset_url}}" class="button">activate</a>
 </p>
 {% endblock %}
