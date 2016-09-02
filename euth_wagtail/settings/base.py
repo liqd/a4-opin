@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'autofixture',
     'rules.apps.AutodiscoverRulesConfig',
 
-
     'euth.user_management.apps.UsersConfig',
     'euth.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',

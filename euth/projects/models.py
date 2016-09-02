@@ -53,7 +53,7 @@ class Project(base_models.TimeStampedModel):
         be joined as moderator or participant.
         """
         return (
-            self.is_public
+            (user.is_authenticated() and self.is_public)
             or (user in self.participants.all())
             or (user in self.moderators.all())
         )

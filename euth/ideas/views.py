@@ -1,9 +1,8 @@
-from braces.views import LoginRequiredMixin
 from django.contrib import messages
-from django.core import exceptions
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.views import generic
+from rules.contrib.views import PermissionRequiredMixin
 
 from euth.modules import mixins as modules_mixins
 from euth.modules.models import Module
@@ -23,9 +22,14 @@ class IdeaDetailView(generic.DetailView, modules_mixins.ItemMixin):
     model = models.Idea
 
 
-class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
+class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = models.Idea
     form_class = forms.IdeaForm
+    permission_required = 'ideas.modify_idea'
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,45 +37,46 @@ class IdeaUpdateView(LoginRequiredMixin, generic.UpdateView):
         context['mode'] = 'update'
         return context
 
-    def get_object(self):
-        qs = super().get_object()
-        if self.request.user == qs.creator:
-            return qs
-        else:
-            raise exceptions.PermissionDenied
 
-
-class IdeaCreateView(LoginRequiredMixin, generic.CreateView):
+class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
     model = models.Idea
     form_class = forms.IdeaForm
+    permission_required = 'ideas.create_idea'
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def dispatch(self, *args, **kwargs):
+        mod_slug = self.kwargs[self.slug_url_kwarg]
+        self.module = Module.objects.get(slug=mod_slug)
+        self.project = self.module.project
+        return super().dispatch(*args, **kwargs)
+
+    def get_permission_object(self, *args, **kwargs):
+        return self.module
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        slug = self.kwargs.get(self.slug_url_kwarg)
-        context['slug'] = slug
-        module = Module.objects.get(slug=slug)
-        context['project'] = module.project
+        context['slug'] = self.module.slug
+        context['project'] = self.project
         context['mode'] = 'create'
         return context
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
-        slug = self.kwargs.get(self.slug_url_kwarg)
-        module = Module.objects.get(slug=slug)
-        form.instance.module = module
+        form.instance.module = self.module
         return super().form_valid(form)
 
 
-class IdeaDeleteView(generic.DeleteView):
+class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = models.Idea
     success_message = _("Your Idea has been deleted")
+    permission_required = 'ideas.create_idea'
 
-    def get_object(self):
-        qs = super().get_object()
-        if self.request.user == qs.creator or self.request.user.is_superuser:
-            return qs
-        else:
-            raise exceptions.PermissionDenied
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
