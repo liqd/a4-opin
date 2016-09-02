@@ -48,7 +48,7 @@ class RegisterForm(forms.Form):
         password1 = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('password_repeat')
         if password1 != password2:
-            raise ValidationError(_('passwords dont match'))
+            raise ValidationError(_('passwords don\'t match'))
         return password2
 
     def clean_username(self):
