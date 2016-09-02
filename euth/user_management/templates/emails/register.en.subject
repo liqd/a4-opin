@@ -1,1 +1,1 @@
-You requested to register to {{ sitename }}
+You requested to register to {{ site.name }}
