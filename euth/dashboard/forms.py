@@ -18,15 +18,6 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['image', 'name', 'description', 'information', 'is_public']
-
-
-class ExtendedProjectForm(ProjectForm):
-
-    invites = forms.CharField(required=False)
-
-    class Meta(ProjectForm.Meta):
-        fields = ProjectForm.Meta.fields + ['invites']
-
-    def save(self):
-        self.instance.is_draft = 'save_draft' in self.cleaned_data
-        return super().save()
+        widgets = {
+            'image': widgets.ImageInputWidget()
+        }

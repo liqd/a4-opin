@@ -10,8 +10,6 @@ from euth.user_management import models as user_models
 
 from . import forms
 
-from . import forms
-
 
 class DashboardProfileView(mixins.LoginRequiredMixin,
                            SuccessMessageMixin,
@@ -45,7 +43,7 @@ class DashboardProjectListView(mixins.LoginRequiredMixin, generic.ListView):
 class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
                                  generic.UpdateView):
     model = project_models.Project
-    form_class = forms.ExtendedProjectForm
+    form_class = forms.ProjectForm
     template_name = 'euth_dashboard/project_form.html'
 
 
