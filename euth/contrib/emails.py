@@ -79,8 +79,12 @@ class Email():
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=receivers,
         )
-        for attachment in attachments:
-            mail.attach(attachment)
+        if len(attachments) > 0:
+            mail.mixed_subtype = 'related'
+
+            for attachment in attachments:
+                mail.attach(attachment)
+
         mail.attach_alternative(html.render(context), 'text/html')
         mail.send()
         return mail
