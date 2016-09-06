@@ -8,7 +8,7 @@ from django.utils.translation import ugettext
 
 class ImageInputWidget(widgets.ClearableFileInput):
     """
-    A project-sepcific improved version of the clearable file upload.
+    A project-specific improved version of the clearable file upload.
 
     Allows to upload and delete uploaded files. It doesn't passing attributes
     using the positional `attrs` argument and hard codes css files.
@@ -35,7 +35,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
             ),
             'text_input': (
                 widgets.TextInput().render('__noname__', '{filename}', {
-                    'class': 'form-control',
+                    'class': 'form-control form-control-file-dummy',
                     'placeholder': '{file_placeholder}'
                 })
             ),
@@ -71,15 +71,17 @@ class ImageInputWidget(widgets.ClearableFileInput):
             )
 
         markup = """
-        <div class="upload-wrapper form-control-upload">
-            {text_input}
-            <span class="input-group-btn">
-                {button}
-            </span>
-            {file_input}
-            {alert}
-            {checkbox}
-            {img}
+        <div class="row">
+            <div class="upload-wrapper form-control-upload col-sm-9 col-md-8">
+                {text_input}
+                <span class="input-group-btn">
+                    {button}
+                </span>
+                {file_input}
+                {alert}
+                {checkbox}
+                {img}
+            </div>
         </div>
         """.format(**snippets).format(**substitutions)
 
