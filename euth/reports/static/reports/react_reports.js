@@ -35,7 +35,6 @@ var ReportModal = React.createClass({
     this.resetModal()
   },
   submitReport: function (e) {
-    // submitReport
     api.report.submit({
       description: this.state.report,
       content_type: this.props.contentType,

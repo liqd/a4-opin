@@ -6,7 +6,6 @@ var h = require('react-hyperscript')
 
 var RateBox = React.createClass({
   handleRateCreate: function (number) {
-    // addRate
     api.rate.add({
       object_pk: this.props.objectId,
       content_type: this.props.contentType,
@@ -22,7 +21,6 @@ var RateBox = React.createClass({
     }.bind(this))
   },
   handleRateModify: function (number, id) {
-    // changeRate
     api.rate.change({value: number}, id)
       .done(function (data) {
         this.setState({
