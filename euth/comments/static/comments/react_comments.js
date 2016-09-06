@@ -1,41 +1,25 @@
 var Rates = require('../../../../euth/rates/static/rates/react_rates')
 var Report = require('../../../../euth/reports/static/reports/react_reports')
+var api = require('../../../contrib/static/js/api')
 
-var $ = require('jquery')
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
 var update = require('react-addons-update')
 var marked = require('marked')
 var moment = require('moment')
-var cookie = require('js-cookie')
 var django = require('django')
-
-$(function () {
-  $.ajaxSetup({
-    headers: { 'X-CSRFToken': cookie.get('csrftoken') }
-  })
-})
 
 var CommentBox = React.createClass({
   loadCommentsFromServer: function () {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      cache: false,
-      data: {
-        object_pk: this.props.subjectId,
-        content_type: this.props.subjectType
-      },
-      success: function (comments) {
-        this.setState({
-          comments: comments
-        })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString())
-      }.bind(this)
-    })
+    api.comments.get({
+      object_pk: this.props.subjectId,
+      content_type: this.props.subjectType
+    }).done(function (comments) {
+      this.setState({
+        comments: comments
+      })
+    }.bind(this))
   },
   updateStateComment: function (index, parentIndex, updatedComment) {
     var comments = this.state.comments
@@ -50,12 +34,8 @@ var CommentBox = React.createClass({
     this.setState({ comments: comments })
   },
   handleCommentSubmit: function (comment, parentIndex) {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: comment,
-      success: function (comment) {
+    api.comments.add(comment)
+      .done(function (comment) {
         var comments = this.state.comments
         var diff = {}
         if (typeof parentIndex !== 'undefined') {
@@ -66,11 +46,7 @@ var CommentBox = React.createClass({
         this.setState({
           comments: update(comments, diff)
         })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString())
-      }.bind(this)
-    })
+      }.bind(this))
   },
   handleCommentModify: function (commentText, index, parentIndex) {
     var comments = this.state.comments
@@ -79,16 +55,10 @@ var CommentBox = React.createClass({
       comment = comments[parentIndex].child_comments[index]
     }
 
-    $.ajax({
-      url: this.props.url + comment.id + '/',
-      dataType: 'json',
-      type: 'PATCH',
-      data: { comment: commentText, id: comment.id },
-      success: this.updateStateComment.bind(this, index, parentIndex),
-      error: function (xhr, status, err) {
-        console.error(this.props.url + comment.id + '/', status, err.toString())
-      }.bind(this)
-    })
+    api.comments.change({
+      comment: commentText, id: comment.id
+    }, comment.id)
+      .done(this.updateStateComment.bind(this, index, parentIndex))
   },
   handleCommentDelete: function (index, parentIndex) {
     var comments = this.state.comments
@@ -97,15 +67,8 @@ var CommentBox = React.createClass({
       comment = comments[parentIndex].child_comments[index]
     }
 
-    $.ajax({
-      url: this.props.url + comment.id + '/',
-      dataType: 'json',
-      type: 'DELETE',
-      success: this.updateStateComment.bind(this, index, parentIndex),
-      error: function (xhr, status, err) {
-        console.error(this.props.url + comment.id + '/', status, err.toString())
-      }.bind(this)
-    })
+    api.comments.delete(comment.id)
+      .done(this.updateStateComment.bind(this, index, parentIndex))
   },
   getInitialState: function () {
     return {

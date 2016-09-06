@@ -1,14 +1,9 @@
+var api = require('../../../contrib/static/js/api')
+
 var $ = require('jquery')
 var React = require('react')
 var h = require('react-hyperscript')
-var cookie = require('js-cookie')
 var django = require('django')
-
-$(function () {
-  $.ajaxSetup({
-    headers: { 'X-CSRFToken': cookie.get('csrftoken') }
-  })
-})
 
 var ReportModal = React.createClass({
   getInitialState: function () {
@@ -40,30 +35,20 @@ var ReportModal = React.createClass({
     this.resetModal()
   },
   submitReport: function (e) {
-    $.ajax({
-      url: '/api/reports/',
-      dataType: 'json',
-      type: 'POST',
-      data: {
-        description: this.state.report,
-        content_type: this.props.contentType,
-        object_pk: this.props.objectId
-      },
-      success: function (report) {
+    // submitReport
+    api.report.submit({
+      description: this.state.report,
+      content_type: this.props.contentType,
+      object_pk: this.props.objectId
+    })
+      .done(function () {
         this.setState({
           report: '',
           showSuccessMessage: true,
           showReportForm: false,
           showErrorMessage: false
         })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        this.setState({
-          report: '',
-          errors: JSON.parse(xhr.responseText)
-        })
-      }.bind(this)
-    })
+      }.bind(this))
   },
   render: function () {
     return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
