@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import functional, timezone
 
+from contrib.transforms import html_transforms
 from euth.contrib import base_models, validators
 from euth.organisations import models as org_models
 
@@ -42,6 +43,11 @@ class Project(base_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.information = html_transforms.clean_html_field(
+            self.information)
+        super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
