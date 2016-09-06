@@ -20,7 +20,7 @@ class ProjectFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def moderators(self, create, extracted, **kwargs):
-        if not create:
+        if not extracted:
             user = user_factories.UserFactory()
             self.moderators.add(user)
             return
