@@ -1,1 +1,1 @@
-Access requested to {{ applicaiton.project }} on {{ site.name }}
+Access requested to {{ request.project }} on {{ site.name }}
