@@ -8,13 +8,11 @@
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
             {% csrf_token %}
             {{ form.media }}
-            <div class="form-group {% if form.avatar.errors %}has-error {% endif %}">
-                <div class="input-group form-control-upload row">
-                    <div class="col-sm-8 col-md-9">
-                        <label>{{ form.avatar.label }}</label>
-                        {{ form.avatar|add_class:"form-control form-control-file"}}
-                        {{ form.avatar.errors }}
-                    </div>
+            <div class="col-sm-8 col-md-9">
+                <div class="form-group {% if form.avatar.errors %}has-error {% endif %}">
+                    <label>{{ form.avatar.label }}</label>
+                    {{ form.avatar }}
+                    {{ form.avatar.errors }}
                 </div>
             </div>
             <div class="form-group {% if form.email.errors %}has-error {% endif %}">
