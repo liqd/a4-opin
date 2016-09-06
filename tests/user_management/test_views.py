@@ -48,10 +48,28 @@ def test_form_valid_login(rf, user):
 @pytest.mark.django_db
 def test_form_invalid_login(rf, user):
     request = rf.post(
-        '', {'username': user.username, 'password': 'wrong_password'})
+        '', {'email': user.email, 'password': 'wrong_password'})
     form = forms.LoginForm(request.POST)
     assert form.is_valid() is False
     assert form.errors['__all__'] == ['password mismatch']
+
+
+@pytest.mark.django_db
+def test_form_invalid_user_login(rf, user):
+    request = rf.post(
+        '', {'email': 'i_dont_exist@liqd.de', 'password': 'password'})
+    form = forms.LoginForm(request.POST)
+    assert form.is_valid() is False
+    assert form.errors['__all__'] == ['account doesn\'t exist']
+
+
+@pytest.mark.django_db
+def test_form_not_active_login(rf, registration):
+    request = rf.post(
+        '', {'email': registration.email, 'password': 'password'})
+    form = forms.LoginForm(request.POST)
+    assert form.is_valid() is False
+    assert form.errors['__all__'] == ['account not activated']
 
 
 @pytest.mark.django_db
