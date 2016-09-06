@@ -1,0 +1,28 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Manage user of ' %}{{ project.name }}</h1>
+
+<h2>{% trans 'Membership requests' %}</h2>
+{% if form.forms %}
+<form method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <ul>
+        {% for form in formset.forms %}
+        <li>
+            {{ form.instance.creator.username }}
+            {{ form.instance.creator.email }}
+            {{ form.id }}
+            {{ form.action }}
+            {{ from.action.errors }}
+        </li>
+        {% endfor %}
+    </ul>
+<input type="submit" value="{% trans 'Submit' %}">
+</form>
+{% else %}
+No requests available.
+{% endif %}
+{% endblock %}
