@@ -9,22 +9,19 @@
             <div class="dashboard-nav">
                 <div class="list-group">
                     {% url 'dashboard-overview' as dashboard_overview %}
-                    <a href="{{ dashboard_overview }}" class="list-group-item">
-                        <h4 class="list-group-item-heading {% selected request dashboard_overview %}">
-                            <i class="fa fa-home" aria-hidden="true"></i> {% trans 'Overview' %}
-                        </h4>
+                    <a href="{{ dashboard_overview }}" class="list-group-item list-group-item-heading {% selected request dashboard_overview %}">
+                        <i class="fa fa-home" aria-hidden="true"></i> {% trans 'Overview' %}
                     </a>
-                    <!--<a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">
-                            <i class="fa fa-rocket" aria-hidden="true"></i> Organisations
-                        </h4>
-                    </a>
-                    -->
+
+                        <!--<a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                <i class="fa fa-rocket" aria-hidden="true"></i> Organisations
+                            </h4>
+                        </a>
+                        -->
                     {% url 'dashboard-project-list' as dashboard_project_list %}
-                    <a href="{{dashboard_project_list}}" class="list-group-item">
-                        <h4 class="list-group-item-heading {% selected request dashboard_project_list %}">
-                            <i class="fa fa-clone" aria-hidden="true"></i> {% trans 'Projects' %}
-                        </h4>
+                    <a href="{{dashboard_project_list}}" class="list-group-item list-group-item-heading {% selected request dashboard_project_list %}">
+                        <i class="fa fa-clone" aria-hidden="true"></i> {% trans 'Projects' %}
                     </a>
                     <!--
                     <a href="#" class="list-group-item">
@@ -38,10 +35,8 @@
                         </h4>
                     </a>-->
                     {% url 'dashboard-profile' as dashboard_profile %}
-                    <a href="{{ dashboard_profile }}" class="list-group-item">
-                        <h4 class="list-group-item-heading {% selected request dashboard_profile %}">
-                            <i class="fa fa-user" aria-hidden="true"></i> {% trans 'Profile' %}
-                        </h4>
+                    <a href="{{ dashboard_profile }}" class="list-group-item list-group-item-heading {% selected request dashboard_profile %}">
+                        <i class="fa fa-user" aria-hidden="true"></i> {% trans 'Profile' %}
                     </a>
                 </div>
             </div>
