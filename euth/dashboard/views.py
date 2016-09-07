@@ -63,9 +63,10 @@ class DashboardProjectUserView(mixins.LoginRequiredMixin,
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs['queryset'] = member_models.Request.objects.filter(
+        qs = member_models.Request.objects.order_by('created').filter(
             project__slug=self.kwargs['slug']
         )
+        kwargs['queryset'] = qs
         return kwargs
 
     def get_context_data(self, **kwargs):
@@ -84,7 +85,10 @@ class DashboardProjectUserView(mixins.LoginRequiredMixin,
                 form.instance.accept()
             if form.cleaned_data['action'] == 'decline':
                 form.instance.decline()
-        return super.form_valid(formset)
+        return super().form_valid(formset)
+
+    def get_success_url(self):
+        return self.request.path
 
 
 class DashboardOverviewView(mixins.LoginRequiredMixin, generic.TemplateView):
