@@ -13,6 +13,8 @@ from .emails import send_registration, send_reset
 from .forms import (ActivateForm, LoginForm, RegisterForm, RequestResetForm,
                     ResetForm)
 
+DEFAULT_AUTH_BACKEND = settings.AUTHENTICATION_BACKENDS[-1]
+
 
 def login_user(request):
     form = LoginForm(request.POST or None)
@@ -73,7 +75,7 @@ def activate_user(request, token):
             user, registration = form.activate(request)
             user.save()
             registration.delete()
-            user.backend = settings.AUTHENTICATION_BACKENDS[-1]
+            user.backend = DEFAULT_AUTH_BACKEND
             login(request, user)
 
             return HttpResponseRedirect(registration.next_action)
@@ -113,7 +115,7 @@ def reset_password(request, token):
             user.save()
             reset.delete()
 
-            user.backend = settings.AUTHENTICATION_BACKENDS[0]
+            user.backend = DEFAULT_AUTH_BACKEND
             login(request, user)
 
             return HttpResponseRedirect(reset.next_action)
