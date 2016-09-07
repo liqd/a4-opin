@@ -7,11 +7,15 @@ from django.utils.translation import ugettext
 
 
 class ImageInputWidget(widgets.ClearableFileInput):
-    def render(self, name, value, attrs=None):
-        file_input = super(widgets.ClearableFileInput, self)\
-            .render(name, value, attrs)
+    """
+    A project-specific improved version of the clearable file upload.
 
+    Allows to upload and delete uploaded files. It doesn't passing attributes
+    using the positional `attrs` argument and hard codes css files.
+    """
+    def render(self, name, value, attrs=None):
         substitutions = {
+            'name': name,
             'filename': '',
             'file_placeholder': ugettext(
                 'Select a picture from your local folder.'
@@ -23,10 +27,17 @@ class ImageInputWidget(widgets.ClearableFileInput):
             'clear_title': ugettext('Remove the picture'),
         }
         snippets = {
+            'file_input': (
+                super(widgets.ClearableFileInput, self).render(name, value, {
+                    'id': name,
+                    'class': 'form-control form-control-file'
+                })
+            ),
             'text_input': (
-                '<input type="text"'
-                'class="form-control form-control-file-dummy"'
-                'value="{filename}" placeholder="{file_placeholder}">'
+                widgets.TextInput().render('__noname__', '{filename}', {
+                    'class': 'form-control form-control-file-dummy',
+                    'placeholder': '{file_placeholder}'
+                })
             ),
             'alert': (
                 '<div class="alert alert-info" role="alert">{post_note}</div>'
@@ -54,21 +65,24 @@ class ImageInputWidget(widgets.ClearableFileInput):
                                    'class': 'clear-image'})
         else:
             snippets['button'] = (
-                '<label for="id_image" class="btn btn-default"'
+                '<label for="{name}" class="btn btn-default"'
                 'title="{upload_title}">'
                 '<i class="fa fa-cloud-upload"></i></label>'
             )
 
         markup = """
-        <div class="upload-wrapper">
-            {text_input}
-            <span class="input-group-btn">
-                {button}
-            </span>
-            {alert}
+        <div class="row">
+            <div class="upload-wrapper form-control-upload col-sm-9 col-md-8">
+                {text_input}
+                <span class="input-group-btn">
+                    {button}
+                </span>
+                {file_input}
+                {alert}
+                {checkbox}
+                {img}
+            </div>
         </div>
-        {checkbox}
-        {img}
         """.format(**snippets).format(**substitutions)
 
-        return mark_safe(markup + file_input)
+        return mark_safe(markup)

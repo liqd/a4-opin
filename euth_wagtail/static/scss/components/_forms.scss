@@ -72,8 +72,11 @@
                     position: absolute;
                     z-index: 10;
                     top: 0;
-                    right: 0;
+                    right: 0px;
                     width: auto;
+                }
+                &.col-sm-9 .input-group-btn {
+                    right: 15px;
                 }
             }
         }
