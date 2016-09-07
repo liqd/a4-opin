@@ -4,23 +4,43 @@
 {% block dashboard_content %}
 <h1>{% trans 'Manage user of ' %}{{ project.name }}</h1>
 
-<h2>{% trans 'Membership requests' %}</h2>
 {% if form.forms %}
 <form method="POST">
     {% csrf_token %}
     {{ formset.management_form }}
-    <ul>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for form in formset.forms %}
-        <li>
-            {{ form.instance.creator.username }}
-            {{ form.instance.creator.email }}
-            {{ form.id }}
-            {{ form.action }}
-            {{ from.action.errors }}
-        </li>
+            <tr>
+                <td>{{ form.instance.creator.username }}</td>
+                <td>{{ form.instance.creator.email }}</td>
+                <td>
+
+                    {% for radio in form.action %}
+                        <div class="radio-action">
+                            {{ radio.tag }}
+                            <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
+                                <span class="radio-text sr-only">{{ radio.choice_label }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </td>
+            </tr>
         {% endfor %}
+        </tbody>
+    </table>
+    <ul>
+
     </ul>
-<input type="submit" value="{% trans 'Submit' %}">
+    <input type="submit" value="{% trans 'Submit' %}">
 </form>
 {% else %}
 No requests available.
