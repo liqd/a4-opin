@@ -1,57 +1,34 @@
-var $ = require('jquery')
+var api = require('../../../contrib/static/js/api')
+
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
-var cookie = require('js-cookie')
-
-$(function () {
-  $.ajaxSetup({
-    headers: { 'X-CSRFToken': cookie.get('csrftoken') }
-  })
-})
 
 var RateBox = React.createClass({
   handleRateCreate: function (number) {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: {
-        object_pk: this.props.objectId,
-        content_type: this.props.contentType,
-        value: number
-      },
-      success: function (data) {
-        this.setState({
-          positiveRates: data.meta_info.positive_rates_on_same_object,
-          negativeRates: data.meta_info.negative_rates_on_same_object,
-          userRate: data.meta_info.user_rate_on_same_object_value,
-          userHasRated: true,
-          userRateId: data.id
-        })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(status, err.toString())
-      }
-    })
+    api.rate.add({
+      object_pk: this.props.objectId,
+      content_type: this.props.contentType,
+      value: number
+    }).done(function (data) {
+      this.setState({
+        positiveRates: data.meta_info.positive_rates_on_same_object,
+        negativeRates: data.meta_info.negative_rates_on_same_object,
+        userRate: data.meta_info.user_rate_on_same_object_value,
+        userHasRated: true,
+        userRateId: data.id
+      })
+    }.bind(this))
   },
   handleRateModify: function (number, id) {
-    $.ajax({
-      url: this.props.url + id + '/',
-      dataType: 'json',
-      type: 'PATCH',
-      data: { value: number },
-      success: function (data) {
+    api.rate.change({value: number}, id)
+      .done(function (data) {
         this.setState({
           positiveRates: data.meta_info.positive_rates_on_same_object,
           negativeRates: data.meta_info.negative_rates_on_same_object,
           userRate: data.meta_info.user_rate_on_same_object_value
         })
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(status, err.toString())
-      }
-    })
+      }.bind(this))
   },
   updateUserRate: function (data) {
     this.state.rates[this.state.userRateIndex] = data

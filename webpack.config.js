@@ -1,7 +1,7 @@
 var BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {
-  entry: './euth_wagtail/static/js/app.js',
+  entry: './euth/contrib/static/js/app.js',
   output: {
     libraryTarget: 'var',
     library: 'Opin',
