@@ -57,6 +57,13 @@ class DashboardProfileView(DashboardBaseMixins,
         return self.request.path
 
 
+class DashboardOrganisationUpdateView(mixins.LoginRequiredMixin,
+                                      generic.UpdateView):
+    model = org_models.Organisation
+    form_class = forms.OrganisationForm
+    template_name = 'euth_dashboard/organisation_form.html'
+
+
 class DashboardProjectListView(DashboardBaseMixins,
                                mixins.LoginRequiredMixin,
                                generic.ListView):

@@ -4,9 +4,11 @@ import re
 import multiform
 from django import forms
 from django.core.exceptions import ValidationError
+from parler import forms as translatable_forms
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.organisations import models as org_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
@@ -170,3 +172,16 @@ class ProjectUserForm(multiform.MultiModelForm):
                 data = form.cleaned_data
                 if 'delete' in data and data['delete']:
                     self.project.participants.remove(form.instance)
+
+
+class OrganisationForm(translatable_forms.TranslatableModelForm):
+    class Meta:
+        model = org_models.Organisation
+        fields = [
+            'image', 'logo', 'twitter_handle', 'facebook_handle',
+            'instagram_handle', 'webpage', 'country', 'place'
+        ]
+        widgets = {
+            'image': widgets.ImageInputWidget(),
+            'logo': widgets.ImageInputWidget(),
+        }
