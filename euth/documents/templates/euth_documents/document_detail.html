@@ -1,0 +1,34 @@
+{% extends 'euth_projects/project_detail.html' %}
+{% load i18n react_comments %}
+
+{% block phase_content %}
+<div>
+    <h2>{{ view.phase.name }}</h2>
+
+    <p class="idea-list-description">{{ view.phase.description }} </p>
+
+    <div class="badge-group">
+        <span class="badge">
+            <strong>{% trans 'Start Date' %}</strong>
+            {{ view.phase.start_date.date }}
+        </span>
+        <span class="badge">
+            <strong>{% trans 'End Date' %}</strong>
+            {{ view.phase.end_date.date }}
+        </span>
+    </div>
+
+    <h2>{{ object.name }}</h2>
+    {% for paragraph in object.paragraph_set.all %}
+    <section>
+        <h3>{{ paragraph.name }}</h3>
+        <a href="{% url 'paragraph-detail' paragraph.pk %}">{{ paragraph.text|safe }}</a>
+        <span><i class="fa fa-comment-o" aria-hidden="true"></i> {{ paragraph.comments.count }}</span>
+    </section>
+    {% endfor %}
+
+    {% react_comments object %}
+
+</div>
+{% endblock %}
+

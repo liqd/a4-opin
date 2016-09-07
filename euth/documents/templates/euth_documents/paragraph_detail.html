@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n react_comments react_rates thumbnail%}
+
+{% block content %}
+<div class="container-narrow">
+    <div class="action-bar">
+        <nav class="navbar navbar-default navbar-static">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'project-detail' paragraph.document.module.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+<h1>{{ paragraph.name }}</h1>
+<p>{{ paragraph.text | safe }}</p>
+
+{% react_comments paragraph %}
+
+</div>
+{% endblock %}
