@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
+
+{% block title %}{% blocktrans with project=view.project.name %} Private project: {{ project }}{% endblocktrans %}{% endblock %}
 {% block content %}
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
 <nav class="tabs">
