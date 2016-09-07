@@ -9,38 +9,34 @@
     {% csrf_token %}
     {{ formset.management_form }}
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Edit</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="table-list">
+        <div class="table-list-head">
+            <div class="row">
+                <div class="col-sm-4">Name</div>
+                <div class="col-sm-5">Email</div>
+                <div class="col-sm-3">Edit</div>
+            </div>
+        </div>
+        <div class="table-list-body">
         {% for form in formset.forms %}
-            <tr>
-                <td>{{ form.instance.creator.username }}</td>
-                <td>{{ form.instance.creator.email }}</td>
-                <td>
-
+            <div class="table-list-row tile-list row">
+                <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
+                <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
+                <div class="col-sm-3">
                     {% for radio in form.action %}
-                        <div class="radio-action">
-                            {{ radio.tag }}
-                            <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
-                                <span class="radio-text sr-only">{{ radio.choice_label }}</span>
-                            </label>
-                        </div>
+                    <div class="radio-action">
+                        {{ radio.tag }}
+                        <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
+                            <span class="radio-text sr-only">{{ radio.choice_label }}</span>
+                        </label>
+                    </div>
                     {% endfor %}
-                </td>
-            </tr>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
-    <ul>
-
-    </ul>
-    <input type="submit" value="{% trans 'Submit' %}">
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">
 </form>
 {% else %}
 No requests available.

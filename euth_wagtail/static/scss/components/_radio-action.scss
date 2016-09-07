@@ -8,6 +8,8 @@
 }
 
 .radio-label {
+    margin-bottom: 0;
+
     &:before {
         display: block;
         @include rem(width, 35px);
