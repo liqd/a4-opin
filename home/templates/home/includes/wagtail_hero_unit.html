@@ -1,4 +1,4 @@
-{% load i18n wagtailimages_tags static %}
+{% load i18n wagtailimages_tags wagtailembeds_tags static %}
 {% image image width-768 as smallImage %}
 {% image image original as originalImage %}
 
@@ -23,7 +23,7 @@
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="{{ videoplayer_url }}" width="500" height="281" frameborder="0" title="Ypart schnell erklärt" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" kwframeid="1"></iframe>
+                {{ videoplayer_url|embed }}
             </div>
         </div>
     </div>
