@@ -1,5 +1,11 @@
 .tabs {
     background-color: $gray-lighter;
+    @include clearfix;
+    @include rem(margin-top, 20px);
+
+    .euth-hero-unit + & {
+        margin-top: 0;
+    }
 
     .container-narrow {
         margin: 0 auto;

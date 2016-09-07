@@ -1,0 +1,35 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Projects' %}</h1>
+
+<div class="projects-list">
+    <a href="#" class="btn btn-primary">Create project</a>
+
+    {% if project_list|length == 0 %}
+    {% trans 'No projects created' %}
+    {% else %}
+    <ul>
+      {% for project in project_list %}
+      <li class="tile-list project-tile-list">
+          <a href="{% url 'dashboard-project-edit' project.slug %}">
+              <strong>
+                  {{ project.name }}
+              </strong>
+          </a>
+          {% if not project.is_public %}
+          <span class="label label-danger">private</span>
+          {% endif %}
+          <span class="label label-primary">collecting ideas</span>
+          <span class="text-muted">Phase 2: commenting ideas</span>
+          <a href="{% url 'dashboard-project-edit' project.slug %}" class="pull-right">
+              <i class="fa fa-edit"></i>
+          </a>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

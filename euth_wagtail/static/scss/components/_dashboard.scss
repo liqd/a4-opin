@@ -9,14 +9,18 @@
     }
 
     & .list-group-item-heading {
+        display: block;
         background-color: $gray-lighter;
         @include rem(padding, 20px 0px 20px 60px);
         margin: 0px;
         @include rem(font-size, 14px);
         color: $black;
+        font-weight: bold;
 
         i {
             color: $gray;
+            @include rem(margin-right, 5px);
+            font-weight: normal;
         }
     }
 

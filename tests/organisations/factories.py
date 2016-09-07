@@ -18,7 +18,7 @@ class OrganisationFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def initiators(self, create, extracted, **kwargs):
-        if not create:
+        if not extracted:
             user = UserFactory()
             self.initiators.add(user)
             return

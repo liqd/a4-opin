@@ -186,3 +186,16 @@
         }
     }
 }
+
+.projects-list {
+    @include rem(margin-top, 20px);
+
+    ul {
+        @include rem(margin, 20px 0);
+        padding-left: 0;
+    }
+}
+
+.project-tile-list {
+    @include rem(padding, 50px 40px)
+}
