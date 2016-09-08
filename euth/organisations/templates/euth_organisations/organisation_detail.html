@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load i18n staticfiles thumbnail %}
+
+{% block title %}{{ organisation.name }} {% trans 'on Opin.me' %}{% endblock %}
 {% block content %}
 <header class="euth-hero-unit org-header" style="{% if organisation.image %} background-image: url({{ organisation.image|thumbnail_url:'heroimage'}});{% endif %}">
     <div class="container">

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n widget_tweaks %}
 
+{% block title %}{% trans 'Login' %}{% endblock %}
 {% block content %}
 <div class="container">
-
 {% if not request.user.is_authenticated %}
     <div class="skinny-form">
         <header class="skinny-form-header">
