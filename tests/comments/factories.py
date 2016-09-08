@@ -4,7 +4,7 @@ from tests.factories import ContentTypeFactory, UserFactory
 
 class CommentFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'comments.Comment'
+        model = 'euth_comments.Comment'
 
     comment = factory.Faker('text')
     object_pk = factory.Faker('random_digit_not_null')

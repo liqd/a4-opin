@@ -41,8 +41,7 @@ def test_authenticated_user_can_not_view_reportlist(apiclient, user):
 def test_authenticated_user_can_post(apiclient, user, comment, admin):
     apiclient.force_authenticate(user=user)
     url = reverse('reports-list')
-    comments_ct = ContentType.objects.get(
-        app_label="comments", model="comment")
+    comments_ct = ContentType.objects.get_for_model(comment)
     data = {
         'content_type': comments_ct.pk,
         'object_pk': comment.pk,

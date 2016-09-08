@@ -64,8 +64,7 @@ def test_anonymous_user_can_not_edit_comment(comment, apiclient):
 
 @pytest.mark.django_db
 def test_authenticated_user_can_reply_to_comment(user2, comment, apiclient):
-    comment_contenttype = ContentType.objects.get(app_label="comments",
-                                                  model="comment").pk
+    comment_contenttype = ContentType.objects.get_for_model(comment).pk
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(url)
     assert len(response.data['child_comments']) == 0

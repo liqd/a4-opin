@@ -30,8 +30,7 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         Returns the comments of a comment
         """
-        content_type = ContentType.objects.get(
-            app_label="comments", model="comment")
+        content_type = ContentType.objects.get_for_model(Comment)
         pk = obj.pk
         children = Comment.objects.all().filter(
             content_type=content_type, object_pk=pk).order_by('created')
