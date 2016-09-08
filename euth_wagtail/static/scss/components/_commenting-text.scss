@@ -1,0 +1,20 @@
+.commenting-text {
+    @include rem(margin-top, 80px);
+
+    .row {
+        display: flex;
+        align-items: center;
+    }
+    .linked-paragraph a {
+        color: $text-color;
+        //background: ;
+
+        &:hover {
+            text-decoration: none;
+            background-color: rgba($brand-brand1, 0.3);
+        }
+    }
+    .comment-count {
+        text-align: center;
+    }
+}

@@ -18,14 +18,20 @@
         </span>
     </div>
 
-    <h2>{{ object.name }}</h2>
-    {% for paragraph in object.paragraph_set.all %}
-    <section>
-        <h3>{{ paragraph.name }}</h3>
-        <a href="{% url 'paragraph-detail' paragraph.pk %}">{{ paragraph.text|safe }}</a>
-        <span><i class="fa fa-comment-o" aria-hidden="true"></i> {{ paragraph.comments.count }}</span>
-    </section>
-    {% endfor %}
+    <article class="commenting-text">
+        <h3>{{ object.name }}</h3>
+        {% for paragraph in object.paragraph_set.all %}
+        <section class="row">
+            <div class="col-sm-10 linked-paragraph">
+                <h4>{{ paragraph.name }}</h4>
+                <a href="{% url 'paragraph-detail' paragraph.pk %}">{{ paragraph.text|safe }}</a>
+            </div>
+            <div class="col-sm-2 comment-count">
+                <span><i class="fa fa-comment-o" aria-hidden="true"></i> {{ paragraph.comments.count }}</span>
+            </div>
+        </section>
+        {% endfor %}
+    </article>
 
     {% react_comments object %}
 
