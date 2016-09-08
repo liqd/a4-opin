@@ -18,6 +18,22 @@
         </div>
         {% endfor %}
 
+
+        {% for lang_code, form in translated_forms %}
+        <h2>{{ lang_code }}</h2>
+        <div>
+            {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label>{{ field.label }}</label>
+                {% render_field field class="form-control" %}
+                {% for error in field.errors %}
+                <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
         <button type="submit" name="publish" class="submit-button">{% trans 'save' %}</button>
 
 {% endblock %}

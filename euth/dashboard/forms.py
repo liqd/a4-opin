@@ -174,7 +174,7 @@ class ProjectUserForm(multiform.MultiModelForm):
                     self.project.participants.remove(form.instance)
 
 
-class OrganisationForm(translatable_forms.TranslatableModelForm):
+class OrganisationForm(forms.ModelForm):
     class Meta:
         model = org_models.Organisation
         fields = [
@@ -185,3 +185,9 @@ class OrganisationForm(translatable_forms.TranslatableModelForm):
             'image': widgets.ImageInputWidget(),
             'logo': widgets.ImageInputWidget(),
         }
+
+
+class OrganisationTranslatableForm(translatable_forms.TranslatableModelForm):
+    class Meta:
+        model = org_models.Organisation
+        fields = ['title', 'description', 'description_why', 'description_how']
