@@ -1,38 +1,109 @@
 .dashboard {
     @include rem(padding, 113px 0px 0px 0px);
+    display: flex;
 }
 
 .dashboard-nav {
+    height: 100%;
+    background-color: $black;
+    @include rem(padding-top, 30px);
 
     & a, a:active, a:focus, a:visited {
         text-decoration: none;
     }
 
+    .list-group {
+        @include rem(padding-top, 20px);
+    }
+
     & .list-group-item-heading {
         display: block;
-        background-color: $gray-lighter;
-        @include rem(padding, 20px 0px 20px 60px);
+        @include rem(padding, 20px 0px 20px 30px);
         margin: 0px;
         @include rem(font-size, 14px);
-        color: $black;
+        color: #fff;
         font-weight: bold;
+        position: relative;
 
         i {
-            color: $gray;
-            @include rem(margin-right, 5px);
+            color: #fff;
+            @include rem(margin-right, 25px);
+            @include rem(font-size, 25px);
             font-weight: normal;
+            vertical-align: middle;
+        }
+
+        span {
+            vertical-align: middle;
         }
     }
 
     & .selected {
-        background-color: white;
         color: $brand-brand1;
         text-decoration: none;
 
         i {
             color: $brand-brand1;
         }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: $brand-brand1;
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 17px 15px 0;
+            border-color: transparent #ffffff transparent transparent;
+        }
     }
+
+    .dropdown {
+        button {
+            display: block;
+            color: #fff;
+            width: 100%;
+            background: transparent;
+            border: 0;
+            @include rem(padding, 10px 0);
+        }
+        img {
+            width: 40px;
+        }
+        .circle-bg {
+            @include rem(margin-right, 10px);
+        }
+    }
+    .dropdown-menu {
+        @include rem(right, 5px);
+        @include rem(left, 5px);
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+}
+
+.circle-bg {
+    display: inline-block;
+    @include rem(width, 50px);
+    @include rem(height, 50px);
+    @include rem(line-height, 46px);
+    border-radius: 50%;
+    background-color: #fff;
 }
 
 .dashboard-content {
@@ -41,4 +112,9 @@
         @include rem(font-size, 30px);
     }
 }
-
+h1.dashboard-title {
+    font-family: $font-family-sans-serif;
+    margin-top: 0;
+    font-weight: bold;
+    @include rem(font-size, $font-size-medium);
+}

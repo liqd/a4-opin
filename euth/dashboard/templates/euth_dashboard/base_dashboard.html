@@ -3,31 +3,38 @@
 
 
 {% block content %}
-<div class="container-narrow">
+<div class="container">
     <div class="dashboard row">
         <div class="col-md-3">
             <div class="dashboard-nav">
+                <div class="dropdown">
+                    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="circle-bg"><img src="/static/images/logo.svg" alt=""></span>Testorganisation aktiv
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a href="#">Testorganisation 0</a></li>
+                        <li><a href="#">Testorganisation 1</a></li>
+                        <li><a href="#">Testorganisation 2</a></li>
+                    </ul>
+                </div>
+
                 <div class="list-group">
                     {% url 'dashboard-overview' as dashboard_overview %}
                     <a href="{{ dashboard_overview }}" class="list-group-item list-group-item-heading {% selected request dashboard_overview %}">
-                        <i class="fa fa-home" aria-hidden="true"></i> {% trans 'Overview' %}
-                    </a>
-
-                        <!--<a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">
-                                <i class="fa fa-rocket" aria-hidden="true"></i> Organisations
-                            </h4>
-                        </a>
-                        -->
-                    {% url 'dashboard-project-list' as dashboard_project_list %}
-                    <a href="{{dashboard_project_list}}" class="list-group-item list-group-item-heading {% selected request dashboard_project_list %}">
-                        <i class="fa fa-clone" aria-hidden="true"></i> {% trans 'Projects' %}
+                        <i class="fa fa-home" aria-hidden="true"></i> <span>{% trans 'Overview' %}</span>
                     </a>
                     <!--
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">
-                            <i class="fa fa-check" aria-hidden="true"></i> Moderation
-                        </h4>
+                    <a href="#" class="list-group-item list-group-item-heading">
+                        <i class="fa fa-rocket" aria-hidden="true"></i> <span>Organisations</span>
+                    </a>-->
+                    {% url 'dashboard-project-list' as dashboard_project_list %}
+                    <a href="{{dashboard_project_list}}" class="list-group-item list-group-item-heading {% selected request dashboard_project_list %}">
+                        <i class="fa fa-clone" aria-hidden="true"></i> <span>{% trans 'Projects' %}</span>
+                    </a>
+                    <!--
+                    <a href="#" class="list-group-item list-group-item-heading">
+                        <i class="fa fa-check" aria-hidden="true"></i> <span>Moderation</span>
                     </a>
                     <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">
@@ -36,7 +43,7 @@
                     </a>-->
                     {% url 'dashboard-profile' as dashboard_profile %}
                     <a href="{{ dashboard_profile }}" class="list-group-item list-group-item-heading {% selected request dashboard_profile %}">
-                        <i class="fa fa-user" aria-hidden="true"></i> {% trans 'Profile' %}
+                        <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Profile' %}</span>
                     </a>
                 </div>
             </div>
