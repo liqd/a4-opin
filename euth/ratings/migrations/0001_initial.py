@@ -9,24 +9,25 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('contenttypes', '0002_remove_content_type_name'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
-                ('created', models.DateTimeField(editable=False, default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(editable=False, null=True, blank=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('created', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
+                ('modified', models.DateTimeField(blank=True, null=True, editable=False)),
                 ('object_pk', models.PositiveIntegerField()),
                 ('value', models.IntegerField()),
                 ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'abstract': False,
-            },
+        ),
+        migrations.AlterUniqueTogether(
+            name='rating',
+            unique_together=set([('content_type', 'object_pk', 'user')]),
         ),
     ]

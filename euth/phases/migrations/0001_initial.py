@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import euth.phases.validators
 
 
 class Migration(migrations.Migration):
@@ -14,10 +15,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Phase',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=512)),
                 ('description', models.TextField()),
-                ('permissions', models.CharField(max_length=128)),
+                ('type', models.CharField(max_length=128, validators=[euth.phases.validators.validate_content])),
+                ('start_date', models.DateTimeField(blank=True, null=True)),
+                ('end_date', models.DateTimeField(blank=True, null=True)),
                 ('module', models.ForeignKey(to='euth_modules.Module')),
             ],
         ),
