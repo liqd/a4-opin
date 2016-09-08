@@ -2,9 +2,9 @@ import factory
 from tests.factories import ContentTypeFactory, UserFactory
 
 
-class RateFactory(factory.django.DjangoModelFactory):
+class RatingFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'euth_rates.Rate'
+        model = 'euth_ratings.Rating'
 
     value = factory.Faker('random_digit')
     object_pk = factory.Faker('random_digit')

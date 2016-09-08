@@ -7,7 +7,7 @@ from django.db import models
 from euth.contrib.base_models import TimeStampedModel
 
 
-class Rate(TimeStampedModel):
+class Rating(TimeStampedModel):
 
     POSITIVE = 1
     NEGATIVE = -1
@@ -40,26 +40,26 @@ class Rate(TimeStampedModel):
 
     def get_meta_info(self, user):
 
-        rates = Rate.objects.filter(
+        ratings = Rating.objects.filter(
             content_type=self.content_type, object_pk=self.object_pk)
-        positive_rates_on_same_object = rates.filter(
+        positive_ratings_on_same_object = ratings.filter(
             value=self.POSITIVE).count()
-        negative_rates_on_same_object = rates.filter(
+        negative_ratings_on_same_object = ratings.filter(
             value=self.NEGATIVE).count()
 
         try:
-            user_rate_on_same_object = rates.get(user=user)
-            user_rate_on_same_object_value = user_rate_on_same_object.value
-            user_rate_on_same_object_id = user_rate_on_same_object.pk
+            user_rating_on_same_object = ratings.get(user=user)
+            user_rating_on_same_object_val = user_rating_on_same_object.value
+            user_rating_on_same_object_id = user_rating_on_same_object.pk
         except ObjectDoesNotExist:
-            user_rate_on_same_object_value = None
-            user_rate_on_same_object_id = None
+            user_rating_on_same_object_val = None
+            user_rating_on_same_object_id = None
 
         result = {
-            'positive_rates_on_same_object': positive_rates_on_same_object,
-            'negative_rates_on_same_object': negative_rates_on_same_object,
-            'user_rate_on_same_object_value': user_rate_on_same_object_value,
-            'user_rate_on_same_object_id': user_rate_on_same_object_id
+            'positive_ratings_on_same_object': positive_ratings_on_same_object,
+            'negative_ratings_on_same_object': negative_ratings_on_same_object,
+            'user_rating_on_same_object_value': user_rating_on_same_object_val,
+            'user_rating_on_same_object_id': user_rating_on_same_object_id
         }
 
         return result

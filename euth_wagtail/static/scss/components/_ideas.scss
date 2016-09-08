@@ -39,12 +39,12 @@
     position: relative;
 }
 
-.idea-rate {
+.idea-rating {
     position: absolute;
     right: 0;
     top: 0;
 
-    .idea-rate-btn {
+    .idea-rating-btn {
         @include rem(margin-left, 7px);
         @include rem(padding, 0 13px);
         border: 1px solid $brand-success;
@@ -61,7 +61,7 @@
             }
         }
 
-        &.idea-rate-down {
+        &.idea-rating-down {
             border-color: $brand-danger;
 
             i {
@@ -81,7 +81,7 @@
             }
         }
 
-        &.idea-rate-up {
+        &.idea-rating-up {
             &.is-selected {
                 background: $brand-success;
             }
@@ -107,7 +107,7 @@
         position: static;
         text-align: center;
 
-        .idea-rate-up {
+        .idea-rating-up {
             margin-left: 0;
         }
     }

@@ -1,4 +1,4 @@
-var Rates = require('../../../../euth/rates/static/rates/react_rates')
+var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings')
 var Report = require('../../../../euth/reports/static/reports/react_reports')
 var api = require('../../../contrib/static/js/api')
 
@@ -84,7 +84,7 @@ var CommentBox = React.createClass({
     return {
       isAuthenticated: this.props.isAuthenticated,
       login_url: this.props.login_url,
-      ratesUrls: this.props.ratesUrls,
+      ratingsUrls: this.props.ratingsUrls,
       comments_contenttype: this.props.comments_contenttype,
       user_name: this.props.user_name,
       language: this.props.language
@@ -121,7 +121,7 @@ var CommentBox = React.createClass({
 CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.number,
   login_url: React.PropTypes.string,
-  ratesUrls: React.PropTypes.string,
+  ratingsUrls: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
@@ -147,10 +147,10 @@ var CommentList = React.createClass({
           handleCommentDelete: this.props.handleCommentDelete,
           handleCommentSubmit: this.props.handleCommentSubmit,
           handleCommentModify: this.props.handleCommentModify,
-          positiveRates: comment.rates.positive_rates,
-          negativeRates: comment.rates.negative_rates,
-          userRate: comment.rates.current_user_rate_value,
-          userRateId: comment.rates.current_user_rate_id,
+          positiveRatings: comment.ratings.positive_ratings,
+          negativeRatings: comment.ratings.negative_ratings,
+          userRating: comment.ratings.current_user_rating_value,
+          userRatingId: comment.ratings.current_user_rating_id,
           isReadOnly: this.props.isReadOnly
         },
           comment.comment
@@ -259,18 +259,18 @@ var Comment = React.createClass({
             ])
           ]),
 
-          !this.props.is_deleted ? h(Rates.RateBox, {
-            url: this.context.ratesUrls,
+          !this.props.is_deleted ? h(Ratings.RatingBox, {
+            url: this.context.ratingsUrls,
             loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
             objectId: this.props.id,
             authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
             pollInterval: 20000,
             style: 'comments',
-            positiveRates: this.props.positiveRates,
-            negativeRates: this.props.negativeRates,
-            userRate: this.props.userRate,
-            userRateId: this.props.userRateId,
+            positiveRatings: this.props.positiveRatings,
+            negativeRatings: this.props.negativeRatings,
+            userRating: this.props.userRating,
+            userRatingId: this.props.userRatingId,
             isReadOnly: this.props.isReadOnly
           }) : null,
 
@@ -418,7 +418,7 @@ Comment.contextTypes = {
   isAuthenticated: React.PropTypes.number,
   user_name: React.PropTypes.string,
   login_url: React.PropTypes.string,
-  ratesUrls: React.PropTypes.string,
+  ratingsUrls: React.PropTypes.string,
   contentType: React.PropTypes.number
 }
 
@@ -526,11 +526,11 @@ CommentEditForm.contextTypes = {
   login_url: React.PropTypes.string
 }
 
-module.exports.renderComment = function (url, ratesUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language, isReadOnly) {
+module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language, isReadOnly) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
-      ratesUrls: ratesUrls,
+      ratingsUrls: ratingsUrls,
       subjectType: subjectType,
       subjectId: subjectId,
       comments_contenttype: commentsContenttype,

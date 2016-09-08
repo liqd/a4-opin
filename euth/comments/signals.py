@@ -15,7 +15,7 @@ def delete_comments_for_Comment(sender, instance, **kwargs):
 
 
 @receiver(post_delete, sender=Comment)
-def delete_rates_for_Comment(sender, instance, **kwargs):
+def delete_ratings_for_Comment(sender, instance, **kwargs):
     contenttype = ContentType.objects.get_for_model(instance)
     pk = instance.pk
-    services.delete_rates(contenttype, pk)
+    services.delete_ratings(contenttype, pk)

@@ -2,13 +2,13 @@ from django import template
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 
-from euth.rates import models as rate_models
+from euth.ratings import models as rating_models
 
 register = template.Library()
 
 
-@register.inclusion_tag('rates/react_rates.html', takes_context=True)
-def react_rates(context, obj, enabled=True):
+@register.inclusion_tag('ratings/react_ratings.html', takes_context=True)
+def react_ratings(context, obj, enabled=True):
 
     login_url = reverse('login') + '?next=' + context['request'].path
 
@@ -22,23 +22,23 @@ def react_rates(context, obj, enabled=True):
         authenticated_as = None
 
     try:
-        user_rate = rate_models.Rate.objects.get(
+        user_rating = rating_models.Rating.objects.get(
             content_type=contenttype, object_pk=obj.pk, user=user)
-        user_rate_value = user_rate.value
-        user_rate_id = user_rate.pk
+        user_rating_value = user_rating.value
+        user_rating_id = user_rating.pk
     except:
-        user_rate_value = None
-        user_rate_id = -1
+        user_rating_value = None
+        user_rating_id = -1
 
     context = {
         'login_url': login_url,
         'contenttype': contenttype.pk,
         'object_id': obj.pk,
         'authenticated_as': authenticated_as,
-        'positive_rates': obj.positive_rates,
-        'negative_rates': obj.negative_rates,
-        'user_rate': user_rate_value,
-        'user_rate_id': user_rate_id,
+        'positive_ratings': obj.positive_ratings,
+        'negative_ratings': obj.negative_ratings,
+        'user_rating': user_rating_value,
+        'user_rating_id': user_rating_id,
         'is_read_only': not enabled,
     }
 

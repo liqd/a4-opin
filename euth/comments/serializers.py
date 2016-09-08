@@ -1,7 +1,7 @@
 from django.contrib.contenttypes.models import ContentType
 from rest_framework import serializers
 
-from euth.rates import models as rate_models
+from euth.ratings import models as rating_models
 
 from .models import Comment
 
@@ -10,11 +10,12 @@ class CommentSerializer(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField()
     child_comments = serializers.SerializerMethodField()
     is_deleted = serializers.SerializerMethodField()
-    rates = serializers.SerializerMethodField()
+    ratings = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
-        read_only_fields = ('modified', 'created', 'id', 'user_name', 'rates')
+        read_only_fields = ('modified', 'created', 'id',
+                            'user_name', 'ratings')
         exclude = ('user', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
@@ -46,30 +47,30 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         return (obj.is_censored or obj.is_removed)
 
-    def get_rates(self, obj):
+    def get_ratings(self, obj):
         """
-        Gets positve and negative rate count as well as
-        info on the request users rate
+        Gets positve and negative rating count as well as
+        info on the request users rating
         """
         user = self.context['request'].user
         contenttype = ContentType.objects.get_for_model(obj)
-        obj_rates = rate_models.Rate.objects.filter(
+        obj_ratings = rating_models.Rating.objects.filter(
             content_type=contenttype, object_pk=obj.pk)
-        positive_rates = obj_rates.filter(value=1).count()
-        negative_rates = obj_rates.filter(value=-1).count()
+        positive_ratings = obj_ratings.filter(value=1).count()
+        negative_ratings = obj_ratings.filter(value=-1).count()
         try:
-            user_rate = obj_rates.get(user=user)
-            user_rate_value = user_rate.value
-            user_rate_id = user_rate.pk
+            user_rating = obj_ratings.get(user=user)
+            user_rating_value = user_rating.value
+            user_rating_id = user_rating.pk
         except:
-            user_rate_value = None
-            user_rate_id = None
+            user_rating_value = None
+            user_rating_id = None
 
         result = {
-            'positive_rates': positive_rates,
-            'negative_rates': negative_rates,
-            'current_user_rate_value': user_rate_value,
-            'current_user_rate_id': user_rate_id
+            'positive_ratings': positive_ratings,
+            'negative_ratings': negative_ratings,
+            'current_user_rating_value': user_rating_value,
+            'current_user_rating_id': user_rating_id
         }
 
         return result

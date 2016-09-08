@@ -20,21 +20,21 @@ class CollectPhase(phases.PhaseContent):
 phases.content.register(CollectPhase())
 
 
-class RatePhase(phases.PhaseContent):
+class RatingPhase(phases.PhaseContent):
     """
     Allows commenting and rating (aka voting) of ideas.
     """
     app = apps.IdeaConfig.label
-    phase = 'rate'
+    phase = 'rating'
     view = views.IdeaListView
     weight = 30
 
     features = {
-        'rate': (models.Idea,)
+        'rating': (models.Idea,)
     }
 
 
-phases.content.register(RatePhase())
+phases.content.register(RatingPhase())
 
 
 class CommentPhase(phases.PhaseContent):
@@ -66,7 +66,7 @@ class UniversalPhase(phases.PhaseContent):
     features = {
         'crud': (models.Idea,),
         'comment': (models.Idea,),
-        'rate':  (models.Idea,),
+        'rating':  (models.Idea,),
     }
 
 

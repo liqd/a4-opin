@@ -1,17 +1,17 @@
 from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
-from .models import Rate
+from .models import Rating
 from .permissions import IsUserOrReadOnly
-from .serializers import RateSerializer
+from .serializers import RatingSerializer
 
 
-class RateViewSet(mixins.CreateModelMixin,
-                  mixins.UpdateModelMixin,
-                  viewsets.GenericViewSet):
+class RatingViewSet(mixins.CreateModelMixin,
+                    mixins.UpdateModelMixin,
+                    viewsets.GenericViewSet):
 
-    queryset = Rate.objects.all()
-    serializer_class = RateSerializer
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
     filter_backends = (filters.DjangoFilterBackend,)
@@ -23,9 +23,9 @@ class RateViewSet(mixins.CreateModelMixin,
     def destroy(self, request, pk=None):
         """
         Sets value to zero
-        NOTE: Rate is NOT deleted.
+        NOTE: Rating is NOT deleted.
         """
-        rate = self.get_object()
-        rate.update(0)
-        serializer = self.get_serializer(rate)
+        rating = self.get_object()
+        rating.update(0)
+        serializer = self.get_serializer(rating)
         return Response(serializer.data)

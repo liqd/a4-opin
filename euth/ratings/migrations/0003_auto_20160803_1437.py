@@ -7,12 +7,12 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_rates', '0002_auto_20160803_1409'),
+        ('euth_ratings', '0002_auto_20160803_1409'),
     ]
 
     operations = [
         migrations.AlterUniqueTogether(
-            name='rate',
+            name='rating',
             unique_together=set([('object_pk', 'user'), ('content_type', 'user')]),
         ),
     ]

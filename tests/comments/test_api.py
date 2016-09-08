@@ -120,31 +120,31 @@ def test_admin_of_comment_can_set_censored_flag(comment, admin, apiclient):
 
 
 @pytest.mark.django_db
-def test_rate_info(comment, rate_factory, user, user2, apiclient):
+def test_rating_info(comment, rating_factory, user, user2, apiclient):
     ct = ContentType.objects.get_for_model(comment)
     pk = comment.pk
-    rates_url = reverse('rates-list')
+    ratings_url = reverse('ratings-list')
     apiclient.force_authenticate(user)
     data = {
         'value': 1,
         'object_pk': pk,
         'content_type': ct.pk
     }
-    apiclient.post(rates_url, data, format='json')
+    apiclient.post(ratings_url, data, format='json')
     comment_url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(comment_url, format='json')
-    assert response.data['rates']['positive_rates'] == 1
-    assert response.data['rates']['current_user_rate_value'] == 1
+    assert response.data['ratings']['positive_ratings'] == 1
+    assert response.data['ratings']['current_user_rating_value'] == 1
     apiclient.force_authenticate(user2)
     response = apiclient.get(comment_url, format='json')
-    assert response.data['rates']['positive_rates'] == 1
-    assert response.data['rates']['current_user_rate_value'] is None
+    assert response.data['ratings']['positive_ratings'] == 1
+    assert response.data['ratings']['current_user_rating_value'] is None
     data = {
         'value': -1,
         'object_pk': pk,
         'content_type': ct.pk
     }
-    apiclient.post(rates_url, data, format='json')
+    apiclient.post(ratings_url, data, format='json')
     response = apiclient.get(comment_url, format='json')
-    assert response.data['rates']['positive_rates'] == 1
-    assert response.data['rates']['current_user_rate_value'] == -1
+    assert response.data['ratings']['positive_ratings'] == 1
+    assert response.data['ratings']['current_user_rating_value'] == -1

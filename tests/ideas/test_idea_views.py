@@ -38,7 +38,7 @@ def test_create_view(client, active_phase, user):
 
 @pytest.mark.django_db
 @pytest.mark.parametrize('active_phase__type',
-                         [phases.RatePhase().identifier])
+                         [phases.RatingPhase().identifier])
 def test_create_view_wrong_phase(client, active_phase, user):
     module = active_phase.module
     with freeze_time(active_phase.start_date):

@@ -1,13 +1,13 @@
 from rest_framework import serializers
 
-from .models import Rate
+from .models import Rating
 
 
-class RateSerializer(serializers.ModelSerializer):
+class RatingSerializer(serializers.ModelSerializer):
     meta_info = serializers.SerializerMethodField()
 
     class Meta:
-        model = Rate
+        model = Rating
         read_only_fields = ('id', 'meta_info')
         exclude = ('user', 'modified', 'created')
 
