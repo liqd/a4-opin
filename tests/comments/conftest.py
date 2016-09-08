@@ -1,7 +1,7 @@
 from pytest_factoryboy import register
-from tests.rates import factories as rate_factories
+from tests.ratings import factories as rating_factories
 
 import factories as comment_factories
 
-register(rate_factories.RateFactory)
+register(rating_factories.RatingFactory)
 register(comment_factories.CommentFactory)

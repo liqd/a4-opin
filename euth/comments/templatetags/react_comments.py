@@ -2,6 +2,8 @@ from django import template, utils
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 
+from ..models import Comment
+
 register = template.Library()
 
 
@@ -10,8 +12,7 @@ def react_comments(context, obj, enabled=True):
 
     login_url = reverse('login') + '?next=' + context['request'].path
 
-    comments_contenttype = ContentType.objects.get(
-        app_label="comments", model="comment")
+    comments_contenttype = ContentType.objects.get_for_model(Comment)
 
     contenttype = ContentType.objects.get_for_model(obj)
     pk = obj.pk

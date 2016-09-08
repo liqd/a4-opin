@@ -50,7 +50,7 @@ def send_email_to_creator(request, report):
 
 def get_creator(obj):
     """
-    Get creator either from user attr (comment, rates) or creator attr (ideas
+    Get creator either from user attr (comment, ratings) or creator attr (ideas
     and other items).
     """
     if hasattr(obj, 'creator'):

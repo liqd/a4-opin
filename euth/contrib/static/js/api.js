@@ -12,7 +12,7 @@ var baseURL = '/api/'
 var api = (function () {
   var urls = {
     comment: baseURL + 'comments/',
-    rate: baseURL + 'rates/',
+    rating: baseURL + 'ratings/',
     report: baseURL + 'reports/'
   }
 
@@ -70,14 +70,14 @@ var api = (function () {
         })
       }
     },
-    rate: {
+    rating: {
       add: function (data) {
-        return _sendRequest('rate', {
+        return _sendRequest('rating', {
           type: 'POST'
         }, data)
       },
       change: function (data, id) {
-        return _sendRequest('rate', id, {
+        return _sendRequest('rating', id, {
           type: 'PATCH'
         }, data)
       }

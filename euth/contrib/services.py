@@ -1,7 +1,7 @@
 from easy_thumbnails.files import get_thumbnailer
 
 from euth.comments.models import Comment
-from euth.rates.models import Rate
+from euth.ratings.models import Rating
 
 
 def delete_comments(contenttype, pk):
@@ -11,11 +11,11 @@ def delete_comments(contenttype, pk):
         comment.delete()
 
 
-def delete_rates(contenttype, pk):
-    rates = Rate.objects.all().filter(
+def delete_ratings(contenttype, pk):
+    ratings = Rating.objects.all().filter(
         content_type=contenttype, object_pk=pk)
-    for rate in rates:
-        rate.delete()
+    for rating in ratings:
+        rating.delete()
 
 
 def delete_images(imagefields):

@@ -80,14 +80,14 @@
     & .nav {
         padding: 0;
 
-        & .comment-rate-up,
-        & .comment-rate-down {
+        & .comment-rating-up,
+        & .comment-rating-down {
             font-weight: normal;
             border: 1px solid currentColor;
             @include rem(padding-left, 10px);
         }
 
-        & .comment-rate-up {
+        & .comment-rating-up {
             color: $brand-success;
 
             &:hover, &:focus {
@@ -101,7 +101,7 @@
                 color: #fff;
             }
         }
-        & .comment-rate-down {
+        & .comment-rating-down {
             color: $brand-danger;
             @include rem(margin, 0 10px);
 

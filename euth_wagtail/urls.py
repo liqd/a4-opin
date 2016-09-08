@@ -16,9 +16,9 @@ from euth.ideas import urls as ideas_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
-from euth.rates.api import RateViewSet
+from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
-from euth.user_management import urls as user_urls
+from euth.users import urls as user_urls
 from search import urls as search_urls
 
 js_info_dict = {
@@ -27,7 +27,7 @@ js_info_dict = {
 
 router = routers.DefaultRouter()
 router.register(r'comments', CommentViewSet, base_name='comments')
-router.register(r'rates', RateViewSet, base_name='rates')
+router.register(r'ratings', RatingViewSet, base_name='ratings')
 router.register(r'reports', ReportViewSet, base_name='reports')
 
 urlpatterns = [

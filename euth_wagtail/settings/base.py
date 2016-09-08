@@ -64,14 +64,14 @@ INSTALLED_APPS = [
     'autofixture',
     'rules.apps.AutodiscoverRulesConfig',
 
-    'euth.user_management.apps.UsersConfig',
+    'euth.users.apps.UsersConfig',
     'euth.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
-    'euth.rates.apps.RatesConfig',
+    'euth.ratings.apps.RatingsConfig',
     'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
@@ -133,7 +133,7 @@ DATABASES = {
 # Auth
 # https://docs.djangoproject.com/en/1.8/topics/auth/customizing/
 
-AUTH_USER_MODEL = 'user_management.User'
+AUTH_USER_MODEL = 'euth_users.User'
 
 AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',

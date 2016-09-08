@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_rates thumbnail%}
+{% load i18n react_comments react_ratings thumbnail%}
 
 {% block title %}{{idea.name}}{% endblock %}
 {% block content %}
@@ -53,7 +53,7 @@
             <p>{{ idea.description |safe }}</p>
         </div>
 
-        {% react_rates idea view.rate_enabled %}
+        {% react_ratings idea view.rating_enabled %}
 
         {% react_comments idea view.comment_enabled %}
     </div>

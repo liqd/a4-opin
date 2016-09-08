@@ -9,17 +9,17 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_projects', '0003_auto_20160715_1640'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('euth_projects', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Request',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('created', models.DateTimeField(editable=False, default=django.utils.timezone.now)),
-                ('modified', models.DateTimeField(editable=False, null=True, blank=True)),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('created', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
+                ('modified', models.DateTimeField(null=True, editable=False, blank=True)),
                 ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('project', models.ForeignKey(to='euth_projects.Project')),
             ],

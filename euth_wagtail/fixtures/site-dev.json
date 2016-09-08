@@ -8,7 +8,7 @@
     }
   },
   {
-    "model": "user_management.user",
+    "model": "euth_users.user",
     "pk": 1,
     "fields": {
       "email": "admin@liqd.de",

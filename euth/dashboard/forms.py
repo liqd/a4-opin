@@ -2,7 +2,7 @@ from django import forms
 
 from euth.contrib import widgets
 from euth.projects import models as project_models
-from euth.user_management import models as user_models
+from euth.users import models as user_models
 
 
 class ProfileForm(forms.ModelForm):

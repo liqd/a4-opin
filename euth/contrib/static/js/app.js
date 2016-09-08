@@ -1,7 +1,7 @@
 var ReactComments = require('../../../comments/static/comments/react_comments.js')
-var ReactRates = require('../../../rates/static/rates/react_rates.js')
+var ReactRatings = require('../../../ratings/static/ratings/react_ratings.js')
 
 module.exports = {
   'renderComment': ReactComments.renderComment,
-  'renderRates': ReactRates.renderRates
+  'renderRatings': ReactRatings.renderRatings
 }

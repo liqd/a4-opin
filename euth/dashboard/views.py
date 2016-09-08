@@ -6,7 +6,7 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 
 from euth.projects import models as project_models
-from euth.user_management import models as user_models
+from euth.users import models as user_models
 
 from . import forms
 
