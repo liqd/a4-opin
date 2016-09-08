@@ -149,12 +149,22 @@ CKEDITOR_CONFIGS = {
             ['NumberedList', 'BulletedList'],
             ['Link', 'Unlink']
         ]
+    },
+    'document-editor': {
+        'width': '100%',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink']
+        ],
+        'enterMode': 2
     }
 }
 
 BLEACH_LIST = {
     'default' : {
-        'tags': ['p','strong','em','u','ol','li','ul','a'],
+        'tags': ['p','strong','em','u','ol','li','ul','a','br'],
         'attributes': {
             'a': ['href', 'rel']
         }
