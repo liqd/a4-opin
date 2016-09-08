@@ -6,12 +6,15 @@
 {% block content %}
 
     {% include "home/includes/wagtail_hero_unit.html" with image=page.image title=page.translated_title videoplayer_url=page.videoplayer_url %}
+
+    {% if page.featured_projects %}
     <div class="container">
         <h2 class="h3">{% trans 'Latest projects on OPIN' %}</h2>
     </div>
     <div class="container home-carousel">
           {% include "euth_projects/includes/project_carousel.html" with projects=page.featured_projects %}
     </div>
+    {% endif %}
     <section class="page-body">
 	{{ page.body }}
     </section>
