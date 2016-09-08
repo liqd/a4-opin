@@ -7,7 +7,6 @@ from euth.phases.predicates import phase_allows_create, phase_allows_modify
 
 from .models import Idea
 
-
 rules.add_perm('ideas.modify_idea',
                is_superuser | is_context_moderator |
                (is_context_member & is_owner & phase_allows_modify))

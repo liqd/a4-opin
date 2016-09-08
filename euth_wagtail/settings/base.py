@@ -74,7 +74,8 @@ INSTALLED_APPS = [
     'euth.rates.apps.RatesConfig',
     'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
-    'euth.memberships.apps.MembershipsConfig'
+    'euth.memberships.apps.MembershipsConfig',
+    'euth.documents.apps.DocumentConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
