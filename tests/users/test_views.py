@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
 
-from euth.user_management import forms, models
+from euth.users import forms, models
 
 User = auth.get_user_model()
 

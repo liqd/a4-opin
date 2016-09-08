@@ -18,7 +18,7 @@ from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
-from euth.user_management import urls as user_urls
+from euth.users import urls as user_urls
 from search import urls as search_urls
 
 js_info_dict = {

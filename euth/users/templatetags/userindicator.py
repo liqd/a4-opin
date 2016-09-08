@@ -6,7 +6,7 @@ register = template.Library()
 
 
 @register.inclusion_tag(
-    'user_management/indicator_menu.html',
+    'euth_users/indicator_menu.html',
     takes_context=True)
 def userindicator_menu(context):
     request = context['request']

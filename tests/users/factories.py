@@ -5,7 +5,7 @@ from ..factories import UserFactory
 
 class RegistrationFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'user_management.Registration'
+        model = 'euth_users.Registration'
 
     username = factory.Faker('name')
     email = factory.Faker('email')
@@ -16,7 +16,7 @@ class RegistrationFactory(factory.django.DjangoModelFactory):
 
 class ResetFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'user_management.Reset'
+        model = 'euth_users.Reset'
 
     token = factory.Faker('uuid4')
     next_action = factory.Faker('uri_path')

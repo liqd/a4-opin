@@ -29,7 +29,7 @@ def login_user(request):
         else:
             status = 400
     return render(request,
-                  'user_management/login.html',
+                  'euth_users/login.html',
                   {'form': form, 'next_action': next_action},
                   status=status)
 
@@ -41,7 +41,7 @@ def logout_user(request):
         return HttpResponseRedirect(next_action)
     else:
         return render_to_response(
-            'user_management/logout.html',
+            'euth_users/logout.html',
             context_instance=RequestContext(request))
 
 
@@ -61,7 +61,7 @@ def register_user(request):
         else:
             status = 400
     return render(request,
-                  'user_management/register.html',
+                  'euth_users/register.html',
                   {'form': form, 'next_action': next_action},
                   status=status)
 
@@ -81,7 +81,7 @@ def activate_user(request, token):
             return HttpResponseRedirect(registration.next_action)
         else:
             status = 400
-    return render(request, 'user_management/activate.html',
+    return render(request, 'euth_users/activate.html',
                   {'form': form}, status=status)
 
 
@@ -100,7 +100,7 @@ def reset_request(request):
             return HttpResponseRedirect(next_action)
         else:
             status = 400
-    return render(request, 'user_management/reset.html',
+    return render(request, 'euth_users/reset.html',
                   {'form': form, 'next_action': next_action},
                   status=status)
 
@@ -121,6 +121,6 @@ def reset_password(request, token):
             return HttpResponseRedirect(reset.next_action)
         else:
             status = 400
-    return render(request, 'user_management/reset_password.html',
+    return render(request, 'euth_users/reset_password.html',
                   {'form': form},
                   status=status)
