@@ -18,7 +18,8 @@
             </div>
         </div>
         <div class="table-list-body">
-        {% for form in formset.forms %}
+            {% for form in formset.forms %}
+            {{ form.id }}
             <div class="table-list-row tile-list row">
                 <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
                 <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
@@ -33,7 +34,7 @@
                     {% endfor %}
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">
