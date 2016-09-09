@@ -8,9 +8,12 @@
             {% if item.internal_link %}
             <a href="{{ item.internal_link.url }}">
             {% endif %}
+            {% if item.external_link %}
+            <a href="{{ item.external_link }}">
+            {% endif %}
                 <div class="img-container">{% image item.image width-900 class="img-responsive" %}</div>
                 <figcaption class="inline-images-text">{{ item.link_text }}</figcaption>
-            {% if item.internal_link %}
+            {% if item.internal_link or item.external_link %}
             </a>
             {% endif %}
             </figure>
