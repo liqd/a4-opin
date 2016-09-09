@@ -24,9 +24,16 @@
           {% endif %}
           <span class="label label-primary">collecting ideas</span>
           <span class="text-muted">Phase 2: commenting ideas</span>
-          <a href="{% url 'dashboard-project-edit' project.slug %}" class="pull-right">
-              <i class="fa fa-edit"></i>
-          </a>
+          <div class="pull-right">
+              {% if not project.is_public %}
+              <a href="{% url 'dashboard-project-users' project.slug %}">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+              </a>
+              {% endif %}
+              <a href="{% url 'dashboard-project-edit' project.slug %}">
+                  <i class="fa fa-edit"></i>
+              </a>
+          <div>
         </a>
       </li>
       {% endfor %}

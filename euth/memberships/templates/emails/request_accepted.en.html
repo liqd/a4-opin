@@ -8,7 +8,7 @@ Your membership request to {{ request.project.name }} accepted
 
 <p>
   Your membership request was approved, you are now participant of
-  <a href={% email.get_url 'project-detail' slug=request.project.slug %}>{{ request.project.name }}</a>.
+  <a href="{{ email.get_host }}{{ request.project.get_absolute_url }}">{{ request.project.name }}</a>.
 </p>
 
 <p>

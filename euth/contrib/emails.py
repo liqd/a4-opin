@@ -4,7 +4,6 @@ from django.conf import settings
 from django.contrib.sites import models as site_models
 from django.contrib.staticfiles import finders
 from django.core.mail.message import EmailMultiAlternatives
-from django.core.urlresolvers import reverse
 from django.template.loader import select_template
 from django.utils.translation import get_language
 
@@ -19,16 +18,15 @@ class Email():
     def get_site(self):
         return site_models.Site.objects.get(pk=self.site_id)
 
-    def get_url(self, view, *args, **kwargs):
+    def get_host(self):
         site = self.get_site()
         ssl_enabled = True
         if site.domain.startswith('localhost:'):
             ssl_enabled = False
 
-        url = 'http{ssl_flag}://{domain}{path}'.format(
+        url = 'http{ssl_flag}://{domain}/'.format(
             ssl_flag='s' if ssl_enabled else '',
             domain=site.domain,
-            path=reverse(view, *args, **kwargs)
         )
         return url
 
@@ -41,10 +39,7 @@ class Email():
         }
 
     def get_receivers(self):
-        if self.for_moderator:
-            return self.object.project.moderators.all()
-        else:
-            return [getattr(self.object, 'user_key')]
+        []
 
     def get_receiver_emails(self):
         return [receiver.email for receiver in self.get_receivers()]
@@ -94,11 +89,12 @@ class UserNotification(Email):
     user_attr_name = 'creator'
 
     def get_receivers(self):
-        [getattr(self.object, self.user_attr_name)]
+        return [getattr(self.object, self.user_attr_name)]
 
     def get_context(self):
-        context = super.get_context(self)
+        context = super().get_context()
         context['receiver'] = getattr(self.object, self.user_attr_name)
+        return context
 
 
 class ModeratorNotification(Email):

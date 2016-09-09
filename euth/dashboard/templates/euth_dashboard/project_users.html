@@ -1,0 +1,45 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Manage user of ' %}{{ project.name }}</h1>
+
+{% if form.forms %}
+<form method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+
+    <div class="table-list">
+        <div class="table-list-head">
+            <div class="row">
+                <div class="col-sm-4">Name</div>
+                <div class="col-sm-5">Email</div>
+                <div class="col-sm-3">Edit</div>
+            </div>
+        </div>
+        <div class="table-list-body">
+            {% for form in formset.forms %}
+            {{ form.id }}
+            <div class="table-list-row tile-list row">
+                <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
+                <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
+                <div class="col-sm-3">
+                    {% for radio in form.action %}
+                    <div class="radio-action">
+                        {{ radio.tag }}
+                        <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
+                            <span class="radio-text sr-only">{{ radio.choice_label }}</span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">
+</form>
+{% else %}
+No requests available.
+{% endif %}
+{% endblock %}

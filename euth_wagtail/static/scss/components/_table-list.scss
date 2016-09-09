@@ -1,0 +1,32 @@
+.table-list {
+    @include rem(margin, 20px 0);
+}
+
+.table-list-head {
+    background-color: $black;
+    color: #fff;
+    font-weight: bold;
+
+    .row > div {
+        @include rem(padding, 10px 15px);
+
+        &:first-child {
+            @include rem(padding, 10px 25px);
+        }
+    }
+}
+
+.table-list-body {
+    &:before {
+        content: '';
+        display: block;
+        margin-top: 20px;
+    }
+
+    .table-list-row {
+        min-height: 0;
+        @include rem(padding, 10px 0);
+        display: flex;
+        align-items: center;
+    }
+}
