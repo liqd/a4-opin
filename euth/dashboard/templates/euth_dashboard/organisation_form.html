@@ -17,11 +17,21 @@
             {% endfor %}
         </div>
         {% endfor %}
+        <div class="language-switch-list" id="language-switch-list"></div>
 
+        <script>
+            window.Opin.renderLanguageSwitch(
+                [
+                    {% for lang_code, form in translated_forms %}
+                        '{{ lang_code }}',
+                    {% endfor %}
+                ],
+                'language-switch-list'
+            )
+        </script>
 
         {% for lang_code, form in translated_forms %}
-        <h2>{{ lang_code }}</h2>
-        <div>
+        <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">
             {% for field in form %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label>{{ field.label }}</label>
