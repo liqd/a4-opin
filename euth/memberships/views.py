@@ -5,7 +5,21 @@ from rules.compat import access_mixins as mixin
 
 from euth.projects import models as prj_models
 
-from . import models
+from . import forms, models
+
+
+class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):
+    model = models.Invite
+    form_class = forms.InviteForm
+    slug_field = 'token'
+    slug_url_kwarg = 'invite_token'
+
+    def form_valid(self, form):
+        if form.is_accepted():
+            form.instance.accept(self.request.user)
+        else:
+            form.instance.reject()
+        return redirect(form.instance.project.get_absolute_url())
 
 
 class RequestView(mixin.LoginRequiredMixin, generic.DetailView):
