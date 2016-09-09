@@ -24,9 +24,9 @@ class Document(module_models.Item):
         except ObjectDoesNotExist:
             super().clean(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        super().save(*args, **kwargs)
+    @cached_property
+    def paragraphs_sorted(self):
+        return self.paragraph_set.all().order_by('weight')
 
 
 class Paragraph(base_models.TimeStampedModel):
