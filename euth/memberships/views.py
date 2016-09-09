@@ -26,12 +26,10 @@ class RequestView(mixin.LoginRequiredMixin, generic.DetailView):
     """
     Displays membership request if it exists or allows to create one.
     """
-    template_name = 'euth_memberships/request_detail.html'
     model = models.Request
     slug_field = 'project__slug'
     slug_url_kwarg = 'project_slug'
     context_object_name = 'join_request'
-    fields = []
 
     def get_queryset(self):
         return self.model.objects.filter(creator=self.request.user)
