@@ -91,5 +91,29 @@ class DashboardProjectUserView(mixins.LoginRequiredMixin,
         return self.request.path
 
 
-class DashboardOverviewView(mixins.LoginRequiredMixin, generic.TemplateView):
+class DashboardOverviewView(
+        mixins.LoginRequiredMixin,
+        generic.TemplateView):
     template_name = "euth_dashboard/dashboard_overview.html"
+
+
+class DashboardCreateOverviewView(
+        mixins.LoginRequiredMixin,
+        generic.TemplateView):
+    template_name = "euth_dashboard/dashboard_create_overview.html"
+
+
+class DashboardCreateIdeaCollectionView(
+        mixins.LoginRequiredMixin,
+        generic.CreateView):
+    model = project_models.Project
+    fields = '__all__'
+    template_name = 'euth_dashboard/project_form.html'
+
+
+class DashboardCreateCommentingTextView(
+        mixins.LoginRequiredMixin,
+        generic.CreateView):
+    model = project_models.Project
+    fields = '__all__'
+    template_name = 'euth_dashboard/project_form.html'
