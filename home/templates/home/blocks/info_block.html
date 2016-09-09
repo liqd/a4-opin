@@ -32,7 +32,7 @@
                 {% if self.button.internal_link %}
                     <a class="button" href="{{ self.button.internal_link.url }}">{{ self.button.link_text}}</a>
                 {% elif self.button.external_link %}
-                    <a class="button" href="{{ self.button.external_link.url }}">{{ self.button.link_text}}</a>
+                    <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
                 {% endif %}
             </div>
         </div>
@@ -53,7 +53,7 @@
             {% if self.button.internal_link %}
                 <a class="button" href="{{ self.button.internal_link.url }}">{{ self.button.link_text}}</a>
             {% elif self.button.external_link %}
-                <a class="button" href="{{ self.button.external_link.url }}">{{ self.button.link_text}}</a>
+                <a class="button" href="{{ self.button.external_link }}">{{ self.button.link_text}}</a>
             {% endif %}
     	</div>
         {% endif %}
