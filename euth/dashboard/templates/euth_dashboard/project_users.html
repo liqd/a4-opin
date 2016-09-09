@@ -4,6 +4,9 @@
 {% block dashboard_content %}
 <h1>{% trans 'Manage user of ' %}{{ project.name }}</h1>
 
+
+<a href="{% url 'dashboard-project-invite' slug=project.slug %}">{% trans 'Invite users' %}</a>
+
 {% if form.forms %}
 <form method="POST">
     {% csrf_token %}
