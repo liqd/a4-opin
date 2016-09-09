@@ -66,8 +66,8 @@ class Project(base_models.TimeStampedModel):
 
     @functional.cached_property
     def other_projects(self):
-        other_projects = self.organisation.project_set.all().exclude(
-            slug=self.slug)
+        other_projects = self.organisation.project_set\
+            .filter(is_draft=False).exclude(slug=self.slug)
         return other_projects
 
     @functional.cached_property
