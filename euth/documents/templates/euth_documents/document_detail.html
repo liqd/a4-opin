@@ -33,7 +33,9 @@
         {% endfor %}
     </article>
 
+    {% if object %}
     {% react_comments object %}
+    {% endif %}
 
 </div>
 {% endblock %}
