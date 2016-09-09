@@ -157,14 +157,13 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList'],
             ['Link', 'Unlink']
-        ],
-        'enterMode': 2
+        ]
     }
 }
 
 BLEACH_LIST = {
     'default' : {
-        'tags': ['p','strong','em','u','ol','li','ul','a','br'],
+        'tags': ['p','strong','em','u','ol','li','ul','a'],
         'attributes': {
             'a': ['href', 'rel']
         }

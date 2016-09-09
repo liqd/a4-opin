@@ -31,7 +31,7 @@ class Document(module_models.Item):
 
 class Paragraph(base_models.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
-    text = RichTextField(config_name='document-editor')
+    text = RichTextField()
     weight = models.PositiveIntegerField()
     document = models.ForeignKey(Document, on_delete=models.CASCADE)
 
