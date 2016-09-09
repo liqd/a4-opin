@@ -7,11 +7,11 @@
     }
     .linked-paragraph a {
         color: $text-color;
-        //background: ;
+        display: block;
 
-        &:hover {
+        &:hover, &:focus {
             text-decoration: none;
-            background-color: rgba($brand-brand1, 0.3);
+            background-color: rgba($brand-brand1, 0.1);
         }
     }
     .comment-count {
