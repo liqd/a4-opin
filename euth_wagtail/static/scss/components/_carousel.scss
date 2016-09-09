@@ -20,6 +20,10 @@
         .owl-prev,
         .owl-next {
             opacity: 1;
+
+            &.disabled {
+                opacity: 0;
+            }
         }
     }
 
@@ -39,14 +43,16 @@
 
     .project-tile {
         margin: 0;
+        display: flex;
+        flex-direction: column;
     }
 
     .owl-stage-outer {
         overflow: visible;
 
-        //@media (max-width: $screen-md-min) {
-        //    overflow: hidden;
-        //}
+        @media (max-width: $screen-md-min) {
+            overflow: hidden;
+        }
     }
 
     .owl-item:not(.active) {
