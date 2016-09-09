@@ -37,18 +37,18 @@
     &.public .project-tile-image-link {
         border: solid 5px $brand-brand3;
     }
+    &.running-out .project-tile-badge {
+        background-color: #c8423a;
+    }
+    &.running-out .project-tile-image-link {
+        border: solid 5px #c8423a;
+    }
     &.private .project-tile-badge {
         background-color: $brand-brand1;
         text-transform: uppercase;
     }
     &.private .project-tile-image-link {
         border: solid 5px $brand-brand1;
-    }
-    &.running-out .project-tile-badge {
-        background-color: #c8423a;
-    }
-    &.running-out .project-tile-image-link {
-        border: solid 5px #c8423a;
     }
     &.no-image .project-tile-image-link {
         background-position: 50% 50%;
