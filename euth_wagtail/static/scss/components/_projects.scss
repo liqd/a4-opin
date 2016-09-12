@@ -52,13 +52,9 @@
     }
     &.no-image .project-tile-image-link {
         background-position: 50% 50%;
-        background-size: 150px;
-        height: 173px;
-        background-color: $brand-brand2;
     }
     &.no-image .project-tile-image-link img {
         display: block;
-        height: 163px;
         margin: 0 auto;
     }
 
