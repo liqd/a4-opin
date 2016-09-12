@@ -29,16 +29,17 @@ def top_menu(context, parent, calling_page=None):
 def import_rss(context, rss_import):
 
     feeds = feedparser.parse(rss_import.url)
-    entry = feeds.entries[0]
+    entries = feeds.entries[:2]
 
-    try:
-        published = parser.parse(entry["published"])
-    except:
-        published = ''
+    result = []
 
-    return {
-        'title': rss_import.translated_rss_title,
-        'latest_entry': {
+    for entry in entries:
+        try:
+            published = parser.parse(entry["published"])
+        except:
+            published = ''
+
+        result.append({
             'published': published,
             'title': entry.title,
             'link': entry.link,
@@ -49,6 +50,11 @@ def import_rss(context, rss_import):
                                         strip=True
                                         )
         }
+        )
+
+    return {
+        'title': rss_import.translated_rss_title,
+        'entries': result
     }
 
 
