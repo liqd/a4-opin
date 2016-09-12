@@ -52,9 +52,11 @@ class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
 
 
 class DashboardProjectInviteView(mixins.LoginRequiredMixin,
+                                 SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
+    success_message = _("Invitations sucessfully sent")
 
     @functional.cached_property
     def project(self):
