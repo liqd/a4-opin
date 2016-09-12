@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'parler',
     'ckeditor',
+    'betterforms',
 
     'django.contrib.sites',
     'django.contrib.admin',
