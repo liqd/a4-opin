@@ -17,9 +17,10 @@ class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):
     def form_valid(self, form):
         if form.is_accepted():
             form.instance.accept(self.request.user)
+            return redirect(form.instance.project.get_absolute_url())
         else:
             form.instance.reject()
-        return redirect(form.instance.project.get_absolute_url())
+            return redirect('/')
 
 
 class RequestView(mixin.LoginRequiredMixin, generic.DetailView):

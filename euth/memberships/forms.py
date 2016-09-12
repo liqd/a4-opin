@@ -13,14 +13,14 @@ class InviteForm(forms.ModelForm):
         fields = ['accept', 'reject']
 
     def clean(self):
-        data = self.cleaned_data
+        data = self.data
         if 'accept' not in data and 'reject' not in data:
             raise ValidationError('Reject or accept')
         return data
 
     def is_accepted(self):
-        data = self.cleaned_data
-        return data['accept'] and not data['reject']
+        data = self.data
+        return 'accept' in data and 'reject' not in data
 
 
 class RequestModerationForm(forms.ModelForm):

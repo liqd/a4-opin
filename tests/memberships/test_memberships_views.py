@@ -39,6 +39,6 @@ def test_accept_invite(client, invite, user):
                          'euth_projects/includes/project_hero_unit.html')
     assert template_used(response, 'euth_memberships/invite_form.html')
 
-    response = client.post(url, data={'accept': 'some-random-truthy-value'})
+    response = client.post(url, data={'accept': ''})
     assert redirect_target(response) == 'project-detail'
     assert user in invite.project.participants.all()

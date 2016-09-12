@@ -13,10 +13,11 @@
 </nav>
 <div class="container">
     {% blocktrans with project=invite.project.name %} Join {{ project }}?{% endblocktrans %}
+    {{ form.non_field_errors }}
     <form method='POST'>
         {% csrf_token %}
         <button type="submit" name="accept" class="submit-button">{% trans 'Accept' %}</button>
-        <button type="submit" name="abort" class="cancel-button">{% trans 'Abort' %}</button>
+        <button type="submit" name="reject" class="cancel-button">{% trans 'Reject' %}</button>
     </form>
 </div>
 
