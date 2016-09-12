@@ -81,8 +81,8 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
     template_name = 'euth_dashboard/project_form.html'
 
 
-
-class DashboardProjectInviteView(mixins.LoginRequiredMixin,
+class DashboardProjectInviteView(DashboardBaseMixins,
+                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
