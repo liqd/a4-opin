@@ -6,6 +6,7 @@ from euth.users import models as user_models
 
 
 class ProfileForm(forms.ModelForm):
+
     class Meta:
         model = user_models.User
         fields = ['avatar', 'email']
@@ -15,10 +16,22 @@ class ProfileForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
+
     class Meta:
         model = project_models.Project
         fields = ['image', 'name', 'description', 'information', 'is_public',
                   'result']
+        widgets = {
+            'image': widgets.ImageInputWidget()
+        }
+
+
+class ProjectCreateForm(forms.ModelForm):
+
+    class Meta:
+        model = project_models.Project
+        fields = ['image', 'name', 'description', 'information', 'is_public',
+                  'result', 'organisation']
         widgets = {
             'image': widgets.ImageInputWidget()
         }

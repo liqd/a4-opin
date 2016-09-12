@@ -107,7 +107,7 @@ class DashboardCreateIdeaCollectionView(
         mixins.LoginRequiredMixin,
         generic.CreateView):
     model = project_models.Project
-    fields = '__all__'
+    form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
 
 
@@ -115,5 +115,5 @@ class DashboardCreateCommentingTextView(
         mixins.LoginRequiredMixin,
         generic.CreateView):
     model = project_models.Project
-    fields = '__all__'
+    form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
