@@ -56,3 +56,35 @@
         @include rem(padding-bottom, 10px);
     }
 }
+
+.accordion-content {
+    background: transparent;
+    .accordion-link,
+    .panel-body {
+        background: $brand-brand1;
+        color: #fff;
+    }
+
+    .accordion-title {
+        padding: 0;
+        text-align: left;
+        .accordion-link {
+            @include rem(font-size, $font-size-large);
+            @include rem(padding, 22px 30px 15px 22px);
+            border: 1px solid $brand-brand1;
+            position: relative;
+            color: #fff;
+
+            &:after {
+                @include rem(right, 22px);
+                @include rem(top, 22px);
+                content: "x";
+                position: absolute;
+            }
+        }
+    }
+
+    .panel-body {
+        @include rem(padding, 0 22px 22px 22px);
+    }
+}
