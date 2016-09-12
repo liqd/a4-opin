@@ -1,6 +1,8 @@
+from betterforms.multiform import MultiModelForm
 from django import forms
 
 from euth.contrib import widgets
+from euth.modules import models as module_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
@@ -26,6 +28,13 @@ class ProjectForm(forms.ModelForm):
         }
 
 
+class ModuleCreateForm(forms.ModelForm):
+
+    class Meta:
+        model = module_models.Module
+        fields = ['name', 'description', 'weight']
+
+
 class ProjectCreateForm(forms.ModelForm):
 
     class Meta:
@@ -35,3 +44,10 @@ class ProjectCreateForm(forms.ModelForm):
         widgets = {
             'image': widgets.ImageInputWidget()
         }
+
+
+class ProjectCreateMultiForm(MultiModelForm):
+    form_classes = {
+        'project': ProjectCreateForm,
+        'module': ModuleCreateForm
+    }
