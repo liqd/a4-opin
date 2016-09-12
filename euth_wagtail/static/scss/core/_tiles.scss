@@ -8,9 +8,8 @@
 %tile-title {
     @include rem(font-size, $font-size-large);
     @include rem(margin, 0 0 10px);
-    font-weight: bold;
-    letter-spacing: 2px;
-    line-height: 1.4;
+    font-weight: normal;
+    line-height: 1.2;
     text-align: left;
 }
 
@@ -24,7 +23,7 @@
 %tile-org {
     @include rem(font-size, $font-size-small);
     @include rem(margin, 25px 0 0);
-    font-weight: bold;
+    font-weight: normal;
     line-height: 30px;
 
     img.project-tile-org-avatar {
