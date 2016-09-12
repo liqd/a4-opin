@@ -13,7 +13,7 @@ Access requested to {{ request.project }} on {{ site.name }}
      {{ request.creator.username }} ({{ request.creator.email }})
 </p>
 <p>
-    Please visit <a href="{{ email.get_host }}{% url 'dashboard-project-users' request.project.slug %}">{{ site.name }}</a> to accept or decline.
+    Please visit <a href="{{ email.get_host }}{% url 'dashboard-project-users' request.project.organisation.slug request.project.slug %}">{{ site.name }}</a> to accept or decline.
 </p>
 
 <p>
