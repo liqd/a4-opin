@@ -24,7 +24,7 @@ class Email():
         if site.domain.startswith('localhost:'):
             ssl_enabled = False
 
-        url = 'http{ssl_flag}://{domain}/'.format(
+        url = 'http{ssl_flag}://{domain}'.format(
             ssl_flag='s' if ssl_enabled else '',
             domain=site.domain,
         )
