@@ -22,8 +22,10 @@
           {% if not project.is_public %}
           <span class="label label-danger">private</span>
           {% endif %}
-          <span class="label label-primary">collecting ideas</span>
-          <span class="text-muted">Phase 2: commenting ideas</span>
+          <span class="label label-primary">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
+          {% if project.active_phase %}
+          <span class="text-muted">Phase {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
+          {% endif %}
           <div class="pull-right">
               {% if not project.is_public %}
               <a href="{% url 'dashboard-project-users' project.slug %}">

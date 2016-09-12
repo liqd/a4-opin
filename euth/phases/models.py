@@ -27,6 +27,9 @@ class Phase(models.Model):
     def __str__(self):
         return '{} ({})'.format(self.name, self.type)
 
+    def content(self):
+        return content[self.type]
+
     @property
     def view(self):
         return content[self.type].view
