@@ -117,4 +117,5 @@ h1.dashboard-title {
     margin-top: 0;
     font-weight: bold;
     @include rem(font-size, $font-size-medium);
+    @include rem(margin-bottom, 30px);
 }

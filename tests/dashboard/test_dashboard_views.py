@@ -1,6 +1,6 @@
 import pytest
+from django.core import mail
 from django.core.urlresolvers import reverse
-
 from tests.helpers import redirect_target
 
 
@@ -100,3 +100,51 @@ def test_dashboard_project_users(client, project, request_factory):
     assert redirect_target(response) == 'dashboard-project-users'
     assert len(project.request_set.all()) == 1
     assert project.request_set.first() == request2
+
+
+@pytest.mark.django_db
+def test_dashboard_project_invite(client, project):
+    url = reverse('dashboard-project-invite', kwargs={'slug': project.slug})
+
+    response = client.get(url)
+    assert redirect_target(response) == 'login'
+
+    moderator = project.moderators.first()
+    client.login(username=moderator.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+    response = client.post(url, {
+        'emails': 'Jimmy Hendrix <j@he.ix>, james.dean@gmail.com'
+    })
+    assert redirect_target(response) == 'dashboard-project-users'
+    assert len(project.invite_set.all()) == 2
+    assert project.invite_set.all()[0].email == 'j@he.ix'
+    assert project.invite_set.all()[1].email == 'james.dean@gmail.com'
+    assert len(mail.outbox) == 2
+
+    response = client.post(url, {
+        'emails': 'j@he.ix'
+    })
+
+    errors = response.context_data['form']['emails'].errors
+    assert errors == ['j@he.ix already invited']
+
+
+@pytest.mark.django_db
+def test_dashboard_project_invalid(client, project):
+    url = reverse('dashboard-project-invite', kwargs={'slug': project.slug})
+    moderator = project.moderators.first()
+    client.login(username=moderator.email, password='password')
+
+    response = client.post(url, {
+        'emails': 'test@test.de foo@bar.de'
+    })
+    errors = response.context_data['form']['emails'].errors
+    assert errors == ['@bar.de invalid email address']
+
+    response = client.post(url, {
+        'emails': 'test@foo, @aded'
+    })
+    errors = response.context_data['form']['emails'].errors
+    assert errors == ['test@foo, @aded invalid email address']

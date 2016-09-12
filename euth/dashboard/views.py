@@ -2,6 +2,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.forms import modelformset_factory
 from django.shortcuts import get_object_or_404
+from django.utils import functional
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.compat import access_mixins as mixins
@@ -48,6 +49,37 @@ class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
     model = project_models.Project
     form_class = forms.ProjectForm
     template_name = 'euth_dashboard/project_form.html'
+
+
+class DashboardProjectInviteView(mixins.LoginRequiredMixin,
+                                 SuccessMessageMixin,
+                                 generic.FormView):
+    form_class = forms.ProjectInviteForm
+    template_name = 'euth_dashboard/project_invites.html'
+    success_message = _("Invitations sucessfully sent")
+
+    @functional.cached_property
+    def project(self):
+        return project_models.Project.objects.get(
+            slug=self.kwargs['slug']
+        )
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['project'] = self.project
+        return kwargs
+
+    def form_valid(self, form):
+        emails = form.cleaned_data['emails']
+        user = self.request.user
+        project = self.project
+        for (name, address) in emails:
+            member_models.Invite.objects.invite(user, project, address)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('dashboard-project-users',
+                       kwargs={'slug': self.project.slug})
 
 
 class DashboardProjectUserView(mixins.LoginRequiredMixin,

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with project=invite.project.name %} Private project: {{ project }}{% endblocktrans %}{% endblock %}
+{% block content %}
+{% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
+<nav class="tabs">
+    <div class="container">
+        <ul>
+            <li class="col-md-4 col-md-offset-4 active"><a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container membership-invite">
+    <h2>{% blocktrans with project=invite.project.name %} Join {{ project }}?{% endblocktrans %}</h2>
+    {{ form.non_field_errors }}
+    <form method='POST'>
+        {% csrf_token %}
+        <button type="submit" name="accept" class="submit-button">{% trans 'Accept' %}</button>
+        <button type="submit" name="reject" class="cancel-button">{% trans 'Reject' %}</button>
+    </form>
+</div>
+
+{% endblock %}
