@@ -18,7 +18,4 @@ urlpatterns = [
     url(r'^projects/(?P<slug>[-\w_]+)/users/invite$',
         views.DashboardProjectInviteView.as_view(),
         name='dashboard-project-invite'),
-    url(r'^$',
-        views.DashboardOverviewView.as_view(),
-        name='dashboard-overview'),
 ]

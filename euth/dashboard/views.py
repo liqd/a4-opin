@@ -121,7 +121,3 @@ class DashboardProjectUserView(mixins.LoginRequiredMixin,
 
     def get_success_url(self):
         return self.request.path
-
-
-class DashboardOverviewView(mixins.LoginRequiredMixin, generic.TemplateView):
-    template_name = "euth_dashboard/dashboard_overview.html"
