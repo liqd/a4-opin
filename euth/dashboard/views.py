@@ -49,6 +49,11 @@ class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
     form_class = forms.ProjectForm
     template_name = 'euth_dashboard/project_form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mode'] = _('Edit project')
+        return context
+
 
 class DashboardProjectUserView(mixins.LoginRequiredMixin,
                                SuccessMessageMixin,
@@ -107,13 +112,23 @@ class DashboardCreateIdeaCollectionView(
         mixins.LoginRequiredMixin,
         generic.CreateView):
     model = project_models.Project
-    form_class = forms.ProjectCreateForm
+    form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mode'] = _("New project based on DEVELOP IDEAS")
+        return context
 
 
 class DashboardCreateCommentingTextView(
         mixins.LoginRequiredMixin,
         generic.CreateView):
     model = project_models.Project
-    form_class = forms.ProjectCreateForm
+    form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mode'] = _("New project based on DISCUSS AN ISSUE")
+        return context
