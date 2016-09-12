@@ -14,7 +14,7 @@
     <ul>
       {% for project in project_list %}
       <li class="tile-list project-tile-list">
-          <a href="{% url 'dashboard-project-edit' project.slug %}">
+          <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
               <strong>
                   {{ project.name }}
               </strong>
@@ -26,11 +26,11 @@
           <span class="text-muted">Phase 2: commenting ideas</span>
           <div class="pull-right">
               {% if not project.is_public %}
-              <a href="{% url 'dashboard-project-users' project.slug %}">
+              <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}">
                   <i class="fa fa-users" aria-hidden="true"></i>
               </a>
               {% endif %}
-              <a href="{% url 'dashboard-project-edit' project.slug %}">
+              <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
                   <i class="fa fa-edit"></i>
               </a>
           <div>
