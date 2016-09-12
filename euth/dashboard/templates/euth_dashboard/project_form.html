@@ -20,20 +20,26 @@
         <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
             {% for field in form %}
-            <div class="form-group{% if field.errors %} has-error{% endif %}">
-                <label>{{ field.label }}</label>
-                {% render_field field class="form-control" %}
-                {% for error in field.errors %}
-                <span class="help-block">{{ error }}</span>
-                {% endfor %}
-            </div>
+                {% if not field == form.result %}
+                <div class="form-group{% if field.errors %} has-error{% endif %}">
+                    <label>{{ field.label }}</label>
+                    {% render_field field class="form-control" %}
+                    {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
             {% endfor %}
         </article>
         <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
             Stuff!
         </article>
         <article id="result" class="tab-panel">
-            Even more stuff!
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label>{{ form.result.label }}</label>
+                {% render_field form.result class="form-control" %}
+                <span class="help-block">{{ error }}</span>
+            </div>
         </article>
 
         {% if project.is_draft %}

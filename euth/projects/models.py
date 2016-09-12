@@ -23,6 +23,7 @@ class Project(base_models.TimeStampedModel):
         org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(max_length=1024)
     information = models.TextField()
+    result = models.TextField(blank=True)
     is_public = models.BooleanField(default=True)
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
@@ -47,6 +48,8 @@ class Project(base_models.TimeStampedModel):
     def save(self, *args, **kwargs):
         self.information = html_transforms.clean_html_field(
             self.information)
+        self.result = html_transforms.clean_html_field(
+            self.result)
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
