@@ -1,11 +1,12 @@
-{% if latest_entry %}
+{% if entries %}
+<h3 class="rss-feed-entries-title">{{ title }}</h3>
+{% for entry in entries %}
 <div class="row">
-<h3 class="block-title">{{ title }}</h3>
-</div>
     <div class="rss-feed-entry">
-        <div class="rss-feed-entry-date"><small>{{ latest_entry.published | date:"d M y" }}</small></div>
-        <a href="{{ latest_entry.link }}" target="_blank">{{ latest_entry.title }}</a>
-        <p>{{ latest_entry.description|truncatechars:300 }}</p>
+        <div class="rss-feed-entry-date"><small>{{ entry.published | date:"d M y" }}</small></div>
+        <a href="{{ entry.link }}" target="_blank"><h4>{{ entry.title }}</h4></a>
+        <p>{{ entry.description|truncatechars:300 }}</p>
     </div>
 </div>
+{% endfor %}
 {% endif %}

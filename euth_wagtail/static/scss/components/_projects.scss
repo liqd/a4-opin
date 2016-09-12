@@ -25,10 +25,7 @@
 
 .project-tile {
     @extend %tile;
-    min-height: 390px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    min-height: 490px;
 
     img {
         margin: 0;
@@ -37,6 +34,12 @@
     &.public .project-tile-image-link {
         border: solid 5px $brand-brand3;
     }
+    &.running-out .project-tile-badge {
+        background-color: #c8423a;
+    }
+    &.running-out .project-tile-image-link {
+        border: solid 5px #c8423a;
+    }
     &.private .project-tile-badge {
         background-color: $brand-brand1;
         text-transform: uppercase;
@@ -44,21 +47,11 @@
     &.private .project-tile-image-link {
         border: solid 5px $brand-brand1;
     }
-    &.running-out .project-tile-badge {
-        background-color: #c8423a;
-    }
-    &.running-out .project-tile-image-link {
-        border: solid 5px #c8423a;
-    }
     &.no-image .project-tile-image-link {
         background-position: 50% 50%;
-        background-size: 150px;
-        height: 173px;
-        background-color: $brand-brand2;
     }
     &.no-image .project-tile-image-link img {
         display: block;
-        height: 163px;
         margin: 0 auto;
     }
 
@@ -126,6 +119,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    flex: 1 1 auto;
 }
 
 .project-tile-type {

@@ -155,6 +155,7 @@ class RSSImportBlock(core_blocks.StructBlock):
 class InlineImageBlock(core_blocks.StructBlock):
     image = image_blocks.ImageChooserBlock()
     internal_link = core_blocks.PageChooserBlock(required=False)
+    external_link = core_blocks.URLBlock(required=False)
     link_text = core_blocks.TextBlock(required=False)
 
 

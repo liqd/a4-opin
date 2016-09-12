@@ -70,7 +70,7 @@
 <div class="container org-page">
     <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
         <div id="project-tile-grid" class="organisation-tiles" data-columns>
-        {% for project in organisation.project_set.all %}
+        {% for project in view.visible_projects %}
         {% include "euth_projects/includes/project_tile.html" with project=project %}
         {% endfor %}
         </div>

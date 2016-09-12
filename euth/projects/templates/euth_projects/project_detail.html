@@ -17,7 +17,7 @@
     <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
         <h3 class="tab-panel-title">{% trans "info" %}</h3>
         <div class="tab-panel-description">
-            {{ view.project.information |safe }}
+            {{ view.project.information |safe|linebreaks }}
         </div>
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
@@ -26,6 +26,8 @@
         </div>
     </article>
     <article id="result" class="tab-panel">
+        {% trans 'There are no results yet. Please check back later.' as no_results %}
+        {{ view.project.result |default:no_results|safe|linebreaks }}
     </article>
 </div>
 {% if view.project.other_projects %}
