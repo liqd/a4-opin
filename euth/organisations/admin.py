@@ -6,5 +6,7 @@ from euth.organisations import models
 
 class OrganisationAdmin(TranslatableAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    filter_horizontal = ('initiators',)
+
 
 admin.site.register(models.Organisation, OrganisationAdmin)
