@@ -18,7 +18,7 @@ class Module(models.Model):
         return "{} ({})".format(self.project, self.weight)
 
     def phases_passed(self):
-        return self.phase_set.filter(end_date__ltef=timezone.now())
+        return self.phase_set.filter(end_date__lte=timezone.now())
 
 
 class Item(base_models.TimeStampedModel):

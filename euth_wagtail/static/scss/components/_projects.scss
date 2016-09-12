@@ -26,6 +26,8 @@
 .project-tile {
     @extend %tile;
     min-height: 490px;
+    display: flex;
+    flex-direction: column;
 
     img {
         margin: 0;
