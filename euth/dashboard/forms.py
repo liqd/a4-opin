@@ -1,4 +1,5 @@
 import email.utils
+import re
 
 from django import forms
 from django.core.exceptions import ValidationError
@@ -19,7 +20,7 @@ class ProfileForm(forms.ModelForm):
 
 
 class ProjectInviteForm(forms.Form):
-    emails = forms.CharField(required=False)
+    emails = forms.CharField()
 
     def __init__(self, project, *args, **kwargs):
         self.project = project
@@ -28,6 +29,15 @@ class ProjectInviteForm(forms.Form):
     def clean_emails(self):
         emails_str = self.cleaned_data['emails']
         emails = email.utils.getaddresses([emails_str])
+
+        invalid_emails = []
+        for name, email_addr in emails:
+            if not re.match(r'^[^@]+@[^@\s]+\.[^@\s]+$', email_addr):
+                invalid_emails.append(email_addr)
+        if invalid_emails:
+            message = '{} invalid email address'
+            raise ValidationError(message.format(', '.join(invalid_emails)))
+
         addresses = [email[1] for email in emails]
         query = {
             'project': self.project,
