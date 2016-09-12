@@ -15,32 +15,30 @@ $(document).ready(function () {
     }
   });
 
-  var projectCount = $("#project-tile-grid .project-tile").length;
-  var loop = (projectCount < 4) ? false : true;
-
-    $('.owl-carousel').owlCarousel({
-        center: false,
-        items: 4,
-        loop: loop,
-        dots: false,
-        nav: true,
-        margin: 20,
-        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
-        responsive:{
-            0: {
-                items: 1
-            },
-            480: {
-              items: 2
-            },
-            768:{
-                items: 3
-            },
-            992: {
-              items: 4
-            }
-        }
-    });
+  $('.owl-carousel').owlCarousel({
+    center: false,
+    items: 4,
+    dots: false,
+    nav: true,
+    margin: 20,
+    stagePadding: 30,
+    startPosition: 1,
+    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      480: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      992: {
+        items: 4
+      }
+    }
+  });
 
   $(".form-control-file").change(function() {
     var string = $(this).val().match(/[^\\/]+$/)[0]
