@@ -1,7 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.forms import modelformset_factory
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.utils import functional
 from django.utils.translation import ugettext as _
 from django.views import generic
@@ -9,13 +9,41 @@ from rules.compat import access_mixins as mixins
 
 from euth.memberships import forms as member_forms
 from euth.memberships import models as member_models
+from euth.organisations import models as org_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
 from . import forms
 
 
-class DashboardProfileView(mixins.LoginRequiredMixin,
+def dashboard(request):
+    organisation = request.user.organisation_set.first()
+    if organisation:
+        return redirect('dashboard-profile-org',
+                        organisation_slug=organisation.slug)
+    else:
+        return redirect('dashboard-profile')
+
+
+class DashboardBaseMixins(mixins.LoginRequiredMixin,
+                          generic.base.ContextMixin):
+
+    @functional.cached_property
+    def user_has_organisation(self):
+        return bool(self.request.user.organisation_set.all())
+
+    @functional.cached_property
+    def organisation(self):
+        slug = self.kwargs['organisation_slug']
+        return get_object_or_404(org_models.Organisation, slug=slug)
+
+    @functional.cached_property
+    def other_organisations_of_user(self):
+        user = self.request.user
+        return user.organisation_set.exclude(pk=self.organisation.pk)
+
+
+class DashboardProfileView(DashboardBaseMixins,
                            SuccessMessageMixin,
                            generic.UpdateView):
 
@@ -31,27 +59,30 @@ class DashboardProfileView(mixins.LoginRequiredMixin,
         return self.request.path
 
 
-class DashboardProjectListView(mixins.LoginRequiredMixin, generic.ListView):
+class DashboardProjectListView(DashboardBaseMixins,
+                               mixins.LoginRequiredMixin,
+                               generic.ListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
 
     def get_queryset(self):
         return self.model.objects.filter(
-            organisation__initiators=self.request.user
+            organisation=self.organisation
         )
 
     def get_success_url(self):
         return reverse('dashboard-project-list')
 
 
-class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
+class DashboardProjectUpdateView(DashboardBaseMixins,
                                  generic.UpdateView):
     model = project_models.Project
     form_class = forms.ProjectForm
     template_name = 'euth_dashboard/project_form.html'
 
 
-class DashboardProjectInviteView(mixins.LoginRequiredMixin,
+class DashboardProjectInviteView(DashboardBaseMixins,
+                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
@@ -79,10 +110,13 @@ class DashboardProjectInviteView(mixins.LoginRequiredMixin,
 
     def get_success_url(self):
         return reverse('dashboard-project-users',
-                       kwargs={'slug': self.project.slug})
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                           'slug': self.project.slug
+                       })
 
 
-class DashboardProjectUserView(mixins.LoginRequiredMixin,
+class DashboardProjectUserView(DashboardBaseMixins,
                                SuccessMessageMixin,
                                generic.FormView):
 
@@ -121,7 +155,3 @@ class DashboardProjectUserView(mixins.LoginRequiredMixin,
 
     def get_success_url(self):
         return self.request.path
-
-
-class DashboardOverviewView(mixins.LoginRequiredMixin, generic.TemplateView):
-    template_name = "euth_dashboard/dashboard_overview.html"

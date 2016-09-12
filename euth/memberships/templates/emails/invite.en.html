@@ -8,9 +8,11 @@ Your have been invited to {{ invite.project.name }}
 
 <p>
     <a href="{{ invite.project.organisation.get_absolute_url }}">{{ invite.project.organisation }}</a>
-    has invited your to join {{ invite.project.name }}.
+    has invited you to join {{ invite.project.name }}.
+</p>
 
-    <a href="{{ email.get_host }}{{ invite.get_absolute_url }}">Accept</a>
+<p style="margin-top: 20px;">
+    <a href="{{ email.get_host }}{{ invite.get_absolute_url }}" class="button">Accept</a>
 </p>
 
 <p>

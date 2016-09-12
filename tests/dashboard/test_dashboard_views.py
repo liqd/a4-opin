@@ -5,26 +5,10 @@ from tests.helpers import redirect_target
 
 
 @pytest.mark.django_db
-def test_anonymous_cannot_view_dashboard_overview(client):
-    url = reverse('dashboard-overview')
-    response = client.get(url)
-    assert response.status_code == 302
-
-
-@pytest.mark.django_db
 def test_anonymous_cannot_view_dashboard_profile(client):
     url = reverse('dashboard-profile')
     response = client.get(url)
     assert response.status_code == 302
-
-
-@pytest.mark.django_db
-def test_authenticated_user_can_view_dashboard(client, user):
-    url = reverse('dashboard-overview')
-    login_url = reverse('login')
-    client.post(login_url, {'email': user.email, 'password': 'password'})
-    response = client.get(url)
-    assert response.status_code == 200
 
 
 @pytest.mark.django_db
@@ -49,7 +33,9 @@ def test_authenticated_user_can_upload_avatar(client, user):
 def test_initiator_list_projects(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-list')
+    url = reverse('dashboard-project-list', kwargs={
+        'organisation_slug': project.organisation.slug,
+    })
     response = client.get(url)
     assert response.status_code == 200
     assert project in list(response.context_data['project_list']) == [project]
@@ -59,7 +45,10 @@ def test_initiator_list_projects(client, project):
 def test_initiator_edit_project(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-edit', kwargs={'slug': project.slug})
+    url = reverse('dashboard-project-edit', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug,
+    })
     response = client.get(url)
     assert response.context_data['form'].instance == project
     assert response.status_code == 200
@@ -67,7 +56,10 @@ def test_initiator_edit_project(client, project):
 
 @pytest.mark.django_db
 def test_dashboard_project_users(client, project, request_factory):
-    url = reverse('dashboard-project-users', kwargs={'slug': project.slug})
+    url = reverse('dashboard-project-users', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug,
+    })
     request0 = request_factory(project=project)
     request1 = request_factory(project=project)
     request2 = request_factory(project=project)
@@ -104,7 +96,10 @@ def test_dashboard_project_users(client, project, request_factory):
 
 @pytest.mark.django_db
 def test_dashboard_project_invite(client, project):
-    url = reverse('dashboard-project-invite', kwargs={'slug': project.slug})
+    url = reverse('dashboard-project-invite', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug,
+    })
 
     response = client.get(url)
     assert redirect_target(response) == 'login'
@@ -133,7 +128,10 @@ def test_dashboard_project_invite(client, project):
 
 @pytest.mark.django_db
 def test_dashboard_project_invalid(client, project):
-    url = reverse('dashboard-project-invite', kwargs={'slug': project.slug})
+    url = reverse('dashboard-project-invite', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug,
+    })
     moderator = project.moderators.first()
     client.login(username=moderator.email, password='password')
 
