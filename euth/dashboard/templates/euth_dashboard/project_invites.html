@@ -2,11 +2,15 @@
 {% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
-<h1>{% trans 'Invite users to' %} {{ view.project }}</h1>
-<form method="POST">
+<h1 class="black-divider dashboard-title">{% trans 'Invite users to' %} {{ view.project }}</h1>
+<form method="POST" class="general-form">
     {% csrf_token %}
-    {{ form.emails }}
-    {{ form.emails.errors }}
+    <div class="form-group">
+        <label for="{{ form.emails.id_for_label }}">{{ form.emails.label }}</label>
+        {{ form.emails|add_class:'form-control' }}
+        {{ form.emails.errors }}
+
+    </div>
     <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">
-</from>
+</form>
 {% endblock %}

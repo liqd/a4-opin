@@ -11,8 +11,8 @@
         </ul>
     </div>
 </nav>
-<div class="container">
-    {% blocktrans with project=invite.project.name %} Join {{ project }}?{% endblocktrans %}
+<div class="container membership-invite">
+    <h2>{% blocktrans with project=invite.project.name %} Join {{ project }}?{% endblocktrans %}</h2>
     {{ form.non_field_errors }}
     <form method='POST'>
         {% csrf_token %}

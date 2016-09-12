@@ -100,6 +100,9 @@
         width: 100%;
     }
 
+    .errorlist {
+        @include rem(margin-top, 20px);
+    }
 }
 
 .input-gigantic {
