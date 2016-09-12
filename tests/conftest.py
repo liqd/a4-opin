@@ -23,6 +23,7 @@ register(mod_factories.ModuleFactory)
 register(mod_factories.ModuleFactory, 'active_module')
 register(ph_factories.PhaseFactory)
 register(member_factories.RequestFactory, 'membership_request')
+register(member_factories.InviteFactory)
 register(
     ph_factories.PhaseFactory, 'active_phase',
     start_date=parse('2013-01-02 00:00:00 UTC'),
