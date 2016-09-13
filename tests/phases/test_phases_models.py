@@ -28,6 +28,10 @@ def test_manager_active_phases(phase_factory):
         start_date=parse('2013-01-01 18:00:01 UTC'),
         end_date=parse('2013-01-01 18:00:00 UTC')
     )
+    invalid_phase = phase_factory(
+        start_date=parse('2013-01-01 18:00:01 UTC'),
+        end_date=parse('2013-01-01 16:00:00 UTC')
+    )
 
     with freeze_time('2013-01-01 18:00:00 UTC'):
         all_active_phases = models.Phase.objects.active_phases()
@@ -35,6 +39,7 @@ def test_manager_active_phases(phase_factory):
         assert active_phase2 in all_active_phases
         assert old_phase1 not in all_active_phases
         assert future_phase1 not in all_active_phases
+        assert invalid_phase not in all_active_phases
 
         module_active_phases = module.phase_set.active_phases()
         assert len(module_active_phases) == 1

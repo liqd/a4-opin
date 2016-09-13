@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
@@ -29,6 +30,13 @@ class Phase(models.Model):
 
     def content(self):
         return content[self.type]
+
+    def clean(self):
+        if (self.end_date < self.start_date):
+            raise ValidationError({
+                'end_date': 'End date can not be smaller than the start date.'
+            })
+        super().clean()
 
     @property
     def view(self):
