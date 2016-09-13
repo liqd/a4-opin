@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -8,7 +7,6 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 
 from euth.memberships import models as member_models
-from euth.contrib import mixins as con_mixins
 from euth.organisations import models as org_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
@@ -59,18 +57,15 @@ class DashboardProfileView(DashboardBaseMixins,
         return self.request.path
 
 
-class DashboardOrganisationUpdateView(mixins.LoginRequiredMixin,
-                                      con_mixins.TranslatableModelFormsMixin,
+class DashboardOrganisationUpdateView(DashboardBaseMixins,
                                       generic.UpdateView):
+    slug_url_kwarg = 'organisation_slug'
     model = org_models.Organisation
     form_class = forms.OrganisationForm
-    translated_form_class = forms.OrganisationTranslatableForm
-    translated_form_languages = [code for code, language in settings.LANGUAGES]
     template_name = 'euth_dashboard/organisation_form.html'
 
 
 class DashboardProjectListView(DashboardBaseMixins,
-                               mixins.LoginRequiredMixin,
                                generic.ListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
@@ -101,7 +96,6 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
 
 
 class DashboardProjectInviteView(DashboardBaseMixins,
-                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm

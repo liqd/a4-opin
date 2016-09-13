@@ -8,7 +8,9 @@
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
 
-        {% for field in form %}
+        {{ form.errors }}
+
+        {% for field in form.untranslated %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
             <label>{{ field.label }}</label>
             {% render_field field class="form-control" %}
@@ -22,7 +24,12 @@
         <script>
             window.Opin.renderLanguageSwitch(
                 [
-                    {% for lang_code, form in translated_forms %}
+                    {% for lang_code in form.languages %}
+                        '{{ lang_code }}',
+                    {% endfor %}
+                ],
+                [
+                    {% for lang_code in form.prefiled_languages %}
                         '{{ lang_code }}',
                     {% endfor %}
                 ],
@@ -30,9 +37,9 @@
             )
         </script>
 
-        {% for lang_code, form in translated_forms %}
+        {% for lang_code, fields in form.translated %}
         <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">
-            {% for field in form %}
+            {% for field in fields %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label>{{ field.label }}</label>
                 {% render_field field class="form-control" %}

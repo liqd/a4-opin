@@ -26,15 +26,16 @@ var LanguageSwitch = React.createClass({
             h('input', {
               type: 'checkbox',
               id: languageCode + '_language-switch',
+              name: languageCode,
               value: languageCode,
-              defaultChecked: i < 3
+              defaultChecked: this.props.defaultLanguages.indexOf(languageCode) !== -1
             }),
             h('a.language-switch.btn', {
               href: '#' + languageCode + '_language_panel',
               'data-toggle': 'tab'
             }, languageCode)
           ])
-        })),
+        }.bind(this))),
         h('div.dropdown', [
           h('button.btn.btn-default.dropdown-toggle', {
             type: 'button',
@@ -47,7 +48,7 @@ var LanguageSwitch = React.createClass({
             return h('li', [
               h('label', {
                 htmlFor: languageCode + '_language-switch',
-                onClick: this.switchLanguage.bind(this)
+                onClick: this.switchLanguage
               }, languageCode)
             ])
           }.bind(this)))
@@ -57,10 +58,11 @@ var LanguageSwitch = React.createClass({
   }
 })
 
-module.exports.renderLanguageSwitch = function (languages, target) {
+module.exports.renderLanguageSwitch = function (languages, defaultLanguages, target) {
   ReactDOM.render(
     h(LanguageSwitch, {
-      languages: languages
+      languages: languages,
+      defaultLanguages: defaultLanguages
     }),
     document.getElementById(target))
 }
