@@ -50,7 +50,7 @@ class DashboardProfileView(DashboardBaseMixins,
     model = user_models.User
     template_name = "euth_dashboard/profile_detail.html"
     form_class = forms.ProfileForm
-    success_message = _("Your profile was successfully updated")
+    success_message = _("Your profile was successfully updated.")
 
     def get_object(self):
         return get_object_or_404(user_models.User, pk=self.request.user.id)
@@ -75,10 +75,25 @@ class DashboardProjectListView(DashboardBaseMixins,
 
 
 class DashboardProjectUpdateView(DashboardBaseMixins,
+                                 SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
     form_class = forms.ProjectForm
     template_name = 'euth_dashboard/project_form.html'
+    success_message = _('Project successfully updated.')
+
+    @functional.cached_property
+    def project(self):
+        return project_models.Project.objects.get(
+            slug=self.kwargs['slug']
+        )
+
+    def get_success_url(self):
+            return reverse('dashboard-project-edit',
+                           kwargs={
+                               'organisation_slug': self.organisation.slug,
+                               'slug': self.project.slug
+                           })
 
 
 class DashboardProjectInviteView(DashboardBaseMixins,
@@ -87,7 +102,7 @@ class DashboardProjectInviteView(DashboardBaseMixins,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
-    success_message = _("Invitations sucessfully sent")
+    success_message = _("Invitations sucessfully sent.")
 
     @functional.cached_property
     def project(self):
@@ -125,7 +140,7 @@ class DashboardProjectUserView(DashboardBaseMixins,
         member_forms.RequestModerationForm,
         extra=0)
     template_name = 'euth_dashboard/project_users.html'
-    success_message = _("User request sucessfully updated")
+    success_message = _("User request sucessfully updated.")
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()

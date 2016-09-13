@@ -28,13 +28,14 @@
           {% endif %}
           <div class="pull-right">
               {% if not project.is_public %}
-              <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}">
+              <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Users' %}">
                   <i class="fa fa-users" aria-hidden="true"></i>
               </a>
               {% endif %}
-              <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
+              <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Edit project' %}">
                   <i class="fa fa-edit"></i>
               </a>
+              <a href="{% url 'project-detail' project.slug %}" title="{% trans 'View project' %}"><i class="fa fa-eye"></i></a>
           <div>
         </a>
       </li>
