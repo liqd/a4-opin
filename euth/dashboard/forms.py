@@ -85,7 +85,8 @@ class ProjectCreateForm(forms.ModelForm):
         fields = ['image', 'name', 'description', 'information', 'is_public',
                   'result', 'organisation']
         widgets = {
-            'image': widgets.ImageInputWidget()
+            'image': widgets.ImageInputWidget(),
+            'organisation': forms.HiddenInput()
         }
 
 

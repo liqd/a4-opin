@@ -76,7 +76,8 @@ class DashboardProjectListView(DashboardBaseMixins,
         return reverse('dashboard-project-list')
 
 
-class DashboardProjectUpdateView(mixins.LoginRequiredMixin,
+class DashboardProjectUpdateView(DashboardBaseMixins,
+                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
@@ -168,18 +169,21 @@ class DashboardProjectUserView(DashboardBaseMixins,
 
 
 class DashboardOverviewView(
+        DashboardBaseMixins,
         mixins.LoginRequiredMixin,
         generic.TemplateView):
     template_name = "euth_dashboard/dashboard_overview.html"
 
 
 class DashboardCreateOverviewView(
+        DashboardBaseMixins,
         mixins.LoginRequiredMixin,
         generic.TemplateView):
     template_name = "euth_dashboard/dashboard_create_overview.html"
 
 
 class DashboardCreateIdeaCollectionView(
+        DashboardBaseMixins,
         mixins.LoginRequiredMixin,
         SuccessMessageMixin,
         generic.CreateView):
@@ -188,13 +192,18 @@ class DashboardCreateIdeaCollectionView(
     form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_multi_form.html'
     success_message = _("Your project has been created")
-    initial = {
-        'phase': [
-            {'type': idea_phases.CollectPhase().identifier},
-            {'type': idea_phases.RatingPhase().identifier},
-            {'type': idea_phases.CommentPhase().identifier},
-        ]
-    }
+
+    def get_initial(self):
+        return {
+            'project': {
+                'organisation': self.organisation.id
+            },
+            'phase': [
+                {'type': idea_phases.CollectPhase().identifier},
+                {'type': idea_phases.RatingPhase().identifier},
+                {'type': idea_phases.CommentPhase().identifier},
+            ]
+        }
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -205,9 +214,9 @@ class DashboardCreateIdeaCollectionView(
         context = super().get_context_data(**kwargs)
         context['mode'] = _("New project based on DEVELOP IDEAS")
         context['phases'] = [
-            str(idea_phases.CollectPhase()),
-            str(idea_phases.RatingPhase()),
-            str(idea_phases.CommentPhase()),
+            idea_phases.CollectPhase().name,
+            idea_phases.RatingPhase().name,
+            idea_phases.CommentPhase().name,
         ]
         return context
 
@@ -216,6 +225,7 @@ class DashboardCreateIdeaCollectionView(
 
 
 class DashboardCreateCommentingTextView(
+        DashboardBaseMixins,
         mixins.LoginRequiredMixin,
         SuccessMessageMixin,
         generic.CreateView):
@@ -224,11 +234,16 @@ class DashboardCreateCommentingTextView(
     form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_multi_form.html'
     success_message = _("Your project has been created")
-    initial = {
-        'phase': [
-            {'type': document_phases.CommentPhase().identifier},
-        ]
-    }
+
+    def get_initial(self):
+        return {
+            'project': {
+                'organisation': self.organisation.id
+            },
+            'phase': [
+                {'type': document_phases.CommentPhase().identifier},
+            ]
+        }
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -239,7 +254,7 @@ class DashboardCreateCommentingTextView(
         context = super().get_context_data(**kwargs)
         context['mode'] = _("New project based on DISCUSS AN ISSUE")
         context['phases'] = [
-            str(document_phases.CommentPhase())
+            document_phases.CommentPhase().name
         ]
         return context
 
