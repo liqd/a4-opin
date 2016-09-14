@@ -9,3 +9,8 @@ def selected(request, pattern):
     if path == pattern:
         return 'selected'
     return ''
+
+
+@register.assignment_tag
+def phase_name(index, phase_list):
+    return phase_list[index]

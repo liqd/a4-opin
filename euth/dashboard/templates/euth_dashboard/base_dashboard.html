@@ -32,6 +32,7 @@
                     <a href="#" class="list-group-item list-group-item-heading">
                         <i class="fa fa-rocket" aria-hidden="true"></i> <span>Organisations</span>
                     </a>-->
+
                     {% if view.user_has_organisation %}
                     {% url 'dashboard-project-list' organisation_slug=view.organisation.slug  as dashboard_project_list %}
                     <a href="{{dashboard_project_list}}" class="list-group-item list-group-item-heading {% selected request dashboard_project_list %}">

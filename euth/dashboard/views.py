@@ -7,6 +7,8 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.compat import access_mixins as mixins
 
+from euth.documents import phases as document_phases
+from euth.ideas import phases as idea_phases
 from euth.memberships import forms as member_forms
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
@@ -75,19 +77,21 @@ class DashboardProjectListView(DashboardBaseMixins,
 
 
 class DashboardProjectUpdateView(DashboardBaseMixins,
+                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
     form_class = forms.ProjectForm
+    success_message = _("Project has been updated")
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
 
     def get_success_url(self):
-            return reverse('dashboard-project-edit',
-                           kwargs={
-                               'organisation_slug': self.organisation.slug,
-                               'slug': self.get_object().slug
-                           })
+        return reverse('dashboard-project-edit',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                           'slug': self.get_object().slug
+                       })
 
 
 class DashboardProjectInviteView(DashboardBaseMixins,
@@ -154,8 +158,6 @@ class DashboardProjectUserView(DashboardBaseMixins,
 
     def form_valid(self, formset):
         for form in formset.forms:
-            print(form.instance)
-            print(form.instance.creator)
             if form.cleaned_data['action'] == 'accept':
                 form.instance.accept()
             if form.cleaned_data['action'] == 'decline':
@@ -164,3 +166,95 @@ class DashboardProjectUserView(DashboardBaseMixins,
 
     def get_success_url(self):
         return self.request.path
+
+
+class DashboardOverviewView(
+        DashboardBaseMixins,
+        mixins.LoginRequiredMixin,
+        generic.TemplateView):
+    template_name = "euth_dashboard/dashboard_overview.html"
+
+
+class DashboardCreateOverviewView(
+        DashboardBaseMixins,
+        mixins.LoginRequiredMixin,
+        generic.TemplateView):
+    template_name = "euth_dashboard/dashboard_create_overview.html"
+
+
+class DashboardCreateIdeaCollectionView(
+        DashboardBaseMixins,
+        mixins.LoginRequiredMixin,
+        SuccessMessageMixin,
+        generic.CreateView):
+
+    model = project_models.Project
+    form_class = forms.ProjectCreateMultiForm
+    template_name = 'euth_dashboard/project_multi_form.html'
+    success_message = _("Your project has been created")
+    initial = {
+        'phase': [
+            {'type': idea_phases.CollectPhase().identifier},
+            {'type': idea_phases.RatingPhase().identifier},
+            {'type': idea_phases.CommentPhase().identifier},
+        ]
+    }
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['phase_extras'] = 3
+        kwargs['organisation'] = self.organisation
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mode'] = _("New project based on DEVELOP IDEAS")
+        context['phases'] = [
+            idea_phases.CollectPhase().name,
+            idea_phases.RatingPhase().name,
+            idea_phases.CommentPhase().name,
+        ]
+        return context
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
+
+
+class DashboardCreateCommentingTextView(
+        DashboardBaseMixins,
+        mixins.LoginRequiredMixin,
+        SuccessMessageMixin,
+        generic.CreateView):
+
+    model = project_models.Project
+    form_class = forms.ProjectCreateMultiForm
+    template_name = 'euth_dashboard/project_multi_form.html'
+    success_message = _("Your project has been created")
+    initial = {
+        'phase': [
+            {'type': document_phases.CommentPhase().identifier},
+        ]
+    }
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['phase_extras'] = 1
+        kwargs['organisation'] = self.organisation
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['mode'] = _("New project based on DISCUSS AN ISSUE")
+        context['phases'] = [
+            document_phases.CommentPhase().name
+        ]
+        return context
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
