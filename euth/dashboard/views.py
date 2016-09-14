@@ -138,6 +138,11 @@ class DashboardCreateIdeaCollectionView(
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['mode'] = _("New project based on DEVELOP IDEAS")
+        context['phases'] = [
+            str(idea_phases.CollectPhase()),
+            str(idea_phases.RatingPhase()),
+            str(idea_phases.CommentPhase()),
+        ]
         return context
 
     def get_success_url(self):
@@ -167,6 +172,9 @@ class DashboardCreateCommentingTextView(
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['mode'] = _("New project based on DISCUSS AN ISSUE")
+        context['phases'] = [
+            str(document_phases.CommentPhase())
+        ]
         return context
 
     def get_success_url(self):

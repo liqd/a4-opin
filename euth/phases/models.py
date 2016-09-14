@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from euth.modules import models as modules_models
 
@@ -15,8 +16,14 @@ class PhasesQuerySet(models.QuerySet):
 
 
 class Phase(models.Model):
-    name = models.CharField(max_length=512)
-    description = models.TextField()
+    name = models.CharField(
+        max_length=512,
+        help_text=_('This name will appear on top of the project detail page')
+    )
+    description = models.TextField(
+        help_text=_(
+            'This is a short description of what happens in this phase')
+    )
     type = models.CharField(max_length=128, validators=[validate_content])
     module = models.ForeignKey(modules_models.Module, on_delete=models.CASCADE)
     start_date = models.DateTimeField(blank=True, null=True)
