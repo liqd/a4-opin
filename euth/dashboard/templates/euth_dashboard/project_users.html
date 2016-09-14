@@ -20,32 +20,32 @@
         <div class="table-list-body">
             {{ form.requests.management_form }}
             {% for form in form.requests.forms %}
-            {{ form.id }}
-            <div class="table-list-row tile-list row">
-                <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
-                <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
-                <div class="col-sm-3">
-                    {% for radio in form.action %}
-                    <div class="radio-action">
-                        {{ radio.tag }}
-                        <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
-                            <span class="radio-text sr-only">{{ radio.choice_label }}</span>
-                        </label>
+                {{ form.id }}
+                <div class="table-list-row tile-list row">
+                    <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
+                    <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
+                    <div class="col-sm-3">
+                        {% for radio in form.action %}
+                        <div class="radio-action">
+                            {{ radio.tag }}
+                            <label for="{{ radio.id_for_label }}" class="{{ radio.choice_label|lower }} radio-label">
+                                <span class="radio-text sr-only">{{ radio.choice_label }}</span>
+                            </label>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
             {% endfor %}
             {{ form.invites.management_form }}
             {% for form in form.invites.forms %}
-            {{ form.id }}
-            <div class="table-list-row tile-list row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-5"><strong>{{ form.instance.email }}</strong></div>
-                <div class="col-sm-3">
-                    {{ form.delete }}
+                {{ form.id }}
+                <div class="table-list-row tile-list row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-5"><strong>{{ form.instance.email }}</strong></div>
+                    <div class="col-sm-3">
+                        {{ form.delete }}
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
         </div>
