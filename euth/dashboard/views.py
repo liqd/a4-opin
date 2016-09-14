@@ -82,17 +82,11 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
 
-    @functional.cached_property
-    def project(self):
-        return project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
-
     def get_success_url(self):
             return reverse('dashboard-project-edit',
                            kwargs={
                                'organisation_slug': self.organisation.slug,
-                               'slug': self.project.slug
+                               'slug': self.get_object().slug
                            })
 
 
@@ -102,7 +96,7 @@ class DashboardProjectInviteView(DashboardBaseMixins,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
-    success_message = _("Invitations sucessfully sent.")
+    success_message = _("Invitations successfully sent.")
 
     @functional.cached_property
     def project(self):
@@ -140,7 +134,7 @@ class DashboardProjectUserView(DashboardBaseMixins,
         member_forms.RequestModerationForm,
         extra=0)
     template_name = 'euth_dashboard/project_users.html'
-    success_message = _("User request sucessfully updated.")
+    success_message = _("User request successfully updated.")
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
