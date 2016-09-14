@@ -8,13 +8,15 @@ register = template.Library()
 
 
 @register.inclusion_tag('ratings/react_ratings.html', takes_context=True)
-def react_ratings(context, obj, enabled=True):
-
-    login_url = reverse('account_login') + '?next=' + context['request'].path
+def react_ratings(context, obj):
+    request = context['request']
+    user = request.user
 
     contenttype = ContentType.objects.get_for_model(obj)
+    permission = '{ct.app_label}.rate_{ct.model}'.format(ct=contenttype)
+    has_rate_permission = user.has_perm(permission, obj)
 
-    user = context['request'].user
+    login_url = reverse('account_login') + '?next=' + request.path
 
     if user.is_authenticated():
         authenticated_as = user.username
@@ -39,7 +41,7 @@ def react_ratings(context, obj, enabled=True):
         'negative_ratings': obj.negative_ratings,
         'user_rating': user_rating_value,
         'user_rating_id': user_rating_id,
-        'is_read_only': not enabled,
+        'is_read_only': not has_rate_permission,
     }
 
     return context
