@@ -6,6 +6,7 @@ from tests.helpers import redirect_target, template_used
 from euth.memberships import models
 
 
+@pytest.mark.parametrize('project__is_public', [False])
 @pytest.mark.django_db
 def test_create_request(client, project, user):
     url = reverse('memberships-request', kwargs={'project_slug': project.slug})
@@ -23,6 +24,10 @@ def test_create_request(client, project, user):
     assert redirect_target(response) == 'memberships-request'
     assert bool(models.Request.objects.filter(creator=user, project=project))
     assert mail.outbox[0].to == [project.moderators.first().email]
+
+    project.participants.add(user)
+    response = client.get(url)
+    assert redirect_target(response) == 'project-detail'
 
 
 @pytest.mark.django_db
