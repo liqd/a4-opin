@@ -4,7 +4,6 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from euth.modules import mixins as modules_mixins
 from euth.modules.models import Module
 from euth.projects import mixins
 
@@ -18,14 +17,15 @@ class IdeaListView(mixins.ProjectMixin, generic.ListView):
         return models.Idea.objects.filter(module=self.module).order_by('name')
 
 
-class IdeaDetailView(generic.DetailView, modules_mixins.ItemMixin):
+class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
     model = models.Idea
+    permission_required = 'euth_ideas.view_idea'
 
 
 class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = models.Idea
     form_class = forms.IdeaForm
-    permission_required = 'ideas.modify_idea'
+    permission_required = 'euth_ideas.modify_idea'
 
     @property
     def raise_exception(self):

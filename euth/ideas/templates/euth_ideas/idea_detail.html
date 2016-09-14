@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail%}
+{% load i18n react_comments react_ratings thumbnail rules %}
 
 {% block title %}{{idea.name}}{% endblock %}
 {% block content %}
@@ -11,7 +11,8 @@
                     <a href="{% url 'project-detail' idea.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
                 </li>
             </ul>
-            {% if request.user == idea.creator and view.crud_enabled or request.user.is_superuser %}
+            {% has_perm 'euth_ideas.modify_ideas' request.user ideas as show_dropdown %}
+            {% if show_dropdown %}
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
