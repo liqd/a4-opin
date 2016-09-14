@@ -1,6 +1,7 @@
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 from euth.contrib import base_models
 from euth.projects import models as project_models
@@ -16,6 +17,9 @@ class Module(models.Model):
 
     def __str__(self):
         return "{} ({})".format(self.project, self.weight)
+
+    def phases_passed(self):
+        return self.phase_set.filter(end_date__lte=timezone.now())
 
 
 class Item(base_models.TimeStampedModel):

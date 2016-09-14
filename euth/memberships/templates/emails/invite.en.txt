@@ -1,0 +1,10 @@
+Dear {{ receiver }},
+
+
+{{ invite.project.organisation }} has invited you to join {{ invite.project.name }}. Click the link below to accept.
+
+{{ email.get_host }}{{ invite.get_absolute_url }}
+
+Best wishes
+
+{{ site.name }} team

@@ -12,17 +12,15 @@
             {% endif %}
             {% if user.is_authenticated %}
             <li>
-                <a href="{% url 'dashboard-overview' %}">Dashboard</a>
+                <a href="{% url 'dashboard' %}">Dashboard</a>
             </li>
             {% endif %}
             <li>
-                <a href="">
-                    <form class="logout-button-form" action="{% url 'logout' %}" method="post" >
-  					{% csrf_token %}
-                        <input type="hidden" name="next" value="{{next_action}}">
-                        <button class="btn" type="submit" value="Register">{% trans "logout" %}</button>
-				    </form>
-                </a>
+                <form class="logout-button-form" action="{% url 'logout' %}" method="post" >
+                {% csrf_token %}
+                    <input type="hidden" name="next" value="{{next_action}}">
+                    <button class="btn" type="submit" value="Register">{% trans "logout" %}</button>
+                </form>
             </li>
         </ul>
     </li>

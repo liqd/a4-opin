@@ -14,7 +14,7 @@
     <ul>
       {% for project in project_list %}
       <li class="tile-list project-tile-list">
-          <a href="{% url 'dashboard-project-edit' project.slug %}">
+          <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
               <strong>
                   {{ project.name }}
               </strong>
@@ -22,17 +22,20 @@
           {% if not project.is_public %}
           <span class="label label-danger">private</span>
           {% endif %}
-          <span class="label label-primary">collecting ideas</span>
-          <span class="text-muted">Phase 2: commenting ideas</span>
+          <span class="label label-primary">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
+          {% if project.active_phase %}
+          <span class="text-muted">Phase {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
+          {% endif %}
           <div class="pull-right">
               {% if not project.is_public %}
-              <a href="{% url 'dashboard-project-users' project.slug %}">
+              <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Users' %}">
                   <i class="fa fa-users" aria-hidden="true"></i>
               </a>
               {% endif %}
-              <a href="{% url 'dashboard-project-edit' project.slug %}">
+              <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Edit project' %}">
                   <i class="fa fa-edit"></i>
               </a>
+              <a href="{% url 'project-detail' project.slug %}" title="{% trans 'View project' %}"><i class="fa fa-eye"></i></a>
           <div>
         </a>
       </li>

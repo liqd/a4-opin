@@ -11,7 +11,7 @@
         }
     }
 
-    a {
+    a, button {
         @include rem(padding-left, 40px);
         color: #000;
         font-weight: bold;
@@ -24,7 +24,8 @@
         }
     }
 
-    .dropdown-menu a {
+    .dropdown-menu a,
+    .dropdown-menu button {
         @include rem(padding-left, 20px);
 
         @media (max-width: $screen-sm-min) {

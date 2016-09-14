@@ -16,6 +16,7 @@ class OrganisationAutoFixture(AutoFixture):
         'slug': generators.CallableGenerator(fake.slug),
         'image': generators.ImageGenerator(sizes=IMAGESIZES),
         'logo': generators.ImageGenerator(sizes=LOGOSIZES),
+        'place': generators.CallableGenerator(fake.city),
         'facebook_handle': 'LIQDeV',
         'twitter_handle': 'bunnybuddhism',
         'instragram_handle': 'insta.plane',

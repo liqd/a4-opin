@@ -2,8 +2,10 @@
 {% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
-<h1>{% trans 'Manage user of ' %}{{ project.name }}</h1>
-
+<h1 class="black-divider dashboard-title">{% trans 'Manage user of ' %}{{ project.name }}</h1>
+<p>
+    <a href="{% url 'dashboard-project-invite' organisation_slug=view.organisation.slug slug=project.slug %}" class="btn btn-primary">{% trans 'Invite users' %}</a>
+</p>
 {% if form.forms %}
 <form method="POST">
     {% csrf_token %}
@@ -40,6 +42,6 @@
     <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">
 </form>
 {% else %}
-No requests available.
+<p>No requests available.</p>
 {% endif %}
 {% endblock %}

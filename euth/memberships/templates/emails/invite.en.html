@@ -1,0 +1,23 @@
+{% extends 'email_base.html' %}
+{% block subject %}
+Your have been invited to {{ invite.project.name }}
+{% endblock %}
+{% block content %}
+<h2>Invite to join a project on {{ site.name }}</h2>
+<p>Dear {{ receiver }},</p>
+
+<p>
+    <a href="{{ invite.project.organisation.get_absolute_url }}">{{ invite.project.organisation }}</a>
+    has invited you to join {{ invite.project.name }}.
+</p>
+
+<p style="margin-top: 20px;">
+    <a href="{{ email.get_host }}{{ invite.get_absolute_url }}" class="button">Accept</a>
+</p>
+
+<p>
+Best wishes<br>
+<br>
+{{ site.name }} team
+</p>
+{% endblock %}

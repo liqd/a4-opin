@@ -10,7 +10,6 @@
         color: $brand-brand1;
         @include rem(font-size, 28px);
         @include rem(line-height, 1);
-        text-align: justify;
         @include rem(margin, 0px 0px 6px 0px);
         max-width: 70%;
 
@@ -121,7 +120,6 @@
         font-weight: bold;
         text-transform: uppercase;
         @include rem(font-size, 24px);
-        text-align: justify;
         color: $black;
     }
 

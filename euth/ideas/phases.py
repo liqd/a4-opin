@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from euth import phases
 
 from . import apps, models, views
@@ -9,8 +11,11 @@ class CollectPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'collect'
-    view = views.IdeaListView
     weight = 20
+    view = views.IdeaListView
+
+    name = _('Collect phase')
+    module_name = _('ideas collection')
 
     features = {
         'crud': (models.Idea,),
@@ -26,8 +31,11 @@ class RatingPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'rating'
-    view = views.IdeaListView
     weight = 30
+    view = views.IdeaListView
+
+    name = _('Rating phase')
+    module_name = _('ideas collection')
 
     features = {
         'rating': (models.Idea,)
@@ -43,8 +51,11 @@ class CommentPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'comment'
-    view = views.IdeaListView
     weight = 40
+    view = views.IdeaListView
+
+    name = _('Comment phase')
+    module_name = _('ideas collection')
 
     features = {
         'comment': (models.Idea,),
@@ -60,8 +71,11 @@ class UniversalPhase(phases.PhaseContent):
     """
     app = apps.IdeaConfig.label
     phase = 'universal'
-    view = views.IdeaListView
     weight = 50
+    view = views.IdeaListView
+
+    name = _('Universal phase')
+    module_name = _('ideas collection')
 
     features = {
         'crud': (models.Idea,),
