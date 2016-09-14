@@ -192,22 +192,18 @@ class DashboardCreateIdeaCollectionView(
     form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_multi_form.html'
     success_message = _("Your project has been created")
-
-    def get_initial(self):
-        return {
-            'project': {
-                'organisation': self.organisation.id
-            },
-            'phase': [
-                {'type': idea_phases.CollectPhase().identifier},
-                {'type': idea_phases.RatingPhase().identifier},
-                {'type': idea_phases.CommentPhase().identifier},
-            ]
-        }
+    initial = {
+        'phase': [
+            {'type': idea_phases.CollectPhase().identifier},
+            {'type': idea_phases.RatingPhase().identifier},
+            {'type': idea_phases.CommentPhase().identifier},
+        ]
+    }
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['phase_extras'] = 3
+        kwargs['organisation'] = self.organisation
         return kwargs
 
     def get_context_data(self, **kwargs):
@@ -221,7 +217,10 @@ class DashboardCreateIdeaCollectionView(
         return context
 
     def get_success_url(self):
-        return reverse('dashboard-project-list')
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
 
 
 class DashboardCreateCommentingTextView(
@@ -234,20 +233,16 @@ class DashboardCreateCommentingTextView(
     form_class = forms.ProjectCreateMultiForm
     template_name = 'euth_dashboard/project_multi_form.html'
     success_message = _("Your project has been created")
-
-    def get_initial(self):
-        return {
-            'project': {
-                'organisation': self.organisation.id
-            },
-            'phase': [
-                {'type': document_phases.CommentPhase().identifier},
-            ]
-        }
+    initial = {
+        'phase': [
+            {'type': document_phases.CommentPhase().identifier},
+        ]
+    }
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['phase_extras'] = 1
+        kwargs['organisation'] = self.organisation
         return kwargs
 
     def get_context_data(self, **kwargs):
@@ -259,4 +254,7 @@ class DashboardCreateCommentingTextView(
         return context
 
     def get_success_url(self):
-        return reverse('dashboard-project-list')
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })

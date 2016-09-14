@@ -83,10 +83,9 @@ class ProjectCreateForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['image', 'name', 'description', 'information', 'is_public',
-                  'result', 'organisation']
+                  'result']
         widgets = {
-            'image': widgets.ImageInputWidget(),
-            'organisation': forms.HiddenInput()
+            'image': widgets.ImageInputWidget()
         }
 
 
@@ -95,6 +94,8 @@ class ProjectCreateMultiForm(MultiModelForm):
     def __init__(self, *args, **kwargs):
         self.extras = kwargs['phase_extras']
         del kwargs['phase_extras']
+        self.organisation = kwargs['organisation']
+        del kwargs['organisation']
         super().__init__(*args, **kwargs)
 
     @property
@@ -132,6 +133,7 @@ class ProjectCreateMultiForm(MultiModelForm):
 
         if commit:
             project = objects['project']
+            project.organisation = self.organisation
             project.is_draft = False
             project.save()
             module = module_models.Module()
