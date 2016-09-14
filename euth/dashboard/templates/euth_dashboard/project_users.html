@@ -9,8 +9,6 @@
 {% if form.forms %}
 <form method="POST">
     {% csrf_token %}
-    {{ formset.management_form }}
-
     <div class="table-list">
         <div class="table-list-head">
             <div class="row">
@@ -20,7 +18,8 @@
             </div>
         </div>
         <div class="table-list-body">
-            {% for form in formset.forms %}
+            {{ form.requests.management_form }}
+            {% for form in form.requests.forms %}
             {{ form.id }}
             <div class="table-list-row tile-list row">
                 <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
@@ -37,6 +36,18 @@
                 </div>
             </div>
             {% endfor %}
+            {{ form.invites.management_form }}
+            {% for form in form.invites.forms %}
+            {{ form.id }}
+            <div class="table-list-row tile-list row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5"><strong>{{ form.instance.email }}</strong></div>
+                <div class="col-sm-3">
+                    {{ form.delete }}
+                </div>
+            </div>
+            {% endfor %}
+
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="{% trans 'Submit' %}">

@@ -38,3 +38,11 @@ class RequestModerationForm(forms.ModelForm):
     class Meta:
         model = models.Request
         fields = ['action']
+
+
+class InviteModerationForm(forms.ModelForm):
+    delete = forms.BooleanField(initial=False)
+
+    class Meta:
+        model = models.Request
+        fields = ['delete']
