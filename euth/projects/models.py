@@ -1,4 +1,4 @@
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
 from django.db import models
 from django.utils import functional, timezone
@@ -23,8 +23,8 @@ class Project(base_models.TimeStampedModel):
     organisation = models.ForeignKey(
         org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(max_length=1024)
-    information = RichTextField()
-    result = RichTextField(blank=True)
+    information = RichTextUploadingField(config_name='image-editor')
+    result = RichTextUploadingField(blank=True, config_name='image-editor')
     is_public = models.BooleanField(default=True)
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
@@ -48,9 +48,9 @@ class Project(base_models.TimeStampedModel):
 
     def save(self, *args, **kwargs):
         self.information = html_transforms.clean_html_field(
-            self.information)
+            self.information, 'image-editor')
         self.result = html_transforms.clean_html_field(
-            self.result)
+            self.result, 'image-editor')
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
