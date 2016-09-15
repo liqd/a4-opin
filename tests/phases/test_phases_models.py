@@ -1,5 +1,6 @@
 import pytest
 from dateutil.parser import parse
+from django.core.exceptions import ValidationError
 from freezegun import freeze_time
 from tests.apps.blog import models as blog_models
 from tests.apps.blog import views as blog_views
@@ -39,6 +40,21 @@ def test_manager_active_phases(phase_factory):
         module_active_phases = module.phase_set.active_phases()
         assert len(module_active_phases) == 1
         assert active_phase1 in module_active_phases
+
+
+@pytest.mark.django_db
+def test_phase_validation(phase_factory):
+    invalid_phase = phase_factory(
+        start_date=parse('2013-01-01 18:00:01 UTC'),
+        end_date=parse('2013-01-01 16:00:00 UTC')
+    )
+
+    with freeze_time('2013-01-01 18:00:00 UTC'):
+        all_active_phases = models.Phase.objects.active_phases()
+        assert invalid_phase not in all_active_phases
+
+        with pytest.raises(ValidationError):
+            models.Phase.clean(invalid_phase)
 
 
 @pytest.mark.django_db

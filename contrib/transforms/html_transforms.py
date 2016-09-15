@@ -8,11 +8,12 @@ def clean_html_all(text):
                         tags=[], attributes={}, styles=[], strip=True)
 
 
-def clean_html_field(text):
-    allowed_tags = settings.BLEACH_LIST['default']['tags']
-    allowed_attrs = settings.BLEACH_LIST['default']['attributes']
+def clean_html_field(text, setting='default'):
+    allowed_tags = settings.BLEACH_LIST[setting]['tags']
+    allowed_attrs = settings.BLEACH_LIST[setting]['attributes']
+    allowed_styles = settings.BLEACH_LIST[setting].get('styles', [])
     return bleach.clean(text,
                         tags=allowed_tags,
                         attributes=allowed_attrs,
-                        styles=[],
+                        styles=allowed_styles,
                         strip=True)
