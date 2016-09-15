@@ -10,8 +10,8 @@
 <div class="skinny-form">
     <header class="skinny-form-header">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation"><a href="{% url 'account_login' %}?next={{next_action}}">{% trans "login" %}</a></li>
-            <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{next_action}}">{% trans "register" %}</a></li>
+            <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value}}">{% trans "login" %}</a></li>
+            <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value}}">{% trans "register" %}</a></li>
         </ul>
     </header>
     <form class="skinny-form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
