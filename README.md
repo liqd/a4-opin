@@ -20,3 +20,26 @@ make install
 make fixtures
 make watch
 ```
+
+## django-allauth setup
+
+Visit the Django Admin and follow these steps:
+
+1. Add a `Site` for your domain, matching `settings.SITE_ID`.
+2. For each OAuth based provider, add a *Social application* (part of the *Social accounts* app).
+3. Fill in the site and the OAuth app credentials obtained from the provider.
+
+See [django-allauth providers documentation](https://django-allauth.readthedocs.io/en/latest/providers.html)
+for more information on how to configure every provider.
+
+There are no OAuth based providers activated for development. You have to add
+them manually to `INSTALLED_APPS` to use them locally.
+
+GitHub example:
+
+```python
+INSTALLED_APPS = [
+    # Other apps
+    'allauth.socialaccount.providers.github',
+]
+```

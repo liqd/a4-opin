@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load account %}
+{% load i18n %}
+
+{% block title %}{% trans 'Activate your account' %}{% endblock %}
+
+{% block content %}
+<div class="container">
+{% if confirmation %}
+    {% user_display confirmation.email_address.user as user_display %}
+    <div class="skinny-form">
+        <header class="skinny-form-header"></header>
+        <form class="skinny-form-inner" id="ActivateForm" action="{% url 'account_confirm_email' confirmation.key %}" method="post">
+            {% csrf_token %}
+            <h2>{% trans 'Welcome to Opin!' %}</h2>
+            <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+            {% if form.non_field_errors %}
+                <div class="form-errors">
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            <button type="submit" value="Activate" class="btn btn-primary btn-cta">{% trans "Activate account" %}</button>
+        </form>
+    </div>
+{% else %}
+    <h2>{% trans 'Welcome to Opin!' %}</h2>
+    {% url 'account_email' as email_url %}
+    <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+{% endif %}
+</div>
+{% endblock %}

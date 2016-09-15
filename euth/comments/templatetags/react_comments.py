@@ -10,7 +10,7 @@ register = template.Library()
 @register.inclusion_tag('comments/react_comments.html', takes_context=True)
 def react_comments(context, obj, enabled=True):
 
-    login_url = reverse('login') + '?next=' + context['request'].path
+    login_url = reverse('account_login') + '?next=' + context['request'].path
 
     comments_contenttype = ContentType.objects.get_for_model(Comment)
 

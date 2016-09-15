@@ -1,17 +1,17 @@
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import resolve
 
-_usermanagement_views = ['login', 'logout', 'register', 'reset_request']
+
+def _get_invalid_url_names():
+    from allauth.account import urls
+    return tuple([url.name for url in urls.urlpatterns])
 
 
 def sanatize_next(request):
     """
     Get appropriate next value for the given request
     """
-    next_action = request.get_full_path()
-
-    invalid_next_views = [reverse(u) for u in _usermanagement_views]
-    if request.path in invalid_next_views:
-        next_action = request.GET.get('next')\
-            or request.POST.get('next')\
-            or '/'
-    return next_action
+    if resolve(request.path).url_name in _get_invalid_url_names():
+        next = request.GET.get('next') or request.POST.get('next') or '/'
+    else:
+        next = request.get_full_path()
+    return next

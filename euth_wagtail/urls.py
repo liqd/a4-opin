@@ -5,9 +5,6 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.i18n import javascript_catalog
 from rest_framework import routers
-from wagtail.wagtailadmin import urls as wagtailadmin_urls
-from wagtail.wagtailcore import urls as wagtail_urls
-from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
@@ -18,8 +15,10 @@ from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
-from euth.users import urls as user_urls
 from search import urls as search_urls
+from wagtail.wagtailadmin import urls as wagtailadmin_urls
+from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 js_info_dict = {
     'packages': ('euth.comments',),
@@ -39,7 +38,6 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    url(r'', include(user_urls)),
     url(r'^dashboard/', include(dashboard_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
@@ -54,11 +52,13 @@ urlpatterns += i18n_patterns(
     url(r'', include(wagtail_urls)),
 )
 
+urlpatterns += [
+    url(r'^accounts/', include('allauth.urls')),
+]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    from django.views.generic import TemplateView
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()

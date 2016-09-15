@@ -1,3 +1,5 @@
+from allauth.account import views as account_views
+from allauth.socialaccount import views as socialaccount_views
 from django.conf.urls import url
 
 from . import views
@@ -9,6 +11,16 @@ urlpatterns = [
     url(r'^profile$',
         views.DashboardProfileView.as_view(),
         name='dashboard-profile'),
+    url(
+        r'^email/$',
+        account_views.email,
+        name='dashboard-email'
+    ),
+    url(
+        r'^connections/$',
+        socialaccount_views.connections,
+        name='dashboard-connections'
+    ),
     url(r'^(?P<organisation_slug>[-\w_]+)/profile$',
         views.DashboardProfileView.as_view(),
         name='dashboard-profile-org'),

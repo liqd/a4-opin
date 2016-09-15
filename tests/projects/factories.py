@@ -2,8 +2,8 @@ import factory
 
 from euth.projects import models
 
+from .. import factories as user_factories
 from ..organisations import factories as org_factories
-from ..users import factories as user_factories
 
 
 class ProjectFactory(factory.django.DjangoModelFactory):
