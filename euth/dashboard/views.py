@@ -141,13 +141,22 @@ class DashboardProjectUserView(DashboardBaseMixins,
             project__slug=self.kwargs['slug']
         )
         kwargs['invites__queryset'] = qs
+        qs = user_models.User.objects.order_by('email').filter(
+            project_participant__slug=self.kwargs['slug']
+        )
+        kwargs['users__queryset'] = qs
+        kwargs['project'] = self.project
         return kwargs
+
+    @functional.cached_property
+    def project(self):
+        return project_models.Project.objects.get(
+            slug=self.kwargs['slug']
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['project'] = project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
+        context['project'] = self.project
         return context
 
     def get_success_url(self):

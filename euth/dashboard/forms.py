@@ -6,7 +6,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from euth.contrib import widgets
-from euth.memberships import forms as member_forms
 from euth.memberships import models as member_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
@@ -66,17 +65,59 @@ class ProjectForm(forms.ModelForm):
         }
 
 
+class RequestModerationForm(forms.ModelForm):
+    ACTIONS = (
+        ('accept', 'Accept'),
+        ('decline', 'Decline'),
+    )
+
+    action = forms.ChoiceField(
+        choices=ACTIONS,
+        required=False,
+        widget=forms.RadioSelect()
+    )
+
+    class Meta:
+        model = member_models.Request
+        fields = ['action']
+
+
+class InviteModerationForm(forms.ModelForm):
+    delete = forms.BooleanField(initial=False)
+
+    class Meta:
+        model = member_models.Request
+        fields = ['delete']
+
+
+class ParticipantsModerationForm(forms.ModelForm):
+    delete = forms.BooleanField(initial=False)
+
+    class Meta:
+        model = user_models.User
+        fields = ['delete']
+
+
 class ProjectUserForm(multiform.MultiModelForm):
     base_forms = [
         ('requests', forms.modelformset_factory(
             member_models.Request,
-            member_forms.RequestModerationForm,
+            RequestModerationForm,
             extra=0)),
         ('invites', forms.modelformset_factory(
             member_models.Invite,
-            member_forms.InviteModerationForm,
+            InviteModerationForm,
+            extra=0)),
+        ('users', forms.modelformset_factory(
+            user_models.User,
+            ParticipantsModerationForm,
             extra=0)),
     ]
+
+    def __init__(self, *args, **kwargs):
+        self.project = kwargs['project']
+        del kwargs['project']
+        super().__init__(*args, **kwargs)
 
     def _init_wrapped_forms(self, sig_kwargs, extra_kwargs):
         """
@@ -125,3 +166,7 @@ class ProjectUserForm(multiform.MultiModelForm):
                 data = form.cleaned_data
                 if 'delete' in data and data['delete']:
                     form.instance.delete()
+            for form in self['users'].forms:
+                data = form.cleaned_data
+                if 'delete' in data and data['delete']:
+                    self.project.participants.remove(form.instance)
