@@ -2,6 +2,9 @@ import pytest
 from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
+
+from parler.utils.context import switch_language
+
 from tests.helpers import redirect_target
 
 User = auth.get_user_model()
@@ -178,3 +181,39 @@ def test_dashboard_project_invalid(client, project):
     })
     errors = response.context_data['form']['emails'].errors
     assert errors == ['test@foo, @aded invalid email address']
+
+
+@pytest.mark.django_db
+def test_dashboard_update_organisation(client, organisation):
+    url = reverse('dashboard-organisation-edit', kwargs={
+        'organisation_slug': organisation.slug,
+    })
+    initiator = organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
+
+    response = client.get(url)
+    form = response.context_data['form']
+    assert form.prefiled_languages() == ['en']
+    assert len(form.untranslated()) == 8
+    assert len(form.translated()) == 7
+    assert form.translated()[0][0] == 'en'
+    assert len(form.translated()[0][1]) == 4
+
+    response = client.post(url, {
+        'twitter_handle': 'a thandle',
+        'place': 'Berlin',
+        'country': 'DE',
+        'de': 'de',
+        'de__title': 'title.de',
+        'de__description': 'desc.de',
+        'de__description_why': 'desc why.de',
+        'de__description_how': 'desc how.de',
+    })
+    response.status_code == 200
+
+    organisation.refresh_from_db()
+    assert organisation.place == 'Berlin'
+    assert organisation.twitter_handle == 'a thandle'
+
+    with switch_language(organisation, 'de'):
+        assert organisation.description == 'desc.de'

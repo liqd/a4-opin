@@ -58,14 +58,20 @@ class DashboardProfileView(DashboardBaseMixins,
 
 
 class DashboardOrganisationUpdateView(DashboardBaseMixins,
+                                      SuccessMessageMixin,
                                       generic.UpdateView):
-    slug_url_kwarg = 'organisation_slug'
     model = org_models.Organisation
     form_class = forms.OrganisationForm
+    slug_url_kwarg = 'organisation_slug'
     template_name = 'euth_dashboard/organisation_form.html'
+    success_message = _('Organisation successfully updated.')
+
+    def get_success_url(self):
+        return self.request.path
 
 
 class DashboardProjectListView(DashboardBaseMixins,
+                               mixins.LoginRequiredMixin,
                                generic.ListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
@@ -96,6 +102,7 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
 
 
 class DashboardProjectInviteView(DashboardBaseMixins,
+                                 mixins.LoginRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm

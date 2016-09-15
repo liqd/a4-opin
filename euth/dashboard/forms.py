@@ -257,7 +257,7 @@ class OrganisationForm(forms.ModelForm):
 
     def clean(self):
         for lang_code in self.languages:
-            if lang_code + '__enabled' in self.data:
+            if lang_code in self.data:
                 for fieldname in self.translated_fields:
                     identifier = self._get_identifier(lang_code, fieldname)
                     data = self.cleaned_data
