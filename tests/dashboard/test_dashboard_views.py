@@ -25,7 +25,6 @@ def test_authenticated_user_can_view_profile(client, user, login_url):
 @pytest.mark.django_db
 def test_authenticated_user_can_upload_avatar(client, user, login_url):
     url = reverse('dashboard-profile')
-    login_url = reverse('login')
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
     assert redirect_target(response) == 'account_login'
