@@ -50,3 +50,7 @@ class Paragraph(base_models.TimeStampedModel):
         comments = comment_models.Comment.objects.all().filter(
             content_type=contenttype, object_pk=pk)
         return comments
+
+    @cached_property
+    def project(self):
+        return self.document.project
