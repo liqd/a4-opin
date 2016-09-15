@@ -1,6 +1,7 @@
 import email.utils
 import re
 
+import multiform
 from django import forms
 from django.core.exceptions import ValidationError
 
@@ -62,3 +63,110 @@ class ProjectForm(forms.ModelForm):
         widgets = {
             'image': widgets.ImageInputWidget()
         }
+
+
+class RequestModerationForm(forms.ModelForm):
+    ACTIONS = (
+        ('accept', 'Accept'),
+        ('decline', 'Decline'),
+    )
+
+    action = forms.ChoiceField(
+        choices=ACTIONS,
+        required=False,
+        widget=forms.RadioSelect()
+    )
+
+    class Meta:
+        model = member_models.Request
+        fields = ['action']
+
+
+class InviteModerationForm(forms.ModelForm):
+    delete = forms.BooleanField(initial=False)
+
+    class Meta:
+        model = member_models.Request
+        fields = ['delete']
+
+
+class ParticipantsModerationForm(forms.ModelForm):
+    delete = forms.BooleanField(initial=False)
+
+    class Meta:
+        model = user_models.User
+        fields = ['delete']
+
+
+class ProjectUserForm(multiform.MultiModelForm):
+    base_forms = [
+        ('requests', forms.modelformset_factory(
+            member_models.Request,
+            RequestModerationForm,
+            extra=0)),
+        ('invites', forms.modelformset_factory(
+            member_models.Invite,
+            InviteModerationForm,
+            extra=0)),
+        ('users', forms.modelformset_factory(
+            user_models.User,
+            ParticipantsModerationForm,
+            extra=0)),
+    ]
+
+    def __init__(self, *args, **kwargs):
+        self.project = kwargs['project']
+        del kwargs['project']
+        super().__init__(*args, **kwargs)
+
+    def _init_wrapped_forms(self, sig_kwargs, extra_kwargs):
+        """
+        Filter our arguments that don't make sense for formsets as base_forms.
+        Should be moved to multiforms itself.
+        """
+        new_sig_kwargs = dict(sig_kwargs)
+        del new_sig_kwargs['instance']
+        del new_sig_kwargs['empty_permitted']
+        del new_sig_kwargs['label_suffix']
+        return super()._init_wrapped_forms(new_sig_kwargs, extra_kwargs)
+
+    def _combine(self, *args, **kwargs):
+        """
+        Filter out list of falsy values which occour when using formsets.
+        Should be moved to multiforms itself.
+        """
+        values = super()._combine(*args, **kwargs)
+        if 'filter' in kwargs and kwargs['filter']:
+            values = [
+                value for value in values
+                if not hasattr(value, '__iter__') or not any(value)
+            ]
+        return values
+
+    def full_clean(self):
+        """
+        Modified full clean that does collect cleaned data from formsets.
+        Should be moved to multiforms itself.
+        """
+        self._errors = self._combine('errors', filter=True)
+
+        if not self._errors:
+            self.cleaned_data = {}
+            for name, formset in self.forms.items():
+                self.cleaned_data[name] = [f.cleaned_data for f in formset]
+
+    def save(self, commit=True):
+        if commit:
+            for form in self['requests'].forms:
+                if form.cleaned_data['action'] == 'accept':
+                    form.instance.accept()
+                if form.cleaned_data['action'] == 'decline':
+                    form.instance.decline()
+            for form in self['invites'].forms:
+                data = form.cleaned_data
+                if 'delete' in data and data['delete']:
+                    form.instance.delete()
+            for form in self['users'].forms:
+                data = form.cleaned_data
+                if 'delete' in data and data['delete']:
+                    self.project.participants.remove(form.instance)

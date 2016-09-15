@@ -21,20 +21,3 @@ class InviteForm(forms.ModelForm):
     def is_accepted(self):
         data = self.data
         return 'accept' in data and 'reject' not in data
-
-
-class RequestModerationForm(forms.ModelForm):
-    ACTIONS = (
-        ('accept', 'Accept'),
-        ('decline', 'Decline'),
-    )
-
-    action = forms.ChoiceField(
-        choices=ACTIONS,
-        required=False,
-        widget=forms.RadioSelect()
-    )
-
-    class Meta:
-        model = models.Request
-        fields = ['action']

@@ -1,7 +1,10 @@
 import pytest
+from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
 from tests.helpers import redirect_target
+
+User = auth.get_user_model()
 
 
 @pytest.mark.django_db
@@ -55,7 +58,8 @@ def test_initiator_edit_project(client, project):
 
 
 @pytest.mark.django_db
-def test_dashboard_project_users(client, project, request_factory):
+def test_dashboard_project_users(client, project, user_factory,
+                                 request_factory, invite_factory):
     url = reverse('dashboard-project-users', kwargs={
         'organisation_slug': project.organisation.slug,
         'slug': project.slug,
@@ -63,6 +67,12 @@ def test_dashboard_project_users(client, project, request_factory):
     request0 = request_factory(project=project)
     request1 = request_factory(project=project)
     request2 = request_factory(project=project)
+    invite0 = invite_factory(project=project)
+    invite1 = invite_factory(project=project)
+    user0 = user_factory(email='test@test1.de')
+    user1 = user_factory(email='test@test2.de')
+    project.participants.add(user0)
+    project.participants.add(user1)
 
     response = client.get(url)
     assert redirect_target(response) == 'login'
@@ -71,27 +81,51 @@ def test_dashboard_project_users(client, project, request_factory):
     client.login(username=moderator.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
-    formset = response.context['formset']
-    assert len(formset.forms) == 3
-    assert formset.forms[0].instance == request0
-    assert formset.forms[1].instance == request1
-    assert formset.forms[2].instance == request2
-    assert formset.extra == 0
+    multiform = response.context['form']
+    assert len(multiform['requests'].forms) == 3
+    assert multiform['requests'].forms[0].instance == request0
+    assert multiform['requests'].forms[1].instance == request1
+    assert multiform['requests'].forms[2].instance == request2
+    assert multiform['requests'].extra == 0
+    assert len(multiform['invites'].forms) == 2
+    assert multiform['invites'].forms[0].instance == invite0
+    assert multiform['invites'].forms[1].instance == invite1
+    assert len(multiform['users'].forms) == 2
+    assert multiform['users'].forms[0].instance == user0
+    assert multiform['users'].forms[1].instance == user1
 
     response = client.post(url, {
-        'form-0-id': request0.pk,
-        'form-0-action': 'accept',
-        'form-1-id': request1.pk,
-        'form-1-action': 'decline',
-        'form-2-id': request2.pk,
-        'form-2-action': '',
-        'form-TOTAL_FORMS': '3',
-        'form-INITIAL_FORMS': '3',
-        'form-MAX_NUM_FORMS': '',
+        'requests-0-id': request0.pk,
+        'requests-0-action': 'accept',
+        'requests-1-id': request1.pk,
+        'requests-1-action': 'decline',
+        'requests-2-id': request2.pk,
+        'requests-2-action': '',
+        'requests-TOTAL_FORMS': '3',
+        'requests-INITIAL_FORMS': '3',
+        'requests-MAX_NUM_FORMS': '',
+        'invites-TOTAL_FORMS': '2',
+        'invites-INITIAL_FORMS': '2',
+        'invites-MAX_NUM_FORMS': '',
+        'invites-0-id': invite0.pk,
+        'invites-0-delete': 'on',
+        'invites-1-id': invite1.pk,
+        'users-TOTAL_FORMS': '2',
+        'users-INITIAL_FORMS': '2',
+        'users-MAX_NUM_FORMS': '',
+        'users-0-id': user0.id,
+        'users-0-delete': 'on',
+        'users-1-id': user1.id,
+        'users-1-delete': '',
     })
     assert redirect_target(response) == 'dashboard-project-users'
     assert len(project.request_set.all()) == 1
     assert project.request_set.first() == request2
+    assert len(project.invite_set.all()) == 1
+    assert project.invite_set.first() == invite1
+    assert len(project.participants.all()) == 2
+    assert not project.participants.filter(username=user0.username).exists()
+    assert User.objects.filter(username=user0.username).exists()
 
 
 @pytest.mark.django_db

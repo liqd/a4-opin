@@ -3,7 +3,7 @@
 
 {% block title %}{% blocktrans with project=invite.project.name %} Private project: {{ project }}{% endblocktrans %}{% endblock %}
 {% block content %}
-{% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
+{% include 'euth_projects/includes/project_hero_unit.html' with project=invite.project %}
 <nav class="tabs">
     <div class="container">
         <ul>
