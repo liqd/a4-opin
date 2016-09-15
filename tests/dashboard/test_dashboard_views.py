@@ -12,21 +12,19 @@ def test_anonymous_cannot_view_dashboard_profile(client):
 
 
 @pytest.mark.django_db
-def test_authenticated_user_can_view_profile(client, user):
+def test_authenticated_user_can_view_profile(client, user, login_url):
     url = reverse('dashboard-profile')
-    login_url = reverse('login')
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
-    assert response.status_code == 200
+    assert redirect_target(response) == 'account_login'
 
 
 @pytest.mark.django_db
-def test_authenticated_user_can_upload_avatar(client, user):
+def test_authenticated_user_can_upload_avatar(client, user, login_url):
     url = reverse('dashboard-profile')
-    login_url = reverse('login')
     client.post(login_url, {'email': user.email, 'password': 'password'})
     response = client.get(url)
-    assert response.status_code == 200
+    assert redirect_target(response) == 'account_login'
 
 
 @pytest.mark.django_db
@@ -65,7 +63,7 @@ def test_dashboard_project_users(client, project, request_factory):
     request2 = request_factory(project=project)
 
     response = client.get(url)
-    assert redirect_target(response) == 'login'
+    assert redirect_target(response) == 'account_login'
 
     moderator = project.moderators.first()
     client.login(username=moderator.email, password='password')
@@ -102,7 +100,7 @@ def test_dashboard_project_invite(client, project):
     })
 
     response = client.get(url)
-    assert redirect_target(response) == 'login'
+    assert redirect_target(response) == 'account_login'
 
     moderator = project.moderators.first()
     client.login(username=moderator.email, password='password')

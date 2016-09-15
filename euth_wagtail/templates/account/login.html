@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load account %}
+{% load i18n %}
+{% load socialaccount %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Login' %}{% endblock %}
+
+{% block content %}
+<div class="container">
+{% if not request.user.is_authenticated %}
+    <div class="skinny-form">
+        <header class="skinny-form-header">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="{% url 'account_login' %}?next={{next_action}}">{% trans "login" %}</a></li>
+                <li role="presentation"><a href="{% url 'account_signup' %}?next={{next_action}}">{% trans "register" %}</a></li>
+            </ul>
+        </header>
+        <div>
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+                <p><small>{% trans "Please sign in with one of your existing third party accounts." %}</small></p>
+                <div class="socialaccount_ballot">
+                    <ul class="socialaccount_providers">
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+                </div>
+                <p><small>{% trans "Or use the form below to log in." %}</small></p>
+            {% endif %}
+        </div>
+        <form class="skinny-form-inner" role="form" name="LoginForm" action="{% url 'account_login' %}" method="post" >
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-errors">
+                    {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <div class="form-group">
+                <label class="control-label" for="{{ form.username.id_for_label }}">{% trans "Email" %}</label>
+                {% if form.login.errors %}
+                    {{ form.login|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.login|add_class:"form-control"}}
+                {% endif %}
+                {{ form.login.errors }}
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="{{ form.password.id_for_label }}">{% trans "Password" %}</label>
+                {% if form.password.errors %}
+                    {{ form.password|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.password|add_class:"form-control"}}
+                {% endif %}
+                {{ form.password.errors }}
+            </div>
+
+            <div class="form-group">
+              <a href="{% url 'account_reset_password' %}">{% trans "reset password" %}</a>
+            </div>
+
+            <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>
+        </form>
+    </div>
+{% else %}
+    {% user_display user as user_display %}
+    {% blocktrans %}You are already logged in as {{ user_display }}.{% endblocktrans %}
+{% endif %}
+</div>
+{% endblock %}

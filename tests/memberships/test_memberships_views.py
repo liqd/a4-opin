@@ -10,7 +10,7 @@ from euth.memberships import models
 def test_create_request(client, project, user):
     url = reverse('memberships-request', kwargs={'project_slug': project.slug})
     response = client.get(url)
-    assert redirect_target(response) == 'login'
+    assert redirect_target(response) == 'account_login'
 
     client.login(username=user.email, password='password')
     response = client.get(url)
@@ -30,7 +30,7 @@ def test_accept_invite(client, invite, user):
     url = reverse('membership-invite-accept',
                   kwargs={'invite_token': invite.token})
     response = client.get(url)
-    assert redirect_target(response) == 'login'
+    assert redirect_target(response) == 'account_login'
 
     client.login(username=user.email, password='password')
     response = client.get(url)

@@ -10,7 +10,7 @@ register = template.Library()
 @register.inclusion_tag('ratings/react_ratings.html', takes_context=True)
 def react_ratings(context, obj, enabled=True):
 
-    login_url = reverse('login') + '?next=' + context['request'].path
+    login_url = reverse('account_login') + '?next=' + context['request'].path
 
     contenttype = ContentType.objects.get_for_model(obj)
 

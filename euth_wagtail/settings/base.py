@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'autofixture',
     'rules.apps.AutodiscoverRulesConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     'euth.users.apps.UsersConfig',
     'euth.organisations.apps.OrganisationsConfig',
@@ -138,6 +141,7 @@ AUTH_USER_MODEL = 'euth_users.User'
 AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 CKEDITOR_CONFIGS = {
@@ -255,10 +259,27 @@ COMPRESS_PRECOMPILERS = (
 )
 LIBSASS_SOURCEMAPS = True
 
+EMAIL_SUBJECT_PREFIX = '[OPIN] '
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "euth_wagtail"
 
 # Authentification
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_SUBJECT_PREFIX = EMAIL_SUBJECT_PREFIX
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300  # seconds
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_SIGNUP_FORM_CLASS = 'euth.users.forms.SignUpForm'
+ACCOUNT_USER_DISPLAY = 'euth.users.services.account_user_display'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_USERNAME_REQUIRED = True

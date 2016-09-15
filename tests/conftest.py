@@ -1,6 +1,7 @@
 import factory
 import pytest
 from dateutil.parser import parse
+from django.core.urlresolvers import reverse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 from tests.memberships import factories as member_factories
@@ -69,3 +70,18 @@ def ImageBMP():
 @pytest.fixture
 def ImagePNG():
     return factory.django.ImageField(width=1400, height=1400, format='PNG')
+
+
+@pytest.fixture
+def login_url():
+    return reverse('account_login')
+
+
+@pytest.fixture
+def logout_url():
+    return reverse('account_logout')
+
+
+@pytest.fixture
+def signup_url():
+    return reverse('account_signup')
