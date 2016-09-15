@@ -41,7 +41,7 @@ class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
 class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
     model = models.Idea
     form_class = forms.IdeaForm
-    permission_required = 'ideas.create_idea'
+    permission_required = 'euth_ideas.propose_idea'
 
     @property
     def raise_exception(self):
@@ -72,7 +72,7 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
 class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = models.Idea
     success_message = _("Your Idea has been deleted")
-    permission_required = 'ideas.create_idea'
+    permission_required = 'euth_ideas.modify_idea'
 
     @property
     def raise_exception(self):

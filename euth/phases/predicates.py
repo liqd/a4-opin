@@ -27,5 +27,5 @@ def phase_allows_comment(user, item):
 
 
 @rules.predicate
-def phase_allows_rating(user, item):
+def phase_allows_rate(user, item):
     return has_feature_active(item.project, item.__class__, 'rating')
