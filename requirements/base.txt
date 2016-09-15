@@ -18,3 +18,4 @@ html5lib==0.9999999
 bleach==1.4.3
 django-autofixture==0.12.1
 rules==1.1.1
+django-multiform==0.1
