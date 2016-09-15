@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'parler',
     'ckeditor',
+    'ckeditor_uploader',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -63,6 +64,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'autofixture',
     'rules.apps.AutodiscoverRulesConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     'euth.users.apps.UsersConfig',
     'euth.organisations.apps.OrganisationsConfig',
@@ -126,6 +130,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'test_db.sqlite3'),
+        }
     }
 }
 
@@ -138,7 +145,11 @@ AUTH_USER_MODEL = 'euth_users.User'
 AUTHENTICATION_BACKENDS = (
     'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -150,11 +161,12 @@ CKEDITOR_CONFIGS = {
             ['Link', 'Unlink']
         ]
     },
-    'document-editor': {
+    'image-editor': {
         'width': '100%',
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
+            ['Image'],
             ['NumberedList', 'BulletedList'],
             ['Link', 'Unlink']
         ]
@@ -165,8 +177,26 @@ BLEACH_LIST = {
     'default' : {
         'tags': ['p','strong','em','u','ol','li','ul','a'],
         'attributes': {
-            'a': ['href', 'rel']
-        }
+            'a': ['href', 'rel'],
+        },
+    },
+    'image-editor': {
+        'tags': ['p','strong','em','u','ol','li','ul','a','img'],
+        'attributes': {
+            'a': ['href', 'rel'],
+            'img': ['src', 'alt', 'style']
+        },
+        'styles': [
+            'float',
+            'margin',
+            'padding',
+            'width',
+            'height',
+            'margin-bottom',
+            'margin-top',
+            'margin-left',
+            'margin-right',
+        ],
     }
 }
 
@@ -255,10 +285,27 @@ COMPRESS_PRECOMPILERS = (
 )
 LIBSASS_SOURCEMAPS = True
 
+EMAIL_SUBJECT_PREFIX = '[OPIN] '
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "euth_wagtail"
 
 # Authentification
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_SUBJECT_PREFIX = EMAIL_SUBJECT_PREFIX
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300  # seconds
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_SIGNUP_FORM_CLASS = 'euth.users.forms.SignUpForm'
+ACCOUNT_USER_DISPLAY = 'euth.users.services.account_user_display'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_USERNAME_REQUIRED = True

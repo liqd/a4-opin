@@ -24,7 +24,7 @@ def test_create_view(client, active_phase, user):
         url = reverse('idea-create', kwargs={'slug': module.slug})
         response = client.get(url)
         assert response.status_code == 302
-        assert redirect_target(response) == 'login'
+        assert redirect_target(response) == 'account_login'
         client.login(username=user.email, password='password')
         response = client.get(url)
         assert response.status_code == 200

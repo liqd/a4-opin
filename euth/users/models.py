@@ -1,6 +1,3 @@
-import uuid
-
-from django.conf import settings
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
@@ -53,6 +50,13 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+    class Meta:
+        verbose_name = _("User")
+        verbose_name_plural = _("Users")
+
+    def __str__(self):
+        return self.get_full_name()
+
     def get_full_name(self):
         """
         Returns the first_name plus the last_name, with a space in between.
@@ -64,19 +68,9 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         "Returns the short name for the user."
         return self.username
 
-
-class Registration(models.Model):
-    token = models.UUIDField(default=uuid.uuid4, unique=True)
-    username = models.TextField(max_length=255)
-    email = models.EmailField()
-    password = models.TextField(max_length=128)
-    next_action = models.URLField(blank=True, null=True)
-
-
-class Reset(models.Model):
-    token = models.UUIDField(default=uuid.uuid4, unique=True)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
-    next_action = models.URLField(blank=True, null=True)
+    def signup(self, username, email, commit=True):
+        """Update the fields required for sign-up."""
+        self.username = username
+        self.email = email
+        if commit:
+            self.save()

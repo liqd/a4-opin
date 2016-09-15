@@ -1,240 +1,167 @@
+import re
+
 import pytest
+from allauth.account.models import EmailAddress
 from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
 
-from euth.users import forms, models
+from euth.users import models
 
 User = auth.get_user_model()
 
 
 @pytest.mark.django_db
-def test_login(client, user):
-    login_url = reverse('login')
+def test_login(client, user, login_url):
     response = client.get(login_url)
     assert response.status_code == 200
 
     response = client.post(
-        login_url, {'email': user.email, 'password': 'password'})
+        login_url, {'login': user.email, 'password': 'password'})
     assert response.status_code == 302
     assert int(client.session['_auth_user_id']) == user.pk
 
 
 @pytest.mark.django_db
-def test_login_wrong_password(client, user):
-    login_url = reverse('login')
+def test_login_wrong_password(client, user, login_url):
     response = client.post(
-        login_url, {'email': user.email, 'password': 'wrong_password'})
-    assert response.status_code == 400
+        login_url, {'login': user.email, 'password': 'wrong_password'})
+    assert response.status_code == 200
 
 
 @pytest.mark.django_db
-def test_login_no_password(client, user):
-    login_url = reverse('login')
+def test_login_no_password(client, user, login_url):
     response = client.post(
-        login_url, {'email': user.email})
-    assert response.status_code == 400
+        login_url, {'login': user.email})
+    assert response.status_code == 200
 
 
 @pytest.mark.django_db
-def test_form_valid_login(rf, user):
-    request = rf.post('', {'email': user.email, 'password': 'password'})
-    form = forms.LoginForm(request.POST)
-    assert form.is_valid() is True
-    testuser = form.login(request)
-    assert user == testuser
-
-
-@pytest.mark.django_db
-def test_form_invalid_login(rf, user):
-    request = rf.post(
-        '', {'email': user.email, 'password': 'wrong_password'})
-    form = forms.LoginForm(request.POST)
-    assert form.is_valid() is False
-    assert form.errors['__all__'] == ['password mismatch']
-
-
-@pytest.mark.django_db
-def test_form_invalid_user_login(rf, user):
-    request = rf.post(
-        '', {'email': 'i_dont_exist@liqd.de', 'password': 'password'})
-    form = forms.LoginForm(request.POST)
-    assert form.is_valid() is False
-    assert form.errors['__all__'] == ['account doesn\'t exist']
-
-
-@pytest.mark.django_db
-def test_form_not_active_login(rf, registration):
-    request = rf.post(
-        '', {'email': registration.email, 'password': 'password'})
-    form = forms.LoginForm(request.POST)
-    assert form.is_valid() is False
-    assert form.errors['__all__'] == ['account not activated']
-
-
-@pytest.mark.django_db
-def test_logout(user, client):
+def test_logout(user, client, logout_url):
     logged_in = client.login(email=user.email, password='password')
     assert logged_in is True
-    logout_url = reverse('logout')
-    response = client.get(logout_url)
-    assert response.status_code == 200
+    response = client.post(logout_url)
+    assert response.status_code == 302
     assert '_auth_user_id' not in client.session
 
 
 @pytest.mark.django_db
-def test_logout_with_next(user, client):
+def test_logout_with_next(user, client, logout_url):
     logged_in = client.login(email=user.email, password='password')
     assert logged_in is True
-    logout_url = reverse('logout')
-    response = client.get(logout_url + '?next=/de/next_location')
+    response = client.post(logout_url + '?next=/de/next_location')
     assert response.status_code == 302
     assert '/de/next_location' in response.url
     assert '_auth_user_id' not in client.session
 
 
 @pytest.mark.django_db
-def test_register(client):
-    assert models.Registration.objects.all().count() == 0
-    register_url = reverse('register')
+def test_register(client, signup_url):
+    assert EmailAddress.objects.count() == 0
+    email = 'testuser@liqd.de'
     response = client.post(
-        register_url, {
+        signup_url, {
             'username': 'testuser2',
-            'email': 'testuser@liqd.de',
-            'password': 'password',
-            'password_repeat': 'password'
+            'email': email,
+            'password1': 'password',
+            'password2': 'password'
         }
     )
     assert response.status_code == 302
-    registration = models.Registration.objects.get(username='testuser2')
-    activation_url = reverse('activate', kwargs={'token': registration.token})
-    assert registration
-    assert registration.email == 'testuser@liqd.de'
+    assert EmailAddress.objects.filter(
+        email=email, verified=False
+    ).count() == 1
     assert len(mail.outbox) == 1
-    assert 'You requested to register to' in mail.outbox[0].subject
-    assert activation_url in mail.outbox[0].body
+    confirmation_url = re.search(
+        r'(http://testserver/.*/)', str(mail.outbox[0].message())
+    ).group(0)
+    confirm_email_response = client.get(confirmation_url)
+    assert confirm_email_response.status_code == 200
+    assert EmailAddress.objects.filter(
+        email=email, verified=False
+    ).count() == 1
+    confirm_email_response = client.post(confirmation_url)
+    assert confirm_email_response.status_code == 302
+    assert EmailAddress.objects.filter(
+        email=email, verified=True
+    ).count() == 1
 
 
 @pytest.mark.django_db
-def test_reregister_same_username(client):
+def test_reregister_same_username(client, signup_url):
+    assert EmailAddress.objects.count() == 0
     data = {
         'username': 'testuser2',
         'email': 'testuser@liqd.de',
-        'password': 'password',
-        'password_repeat': 'password'
+        'password1': 'password',
+        'password2': 'password'
     }
-    register_url = reverse('register')
-    response = client.post(register_url, data)
+    response = client.post(signup_url, data)
     assert response.status_code == 302
+    assert EmailAddress.objects.count() == 1
     data['email'] = 'anotheremail@liqd.de'
-    register_url = reverse('register')
-    response = client.post(register_url, data)
-    assert response.status_code == 400
+    response = client.post(signup_url, data)
+    assert response.status_code == 302
+    assert EmailAddress.objects.count() == 1
 
 
 @pytest.mark.django_db
-def test_register_invalid(client):
-    assert models.Registration.objects.all().count() == 0
-    register_url = reverse('register')
+def test_register_invalid(client, signup_url):
+    username = 'testuser2'
     response = client.post(
-        register_url + '?next=/', {
-            'username': 'testuser2',
+        signup_url + '?next=/', {
+            'username': username,
             'email': 'testuser@liqd.de',
-            'password': 'password',
-            'password_repeat': 'wrong_password'
+            'password1': 'password',
+            'password2': 'wrong_password'
         }
     )
-    assert response.status_code == 400
-    assert not models.Registration.objects.filter(username='testuser2')
-
-
-@pytest.mark.django_db
-def test_activate_user(registration, client):
-    assert User.objects.all().count() == 0
-    token = registration.token
-    activate_url = reverse('activate', kwargs={'token': token})
-    response = client.get(activate_url)
     assert response.status_code == 200
-
-    response = client.post(activate_url, {'token': token})
-    assert response.status_code == 302
-    assert registration.next_action in response.url
-
-    new_user = User.objects.get(email=registration.email)
-    assert new_user
-    assert new_user.username == registration.username
+    assert models.User.objects.filter(username=username).count() == 0
 
 
 @pytest.mark.django_db
 def test_reset(client, user):
-    reset_req_url = reverse('reset_request')
+    reset_req_url = reverse('account_reset_password')
     response = client.get(reset_req_url)
     assert response.status_code == 200
-
-    response = client.post(reset_req_url, {
-        'username_or_email': user.username,
-        'next': '/de/my_nice_url'})
+    response = client.post(reset_req_url, {'email': user.email})
     assert response.status_code == 302
-    reset = models.Reset.objects.get(user__username=user.username)
-    assert reset
-
-    reset_url = reverse('reset_password', kwargs={'token': reset.token})
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [user.email]
-    assert 'Reset password request' in mail.outbox[0].subject
-    assert reset_url in mail.outbox[0].body
-
+    reset_url = re.search(
+        r'(http://testserver/.*/)', str(mail.outbox[0].message())
+    ).group(0)
     response = client.get(reset_url)
     assert response.status_code == 200
-
     response = client.post(reset_url, {
-        'password': 'password1',
-        'password_repeat': 'password1',
-        'token': reset.token
+        'password1': 'password1',
+        'password2': 'password1',
     })
     assert response.status_code == 302
-    assert '/de/my_nice_url' in response.url
+    assert response.url.endswith(
+        reverse('account_reset_password_from_key_done')
+    )
     assert user.password != User.objects.get(username=user.username).password
 
 
 @pytest.mark.django_db
-def test_request_reset_email(client, user):
-    reset_req_url = reverse('reset_request')
-    response = client.post(reset_req_url, {'username_or_email': user.email})
-    assert response.status_code == 302
-    reset = models.Reset.objects.get(user__username=user.username)
-    assert reset
-
-
-@pytest.mark.django_db
 def test_request_reset_error(client):
-    reset_req_url = reverse('reset_request')
+    reset_req_url = reverse('account_reset_password')
     response = client.post(reset_req_url)
-    assert response.status_code == 400
-
-    response = client.post(reset_req_url,
-                           {'username_or_email': 'invalid_user'})
-    assert response.status_code == 400
-
-
-@pytest.mark.django_db
-def test_reset_password_error(client, reset):
-    reset_url = reverse('reset_password',
-                        kwargs={'token': reset.token})
-    response = client.post(reset_url, {
-        'password': 'password',
-        'password_repeat': 'password_not_match',
-        'token': reset.token
-    })
-    assert response.status_code == 400
+    assert response.status_code == 200
+    assert len(mail.outbox) == 0
+    response = client.post(reset_req_url, {'email': 'invalid_user'})
+    assert response.status_code == 200
+    assert len(mail.outbox) == 0
 
 
 @pytest.mark.django_db
-def test_reset_password_invalid(client, reset):
-    reset_url = reverse('reset_password', kwargs={'token': reset.token})
+def test_reset_password_error(client):
+    reset_url = reverse('account_reset_password')
     response = client.post(reset_url, {
-        'password': 'password',
-        'password_repeat': 'password',
-        'token': 'invalid_token'
+        'password1': 'password',
+        'password2': 'password_not_match',
     })
-    assert response.status_code == 400
+    assert response.status_code == 200
+    assert len(mail.outbox) == 0

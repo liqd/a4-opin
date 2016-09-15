@@ -1,6 +1,6 @@
 import factory
-from tests.factories import UserFactory
 from tests.projects.factories import ProjectFactory
+from ..factories import UserFactory
 
 
 class RequestFactory(factory.django.DjangoModelFactory):

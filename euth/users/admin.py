@@ -17,11 +17,11 @@ class UserAdmin(auth.admin.UserAdmin):
         }),
     )
     readonly_fields = ('date_joined', 'last_login')
-    list_display = ('username', 'email', 'is_staff', 'is_superuser')
+    list_display = (
+        'username', 'email', 'date_joined', 'is_staff', 'is_superuser'
+    )
     list_filter = ('is_staff', 'is_superuser')
     search_fields = ('username', 'email')
 
 
 admin.site.register(models.User, UserAdmin)
-admin.site.register(models.Registration)
-admin.site.register(models.Reset)
