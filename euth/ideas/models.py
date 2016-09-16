@@ -31,10 +31,6 @@ class Idea(module_models.Item):
         return reverse('idea-detail', args=[str(self.slug)])
 
     @cached_property
-    def project(self):
-        return self.module.project
-
-    @cached_property
     def comments(self):
         contenttype = ContentType.objects.get_for_model(self)
         pk = self.id

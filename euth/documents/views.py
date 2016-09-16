@@ -1,4 +1,5 @@
 from django.views import generic
+from rules.contrib.views import PermissionRequiredMixin
 
 from euth.projects import mixins
 
@@ -12,5 +13,10 @@ class DocumentDetailView(generic.DetailView, mixins.ProjectMixin):
         return models.Document.objects.filter(module=self.module).first()
 
 
-class ParagraphDetailView(generic.DetailView):
+class ParagraphDetailView(PermissionRequiredMixin, generic.DetailView):
+    permission_required = 'euth_documents.view_paragraph'
     model = models.Paragraph
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()

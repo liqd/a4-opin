@@ -23,9 +23,4 @@ class ProjectMixin(generic.base.ContextMixin):
         self.project = kwargs['project']
         self.phase = self.project.active_phase
         self.module = self.phase.module if self.phase else None
-
-        self.comment_enabled = self.phase.has_feature('comment', self.model)
-        self.crud_enabled = self.phase.has_feature('crud', self.model)
-        self.rating_enabled = self.phase.has_feature('rating', self.model)
-
         return super(ProjectMixin, self).dispatch(*args, **kwargs)

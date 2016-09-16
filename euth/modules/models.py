@@ -27,5 +27,5 @@ class Item(base_models.TimeStampedModel):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     @property
-    def process(self):
+    def project(self):
         return self.module.project

@@ -27,6 +27,11 @@ def test_document_clean(module, document_factory, user):
 
 
 @pytest.mark.django_db
+def test_paragraph_knows_project(paragraph):
+    assert paragraph.project == paragraph.document.project
+
+
+@pytest.mark.django_db
 def test_document_paragraphs_sorted(document, paragraph_factory):
     paragraph_factory(document=document, weight=2)
     paragraph2 = paragraph_factory(document=document, weight=1)

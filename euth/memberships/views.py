@@ -35,6 +35,12 @@ class RequestView(mixin.LoginRequiredMixin, generic.DetailView):
     def get_queryset(self):
         return self.model.objects.filter(creator=self.request.user)
 
+    def get(self, request, *args, **kwargs):
+        if self.project.has_member(request.user):
+            return redirect(self.project.get_absolute_url())
+        else:
+            return super().get(request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         user = request.user
         project = self.project

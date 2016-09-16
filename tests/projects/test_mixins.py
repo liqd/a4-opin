@@ -49,6 +49,3 @@ def test_project_mixin(rf, active_project, active_phase):
     view_data = response.context_data['view']
     assert view_data.project == active_project
     assert view_data.phase == active_phase
-    assert view_data.comment_enabled
-    assert not view_data.rating_enabled
-    assert not view_data.crud_enabled

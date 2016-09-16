@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n %}
+{% load i18n rules %}
 
 {% block phase_content %}
 <div class="idea-list">
@@ -18,7 +18,8 @@
         </span>
     </div>
 
-    {% if view.crud_enabled %}
+    {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
+    {% if add_button_enabled %}
     <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button">
         <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
         {% trans 'Create Proposal' %}
