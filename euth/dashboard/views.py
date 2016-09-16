@@ -57,6 +57,19 @@ class DashboardProfileView(DashboardBaseMixins,
         return self.request.path
 
 
+class DashboardOrganisationUpdateView(DashboardBaseMixins,
+                                      SuccessMessageMixin,
+                                      generic.UpdateView):
+    model = org_models.Organisation
+    form_class = forms.OrganisationForm
+    slug_url_kwarg = 'organisation_slug'
+    template_name = 'euth_dashboard/organisation_form.html'
+    success_message = _('Organisation successfully updated.')
+
+    def get_success_url(self):
+        return self.request.path
+
+
 class DashboardProjectListView(DashboardBaseMixins,
                                mixins.LoginRequiredMixin,
                                generic.ListView):

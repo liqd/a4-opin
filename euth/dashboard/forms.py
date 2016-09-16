@@ -3,10 +3,12 @@ import re
 
 import multiform
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ValidationError
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.organisations import models as org_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
@@ -170,3 +172,96 @@ class ProjectUserForm(multiform.MultiModelForm):
                 data = form.cleaned_data
                 if 'delete' in data and data['delete']:
                     self.project.participants.remove(form.instance)
+
+
+class OrganisationForm(forms.ModelForm):
+    """
+    Special form that allows editing of all translated fields.
+    """
+
+    translated_fields = ['title', 'description',
+                         'description_how', 'description_why']
+    languages = [lang_code for lang_code, lang in settings.LANGUAGES]
+
+    class Meta:
+        model = org_models.Organisation
+        fields = [
+            'image', 'logo', 'twitter_handle', 'facebook_handle',
+            'instagram_handle', 'webpage', 'country', 'place'
+        ]
+        widgets = {
+            'image': widgets.ImageInputWidget(),
+            'logo': widgets.ImageInputWidget(),
+        }
+
+    def _get_identifier(self, language, fieldname):
+        return '{}__{}'.format(language, fieldname)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # inject additional form fields for translated model fields
+        for lang_code in self.languages:
+            for fieldname in self.translated_fields:
+                self.instance.set_current_language(lang_code)
+                label = fieldname.replace('_', ' ').capitalize()
+                identifier = self._get_identifier(lang_code, fieldname)
+                initial = self.instance.safe_translation_getter(fieldname)
+                field = forms.CharField(label=label, max_length=400,
+                                        required=False, initial=initial)
+                self.fields[identifier] = field
+
+    def translated(self):
+        """
+        Return translated fields as list of tuples (language code, fields).
+        """
+
+        from itertools import groupby
+        fields = [(field.html_name.split('__')[0], field) for field in self
+                  if '__' in field.html_name]
+        groups = groupby(fields, lambda x: x[0])
+        values = [(lang, list(map(lambda x: x[1], group)))
+                  for lang, group in groups]
+        return values
+
+    def untranslated(self):
+        """
+        Return untranslated fields as flat list.
+        """
+        return [field for field in self if '__' not in field.html_name]
+
+    def prefiled_languages(self):
+        """
+        Return languages tabs that need to be displayed.
+        """
+        languages = [lang for lang in self.languages
+                     if lang in self.data
+                     or self.instance.has_translation(lang)]
+        # always provide english
+        if 'en' not in languages:
+            languages.insert(0, 'en')
+        return languages
+
+    def save(self, commit=True):
+        instance = super().save(commit=commit)
+        if commit is True:
+            for lang_code in self.languages:
+                if lang_code in self.data:
+                    instance.set_current_language(lang_code)
+                    for fieldname in self.translated_fields:
+                        identifier = '{}__{}'.format(lang_code, fieldname)
+                        setattr(instance, fieldname,
+                                self.cleaned_data.get(identifier))
+                    instance.save()
+        return instance
+
+    def clean(self):
+        for lang_code in self.languages:
+            if lang_code in self.data:
+                for fieldname in self.translated_fields:
+                    identifier = self._get_identifier(lang_code, fieldname)
+                    data = self.cleaned_data
+                    if identifier not in data or not data[identifier]:
+                        msg = 'This field is required'
+                        raise ValidationError((identifier, msg))
+        return self.cleaned_data

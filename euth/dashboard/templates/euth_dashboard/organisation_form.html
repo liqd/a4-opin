@@ -1,0 +1,56 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n %}
+
+{% block dashboard_content %}
+<h1>{% trans 'Edit a project' %}</h1>
+
+<div class="general-form">
+    <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+        {% csrf_token %}
+
+        {{ form.errors }}
+
+        {% for field in form.untranslated %}
+        <div class="form-group{% if field.errors %} has-error{% endif %}">
+            <label>{{ field.label }}</label>
+            {% render_field field class="form-control" %}
+            {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <div class="language-switch-list" id="language-switch-list"></div>
+
+        <script>
+            window.Opin.renderLanguageSwitch(
+                [
+                    {% for lang_code in form.languages %}
+                        '{{ lang_code }}',
+                    {% endfor %}
+                ],
+                [
+                    {% for lang_code in form.prefiled_languages %}
+                        '{{ lang_code }}',
+                    {% endfor %}
+                ],
+                'language-switch-list'
+            )
+        </script>
+
+        {% for lang_code, fields in form.translated %}
+        <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">
+            {% for field in fields %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label>{{ field.label }}</label>
+                {% render_field field class="form-control" %}
+                {% for error in field.errors %}
+                <span class="help-block">{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <button type="submit" name="publish" class="submit-button">{% trans 'save' %}</button>
+
+{% endblock %}

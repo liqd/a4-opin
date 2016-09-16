@@ -1,0 +1,55 @@
+.language-switch-list {
+    @include clearfix;
+}
+.language-switch-list label {
+    display: block;
+}
+
+.checkbox-list {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+    float: left;
+
+    input {
+        display: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        background-color: $gray-lighter;
+        @include rem(padding, 10px 13px);
+        @include rem(margin-right, 2px);
+    }
+
+    .active a {
+        background-color: $brand-brand1;
+        color: #FFF;
+    }
+}
+
+.language-switch-list .dropdown {
+    float: left;
+}
+.language-switch-list .dropdown-toggle {
+    @include rem(padding, 10px 15px);
+    background-color: $gray-lighter;
+}
+
+.language-switch {
+    display: none;
+}
+:checked + .language-switch {
+    display: block;
+}
+
+.language-switch-panel {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
