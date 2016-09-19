@@ -1,3 +1,4 @@
+from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
 from django.db import models
@@ -18,7 +19,7 @@ class ProjectManager(models.Manager):
 
 
 class Project(base_models.TimeStampedModel):
-    slug = models.SlugField(max_length=512, unique=True)
+    slug = AutoSlugField(populate_from='name', unique=True)
     name = models.CharField(max_length=512)
     organisation = models.ForeignKey(
         org_models.Organisation, on_delete=models.CASCADE)
