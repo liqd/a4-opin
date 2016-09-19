@@ -106,11 +106,10 @@ class ProjectCreateMultiForm(MultiModelForm):
     def get_form_args_kwargs(self, key, args, kwargs):
         fargs, fkwargs = super().get_form_args_kwargs(key, args, kwargs)
         if key == 'phase':
-            queryset = {'queryset': phase_models.Phase.objects.none()}
-            queryset.update(fkwargs)
-            return (args, queryset)
-
-        return (args, kwargs)
+            mkwargs = {'queryset':  phase_models.Phase.objects.none()}
+            mkwargs.update(fkwargs)
+            return (args, mkwargs)
+        return (fargs, fkwargs)
 
     def is_valid(self):
         forms_valid = all(form.is_valid() for form in self.forms.values())
