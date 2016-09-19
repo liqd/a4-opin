@@ -4,10 +4,12 @@ import re
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.forms import modelformset_factory
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
+from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
@@ -70,6 +72,26 @@ class ProjectForm(forms.ModelForm):
     def save(self, commit=True):
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
+
+
+class PhaseForm(forms.ModelForm):
+    class Meta:
+        model = phase_models.Phase
+        exclude = ('module', 'type')
+
+        widgets = {
+            'end_date': widgets.DateTimeInput(),
+            'start_date': widgets.DateTimeInput(),
+        }
+
+
+class ProjectCompleteForm(multiform.MultiModelForm):
+    base_forms = [
+        ('project', ProjectForm),
+        ('phases', modelformset_factory(
+            phase_models.Phase, PhaseForm, extra=0
+        )),
+    ]
 
 
 class RequestModerationForm(forms.ModelForm):

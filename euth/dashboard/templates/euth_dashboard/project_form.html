@@ -1,14 +1,13 @@
 {% extends "euth_dashboard/base_dashboard.html" %}
-{% load widget_tweaks i18n %}
+{% load widget_tweaks i18n dashboard_templatetags %}
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{% trans 'Edit a project' %}</h1>
+<h1 class="black-divider dashboard-title">{{ mode }}</h1>
 
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
         {{ form.media }}
-
         <nav class="tabs">
             <ul>
                 <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}"><a
@@ -20,8 +19,8 @@
         </nav>
         <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
-            {% for field in form %}
-                {% if not field == form.result %}
+            {% for field in form.project %}
+                {% if not field == form.project.result %}
                 <div class="form-group{% if field.errors %} has-error{% endif %}">
                     <label>{{ field.label }}</label>
                     {% render_field field class="form-control" %}
@@ -33,21 +32,76 @@
             {% endfor %}
         </article>
         <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
-            Stuff!
+            {{ form.phases.management_form }}
+            {% for form in form.phases %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                <div class="phase-form">
+                    {% for field in form.visible_fields %}
+
+                    {% if field != form.start_date and field != form.end_date   %}
+                    <div class="form-group {% if field.errors %} has-error{% endif %}">
+                        <label>{{ field.label }} {% trans 'of Phase '%} {{ forloop.parentloop.counter }}: {{ form.instance.content.name }}</label>
+                        {% if field.help_text %}
+                        <p><i>{{ field.help_text }}</i></p>
+                        {% endif %}
+                        </label>
+                        {% render_field field class="form-control" %}
+                        {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group {% if form.start_date.errors %} has-error{% endif %}">
+                                <label>{{ form.start_date.label }} {% trans 'of Phase: '%} {{ forloop.counter }}: {{ form.instance.content.name }}</br>
+                                {% if form.start_date.help_text %}
+                                <i>{{ form.start_date.help_text }}</i></br>
+                                {% endif %}
+                                </label>
+                                {% render_field form.start_date class="form-control" %}
+                                {% for error in form.start_date.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group {% if form.end_date.errors %} has-error{% endif %}">
+                                <label>{{ form.end_date.label }} {% trans 'of Phase '%} {{ forloop.counter }}: {{ form.instance.content.name }}</br>
+                                {% if form.end_date.help_text %}
+                                <i>{{ form.end_date.help_text }}</i></br>
+                                {% endif %}
+                                </label>
+                                {% render_field form.end_date class="form-control" %}
+                                {% for error in form.end_date.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </article>
         <article id="result" class="tab-panel">
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label>{{ form.result.label }}</label>
-                {% render_field form.result class="form-control" %}
+                {% render_field form.project.result class="form-control" %}
                 <span class="help-block">{{ error }}</span>
             </div>
         </article>
 
-        {% if project.is_draft %}
+        {% if not project or project.is_draft %}
         <button type="submit" name="save_draft" class="submit-button">{% trans 'save draft' %}</button>
         {% else %}
         <button type="submit" name="save_draft" class="submit-button">{% trans 'unpublish' %}</button>
         {% endif %}
         <button type="submit" name="publish" class="submit-button">{% trans 'save and publish' %}</button>
+    </form>
+</div>
 
 {% endblock %}
