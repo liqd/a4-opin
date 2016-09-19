@@ -25,13 +25,13 @@
             font-family: $font-family-sans-serif;
             text-align: justify;
             font-weight: bold;
-            @include rem(font-size, 16px);
+            @include rem(font-size, 14px);
         }
         & .commentDeletedAuthor {
             color: $gray;
             font-family: $font-family-sans-serif;
             text-align: justify;
-            @include rem(font-size, 16px);
+            @include rem(font-size, 14px);
         }
         & .comment-text {
             & p {
