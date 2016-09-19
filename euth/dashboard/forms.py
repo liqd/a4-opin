@@ -69,6 +69,10 @@ class ProjectForm(forms.ModelForm):
             'image': widgets.ImageInputWidget()
         }
 
+    def save(self, commit=True):
+        self.instance.is_draft = 'save_draft' in self.data
+        return super().save(commit)
+
 
 class PhaseForm(forms.ModelForm):
 
@@ -126,7 +130,6 @@ class ProjectCreateMultiForm(MultiModelForm):
         if commit:
             project = objects['project']
             project.organisation = self.organisation
-            project.is_draft = False
             project.save()
             module = module_models.Module()
             module.name = project.slug + '_module'
