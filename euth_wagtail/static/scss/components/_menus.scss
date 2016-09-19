@@ -1,5 +1,11 @@
 #main-menu {
+    background: #fff;
+    border-bottom: 0;
     // Height is set in bootstrap_variables
+    @media (max-width: $screen-sm-min) {
+        min-height: 60px;
+    }
+
     .navbar-brand {
         @include rem(font-size, 14px);
         @include text-hide;
@@ -8,6 +14,19 @@
 
         .svgasimg & {
             background-image: url(../images/logo.svg);
+        }
+
+        @media (max-width: $screen-sm-min) {
+            height: 60px;
+            width: 32px;
+        }
+    }
+
+    .navbar-toggle {
+        border: 0;
+        @include rem(padding, 8px)
+        @media (max-width: $screen-sm-min) {
+            @include rem(margin, 15px 15px 15px 0);
         }
     }
 
@@ -71,4 +90,8 @@
 
 body {
     @include rem(padding-top, $navbar-height);
+
+    @media (max-width: $screen-sm-min) {
+        @include rem(padding-top, 60px);
+    }
 }
