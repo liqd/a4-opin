@@ -86,3 +86,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
         """.format(**snippets).format(**substitutions)
 
         return mark_safe(markup)
+
+
+class DateTimeInput(widgets.DateTimeInput):
+    input_type = 'datetime-local'
