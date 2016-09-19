@@ -17,18 +17,6 @@
                 <li role="presentation"><a href="{% url 'account_signup' %}?next={{redirect_field_value}}">{% trans "register" %}</a></li>
             </ul>
         </header>
-        <div>
-            {% get_providers as socialaccount_providers %}
-            {% if socialaccount_providers %}
-                <p><small>{% trans "Please sign in with one of your existing third party accounts." %}</small></p>
-                <div class="socialaccount_ballot">
-                    <ul class="socialaccount_providers">
-                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                    </ul>
-                </div>
-                <p><small>{% trans "Or use the form below to log in." %}</small></p>
-            {% endif %}
-        </div>
         <form class="skinny-form-inner" role="form" name="LoginForm" action="{% url 'account_login' %}" method="post" >
             {% csrf_token %}
 
@@ -64,11 +52,22 @@
             </div>
 
             <div class="form-group">
-              <a href="{% url 'account_reset_password' %}">{% trans "reset password" %}</a>
+              <a href="{% url 'account_reset_password' %}" class="small">{% trans "reset password" %}</a>
             </div>
 
-            <button type="submit" value="Login" class="btn btn-primary btn-cta">{% trans "login" %}</button>
+            <button type="submit" value="Login" class="btn btn-primary">{% trans "login" %}</button>
         </form>
+        <div class="socialaccounts">
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+            <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
+            <div class="socialaccount_ballot">
+                <ul class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
     </div>
 {% else %}
     {% user_display user as user_display %}
