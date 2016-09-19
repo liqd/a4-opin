@@ -66,6 +66,10 @@ class ProjectForm(forms.ModelForm):
             'image': widgets.ImageInputWidget()
         }
 
+    def save(self, commit=True):
+        self.instance.is_draft = 'save_draft' in self.data
+        return super().save(commit)
+
 
 class RequestModerationForm(forms.ModelForm):
     ACTIONS = (
