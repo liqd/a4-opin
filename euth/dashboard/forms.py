@@ -70,23 +70,12 @@ class ProjectForm(forms.ModelForm):
         }
 
 
-class PhaseCreateForm(forms.ModelForm):
+class PhaseForm(forms.ModelForm):
 
     class Meta:
         model = phase_models.Phase
         exclude = ('module', )
         widgets = {'type': forms.HiddenInput()}
-
-
-class ProjectCreateForm(forms.ModelForm):
-
-    class Meta:
-        model = project_models.Project
-        fields = ['image', 'name', 'description', 'information', 'is_public',
-                  'result']
-        widgets = {
-            'image': widgets.ImageInputWidget()
-        }
 
 
 class ProjectCreateMultiForm(MultiModelForm):
@@ -101,10 +90,13 @@ class ProjectCreateMultiForm(MultiModelForm):
     @property
     def form_classes(self):
         return {
-            'project': ProjectCreateForm,
+            'project': ProjectForm,
             'phase': modelformset_factory(phase_models.Phase,
-                                          PhaseCreateForm,
-                                          extra=self.extras)
+                                          PhaseForm,
+                                          min_num=self.extras,
+                                          max_num=self.extras,
+                                          validate_min=True,
+                                          validate_max=True)
         }
 
     def get_form_args_kwargs(self, key, args, kwargs):
