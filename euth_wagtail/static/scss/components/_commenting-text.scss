@@ -1,20 +1,63 @@
 .commenting-text {
     @include rem(margin-top, 80px);
+}
 
-    .row {
+.commenting-paragraph {
+    @media screen and (min-width: $screen-sm-min) {
         display: flex;
-        align-items: center;
     }
-    .linked-paragraph a {
-        color: $text-color;
-        display: block;
+    @include rem(margin-bottom, 40px);
 
-        &:hover, &:focus {
-            text-decoration: none;
-            background-color: rgba($brand-brand1, 0.1);
+    .btn-ghost {
+        @include rem(margin-top, 10px);
+        @media screen and (min-width: $screen-sm-min) {
+            opacity: 0;
+        }
+        transition: opacity 0.15s;
+    }
+
+    &:hover {
+        .comment-count:before {
+            background-color: $brand-primary;
+            width: 4px;
+            left: -2px;
+        }
+        .btn-ghost {
+            opacity: 1;
         }
     }
-    .comment-count {
-        text-align: center;
+}
+
+.paragraph {
+    @media screen and (max-width: $screen-xs-max) {
+        border-right: 4px solid $brand-primary;
+    }
+}
+
+.comment-count {
+    position: relative;
+
+    @media screen and (max-width: $screen-xs-max) {
+        text-align: right;
+    }
+
+    a:hover, a:focus {
+        text-decoration: none;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 1px;
+        background-color: #297FB4;
+
+        transition: width 0.15s, left 0.15s;
+
+        @media screen and (max-width: $screen-xs-max) {
+            display: none;
+        }
     }
 }
