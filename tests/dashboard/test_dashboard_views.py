@@ -54,7 +54,7 @@ def test_initiator_edit_project(client, project):
         'slug': project.slug,
     })
     response = client.get(url)
-    assert response.context_data['form'].instance == project
+    assert response.context_data['form']['project'].instance == project
     assert response.status_code == 200
 
 
