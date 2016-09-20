@@ -9,8 +9,8 @@
         font-weight: bold;
         color: $brand-brand1;
         @include rem(font-size, 28px);
-        @include rem(line-height, 1);
-        @include rem(margin, 0px 0px 6px 0px);
+        line-height: 1.2;
+        @include rem(margin, 0px 0px 10px 0px);
         max-width: 70%;
 
         @media (max-width: $screen-sm-min) {
