@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.sites import shortcuts
 from django.core import urlresolvers
-from django.template import Context
 
 from euth.contrib import emails
 
@@ -22,12 +21,12 @@ def send_email_to_moderators(request, report):
 
     moderators = User.objects.filter(is_superuser=True)\
                              .values_list('email', flat=True)
-    context = Context({
+    context = {
         'site': shortcuts.get_current_site(request),
         'name': name,
         'admin_url': admin_url,
         'description': report.description
-    })
+    }
 
     emails.send_email_with_template(
         moderators, 'report_moderators', context
@@ -39,11 +38,11 @@ def send_email_to_creator(request, report):
     receiver = get_creator(obj).email
     name = obj._meta.verbose_name
 
-    context = Context({
+    context = {
         'site': shortcuts.get_current_site(request),
         'name': name,
         'description': report.description
-    })
+    }
 
     emails.send_email_with_template([receiver], 'report_creator', context)
 
