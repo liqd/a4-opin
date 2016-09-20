@@ -84,13 +84,20 @@
 .euth-hero-unit-title {
     @include rem(font-size, $font-size-xlarge);
     @include rem(margin, 0 0 20px 0);
-    letter-spacing: 3px;
+
+    @media screen and (max-width: $screen-md-max) {
+        @include rem(padding, 0 40px);
+    }
 }
 
 .euth-hero-unit-description {
     @include rem(padding, 0 70px);
     line-height: 1.63;
     margin-bottom: 0;
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding: 0;
+    }
 }
 
 .euth-home-hero {
@@ -100,6 +107,7 @@
         @include rem(font-size, 60px);
         @include rem(top, 163px);
         color: #fff;
+
         &:after {
             background: rgba(0, 0, 0, 0.5);
             content: '\A';
