@@ -1,16 +1,19 @@
 import email.utils
 import re
 
-import multiform
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.forms import modelformset_factory
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
+from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
+
+from . import multiform
 
 
 class ProfileForm(forms.ModelForm):
@@ -66,6 +69,30 @@ class ProjectForm(forms.ModelForm):
             'image': widgets.ImageInputWidget()
         }
 
+    def save(self, commit=True):
+        self.instance.is_draft = 'save_draft' in self.data
+        return super().save(commit)
+
+
+class PhaseForm(forms.ModelForm):
+    class Meta:
+        model = phase_models.Phase
+        exclude = ('module', 'type')
+
+        widgets = {
+            'end_date': widgets.DateTimeInput(),
+            'start_date': widgets.DateTimeInput(),
+        }
+
+
+class ProjectCompleteForm(multiform.MultiModelForm):
+    base_forms = [
+        ('project', ProjectForm),
+        ('phases', modelformset_factory(
+            phase_models.Phase, PhaseForm, extra=0
+        )),
+    ]
+
 
 class RequestModerationForm(forms.ModelForm):
     ACTIONS = (
@@ -120,42 +147,6 @@ class ProjectUserForm(multiform.MultiModelForm):
         self.project = kwargs['project']
         del kwargs['project']
         super().__init__(*args, **kwargs)
-
-    def _init_wrapped_forms(self, sig_kwargs, extra_kwargs):
-        """
-        Filter our arguments that don't make sense for formsets as base_forms.
-        Should be moved to multiforms itself.
-        """
-        new_sig_kwargs = dict(sig_kwargs)
-        del new_sig_kwargs['instance']
-        del new_sig_kwargs['empty_permitted']
-        del new_sig_kwargs['label_suffix']
-        return super()._init_wrapped_forms(new_sig_kwargs, extra_kwargs)
-
-    def _combine(self, *args, **kwargs):
-        """
-        Filter out list of falsy values which occour when using formsets.
-        Should be moved to multiforms itself.
-        """
-        values = super()._combine(*args, **kwargs)
-        if 'filter' in kwargs and kwargs['filter']:
-            values = [
-                value for value in values
-                if not hasattr(value, '__iter__') or not any(value)
-            ]
-        return values
-
-    def full_clean(self):
-        """
-        Modified full clean that does collect cleaned data from formsets.
-        Should be moved to multiforms itself.
-        """
-        self._errors = self._combine('errors', filter=True)
-
-        if not self._errors:
-            self.cleaned_data = {}
-            for name, formset in self.forms.items():
-                self.cleaned_data[name] = [f.cleaned_data for f in formset]
 
     def save(self, commit=True):
         if commit:

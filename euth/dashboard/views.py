@@ -8,6 +8,7 @@ from rules.compat import access_mixins as mixins
 
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
+from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
@@ -89,7 +90,7 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
-    form_class = forms.ProjectForm
+    form_class = forms.ProjectCompleteForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
 
@@ -99,6 +100,12 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
                                'organisation_slug': self.organisation.slug,
                                'slug': self.get_object().slug
                            })
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        qs = phase_models.Phase.objects.filter(module__project=self.object)
+        kwargs['phases__queryset'] = qs
+        return kwargs
 
 
 class DashboardProjectInviteView(DashboardBaseMixins,
