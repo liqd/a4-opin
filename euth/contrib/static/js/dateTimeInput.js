@@ -1,2 +1,1 @@
-var $ = require('jquery')
-$('.flatpickr').flatpickr()
+$('.flatpickr').flatpickr() // eslint-disable-line

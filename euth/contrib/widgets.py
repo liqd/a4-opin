@@ -114,11 +114,4 @@ class DateTimeInput(widgets.DateTimeInput):
                 'data-date-format': format.replace('%', '').replace('M', 'i'),
             })
         input = mark_safe(super().render(name, value, attrs))
-        print(input)
-        return """
-        <div class="input-group">
-            {}
-            <span class="input-group-addon">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-            </span>
-        </div>""".format(input)
+        return input
