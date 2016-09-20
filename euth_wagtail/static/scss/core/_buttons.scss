@@ -40,6 +40,24 @@
     text-transform: uppercase;
 }
 
+.btn-ghost {
+    border: 1px solid currentColor;
+    text-transform: uppercase;
+    background: transparent;
+    @include rem(padding, 10px);
+
+    &.btn-primary {
+        color: $brand-primary;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: transparent;
+            color: darken($brand-primary, 20%)
+        }
+    }
+}
+
 .button-white {
     line-height: 40px;
     border-radius: 25px;

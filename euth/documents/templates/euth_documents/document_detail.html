@@ -21,13 +21,18 @@
     <article class="commenting-text">
         <h3>{{ object.name }}</h3>
         {% for paragraph in object.paragraphs_sorted %}
-        <section class="row">
-            <div class="col-sm-10 linked-paragraph">
+        <section class="row commenting-paragraph">
+            <div class="col-sm-9 paragraph">
                 <h4>{{ paragraph.name }}</h4>
-                <a href="{% url 'paragraph-detail' paragraph.pk %}">{{ paragraph.text|safe }}</a>
+                {{ paragraph.text|safe }}
             </div>
-            <div class="col-sm-2 comment-count">
-                <span><i class="fa fa-comment-o" aria-hidden="true"></i> {{ paragraph.comments.count }}</span>
+            <div class="col-sm-3 comment-count">
+                <div>
+                    <a href="{% url 'paragraph-detail' paragraph.pk %}">
+                        <span>{{ paragraph.comments.count }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                <a href="{% url 'paragraph-detail' paragraph.pk %}" class="btn btn-ghost btn-primary">{% trans 'Add your comment' %}</a>
             </div>
         </section>
         {% endfor %}
