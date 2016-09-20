@@ -1,0 +1,10 @@
+Dear {{user.username}},
+
+your email address has been used on {{site.name}}. Please
+visit the url below.
+
+{{activate_url}}
+
+Best wishes
+
+{{site.name}} team

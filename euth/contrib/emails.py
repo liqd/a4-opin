@@ -134,8 +134,7 @@ def send_email_with_template(receivers, template, additional_context):
 
         def get_context(self):
             context = super().get_context()
-            for d in additional_context.dicts:
-                context.update(d)
+            context.update(dict(additional_context))
             return context
 
     EmailWithTemplate.send(None)

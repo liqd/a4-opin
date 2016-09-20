@@ -119,3 +119,10 @@ h1.dashboard-title {
     @include rem(font-size, $font-size-medium);
     @include rem(margin-bottom, 30px);
 }
+
+.email_list {
+    .checkbox label {
+        font-weight: 400;
+        @include rem(margin-bottom, 5px);
+    }
+}

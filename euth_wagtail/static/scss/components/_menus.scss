@@ -46,6 +46,7 @@
     .dropdown-menu a,
     .dropdown-menu button {
         @include rem(padding-left, 20px);
+        @include rem(padding-right, 20px);
 
         @media (max-width: $screen-sm-min) {
             @include rem(margin-left, 40px);

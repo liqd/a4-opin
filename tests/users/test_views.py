@@ -139,9 +139,7 @@ def test_reset(client, user):
         'password2': 'password1',
     })
     assert response.status_code == 302
-    assert response.url.endswith(
-        reverse('account_reset_password_from_key_done')
-    )
+    assert response.url == 'http://testserver/'
     assert user.password != User.objects.get(username=user.username).password
 
 
