@@ -297,6 +297,7 @@ LOGIN_URL = 'account_login'
 LOGOUT_URL = 'account_logout'
 LOGIN_REDIRECT_URL = '/'
 
+ACCOUNT_ADAPTER = 'euth.users.adapters.EuthAccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 ACCOUNT_EMAIL_REQUIRED = True
