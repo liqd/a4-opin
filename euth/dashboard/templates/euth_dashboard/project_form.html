@@ -7,7 +7,6 @@
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
-        {{ form.media }}
         <nav class="tabs">
             <ul>
                 <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}"><a
@@ -101,6 +100,7 @@
         <button type="submit" name="save_draft" class="submit-button">{% trans 'unpublish' %}</button>
         {% endif %}
         <button type="submit" name="publish" class="submit-button">{% trans 'save and publish' %}</button>
+        {{ form.media }}
     </form>
 </div>
 

@@ -1,9 +1,11 @@
 from os.path import basename
 
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import widgets
+from django.utils import formats
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext
+from django.utils.translation import get_language, ugettext
 
 
 class ImageInputWidget(widgets.ClearableFileInput):
@@ -89,4 +91,34 @@ class ImageInputWidget(widgets.ClearableFileInput):
 
 
 class DateTimeInput(widgets.DateTimeInput):
-    input_type = 'datetime-local'
+    class Media:
+        js = (staticfiles_storage.url('flatpickr.min.js'),
+              'js/dateTimeInput.js')
+        css = {'all': [staticfiles_storage.url('flatpickr.min.css')]}
+
+    input_type = 'text'
+
+    # becomes a public value in Django 1.10
+    def _format_value(self, value):
+        return formats.localize_input(value,
+                                      formats.get_format(self.format_key)[2])
+
+    def render(self, name, value, attrs=None):
+        if attrs:
+            format = formats.get_format(self.format_key)[2]
+            attrs.update({
+                'class': attrs.get('class', '') + ' flatpickr',
+                'data-enable-time': 'true',
+                'data-time_24hr': 'true',
+                'data-language': get_language(),
+                'data-date-format': format.replace('%', '').replace('M', 'i'),
+            })
+        input = mark_safe(super().render(name, value, attrs))
+        print(input)
+        return """
+        <div class="input-group">
+            {}
+            <span class="input-group-addon">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+            </span>
+        </div>""".format(input)

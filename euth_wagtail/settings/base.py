@@ -79,7 +79,8 @@ INSTALLED_APPS = [
     'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
-    'euth.documents.apps.DocumentConfig'
+    'euth.documents.apps.DocumentConfig',
+    'euth.contrib',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -271,6 +272,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/stylesheets'),
     os.path.join(BASE_DIR, 'node_modules/font-awesome'),
     os.path.join(BASE_DIR, 'node_modules/owl.carousel/dist'),
+    os.path.join(BASE_DIR, 'node_modules/flatpickr/assets'),
+    os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 

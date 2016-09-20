@@ -3,19 +3,20 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "bootstrap-sass": "3.3.6",
+    "flatpickr": "^2.0.0-rc.8",
     "font-awesome": "4.6.3",
     "jquery": "2.2.4",
+    "js-cookie": "~2.1.2",
     "marked": "0.3.5",
     "moment": "^2.14.1",
     "owl.carousel": "~2.1.4",
     "react": "15.1.0",
+    "react-addons-update": "~15.1.0",
     "react-dom": "15.1.0",
     "react-hyperscript": "2.4.0",
     "salvattore": "1.0.9",
     "webpack": "1.13.1",
-    "webpack-bundle-tracker": "0.0.93",
-    "react-addons-update": "~15.1.0",
-    "js-cookie": "~2.1.2"
+    "webpack-bundle-tracker": "0.0.93"
   },
   "devDependencies": {
     "standard-format": "2.2.2",
