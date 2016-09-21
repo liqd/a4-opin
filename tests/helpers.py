@@ -15,11 +15,11 @@ def createThumbnail(imagefield):
     return thumbnail_path
 
 
-def template_used(response, template_name):
+def templates_used(response):
     if not hasattr(response, 'templates'):
         raise Exception("Response wasn't render from template")
     names = [template.name for template in response.templates]
-    return template_name in names
+    return names
 
 
 def redirect_target(response):

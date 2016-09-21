@@ -1,7 +1,7 @@
 import pytest
 from django.core import mail
 from django.core.urlresolvers import reverse
-from tests.helpers import redirect_target, template_used
+from tests.helpers import redirect_target, templates_used
 
 from euth.memberships import models
 
@@ -16,9 +16,11 @@ def test_create_request(client, project, user):
     client.login(username=user.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
-    assert template_used(response,
-                         'euth_projects/includes/project_hero_unit.html')
-    assert template_used(response, 'euth_memberships/request_detail.html')
+    assert (
+        'euth_projects/includes/project_hero_unit.html'
+        in templates_used(response)
+    )
+    assert 'euth_memberships/request_detail.html' in templates_used(response)
 
     response = client.post(url, data={})
     assert redirect_target(response) == 'memberships-request'
@@ -40,9 +42,11 @@ def test_accept_invite(client, invite, user):
     client.login(username=user.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
-    assert template_used(response,
-                         'euth_projects/includes/project_hero_unit.html')
-    assert template_used(response, 'euth_memberships/invite_form.html')
+    assert (
+        'euth_projects/includes/project_hero_unit.html'
+        in templates_used(response)
+    )
+    assert 'euth_memberships/invite_form.html' in templates_used(response)
 
     response = client.post(url, data={'accept': ''})
     assert redirect_target(response) == 'project-detail'

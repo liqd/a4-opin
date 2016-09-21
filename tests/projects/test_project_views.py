@@ -1,6 +1,6 @@
 import pytest
 from django.core.urlresolvers import reverse
-from tests.helpers import redirect_target, template_used
+from tests.helpers import redirect_target, templates_used
 
 
 @pytest.mark.django_db
@@ -41,14 +41,18 @@ def test_detail_draft_project(client, project, user):
     client.login(username=user.email, password='password')
     response = client.get(project_url)
     assert response.status_code == 403
-    assert not template_used(response,
-                             'euth_projects/project_membership_request.html')
+    assert (
+        'euth_projects/project_membership_request.html'
+        not in templates_used(response)
+    )
 
     project.participants.add(user)
     response = client.get(project_url)
     assert response.status_code == 403
-    assert not template_used(response,
-                             'euth_projects/project_membership_request.html')
+    assert (
+        'euth_projects/project_membership_request.html'
+        not in templates_used(response)
+    )
 
     project.organisation.initiators.add(user)
     response = client.get(project_url)
