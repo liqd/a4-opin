@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'compressor',
     'taggit',
-    'projects',
     'widget_tweaks',
     'webpack_loader',
     'easy_thumbnails',
