@@ -99,6 +99,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
     def __init__(self, template, organisation, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
+        kwargs['phases__initial'] = [{'phase_content': t} for t in template]
         self.organisation = organisation
         self.template = template
 
