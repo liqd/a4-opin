@@ -9,15 +9,24 @@
         {% csrf_token %}
         <nav class="tabs">
             <ul>
-                <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}"><a
-                    href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
+                <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}">
+                    <a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a>
+                    {% if form.project.errors %}<span class="info-number">{{ form.project.errors|length }}</span>{% endif %}
+                </li>
                 <li class="col-md-4 {% if view.project.active_phase %} active {% endif %}">
-                    <a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a></li>
-                <li class="col-md-4"><a href="#result" data-toggle="tab" class="tab">{% trans "Result" %}</a></li>
+                    <a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a>
+                    {% if form.phases.total_error_count %}<span class="info-number">{{ form.phases.total_error_count }}</span>{% endif %}
+                </li>
+                <li class="col-md-4"><a href="#result" data-toggle="tab" class="tab">{% trans "Result" %}</a>
+                    {% if form.project.result.errors %}<span class="info-number">{{ from.project.result.errors|length }}</span>{% endif %}
+                </li>
             </ul>
         </nav>
         <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
+            {% for error in form.project.non_field_errors %}
+            <span class="help-block">{{ error }}</span>
+            {% endfor %}
             {% for field in form.project %}
                 {% if not field == form.project.result %}
                 <div class="form-group{% if field.errors %} has-error{% endif %}">
@@ -38,6 +47,11 @@
                 {% endfor %}
 
                 <div class="phase-form">
+                     {% for error in form.non_field_errors %}
+                     <span class="help-block">{{ error }}</span>
+                     {% endfor %}
+
+
                     {% for field in form.visible_fields %}
 
                     {% if field != form.start_date and field != form.end_date   %}

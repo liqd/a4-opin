@@ -105,7 +105,9 @@ class ProjectCreateForm(multiform.MultiModelForm):
         self.base_forms = [
             ('project', ProjectForm),
             ('phases', modelformset_factory(
-                phase_models.Phase, PhaseForm, extra=len(template)
+                phase_models.Phase, PhaseForm,
+                min_num=len(template),
+                max_num=len(template),
             )),
         ]
 
