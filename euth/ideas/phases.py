@@ -50,7 +50,7 @@ class RatingPhase(phases.PhaseContent):
     description = _('Get quantative feeback by rating the collected ideas.')
 
     features = {
-        'rating': (models.Idea,)
+        'rate': (models.Idea,)
     }
 phases.content.register(RatingPhase())
 
@@ -67,7 +67,7 @@ class FeedbackPhase(phases.PhaseContent):
     module_name = _('ideas collection')
 
     features = {
-        'rating': (models.Idea,),
+        'rate': (models.Idea,),
         'comment': (models.Idea,)
     }
 phases.content.register(FeedbackPhase())
@@ -86,6 +86,6 @@ class UniversalPhase(phases.PhaseContent):
     features = {
         'crud': (models.Idea,),
         'comment': (models.Idea,),
-        'rating':  (models.Idea,),
+        'rate':  (models.Idea,),
     }
 phases.content.register(UniversalPhase())
