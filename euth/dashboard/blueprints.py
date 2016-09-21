@@ -11,17 +11,27 @@ ProjectBlueprint = namedtuple(
 )
 
 blueprints = [
-    ('ideas-collection',
+    ('ideas-collection-1',
      ProjectBlueprint(
-         title=_('Idea collection'),
+         title=_('Idea collection 1'),
+         description=_('Collect ideas'),
+         content=[
+             ideas_phases.IssuePhase(),
+             ideas_phases.FeedbackPhase(),
+         ],
+         image='images/placeholder.png',
+     )),
+    ('ideas-collection-2',
+     ProjectBlueprint(
+         title=_('Idea collection 2'),
          description=_('Collect ideas'),
          content=[
              ideas_phases.CollectPhase(),
              ideas_phases.RatingPhase(),
-             ideas_phases.CommentPhase(),
          ],
          image='images/placeholder.png',
      )),
+
     ('commenting-text',
      ProjectBlueprint(
          title=_('Commenting text'),

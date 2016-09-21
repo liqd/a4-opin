@@ -21,7 +21,7 @@
                 {% endblocktrans %}
                 <ul>
                     {% for phase_content in blueprint.content %}
-                    <li>{{ phase_content.name }}</li>
+                    <li>{{ phase_content.name }}: {{ phase_content.description }}</li>
                     {% endfor %}
                 </ul>
             </div>
