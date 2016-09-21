@@ -8,6 +8,7 @@ from django.forms import modelformset_factory
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.modules import models as module_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
 from euth.projects import models as project_models
@@ -92,6 +93,49 @@ class ProjectCompleteForm(multiform.MultiModelForm):
             phase_models.Phase, PhaseForm, extra=0
         )),
     ]
+
+
+class ProjectCreateForm(multiform.MultiModelForm):
+
+    def __init__(self, template, organisation, *args, **kwargs):
+        kwargs['phases__queryset'] = phase_models.Phase.objects.none()
+        self.organisation = organisation
+        self.template = template
+
+        self.base_forms = [
+            ('project', ProjectForm),
+            ('phases', modelformset_factory(
+                phase_models.Phase, PhaseForm, extra=len(template)
+            )),
+        ]
+
+        return super().__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        objects = super().save(commit=False)
+
+        project = objects['project']
+        project.organisation = self.organisation
+        if commit:
+            project.save()
+
+        module = module_models.Module(
+            name=project.slug + '_module',
+            weight=1,
+            project=project
+        )
+        objects['module'] = module
+        if commit:
+            module.save()
+
+        phases = objects['phases']
+        for phase, phase_content in zip(phases, self.template):
+            phase.module = module
+            phase.type = phase_content.identifier
+            if commit:
+                phase.save()
+
+        return objects
 
 
 class RequestModerationForm(forms.ModelForm):

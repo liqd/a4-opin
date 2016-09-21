@@ -42,7 +42,7 @@
 
                     {% if field != form.start_date and field != form.end_date   %}
                     <div class="form-group {% if field.errors %} has-error{% endif %}">
-                        <label>{{ field.label }} {% trans 'of Phase '%} {{ forloop.parentloop.counter }}: {{ form.instance.content.name }}</label>
+                        <label>{{ field.label }} {% trans 'of Phase '%} {{ forloop.parentloop.counter }}: {% if form.instance.id %}{{ form.instance.content.name }}{% endif %}</label>
                         {% if field.help_text %}
                         <p><i>{{ field.help_text }}</i></p>
                         {% endif %}
@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group {% if form.start_date.errors %} has-error{% endif %}">
-                                <label>{{ form.start_date.label }} {% trans 'of Phase: '%} {{ forloop.counter }}: {{ form.instance.content.name }}</br>
+                                <label>{{ form.start_date.label }} {% trans 'of Phase: '%} {{ forloop.counter }}: {% if form.instance.id %}{{ form.instance.content.name }}{% endif %}</br>
                                 {% if form.start_date.help_text %}
                                 <i>{{ form.start_date.help_text }}</i></br>
                                 {% endif %}
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group {% if form.end_date.errors %} has-error{% endif %}">
-                                <label>{{ form.end_date.label }} {% trans 'of Phase '%} {{ forloop.counter }}: {{ form.instance.content.name }}</br>
+                                <label>{{ form.end_date.label }} {% trans 'of Phase '%} {{ forloop.counter }}: {% if form.instance.id %}{{ form.instance.content.name }}{% endif %}</br>
                                 {% if form.end_date.help_text %}
                                 <i>{{ form.end_date.help_text }}</i></br>
                                 {% endif %}

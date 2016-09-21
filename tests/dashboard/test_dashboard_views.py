@@ -46,6 +46,47 @@ def test_initiator_list_projects(client, project):
 
 
 @pytest.mark.django_db
+def test_initiator_create_project(client, organisation):
+    user = organisation.initiators.first()
+    client.login(username=user.email, password='password')
+    url = reverse('dashboard-project-create', kwargs={
+        'organisation_slug': organisation.slug,
+    })
+    response = client.get(url)
+    assert response.status_code == 200
+
+    response = client.post(url, {
+        'phases-TOTAL_FORMS': '3',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': '',
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-1-id': '',
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-2-id': '',
+        'phases-2-start_date': '2016-10-01 16:16',
+        'phases-2-end_date': '2016-10-01 16:17',
+        'phases-2-name': 'Name 2',
+        'phases-2-description': 'Description 2',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'save_draft': ''
+    })
+    assert response.status_code == 302
+    assert redirect_target(response) == 'dashboard-project-list'
+    project = organisation.project_set.first()
+    assert project.is_draft
+    assert project.name == 'Project name'
+    assert len(project.module_set.first().phase_set.all()) == 3
+
+
+@pytest.mark.django_db
 def test_initiator_edit_project(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')

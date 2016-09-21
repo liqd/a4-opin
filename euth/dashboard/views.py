@@ -86,6 +86,36 @@ class DashboardProjectListView(DashboardBaseMixins,
         return reverse('dashboard-project-list')
 
 
+class DashboardProjectCreateView(DashboardBaseMixins,
+                                 SuccessMessageMixin,
+                                 generic.CreateView):
+    model = project_models.Project
+    form_class = forms.ProjectCreateForm
+    template_name = 'euth_dashboard/project_form.html'
+    success_message = _('Project succesfully created.')
+
+    @property
+    def template(self):
+        from euth.ideas import phases
+        return [
+            phases.CollectPhase(),
+            phases.RatingPhase(),
+            phases.CommentPhase(),
+        ]
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['template'] = self.template
+        kwargs['organisation'] = self.organisation
+        return kwargs
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                       })
+
+
 class DashboardProjectUpdateView(DashboardBaseMixins,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
