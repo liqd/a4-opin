@@ -86,6 +86,12 @@ class DashboardProjectListView(DashboardBaseMixins,
         return reverse('dashboard-project-list')
 
 
+class DashboardBlueprintListView(DashboardBaseMixins,
+                                 generic.TemplateView):
+    template_name = 'euth_dashboard/blueprint_list.html'
+    blueprints = blueprints.blueprints
+
+
 class DashboardProjectCreateView(DashboardBaseMixins,
                                  SuccessMessageMixin,
                                  blueprints.BlueprintMixin,
