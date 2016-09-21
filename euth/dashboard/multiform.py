@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 import multiform
 from django.forms import formsets
 
@@ -30,17 +32,23 @@ class MultiModelForm(multiform.MultiModelForm):
 
     def _combine(self, *args, **kwargs):
         """
-        Filter out list of falsy values which occour when using formsets.
-        Should be moved to multiforms itself.
+        Combine with filter argument doesn't work for form sets. Because
+        formsets will return always a list of values and even lists of falsy
+        values are truthy.
+
+        This extends combine to inside the lists returned by the formset and
+        filter it if all values inside are false.
 
         WARNING: This kind of hacky. It should be better fixed somewhere else.
         """
+        base_forms = self.get_base_forms()
         values = super()._combine(*args, **kwargs)
         if 'filter' in kwargs and kwargs['filter']:
-            values = [
-                value for value in values
-                if not hasattr(value, '__iter__') or not any(value)
-            ]
+            values = OrderedDict([
+                (name, value) for name, value in values.items()
+                if not issubclass(base_forms[name], formsets.BaseFormSet)
+                or any(value)
+            ])
         return values
 
     def full_clean(self):

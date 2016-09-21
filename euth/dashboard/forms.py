@@ -112,7 +112,7 @@ class RequestModerationForm(forms.ModelForm):
 
 
 class InviteModerationForm(forms.ModelForm):
-    delete = forms.BooleanField(initial=False)
+    delete = forms.BooleanField(initial=False, required=False)
 
     class Meta:
         model = member_models.Request
@@ -120,7 +120,7 @@ class InviteModerationForm(forms.ModelForm):
 
 
 class ParticipantsModerationForm(forms.ModelForm):
-    delete = forms.BooleanField(initial=False)
+    delete = forms.BooleanField(initial=False, required=False)
 
     class Meta:
         model = user_models.User
