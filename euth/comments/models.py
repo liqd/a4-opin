@@ -26,6 +26,13 @@ class Comment(TimeStampedModel):
     def __str__(self):
         return str(self.created)
 
+    @property
+    def process(self):
+        co = self.content_object
+        if isinstance(co, self.__class__):
+            co = co.content_object
+        return co.process
+
     def save(self, *args, **kwargs):
         """
         Change the text of the comment if

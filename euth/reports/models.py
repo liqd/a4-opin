@@ -18,3 +18,8 @@ class Report(TimeStampedModel):
 
     def __str__(self):
         return "{}_{}".format(str(self.content_type), str(self.object_pk))
+
+    @property
+    def process(self):
+        co = self.content_object
+        return co.process
