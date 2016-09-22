@@ -1,3 +1,5 @@
+from allauth.account import views as account_views
+from allauth.socialaccount import views as socialaccount_views
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -16,12 +18,7 @@ from . import blueprints, forms
 
 
 def dashboard(request):
-    organisation = request.user.organisation_set.first()
-    if organisation:
-        return redirect('dashboard-profile-org',
-                        organisation_slug=organisation.slug)
-    else:
-        return redirect('dashboard-profile')
+    return redirect('dashboard-profile')
 
 
 class DashboardBaseMixins(mixins.LoginRequiredMixin,
@@ -33,13 +30,25 @@ class DashboardBaseMixins(mixins.LoginRequiredMixin,
 
     @functional.cached_property
     def organisation(self):
-        slug = self.kwargs['organisation_slug']
-        return get_object_or_404(org_models.Organisation, slug=slug)
+        if 'organisation_slug' in self.kwargs:
+            slug = self.kwargs['organisation_slug']
+            return get_object_or_404(org_models.Organisation, slug=slug)
+        else:
+            return self.request.user.organisation_set.first()
 
     @functional.cached_property
     def other_organisations_of_user(self):
         user = self.request.user
         return user.organisation_set.exclude(pk=self.organisation.pk)
+
+
+class DashboardEmailView(DashboardBaseMixins, account_views.EmailView):
+    pass
+
+
+class DashboardAccountView(DashboardBaseMixins,
+                           socialaccount_views.ConnectionsView):
+    pass
 
 
 class DashboardProfileView(DashboardBaseMixins,
