@@ -115,8 +115,8 @@ def test_dashboard_project_users(client, project, user_factory,
     response = client.get(url)
     assert redirect_target(response) == 'account_login'
 
-    moderator = project.moderators.first()
-    client.login(username=moderator.email, password='password')
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
     multiform = response.context['form']
@@ -176,8 +176,8 @@ def test_dashboard_project_invite(client, project):
     response = client.get(url)
     assert redirect_target(response) == 'account_login'
 
-    moderator = project.moderators.first()
-    client.login(username=moderator.email, password='password')
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
 
@@ -204,8 +204,9 @@ def test_dashboard_project_invalid(client, project):
         'organisation_slug': project.organisation.slug,
         'slug': project.slug,
     })
-    moderator = project.moderators.first()
-    client.login(username=moderator.email, password='password')
+
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
 
     response = client.post(url, {
         'emails': 'test@test.de foo@bar.de'
