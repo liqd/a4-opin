@@ -83,6 +83,7 @@ var CommentBox = React.createClass({
   getChildContext: function () {
     return {
       isAuthenticated: this.props.isAuthenticated,
+      isModerator: this.props.isModerator,
       login_url: this.props.login_url,
       ratingsUrls: this.props.ratingsUrls,
       comments_contenttype: this.props.comments_contenttype,
@@ -119,7 +120,8 @@ var CommentBox = React.createClass({
 })
 
 CommentBox.childContextTypes = {
-  isAuthenticated: React.PropTypes.number,
+  isAuthenticated: React.PropTypes.bool,
+  isModerator: React.PropTypes.bool,
   login_url: React.PropTypes.string,
   ratingsUrls: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
@@ -217,7 +219,7 @@ var Comment = React.createClass({
         contentType: this.context.comments_contenttype
       }),
 
-      this.isOwner() ? h(Modal, {
+      this.isOwner() || this.context.isModerator ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
         question: django.gettext('Do you really want to delete this comment?'),
         handler: function () {
@@ -287,7 +289,7 @@ var Comment = React.createClass({
               }),
 
               h('ul.dropdown-menu', [].concat(
-                this.isOwner() && !this.props.isReadOnly ? [ h('li', [
+                (this.isOwner() || this.context.isModerator) && !this.props.isReadOnly ? [ h('li', [
                   h('a', {
                     href: '#',
                     onClick: this.toggleEdit,
@@ -415,7 +417,8 @@ var Modal = React.createClass({
 
 Comment.contextTypes = {
   comments_contenttype: React.PropTypes.number,
-  isAuthenticated: React.PropTypes.number,
+  isAuthenticated: React.PropTypes.bool,
+  isModerator: React.PropTypes.bool,
   user_name: React.PropTypes.string,
   login_url: React.PropTypes.string,
   ratingsUrls: React.PropTypes.string,
@@ -473,7 +476,7 @@ var CommentForm = React.createClass({
 })
 
 CommentForm.contextTypes = {
-  isAuthenticated: React.PropTypes.number,
+  isAuthenticated: React.PropTypes.bool,
   login_url: React.PropTypes.string
 }
 
@@ -522,11 +525,11 @@ var CommentEditForm = React.createClass({
 })
 
 CommentEditForm.contextTypes = {
-  isAuthenticated: React.PropTypes.number,
+  isAuthenticated: React.PropTypes.boolen,
   login_url: React.PropTypes.string
 }
 
-module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language, isReadOnly) {
+module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, isModerator, loginUrl, target, userName, language, isReadOnly) {
   ReactDOM.render(
     h(CommentBox, {
       url: url,
@@ -535,6 +538,7 @@ module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectI
       subjectId: subjectId,
       comments_contenttype: commentsContenttype,
       isAuthenticated: isAuthenticated,
+      isModerator: isModerator,
       login_url: loginUrl,
       pollInterval: 20000,
       user_name: userName,
