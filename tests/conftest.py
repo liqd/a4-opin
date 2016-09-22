@@ -1,6 +1,5 @@
 import factory
 import pytest
-from dateutil.parser import parse
 from django.core.urlresolvers import reverse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
@@ -19,32 +18,10 @@ register(factories.ContentTypeFactory)
 
 register(org_factories.OrganisationFactory)
 register(prj_factories.ProjectFactory)
-register(prj_factories.ProjectFactory, 'active_project')
 register(mod_factories.ModuleFactory)
-register(mod_factories.ModuleFactory, 'active_module')
 register(ph_factories.PhaseFactory)
 register(member_factories.RequestFactory, 'membership_request')
 register(member_factories.InviteFactory)
-register(
-    ph_factories.PhaseFactory, 'active_phase',
-    start_date=parse('2013-01-02 00:00:00 UTC'),
-    end_date=parse('2013-01-03 00:00:00 UTC')
-)
-
-
-@pytest.fixture
-def membership_request__creator(user2):
-    return user2
-
-
-@pytest.fixture
-def active_module__project(active_project):
-    return active_project
-
-
-@pytest.fixture
-def active_phase__module(active_module):
-    return active_module
 
 
 @pytest.fixture

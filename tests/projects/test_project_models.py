@@ -1,7 +1,9 @@
 import os
 from datetime import timedelta
 
+
 import pytest
+from dateutil.parser import parse
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from freezegun import freeze_time
@@ -35,15 +37,17 @@ def test_is_privat(project):
 
 
 @pytest.mark.django_db
-def test_no_days_left(active_project, active_phase):
-    with freeze_time(active_phase.end_date):
-        assert active_project.days_left is None
+def test_no_days_left(phase):
+    project = phase.module.project
+    with freeze_time(phase.end_date):
+        assert project.days_left is None
 
 
 @pytest.mark.django_db
-def test_one_day_left(active_project, active_phase):
-    with freeze_time(active_phase.end_date - timedelta(days=1)):
-        assert active_project.days_left == 1
+def test_one_day_left(phase):
+    project = phase.module.project
+    with freeze_time(parse(phase.end_date) - timedelta(days=1)):
+        assert project.days_left == 1
 
 
 @pytest.mark.django_db
