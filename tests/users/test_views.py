@@ -64,7 +64,8 @@ def test_register(client, signup_url):
             'username': 'testuser2',
             'email': email,
             'password1': 'password',
-            'password2': 'password'
+            'password2': 'password',
+            'terms_of_use': 'on'
         }
     )
     assert response.status_code == 302
@@ -94,7 +95,8 @@ def test_reregister_same_username(client, signup_url):
         'username': 'testuser2',
         'email': 'testuser@liqd.de',
         'password1': 'password',
-        'password2': 'password'
+        'password2': 'password',
+        'terms_of_use': 'on'
     }
     response = client.post(signup_url, data)
     assert response.status_code == 302
@@ -113,7 +115,8 @@ def test_register_invalid(client, signup_url):
             'username': username,
             'email': 'testuser@liqd.de',
             'password1': 'password',
-            'password2': 'wrong_password'
+            'password2': 'wrong_password',
+            'terms_of_use': 'on'
         }
     )
     assert response.status_code == 200

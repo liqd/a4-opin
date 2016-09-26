@@ -68,6 +68,20 @@
             {{ form.password2.errors }}
         </div>
 
+        <div class="form-group">
+            {% if form.terms_of_use.errors %}
+                {{ form.terms_of_use|add_class:"form-error" }}
+            {% else %}
+                {{ form.terms_of_use }}
+            {% endif %}
+            <label class="control-label" for="{{ form.terms_of_use.id_for_label }}">
+                {% blocktrans with terms_of_use_url="/terms-of-use" %}
+                I accept the <a href="{{terms_of_use_url}}" target="blank">terms of use</a>.
+                {% endblocktrans %}
+            </label>
+            {{ form.terms_of_use.errors }}
+        </div>
+
         <button type="submit" value="Register" class="btn btn-primary">{% trans "register" %}</button>
     </form>
     <div class="socialaccounts">
