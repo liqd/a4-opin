@@ -18,11 +18,11 @@ def view_with_phase_dispatch():
 
 
 @pytest.mark.django_db
-def test_phase_dispatch_mixin_phase(rf, view_with_phase_dispatch,
-                                    active_project, active_phase):
-    with freeze_time(active_phase.start_date):
+def test_phase_dispatch_mixin_phase(rf, view_with_phase_dispatch, phase):
+    project = phase.module.project
+    with freeze_time(phase.start_date):
         request = rf.get('/url')
-        response = view_with_phase_dispatch(request, slug=active_project.slug)
+        response = view_with_phase_dispatch(request, slug=project.slug)
         assert 'blog/post_list.html' in response.template_name
 
 
@@ -35,17 +35,19 @@ def test_phase_dispatch_mixin_default(rf, view_with_phase_dispatch,
 
 
 @pytest.mark.django_db
-def test_project_mixin(rf, active_project, active_phase):
+def test_project_mixin(rf, phase):
+    project = phase.module.project
+
     class DummyView(mixins.ProjectMixin, ListView):
         model = blog_models.Post
 
     view = DummyView.as_view()
     request = rf.get('/project_name/ideas')
 
-    with freeze_time(active_phase.start_date):
-        response = view(request, project=active_project)
+    with freeze_time(phase.start_date):
+        response = view(request, project=project)
 
-    response = view(request, project=active_project)
+    response = view(request, project=project)
     view_data = response.context_data['view']
-    assert view_data.project == active_project
-    assert view_data.phase == active_phase
+    assert view_data.project == project
+    assert view_data.phase == phase
