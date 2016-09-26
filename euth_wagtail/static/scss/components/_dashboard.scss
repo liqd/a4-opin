@@ -5,15 +5,25 @@
 
 .dashboard-nav {
     height: 100%;
-    background-color: $black;
-    @include rem(padding-top, 30px);
 
     & a, a:active, a:focus, a:visited {
         text-decoration: none;
     }
 
-    .list-group {
-        @include rem(padding-top, 20px);
+    hr {
+        margin: 5px 0;
+    }
+
+    .dashboard-nav-group {
+        @include rem(margin-bottom, 30px);
+        background-color: $black;
+    }
+
+    .dashboard-nav-title {
+        color: #fff;
+        @include rem(padding, 10px);
+        line-height: 1.2;
+        margin-top: 0;
     }
 
     & .list-group-item-heading {
@@ -73,6 +83,8 @@
     }
 
     .dropdown {
+        @include rem(padding, 10px);
+
         button {
             display: block;
             color: #fff;
@@ -80,12 +92,16 @@
             background: transparent;
             border: 0;
             @include rem(padding, 10px 0);
+            text-align: left;
         }
         img {
-            width: 40px;
+            width: 30px;
         }
         .circle-bg {
             @include rem(margin-right, 10px);
+            display: block;
+            float: left;
+            text-align: center;
         }
     }
     .dropdown-menu {
