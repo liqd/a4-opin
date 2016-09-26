@@ -1,0 +1,40 @@
+{% extends "euth_dashboard/base_dashboard.html" %}
+{% load widget_tweaks i18n static %}
+
+
+{% block dashboard_content %}
+<h1 class="black-divider dashboard-title">{% trans 'Create new Project' %}</h1>
+
+<div class="row">
+    {% for blueprint_slug, blueprint in view.blueprints %}
+    <div class="col-lg-6">
+        <div class="blueprint-tile">
+            <h2>{{ blueprint.title }}</h2>
+            <img style="width: 100%" src="{% static blueprint.image %}">
+            <div class="blueprint-description">
+                {{ blueprint.description | linebreaks }}
+            </div>
+
+            <div class="blueprint-description">
+                {% blocktrans with count=blueprint.content|length %}
+                The resulting project will have {{count}} phases:
+                {% endblocktrans %}
+                <ul>
+                    {% for phase_content in blueprint.content %}
+                    <li>{{ phase_content.name }}: {{ phase_content.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="blueprint-footer">
+                <a
+                     href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
+                     class="btn btn-primary" role="button">
+                    {% trans 'Create'%}
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

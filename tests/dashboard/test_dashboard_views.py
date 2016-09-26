@@ -51,12 +51,13 @@ def test_initiator_create_project(client, organisation):
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-create', kwargs={
         'organisation_slug': organisation.slug,
+        'blueprint_slug': 'ideas-collection-1'
     })
     response = client.get(url)
     assert response.status_code == 200
 
     response = client.post(url, {
-        'phases-TOTAL_FORMS': '3',
+        'phases-TOTAL_FORMS': '2',
         'phases-INITIAL_FORMS': '0',
         'phases-0-id': '',
         'phases-0-start_date': '2016-10-01 16:12',
@@ -68,11 +69,6 @@ def test_initiator_create_project(client, organisation):
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
-        'phases-2-id': '',
-        'phases-2-start_date': '2016-10-01 16:16',
-        'phases-2-end_date': '2016-10-01 16:17',
-        'phases-2-name': 'Name 2',
-        'phases-2-description': 'Description 2',
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
@@ -83,7 +79,7 @@ def test_initiator_create_project(client, organisation):
     project = organisation.project_set.first()
     assert project.is_draft
     assert project.name == 'Project name'
-    assert len(project.module_set.first().phase_set.all()) == 3
+    assert len(project.module_set.first().phase_set.all()) == 2
 
 
 @pytest.mark.django_db

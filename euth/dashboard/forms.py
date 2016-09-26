@@ -97,18 +97,20 @@ class ProjectCompleteForm(multiform.MultiModelForm):
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
-    def __init__(self, template, organisation, *args, **kwargs):
+    def __init__(self, blueprint, organisation, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
-        kwargs['phases__initial'] = [{'phase_content': t} for t in template]
+        kwargs['phases__initial'] = [
+            {'phase_content': t} for t in blueprint.content
+        ]
         self.organisation = organisation
-        self.template = template
+        self.blueprint = blueprint
 
         self.base_forms = [
             ('project', ProjectForm),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm,
-                min_num=len(template),
-                max_num=len(template),
+                min_num=len(blueprint.content),
+                max_num=len(blueprint.content),
             )),
         ]
 
@@ -132,7 +134,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
             module.save()
 
         phases = objects['phases']
-        for phase, phase_content in zip(phases, self.template):
+        for phase, phase_content in zip(phases, self.blueprint.content):
             phase.module = module
             phase.type = phase_content.identifier
             if commit:

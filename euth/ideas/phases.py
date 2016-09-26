@@ -5,16 +5,30 @@ from euth import phases
 from . import apps, models, views
 
 
+class IssuePhase(phases.PhaseContent):
+    app = apps.IdeaConfig.label
+    phase = 'issue'
+    weight = 10
+    view = views.IdeaListView
+
+    name = _('Issue phase')
+    description = _('Add new ideas.')
+    module_name = _('ideas collection')
+
+    features = {
+        'crud': (models.Idea,),
+    }
+phases.content.register(IssuePhase())
+
+
 class CollectPhase(phases.PhaseContent):
-    """
-    Allows commenting and CRUD operations on ideas.
-    """
     app = apps.IdeaConfig.label
     phase = 'collect'
     weight = 20
     view = views.IdeaListView
 
     name = _('Collect phase')
+    description = _('Add new ideas and comment them.')
     module_name = _('ideas collection')
 
     features = {
@@ -26,9 +40,6 @@ phases.content.register(CollectPhase())
 
 
 class RatingPhase(phases.PhaseContent):
-    """
-    Allows commenting and rating (aka voting) of ideas.
-    """
     app = apps.IdeaConfig.label
     phase = 'rating'
     weight = 30
@@ -36,39 +47,33 @@ class RatingPhase(phases.PhaseContent):
 
     name = _('Rating phase')
     module_name = _('ideas collection')
+    description = _('Get quantative feeback by rating the collected ideas.')
 
     features = {
-        'rating': (models.Idea,)
+        'rate': (models.Idea,)
     }
-
-
 phases.content.register(RatingPhase())
 
 
-class CommentPhase(phases.PhaseContent):
-    """
-    Allows only commenting of ideas.
-    """
+class FeedbackPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
-    phase = 'comment'
+    phase = 'rate'
     weight = 40
     view = views.IdeaListView
 
-    name = _('Comment phase')
+    name = _('Issue phase')
+    description = _('Get feedback for collected ideas through rates and '
+                    'comments.')
     module_name = _('ideas collection')
 
     features = {
-        'comment': (models.Idea,),
+        'rate': (models.Idea,),
+        'comment': (models.Idea,)
     }
-
-
-phases.content.register(CommentPhase())
+phases.content.register(FeedbackPhase())
 
 
 class UniversalPhase(phases.PhaseContent):
-    """
-    Allows all ideas operations. Emulates the old OPIN process.
-    """
     app = apps.IdeaConfig.label
     phase = 'universal'
     weight = 50
@@ -76,12 +81,11 @@ class UniversalPhase(phases.PhaseContent):
 
     name = _('Universal phase')
     module_name = _('ideas collection')
+    description = _('Use all features of the idea collection.')
 
     features = {
         'crud': (models.Idea,),
         'comment': (models.Idea,),
-        'rating':  (models.Idea,),
+        'rate':  (models.Idea,),
     }
-
-
 phases.content.register(UniversalPhase())

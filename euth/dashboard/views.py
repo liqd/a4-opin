@@ -12,7 +12,7 @@ from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
-from . import forms
+from . import blueprints, forms
 
 
 def dashboard(request):
@@ -86,26 +86,24 @@ class DashboardProjectListView(DashboardBaseMixins,
         return reverse('dashboard-project-list')
 
 
+class DashboardBlueprintListView(DashboardBaseMixins,
+                                 generic.TemplateView):
+    template_name = 'euth_dashboard/blueprint_list.html'
+    blueprints = blueprints.blueprints
+
+
 class DashboardProjectCreateView(DashboardBaseMixins,
                                  SuccessMessageMixin,
+                                 blueprints.BlueprintMixin,
                                  generic.CreateView):
     model = project_models.Project
     form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
 
-    @property
-    def template(self):
-        from euth.ideas import phases
-        return [
-            phases.CollectPhase(),
-            phases.RatingPhase(),
-            phases.CommentPhase(),
-        ]
-
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs['template'] = self.template
+        kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
         return kwargs
 
