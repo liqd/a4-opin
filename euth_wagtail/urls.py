@@ -18,7 +18,6 @@ from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
-from search import urls as search_urls
 
 js_info_dict = {
     'packages': ('euth.comments',),
@@ -46,7 +45,6 @@ urlpatterns += i18n_patterns(
     url(r'^memberships/', include(memberships_urls)),
     url(r'^adhocracy/',
         TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
-    url(r'^search/', include(search_urls)),
     url(r'^jsi18n/$', javascript_catalog,
         js_info_dict, name='javascript-catalog'),
     url(r'', include(wagtail_urls)),

@@ -27,7 +27,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'home',
-    'search',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -45,7 +44,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'compressor',
     'taggit',
-    'projects',
     'widget_tweaks',
     'webpack_loader',
     'easy_thumbnails',
