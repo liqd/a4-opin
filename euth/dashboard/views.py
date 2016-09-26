@@ -106,7 +106,7 @@ class DashboardProjectListView(DashboardBaseMixin,
         return reverse('dashboard-project-list')
 
 
-class DashboardBlueprintListView(DashboardBaseMixins,
+class DashboardBlueprintListView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  generic.TemplateView):
     template_name = 'euth_dashboard/blueprint_list.html'
@@ -114,8 +114,7 @@ class DashboardBlueprintListView(DashboardBaseMixins,
     permission_required = 'euth_organisations.initiate_project'
 
 
-
-class DashboardProjectCreateView(DashboardBaseMixins,
+class DashboardProjectCreateView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
                                  blueprints.BlueprintMixin,

@@ -36,8 +36,7 @@ urlpatterns = [
     url(r'^(?P<organisation_slug>[-\w_]+)/blueprints/'
         r'(?P<blueprint_slug>[-\w_]+)/$',
         views.DashboardProjectCreateView.as_view(),
-        name='dashboard-project-create'
-    ),
+        name='dashboard-project-create'),
     url(
         r'^(?P<organisation_slug>[-\w_]+)/projects/(?P<slug>[-\w_]+)/$',
         views.DashboardProjectUpdateView.as_view(),
