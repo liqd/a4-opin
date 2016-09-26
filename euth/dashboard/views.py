@@ -1,3 +1,5 @@
+from allauth.account import views as account_views
+from allauth.socialaccount import views as socialaccount_views
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -5,6 +7,7 @@ from django.utils import functional
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.compat import access_mixins as mixins
+from rules.contrib import views as rules_views
 
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
@@ -16,16 +19,11 @@ from . import blueprints, forms
 
 
 def dashboard(request):
-    organisation = request.user.organisation_set.first()
-    if organisation:
-        return redirect('dashboard-profile-org',
-                        organisation_slug=organisation.slug)
-    else:
-        return redirect('dashboard-profile')
+    return redirect('dashboard-profile')
 
 
-class DashboardBaseMixins(mixins.LoginRequiredMixin,
-                          generic.base.ContextMixin):
+class DashboardBaseMixin(mixins.LoginRequiredMixin,
+                         generic.base.ContextMixin,):
 
     @functional.cached_property
     def user_has_organisation(self):
@@ -33,8 +31,11 @@ class DashboardBaseMixins(mixins.LoginRequiredMixin,
 
     @functional.cached_property
     def organisation(self):
-        slug = self.kwargs['organisation_slug']
-        return get_object_or_404(org_models.Organisation, slug=slug)
+        if 'organisation_slug' in self.kwargs:
+            slug = self.kwargs['organisation_slug']
+            return get_object_or_404(org_models.Organisation, slug=slug)
+        else:
+            return self.request.user.organisation_set.first()
 
     @functional.cached_property
     def other_organisations_of_user(self):
@@ -42,7 +43,16 @@ class DashboardBaseMixins(mixins.LoginRequiredMixin,
         return user.organisation_set.exclude(pk=self.organisation.pk)
 
 
-class DashboardProfileView(DashboardBaseMixins,
+class DashboardEmailView(DashboardBaseMixin, account_views.EmailView):
+    pass
+
+
+class DashboardAccountView(DashboardBaseMixin,
+                           socialaccount_views.ConnectionsView):
+    pass
+
+
+class DashboardProfileView(DashboardBaseMixin,
                            SuccessMessageMixin,
                            generic.UpdateView):
 
@@ -58,7 +68,8 @@ class DashboardProfileView(DashboardBaseMixins,
         return self.request.path
 
 
-class DashboardOrganisationUpdateView(DashboardBaseMixins,
+class DashboardOrganisationUpdateView(DashboardBaseMixin,
+                                      rules_views.PermissionRequiredMixin,
                                       SuccessMessageMixin,
                                       generic.UpdateView):
     model = org_models.Organisation
@@ -66,33 +77,45 @@ class DashboardOrganisationUpdateView(DashboardBaseMixins,
     slug_url_kwarg = 'organisation_slug'
     template_name = 'euth_dashboard/organisation_form.html'
     success_message = _('Organisation successfully updated.')
+    permission_required = 'euth_organisations.modify_organisation'
 
     def get_success_url(self):
         return self.request.path
 
 
-class DashboardProjectListView(DashboardBaseMixins,
-                               mixins.LoginRequiredMixin,
+class DashboardProjectListView(DashboardBaseMixin,
+                               rules_views.PermissionRequiredMixin,
                                generic.ListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
+    permission_required = 'euth_organisations.modify_organisation'
 
     def get_queryset(self):
         return self.model.objects.filter(
             organisation=self.organisation
         )
 
+    def get_permission_object(self):
+        return self.organisation
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
     def get_success_url(self):
         return reverse('dashboard-project-list')
 
 
-class DashboardBlueprintListView(DashboardBaseMixins,
+class DashboardBlueprintListView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
                                  generic.TemplateView):
     template_name = 'euth_dashboard/blueprint_list.html'
     blueprints = blueprints.blueprints
+    permission_required = 'euth_organisations.initiate_project'
 
 
-class DashboardProjectCreateView(DashboardBaseMixins,
+class DashboardProjectCreateView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
                                  blueprints.BlueprintMixin,
                                  generic.CreateView):
@@ -100,6 +123,14 @@ class DashboardProjectCreateView(DashboardBaseMixins,
     form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
+    permission_required = 'euth_organisations.initiate_project'
+
+    def get_permission_object(self):
+        return self.organisation
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -114,13 +145,22 @@ class DashboardProjectCreateView(DashboardBaseMixins,
                        })
 
 
-class DashboardProjectUpdateView(DashboardBaseMixins,
+class DashboardProjectUpdateView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
     form_class = forms.ProjectCompleteForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
+    permission_required = 'euth_organisations.initiate_project'
+
+    def get_permission_object(self):
+        return self.organisation
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def get_success_url(self):
             return reverse('dashboard-project-edit',
@@ -136,13 +176,21 @@ class DashboardProjectUpdateView(DashboardBaseMixins,
         return kwargs
 
 
-class DashboardProjectInviteView(DashboardBaseMixins,
-                                 mixins.LoginRequiredMixin,
+class DashboardProjectInviteView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
+    permission_required = 'euth_organisations.initiate_project'
+
+    def get_permission_object(self):
+        return self.organisation
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     @functional.cached_property
     def project(self):
@@ -171,13 +219,22 @@ class DashboardProjectInviteView(DashboardBaseMixins,
                        })
 
 
-class DashboardProjectUserView(DashboardBaseMixins,
+class DashboardProjectUserView(DashboardBaseMixin,
+                               rules_views.PermissionRequiredMixin,
                                SuccessMessageMixin,
                                generic.FormView):
 
     form_class = forms.ProjectUserForm
     template_name = 'euth_dashboard/project_users.html'
     success_message = _("User request successfully updated.")
+    permission_required = 'euth_organisations.initiate_project'
+
+    def get_permission_object(self):
+        return self.organisation
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()

@@ -17,10 +17,5 @@ def is_live(user, project):
 
 
 @rules.predicate
-def is_initiator(user, project):
-    return user in project.organisation.initiators.all()
-
-
-@rules.predicate
 def is_moderator(user, project):
     return user in project.moderators.all()
