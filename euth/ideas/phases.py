@@ -57,7 +57,7 @@ phases.content.register(RatingPhase())
 
 class FeedbackPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
-    phase = 'rate'
+    phase = 'feedback'
     weight = 40
     view = views.IdeaListView
 

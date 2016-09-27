@@ -20,7 +20,7 @@ from . import multiform
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = user_models.User
-        fields = ['avatar', 'email']
+        fields = ['avatar', 'username']
         widgets = {
             'avatar': widgets.ImageInputWidget()
         }
