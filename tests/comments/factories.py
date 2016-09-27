@@ -1,5 +1,6 @@
 import factory
-from tests.factories import ContentTypeFactory, UserFactory
+from tests.apps.fakeprojects import factories
+from tests.factories import UserFactory
 
 
 class CommentFactory(factory.django.DjangoModelFactory):
@@ -7,6 +8,5 @@ class CommentFactory(factory.django.DjangoModelFactory):
         model = 'euth_comments.Comment'
 
     comment = factory.Faker('text')
-    object_pk = factory.Faker('random_digit_not_null')
-    content_type = factory.SubFactory(ContentTypeFactory)
+    content_object = factory.SubFactory(factories.FakeProjectContent)
     user = factory.SubFactory(UserFactory)
