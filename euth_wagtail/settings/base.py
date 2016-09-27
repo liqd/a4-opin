@@ -234,13 +234,13 @@ ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg', 'image/gif')
 
 THUMBNAIL_ALIASES = {
     '': {
-        'organisation_thumbnail': {'size': (400, 400), 'crop': 'smart'},
         'heroimage': {'size': (1500, 500), 'crop': 'smart'},
         'project_thumbnail': {'size': (520, 330), 'crop': 'smart'},
         'idea_image': {'size': (800, 0), 'crop': 'scale'},
         'organisation_thumbnail': {'size': (740, 540), 'crop': 'smart'},
         'avatar_small': {'size': (60, 60), 'crop': 'smart'},
-        'avatar_medium': {'size': (300, 300), 'crop': 'smart'},
+        'org_avatar_small': {'size': (60, 60), 'crop': 'scale'},
+        'org_avatar_medium': {'size': (200, 200), 'crop': 'scale'},
     }
 }
 # Static files (CSS, JavaScript, Images)

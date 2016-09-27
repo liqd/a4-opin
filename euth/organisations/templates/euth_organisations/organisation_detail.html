@@ -24,7 +24,7 @@
                 {% endif %}
                 <div class="euth-hero-unit-logo">
                     {% if organisation.logo %}
-                    <img alt="{{ organisation.name }} logo" src="{{ organisation.logo|thumbnail_url:'organisation_thumbnail' }}">
+                    <img alt="{{ organisation.name }} logo" src="{{ organisation.logo|thumbnail_url:'org_avatar_medium' }}">
                     {% else %}
                     <img alt="opin logo" src="{% static "images/logo.png" %}">
                     {% endif %}
