@@ -38,7 +38,7 @@
         </div>
 
         {% if idea.image %}
-        <img class="idea-image" src="{{ idea.image.url }}" style="width: 100%;">
+        <img class="idea-image" src="{{ idea.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
         {% endif %}
 
         <div class="idea-body">

@@ -16,7 +16,7 @@ class Idea(module_models.Item):
     name = models.CharField(max_length=120)
     description = RichTextField()
     image = models.ImageField(upload_to='ideas/images', blank=True,
-                              validators=[validators.validate_hero_image])
+                              validators=[validators.validate_idea_image])
 
     def __str__(self):
         return self.name
