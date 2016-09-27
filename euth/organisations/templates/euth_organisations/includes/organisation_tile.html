@@ -8,7 +8,7 @@
         {% endif %}
         <span class="content">
             {% if organisation.logo %}
-            <img src="{{ organisation.logo|thumbnail_url:'avatar_medium' }}" alt=""/>
+            <img src="{{ organisation.logo|thumbnail_url:'org_avatar_medium' }}" alt=""/>
             {% else %}
             <img src="{% static "images/logo.svg" %}" alt="Opin" />
             {% endif %}

@@ -15,7 +15,7 @@
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h2>
         <p class="project-tile-teaser">{{ project.description|truncatechars:200 }}</p>
         <p class="project-tile-org">
-            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_medium' }}" class="project-tile-org-avatar" height="30" width="30" alt=""/>
+            <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium' }}" class="project-tile-org-avatar" height="30" width="30" alt=""/>
             {{ project.organisation.name }}
         </p>
     </div>

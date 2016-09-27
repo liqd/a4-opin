@@ -6,7 +6,7 @@ def validate_hero_image(image):
 
 
 def validate_logo(image):
-    image_validations.validate_image(image, 400, 400)
+    image_validations.validate_image(image, 200, 200)
 
 
 def validate_idea_image(image):
