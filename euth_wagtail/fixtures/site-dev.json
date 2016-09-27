@@ -18,5 +18,17 @@
       "is_active": true,
       "is_superuser": true
     }
+  },
+    {
+    "model": "user_management.user",
+    "pk": 2,
+    "fields": {
+      "email": "user@liqd.de",
+      "username": "user",
+      "password": "pbkdf2_sha256$20000$qMYSzezfIiw3$w3A0xY/kOgE8yA4m3RDFItXTqWCV3N7v2CLy2fD8gyw=",
+      "is_staff": false,
+      "is_active": true,
+      "is_superuser": false
+    }
   }
 ]
