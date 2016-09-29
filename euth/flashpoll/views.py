@@ -10,7 +10,7 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
     model = models.Flashpoll
 
     def get_object(self, queryset=None):
-        return models.Flashpoll.objects.first()
+        return models.Flashpoll.objects.filter(module=self.module).first()
 
     def get_context_data(self, **kwargs):
         context = {
