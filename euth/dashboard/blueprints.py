@@ -3,6 +3,7 @@ from collections import namedtuple
 from django.utils.translation import ugettext_lazy as _
 
 from euth.documents import phases as documents_phases
+from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 
 ProjectBlueprint = namedtuple(
@@ -37,6 +38,15 @@ blueprints = [
          description=_('Add comments to an existing text'),
          content=[
              documents_phases.CommentPhase(),
+         ],
+         image='images/placeholder.png',
+     )),
+    ('flashpoll',
+     ProjectBlueprint(
+         title=_('Mobile Polling'),
+         description=_('Initiate a mobile polling process'),
+         content=[
+             flashpoll_phases.FlashpollPhase(),
          ],
          image='images/placeholder.png',
      )),

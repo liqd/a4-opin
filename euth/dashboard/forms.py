@@ -7,6 +7,8 @@ from django.core.exceptions import ValidationError
 from django.forms import modelformset_factory
 
 from euth.contrib import widgets
+from euth.documents import models as document_models
+from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
 from euth.modules import models as module_models
 from euth.organisations import models as org_models
@@ -86,13 +88,37 @@ class PhaseForm(forms.ModelForm):
         }
 
 
+def get_module_settings_form(phase_type):
+    if phase_type.startswith('euth_ideas'):
+        reference_model = project_models.Project
+        reference_fields = []  # TODO: add budget/map later
+    elif phase_type.startswith('euth_flashpoll'):
+        reference_model = flashpoll_models.Flashpoll
+        reference_fields = ['key', ]
+    elif phase_type.startswith('euth_documents'):
+        reference_model = document_models.Document
+        reference_fields = []  # TODO: add document/paragraph setup later
+
+    class ModuleSettings(forms.ModelForm):
+        class Meta:
+            model = reference_model
+            fields = reference_fields
+
+    return ModuleSettings
+
+
 class ProjectCompleteForm(multiform.MultiModelForm):
-    base_forms = [
-        ('project', ProjectForm),
-        ('phases', modelformset_factory(
-            phase_models.Phase, PhaseForm, extra=0
-        )),
-    ]
+    def __init__(self, *args, **kwargs):
+        module_type = kwargs['phases__queryset'].first().type
+        self.base_forms = [
+            ('project', ProjectForm),
+            ('module', get_module_settings_form(module_type)),
+            ('phases', modelformset_factory(
+                phase_models.Phase, PhaseForm, extra=0
+            )),
+        ]
+
+        super().__init__(*args, **kwargs)
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
@@ -104,9 +130,11 @@ class ProjectCreateForm(multiform.MultiModelForm):
         ]
         self.organisation = organisation
         self.blueprint = blueprint
+        module_type = blueprint.content[0].app
 
         self.base_forms = [
             ('project', ProjectForm),
+            ('module', get_module_settings_form(module_type)),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm,
                 min_num=len(blueprint.content),
