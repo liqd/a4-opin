@@ -47,7 +47,7 @@
             {% endif %}
 
             <div class="form-part">
-                {% for field in form.module.visible_fields %}
+                {% for field in form.module_settings.visible_fields %}
                 <div class="form-group {% if field.errors %} has-error{% endif %}">
                     <label>
                         {{ field.label }}

@@ -104,6 +104,9 @@ def get_module_settings_form(phase_type):
             model = reference_model
             fields = reference_fields
 
+        def save(self, commit=True):
+            return super().save(commit=commit)
+
     return ModuleSettings
 
 
@@ -112,7 +115,7 @@ class ProjectCompleteForm(multiform.MultiModelForm):
         module_type = kwargs['phases__queryset'].first().type
         self.base_forms = [
             ('project', ProjectForm),
-            ('module', get_module_settings_form(module_type)),
+            ('module_settings', get_module_settings_form(module_type)),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm, extra=0
             )),
@@ -123,18 +126,19 @@ class ProjectCompleteForm(multiform.MultiModelForm):
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
-    def __init__(self, blueprint, organisation, *args, **kwargs):
+    def __init__(self, blueprint, organisation, user, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
         kwargs['phases__initial'] = [
             {'phase_content': t} for t in blueprint.content
         ]
         self.organisation = organisation
         self.blueprint = blueprint
+        self.user = user
         module_type = blueprint.content[0].app
 
         self.base_forms = [
             ('project', ProjectForm),
-            ('module', get_module_settings_form(module_type)),
+            ('module_settings', get_module_settings_form(module_type)),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm,
                 min_num=len(blueprint.content),
@@ -160,6 +164,12 @@ class ProjectCreateForm(multiform.MultiModelForm):
         objects['module'] = module
         if commit:
             module.save()
+
+        module_settings = objects['module_settings']
+        module_settings.module = module
+        module_settings.creator = self.user
+        if commit:
+            module_settings.save()
 
         phases = objects['phases']
         for phase, phase_content in zip(phases, self.blueprint.content):
