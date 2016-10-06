@@ -111,8 +111,12 @@ class DateTimeInput(widgets.DateTimeInput):
                 'data-enable-time': 'true',
                 'data-time_24hr': 'true',
                 'data-language': get_language(),
-                'data-default-date': value,
                 'data-date-format': format.replace('%', '').replace('M', 'i'),
             })
+
+            if value:
+                attrs.update({
+                    'data-default-date': value
+                })
         input = mark_safe(super().render(name, value, attrs))
         return input
