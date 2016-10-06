@@ -7,7 +7,7 @@
             <div class="euth-hero-unit-header">
                 {% if project.organisation.logo %}
                 <div class="euth-hero-unit-logo">
-                    <img src="{{ project.organisation.logo|thumbnail_url:'avatar_medium'}}" alt="" />
+                    <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium'}}" alt="" />
                 </div>
                 {% endif %}
                 <p class="org-badge-title">{{ project.organisation }}</p>
