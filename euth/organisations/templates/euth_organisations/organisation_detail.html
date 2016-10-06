@@ -26,7 +26,7 @@
                     {% if organisation.logo %}
                     <img alt="{{ organisation.name }} logo" src="{{ organisation.logo|thumbnail_url:'organisation_thumbnail' }}">
                     {% else %}
-                    <img alt="opin logo" src="{% static "images/logo.png" %}">
+                    <img alt="opin logo" src="{% static "images/logo.svg" %}">
                     {% endif %}
                 </div>
                 <h1 class="euth-hero-unit-title">{{ organisation.name }}</h1>
