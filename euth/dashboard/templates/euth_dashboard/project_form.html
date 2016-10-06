@@ -2,7 +2,7 @@
 {% load widget_tweaks i18n dashboard_templatetags %}
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{{ mode }}</h1>
+<h1 class="black-divider dashboard-title">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
 
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
