@@ -23,7 +23,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
                 'Select a picture from your local folder.'
             ),
             'post_note': ugettext(
-                'Please hit the post button to save your changes.'
+                'You’re image will be uploaded/removed '
+                'once you save your changes at the end of this page.'
             ),
             'upload_title': ugettext('Upload a picture'),
             'clear_title': ugettext('Remove the picture'),
