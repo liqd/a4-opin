@@ -35,7 +35,7 @@
                         {% url 'dashboard-organisation-edit' organisation_slug=view.organisation.slug as dashboard_organisations_edit %}
                         <a href="{{dashboard_organisations_edit}}"
                            class="list-group-item list-group-item-heading {% selected request dashboard_organisations_edit %}">
-                            <i class="fa fa-rocket" aria-hidden="true"></i> <span>{% trans 'Organisations' %}</span>
+                            <i class="fa fa-rocket" aria-hidden="true"></i> <span>{% trans 'Information' %}</span>
                         </a>
 
                         {% url 'dashboard-project-list' organisation_slug=view.organisation.slug as dashboard_project_list %}
