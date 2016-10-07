@@ -9,13 +9,16 @@ from django.utils.translation import get_language, ugettext
 
 
 class ImageInputWidget(widgets.ClearableFileInput):
+
     """
     A project-specific improved version of the clearable file upload.
 
     Allows to upload and delete uploaded files. It doesn't passing attributes
     using the positional `attrs` argument and hard codes css files.
     """
+
     def render(self, name, value, attrs=None):
+
         substitutions = {
             'name': name,
             'filename': '',
@@ -53,7 +56,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
             substitutions['url'] = conditional_escape(value.url)
             substitutions['filename'] = basename(value.name)
             snippets['img'] = (
-                '<img src="{url}" class="img-responsive" alt="" />'
+                '<div class="form-{name}"><img src="{url}"'
+                ' class="img-responsive" alt="" /></div>'
             )
 
             if not self.is_required:
@@ -83,6 +87,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
                 {file_input}
                 {alert}
                 {checkbox}
+            </div>
+            <div class="col-sm-3 col-md-4">
                 {img}
             </div>
         </div>
@@ -92,6 +98,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
 
 
 class DateTimeInput(widgets.DateTimeInput):
+
     class Media:
         js = (staticfiles_storage.url('flatpickr.min.js'),
               'js/dateTimeInput.js')

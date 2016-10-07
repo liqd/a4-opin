@@ -11,6 +11,12 @@
             color: $black;
         }
 
+        .form-logo {
+            .img-responsive {
+                max-width: 40%;
+            }
+        }
+
         .form-control {
             border: 1px solid $warm-grey;
         }
@@ -18,6 +24,7 @@
         textarea {
             min-height: 6rem;
         }
+
         .form-control-upload {
             position: relative;
             display: block;
