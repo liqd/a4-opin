@@ -13,6 +13,9 @@
         {% for field in form.untranslated %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
             <label>{{ field.label }}</label>
+            {% if field.help_text %}
+            <p><i>{{ field.help_text }}</i></p>
+            {% endif %}
             {% render_field field class="form-control" %}
             {% for error in field.errors %}
             <span class="help-block">{{ error }}</span>
@@ -42,6 +45,9 @@
             {% for field in fields %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label>{{ field.label }}</label>
+                {% if field.help_text %}
+                <p><i>{{ field.help_text }}</i></p>
+                {% endif %}
                 {% render_field field class="form-control" %}
                 {% for error in field.errors %}
                 <span class="help-block">{{ error }}</span>

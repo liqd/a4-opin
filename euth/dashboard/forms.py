@@ -5,6 +5,7 @@ from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.forms import modelformset_factory
+from django.utils.translation import ugettext as _
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
@@ -18,6 +19,7 @@ from . import multiform
 
 
 class ProfileForm(forms.ModelForm):
+
     class Meta:
         model = user_models.User
         fields = ['avatar', 'username']
@@ -62,6 +64,7 @@ class ProjectInviteForm(forms.Form):
 
 
 class ProjectForm(forms.ModelForm):
+
     class Meta:
         model = project_models.Project
         fields = ['image', 'name', 'description', 'information', 'is_public',
@@ -76,6 +79,7 @@ class ProjectForm(forms.ModelForm):
 
 
 class PhaseForm(forms.ModelForm):
+
     class Meta:
         model = phase_models.Phase
         exclude = ('module', 'type')
@@ -215,6 +219,7 @@ class ProjectUserForm(multiform.MultiModelForm):
 
 
 class OrganisationForm(forms.ModelForm):
+
     """
     Special form that allows editing of all translated fields.
     """
@@ -242,6 +247,17 @@ class OrganisationForm(forms.ModelForm):
         widgets = {
             'image': widgets.ImageInputWidget(),
             'logo': widgets.ImageInputWidget(),
+        }
+        labels = {
+            'image': _('Header Image'),
+        }
+        help_texts = {
+            'image': _("Your image should be at least 1300px wide and "
+                       "600px high. Supported formats are %s."
+                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
+            'logo': _("Your image should be at least 200px wide and "
+                      "200px high. Supported formats are %s."
+                      % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
         }
 
     def _get_identifier(self, language, fieldname):
