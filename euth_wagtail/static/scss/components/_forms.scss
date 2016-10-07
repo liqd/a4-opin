@@ -15,6 +15,9 @@
             border: 1px solid $warm-grey;
         }
 
+        textarea {
+            min-height: 6rem;
+        }
         .form-control-upload {
             position: relative;
             display: block;
