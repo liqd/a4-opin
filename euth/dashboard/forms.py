@@ -104,23 +104,23 @@ def get_module_settings_form(phase_type):
             model = reference_model
             fields = reference_fields
 
-        def save(self, commit=True):
-            return super().save(commit=commit)
-
     return ModuleSettings
 
 
 class ProjectCompleteForm(multiform.MultiModelForm):
     def __init__(self, *args, **kwargs):
-        module_type = kwargs['phases__queryset'].first().type
+        qs = kwargs['phases__queryset']
+        module_type = qs.first().type
         self.base_forms = [
             ('project', ProjectForm),
-            ('module_settings', get_module_settings_form(module_type)),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm, extra=0
             )),
         ]
 
+        if module_type.startswith('euth_flashpoll'):
+            self.base_forms.append(('module_settings',
+                                    get_module_settings_form(module_type)))
         super().__init__(*args, **kwargs)
 
 
@@ -134,17 +134,20 @@ class ProjectCreateForm(multiform.MultiModelForm):
         self.organisation = organisation
         self.blueprint = blueprint
         self.user = user
-        module_type = blueprint.content[0].app
 
         self.base_forms = [
             ('project', ProjectForm),
-            ('module_settings', get_module_settings_form(module_type)),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm,
                 min_num=len(blueprint.content),
                 max_num=len(blueprint.content),
             )),
         ]
+
+        module_type = blueprint.content[0].app
+        if module_type.startswith('euth_flashpoll'):
+            self.base_forms.append(('module_settings',
+                                    get_module_settings_form(module_type)))
 
         return super().__init__(*args, **kwargs)
 
@@ -165,11 +168,12 @@ class ProjectCreateForm(multiform.MultiModelForm):
         if commit:
             module.save()
 
-        module_settings = objects['module_settings']
-        module_settings.module = module
-        module_settings.creator = self.user
-        if commit:
-            module_settings.save()
+        if 'module_settings' in objects.keys():
+            module_settings = objects['module_settings']
+            module_settings.module = module
+            module_settings.creator = self.user
+            if commit:
+                module_settings.save()
 
         phases = objects['phases']
         for phase, phase_content in zip(phases, self.blueprint.content):

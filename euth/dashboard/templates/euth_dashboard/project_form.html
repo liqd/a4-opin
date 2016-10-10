@@ -9,11 +9,11 @@
         {% csrf_token %}
         <nav class="tabs">
             <ul>
-                <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}">
+                <li class="col-md-4 active">
                     <a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a>
                     {% if form.project.errors %}<span class="info-number">{{ form.project.errors|length }}</span>{% endif %}
                 </li>
-                <li class="col-md-4 {% if view.project.active_phase %} active {% endif %}">
+                <li class="col-md-4">
                     <a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a>
                     {% if form.phases.total_error_count %}<span class="info-number">{{ form.phases.total_error_count }}</span>{% endif %}
                 </li>
@@ -39,9 +39,9 @@
                 {% endif %}
             {% endfor %}
         </article>
-        <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
+        <article id="participation" class="tab-panel">
             {{ form.phases.management_form }}
-            <h4 class="sans-serif">{% firstof view.blueprint.title view.module.name %}</h4>
+            <h4 class="sans-serif">{% firstof view.blueprint.title view.object.module_set.first.phase_set.first.content.module_name %}</h4>
             {% if view.module.description %}
                 <p>{{ view.module.description }}</p>
             {% endif %}
