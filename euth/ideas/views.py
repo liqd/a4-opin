@@ -1,5 +1,8 @@
 from django.contrib import messages
+from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
+from django.db.models import FieldDoesNotExist
+from django.db.models.expressions import RawSQL
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
@@ -14,7 +17,32 @@ class IdeaListView(mixins.ProjectMixin, generic.ListView):
     model = models.Idea
 
     def get_queryset(self):
-        return models.Idea.objects.filter(module=self.module).order_by('name')
+        sort = self.request.GET.get('sort')
+        qs = models.Idea.objects.filter(module=self.module)
+        if sort:
+            if sort == 'ratings':
+                contenttype = ContentType.objects.get(
+                    app_label="euth_ideas", model="idea")
+                query_string = RawSQL('select COUNT(*) '
+                                      'from "euth_ratings_rating"'
+                                      'where '
+                                      '"content_type_id" = %s '
+                                      'and "object_pk" '
+                                      '= "euth_modules_item"."id" '
+                                      'and "value" = 1',
+                                      (contenttype.id,))
+                qs = qs.annotate(ratings_count=query_string)
+
+                return qs.order_by('-ratings_count')
+            else:
+                try:
+                    models.Idea._meta.get_field_by_name(sort)
+                    return qs.order_by(sort)
+                except FieldDoesNotExist:
+                    return qs.qs.order_by('name')
+
+        else:
+            return qs.order_by('name')
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
