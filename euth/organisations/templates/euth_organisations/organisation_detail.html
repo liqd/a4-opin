@@ -26,7 +26,7 @@
                     {% if organisation.logo %}
                     <img alt="{{ organisation.name }} logo" src="{{ organisation.logo|thumbnail_url:'organisation_thumbnail' }}">
                     {% else %}
-                    <img alt="opin logo" src="{% static "images/logo.svg" %}">
+                    <img alt="opin logo" src="{% static "images/logo.png" %}">
                     {% endif %}
                 </div>
                 <h1 class="euth-hero-unit-title">{{ organisation.name }}</h1>
@@ -37,7 +37,7 @@
     </div>
 </header>
 <div class="accordion-block">
-    <div class="container">
+    <div class="container">l
         <div class="container-narrow">
             <h2 class="accordion-title" id="organisation-title">
                 <a class="accordion-link collapsed" role="button" data-toggle="collapse" href="#organisation-panel" aria-expanded="false" aria-controls="organisation-panel">
