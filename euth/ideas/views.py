@@ -39,7 +39,7 @@ class IdeaListView(mixins.ProjectMixin, generic.ListView):
                     models.Idea._meta.get_field_by_name(sort)
                     return qs.order_by(sort)
                 except FieldDoesNotExist:
-                    return qs.qs.order_by('name')
+                    return qs.order_by('name')
 
         else:
             return qs.order_by('name')
