@@ -255,3 +255,19 @@ def test_dashboard_update_organisation(client, organisation):
 
     with switch_language(organisation, 'de'):
         assert organisation.description == 'desc.de'
+
+
+@pytest.mark.django_db
+def test_dashboard_blueprint(client, organisation):
+    from euth.dashboard.blueprints import blueprints
+    url = reverse('dashboard-blueprint-list', kwargs={
+        'organisation_slug': organisation.slug
+    })
+    user = organisation.initiators.first()
+    response = client.get(url)
+    assert response.status_code == 302
+    assert redirect_target(response) == 'account_login'
+    client.login(username=user.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+    assert response.context_data['view'].blueprints == blueprints

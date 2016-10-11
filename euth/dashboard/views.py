@@ -113,6 +113,9 @@ class DashboardBlueprintListView(DashboardBaseMixin,
     blueprints = blueprints.blueprints
     permission_required = 'euth_organisations.initiate_project'
 
+    def get_permission_object(self):
+        return self.organisation
+
 
 class DashboardProjectCreateView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
@@ -124,6 +127,11 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
     permission_required = 'euth_organisations.initiate_project'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = _("New project based on")
+        return context
 
     def get_permission_object(self):
         return self.organisation
@@ -154,6 +162,11 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = _("Update project: " + self.object.name)
+        return context
 
     def get_permission_object(self):
         return self.organisation
