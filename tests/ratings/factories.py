@@ -1,6 +1,6 @@
 import factory
 from tests.apps.fakeprojects import factories
-from tests.factories import ContentTypeFactory, UserFactory
+from tests.factories import UserFactory
 
 
 class RatingFactory(factory.django.DjangoModelFactory):
