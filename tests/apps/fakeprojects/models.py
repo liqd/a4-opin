@@ -13,6 +13,9 @@ class FakeProject():
     def has_member(self, user):
         return True
 
+    def has_moderator(self, user):
+        return False
+
 
 class FakeProjectContent(models.Model):
     """
