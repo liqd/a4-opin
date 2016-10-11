@@ -1,5 +1,6 @@
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
+from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.functional import cached_property
@@ -17,6 +18,9 @@ class Idea(module_models.Item):
     description = RichTextField()
     image = models.ImageField(upload_to='ideas/images', blank=True,
                               validators=[validators.validate_idea_image])
+    ratings = GenericRelation(rating_models.Rating,
+                              related_query_name='ideas',
+                              object_id_field='object_pk')
 
     def __str__(self):
         return self.name
@@ -40,16 +44,8 @@ class Idea(module_models.Item):
 
     @cached_property
     def negative_ratings(self):
-        contenttype = ContentType.objects.get_for_model(self)
-        pk = self.id
-        negative_ratings = rating_models.Rating.objects.all().filter(
-            content_type=contenttype, object_pk=pk, value=-1).count()
-        return negative_ratings
+        return self.ratings.filter(value=-1).count()
 
     @cached_property
     def positive_ratings(self):
-        contenttype = ContentType.objects.get_for_model(self)
-        pk = self.id
-        positive_ratings = rating_models.Rating.objects.all().filter(
-            content_type=contenttype, object_pk=pk, value=1).count()
-        return positive_ratings
+        return self.ratings.filter(value=1).count()
