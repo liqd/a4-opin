@@ -113,6 +113,9 @@ class DashboardBlueprintListView(DashboardBaseMixin,
     blueprints = blueprints.blueprints
     permission_required = 'euth_organisations.initiate_project'
 
+    def get_permission_object(self):
+        return self.organisation
+
 
 class DashboardProjectCreateView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
