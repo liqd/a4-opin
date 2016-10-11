@@ -2,7 +2,7 @@ import factory
 from tests.factories import UserFactory
 
 
-class FakeProjectContent(factory.django.DjangoModelFactory):
+class FakeProjectContentFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = 'fakeprojects.FakeProjectContent'
 

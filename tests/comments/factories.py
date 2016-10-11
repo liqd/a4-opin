@@ -8,5 +8,5 @@ class CommentFactory(factory.django.DjangoModelFactory):
         model = 'euth_comments.Comment'
 
     comment = factory.Faker('text')
-    content_object = factory.SubFactory(factories.FakeProjectContent)
+    content_object = factory.SubFactory(factories.FakeProjectContentFactory)
     user = factory.SubFactory(UserFactory)

@@ -4,6 +4,6 @@ from tests.ratings import factories as rating_factories
 
 import factories as comment_factories
 
-register(fprojects_factories.FakeProjectContent)
+register(fprojects_factories.FakeProjectContentFactory)
 register(rating_factories.RatingFactory)
 register(comment_factories.CommentFactory)

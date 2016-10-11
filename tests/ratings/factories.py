@@ -9,4 +9,4 @@ class RatingFactory(factory.django.DjangoModelFactory):
 
     value = factory.Faker('random_digit')
     user = factory.SubFactory(UserFactory)
-    content_object = factory.SubFactory(factories.FakeProjectContent)
+    content_object = factory.SubFactory(factories.FakeProjectContentFactory)
