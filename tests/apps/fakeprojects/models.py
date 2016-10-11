@@ -6,7 +6,7 @@ class FakeProject():
     """
     Minimal set of fields expected for a project.
     """
-    name = 'fakey process name'
+    name = 'fake projects name'
     active_phase = None
     is_public = False
 

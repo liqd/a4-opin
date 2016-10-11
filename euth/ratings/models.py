@@ -32,9 +32,9 @@ class Rating(TimeStampedModel):
         return str(self.value)
 
     @property
-    def process(self):
+    def project(self):
         co = self.content_object
-        return co.process
+        return co.project
 
     def save(self, *args, **kwargs):
         self.value = self._get_value(self.value)

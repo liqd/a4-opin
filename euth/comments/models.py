@@ -32,11 +32,11 @@ class Comment(TimeStampedModel):
         return str(self.created)
 
     @property
-    def process(self):
+    def project(self):
         co = self.content_object
         if isinstance(co, self.__class__):
             co = co.content_object
-        return co.process
+        return co.project
 
     def save(self, *args, **kwargs):
         """

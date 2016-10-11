@@ -13,7 +13,7 @@ def react_comments(context, obj):
 
     user = request.user
     is_authenticated = user.is_authenticated()
-    is_moderator = user.is_superuser or user in obj.process.moderators.all()
+    is_moderator = user.is_superuser or user in obj.project.moderators.all()
     user_name = user.username
 
     contenttype = ContentType.objects.get_for_model(obj)

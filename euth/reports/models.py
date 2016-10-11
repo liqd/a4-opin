@@ -25,6 +25,6 @@ class Report(TimeStampedModel):
         return "{}_{}".format(str(self.content_type), str(self.object_pk))
 
     @property
-    def process(self):
+    def project(self):
         co = self.content_object
-        return co.process
+        return co.project
