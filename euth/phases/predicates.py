@@ -16,7 +16,6 @@ def phase_allows_modify(user, item):
 def phase_allows_create(item_class):
     @rules.predicate
     def _create_predicate(user, module):
-        print(user, module, item_class)
         return has_feature_active(module.project, item_class, 'crud')
     return _create_predicate
 
