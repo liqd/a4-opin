@@ -268,15 +268,14 @@ class OrganisationForm(forms.ModelForm):
 
         # inject additional form fields for translated model fields
         for lang_code in self.languages:
-            for translated_field in self.translated_fields:
-
+            for name, translated_field in self.translated_fields:
                 self.instance.set_current_language(lang_code)
-                label = translated_field[0].replace('_', ' ').capitalize()
+                label = name.replace('_', ' ').capitalize()
                 identifier = self._get_identifier(
-                    lang_code, translated_field[0])
+                    lang_code, name)
                 initial = self.instance.safe_translation_getter(
-                    translated_field[0])
-                field = translated_field[1]
+                    name)
+                field = translated_field
                 field.label = label
                 field.required = False
                 field.initial = initial
