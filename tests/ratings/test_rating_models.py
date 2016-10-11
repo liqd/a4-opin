@@ -44,8 +44,7 @@ def test_user_can_rating_once(rating_factory, rating, user):
         rating_factory(
             value=1,
             user=rating.user,
-            content_type=rating.content_type,
-            object_pk=rating.object_pk
+            content_object=rating.content_object,
         )
 
     assert e.type == IntegrityError

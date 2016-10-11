@@ -2,7 +2,6 @@ import os
 
 import pytest
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
 from tests import helpers
 
@@ -38,14 +37,13 @@ def test_delete_idea(idea_factory, comment_factory, rating_factory, ImagePNG):
     idea = idea_factory(image=ImagePNG)
     image_path = os.path.join(settings.MEDIA_ROOT, idea.image.path)
     thumbnail_path = helpers.createThumbnail(idea.image)
-    contenttype = ContentType.objects.get_for_model(idea)
 
     for i in range(5):
-        comment_factory(object_pk=idea.id, content_type=contenttype)
+        comment_factory(content_object=idea)
     comment_count = comments_models.Comment.objects.all().count()
     assert comment_count == len(idea.comments)
 
-    rating_factory(object_pk=idea.id, content_type=contenttype)
+    rating_factory(content_object=idea)
     rating_count = rating_models.Rating.objects.all().count()
 
     assert os.path.isfile(image_path)
