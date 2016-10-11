@@ -119,7 +119,8 @@ def test_initiator_create_flashpoll_project(client, organisation):
 
 
 @pytest.mark.django_db
-def test_initiator_edit_project(client, project):
+def test_initiator_edit_project(client, phase):
+    project = phase.module.project
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-edit', kwargs={
