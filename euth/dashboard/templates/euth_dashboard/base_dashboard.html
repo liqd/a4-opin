@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail dashboard_templatetags %}
+{% load i18n thumbnail %}
 
 {% block meta_viewport %}{% endblock %}
 
@@ -34,14 +34,14 @@
                     <div class="list-group">
                         {% url 'dashboard-organisation-edit' organisation_slug=view.organisation.slug as dashboard_organisations_edit %}
                         <a href="{{dashboard_organisations_edit}}"
-                           class="list-group-item list-group-item-heading {% selected request dashboard_organisations_edit %}">
+                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'organisation' %}selected{% endif %}">
                             <i class="fa fa-rocket" aria-hidden="true"></i> <span>{% trans 'Organisations' %}</span>
                         </a>
 
                         {% url 'dashboard-project-list' organisation_slug=view.organisation.slug as dashboard_project_list %}
                         {% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug as dashboard_blueprint_list %}
                         <a href="{{dashboard_project_list}}"
-                           class="list-group-item list-group-item-heading {% selected request dashboard_project_list %} {% selected request dashboard_blueprint_list %}">
+                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'project' %}selected{% endif %}">
                             <i class="fa fa-clone" aria-hidden="true"></i> <span>{% trans 'Projects' %}</span>
                         </a>
 
@@ -64,20 +64,20 @@
                     <div class="list-group">
                         {% url 'dashboard-profile' as dashboard_profile %}
                         <a href="{{ dashboard_profile }}"
-                           class="list-group-item list-group-item-heading {% selected request dashboard_profile %}">
+                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'profile' %}selected{% endif %}">
                             <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Profile' %}</span>
                         </a>
                         {% url 'account_email' as account_email %}
                         {% url 'dashboard-email' as dashboard_email %}
                         <a href="{{ dashboard_email }}"
-                           class="list-group-item list-group-item-heading {% selected request dashboard_email %} {% selected request account_email %}">
+                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'email' %}selected{% endif %}">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <span>{% trans 'E-mail Addresses' %}</span>
                         </a>
                         {% url 'socialaccount_connections' as socialaccount_connections %}
                         {% url 'dashboard-connections' as dashboard_connections %}
                         <a href="{{ dashboard_connections }}"
-                           class="list-group-item list-group-item-heading {% selected request dashboard_connections %} {% selected request socialaccount_connections %}">
+                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'connections' %}selected{% endif %}">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>{% trans 'Account Connections' %}</span>
                         </a>
