@@ -1,17 +1,17 @@
-<div id="ratings_for_{{contenttype}}_{{pk}}"></div>
+<div id="ratings_for_{{contenttype}}_{{object_id}}"></div>
 <script>
   window.Opin.renderRatings(
     "{% url 'ratings-list'%}",
     {{positive_ratings}},
     {{negative_ratings}},
-    {% if user_rating %}{{ user_rating }}{% else %}null{% endif %},
+    {% if not user_rating == None %}{{ user_rating }}{% else %}null{% endif %},
     {% if user_rating_id %}{{ user_rating_id }}{% else %}null{% endif %},
     "{{ login_url }}",
     {{contenttype}},
     {{object_id}},
     {% if authenticated_as %}"{{ authenticated_as|escapejs }}"{% else %}null{% endif %},
     "ideas",
-    "ratings_for_{{contenttype}}_{{pk}}",
+    "ratings_for_{{contenttype}}_{{object_id}}",
     {% if is_read_only %}true{% else %}false{% endif %}
    )
 </script>
