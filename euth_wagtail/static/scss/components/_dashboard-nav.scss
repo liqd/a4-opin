@@ -30,8 +30,12 @@
         font-weight: bold;
         position: relative;
 
+        &:hover,
+        &:focus {
+            color: $brand-brand1;
+        }
+
         i {
-            color: #fff;
             @include rem(left, 25px);
             @include rem(font-size, 25px);
             @include rem(height, 25px);

@@ -10,3 +10,18 @@ html {
     // for headings
     font-weight: bold;
 }
+
+
+a {
+    transition: color 0.2s;
+    -webkit-transition: color 0.2s;
+}
+
+.rich-text a {
+    color: $brand-brand1;
+    text-decoration: underline;
+
+    &:hover {
+        color: darken($brand-brand1, 15%);
+    }
+}
