@@ -7,7 +7,9 @@ from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 
 ProjectBlueprint = namedtuple(
-    'ProjectBlueprint', ['title', 'description', 'content', 'image']
+    'ProjectBlueprint', [
+        'title', 'description', 'content', 'image', 'settings_model'
+    ]
 )
 
 blueprints = [
@@ -20,6 +22,7 @@ blueprints = [
              ideas_phases.FeedbackPhase(),
          ],
          image='images/placeholder.png',
+         settings_model=None,
      )),
     ('ideas-collection-2',
      ProjectBlueprint(
@@ -30,8 +33,8 @@ blueprints = [
              ideas_phases.RatingPhase(),
          ],
          image='images/placeholder.png',
+         settings_model=None,
      )),
-
     ('commenting-text',
      ProjectBlueprint(
          title=_('Commenting text'),
@@ -40,6 +43,7 @@ blueprints = [
              documents_phases.CommentPhase(),
          ],
          image='images/placeholder.png',
+         settings_model=None,
      )),
     ('flashpoll',
      ProjectBlueprint(
@@ -49,6 +53,7 @@ blueprints = [
              flashpoll_phases.FlashpollPhase(),
          ],
          image='images/placeholder.png',
+         settings_model=('euth_flashpoll', 'Flashpoll'),
      )),
 ]
 

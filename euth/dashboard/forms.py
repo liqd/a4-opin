@@ -4,11 +4,10 @@ import re
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.db.models import loading
 from django.forms import modelformset_factory
 
 from euth.contrib import widgets
-from euth.documents import models as document_models
-from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
 from euth.modules import models as module_models
 from euth.organisations import models as org_models
@@ -88,21 +87,19 @@ class PhaseForm(forms.ModelForm):
         }
 
 
-def get_module_settings_form(phase_type):
-    if phase_type.startswith('euth_ideas'):
-        reference_model = project_models.Project
-        reference_fields = []  # TODO: add budget/map later
-    elif phase_type.startswith('euth_flashpoll'):
-        reference_model = flashpoll_models.Flashpoll
-        reference_fields = ['key', ]
-    elif phase_type.startswith('euth_documents'):
-        reference_model = document_models.Document
-        reference_fields = []  # TODO: add document/paragraph setup later
+def get_module_settings_form(settings_instance_or_modelref):
+    if hasattr(settings_instance_or_modelref, 'module'):
+        settings_model = settings_instance_or_modelref.__class__
+    else:
+        settings_model = loading.get_model(
+            settings_instance_or_modelref[0],
+            settings_instance_or_modelref[1],
+        )
 
     class ModuleSettings(forms.ModelForm):
         class Meta:
-            model = reference_model
-            fields = reference_fields
+            model = settings_model
+            exclude = ['module']
 
     return ModuleSettings
 
@@ -110,7 +107,7 @@ def get_module_settings_form(phase_type):
 class ProjectUpdateForm(multiform.MultiModelForm):
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
-        module_type = qs.first().type
+        module = qs.first().module
         self.base_forms = [
             ('project', ProjectForm),
             ('phases', modelformset_factory(
@@ -118,22 +115,24 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             )),
         ]
 
-        if module_type.startswith('euth_flashpoll'):
-            self.base_forms.append(('module_settings',
-                                    get_module_settings_form(module_type)))
+        if hasattr(module, 'settings'):
+            self.base_forms.append((
+                'module_settings',
+                get_module_settings_form(module.settings),
+            ))
+
         super().__init__(*args, **kwargs)
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
-    def __init__(self, blueprint, organisation, user, *args, **kwargs):
+    def __init__(self, blueprint, organisation, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
         kwargs['phases__initial'] = [
             {'phase_content': t} for t in blueprint.content
         ]
         self.organisation = organisation
         self.blueprint = blueprint
-        self.user = user
 
         self.base_forms = [
             ('project', ProjectForm),
@@ -144,10 +143,10 @@ class ProjectCreateForm(multiform.MultiModelForm):
             )),
         ]
 
-        module_type = blueprint.content[0].app
-        if module_type.startswith('euth_flashpoll'):
+        module_settings = blueprint.settings_model
+        if module_settings:
             self.base_forms.append(('module_settings',
-                                    get_module_settings_form(module_type)))
+                                    get_module_settings_form(module_settings)))
 
         return super().__init__(*args, **kwargs)
 
@@ -171,7 +170,6 @@ class ProjectCreateForm(multiform.MultiModelForm):
         if 'module_settings' in objects.keys():
             module_settings = objects['module_settings']
             module_settings.module = module
-            module_settings.creator = self.user
             if commit:
                 module_settings.save()
 
