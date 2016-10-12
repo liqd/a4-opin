@@ -315,3 +315,16 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_EMAIL_VERIFICATION = False
+
+# Euth settings
+
+COMMENTABLES = (
+    ('euth_ideas', 'idea'),
+    ('euth_documents', 'paragraph'),
+    ('euth_documents', 'document'),
+    ('euth_comments', 'comment'),
+)
+
+RATEABLES = COMMENTABLES
+
+REPORTABLES = COMMENTABLES

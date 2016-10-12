@@ -1,7 +1,6 @@
 import os
 from datetime import timedelta
 
-
 import pytest
 from dateutil.parser import parse
 from django.conf import settings

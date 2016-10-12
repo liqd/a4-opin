@@ -1,5 +1,4 @@
 import pytest
-from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 
 from euth.comments import models as comments_models
@@ -41,9 +40,7 @@ def test_document_paragraphs_sorted(document, paragraph_factory):
 
 @pytest.mark.django_db
 def test_paragraphs_comments(paragraph, comment_factory):
-    contenttype = ContentType.objects.get_for_model(paragraph)
-
     for i in range(5):
-        comment_factory(object_pk=paragraph.id, content_type=contenttype)
+        comment_factory(content_object=paragraph)
     comment_count = comments_models.Comment.objects.all().count()
     assert comment_count == paragraph.comments.count()

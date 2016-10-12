@@ -5,6 +5,7 @@ from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.forms import modelformset_factory
+from django.utils.translation import ugettext as _
 
 from euth.contrib import widgets
 from euth.memberships import models as member_models
@@ -18,6 +19,7 @@ from . import multiform
 
 
 class ProfileForm(forms.ModelForm):
+
     class Meta:
         model = user_models.User
         fields = ['avatar', 'username']
@@ -62,6 +64,7 @@ class ProjectInviteForm(forms.Form):
 
 
 class ProjectForm(forms.ModelForm):
+
     class Meta:
         model = project_models.Project
         fields = ['image', 'name', 'description', 'information', 'is_public',
@@ -76,6 +79,7 @@ class ProjectForm(forms.ModelForm):
 
 
 class PhaseForm(forms.ModelForm):
+
     class Meta:
         model = phase_models.Phase
         exclude = ('module', 'type')
@@ -215,12 +219,23 @@ class ProjectUserForm(multiform.MultiModelForm):
 
 
 class OrganisationForm(forms.ModelForm):
+
     """
     Special form that allows editing of all translated fields.
     """
 
-    translated_fields = ['title', 'description',
-                         'description_how', 'description_why']
+    translated_fields = [('title', forms.CharField(
+        help_text=_(
+            'The title of '
+            'your organisation'))),
+        ('description_why', forms.CharField(
+            widget=forms.Textarea)),
+        ('description_how', forms.CharField(
+            widget=forms.Textarea)),
+        ('description', forms.CharField(
+            widget=forms.Textarea, help_text=_(
+                'More info about the organisation / '
+                'Short text for organisation overview')))]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
 
     class Meta:
@@ -233,6 +248,17 @@ class OrganisationForm(forms.ModelForm):
             'image': widgets.ImageInputWidget(),
             'logo': widgets.ImageInputWidget(),
         }
+        labels = {
+            'image': _('Header Image'),
+        }
+        help_texts = {
+            'image': _("Your image should be at least 1300px wide and "
+                       "600px high. Supported formats are %s."
+                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
+            'logo': _("Your image should be at least 200px wide and "
+                      "200px high. Supported formats are %s."
+                      % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
+        }
 
     def _get_identifier(self, language, fieldname):
         return '{}__{}'.format(language, fieldname)
@@ -242,13 +268,17 @@ class OrganisationForm(forms.ModelForm):
 
         # inject additional form fields for translated model fields
         for lang_code in self.languages:
-            for fieldname in self.translated_fields:
+            for name, translated_field in self.translated_fields:
                 self.instance.set_current_language(lang_code)
-                label = fieldname.replace('_', ' ').capitalize()
-                identifier = self._get_identifier(lang_code, fieldname)
-                initial = self.instance.safe_translation_getter(fieldname)
-                field = forms.CharField(label=label, max_length=400,
-                                        required=False, initial=initial)
+                label = name.replace('_', ' ').capitalize()
+                identifier = self._get_identifier(
+                    lang_code, name)
+                initial = self.instance.safe_translation_getter(
+                    name)
+                field = translated_field
+                field.label = label
+                field.required = False
+                field.initial = initial
                 self.fields[identifier] = field
 
     def translated(self):
@@ -289,8 +319,8 @@ class OrganisationForm(forms.ModelForm):
                 if lang_code in self.data:
                     instance.set_current_language(lang_code)
                     for fieldname in self.translated_fields:
-                        identifier = '{}__{}'.format(lang_code, fieldname)
-                        setattr(instance, fieldname,
+                        identifier = '{}__{}'.format(lang_code, fieldname[0])
+                        setattr(instance, fieldname[0],
                                 self.cleaned_data.get(identifier))
                     instance.save()
         return instance
@@ -299,7 +329,7 @@ class OrganisationForm(forms.ModelForm):
         for lang_code in self.languages:
             if lang_code in self.data:
                 for fieldname in self.translated_fields:
-                    identifier = self._get_identifier(lang_code, fieldname)
+                    identifier = self._get_identifier(lang_code, fieldname[0])
                     data = self.cleaned_data
                     if identifier not in data or not data[identifier]:
                         msg = 'This field is required'

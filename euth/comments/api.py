@@ -1,8 +1,9 @@
 from rest_framework import filters, permissions, status, viewsets
 from rest_framework.response import Response
 
+from euth.contrib.api.permissions import IsUserOrReadOnly
+
 from .models import Comment
-from .permissions import IsUserOrReadOnly
 from .serializers import CommentSerializer
 
 
