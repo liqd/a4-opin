@@ -59,6 +59,10 @@ class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
                                        .annotate_negative_rating_count()
     permission_required = 'euth_ideas.view_idea'
 
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
 
 class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = idea_models.Idea
