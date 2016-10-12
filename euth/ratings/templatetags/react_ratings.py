@@ -22,7 +22,6 @@ def react_ratings(context, obj):
         authenticated_as = user.username
     else:
         authenticated_as = None
-    # import pdb; pdb.set_trace()
     user_rating = rating_models.Rating.objects.filter(
         content_type=contenttype, object_pk=obj.pk, user=user.pk).first()
     if user_rating:
