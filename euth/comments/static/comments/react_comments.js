@@ -252,9 +252,9 @@ var Comment = React.createClass({
           h('ul.nav.navbar-nav', [
             h('li.entry', [
               this.props.modified === null
-                ? h('a.commentSubmissionDate.dark',
+                ? h('span.commentSubmissionDate',
                     moment(this.props.created).format('D MMM YY'))
-                : h('a.commentSubmissionDate.dark',
+                : h('span.commentSubmissionDate',
                     django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
             ])
           ]),
@@ -277,7 +277,7 @@ var Comment = React.createClass({
           h('ul.nav.navbar-nav', [
 
             this.context.isAuthenticated && !this.props.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
-              h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
+              h('a.dropdown-toggle.icon.fa-ellipsis-h', {
                 'data-toggle': 'dropdown',
                 href: '#',
                 role: 'button',
@@ -336,7 +336,7 @@ var Comment = React.createClass({
 
           h('ul.nav.navbar-nav.navbar-right', [
             this.allowForm() ? h('li.entry', [
-              h('a.icon.fa-reply.dark', {
+              h('a.icon.fa-reply', {
                 href: '#',
                 onClick: this.showComments,
                 'aria-hidden': true

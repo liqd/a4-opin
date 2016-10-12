@@ -50,21 +50,26 @@
         color: $black;
         display: inline-block;
         line-height: 36px;
-        cursor: default;
+        cursor: pointer;
 
-        i {
-            color: $brand-success;
+        -webkit-transition: background 0.2s, color 0.2s;
+        transition: background 0.2s, color 0.2s;
 
-            span {
-                font-family: $font-family-sans-serif;
-            }
+        span {
+            font-family: $font-family-sans-serif;
         }
 
         &.idea-rating-down {
             border-color: $brand-danger;
+            color: $brand-danger;
 
-            i {
-                color: $brand-danger;
+            &:hover {
+                color: #fff;
+                background: $brand-danger;
+            }
+
+            &:focus {
+                outline: 1px dotted $gray;
             }
 
             &.is-selected {
@@ -81,6 +86,17 @@
         }
 
         &.idea-rating-up {
+            color: $brand-success;
+
+            &:hover {
+                color: #fff;
+                background: $brand-success;
+            }
+
+            &:focus {
+                outline: 1px dotted $gray;
+            }
+
             &.is-selected {
                 background: $brand-success;
             }
@@ -180,9 +196,13 @@
                 @include rem(font-size, $font-size-medium);
             }
 
-            a {
-                color: $black;
-                text-decoration: none;
+        }
+        a {
+            color: $black;
+            text-decoration: none;
+
+            &:hover, &:focus {
+                color: $brand-brand1;
             }
         }
 
@@ -243,9 +263,16 @@
     color: $black;
     -webkit-box-shadow: none;
     box-shadow: none;
+    font-weight: bold;
+    transition: color 0.2s;
 
     @media (max-width: $screen-xs) {
         @include rem(font-size, $font-size-medium);
+    }
+
+    &:hover {
+        color: $brand-success;
+        text-decoration: none;
     }
 
     .idea-list-button-icon {

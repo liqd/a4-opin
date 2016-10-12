@@ -44,6 +44,7 @@
         .button {
             @extend .button-alt;
         }
+
         p,
         h3,
         a,
@@ -52,9 +53,6 @@
             color: #fff;
         }
 
-        a {
-            text-decoration: underline;
-        }
         .more {
             float: right;
         }

@@ -20,9 +20,15 @@
     }
 
     a {
+        color: $black;
         background-color: $gray-lighter;
         @include rem(padding, 10px 13px);
         @include rem(margin-right, 2px);
+
+        &:focus,
+        &:hover {
+            color: $brand-brand1;
+        }
     }
 
     .active a {
