@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 from euth.contrib.base_models import TimeStampedModel
+from euth.contrib.generics import models_to_limit
 
 
 class Rating(TimeStampedModel):
@@ -12,7 +13,11 @@ class Rating(TimeStampedModel):
     POSITIVE = 1
     NEGATIVE = -1
 
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.CASCADE,
+        limit_choices_to=models_to_limit(settings.RATEABLES)
+    )
     object_pk = models.PositiveIntegerField()
     content_object = GenericForeignKey(
         ct_field="content_type", fk_field="object_pk")
@@ -25,6 +30,11 @@ class Rating(TimeStampedModel):
 
     def __str__(self):
         return str(self.value)
+
+    @property
+    def project(self):
+        co = self.content_object
+        return co.project
 
     def save(self, *args, **kwargs):
         self.value = self._get_value(self.value)

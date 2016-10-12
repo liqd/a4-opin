@@ -69,6 +69,9 @@ class Project(base_models.TimeStampedModel):
             or (user in self.moderators.all())
         )
 
+    def has_moderator(self, user):
+        return user in self.moderators.all()
+
     @functional.cached_property
     def other_projects(self):
         other_projects = self.organisation.project_set\

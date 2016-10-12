@@ -3,7 +3,18 @@
 
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{% trans 'Create new Project' %}</h1>
+<h1 class="black-divider dashboard-title">{% trans 'Create new project from one of the templates' %}</h1>
+<div class="action-bar">
+    <nav class="navbar navbar-default navbar-static">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="{% url 'dashboard-project-list' view.organisation.slug %}">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    {% trans 'back to project list' %}</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
 <div class="row">
     {% for blueprint_slug, blueprint in view.blueprints %}
@@ -29,7 +40,7 @@
                 <a
                      href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
                      class="btn btn-primary" role="button">
-                    {% trans 'Create'%}
+                    {% trans 'Use this template'%}
                 </a>
             </div>
         </div>

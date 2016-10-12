@@ -61,7 +61,7 @@ class FeedbackPhase(phases.PhaseContent):
     weight = 40
     view = views.IdeaListView
 
-    name = _('Issue phase')
+    name = _('Feedback phase')
     description = _('Get feedback for collected ideas through rates and '
                     'comments.')
     module_name = _('ideas collection')

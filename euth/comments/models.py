@@ -5,11 +5,16 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from euth.contrib.base_models import TimeStampedModel
+from euth.contrib.generics import models_to_limit
 
 
 class Comment(TimeStampedModel):
 
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.CASCADE,
+        limit_choices_to=models_to_limit(settings.COMMENTABLES)
+    )
     object_pk = models.PositiveIntegerField()
     content_object = GenericForeignKey(
         ct_field="content_type", fk_field="object_pk")
@@ -25,6 +30,13 @@ class Comment(TimeStampedModel):
 
     def __str__(self):
         return str(self.created)
+
+    @property
+    def project(self):
+        co = self.content_object
+        if isinstance(co, self.__class__):
+            co = co.content_object
+        return co.project
 
     def save(self, *args, **kwargs):
         """
