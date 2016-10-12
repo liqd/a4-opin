@@ -14,12 +14,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Flashpoll',
             fields=[
-                ('item_ptr', models.OneToOneField(auto_created=True, primary_key=True, parent_link=True, to='euth_modules.Item', serialize=False)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
                 ('key', models.CharField(max_length=30)),
+                ('module', models.OneToOneField(related_name='settings', to='euth_modules.Module')),
             ],
             options={
                 'abstract': False,
             },
-            bases=('euth_modules.item',),
         ),
     ]
