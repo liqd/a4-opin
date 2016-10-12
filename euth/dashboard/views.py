@@ -161,7 +161,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
-    form_class = forms.ProjectCompleteForm
+    form_class = forms.ProjectUpdateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'

@@ -107,7 +107,7 @@ def get_module_settings_form(phase_type):
     return ModuleSettings
 
 
-class ProjectCompleteForm(multiform.MultiModelForm):
+class ProjectUpdateForm(multiform.MultiModelForm):
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
         module_type = qs.first().type
