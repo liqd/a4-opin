@@ -8,6 +8,11 @@ module.exports = {
     path: './euth_wagtail/static/bundles/',
     filename: '[name].js'
   },
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+    ]
+  },
   externals: {
     'jquery': 'jQuery',
     'django': 'django'
