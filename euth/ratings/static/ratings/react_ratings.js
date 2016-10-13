@@ -152,7 +152,6 @@ module.exports.renderRatings = function (url, positiveRatings, negativeRatings, 
       contentType: contentType,
       objectId: objectId,
       authenticatedAs: authenticatedAs,
-      pollInterval: 20000,
       style: style,
       isReadOnly: isReadOnly
     }),

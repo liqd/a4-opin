@@ -77,7 +77,6 @@ var CommentBox = React.createClass({
   },
   componentDidMount: function () {
     this.loadCommentsFromServer()
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     moment.locale(this.props.language)
   },
   getChildContext: function () {
@@ -267,7 +266,6 @@ var Comment = React.createClass({
             contentType: this.context.comments_contenttype,
             objectId: this.props.id,
             authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
-            pollInterval: 20000,
             style: 'comments',
             positiveRatings: this.props.positiveRatings,
             negativeRatings: this.props.negativeRatings,
@@ -540,7 +538,6 @@ module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectI
       isAuthenticated: isAuthenticated,
       isModerator: isModerator,
       login_url: loginUrl,
-      pollInterval: 20000,
       user_name: userName,
       language: language,
       isReadOnly: isReadOnly
