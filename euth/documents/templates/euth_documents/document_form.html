@@ -1,0 +1,69 @@
+{% extends 'euth_projects/project_detail.html' %}
+{% load widget_tweaks i18n %}
+
+{% block phase_content %}
+<div>
+    <h2>{{ view.phase.name }}</h2>
+
+    <p class="idea-list-description">{{ view.phase.description }} </p>
+
+    <div class="badge-group">
+        <span class="badge">
+            <strong>{% trans 'Start Date' %}</strong>
+            {{ view.phase.start_date.date }}
+        </span>
+        <span class="badge">
+            <strong>{% trans 'End Date' %}</strong>
+            {{ view.phase.end_date.date }}
+        </span>
+    </div>
+
+    <div class="general-form">
+        <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+            {% csrf_token %}
+                {% for field in form.document %}
+                <section class="row">
+                    <div class="col-sm-9">
+                        <div class="form-group{% if field.errors %} has-error{% endif %}">
+                            <label>{{ field.label }}</label>
+                            {% render_field field class="form-control" %}
+                            {% for error in field.errors %}
+                            <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+
+                {{ form.paragraphs.management_form }}
+                {{ form.media }}
+                {% for form in form.paragraphs %}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+
+                    <section class="row commenting-paragraph">
+                        <div class="col-sm-9 paragraph">
+                            {% for field in form.visible_fields %}
+                            <div class="form-group {% if field.errors %} has-error{% endif %}">
+                                <label>{{ field.label }}</label>
+                                {% render_field field class="form-control" %}
+                                {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-sm-3 comment-count">
+                            sdfdsf
+                        </div>
+                    </section>
+                {% endfor %}
+
+            <button type="submit" name="publish" class="submit-button">{% trans 'save' %}</button>
+
+        </form>
+    </div>
+
+</div>
+{% endblock %}

@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.forms import modelformset_factory
 
+from contrib.multiforms import multiform
 from euth.contrib import widgets
 from euth.memberships import models as member_models
 from euth.modules import models as module_models
@@ -13,8 +14,6 @@ from euth.organisations import models as org_models
 from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
-
-from . import multiform
 
 
 class ProfileForm(forms.ModelForm):
