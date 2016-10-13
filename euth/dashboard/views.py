@@ -9,7 +9,9 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
+from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
+from euth.modules import models as module_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
 from euth.projects import models as project_models
@@ -158,7 +160,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
-    form_class = forms.ProjectCompleteForm
+    form_class = forms.ProjectUpdateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'
@@ -170,6 +172,10 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
     def get_permission_object(self):
         return self.organisation
+
+    @property
+    def module(self):
+        return module_models.Module.objects.filter(project=self.object).first()
 
     @property
     def raise_exception(self):
@@ -186,6 +192,12 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         kwargs = super().get_form_kwargs()
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
+
+        if qs.first().type.startswith('euth_flashpoll'):
+            reference_instance = flashpoll_models.Flashpoll.objects.get(
+                module=self.module)
+            kwargs['module_settings__instance'] = reference_instance
+
         return kwargs
 
 

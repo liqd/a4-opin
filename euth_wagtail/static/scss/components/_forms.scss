@@ -111,6 +111,22 @@
     }
 }
 
+.form-part {
+    background: #f7f7f7;
+    @include rem(padding, 20px);
+
+    input,
+    input:focus {
+        background-color: #fff;
+    }
+
+    div:last-child {
+        margin-bottom: 0;
+    }
+
+    @include rem(margin-bottom, 30px);
+}
+
 .input-gigantic {
     @include rem(margin, 0 5px 40px 5px);
     position : relative;

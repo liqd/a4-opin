@@ -2,8 +2,24 @@
     background-color: $gray-lighter;
     padding: 20px;
     margin-bottom: 30px;
+    position: relative;
 
     .form-control {
         background-color: white;
     }
+
+    h5 a {
+        display: block;
+        letter-spacing: 0.1px;
+    }
+
+    h5 .fa {
+        transition: transform 0.3s;
+    }
+    .collapsed .fa {
+        transform: rotateZ(180deg);
+    }
+}
+.single-phase {
+    @include rem(margin-top, 20px)
 }

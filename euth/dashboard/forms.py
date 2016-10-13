@@ -4,6 +4,7 @@ import re
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.db.models import loading
 from django.forms import modelformset_factory
 from django.utils.translation import ugettext as _
 
@@ -90,13 +91,41 @@ class PhaseForm(forms.ModelForm):
         }
 
 
-class ProjectCompleteForm(multiform.MultiModelForm):
-    base_forms = [
-        ('project', ProjectForm),
-        ('phases', modelformset_factory(
-            phase_models.Phase, PhaseForm, extra=0
-        )),
-    ]
+def get_module_settings_form(settings_instance_or_modelref):
+    if hasattr(settings_instance_or_modelref, 'module'):
+        settings_model = settings_instance_or_modelref.__class__
+    else:
+        settings_model = loading.get_model(
+            settings_instance_or_modelref[0],
+            settings_instance_or_modelref[1],
+        )
+
+    class ModuleSettings(forms.ModelForm):
+        class Meta:
+            model = settings_model
+            exclude = ['module']
+
+    return ModuleSettings
+
+
+class ProjectUpdateForm(multiform.MultiModelForm):
+    def __init__(self, *args, **kwargs):
+        qs = kwargs['phases__queryset']
+        module = qs.first().module
+        self.base_forms = [
+            ('project', ProjectForm),
+            ('phases', modelformset_factory(
+                phase_models.Phase, PhaseForm, extra=0
+            )),
+        ]
+
+        if hasattr(module, 'settings'):
+            self.base_forms.append((
+                'module_settings',
+                get_module_settings_form(module.settings),
+            ))
+
+        super().__init__(*args, **kwargs)
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
@@ -118,6 +147,11 @@ class ProjectCreateForm(multiform.MultiModelForm):
             )),
         ]
 
+        module_settings = blueprint.settings_model
+        if module_settings:
+            self.base_forms.append(('module_settings',
+                                    get_module_settings_form(module_settings)))
+
         return super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
@@ -136,6 +170,12 @@ class ProjectCreateForm(multiform.MultiModelForm):
         objects['module'] = module
         if commit:
             module.save()
+
+        if 'module_settings' in objects.keys():
+            module_settings = objects['module_settings']
+            module_settings.module = module
+            if commit:
+                module_settings.save()
 
         phases = objects['phases']
         for phase, phase_content in zip(phases, self.blueprint.content):
