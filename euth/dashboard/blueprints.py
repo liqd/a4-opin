@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from euth.documents import phases as documents_phases
 from euth.ideas import phases as ideas_phases
 
-
 ProjectBlueprint = namedtuple(
     'ProjectBlueprint', ['title', 'description', 'content', 'image']
 )
@@ -37,6 +36,7 @@ blueprints = [
          title=_('Commenting text'),
          description=_('Add comments to an existing text'),
          content=[
+             documents_phases.CreateDocumentPhase(),
              documents_phases.CommentPhase(),
          ],
          image='images/placeholder.png',
