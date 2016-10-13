@@ -18,11 +18,14 @@ class Document(module_models.Item):
         return "{}_document_{}".format(str(self.module), self.pk)
 
     def clean(self, *args, **kwargs):
-        try:
-            Document.objects.get(module=self.module)
-            raise ValidationError(_('Document for that module already exists'))
-        except ObjectDoesNotExist:
-            super().clean(*args, **kwargs)
+        if not self.pk:
+            try:
+                Document.objects.get(module=self.module)
+                raise ValidationError(
+                    _('Document for that module already exists'))
+            except ObjectDoesNotExist:
+                super().clean(*args, **kwargs)
+        super().clean(*args, **kwargs)
 
     @cached_property
     def paragraphs_sorted(self):
