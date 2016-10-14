@@ -1,0 +1,3 @@
+module.export = {
+  'login': '/login'
+}
