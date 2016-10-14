@@ -8,13 +8,14 @@ module.exports = {
     path: './euth_wagtail/static/bundles/',
     filename: '[name].js'
   },
+  externals: {
+    'jquery': 'jQuery',
+    'django': 'django'
+  },
   module: {
     loaders: [
-      { test: /\.js([x]?)$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
     ]
-  },
-  eslint: {
-    configFile: './.eslintrc'
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
