@@ -3,7 +3,8 @@
     @include clearfix;
     @include rem(margin-top, 20px);
 
-    .euth-hero-unit + & {
+    .euth-hero-unit + &,
+    .timeline + & {
         margin-top: 0;
     }
 

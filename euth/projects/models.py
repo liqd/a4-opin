@@ -96,3 +96,8 @@ class Project(base_models.TimeStampedModel):
             today = timezone.now().replace(hour=0, minute=0, second=0)
             time_delta = self.active_phase.end_date - today
             return time_delta.days
+
+    @property
+    def phases(self):
+        from euth.phases import models as phase_models
+        return phase_models.Phase.objects.filter(module__project=self)

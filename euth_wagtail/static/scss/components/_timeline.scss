@@ -1,0 +1,62 @@
+.timeline {
+    background-color: $brand-brand2;
+    @include rem(padding, 10px 0 0);
+    text-align: center;
+
+    .text-uppercase {
+        display: inline-block;
+        vertical-align: middle;
+        @include rem(margin-right, 10px);
+        @include rem(font-size, 12px);
+        font-weight: bold;
+    }
+
+    ul {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include clearfix;
+    }
+
+    li {
+        @include rem(margin, 0 15px 0 0);
+        float: left;
+
+        @media screen and (max-width: $screen-xs-max) {
+            @include rem(margin-right, 10px);
+        }
+
+        > span {
+            color: #fff;
+            @include rem(margin-right, 10px);
+
+            @media screen and (max-width: $screen-xs-max) {
+                @include rem(margin-right, 5px);
+            }
+        }
+    }
+
+    .dot {
+        display: inline-block;
+        background-color: transparent;
+        border: 2px solid #fff;
+        padding: 0;
+        @include rem(margin-right, 15px);
+        @include rem(margin-bottom, 3px);
+        border-radius: 50%;
+        height: 17px;
+        width: 17px;
+        vertical-align: middle;
+    }
+    li:last-child .dot {
+        margin-right: 0;
+    }
+    .active .dot {
+        background: $brand-brand1;
+    }
+
+    .popover {
+        @include rem(margin-top, -18px);
+    }
+}

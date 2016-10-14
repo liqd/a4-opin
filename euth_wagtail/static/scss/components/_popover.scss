@@ -1,0 +1,27 @@
+.popover {
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    color: #fff;
+
+    h3,
+    h4 {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .small {
+        font-weight: bold;
+    }
+}
+
+.popover-title {
+    border-radius: 0;
+}
+.popover-content {
+    @media screen and (max-width: $screen-xs-max) {
+        max-height: 320px;
+        overflow: auto;
+    }
+}
