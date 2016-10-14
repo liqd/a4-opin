@@ -10,12 +10,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.js([x]?)$/, exclude: /node_modules/, loader: "babel-loader" },
     ]
   },
-  externals: {
-    'jquery': 'jQuery',
-    'django': 'django'
+  eslint: {
+    configFile: './.eslintrc'
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
