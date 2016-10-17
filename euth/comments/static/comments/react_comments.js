@@ -1,4 +1,4 @@
-var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings')
+var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings.jsx')
 var Report = require('../../../../euth/reports/static/reports/react_reports')
 var api = require('../../../contrib/static/js/api')
 var config = require('../../../contrib/static/js/config')
