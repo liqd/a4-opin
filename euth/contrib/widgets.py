@@ -33,6 +33,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
             'clear_title': ugettext('Remove the picture'),
         }
         snippets = {
+            'name': '{name}',
             'file_input': (
                 super(widgets.ClearableFileInput, self).render(name, value, {
                     'id': name,
@@ -56,8 +57,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
             substitutions['url'] = conditional_escape(value.url)
             substitutions['filename'] = basename(value.name)
             snippets['img'] = (
-                '<div class="form-{name}"><img src="{url}"'
-                ' class="img-responsive" alt="" /></div>'
+                '<img src="{url}" class="img-responsive" alt="" />'
             )
 
             if not self.is_required:
@@ -86,10 +86,12 @@ class ImageInputWidget(widgets.ClearableFileInput):
                 </span>
                 {file_input}
                 {alert}
-                {checkbox}
             </div>
             <div class="col-sm-3 col-md-4">
-                {img}
+                <div class="form-{name}">
+                    {checkbox}
+                    {img}
+                </div>
             </div>
         </div>
         """.format(**snippets).format(**substitutions)
