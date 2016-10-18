@@ -130,6 +130,12 @@
     }
 }
 
+.danger-button {
+    @extend .btn;
+    @extend .base-button;
+    @extend .btn-danger;
+}
+
 .logout-button-form {
 
     & .btn {
