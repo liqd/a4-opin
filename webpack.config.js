@@ -26,5 +26,8 @@ module.exports = {
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
-  ]
+  ],
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
+  }
 }
