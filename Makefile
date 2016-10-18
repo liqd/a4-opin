@@ -59,7 +59,7 @@ lint:
 	EXIT_STATUS=0; \
 	$(VIRTUAL_ENV)/bin/isort -rc -c $(SOURCE_DIRS) ||  EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
-	npm run lint ||  EXIT_STATUS=$$?; \
+	npm run lint --silent ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
 locales:

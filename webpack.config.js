@@ -12,6 +12,18 @@ module.exports = {
     'jquery': 'jQuery',
     'django': 'django'
   },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+    ]
+  },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
   ]

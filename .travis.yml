@@ -3,7 +3,7 @@ python:
   - "3.5"
 cache: pip
 install:
-  - npm install
+  - npm install --production
   - npm run build
   - pip install -r requirements/dev.txt
   - pip install coveralls
