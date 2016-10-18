@@ -36,7 +36,7 @@
     "heroku-postbuild": "npm run webpack:build",
     "build": "npm run webpack:build",
     "watch": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "lint": "node_modules/.bin/eslint euth -c ./.eslintrc --ext .js,.jsx",
+    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx",
     "precommit": "make lint"
   }
 }
