@@ -143,6 +143,7 @@ def test_project_delete(client, project):
     response = client.post(url, {})
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
+    assert mail.outbox[0].to == [project.organisation.initiators.first().email]
 
 
 @pytest.mark.django_db

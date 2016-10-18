@@ -56,6 +56,7 @@ class Email():
         languages = [get_language(), self.fallback_language]
         receivers = self.get_receiver_emails()
         context = self.get_context()
+        context.update(kwargs)
         attachments = self.get_attachments()
         template = self.template_name
 
@@ -112,6 +113,11 @@ class UserNotification(Email):
 class ModeratorNotification(Email):
     def get_receivers(self):
         return self.object.project.moderators.all()
+
+
+class InitiatorNotification(Email):
+    def get_receivers(self):
+        return self.object.organisation.initiators.all()
 
 
 class OpinEmail(Email):

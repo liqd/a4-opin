@@ -17,7 +17,7 @@ from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
-from . import blueprints, forms
+from . import blueprints, emails, forms
 
 
 def dashboard(request):
@@ -213,6 +213,14 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
+
+    def delete(self, *args, **kwargs):
+        response = super().delete(*args, **kwargs)
+        emails.ProjectDeletedEmail.send(
+            self.object,
+            action_user=self.request.user
+        )
+        return response
 
     def get_success_url(self):
         return reverse('dashboard-project-list',
