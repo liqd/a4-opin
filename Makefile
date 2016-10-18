@@ -49,8 +49,12 @@ server:
 test:
 	$(VIRTUAL_ENV)/bin/py.test --reuse-db
 
+test-lastfailed:
+	$(VIRTUAL_ENV)/bin/py.test --reuse-db --last-failed
+
 test-clean:
-	$(VIRTUAL_ENV)/bin/py.test --reuse-db --create-db
+	if [ -f test_db.sqlite3 ]; then rm test_db.sqlite3; fi
+	find media -iname 'example_*.jpg' -exec rm {} \+
 
 coverage:
 	$(VIRTUAL_ENV)/bin/py.test --reuse-db --cov --cov-report=html
