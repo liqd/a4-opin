@@ -1,5 +1,6 @@
 from allauth.account import views as account_views
 from allauth.socialaccount import views as socialaccount_views
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -203,7 +204,6 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
 class DashboardProjectDeleteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
-                                 SuccessMessageMixin,
                                  generic.DeleteView):
     model = project_models.Project
     form_class = forms.ProjectUpdateForm
@@ -220,6 +220,8 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
             self.object,
             action_user=self.request.user
         )
+        success_message = self.success_message
+        messages.success(self.request, success_message)
         return response
 
     def get_success_url(self):
