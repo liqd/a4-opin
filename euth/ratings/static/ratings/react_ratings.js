@@ -1,8 +1,10 @@
 var api = require('../../../contrib/static/js/api')
+var config = require('../../../contrib/static/js/config')
 
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
+var django = require('django')
 
 var RatingBox = React.createClass({
   handleRatingCreate: function (number) {
@@ -35,8 +37,8 @@ var RatingBox = React.createClass({
   },
   ratingUp: function (e) {
     e.preventDefault()
-    if (this.props.authenticatedAs === null) {
-      window.location.href = this.props.loginUrl
+    if (this.props.auhenticatedAs === null) {
+      window.location.href = config.login
       return
     }
     if (this.props.isReadOnly) {
@@ -57,7 +59,7 @@ var RatingBox = React.createClass({
   ratingDown: function (e) {
     e.preventDefault()
     if (this.props.authenticatedAs === null) {
-      window.location.href = this.props.loginUrl
+      window.location.href = django.urls.login()
       return
     }
     if (this.props.isReadOnly) {
@@ -109,8 +111,7 @@ var RatingBox = React.createClass({
           ])
         ])
       )
-    }
-    if (this.props.style === 'ideas') {
+    } else {
       return (
         h('div.idea-rating', [
           h('a.idea-rating-btn.idea-rating-up' + (this.props.isReadOnly ? '.is-read-only' : '') + (this.state.userRating === 1 ? '.is-selected' : ''), {
@@ -140,22 +141,6 @@ var RatingBox = React.createClass({
 
 module.exports.RatingBox = RatingBox
 
-module.exports.renderRatings = function (url, positiveRatings, negativeRatings, userRating, userRatingId, loginUrl, contentType, objectId, authenticatedAs, style, target, isReadOnly) {
-  ReactDOM.render(
-    h(RatingBox, {
-      url: url,
-      positiveRatings: positiveRatings,
-      negativeRatings: negativeRatings,
-      userRating: userRating,
-      userRatingId: userRatingId,
-      loginUrl: loginUrl,
-      contentType: contentType,
-      objectId: objectId,
-      authenticatedAs: authenticatedAs,
-      pollInterval: 20000,
-      style: style,
-      isReadOnly: isReadOnly
-    }),
-    document.getElementById(target)
-  )
+module.exports.renderRatings = function (mountpoint, props) {
+  ReactDOM.render(h(RatingBox, props), document.getElementById(mountpoint))
 }

@@ -1,6 +1,7 @@
 var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings')
 var Report = require('../../../../euth/reports/static/reports/react_reports')
 var api = require('../../../contrib/static/js/api')
+var config = require('../../../contrib/static/js/config')
 
 var React = require('react')
 var ReactDOM = require('react-dom')
@@ -77,15 +78,12 @@ var CommentBox = React.createClass({
   },
   componentDidMount: function () {
     this.loadCommentsFromServer()
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     moment.locale(this.props.language)
   },
   getChildContext: function () {
     return {
       isAuthenticated: this.props.isAuthenticated,
       isModerator: this.props.isModerator,
-      login_url: this.props.login_url,
-      ratingsUrls: this.props.ratingsUrls,
       comments_contenttype: this.props.comments_contenttype,
       user_name: this.props.user_name,
       language: this.props.language
@@ -122,8 +120,6 @@ var CommentBox = React.createClass({
 CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.bool,
   isModerator: React.PropTypes.bool,
-  login_url: React.PropTypes.string,
-  ratingsUrls: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
@@ -262,12 +258,9 @@ var Comment = React.createClass({
           ]),
 
           !this.props.is_deleted ? h(Ratings.RatingBox, {
-            url: this.context.ratingsUrls,
-            loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
             objectId: this.props.id,
             authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
-            pollInterval: 20000,
             style: 'comments',
             positiveRatings: this.props.positiveRatings,
             negativeRatings: this.props.negativeRatings,
@@ -420,8 +413,6 @@ Comment.contextTypes = {
   isAuthenticated: React.PropTypes.bool,
   isModerator: React.PropTypes.bool,
   user_name: React.PropTypes.string,
-  login_url: React.PropTypes.string,
-  ratingsUrls: React.PropTypes.string,
   contentType: React.PropTypes.number
 }
 
@@ -468,7 +459,7 @@ var CommentForm = React.createClass({
     } else {
       return (
       h('div.comments_login', [
-        h('a', {href: this.context.login_url}, django.gettext('Please login to comment'))
+        h('a', {href: config.loginUrl}, django.gettext('Please login to comment'))
       ])
       )
     }
@@ -476,8 +467,7 @@ var CommentForm = React.createClass({
 })
 
 CommentForm.contextTypes = {
-  isAuthenticated: React.PropTypes.bool,
-  login_url: React.PropTypes.string
+  isAuthenticated: React.PropTypes.bool
 }
 
 var CommentEditForm = React.createClass({
@@ -525,25 +515,9 @@ var CommentEditForm = React.createClass({
 })
 
 CommentEditForm.contextTypes = {
-  isAuthenticated: React.PropTypes.boolen,
-  login_url: React.PropTypes.string
+  isAuthenticated: React.PropTypes.boolen
 }
 
-module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, isModerator, loginUrl, target, userName, language, isReadOnly) {
-  ReactDOM.render(
-    h(CommentBox, {
-      url: url,
-      ratingsUrls: ratingsUrls,
-      subjectType: subjectType,
-      subjectId: subjectId,
-      comments_contenttype: commentsContenttype,
-      isAuthenticated: isAuthenticated,
-      isModerator: isModerator,
-      login_url: loginUrl,
-      pollInterval: 20000,
-      user_name: userName,
-      language: language,
-      isReadOnly: isReadOnly
-    }),
-    document.getElementById(target))
+module.exports.renderComment = function (mountpoint, props) {
+  ReactDOM.render(h(CommentBox, props), document.getElementById(mountpoint))
 }
