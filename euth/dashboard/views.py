@@ -201,6 +201,26 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return kwargs
 
 
+class DashboardProjectDeleteView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
+                                 SuccessMessageMixin,
+                                 generic.DeleteView):
+    model = project_models.Project
+    form_class = forms.ProjectUpdateForm
+    permission_required = 'euth_organisations.initiate_project'
+    success_message = _('Your project has been deleted.')
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
+
+
 class DashboardProjectInviteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,

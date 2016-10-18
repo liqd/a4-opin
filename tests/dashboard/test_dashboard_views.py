@@ -133,6 +133,19 @@ def test_initiator_edit_project(client, phase):
 
 
 @pytest.mark.django_db
+def test_project_delete(client, project):
+    user = project.organisation.initiators.first()
+    client.login(username=user.email, password='password')
+    url = reverse('dashboard-project-delete', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug
+    })
+    response = client.post(url, {})
+    assert response.status_code == 302
+    assert redirect_target(response) == 'dashboard-project-list'
+
+
+@pytest.mark.django_db
 def test_dashboard_project_users(client, project, user_factory,
                                  request_factory, invite_factory):
     url = reverse('dashboard-project-users', kwargs={

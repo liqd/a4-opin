@@ -51,6 +51,12 @@ urlpatterns = [
         name='dashboard-project-edit'
     ),
     url(
+        r'^(?P<organisation_slug>[-\w_]+)/projects/(?P<slug>[-\w_]+)/delete$',
+        views.DashboardProjectDeleteView.as_view(),
+        {'dashboard_menu_item': 'project'},
+        name='dashboard-project-delete'
+    ),
+    url(
         r'^(?P<organisation_slug>[-\w_]+)/projects/(?P<slug>[-\w_]+)/users$',
         views.DashboardProjectUserView.as_view(),
         {'dashboard_menu_item': 'project'},
