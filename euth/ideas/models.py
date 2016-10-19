@@ -12,6 +12,23 @@ from euth.modules import models as module_models
 from euth.ratings import models as rating_models
 
 
+class IdeaQuerySet(models.QuerySet):
+
+    def _rate_value_condition(self, value):
+        return models.Case(
+            models.When(ratings__value=1, then=1),
+            output_field=models.IntegerField()
+        )
+
+    def annotate_popularity(self):
+        return self.annotate(
+            popularity=models.Count(self._rate_value_condition(1))
+        )
+
+    def annotate_comment_count(self):
+        return self.annotate(comment_count=models.Count('comments'))
+
+
 class Idea(module_models.Item):
     slug = AutoSlugField(populate_from='name', unique=True)
     name = models.CharField(max_length=120)
@@ -19,8 +36,13 @@ class Idea(module_models.Item):
     image = models.ImageField(upload_to='ideas/images', blank=True,
                               validators=[validators.validate_idea_image])
     ratings = GenericRelation(rating_models.Rating,
-                              related_query_name='ideas',
+                              related_query_name='idea',
                               object_id_field='object_pk')
+    comments = GenericRelation(comment_models.Comment,
+                               related_query_name='idea',
+                               object_id_field='object_pk')
+
+    objects = IdeaQuerySet.as_manager()
 
     def __str__(self):
         return self.name
