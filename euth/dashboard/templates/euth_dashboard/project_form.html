@@ -163,8 +163,15 @@
         <button type="submit" name="save_draft" class="submit-button">{% trans 'unpublish' %}</button>
         {% endif %}
         <button type="submit" name="publish" class="submit-button">{% trans 'save and publish' %}</button>
+        {% if project.pk != None %}
+        <button type="button" class="danger-button"  data-toggle="modal" data-target="#deleteModal">delete</button>
+        {% endif %}
+
         {{ form.media }}
     </form>
 </div>
+
+{% url 'dashboard-project-delete' view.organisation.slug project.slug as delete_view_url %}
+{% include 'includes/delete_modal.html' with name=project.name delete_action=delete_view_url %}
 
 {% endblock %}

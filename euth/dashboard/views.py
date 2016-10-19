@@ -1,5 +1,6 @@
 from allauth.account import views as account_views
 from allauth.socialaccount import views as socialaccount_views
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -17,7 +18,7 @@ from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
-from . import blueprints, forms
+from . import blueprints, emails, forms
 
 
 def dashboard(request):
@@ -199,6 +200,35 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
             kwargs['module_settings__instance'] = reference_instance
 
         return kwargs
+
+
+class DashboardProjectDeleteView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
+                                 generic.DeleteView):
+    model = project_models.Project
+    form_class = forms.ProjectUpdateForm
+    permission_required = 'euth_organisations.initiate_project'
+    success_message = _('Your project has been deleted.')
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def delete(self, *args, **kwargs):
+        response = super().delete(*args, **kwargs)
+        emails.ProjectDeletedEmail.send(
+            self.object,
+            action_user=self.request.user
+        )
+        success_message = self.success_message
+        messages.success(self.request, success_message)
+        return response
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
 
 
 class DashboardProjectInviteView(DashboardBaseMixin,
