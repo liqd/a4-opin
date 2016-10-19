@@ -29,10 +29,6 @@ class SortMixin():
         if not self.sort:
             return qs
 
-        sort_field = self.sort.lstrip('+-')
-        sort_annotate_method = 'annotate_{}'.format(sort_field)
-        if hasattr(qs, sort_annotate_method):
-            qs = getattr(qs, sort_annotate_method)()
         return qs.order_by(self.sort)
 
 
