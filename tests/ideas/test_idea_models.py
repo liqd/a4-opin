@@ -78,3 +78,35 @@ def test_image_deleted_after_update(idea_factory, ImagePNG):
 
     assert not os.path.isfile(image_path)
     assert not os.path.isfile(thumbnail_path)
+
+
+@pytest.mark.django_db
+def test_annotate_ratings(project, idea_factory, rating_factory):
+    ideas = [idea_factory(name='idea{}'.format(i)) for i in range(3)]
+    rating_factory(content_object=ideas[1], value=1)
+    rating_factory(content_object=ideas[1], value=1)
+    rating_factory(content_object=ideas[2], value=1)
+    rating_factory(content_object=ideas[2], value=-1)
+    rating_factory(content_object=ideas[2], value=-1)
+
+    qs = idea_models.Idea.objects.annotate_positive_rating_count()
+    assert qs.get(pk=ideas[0].pk).positive_rating_count == 0
+    assert qs.get(pk=ideas[1].pk).positive_rating_count == 2
+    assert qs.get(pk=ideas[2].pk).positive_rating_count == 1
+    qs = idea_models.Idea.objects.annotate_negative_rating_count()
+    assert qs.get(pk=ideas[0].pk).negative_rating_count == 0
+    assert qs.get(pk=ideas[1].pk).negative_rating_count == 0
+    assert qs.get(pk=ideas[2].pk).negative_rating_count == 2
+
+
+@pytest.mark.django_db
+def test_sort_by_comment(project, idea_factory, comment_factory):
+    ideas = [idea_factory(name='idea{}'.format(i)) for i in range(3)]
+    comment_factory(content_object=ideas[2])
+    comment_factory(content_object=ideas[1])
+    comment_factory(content_object=ideas[1])
+
+    qs = idea_models.Idea.objects.annotate_comment_count()
+    assert qs.get(pk=ideas[0].pk).comment_count == 0
+    assert qs.get(pk=ideas[1].pk).comment_count == 2
+    assert qs.get(pk=ideas[2].pk).comment_count == 1
