@@ -35,7 +35,7 @@ class SortMixin():
 class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
     model = idea_models.Idea
     sort_default = 'created'
-    sorts = ['-created', '-positive_rating_count', 'comments_count']
+    sorts = ['-created', '-positive_rating_count', '-comment_count']
 
     def get_queryset(self):
         return super().get_queryset().filter(module=self.module)\

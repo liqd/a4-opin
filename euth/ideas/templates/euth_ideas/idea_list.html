@@ -18,6 +18,23 @@
         </span>
     </div>
 
+    {% if view.sorts %}
+    <div class="dropdown">
+        <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
+            role="button" aria-haspopup="true" aria-expanded="false">
+            {% trans 'sort by' %}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="drop">
+            {% for sort in view.sorts %}
+            <li>
+                <a href="?sort={{sort}}">{{sort}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
     {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
     {% if add_button_enabled %}
     <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button">
