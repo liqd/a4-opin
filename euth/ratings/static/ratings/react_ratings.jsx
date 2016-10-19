@@ -98,6 +98,7 @@ var RatingBox = React.createClass({
         'is-selected': this.state.userRating === valueForRatingType
       })
     }
+
     return (
       <ul className="ul nav navbar-nav rating-bar">
         <li className="entry">
