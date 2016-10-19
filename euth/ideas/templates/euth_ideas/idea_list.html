@@ -26,11 +26,25 @@
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="drop">
-            {% for sort in view.sorts %}
+            {% for sort_name, sort in view.sorts %}
             <li>
-                <a href="?sort={{sort}}">{{sort}}</a>
+                {% if view.sort == sort %}
+                <a><strong>{{ sort_name }}</strong></a>
+                {% else %}
+                <a href="?sort={{sort}}">{{ sort_name }}</a>
+                {% endif %}
             </li>
             {% endfor %}
+            {% if view.sort_default %}
+            <li>
+                {% trans "default" as sort_name %}
+                {% if view.sort == view.sort_default %}
+                <a><strong>{{ sort_name }}</strong></a>
+                {% else %}
+                <a href=".">{{ sort_name }}</a>
+                {% endif %}
+            </li>
+            {% endif %}
         </ul>
     </div>
     {% endif %}

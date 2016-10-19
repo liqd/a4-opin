@@ -18,7 +18,8 @@ class SortMixin():
 
     def get_sort(self):
         sort = self.request.GET.get('sort') or self.sort_default
-        if sort not in self.sorts:
+        sorts = dict(self.sorts).values()
+        if sort not in sorts:
             sort = self.sort_default
         return sort
 
@@ -35,7 +36,11 @@ class SortMixin():
 class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
     model = idea_models.Idea
     sort_default = 'created'
-    sorts = ['-created', '-positive_rating_count', '-comment_count']
+    sorts = [
+        (_('creation date'), '-created'),
+        (_('popularity'), '-positive_rating_count'),
+        (_('comments'), '-comment_count')
+    ]
 
     def get_queryset(self):
         return super().get_queryset().filter(module=self.module)\
