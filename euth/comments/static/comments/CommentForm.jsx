@@ -1,8 +1,9 @@
+var config = require('../../../contrib/static/js/config')
+
 var React = require('react')
-var h = require('react-hyperscript')
 var django = require('django')
 
-module.exports.CommentForm = React.createClass({
+let CommentForm = React.createClass({
   getInitialState: function () {
     return {comment: ''}
   },
@@ -25,34 +26,28 @@ module.exports.CommentForm = React.createClass({
   render: function () {
     if (this.context.isAuthenticated) {
       return (
-        h('form.general-form', { onSubmit: this.handleSubmit }, [
-          h('div.form-group', [
-            h('textarea.form-control', {
-              type: 'text',
-              placeholder: this.props.placeholder,
-              rows: this.props.rows,
-              value: this.state.comment,
-              onChange: this.handleTextChange,
-              required: 'required'
-            })
-          ]),
-          h('input.submit-button', {
-            type: 'submit',
-            value: django.gettext('post')
-          })
-        ])
+        <form className="general-form" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <textarea rows={this.props.rows} className="form-control"
+              placeholder={django.gettext('Your comment here')}
+              onChange={this.handleTextChange} required="required" defaultValue={this.state.comment} />
+          </div>
+          <input type="submit" value={django.gettext('post')} className="submit-button" />
+        </form>
       )
     } else {
       return (
-        h('div.comments_login', [
-          h('a', {href: this.context.login_url}, django.gettext('Please login to comment'))
-        ])
+        <div className="comments_login">
+          <a href={config.loginUrl}>{django.gettext('Please login to comment')}</a>
+        </div>
       )
     }
   }
 })
 
-module.exports.CommentForm.contextTypes = {
-  isAuthenticated: React.PropTypes.bool,
-  login_url: React.PropTypes.string
+CommentForm.contextTypes = {
+  isAuthenticated: React.PropTypes.bool
 }
+
+module.exports = CommentForm
+

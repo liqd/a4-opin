@@ -1,8 +1,7 @@
 var React = require('react')
-var h = require('react-hyperscript')
 var django = require('django')
 
-module.exports.CommentEditForm = React.createClass({
+var CommentEditForm = React.createClass({
   getInitialState: function () {
     return {comment: this.props.comment}
   },
@@ -21,32 +20,22 @@ module.exports.CommentEditForm = React.createClass({
   },
   render: function () {
     return (
-      h('form.general-form', { onSubmit: this.handleSubmit }, [
-        h('div.form-group', [
-          h('textarea.form-control', {
-            type: 'text',
-            placeholder: django.gettext('Your comment here'),
-            rows: this.props.rows,
-            value: this.state.comment,
-            onChange: this.handleTextChange,
-            required: 'required'
-          })
-        ]),
-        h('input.submit-button', {
-          type: 'submit',
-          value: django.gettext('post')
-        }),
-        h('input.cancel-button', {
-          type: 'submit',
-          value: django.gettext('cancel'),
-          onClick: this.props.handleCancel
-        })
-      ])
+      <form className="general-form" onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <textarea rows={this.props.rows} className="form-control"
+            placeholder={django.gettext('Your comment here')}
+            onChange={this.handleTextChange} required="required" defaultValue={this.state.comment} />
+        </div>
+        <input type="submit" value={django.gettext('post')} className="submit-button" />
+        <input type="submit" value={django.gettext('cancel')} className="cancel-button"
+          onClick={this.props.handleCancel} />
+      </form>
     )
   }
 })
 
-module.exports.CommentEditForm.contextTypes = {
-  isAuthenticated: React.PropTypes.boolen,
-  login_url: React.PropTypes.string
+CommentEditForm.contextTypes = {
+  isAuthenticated: React.PropTypes.bool
 }
+
+module.exports = CommentEditForm

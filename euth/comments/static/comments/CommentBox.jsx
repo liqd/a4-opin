@@ -7,7 +7,7 @@ var update = require('react-addons-update')
 var moment = require('moment')
 var django = require('django')
 
-module.exports.CommentBox = React.createClass({
+let CommentBox = React.createClass({
   loadCommentsFromServer: function () {
     api.comments.get({
       object_pk: this.props.subjectId,
@@ -74,50 +74,47 @@ module.exports.CommentBox = React.createClass({
   },
   componentDidMount: function () {
     this.loadCommentsFromServer()
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     moment.locale(this.props.language)
   },
   getChildContext: function () {
     return {
       isAuthenticated: this.props.isAuthenticated,
       isModerator: this.props.isModerator,
-      login_url: this.props.login_url,
-      ratingsUrls: this.props.ratingsUrls,
       comments_contenttype: this.props.comments_contenttype,
       user_name: this.props.user_name,
       language: this.props.language
     }
   },
   render: function () {
-    if (this.props.isReadOnly) {
+    if (!this.props.isReadOnly) {
       var commentBox = (
-        <div className="commentBox">
-          <CommentForm subjectType={this.props.subjectType} subjectId={this.props.subjectId}
-            onCommentSubmit={this.handleCommentSubmit} placeholder={django.getText('Your comment here')}
-            rows="5" />
-        </div>
+        <CommentForm subjectType={this.props.subjectType} subjectId={this.props.subjectId}
+          onCommentSubmit={this.handleCommentSubmit} placeholder={django.gettext('Your comment here')}
+          rows="5" />
       )
     }
     return (
       <div>
         <div className="black-divider">{this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)}</div>
-        {commentBox}
-        <div className="comment-list">
-          <CommentList comments={this.state.comments} handleCommentDelete={this.handleCommentDelete}
-            handleCommentSubmit={this.handleCommentSubmit} handleCommentModify={this.handleCommentModify}
-            isReadOnly={this.props.isReadOnly} />
+        <div className="commentBox">
+          {commentBox}
+          <div className="comment-list">
+            <CommentList comments={this.state.comments} handleCommentDelete={this.handleCommentDelete}
+              handleCommentSubmit={this.handleCommentSubmit} handleCommentModify={this.handleCommentModify}
+              isReadOnly={this.props.isReadOnly} />
+          </div>
         </div>
       </div>
     )
   }
 })
 
-module.exports.CommentBox.childContextTypes = {
+CommentBox.childContextTypes = {
   isAuthenticated: React.PropTypes.bool,
   isModerator: React.PropTypes.bool,
-  login_url: React.PropTypes.string,
-  ratingsUrls: React.PropTypes.string,
   comments_contenttype: React.PropTypes.number,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
 }
+
+module.exports = CommentBox

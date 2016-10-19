@@ -1,7 +1,7 @@
 var React = require('react')
 var h = require('react-hyperscript')
 
-module.exports.Modal = React.createClass({
+module.exports = React.createClass({
   'render': function () {
     return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
       h('div.modal-dialog.modal-lg', { role: 'document' }, [

@@ -105,4 +105,4 @@ var ReportModal = React.createClass({
   }
 })
 
-module.exports.ReportModal = ReportModal
+module.exports = ReportModal

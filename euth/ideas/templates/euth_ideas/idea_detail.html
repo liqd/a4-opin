@@ -59,7 +59,9 @@
                 <p>{{ idea.description |safe }}</p>
             </div>
 
-            {% react_ratings idea %}
+            <div class="idea-ratings">
+                {% react_ratings idea %}
+            </div>
 
             {% react_comments idea %}
         </div>
