@@ -1,9 +1,7 @@
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.utils.functional import cached_property
 
 from contrib.transforms import html_transforms
 from euth.comments import models as comment_models
@@ -16,13 +14,18 @@ class IdeaQuerySet(models.QuerySet):
 
     def _rate_value_condition(self, value):
         return models.Case(
-            models.When(ratings__value=1, then=1),
+            models.When(ratings__value=value, then=1),
             output_field=models.IntegerField()
         )
 
-    def annotate_popularity(self):
+    def annotate_positive_rating_count(self):
         return self.annotate(
-            popularity=models.Count(self._rate_value_condition(1))
+            positive_rating_count=models.Count(self._rate_value_condition(1))
+        )
+
+    def annotate_negative_rating_count(self):
+        return self.annotate(
+            negative_rating_count=models.Count(self._rate_value_condition(-1))
         )
 
     def annotate_comment_count(self):
@@ -55,19 +58,3 @@ class Idea(module_models.Item):
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('idea-detail', args=[str(self.slug)])
-
-    @cached_property
-    def comments(self):
-        contenttype = ContentType.objects.get_for_model(self)
-        pk = self.id
-        comments = comment_models.Comment.objects.all().filter(
-            content_type=contenttype, object_pk=pk)
-        return comments
-
-    @cached_property
-    def negative_ratings(self):
-        return self.ratings.filter(value=-1).count()
-
-    @cached_property
-    def positive_ratings(self):
-        return self.ratings.filter(value=1).count()

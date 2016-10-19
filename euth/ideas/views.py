@@ -46,11 +46,19 @@ class SortMixin():
 class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
     model = idea_models.Idea
     sort_default = 'created'
-    sorts = ['-created', '-popularity', 'comments_count']
+    sorts = ['-created', '-positive_rating_count', 'comments_count']
+
+    def get_queryset(self):
+        return self.model.objects.filter(module=self.module)\
+                                 .annotate_positive_rating_count()\
+                                 .annotate_negative_rating_count()\
+                                 .annotate_comment_count()
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
     model = idea_models.Idea
+    queryset = idea_models.Idea.objects.annotate_positive_rating_count()\
+                                       .annotate_negative_rating_count()
     permission_required = 'euth_ideas.view_idea'
 
 
