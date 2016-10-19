@@ -100,7 +100,7 @@ def test_annotate_ratings(project, idea_factory, rating_factory):
 
 
 @pytest.mark.django_db
-def test_sort_by_comment(project, idea_factory, comment_factory):
+def test_annotate_comment(project, idea_factory, comment_factory):
     ideas = [idea_factory(name='idea{}'.format(i)) for i in range(3)]
     comment_factory(content_object=ideas[2])
     comment_factory(content_object=ideas[1])
@@ -110,3 +110,28 @@ def test_sort_by_comment(project, idea_factory, comment_factory):
     assert qs.get(pk=ideas[0].pk).comment_count == 0
     assert qs.get(pk=ideas[1].pk).comment_count == 2
     assert qs.get(pk=ideas[2].pk).comment_count == 1
+
+
+@pytest.mark.django_db
+def test_combined_annotations(idea, comment_factory, rating_factory):
+    qs = idea_models.Idea.objects.annotate_comment_count()\
+                                 .annotate_positive_rating_count()
+    assert qs.first().comment_count == 0
+    assert qs.first().positive_rating_count == 0
+
+    comment_factory(content_object=idea)
+    rating_factory(content_object=idea, value=1)
+    rating_factory(content_object=idea, value=1)
+
+    qs = idea_models.Idea.objects.annotate_comment_count()\
+                                 .annotate_positive_rating_count()
+    assert qs.first().comment_count == 1
+    assert qs.first().positive_rating_count == 2
+
+    comment_factory(content_object=idea)
+    comment_factory(content_object=idea)
+
+    qs = idea_models.Idea.objects.annotate_comment_count()\
+                                 .annotate_positive_rating_count()
+    assert qs.first().comment_count == 3
+    assert qs.first().positive_rating_count == 2
