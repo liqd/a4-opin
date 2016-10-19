@@ -2,62 +2,595 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 14:23+0200\n"
+"POT-Creation-Date: 2016-10-19 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: comments_api/templatetags/react_comments.py:27
+#: comments/models.py:28
 msgid "Comment"
 msgstr ""
 
-#: comments_api/templatetags/react_comments.py:28
+#: comments/models.py:29
 msgid "Comments"
 msgstr ""
 
-#: comments_api/templatetags/react_comments.py:29
-msgid "Your comment here"
+#: contrib/widgets.py:26
+msgid "Select a picture from your local folder."
 msgstr ""
 
-#: comments_api/templatetags/react_comments.py:30
-msgid "Please login to comment"
+#: contrib/widgets.py:29
+msgid ""
+"You’re image will be uploaded/removed once you save your changes at the end "
+"of this page."
 msgstr ""
 
-#: euth_wagtail/settings/base.py:129
-msgid "German"
+#: contrib/widgets.py:32
+msgid "Upload a picture"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:130
-msgid "English"
+#: contrib/widgets.py:33
+msgid "Remove the picture"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:131
-msgid "Italien"
+#: dashboard/blueprints.py:18
+msgid "Idea collection 1"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:132
-msgid "French"
+#: dashboard/blueprints.py:19 dashboard/blueprints.py:30
+msgid "Collect ideas"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:133
-msgid "Swedish"
+#: dashboard/blueprints.py:29
+msgid "Idea collection 2"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:134
-msgid "Slovene"
+#: dashboard/blueprints.py:41
+msgid "Add comments to an existing text"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:135
-msgid "Danish"
+#: dashboard/blueprints.py:50
+msgid "Mobile Polling"
 msgstr ""
+
+#: dashboard/blueprints.py:51
+msgid "Initiate a mobile polling process"
+msgstr ""
+
+#: dashboard/forms.py:269
+msgid "The title of your organisation"
+msgstr ""
+
+#: dashboard/forms.py:277
+msgid ""
+"More info about the organisation / Short text for organisation overview"
+msgstr ""
+
+#: dashboard/forms.py:292
+msgid "Header Image"
+msgstr ""
+
+#: dashboard/forms.py:295
+#, python-format
+msgid ""
+"Your image should be at least 1300px wide and 600px high. Supported formats "
+"are %s."
+msgstr ""
+
+#: dashboard/forms.py:298
+#, python-format
+msgid ""
+"Your image should be at least 200px wide and 200px high. Supported formats "
+"are %s."
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:31
+msgid "Organisation settings"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:38
+msgid "Organisation information"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:45
+#: dashboard/templates/euth_dashboard/project_list.html:5
+msgid "Projects"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:63
+msgid "Personal settings"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:68
+msgid "Profile"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:75
+msgid "E-mail Addresses"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/base_dashboard.html:82
+msgid "Account Connections"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/blueprint_list.html:6
+msgid "Create new project from one of the templates"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/blueprint_list.html:13
+msgid "back to project list"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/blueprint_list.html:30
+#, python-format
+msgid ""
+"\n"
+"                The resulting project will have %(count)s phases:\n"
+"                "
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/blueprint_list.html:43
+msgid "Use this template"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/organisation_form.html:5
+msgid "Edit your organisation information"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/organisation_form.html:60
+msgid "Save changes"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/profile_detail.html:4
+msgid "Your user profile"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/profile_detail.html:6
+msgid "Your profile"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/profile_detail.html:23
+#: ideas/templates/euth_ideas/idea_form.html:70
+msgid "post"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:13
+#: memberships/templates/euth_memberships/invite_form.html:10
+#: memberships/templates/euth_memberships/request_detail.html:10
+#: projects/templates/euth_projects/project_detail.html:41
+msgid "Information"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:17
+#: projects/templates/euth_projects/project_detail.html:42
+msgid "Participation"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:20
+#: projects/templates/euth_projects/project_detail.html:43
+msgid "Result"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:26
+#: memberships/templates/euth_memberships/request_detail.html:54
+#: projects/templates/euth_projects/project_detail.html:49
+msgid "info"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:70
+msgid "Phase "
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:90
+#: dashboard/templates/euth_dashboard/project_form.html:130
+msgid "of Phase "
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:111
+msgid "of Phase: "
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:161
+msgid "save draft"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:163
+msgid "unpublish"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_form.html:165
+msgid "save and publish"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_invites.html:5
+msgid "Invite users to"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_invites.html:14
+#: dashboard/templates/euth_dashboard/project_users.html:73
+msgid "Submit"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_list.html:12
+msgid "No projects created"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_list.html:31 users/models.py:55
+msgid "Users"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_list.html:35
+msgid "Edit project"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_list.html:38
+msgid "View project"
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_users.html:5
+msgid "Manage user of "
+msgstr ""
+
+#: dashboard/templates/euth_dashboard/project_users.html:7
+msgid "Invite users"
+msgstr ""
+
+#: dashboard/views.py:64
+msgid "Your profile was successfully updated."
+msgstr ""
+
+#: dashboard/views.py:81
+msgid "Organisation successfully updated."
+msgstr ""
+
+#: dashboard/views.py:130
+msgid "Project succesfully created."
+msgstr ""
+
+#: dashboard/views.py:135
+msgid "New project based on"
+msgstr ""
+
+#: dashboard/views.py:165
+msgid "Project successfully updated."
+msgstr ""
+
+#: dashboard/views.py:170
+msgid "Update project: "
+msgstr ""
+
+#: dashboard/views.py:210
+msgid "Invitations successfully sent."
+msgstr ""
+
+#: dashboard/views.py:254
+msgid "User request successfully updated."
+msgstr ""
+
+#: documents/models.py:23
+msgid "Document for that module already exists"
+msgstr ""
+
+#: documents/phases.py:19
+msgid "commenting text"
+msgstr ""
+
+#: documents/phases.py:20
+msgid "Collect comments for the text."
+msgstr ""
+
+#: documents/templates/euth_documents/document_detail.html:12
+#: flashpoll/templates/euth_flashpoll/flashpoll_detail.html:10
+#: ideas/templates/euth_ideas/idea_list.html:12
+msgid "Start Date"
+msgstr ""
+
+#: documents/templates/euth_documents/document_detail.html:16
+#: flashpoll/templates/euth_flashpoll/flashpoll_detail.html:14
+#: ideas/templates/euth_ideas/idea_list.html:16
+msgid "End Date"
+msgstr ""
+
+#: documents/templates/euth_documents/paragraph_detail.html:10
+#: ideas/templates/euth_ideas/idea_detail.html:14
+#: ideas/templates/euth_ideas/idea_form.html:11
+msgid "back to project"
+msgstr ""
+
+#: flashpoll/phases.py:14
+msgid "Flashpoll Phase"
+msgstr ""
+
+#: flashpoll/phases.py:15
+msgid "Initiate a Mobile polling process."
+msgstr ""
+
+#: flashpoll/phases.py:16
+msgid "mobile polling"
+msgstr ""
+
+#: ideas/phases.py:14
+msgid "Issue phase"
+msgstr ""
+
+#: ideas/phases.py:15
+msgid "Add new ideas."
+msgstr ""
+
+#: ideas/phases.py:16 ideas/phases.py:32 ideas/phases.py:49 ideas/phases.py:67
+#: ideas/phases.py:83
+msgid "ideas collection"
+msgstr ""
+
+#: ideas/phases.py:30
+msgid "Collect phase"
+msgstr ""
+
+#: ideas/phases.py:31
+msgid "Add new ideas and comment them."
+msgstr ""
+
+#: ideas/phases.py:48
+msgid "Rating phase"
+msgstr ""
+
+#: ideas/phases.py:50
+msgid "Get quantative feeback by rating the collected ideas."
+msgstr ""
+
+#: ideas/phases.py:64
+msgid "Feedback phase"
+msgstr ""
+
+#: ideas/phases.py:65
+msgid "Get feedback for collected ideas through rates and comments."
+msgstr ""
+
+#: ideas/phases.py:82
+msgid "Universal phase"
+msgstr ""
+
+#: ideas/phases.py:84
+msgid "Use all features of the idea collection."
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_detail.html:27
+msgid "Edit"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_detail.html:31
+#: ideas/templates/euth_ideas/includes/modal.html:20
+msgid "Delete"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_form.html:4
+msgid "Create a new proposal"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_form.html:19
+msgid "create new proposal for this project"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_form.html:23
+msgid "update idea"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_form.html:41
+msgid "Title of the proposal"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_form.html:50
+msgid "Description"
+msgstr ""
+
+#: ideas/templates/euth_ideas/idea_list.html:25
+msgid "Create Proposal"
+msgstr ""
+
+#: ideas/templates/euth_ideas/includes/modal.html:2
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: ideas/templates/euth_ideas/includes/modal.html:23
+#: memberships/templates/euth_memberships/request_detail.html:45
+msgid "Abort"
+msgstr ""
+
+#: ideas/views.py:74
+msgid "Your Idea has been deleted"
+msgstr ""
+
+#: memberships/templates/euth_memberships/invite_form.html:4
+#: memberships/templates/euth_memberships/request_detail.html:4
+#, python-format
+msgid " Private project: %(project)s"
+msgstr ""
+
+#: memberships/templates/euth_memberships/invite_form.html:15
+#, python-format
+msgid " Join %(project)s?"
+msgstr ""
+
+#: memberships/templates/euth_memberships/invite_form.html:19
+msgid "Accept"
+msgstr ""
+
+#: memberships/templates/euth_memberships/invite_form.html:20
+msgid "Reject"
+msgstr ""
+
+#: memberships/templates/euth_memberships/request_detail.html:17
+#, python-format
+msgid ""
+"\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
+"            "
+msgstr ""
+
+#: memberships/templates/euth_memberships/request_detail.html:24
+#: memberships/templates/euth_memberships/request_detail.html:41
+msgid "request membership"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_detail.html:4
+msgid "on Opin.me"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_detail.html:44
+msgid "More info about"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_detail.html:51
+msgid "Why are we part of OPIN"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_detail.html:56
+msgid "How will we use OPIN"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_detail.html:60
+msgid "More info about the organisation"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_list.html:4
+msgid "Organisations on Opin.me"
+msgstr ""
+
+#: organisations/templates/euth_organisations/organisation_list.html:8
+msgid "Organisations"
+msgstr ""
+
+#: phases/models.py:39
+msgid "End date can not be smallerthan the start date."
+msgstr ""
+
+#: projects/templates/euth_projects/includes/project_tile.html:7
+#, python-format
+msgid "%(days)s day left"
+msgid_plural "%(days)s days left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: projects/templates/euth_projects/includes/project_tile.html:9
+msgid "a few hours left"
+msgstr ""
+
+#: projects/templates/euth_projects/project_detail.html:20
+msgid "Phase"
+msgstr ""
+
+#: projects/templates/euth_projects/project_detail.html:61
+msgid "There are no results yet. Please check back later."
+msgstr ""
+
+#: projects/templates/euth_projects/project_detail.html:73
+msgid "other projects from this organisation"
+msgstr ""
+
+#: users/admin.py:10
+msgid "Permissions"
+msgstr ""
+
+#: users/admin.py:11
+msgid "Important dates"
+msgstr ""
+
+#: users/models.py:9
+msgid ""
+"Enter a valid username. This value may contain only letters, digits, spaces "
+"and @/./+/-/_ characters. It must start with a digit or a letter."
+msgstr ""
+
+#: users/models.py:13
+msgid "A user with that username already exists."
+msgstr ""
+
+#: users/models.py:14
+msgid ""
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
+msgstr ""
+
+#: users/models.py:20
+msgid "A user with that email address already exists."
+msgstr ""
+
+#: users/models.py:22
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: users/models.py:23
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: users/models.py:28
+msgid "username"
+msgstr ""
+
+#: users/models.py:36
+msgid "email address"
+msgstr ""
+
+#: users/models.py:40
+msgid "staff status"
+msgstr ""
+
+#: users/models.py:42
+msgid "active"
+msgstr ""
+
+#: users/models.py:54
+msgid "User"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:11
+msgid "Admin"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:16
+msgid "Dashboard"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:19
+msgid "Change Password"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:26
+msgid "logout"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:35
+msgid "Login / Register"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:39
+msgid "login"
+msgstr ""
+
+#: users/templates/euth_users/indicator_menu.html:42
+msgid "register"
+msgstr ""
+
+#~ msgid "Please login to comment"
+#~ msgstr ""
+
+#~ msgid "Answer"
+#~ msgstr ""
+
+#~ msgid "Post"
+#~ msgstr ""
+
+#~ msgid "Report"
+#~ msgstr ""
