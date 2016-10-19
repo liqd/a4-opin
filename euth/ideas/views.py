@@ -1,6 +1,6 @@
 from django.contrib import messages
+from django.core.exceptions import SuspiciousOperation
 from django.core.urlresolvers import reverse
-from django.db import models
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
@@ -12,30 +12,41 @@ from . import models as idea_models
 from . import forms
 
 
-class IdeaListView(mixins.ProjectMixin, generic.ListView):
-    model = idea_models.Idea
+class SortMixin():
+    sort_default = None
+    sorts = []
+    sort = None
+
+    def get_sort(self):
+        sort = self.request.GET.get('sort') or self.sort_default
+        allowed_sorts = self.sorts + [self.sort_default]
+
+        if sort not in allowed_sorts:
+            raise SuspiciousOperation(
+                'Invalid sort options `{}` (allowed: {} )'.format(
+                    sort, ', '.join(allowed_sorts)
+                )
+            )
+        return sort
 
     def get_queryset(self):
-        sort = self.request.GET.get('sort')
-        qs = idea_models.Idea.objects.filter(module=self.module)
-        if sort:
-            if sort == 'ratings':
-                qs = qs.annotate(ratings__count=models.Count(
-                    models.Case(
-                        models.When(ratings__value=1, then=1),
-                        output_field=models.IntegerField()
-                    ),
-                ))
-                return qs.order_by('-ratings__count')
-            else:
-                try:
-                    idea_models.Idea._meta.get_field_by_name(sort)
-                    return qs.order_by(sort)
-                except models.FieldDoesNotExist:
-                    return qs.order_by('name')
+        qs = super().get_queryset()
+        self.sort = self.get_sort()
 
-        else:
-            return qs.order_by('name')
+        if not self.sort:
+            return qs
+
+        sort_field = self.sort.lstrip('+-')
+        sort_annotate_method = 'annotate_{}'.format(sort_field)
+        if hasattr(qs, sort_annotate_method):
+            qs = getattr(qs, sort_annotate_method)()
+        return qs.order_by(self.sort)
+
+
+class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
+    model = idea_models.Idea
+    sort_default = 'created'
+    sorts = ['-created', '-popularity', 'comments_count']
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
