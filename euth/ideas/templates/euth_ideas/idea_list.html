@@ -22,11 +22,11 @@
     <div class="dropdown">
         <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
             role="button" aria-haspopup="true" aria-expanded="false">
-            {% trans 'sort by' %}
+            {% trans 'sort by' %} {{ view.get_current_sortname }}
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="drop">
-            {% for sort_name, sort in view.sorts %}
+            {% for sort, sort_name in view.sorts %}
             <li>
                 {% if view.sort == sort %}
                 <a><strong>{{ sort_name }}</strong></a>
@@ -35,16 +35,6 @@
                 {% endif %}
             </li>
             {% endfor %}
-            {% if view.sort_default %}
-            <li>
-                {% trans "default" as sort_name %}
-                {% if view.sort == view.sort_default %}
-                <a><strong>{{ sort_name }}</strong></a>
-                {% else %}
-                <a href=".">{{ sort_name }}</a>
-                {% endif %}
-            </li>
-            {% endif %}
         </ul>
     </div>
     {% endif %}
