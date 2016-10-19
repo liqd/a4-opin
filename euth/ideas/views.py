@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.core.exceptions import SuspiciousOperation
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.views import generic
@@ -19,14 +18,8 @@ class SortMixin():
 
     def get_sort(self):
         sort = self.request.GET.get('sort') or self.sort_default
-        allowed_sorts = self.sorts + [self.sort_default]
-
-        if sort not in allowed_sorts:
-            raise SuspiciousOperation(
-                'Invalid sort options `{}` (allowed: {} )'.format(
-                    sort, ', '.join(allowed_sorts)
-                )
-            )
+        if sort not in self.sorts:
+            sort = self.sort_default
         return sort
 
     def get_queryset(self):
