@@ -20,7 +20,7 @@
     }
   },
     {
-    "model": "user_management.user",
+    "model": "euth_users.user",
     "pk": 2,
     "fields": {
       "email": "user@liqd.de",
