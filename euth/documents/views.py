@@ -5,12 +5,12 @@ from rules.contrib.views import PermissionRequiredMixin
 from euth.projects import mixins
 from euth.projects.models import Project
 
-from . import forms, models
+from . import models
 
 
 class DocumentCreateView(generic.CreateView, PermissionRequiredMixin):
     model = models.Document
-    form_class = forms.DocumentCreateMultiForm
+    fields = []
 
     def dispatch(self, *args, **kwargs):
         proj_slug = self.kwargs[self.slug_url_kwarg]
@@ -22,16 +22,6 @@ class DocumentCreateView(generic.CreateView, PermissionRequiredMixin):
         except ObjectDoesNotExist:
             self.document = None
         return super().dispatch(*args, **kwargs)
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs.update({'user': self.request.user})
-        kwargs.update({'module': self.module})
-        kwargs.update({'document': self.document})
-        return kwargs
-
-    def get_success_url(self):
-        return self.project.get_absolute_url()
 
 
 class DocumentDetailView(generic.DetailView, mixins.ProjectMixin):
