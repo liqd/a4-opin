@@ -3,11 +3,31 @@ from django.core.urlresolvers import reverse
 from freezegun import freeze_time
 from tests.helpers import redirect_target
 
-from euth.ideas import models, phases
+from euth.ideas import models, phases, views
 
 
 @pytest.mark.django_db
-def test_detail_view(client, idea):
+def test_list_view(rf, phase, module_factory, idea_factory):
+    module = phase.module
+    project = module.project
+    idea = idea_factory(module=module)
+    other_module = module_factory()
+    other_idea = idea_factory(module=other_module)
+
+    with freeze_time(phase.start_date):
+        view = views.IdeaListView.as_view()
+        request = rf.get('/ideas')
+        response = view(request, project=project)
+
+        assert idea in response.context_data['idea_list']
+        assert other_idea not in response.context_data['idea_list']
+        assert response.context_data['idea_list'][0].comment_count == 0
+        assert response.context_data['idea_list'][0].positive_rating_count == 0
+        assert response.context_data['idea_list'][0].negative_rating_count == 0
+
+
+@pytest.mark.django_db
+def test_detail_view(client, phase, idea):
     url = reverse('idea-detail', kwargs={'slug': idea.slug})
     response = client.get(url)
     assert response.status_code == 200
