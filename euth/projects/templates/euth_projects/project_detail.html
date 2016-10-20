@@ -2,8 +2,39 @@
 {% load i18n %}
 
 {% block title %}{{view.project.name}}{% endblock %}
+{% block extra_js %}
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+{% endblock %}
 {% block content %}
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
+{% with view.project.phases as phases %}
+    <div class="timeline">
+        <p class="text-uppercase">Timeline</p>
+        <ul>
+            {% for phase in phases %}
+                <li class="{% if phase == view.project.active_phase %}active{% endif %}">
+                    <div class="dot" title="{% trans "Phase" %} {{ forloop.counter }}/{{ phases|length }}"
+                         data-toggle="popover" data-html="true" data-trigger="hover" data-placement="top"
+                         data-container="#button-phase-{{ forloop.counter }}" id="button-phase-{{ forloop.counter }}"
+                         data-content="
+                                <p class='small'>{{ phase.start_date|date:"SHORT_DATE_FORMAT" }} - {{ phase.end_date|date:"SHORT_DATE_FORMAT" }}</p>
+                                <h4>{{ phase.name }}</h4>
+                                {{ phase.description }}
+                            "></div>
+                    {% if not forloop.last and phases|length > 1 %}
+                        <span class="fa fa-caret-right"></span>
+                        <span class="fa fa-caret-right"></span>
+                        <span class="fa fa-caret-right"></span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endwith %}
 <nav class="tabs">
     <div class="container">
         <ul>

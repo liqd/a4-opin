@@ -49,8 +49,12 @@ server:
 test:
 	$(VIRTUAL_ENV)/bin/py.test --reuse-db
 
+test-lastfailed:
+	$(VIRTUAL_ENV)/bin/py.test --reuse-db --last-failed
+
 test-clean:
-	$(VIRTUAL_ENV)/bin/py.test --reuse-db --create-db
+	if [ -f test_db.sqlite3 ]; then rm test_db.sqlite3; fi
+	find media -iname 'example_*.jpg' -exec rm {} \+
 
 coverage:
 	$(VIRTUAL_ENV)/bin/py.test --reuse-db --cov --cov-report=html
@@ -59,7 +63,7 @@ lint:
 	EXIT_STATUS=0; \
 	$(VIRTUAL_ENV)/bin/isort -rc -c $(SOURCE_DIRS) ||  EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
-	npm run lint ||  EXIT_STATUS=$$?; \
+	npm run lint --silent ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
 locales:

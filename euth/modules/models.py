@@ -30,3 +30,11 @@ class Item(base_models.TimeStampedModel):
     @property
     def project(self):
         return self.module.project
+
+
+class AbstractSettings(models.Model):
+    module = models.OneToOneField(Module, on_delete=models.CASCADE,
+                                  related_name='settings')
+
+    class Meta:
+        abstract = True

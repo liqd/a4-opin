@@ -2,7 +2,7 @@
 {% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
-<h1>{% trans 'Edit a project' %}</h1>
+<h1 class="black-divider dashboard-title">{% trans 'Edit your organisation information' %}</h1>
 
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
@@ -13,6 +13,9 @@
         {% for field in form.untranslated %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
             <label>{{ field.label }}</label>
+            {% if field.help_text %}
+            <p><i>{{ field.help_text }}</i></p>
+            {% endif %}
             {% render_field field class="form-control" %}
             {% for error in field.errors %}
             <span class="help-block">{{ error }}</span>
@@ -42,6 +45,9 @@
             {% for field in fields %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label>{{ field.label }}</label>
+                {% if field.help_text %}
+                <p><i>{{ field.help_text }}</i></p>
+                {% endif %}
                 {% render_field field class="form-control" %}
                 {% for error in field.errors %}
                 <span class="help-block">{{ error }}</span>
@@ -51,6 +57,6 @@
         </div>
         {% endfor %}
 
-        <button type="submit" name="publish" class="submit-button">{% trans 'save' %}</button>
+        <button type="submit" name="publish" class="submit-button">{% trans 'Save changes' %}</button>
 
 {% endblock %}

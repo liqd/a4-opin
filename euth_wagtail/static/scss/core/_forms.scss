@@ -11,6 +11,11 @@ label {
     font-weight: normal;
 }
 
+textarea.form-control {
+    min-height: 150px;
+    padding: ($padding-large-vertical * 2) 12px;
+}
+
 .form-horizontal {
     .form-group:not(:last-child) {
         border-bottom: 1px solid #fff;

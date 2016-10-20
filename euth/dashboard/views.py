@@ -1,5 +1,6 @@
 from allauth.account import views as account_views
 from allauth.socialaccount import views as socialaccount_views
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, redirect
@@ -9,13 +10,15 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
+from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
+from euth.modules import models as module_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
 from euth.projects import models as project_models
 from euth.users import models as user_models
 
-from . import blueprints, forms
+from . import blueprints, emails, forms
 
 
 def dashboard(request):
@@ -158,7 +161,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                                  SuccessMessageMixin,
                                  generic.UpdateView):
     model = project_models.Project
-    form_class = forms.ProjectCompleteForm
+    form_class = forms.ProjectUpdateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'
@@ -170,6 +173,10 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
     def get_permission_object(self):
         return self.organisation
+
+    @property
+    def module(self):
+        return module_models.Module.objects.filter(project=self.object).first()
 
     @property
     def raise_exception(self):
@@ -186,7 +193,42 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         kwargs = super().get_form_kwargs()
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
+
+        if qs.first().type.startswith('euth_flashpoll'):
+            reference_instance = flashpoll_models.Flashpoll.objects.get(
+                module=self.module)
+            kwargs['module_settings__instance'] = reference_instance
+
         return kwargs
+
+
+class DashboardProjectDeleteView(DashboardBaseMixin,
+                                 rules_views.PermissionRequiredMixin,
+                                 generic.DeleteView):
+    model = project_models.Project
+    form_class = forms.ProjectUpdateForm
+    permission_required = 'euth_organisations.initiate_project'
+    success_message = _('Your project has been deleted.')
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def delete(self, *args, **kwargs):
+        response = super().delete(*args, **kwargs)
+        emails.ProjectDeletedEmail.send(
+            self.object,
+            action_user=self.request.user
+        )
+        success_message = self.success_message
+        messages.success(self.request, success_message)
+        return response
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug
+                       })
 
 
 class DashboardProjectInviteView(DashboardBaseMixin,

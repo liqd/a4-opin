@@ -195,3 +195,7 @@
 .project-tile-list {
     @include rem(padding, 50px 40px)
 }
+
+.badge-group {
+        @include rem(margin-bottom, 50px);
+}

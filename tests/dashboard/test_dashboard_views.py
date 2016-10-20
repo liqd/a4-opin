@@ -2,9 +2,7 @@ import pytest
 from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
-
 from parler.utils.context import switch_language
-
 from tests.helpers import redirect_target
 
 User = auth.get_user_model()
@@ -83,7 +81,46 @@ def test_initiator_create_project(client, organisation):
 
 
 @pytest.mark.django_db
-def test_initiator_edit_project(client, project):
+def test_initiator_create_flashpoll_project(client, organisation):
+    user = organisation.initiators.first()
+    client.login(username=user.email, password='password')
+    url = reverse('dashboard-project-create', kwargs={
+        'organisation_slug': organisation.slug,
+        'blueprint_slug': 'flashpoll'
+    })
+    response = client.get(url)
+    assert response.status_code == 200
+
+    response = client.post(url, {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': '',
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-1-id': '',
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'project-description': 'Project description',
+        'project-name': 'Project name Flashpoll',
+        'project-information': 'Project info',
+        'save_draft': '',
+        'module_settings-key': '32a34235ba14df2de',
+    })
+    assert response.status_code == 302
+    assert redirect_target(response) == 'dashboard-project-list'
+    project = organisation.project_set.first()
+    assert project.is_draft
+    assert project.name == 'Project name Flashpoll'
+    assert len(project.module_set.first().phase_set.all()) == 1
+
+
+@pytest.mark.django_db
+def test_initiator_edit_project(client, phase):
+    project = phase.module.project
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-edit', kwargs={
@@ -93,6 +130,20 @@ def test_initiator_edit_project(client, project):
     response = client.get(url)
     assert response.context_data['form']['project'].instance == project
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_project_delete(client, project):
+    user = project.organisation.initiators.first()
+    client.login(username=user.email, password='password')
+    url = reverse('dashboard-project-delete', kwargs={
+        'organisation_slug': project.organisation.slug,
+        'slug': project.slug
+    })
+    response = client.post(url, {})
+    assert response.status_code == 302
+    assert redirect_target(response) == 'dashboard-project-list'
+    assert mail.outbox[0].to == [project.organisation.initiators.first().email]
 
 
 @pytest.mark.django_db

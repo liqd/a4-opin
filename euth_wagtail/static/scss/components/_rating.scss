@@ -1,0 +1,60 @@
+.rating-button {
+    background: transparent;
+    font-weight: normal;
+    border: 1px solid currentColor;
+    @include rem(padding-left, 10px);
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    -webkit-transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s;
+
+    i {
+        display: inline-block;
+        margin-right: .5em;
+    }
+}
+
+.rating-up {
+    color: $brand-success;
+
+    &:hover, &:focus {
+        color: #fff;
+        background: $brand-success;
+    }
+
+    &.is-selected {
+        background-color: $brand-success;
+        border-color: $brand-success;
+        color: #fff;
+    }
+}
+.rating-down {
+    color: $brand-danger;
+    @include rem(margin, 0 10px);
+
+    &:hover, &:focus {
+        color: #fff;
+        background: $brand-danger;
+    }
+    &.is-selected {
+        background-color: $brand-danger;
+        border-color: $brand-danger;
+        color: #fff;
+    }
+}
+
+.idea-ratings .rating-bar {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @media (max-width: $screen-sm-min) {
+        position: static;
+        text-align: center;
+
+        li {
+            display: inline-block;
+        }
+    }
+}

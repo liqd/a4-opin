@@ -64,10 +64,6 @@
         margin-right: .5em;
         font: normal normal normal 14px/1 FontAwesome;
         font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transform: translate(0, 0);
     }
     & .navbar-default {
         background-color: transparent;
@@ -80,66 +76,16 @@
     & .nav {
         padding: 0;
 
-        & .comment-rating-up,
-        & .comment-rating-down {
-            font-weight: normal;
-            border: 1px solid currentColor;
-            @include rem(padding-left, 10px);
-        }
-
-        & .comment-rating-up {
-            color: $brand-success;
-
-            &:hover, &:focus {
-                color: $brand-success;
-                font-weight: normal;
-            }
-
-            &.is-selected {
-                background-color: $brand-success;
-                border-color: $brand-success;
-                color: #fff;
-            }
-        }
-        & .comment-rating-down {
-            color: $brand-danger;
-            @include rem(margin, 0 10px);
-
-            &:hover, &:focus {
-                color: $brand-danger;
-                font-weight: normal;
-            }
-            &.is-selected {
-                background-color: $brand-danger;
-                border-color: $brand-danger;
-                color: #fff;
-            }
-        }
-        & .dark {
-            color: $black;
-            font-weight: normal;
-        }
-        & .light {
-            color: $gray-light;
-        }
         & .open a, & .open a:hover, & .open a:focus {
             background-color: transparent;
         }
         & li {
             & a {
-                padding: 2px 14px 2px 0px;
+                padding: 2px 14px 2px 0;
                 font-family: $font-family-sans-serif;
                 @include rem(font-size, 14px);
-                @include rem(line-height, 1.6);
+                line-height: 1.6;
                 text-align: justify;
-            }
-            & a:hover {
-                background-color: transparent;
-                text-decoration: none;
-            }
-            & a:focus {
-                background-color: transparent;
-                text-decoration: none;
             }
             & .active {
                 color: $gray-dark;
@@ -154,11 +100,18 @@
     }
 
     & .action-bar {
-        @include rem(margin-bottom, 10px)
+        @include rem(margin-bottom, 10px);
         & li {
             & a {
                 font-weight: bold;
             }
         }
     }
+}
+
+.commentSubmissionDate {
+    font-weight: bold;
+    margin-right: 5px;
+    vertical-align: middle;
+    @include rem(font-size, 14px);
 }

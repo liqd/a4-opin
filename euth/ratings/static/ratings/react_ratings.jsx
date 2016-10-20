@@ -1,8 +1,11 @@
 var api = require('../../../contrib/static/js/api')
+var config = require('../../../contrib/static/js/config')
 
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
+var django = require('django')
+var classnames = require('classnames')
 
 var RatingBox = React.createClass({
   handleRatingCreate: function (number) {
@@ -35,8 +38,8 @@ var RatingBox = React.createClass({
   },
   ratingUp: function (e) {
     e.preventDefault()
-    if (this.props.authenticatedAs === null) {
-      window.location.href = this.props.loginUrl
+    if (this.props.auhenticatedAs === null) {
+      window.location.href = config.login
       return
     }
     if (this.props.isReadOnly) {
@@ -57,7 +60,7 @@ var RatingBox = React.createClass({
   ratingDown: function (e) {
     e.preventDefault()
     if (this.props.authenticatedAs === null) {
-      window.location.href = this.props.loginUrl
+      window.location.href = django.urls.login()
       return
     }
     if (this.props.isReadOnly) {
@@ -88,74 +91,35 @@ var RatingBox = React.createClass({
     this.getInitialState()
   },
   render: function () {
-    if (this.props.style === 'comments') {
-      return (
-        h('ul.nav.navbar-nav', [
-          h('li.entry', [
-            h('a.icon.fa-chevron-up.comment-rating-up' + (this.state.userRating === 1 ? '.is-selected' : ''), {
-              href: '#',
-              onClick: this.ratingUp,
-              'aria-hidden': true
-            }, this.state.positiveRatings
-          )
-          ]),
-          h('li.entry', [
-            h('a.icon.fa-chevron-down.comment-rating-down' + (this.state.userRating === -1 ? '.is-selected' : ''), {
-              href: '#',
-              onClick: this.ratingDown,
-              'aria-hidden': true
-            }, this.state.negativeRatings
-            )
-          ])
-        ])
-      )
+    let getRatingClasses = ratingType => {
+      let valueForRatingType = ratingType === 'up' ? 1 : -1
+      return classnames(`rating-button rating-${ratingType}`, {
+        'is-read-only': this.props.isReadOnly,
+        'is-selected': this.state.userRating === valueForRatingType
+      })
     }
-    if (this.props.style === 'ideas') {
-      return (
-        h('div.idea-rating', [
-          h('a.idea-rating-btn.idea-rating-up' + (this.props.isReadOnly ? '.is-read-only' : '') + (this.state.userRating === 1 ? '.is-selected' : ''), {
-            href: '#',
-            title: 'Vote Up',
-            onClick: this.ratingUp
-          }, [
-            h('i.fa.fa-chevron-up', [
-              h('span', ' ' + this.state.positiveRatings)
-            ])
-          ]
-          ),
-          h('a.idea-rating-btn.idea-rating-down' + (this.props.isReadOnly ? '.is-read-only' : '') + (this.state.userRating === -1 ? '.is-selected' : ''), {
-            href: '#',
-            title: 'Vote Down',
-            onClick: this.ratingDown
-          }, [
-            h('i.fa.fa-chevron-down', [
-              h('span', ' ' + this.state.negativeRatings)
-            ])
-          ])
-        ])
-      )
-    }
+
+    return (
+      <ul className="ul nav navbar-nav rating-bar">
+        <li className="entry">
+          <button className={getRatingClasses('up')} onClick={this.ratingUp}>
+            <i className="fa fa-chevron-up" />
+            {this.state.positiveRatings}
+          </button>
+        </li>
+        <li className="entry">
+          <button className={getRatingClasses('down')} onClick={this.ratingDown}>
+            <i className="fa fa-chevron-down" />
+            {this.state.negativeRatings}
+          </button>
+        </li>
+      </ul>
+    )
   }
 })
 
 module.exports.RatingBox = RatingBox
 
-module.exports.renderRatings = function (url, positiveRatings, negativeRatings, userRating, userRatingId, loginUrl, contentType, objectId, authenticatedAs, style, target, isReadOnly) {
-  ReactDOM.render(
-    h(RatingBox, {
-      url: url,
-      positiveRatings: positiveRatings,
-      negativeRatings: negativeRatings,
-      userRating: userRating,
-      userRatingId: userRatingId,
-      loginUrl: loginUrl,
-      contentType: contentType,
-      objectId: objectId,
-      authenticatedAs: authenticatedAs,
-      pollInterval: 20000,
-      style: style,
-      isReadOnly: isReadOnly
-    }),
-    document.getElementById(target)
-  )
+module.exports.renderRatings = function (mountpoint, props) {
+  ReactDOM.render(h(RatingBox, props), document.getElementById(mountpoint))
 }

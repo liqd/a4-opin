@@ -1,40 +1,51 @@
+import json
+
 from django import template, utils
 from django.contrib.contenttypes.models import ContentType
-from django.core.urlresolvers import reverse
+from django.utils.safestring import mark_safe
 
 from ..models import Comment
 
 register = template.Library()
 
 
-@register.inclusion_tag('comments/react_comments.html', takes_context=True)
+@register.simple_tag(takes_context=True)
 def react_comments(context, obj):
     request = context['request']
 
     user = request.user
-    is_authenticated = int(user.is_authenticated())
+    is_authenticated = user.is_authenticated()
+    is_moderator = user.is_superuser or user in obj.project.moderators.all()
     user_name = user.username
 
     contenttype = ContentType.objects.get_for_model(obj)
     permission = '{ct.app_label}.comment_{ct.model}'.format(ct=contenttype)
     has_comment_permission = user.has_perm(permission, obj)
 
-    login_url = reverse('account_login') + '?next=' + context['request'].path
     comments_contenttype = ContentType.objects.get_for_model(Comment)
     pk = obj.pk
 
     language = utils.translation.get_language()
 
-    context = {
-        'obj': obj,
-        'comments_contenttype': comments_contenttype,
-        'contenttype': contenttype.pk,
-        'pk': pk,
-        'is_authenticated': is_authenticated,
+    mountpoint = 'comments_for_{contenttype}_{pk}'.format(
+        contenttype=contenttype.pk,
+        pk=pk
+    )
+    attributes = {
+        'comments_contenttype': comments_contenttype.pk,
+        'subjectType': contenttype.pk,
+        'subjectId': pk,
+        'isAuthenticated': is_authenticated,
+        'isModerator': is_moderator,
         'user_name': user_name,
-        'login_url': login_url,
         'language': language,
-        'is_read_only': not has_comment_permission,
+        'isReadOnly': not has_comment_permission,
     }
 
-    return context
+    return mark_safe((
+        '<div id={mountpoint}></div><script>window.Opin.renderComment('
+        '{mountpoint}, {attributes})</script>').format(
+            attributes=json.dumps(attributes),
+            mountpoint=json.dumps(mountpoint)
+        )
+    )

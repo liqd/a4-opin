@@ -11,8 +11,18 @@
             color: $black;
         }
 
+        .form-logo {
+            .img-responsive {
+                max-width: 40%;
+            }
+        }
+
         .form-control {
             border: 1px solid $warm-grey;
+        }
+
+        textarea {
+            min-height: 6rem;
         }
 
         .form-control-upload {
@@ -57,16 +67,6 @@
                 float: none;
             }
 
-            .clear-image {
-                display: none;
-            }
-
-            .clear-image:checked + img {
-                opacity: 0.2;
-                filter: grayscale(100%);
-                -webkit-filter: grayscale(100%);
-            }
-
             @media (min-width: $screen-sm) {
                 .input-group-btn {
                     position: absolute;
@@ -101,52 +101,20 @@
     }
 }
 
-.django-ckeditor-widget {
-    width: 100%;
+.form-part {
+    background: #f7f7f7;
+    @include rem(padding, 20px);
 
-    .cke_top,
-    .cke_bottom,
-    .cke_toolgroup {
-        box-shadow: none;
-        background: #E7ECEE;
+    input,
+    input:focus {
+        background-color: #fff;
     }
 
-    .cke_top {
-        padding: 0;
+    div:last-child {
+        margin-bottom: 0;
     }
 
-    .cke_toolbar {
-        border-right: 1px solid #CED9DB;
-    }
-
-    a.cke_button {
-        border-radius: 0;
-        padding: 6px 8px;
-    }
-
-    a.cke_button_off:hover,
-    a.cke_button_off:focus,
-    a.cke_button_off:active,
-    a.cke_button_disabled:hover,
-    a.cke_button_disabled:focus,
-    a.cke_button_disabled:active,
-    a.cke_button_on {
-        box-shadow: none;
-        background: darken(#fff, 1%);
-    }
-
-    a.cke_button_on:hover,
-    a.cke_button_on:focus,
-    a.cke_button_on:active {
-        box-shadow: none;
-    }
-
-
-    .cke_toolgroup {
-        border: 0;
-        border-radius: 0;
-        margin: 0;
-    }
+    @include rem(margin-bottom, 30px);
 }
 
 .input-gigantic {
@@ -169,4 +137,15 @@
         @include rem(top, 16px);
         position: absolute;
     }
+}
+
+
+.clear-image {
+    display: none;
+}
+
+.clear-image:checked + img {
+    opacity: 0.2;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }

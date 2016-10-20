@@ -1,13 +1,15 @@
+import json
+
 from django import template
 from django.contrib.contenttypes.models import ContentType
-from django.core.urlresolvers import reverse
+from django.utils.safestring import mark_safe
 
 from euth.ratings import models as rating_models
 
 register = template.Library()
 
 
-@register.inclusion_tag('ratings/react_ratings.html', takes_context=True)
+@register.simple_tag(takes_context=True)
 def react_ratings(context, obj):
     request = context['request']
     user = request.user
@@ -16,32 +18,39 @@ def react_ratings(context, obj):
     permission = '{ct.app_label}.rate_{ct.model}'.format(ct=contenttype)
     has_rate_permission = user.has_perm(permission, obj)
 
-    login_url = reverse('account_login') + '?next=' + request.path
-
     if user.is_authenticated():
         authenticated_as = user.username
     else:
         authenticated_as = None
-
-    try:
-        user_rating = rating_models.Rating.objects.get(
-            content_type=contenttype, object_pk=obj.pk, user=user)
+    user_rating = rating_models.Rating.objects.filter(
+        content_type=contenttype, object_pk=obj.pk, user=user.pk).first()
+    if user_rating:
         user_rating_value = user_rating.value
         user_rating_id = user_rating.pk
-    except:
+    else:
         user_rating_value = None
         user_rating_id = -1
 
-    context = {
-        'login_url': login_url,
-        'contenttype': contenttype.pk,
-        'object_id': obj.pk,
-        'authenticated_as': authenticated_as,
-        'positive_ratings': obj.positive_ratings,
-        'negative_ratings': obj.negative_ratings,
-        'user_rating': user_rating_value,
-        'user_rating_id': user_rating_id,
-        'is_read_only': not has_rate_permission,
+    mountpoint = 'ratings_for_{contenttype}_{pk}'.format(
+        contenttype=contenttype.pk,
+        pk=obj.pk
+    )
+    attributes = {
+        'contentType': contenttype.pk,
+        'objectId': obj.pk,
+        'authenticatedAs': authenticated_as,
+        'positiveRatings': obj.positive_ratings,
+        'negativeRatings': obj.negative_ratings,
+        'userRating': user_rating_value,
+        'userRatingId': user_rating_id,
+        'isReadOnly': not has_rate_permission,
+        'style': 'ideas',
     }
 
-    return context
+    return mark_safe((
+        '<div id={mountpoint}></div><script>window.Opin.renderRatings('
+        '{mountpoint}, {attributes})</script>').format(
+            attributes=json.dumps(attributes),
+            mountpoint=json.dumps(mountpoint)
+        )
+    )

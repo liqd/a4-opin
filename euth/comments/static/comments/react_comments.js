@@ -1,6 +1,7 @@
-var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings')
+var Ratings = require('../../../../euth/ratings/static/ratings/react_ratings.jsx')
 var Report = require('../../../../euth/reports/static/reports/react_reports')
 var api = require('../../../contrib/static/js/api')
+var config = require('../../../contrib/static/js/config')
 
 var React = require('react')
 var ReactDOM = require('react-dom')
@@ -77,14 +78,12 @@ var CommentBox = React.createClass({
   },
   componentDidMount: function () {
     this.loadCommentsFromServer()
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval)
     moment.locale(this.props.language)
   },
   getChildContext: function () {
     return {
       isAuthenticated: this.props.isAuthenticated,
-      login_url: this.props.login_url,
-      ratingsUrls: this.props.ratingsUrls,
+      isModerator: this.props.isModerator,
       comments_contenttype: this.props.comments_contenttype,
       user_name: this.props.user_name,
       language: this.props.language
@@ -119,9 +118,8 @@ var CommentBox = React.createClass({
 })
 
 CommentBox.childContextTypes = {
-  isAuthenticated: React.PropTypes.number,
-  login_url: React.PropTypes.string,
-  ratingsUrls: React.PropTypes.string,
+  isAuthenticated: React.PropTypes.bool,
+  isModerator: React.PropTypes.bool,
   comments_contenttype: React.PropTypes.number,
   user_name: React.PropTypes.string,
   language: React.PropTypes.string
@@ -217,7 +215,7 @@ var Comment = React.createClass({
         contentType: this.context.comments_contenttype
       }),
 
-      this.isOwner() ? h(Modal, {
+      this.isOwner() || this.context.isModerator ? h(Modal, {
         name: 'comment_delete_' + this.props.id,
         question: django.gettext('Do you really want to delete this comment?'),
         handler: function () {
@@ -252,20 +250,17 @@ var Comment = React.createClass({
           h('ul.nav.navbar-nav', [
             h('li.entry', [
               this.props.modified === null
-                ? h('a.commentSubmissionDate.dark',
+                ? h('span.commentSubmissionDate',
                     moment(this.props.created).format('D MMM YY'))
-                : h('a.commentSubmissionDate.dark',
+                : h('span.commentSubmissionDate',
                     django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow())
             ])
           ]),
 
           !this.props.is_deleted ? h(Ratings.RatingBox, {
-            url: this.context.ratingsUrls,
-            loginUrl: this.context.login_url,
             contentType: this.context.comments_contenttype,
             objectId: this.props.id,
             authenticatedAs: this.context.isAuthenticated ? this.context.user_name : null,
-            pollInterval: 20000,
             style: 'comments',
             positiveRatings: this.props.positiveRatings,
             negativeRatings: this.props.negativeRatings,
@@ -277,7 +272,7 @@ var Comment = React.createClass({
           h('ul.nav.navbar-nav', [
 
             this.context.isAuthenticated && !this.props.is_deleted ? h('li.dropdown', {role: 'presentation'}, [
-              h('a.dropdown-toggle.icon.fa-ellipsis-h.dark', {
+              h('a.dropdown-toggle.icon.fa-ellipsis-h', {
                 'data-toggle': 'dropdown',
                 href: '#',
                 role: 'button',
@@ -287,7 +282,7 @@ var Comment = React.createClass({
               }),
 
               h('ul.dropdown-menu', [].concat(
-                this.isOwner() && !this.props.isReadOnly ? [ h('li', [
+                (this.isOwner() || this.context.isModerator) && !this.props.isReadOnly ? [ h('li', [
                   h('a', {
                     href: '#',
                     onClick: this.toggleEdit,
@@ -336,7 +331,7 @@ var Comment = React.createClass({
 
           h('ul.nav.navbar-nav.navbar-right', [
             this.allowForm() ? h('li.entry', [
-              h('a.icon.fa-reply.dark', {
+              h('a.icon.fa-reply', {
                 href: '#',
                 onClick: this.showComments,
                 'aria-hidden': true
@@ -415,10 +410,9 @@ var Modal = React.createClass({
 
 Comment.contextTypes = {
   comments_contenttype: React.PropTypes.number,
-  isAuthenticated: React.PropTypes.number,
+  isAuthenticated: React.PropTypes.bool,
+  isModerator: React.PropTypes.bool,
   user_name: React.PropTypes.string,
-  login_url: React.PropTypes.string,
-  ratingsUrls: React.PropTypes.string,
   contentType: React.PropTypes.number
 }
 
@@ -465,7 +459,7 @@ var CommentForm = React.createClass({
     } else {
       return (
       h('div.comments_login', [
-        h('a', {href: this.context.login_url}, django.gettext('Please login to comment'))
+        h('a', {href: config.loginUrl}, django.gettext('Please login to comment'))
       ])
       )
     }
@@ -473,8 +467,7 @@ var CommentForm = React.createClass({
 })
 
 CommentForm.contextTypes = {
-  isAuthenticated: React.PropTypes.number,
-  login_url: React.PropTypes.string
+  isAuthenticated: React.PropTypes.bool
 }
 
 var CommentEditForm = React.createClass({
@@ -522,24 +515,9 @@ var CommentEditForm = React.createClass({
 })
 
 CommentEditForm.contextTypes = {
-  isAuthenticated: React.PropTypes.number,
-  login_url: React.PropTypes.string
+  isAuthenticated: React.PropTypes.boolen
 }
 
-module.exports.renderComment = function (url, ratingsUrls, subjectType, subjectId, commentsContenttype, isAuthenticated, loginUrl, target, userName, language, isReadOnly) {
-  ReactDOM.render(
-    h(CommentBox, {
-      url: url,
-      ratingsUrls: ratingsUrls,
-      subjectType: subjectType,
-      subjectId: subjectId,
-      comments_contenttype: commentsContenttype,
-      isAuthenticated: isAuthenticated,
-      login_url: loginUrl,
-      pollInterval: 20000,
-      user_name: userName,
-      language: language,
-      isReadOnly: isReadOnly
-    }),
-    document.getElementById(target))
+module.exports.renderComment = function (mountpoint, props) {
+  ReactDOM.render(h(CommentBox, props), document.getElementById(mountpoint))
 }
