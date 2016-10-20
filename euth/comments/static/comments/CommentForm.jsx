@@ -30,7 +30,7 @@ let CommentForm = React.createClass({
           <div className="form-group">
             <textarea rows={this.props.rows} className="form-control"
               placeholder={django.gettext('Your comment here')}
-              onChange={this.handleTextChange} required="required" defaultValue={this.state.comment} />
+              onChange={this.handleTextChange} required="required" value={this.state.comment} />
           </div>
           <input type="submit" value={django.gettext('post')} className="submit-button" />
         </form>
