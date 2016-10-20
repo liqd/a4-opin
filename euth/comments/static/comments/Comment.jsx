@@ -1,4 +1,4 @@
-var ReportModal = require('../../../../euth/reports/static/reports/react_reports')
+var ReportModal = require('../../../reports/static/reports/react_reports')
 var RatingBox = require('../../../../euth/ratings/static/ratings/react_ratings').RatingBox
 var Modal = require('../../../contrib/static/js/Modal')
 var CommentEditForm = require('./CommentEditForm')
@@ -88,8 +88,8 @@ var Comment = React.createClass({
       return (
         <Modal
           name={`comment_delete_${this.props.id}`}
-          question={django.gettext('Do you really want to delete this comment?')}
-          handler={() => this.props.handleCommentDelete(this.props.index, this.props.parentIndex)}
+          partials={{title: django.gettext('Do you really want to delete this comment?')}}
+          submitHandler={() => this.props.handleCommentDelete(this.props.index, this.props.parentIndex)}
           action={django.gettext('Delete')}
           abort={django.gettext('Abort')}
           btnStyle="cta"
