@@ -1,6 +1,8 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
+from euth.contrib.api.permissions import IsModerator
+
 from .models import Document
 from .serializers import DocumentSerializer
 
@@ -23,3 +25,6 @@ class DocumentViewSet(viewsets.ModelViewSet):
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
+    permission_classes = (
+        IsModerator,
+    )
