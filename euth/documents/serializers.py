@@ -3,12 +3,14 @@ from rest_framework import serializers
 from .models import Document, Paragraph
 
 
-class ParagraphSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Paragraph
-        read_only_fields = ('id',)
-        fields = ('name', 'text', 'id', 'weight')
+class ParagraphSerializer(serializers.Serializer):
+    id = serializers.IntegerField(required=False)
+    name = serializers.CharField(
+        required=False,
+        max_length=Paragraph._meta.get_field('name').max_length
+    )
+    weight = serializers.IntegerField()
+    text = serializers.CharField()
 
 
 class DocumentSerializer(serializers.ModelSerializer):
@@ -19,35 +21,29 @@ class DocumentSerializer(serializers.ModelSerializer):
         exclude = ('creator',)
 
     def create(self, validated_data):
+        paragraphs = validated_data.pop('paragraphs')
         user = self.context['request'].user
-        document = Document.objects.create(
-            creator=user,
-            name=validated_data['name'],
-            module=validated_data['module'])
+        document = Document.objects.create(creator=user, **validated_data)
 
-        for item in validated_data['paragraphs']:
-
-            paragraph = Paragraph(text=item['text'],
-                                  weight=item['weight'],
-                                  document=document)
-            if 'name' in item:
-                paragraph.name = item['name']
-            paragraph.save()
+        for paragraph in paragraphs:
+            Paragraph.objects.create(document=document, **paragraph)
 
         return document
 
     def update(self, instance, validated_data):
         instance.name = validated_data['name']
         instance.save()
+        paragraphs = validated_data.pop('paragraphs')
 
-        for paragraph in instance.paragraphs.all():
-            paragraph.delete()
+        paragraph_ids = [item['id'] for item in paragraphs if 'id' in item]
+        instance.paragraphs.exclude(id__in=paragraph_ids).delete()
 
-        for item in validated_data['paragraphs']:
-            paragraph = Paragraph(name=item['name'],
-                                  text=item['text'],
-                                  weight=item['weight'],
-                                  document=instance)
-            paragraph.save()
+        for paragraph in paragraphs:
+            paragraph['document'] = instance
+            if 'id' in paragraph:
+                instance.paragraphs.filter(id=paragraph['id'])\
+                                   .update(**paragraph)
+            else:
+                instance.paragraphs.create(**paragraph)
 
         return instance
