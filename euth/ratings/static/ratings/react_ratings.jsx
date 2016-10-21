@@ -4,8 +4,8 @@ var config = require('../../../contrib/static/js/config')
 var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
-var django = require('django')
 var classnames = require('classnames')
+var django = require('django')
 
 var RatingBox = React.createClass({
   handleRatingCreate: function (number) {
