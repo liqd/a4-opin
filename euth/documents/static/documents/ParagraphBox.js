@@ -44,20 +44,22 @@ var ParagraphBox = React.createClass({
       paragraphs: newArray
     })
   },
-  moveParagraphUp: function (index, paragraph) {
-    var newParagraph = this.getNewParagraph(paragraph.state.name, paragraph.state.text)
-    var newArray = update(this.state.paragraphs, {$splice: [[index, 1]]})
-    newArray.splice(index - 1, 0, newParagraph)
+  moveParagraphUp: function (index) {
+    var paragraph = this.state.paragraphs[index]
+    var paragraphs = update(this.state.paragraphs, {
+      $splice: [[index, 1], [index - 1, 0, paragraph]]
+    })
     this.setState({
-      paragraphs: newArray
+      paragraphs: paragraphs
     })
   },
-  moveParagraphDown: function (index, paragraph) {
-    var newParagraph = this.getNewParagraph(paragraph.state.name, paragraph.state.text)
-    var newArray = update(this.state.paragraphs, {$splice: [[index, 1]]})
-    newArray.splice(index + 1, 0, newParagraph)
+  moveParagraphDown: function (index) {
+    var paragraph = this.state.paragraphs[index]
+    var paragraphs = update(this.state.paragraphs, {
+      $splice: [[index, 1], [index + 1, 0, paragraph]]
+    })
     this.setState({
-      paragraphs: newArray
+      paragraphs: paragraphs
     })
   },
   addParagraphBeforeIndex: function (index) {

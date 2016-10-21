@@ -10,10 +10,10 @@ var Paragraph = React.createClass({
     this.props.deleteParagraph(this.props.index)
   },
   up: function () {
-    this.props.moveParagraphUp(this.props.index, this)
+    this.props.moveParagraphUp(this.props.index)
   },
   down: function () {
-    this.props.moveParagraphDown(this.props.index, this)
+    this.props.moveParagraphDown(this.props.index)
   },
   handleNameChange: function (e) {
     var index = this.props.index
