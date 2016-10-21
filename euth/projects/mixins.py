@@ -24,7 +24,7 @@ class ProjectMixin(generic.base.ContextMixin):
     def dispatch(self, *args, **kwargs):
         self.project = kwargs['project']
         self.phase = self.project.active_phase or self.project.last_phase
-        self.is_between_phases = not self.project.active_phase and self.\
-            project.last_phase
+        self.is_between_phases = not self.project.\
+            active_phase and bool(self.project.last_phase)
         self.module = self.phase.module if self.phase else None
         return super(ProjectMixin, self).dispatch(*args, **kwargs)
