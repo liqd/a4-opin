@@ -21,7 +21,6 @@ var Paragraph = React.createClass({
     this.props.updateParagraphName(index, text)
   },
   componentDidMount: function () {
-    var id = 'id_paragraphs-' + this.props.index + '-text'
     var editor = window.CKEDITOR.replace(id, this.props.config)
     editor.on('change', function (e) {
       var text = e.editor.getData()
@@ -29,6 +28,7 @@ var Paragraph = React.createClass({
       this.props.updateParagraphText(index, text)
     }.bind(this))
     editor.setData(this.props.paragraph.text)
+    var id = 'id_paragraphs-' + this.props.id + '-text'
     this.props.updateParagraphWeight(this.props.index)
   },
   render: function () {
@@ -44,16 +44,16 @@ var Paragraph = React.createClass({
           ])
         ]),
         h('section.row.commenting-paragraph', {
-          id: 'paragraphs' + this.props.index
+          id: 'paragraphs' + this.props.id
         }, [
           h('div.col-sm-9.paragraph', [
             h('div.form-group', [
               h('label', {
-                htmlFor: 'id_paragraphs-' + this.props.index + '-name'
+                htmlFor: 'id_paragraphs-' + this.props.id + '-name'
               }, django.gettext('Headline:')),
               h('input.form-control', {
-                id: 'id_paragraphs-' + this.props.index + '-name',
-                name: 'paragraphs-' + this.props.index + '-name',
+                id: 'id_paragraphs-' + this.props.id + '-name',
+                name: 'paragraphs-' + this.props.id + '-name',
                 type: 'text',
                 defaultValue: this.props.paragraph.name,
                 onChange: this.handleNameChange
@@ -62,14 +62,14 @@ var Paragraph = React.createClass({
                 h('li', this.props.errors.name[0])
               ]) : null,
               h('label', {
-                htmlFor: 'id_paragraphs-' + this.props.index + '-text'
+                htmlFor: 'id_paragraphs-' + this.props.id + '-text'
               }, django.gettext('Paragraph:')),
               h('div.django-ckeditor-widget', {
-                'data-field-id': 'id_paragraphs-' + this.props.index + '-text',
+                'data-field-id': 'id_paragraphs-' + this.props.id + '-text',
                 'style': {display: 'inline-block'}
               }, [
                 h('textarea', {
-                  id: 'id_paragraphs-' + this.props.index + '-text'
+                  id: 'id_paragraphs-' + this.props.id + '-text'
                 }),
                 this.props.errors && this.props.errors.text ? h('ul.errorlist', [
                   h('li', this.props.errors.text[0])

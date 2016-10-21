@@ -165,6 +165,7 @@ var ParagraphBox = React.createClass({
             return (
               h(Paragraph, {
                 key: paragraph.paragraph_key || paragraph.id,
+                id: paragraph.paragraph_key || paragraph.id,
                 index: index,
                 paragraph: paragraph,
                 errors: this.getErrors(index),
