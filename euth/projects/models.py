@@ -101,3 +101,7 @@ class Project(base_models.TimeStampedModel):
     def phases(self):
         from euth.phases import models as phase_models
         return phase_models.Phase.objects.filter(module__project=self)
+
+    @property
+    def last_phase(self):
+        return self.phases.filter(end_date__lt=timezone.now()).last()

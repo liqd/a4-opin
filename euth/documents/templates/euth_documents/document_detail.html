@@ -3,21 +3,6 @@
 
 {% block phase_content %}
 <div>
-    <h2>{{ view.phase.name }}</h2>
-
-    <p class="idea-list-description">{{ view.phase.description }} </p>
-
-    <div class="badge-group">
-        <span class="badge">
-            <strong>{% trans 'Start Date' %}</strong>
-            {{ view.phase.start_date.date }}
-        </span>
-        <span class="badge">
-            <strong>{% trans 'End Date' %}</strong>
-            {{ view.phase.end_date.date }}
-        </span>
-    </div>
-
     <article class="commenting-text">
         <h3>{{ object.name }}</h3>
         {% for paragraph in object.paragraphs_sorted %}
