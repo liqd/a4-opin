@@ -77,12 +77,15 @@ var ParagraphBox = React.createClass({
     })
   },
   updateParagraphName: function (index, name) {
+    // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[index].name = name
   },
   updateParagraphText: function (index, text) {
+    // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[index].text = text
   },
   updateParagraphWeight: function (weight) {
+    // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[weight].weight = weight
   },
   submitDocument: function (e) {
