@@ -9,6 +9,7 @@ var django = require('django')
 var ParagraphBox = React.createClass({
   getInitialState: function () {
     return {
+      id: this.props.id,
       name: this.props.name,
       paragraphs: this.props.paragraphs,
       nameErrors: [],
@@ -75,8 +76,8 @@ var ParagraphBox = React.createClass({
     if (e) {
       e.preventDefault()
     }
-    if (typeof this.props.id !== 'undefined') {
-      this.updateDocument(this.props.id)
+    if (typeof this.state.id !== 'undefined') {
+      this.updateDocument(this.state.id)
     } else {
       this.createDocument()
     }
@@ -110,6 +111,7 @@ var ParagraphBox = React.createClass({
     api.document.add(JSON.stringify(submitData))
       .done(function (data) {
         this.setState({
+          id: data.id,
           name: data.name,
           paragraphs: data.paragraphs
         })
