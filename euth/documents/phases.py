@@ -6,9 +6,9 @@ from . import apps, models, views
 
 
 class CreateDocumentPhase(phases.PhaseContent):
-
     """
-    Allows only commenting of paragraphs.
+    Allows no interaction for participants, only
+    creation for moderators.
     """
     app = apps.DocumentConfig.label
     phase = 'create_document'
@@ -19,16 +19,13 @@ class CreateDocumentPhase(phases.PhaseContent):
     module_name = _('commenting text')
     description = _('Create text for the project.')
 
-    features = {
-        'comment': (models.Paragraph,),
-    }
+    features = {}
 
 
 phases.content.register(CreateDocumentPhase())
 
 
 class CommentPhase(phases.PhaseContent):
-
     """
     Allows only commenting of paragraphs.
     """
