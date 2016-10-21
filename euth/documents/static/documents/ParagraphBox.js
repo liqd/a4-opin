@@ -194,5 +194,5 @@ module.exports.renderParagraphs = function (doc, module, config) {
       paragraphs: doc.paragraphs,
       config: config
     }),
-    document.getElementById('paragraphs'))
+    document.getElementById('document-form'))
 }
