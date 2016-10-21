@@ -65,6 +65,9 @@ var Paragraph = React.createClass({
                 defaultValue: this.state.name,
                 onChange: this.handleNameChange
               }),
+              this.props.errors && this.props.errors.name ? h('ul.errorlist', [
+                h('li', this.props.errors.name[0])
+              ]) : null,
               h('label', {
                 htmlFor: 'id_paragraphs-' + this.props.index + '-text'
               }, django.gettext('Paragraph:')),
