@@ -20,7 +20,11 @@ var Paragraph = React.createClass({
     var text = e.target.value
     this.props.updateParagraphName(index, text)
   },
-  componentDidMount: function () {
+  ckEditorDestroy: function (id) {
+    var editor = window.CKEDITOR.instances[id]
+    editor.destroy()
+  },
+  ckEditorCreate: function (id) {
     var editor = window.CKEDITOR.replace(id, this.props.config)
     editor.on('change', function (e) {
       var text = e.editor.getData()
@@ -28,7 +32,19 @@ var Paragraph = React.createClass({
       this.props.updateParagraphText(index, text)
     }.bind(this))
     editor.setData(this.props.paragraph.text)
+  },
+  componentWillUpdate: function () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
+    this.ckEditorDestroy(id)
+  },
+  componentDidUpdate: function () {
+    var id = 'id_paragraphs-' + this.props.id + '-text'
+    this.ckEditorCreate(id)
+    this.props.updateParagraphWeight(this.props.index)
+  },
+  componentDidMount: function () {
+    var id = 'id_paragraphs-' + this.props.id + '-text'
+    this.ckEditorCreate(id)
     this.props.updateParagraphWeight(this.props.index)
   },
   render: function () {
