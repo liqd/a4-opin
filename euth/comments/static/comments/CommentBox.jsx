@@ -86,18 +86,13 @@ let CommentBox = React.createClass({
     }
   },
   render: function () {
-    if (!this.props.isReadOnly) {
-      var commentBox = (
-        <CommentForm subjectType={this.props.subjectType} subjectId={this.props.subjectId}
-          onCommentSubmit={this.handleCommentSubmit} placeholder={django.gettext('Your comment here')}
-          rows="5" />
-      )
-    }
     return (
       <div>
         <div className="black-divider">{this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)}</div>
         <div className="commentBox">
-          {commentBox}
+          <CommentForm subjectType={this.props.subjectType} subjectId={this.props.subjectId}
+            onCommentSubmit={this.handleCommentSubmit} placeholder={django.gettext('Your comment here')}
+            rows="5" isReadOnly={this.props.isReadOnly} />
           <div className="comment-list">
             <CommentList comments={this.state.comments} handleCommentDelete={this.handleCommentDelete}
               handleCommentSubmit={this.handleCommentSubmit} handleCommentModify={this.handleCommentModify}

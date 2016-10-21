@@ -13,6 +13,9 @@
         display: inline-block;
         margin-right: .5em;
     }
+    &.is-read-only {
+        cursor: default;
+    }
 }
 
 .rating-up {
@@ -28,7 +31,16 @@
         border-color: $brand-success;
         color: #fff;
     }
+    &.is-read-only {
+        background: transparent;
+        border: none;
+        color: $brand-success;
+          i {
+            color: $brand-success;
+        }
+    }
 }
+
 .rating-down {
     color: $brand-danger;
     @include rem(margin, 0 10px);
@@ -41,6 +53,14 @@
         background-color: $brand-danger;
         border-color: $brand-danger;
         color: #fff;
+    }
+    &.is-read-only {
+        background: transparent;
+        border: none;
+        color: $brand-danger;
+        i {
+            color: $brand-danger;
+        }
     }
 }
 
