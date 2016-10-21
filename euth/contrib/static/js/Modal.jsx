@@ -1,44 +1,45 @@
 var React = require('react')
-var h = require('react-hyperscript')
+var django = require('django')
 
-module.exports = React.createClass({
-  'render': function () {
-    return h('div.modal.fade#' + this.props.name, { tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel' }, [
-      h('div.modal-dialog.modal-lg', { role: 'document' }, [
-        h('div.modal-content', [
-          h('div.modal-header', [
-            h('button.close', {
-              type: 'button',
-              'data-dismiss': 'modal',
-              'aria-label': this.props.abort
-            }, [
-              h('i.fa.fa-times', {
-                'aria-hidden': true
-              })
-            ])
-          ]),
-          h('div.modal-body', [
-            h('h3.modal-title', this.props.question)
-          ]),
-          h('div.modal-footer', [
-            h('div.row', [
-              h('button.submit-button',
-                {
-                  type: 'button',
-                  'data-dismiss': 'modal',
-                  onClick: this.props.handler
-                },
-                this.props.action)
-            ]),
-            h('div.row', [
-              h('button.cancel-button', {
-                type: 'button',
-                'data-dismiss': 'modal'
-              }, this.props.abort)
-            ])
-          ])
-        ])
-      ])
-    ])
+var Modal = React.createClass({
+  render: function () {
+    var dismiss = this.props.dismissOnSubmit ? 'modal' : 'false'
+    return (
+      <div className="modal fade" id={this.props.name} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button className="close" aria-label={this.props.abort}
+                data-dismiss="modal" onClick={this.props.closeHandler}>
+                <i className="fa fa-times" />
+              </button>
+            </div>
+
+            <div className={'modal-body ' + this.props.partials.bodyClass}>
+              <h3 className="modal-title">{this.props.partials.title}</h3>
+              {this.props.partials.body}
+            </div>
+            {!this.props.partials.hideFooter &&
+            <div className="modal-footer">
+              <div className="row">
+                <button className="submit-button" data-dismiss={dismiss} onClick={this.props.submitHandler}>{this.props.action}</button>
+              </div>
+              <div className="row">
+                <button className="cancel-button" data-dismiss="modal" onClick={this.props.closeHandler}>{this.props.abort}</button>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    )
   }
 })
+
+Modal.defaultProps = {
+  partials: {},
+  abort: django.gettext('Abort'),
+  dismissOnSubmit: true
+}
+
+module.exports = Modal
