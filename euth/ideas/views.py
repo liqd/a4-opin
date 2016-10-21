@@ -7,23 +7,61 @@ from rules.contrib.views import PermissionRequiredMixin
 from euth.modules.models import Module
 from euth.projects import mixins
 
-from . import forms, models
+from . import models as idea_models
+from . import forms
 
 
-class IdeaListView(mixins.ProjectMixin, generic.ListView):
-    model = models.Idea
+class SortMixin():
+    sort_default = None
+    sorts = []
+    sort = None
+
+    def get_sort(self):
+        sort = self.request.GET.get('sort') or self.sort_default
+        sorts = dict(self.sorts).keys()
+        if sort not in sorts:
+            sort = self.sort_default
+        return sort
 
     def get_queryset(self):
-        return models.Idea.objects.filter(module=self.module).order_by('name')
+        qs = super().get_queryset()
+        self.sort = self.get_sort()
+
+        if not self.sort:
+            return qs
+
+        return qs.order_by(self.sort)
+
+    def get_current_sortname(self):
+        if self.sort:
+            return dict(self.sorts)[self.sort]
+
+
+class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
+    model = idea_models.Idea
+    sort_default = '-created'
+    sorts = [
+        ('-created', _('creation date')),
+        ('-positive_rating_count', _('popularity')),
+        ('-comment_count', _('comments'))
+    ]
+
+    def get_queryset(self):
+        return super().get_queryset().filter(module=self.module)\
+                                     .annotate_positive_rating_count()\
+                                     .annotate_negative_rating_count()\
+                                     .annotate_comment_count()
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
-    model = models.Idea
+    model = idea_models.Idea
+    queryset = idea_models.Idea.objects.annotate_positive_rating_count()\
+                                       .annotate_negative_rating_count()
     permission_required = 'euth_ideas.view_idea'
 
 
 class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
-    model = models.Idea
+    model = idea_models.Idea
     form_class = forms.IdeaForm
     permission_required = 'euth_ideas.modify_idea'
 
@@ -39,7 +77,7 @@ class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
 
 
 class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
-    model = models.Idea
+    model = idea_models.Idea
     form_class = forms.IdeaForm
     permission_required = 'euth_ideas.propose_idea'
 
@@ -70,7 +108,7 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
 
 
 class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
-    model = models.Idea
+    model = idea_models.Idea
     success_message = _("Your Idea has been deleted")
     permission_required = 'euth_ideas.modify_idea'
 

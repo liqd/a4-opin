@@ -2,6 +2,7 @@ var BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {
   entry: './euth/contrib/static/js/app.js',
+  devtool: 'source-map',
   output: {
     libraryTarget: 'var',
     library: 'Opin',
@@ -26,5 +27,8 @@ module.exports = {
   },
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'})
-  ]
+  ],
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
+  }
 }
