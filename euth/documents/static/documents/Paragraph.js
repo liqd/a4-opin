@@ -48,6 +48,7 @@ var Paragraph = React.createClass({
     this.props.updateParagraphWeight(this.props.index)
   },
   render: function () {
+    var ckEditorToolbarsHeight = 60  // measured on example editor
     return (
       h('div', [
         h('div.row', [
@@ -85,7 +86,8 @@ var Paragraph = React.createClass({
                 'style': {display: 'inline-block'}
               }, [
                 h('textarea', {
-                  id: 'id_paragraphs-' + this.props.id + '-text'
+                  id: 'id_paragraphs-' + this.props.id + '-text',
+                  style: {'height': this.props.config.height + ckEditorToolbarsHeight}
                 }),
                 this.props.errors && this.props.errors.text ? h('ul.errorlist', [
                   h('li', this.props.errors.text[0])
