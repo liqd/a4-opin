@@ -3,13 +3,6 @@ var h = require('react-hyperscript')
 var django = require('django')
 
 var Paragraph = React.createClass({
-  getInitialState: function () {
-    return {
-      name: this.props.paragraph.name,
-      text: this.props.paragraph.text,
-      weight: this.props.index
-    }
-  },
   add: function () {
     this.props.addParagraphBeforeIndex(this.props.index)
   },
@@ -35,8 +28,8 @@ var Paragraph = React.createClass({
       var index = this.props.index
       this.props.updateParagraphText(index, text)
     }.bind(this))
-    editor.setData(this.state.text)
-    this.props.updateParagraphWeight(this.state.weight)
+    editor.setData(this.props.paragraph.text)
+    this.props.updateParagraphWeight(this.props.index)
   },
   render: function () {
     return (
@@ -62,7 +55,7 @@ var Paragraph = React.createClass({
                 id: 'id_paragraphs-' + this.props.index + '-name',
                 name: 'paragraphs-' + this.props.index + '-name',
                 type: 'text',
-                defaultValue: this.state.name,
+                defaultValue: this.props.paragraph.name,
                 onChange: this.handleNameChange
               }),
               this.props.errors && this.props.errors.name ? h('ul.errorlist', [
