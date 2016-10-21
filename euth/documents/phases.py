@@ -5,8 +5,27 @@ from euth import phases
 from . import apps, models, views
 
 
-class CommentPhase(phases.PhaseContent):
+class CreateDocumentPhase(phases.PhaseContent):
+    """
+    Allows no interaction for participants, only
+    creation for moderators.
+    """
+    app = apps.DocumentConfig.label
+    phase = 'create_document'
+    view = views.DocumentCreateView
+    weight = 30
 
+    name = _('Create document phase')
+    module_name = _('commenting text')
+    description = _('Create text for the project.')
+
+    features = {}
+
+
+phases.content.register(CreateDocumentPhase())
+
+
+class CommentPhase(phases.PhaseContent):
     """
     Allows only commenting of paragraphs.
     """

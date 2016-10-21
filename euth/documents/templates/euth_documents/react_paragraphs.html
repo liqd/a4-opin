@@ -1,0 +1,8 @@
+{% load static %}
+<script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<div id="paragraphs"></div>
+<script>
+  window.Opin.renderParagraphs(
+    {{ document | safe }}, {{ module }} ,{{ config | safe }}
+)
+</script>

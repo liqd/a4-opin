@@ -40,6 +40,7 @@ blueprints = [
          title=_('Commenting text'),
          description=_('Add comments to an existing text'),
          content=[
+             documents_phases.CreateDocumentPhase(),
              documents_phases.CommentPhase(),
          ],
          image='images/placeholder.png',
