@@ -13,7 +13,8 @@ var ParagraphBox = React.createClass({
       name: this.props.name,
       paragraphs: this.props.paragraphs,
       nameErrors: [],
-      paragraphsErrors: []
+      paragraphsErrors: [],
+      maxParagraphKey: 0
     }
   },
   handleDocumentNameChange: function (e) {
@@ -21,10 +22,20 @@ var ParagraphBox = React.createClass({
       name: e.target.value
     })
   },
+  getNextParagraphKey: function () {
+    /** Get an artifical key for non-commited paragraphs.
+     *
+     *  Prefix to prevent collisions with real database keys;
+     */
+    var paragraphKey = 'local_' + (this.state.maxParagraphKey + 1)
+    this.setState({maxParagraphKey: this.state.maxParagraphKey + 1})
+    return paragraphKey
+  },
   getNewParagraph: function (name, text) {
     var newParagraph = {}
     newParagraph['name'] = name
     newParagraph['text'] = text
+    newParagraph['paragraph_key'] = this.getNextParagraphKey()
     return newParagraph
   },
   deleteParagraph: function (index) {
@@ -129,7 +140,6 @@ var ParagraphBox = React.createClass({
   getErrors: function (index) {
     return this.state.paragraphsErrors[index]
   },
-  counter: 1,
   render: function () {
     return (
       h('div.general-form', [
@@ -150,13 +160,10 @@ var ParagraphBox = React.createClass({
             ])
           ]),
           this.state.paragraphs.map(function (paragraph, index) {
-            var count = this.counter++
             return (
               h(Paragraph, {
-                key: count,
-                visibleKey: count,
+                key: paragraph.paragraph_key || paragraph.id,
                 index: index,
-                pk: paragraph.pk,
                 paragraph: paragraph,
                 errors: this.getErrors(index),
                 config: this.props.config,
