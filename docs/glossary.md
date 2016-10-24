@@ -15,11 +15,11 @@ Add explantion here.
 
 ---
 **Feature,Tool, or Method**:
-Add explantion here.
+A feature/method/tool is a formalized way to collaborate in order to reach a common goal. In one participation project, content may be transferred from one feature/method/tool to another or even worked on with different features/methods/tools at the same time (e.g. online and offline)
 
 ---
 **Initiator**:
-Add explantion here.
+There are various roles on OPIN: Different people may do different actions. For example, Initiators can manage users and groups, initiate participation projects, invite users to private processes, edit and delete projects, proposals and comments, receive emails on reported comments. 
 
 ---
 **Item**:  (for developers only)
@@ -96,7 +96,7 @@ Add explantion here.
 
 ---
 **User**:
-Add explantion here.
+Users can participate in public projects or private projects they are invited in through creating propsals/collecting ideas, commenting or rating propsals, as well as editing their own content.
 
 ---
 **WISYWIG**:
