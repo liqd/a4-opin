@@ -5,7 +5,6 @@ var React = require('react')
 var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
 var classnames = require('classnames')
-var django = require('django')
 
 var RatingBox = React.createClass({
   handleRatingCreate: function (number) {
@@ -38,8 +37,8 @@ var RatingBox = React.createClass({
   },
   ratingUp: function (e) {
     e.preventDefault()
-    if (this.props.auhenticatedAs === null) {
-      window.location.href = config.login
+    if (this.props.authenticatedAs === null) {
+      window.location.href = config.loginUrl
       return
     }
     if (this.props.isReadOnly) {
@@ -60,7 +59,7 @@ var RatingBox = React.createClass({
   ratingDown: function (e) {
     e.preventDefault()
     if (this.props.authenticatedAs === null) {
-      window.location.href = django.urls.login()
+      window.location.href = config.loginUrl
       return
     }
     if (this.props.isReadOnly) {

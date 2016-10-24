@@ -1,3 +1,3 @@
-module.export = {
-  'loginUrl': '/login'
+module.exports = {
+  loginUrl: '/accounts/login'
 }

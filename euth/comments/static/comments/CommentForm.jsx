@@ -24,7 +24,7 @@ let CommentForm = React.createClass({
     this.setState({comment: ''})
   },
   render: function () {
-    if (this.context.isAuthenticated) {
+    if (this.context.isAuthenticated && !this.props.isReadOnly) {
       return (
         <form className="general-form" onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -35,7 +35,8 @@ let CommentForm = React.createClass({
           <input type="submit" value={django.gettext('post')} className="submit-button" />
         </form>
       )
-    } else {
+    }
+    if (!this.context.isAuthenticated) {
       return (
         <div className="comments_login">
           <a href={config.loginUrl}>{django.gettext('Please login to comment')}</a>
