@@ -93,3 +93,12 @@ def test_image_deleted_after_update(project_factory, ImagePNG):
 
     assert not os.path.isfile(image_path)
     assert not os.path.isfile(thumbnail_path)
+
+
+@pytest.mark.django_db
+def test_phases_property(module, phase_factory):
+    project = module.project
+    phase1 = phase_factory(module=module, type='fake:30:type')
+    phase2 = phase_factory(module=module, type='fake:20:type')
+
+    assert list(project.phases) == [phase2, phase1]
