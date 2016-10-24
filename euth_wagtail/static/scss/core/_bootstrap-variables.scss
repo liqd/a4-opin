@@ -15,21 +15,21 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             #818181 !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-brand1:           #fafafa; // Blue
-$brand-brand2:           #fab61b; // Yellow
-$brand-brand3:           #5dbeba; // Green
+$brand-brand1:           #0076AE; // Blue
+$brand-brand2:           #fab61b; // Orange
+$brand-brand3:           #5CBEB9; // Green
 $brand-brand4:           #ef3789; // Pink
 
 $brand-primary:         $brand-brand1 !default; // #337ab7
 $brand-success:         #7ed321 !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #fafafa !default;
+$brand-info:            #41a9e0 !default;
+$brand-warning:         #FCB52D !default;
+$brand-danger:          #e01431 !default;
 
 
 $black: #131313;
 $warm-grey: #818181;
-$text-grey: #202323;
+$text-grey: #131313;
 
 //== Blocks
 //
