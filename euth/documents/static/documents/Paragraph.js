@@ -42,8 +42,10 @@ var Paragraph = React.createClass({
     return (
       h('div', [
         h('div.row', [
-          h('div.col-md-2.col-md-offset-4', [
-            h('a', { onClick: this.add }, [
+          h('div.col-md-9', [
+            h('a.btn.btn-default.btn-block', {
+              onClick: this.add
+            }, [
               h('i.fa.fa-plus')
             ])
           ])
@@ -84,19 +86,22 @@ var Paragraph = React.createClass({
               h('nav.navbar.navbar-default.navbar-static', [
                 h('ul.nav.navbar-nav', [
                   h('li.entry', [
-                    h('a', { onClick: this.up }, [
-                      h('i.fa.fa-chevron-up')
-                    ])
+                    h('a.tooltipclass', {
+                      onClick: this.up}, [
+                        h('i.fa.fa-chevron-up.move')
+                      ])
                   ]),
                   h('li.entry', [
-                    h('a', { onClick: this.down }, [
-                      h('i.fa.fa-chevron-down')
-                    ])
+                    h('a.tooltipclass', {
+                      onClick: this.down }, [
+                        h('i.fa.fa-chevron-down.move.')
+                      ])
                   ]),
                   h('li.entry', [
-                    h('a', { onClick: this.delete }, [
-                      h('i.fa.fa-trash')
-                    ])
+                    h('a.tooltipclass', {
+                      onClick: this.delete }, [
+                        h('i.fa.fa-trash.delete')
+                      ])
                   ])
                 ])
               ])

@@ -170,8 +170,10 @@ var ParagraphBox = React.createClass({
             )
           }.bind(this)),
           h('div.row', [
-            h('div.col-md-2.col-md-offset-4', [
-              h('a', { onClick: this.appendParagraph }, [
+            h('div.col-md-9', [
+              h('a.btn.btn-default.btn-block', {
+                onClick: this.appendParagraph
+              }, [
                 h('i.fa.fa-plus')
               ])
             ])
@@ -194,5 +196,5 @@ module.exports.renderParagraphs = function (doc, module, config) {
       paragraphs: doc.paragraphs,
       config: config
     }),
-    document.getElementById('paragraphs'))
+    document.getElementById('document-form'))
 }
