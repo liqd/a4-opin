@@ -30,16 +30,23 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!resolve-url!sass?sourceMap'
+        loader: 'style!css!sass?sourceMap!resolve-url'
       },
       {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$|\.png$/,
-        loader: 'file'
+        test: /\.woff2?$|\.ttf$|\.eot$/,
+        loader: 'file?name=/static/fonts/[name].[ext]'
       },
+      {
+        test: /\.svg$|\.png$/,
+        loader: 'file?name=/static/images/[name].[ext]'
+      }
     ]
   },
   resolveLoader: {
     fail: true
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.scss', '.css'],
   },
   sassLoader: {
     includePaths: [path.resolve(__dirname, "./euth_wagtail/static")]

@@ -23,6 +23,7 @@
     "react-dom": "15.1.0",
     "react-flip-move": "^2.6.1",
     "react-hyperscript": "2.4.0",
+    "resolve-url-loader": "^1.6.0",
     "salvattore": "1.0.9",
     "sass-loader": "4.0.2",
     "style-loader": "0.13.1",
