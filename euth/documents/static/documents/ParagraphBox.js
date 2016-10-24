@@ -84,10 +84,6 @@ var ParagraphBox = React.createClass({
     // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[index].text = text
   },
-  updateParagraphWeight: function (weight) {
-    // deliberatly not call setState, because otherwise jkEditor reload/flicker
-    this.state.paragraphs[weight].weight = weight
-  },
   submitDocument: function (e) {
     if (e) {
       e.preventDefault()
@@ -102,6 +98,7 @@ var ParagraphBox = React.createClass({
     var submitData = {}
     submitData['name'] = this.state.name
     submitData['module'] = this.props.module
+    this.state.paragraphs.forEach(function (val, index) { val.weigth = index })
     submitData['paragraphs'] = this.state.paragraphs
 
     api.document.change(JSON.stringify(submitData), id)
@@ -122,6 +119,7 @@ var ParagraphBox = React.createClass({
     var submitData = {}
     submitData['name'] = this.state.name
     submitData['module'] = this.props.module
+    this.state.paragraphs.forEach(function (val, index) { val.weigth = index })
     submitData['paragraphs'] = this.state.paragraphs
 
     api.document.add(JSON.stringify(submitData))
@@ -178,8 +176,7 @@ var ParagraphBox = React.createClass({
                 moveParagraphDown: this.moveParagraphDown,
                 addParagraphBeforeIndex: this.addParagraphBeforeIndex,
                 updateParagraphName: this.updateParagraphName,
-                updateParagraphText: this.updateParagraphText,
-                updateParagraphWeight: this.updateParagraphWeight
+                updateParagraphText: this.updateParagraphText
               }
               )
             )

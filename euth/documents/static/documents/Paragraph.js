@@ -40,12 +40,10 @@ var Paragraph = React.createClass({
   componentDidUpdate: function () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
-    this.props.updateParagraphWeight(this.props.index)
   },
   componentDidMount: function () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
-    this.props.updateParagraphWeight(this.props.index)
   },
   render: function () {
     var ckEditorToolbarsHeight = 60  // measured on example editor
