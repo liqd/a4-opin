@@ -10,5 +10,5 @@ class DocumentViewSet(viewsets.ModelViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly, IsModerator,
+        permissions.IsAuthenticated, IsModerator,
     )
