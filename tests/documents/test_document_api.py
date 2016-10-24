@@ -6,6 +6,20 @@ from euth.documents import models as document_models
 
 
 @pytest.mark.django_db
+def test_anonymous_user_can_not_retrieve_document_list(apiclient):
+    url = reverse('documents-list')
+    response = apiclient.get(url, format='json')
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.django_db
+def test_anonymous_user_can_not_retrieve_document_detail(apiclient, document):
+    url = reverse('documents-detail',  kwargs={'pk': document.pk})
+    response = apiclient.get(url, format='json')
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.django_db
 def test_anonymous_user_can_not_create_document(apiclient, module):
     url = reverse('documents-list')
     data = {
