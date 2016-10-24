@@ -53,7 +53,24 @@
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
         <div class="tab-panel-description">
-        {% block phase_content %}{% endblock %}
+            <h2>{{ view.phase.name }}</h2>
+
+            {% if view.phase and not view.is_between_phases %}
+            <p class="idea-list-description">{{ view.phase.description }} </p>
+
+            <div class="badge-group">
+                <span class="badge">
+                    <strong>{% trans 'Start Date' %}</strong>
+                    {{ view.phase.start_date.date }}
+                </span>
+                <span class="badge">
+                    <strong>{% trans 'End Date' %}</strong>
+                    {{ view.phase.end_date.date }}
+                </span>
+            </div>
+            {% endif %}
+
+            {% block phase_content %}{% endblock %}
         </div>
     </article>
     <article id="result" class="tab-panel">
