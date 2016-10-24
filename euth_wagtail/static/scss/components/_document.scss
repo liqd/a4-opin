@@ -12,7 +12,7 @@
         }
 
         .btn-default {
-            background-color: $white;
+            background-color: $gray-lighter;
 
             &:hover, &:focus {
                 background-color: $brand-success;
@@ -32,7 +32,7 @@
 
             i {
                 @include rem(padding, 7px);
-                background-color: $white;
+                background-color: $gray-lighter;
                 color: $black;
             }
 
@@ -45,7 +45,7 @@
 
             .delete {
                 &:hover, &:focus {
-                    background-color: $red;
+                    background-color: $brand-danger;
                     color: white;
                 }
             }
