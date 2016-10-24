@@ -3,6 +3,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
 from django.db import models
 from django.utils import functional, timezone
+from django.utils.translation import ugettext as _
 
 from contrib.transforms import html_transforms
 from euth.contrib import base_models, validators
@@ -20,15 +21,39 @@ class ProjectManager(models.Manager):
 
 class Project(base_models.TimeStampedModel):
     slug = AutoSlugField(populate_from='name', unique=True)
-    name = models.CharField(max_length=512)
+    name = models.CharField(
+        max_length=120,
+        verbose_name=_('Title of your project'),
+        help_text=_('This title will appear on the '
+                    'teaser card and on top of the project '
+                    'detail page. It should be max. 120 characters long')
+    )
     organisation = models.ForeignKey(
         org_models.Organisation, on_delete=models.CASCADE)
-    description = models.CharField(max_length=1024)
-    information = RichTextUploadingField(config_name='image-editor')
+    description = models.CharField(
+        max_length=120,
+        verbose_name=_('Short description of your project'),
+        help_text=_('This short description will appear on '
+                    'the header of the project and in the teaser. '
+                    'It should briefly state the goal of the project '
+                    'in max. 120 chars.')
+    )
+    information = RichTextUploadingField(
+        config_name='image-editor',
+        verbose_name='Description of your project',
+        help_text='This description should tell participants '
+        'what the goal of the project is, how the project’s '
+        'participation will look like. It will be always visible '
+        'in the „Info“ tab on your project’s page.')
     result = RichTextUploadingField(blank=True, config_name='image-editor')
     is_public = models.BooleanField(default=True)
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
+        verbose_name=_('Header image'),
+        help_text=_('The image will be shown as a decorative '
+                    'background image. It must be min. 1300px wide and '
+                    '600px tall. Allowed file formats are .jpg and .png. '
+                    'The file size should be max. 2 MB.'),
         upload_to='projects/backgrounds',
         blank=True,
         validators=[validators.validate_hero_image])
