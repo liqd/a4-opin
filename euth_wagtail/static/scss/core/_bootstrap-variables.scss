@@ -15,7 +15,7 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             #818181 !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-brand1:           #0076ae; // Blue
+$brand-brand1:           #fafafa; // Blue
 $brand-brand2:           #fab61b; // Yellow
 $brand-brand3:           #5dbeba; // Green
 $brand-brand4:           #ef3789; // Pink
@@ -24,7 +24,7 @@ $brand-primary:         $brand-brand1 !default; // #337ab7
 $brand-success:         #7ed321 !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-danger:          #fafafa !default;
 
 
 $black: #131313;
