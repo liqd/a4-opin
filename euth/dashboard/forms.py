@@ -67,7 +67,7 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = project_models.Project
-        fields = ['image', 'name', 'description', 'information', 'is_public',
+        fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
         widgets = {
             'image': widgets.ImageInputWidget()
