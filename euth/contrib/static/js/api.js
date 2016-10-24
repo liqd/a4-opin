@@ -13,10 +13,11 @@ var api = (function () {
   var urls = {
     comment: baseURL + 'comments/',
     rating: baseURL + 'ratings/',
-    report: baseURL + 'reports/'
+    report: baseURL + 'reports/',
+    document: baseURL + 'documents/'
   }
 
-  function _sendRequest (endpoint, id, options, data) {
+  function _sendRequest (endpoint, id, options, data, contentType) {
     var $body = $('body')
     var url = urls[endpoint]
     if (typeof id === 'object') {
@@ -28,6 +29,34 @@ var api = (function () {
     }
     var defaultParams = {
       url: url,
+      dataType: 'json',
+      data: data,
+      error: function (xhr, status, err) {
+        console.error(url, status, err.toString())
+      },
+      complete: function () {
+        $body.removeClass('loading')
+      }
+    }
+    var params = $.extend(defaultParams, options)
+
+    $body.addClass('loading')
+    return $.ajax(params)
+  }
+
+  function _sendJSONRequest (endpoint, id, options, data) {
+    var $body = $('body')
+    var url = urls[endpoint]
+    if (typeof id === 'object') {
+      // there's no id, switch parameters
+      data = options
+      options = id
+    } else if (typeof id === 'number') {
+      url = url + id + '/'
+    }
+    var defaultParams = {
+      url: url,
+      contentType: 'application/json; charset=utf-8',
       dataType: 'json',
       data: data,
       error: function (xhr, status, err) {
@@ -86,6 +115,18 @@ var api = (function () {
       submit: function (data) {
         return _sendRequest('report', {
           type: 'POST'
+        }, data)
+      }
+    },
+    document: {
+      add: function (data) {
+        return _sendJSONRequest('document', {
+          type: 'POST'
+        }, data)
+      },
+      change: function (data, id) {
+        return _sendJSONRequest('document', id, {
+          type: 'PUT'
         }, data)
       }
     }

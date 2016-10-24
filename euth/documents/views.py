@@ -6,6 +6,14 @@ from euth.projects import mixins
 from . import models
 
 
+class DocumentCreateView(mixins.ProjectMixin, generic.TemplateView):
+    template_name = 'euth_documents/document_form.html'
+
+    @property
+    def document(self):
+        return models.Document.objects.filter(module=self.module).first()
+
+
 class DocumentDetailView(generic.DetailView, mixins.ProjectMixin):
     model = models.Document
 

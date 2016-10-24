@@ -18,22 +18,30 @@ class Document(module_models.Item):
         return "{}_document_{}".format(str(self.module), self.pk)
 
     def clean(self, *args, **kwargs):
-        try:
-            Document.objects.get(module=self.module)
-            raise ValidationError(_('Document for that module already exists'))
-        except ObjectDoesNotExist:
-            super().clean(*args, **kwargs)
+        if not self.pk:
+            try:
+                Document.objects.get(module=self.module)
+                raise ValidationError(
+                    _('Document for that module already exists'))
+            except ObjectDoesNotExist:
+                super().clean(*args, **kwargs)
+        super().clean(*args, **kwargs)
 
     @cached_property
     def paragraphs_sorted(self):
-        return self.paragraph_set.all().order_by('weight')
+        return self.paragraphs.all().order_by('weight')
 
 
 class Paragraph(base_models.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
     text = RichTextField()
     weight = models.PositiveIntegerField()
-    document = models.ForeignKey(Document, on_delete=models.CASCADE)
+    document = models.ForeignKey(Document,
+                                 on_delete=models.CASCADE,
+                                 related_name='paragraphs')
+
+    class Meta:
+        ordering = ('weight',)
 
     def __str__(self):
         return "{}_paragraph_{}".format(str(self.document), self.weight)
