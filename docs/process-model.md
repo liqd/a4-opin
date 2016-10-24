@@ -1,4 +1,4 @@
-# Porjects - How do they work?
+# Projects - How do they work?
 
 Opin allows users to create organisations and projects inside those organisations. Those projects are
 participatory processes, build up by participation modules and phases.
