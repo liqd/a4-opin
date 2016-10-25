@@ -14,7 +14,7 @@
             <div class="col-sm-3 comment-count">
                 <div>
                     <a href="{% url 'paragraph-detail' paragraph.pk %}">
-                        <span>{{ paragraph.comments.count }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
+                        <span>{{ paragraph.comments|length }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
                     </a>
                 </div>
                 <a href="{% url 'paragraph-detail' paragraph.pk %}" class="btn btn-ghost btn-primary">{% trans 'Add your comment' %}</a>
@@ -29,4 +29,3 @@
 
 </div>
 {% endblock %}
-
