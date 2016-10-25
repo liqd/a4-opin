@@ -51,7 +51,7 @@ var Paragraph = React.createClass({
       h('div', [
         h('div.row', [
           h('div.col-md-9', [
-            h('a.btn.btn-default.btn-block', {
+            h('button.btn.btn-hover-success.btn-block', {
               onClick: this.add
             }, [
               h('i.fa.fa-plus')
@@ -95,34 +95,22 @@ var Paragraph = React.createClass({
           ]),
           h('div.col-sm-3.comment-count', [
             h('div.action-bar', [
-              h('nav.navbar.navbar-default.navbar-static', [
-                h('ul.nav.navbar-nav', [
-                  h('li.entry', [
-                    h('a.tooltipclass',
-                      this.props.moveParagraphUp
-                      ? { onClick: this.up }
-                      : { style: { visibility: 'hidden' } },
-                      [
-                        h('i.fa.fa-chevron-up.move')
-                      ])
-                  ]),
-                  h('li.entry', [
-                    h('a.tooltipclass',
-                      this.props.moveParagraphDown
-                      ? { onClick: this.down }
-                      : { style: { visibility: 'hidden' } },
-                      [
-                        h('i.fa.fa-chevron-down.move.')
-                      ])
-                  ]),
-                  h('li.entry', [
-                    h('a.tooltipclass', {
-                      onClick: this.delete }, [
-                        h('i.fa.fa-trash.delete')
-                      ])
-                  ])
-                ])
-              ])
+              h('button.btn.btn-hover-primary',
+                this.props.moveParagraphUp
+                ? { onClick: this.up }
+                : { disabled: true },
+                h('i.fa.fa-chevron-up')
+               ),
+              h('button.btn.btn-hover-primary',
+                this.props.moveParagraphDown
+                ? { onClick: this.down }
+                : { disabled: true },
+                h('i.fa.fa-chevron-down')
+               ),
+              h('button.btn.btn-hover-danger', {
+                onClick: this.delete },
+                h('i.fa.fa-trash')
+               )
             ])
           ])
         ])

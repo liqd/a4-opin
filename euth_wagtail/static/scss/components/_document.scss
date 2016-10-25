@@ -1,9 +1,7 @@
 #document-form {
-
     .general-form {
-
         .btn {
-            @include rem(padding, 8px 12px 8px 12px);
+            @include rem(padding, 8px 12px);
             @include rem(margin-bottom, 20px);
         }
 
@@ -11,49 +9,14 @@
             @include rem(margin-bottom, 22px);
         }
 
-        .btn-default {
-            background-color: $gray-lighter;
-
-            &:hover, &:focus {
-                background-color: $brand-success;
-                color: white;
-            }
-        }
-
         .submit-button {
             @include rem(margin-top, 100px);
         }
 
         .entry {
-
-            a {
-                @include rem(padding, 0px);
-            }
-
             i {
                 @include rem(padding, 7px);
-                background-color: $gray-lighter;
-                color: $black;
             }
-
-            .move {
-                &:hover, &:focus {
-                    background-color: $brand-brand1;
-                    color: white;
-                }
-            }
-
-            .delete {
-                &:hover, &:focus {
-                    background-color: $brand-danger;
-                    color: white;
-                }
-            }
-
-
         }
     }
-
-
-
 }
