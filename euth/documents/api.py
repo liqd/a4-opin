@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import permissions, viewsets
 
 from euth.contrib.api.permissions import IsModerator
 
@@ -10,5 +10,5 @@ class DocumentViewSet(viewsets.ModelViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     permission_classes = (
-        IsModerator,
+        permissions.IsAuthenticated, IsModerator,
     )

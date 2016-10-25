@@ -104,4 +104,6 @@ class Project(base_models.TimeStampedModel):
 
     @property
     def last_phase(self):
-        return self.phases.filter(end_date__lt=timezone.now()).last()
+        phases = self.phases.filter(end_date__lt=timezone.now())
+        phases_ordered = phases.order_by('end_date').last()
+        return phases_ordered

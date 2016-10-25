@@ -29,36 +29,9 @@ var api = (function () {
     }
     var defaultParams = {
       url: url,
-      dataType: 'json',
-      data: data,
-      error: function (xhr, status, err) {
-        console.error(url, status, err.toString())
-      },
-      complete: function () {
-        $body.removeClass('loading')
-      }
-    }
-    var params = $.extend(defaultParams, options)
-
-    $body.addClass('loading')
-    return $.ajax(params)
-  }
-
-  function _sendJSONRequest (endpoint, id, options, data) {
-    var $body = $('body')
-    var url = urls[endpoint]
-    if (typeof id === 'object') {
-      // there's no id, switch parameters
-      data = options
-      options = id
-    } else if (typeof id === 'number') {
-      url = url + id + '/'
-    }
-    var defaultParams = {
-      url: url,
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
-      data: data,
+      data: JSON.stringify(data),
       error: function (xhr, status, err) {
         console.error(url, status, err.toString())
       },
@@ -120,12 +93,12 @@ var api = (function () {
     },
     document: {
       add: function (data) {
-        return _sendJSONRequest('document', {
+        return _sendRequest('document', {
           type: 'POST'
         }, data)
       },
       change: function (data, id) {
-        return _sendJSONRequest('document', id, {
+        return _sendRequest('document', id, {
           type: 'PUT'
         }, data)
       }

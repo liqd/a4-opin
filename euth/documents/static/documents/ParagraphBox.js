@@ -87,7 +87,7 @@ var ParagraphBox = React.createClass({
     submitData['module'] = this.props.module
     submitData['paragraphs'] = this.state.paragraphs
 
-    api.document.change(JSON.stringify(submitData), id)
+    api.document.change(submitData, id)
       .done(function (data) {
         this.setState({
           name: data.name,
@@ -107,7 +107,7 @@ var ParagraphBox = React.createClass({
     submitData['module'] = this.props.module
     submitData['paragraphs'] = this.state.paragraphs
 
-    api.document.add(JSON.stringify(submitData))
+    api.document.add(submitData)
       .done(function (data) {
         this.setState({
           name: data.name,
@@ -170,8 +170,10 @@ var ParagraphBox = React.createClass({
             )
           }.bind(this)),
           h('div.row', [
-            h('div.col-md-2.col-md-offset-4', [
-              h('a', { onClick: this.appendParagraph }, [
+            h('div.col-md-9', [
+              h('a.btn.btn-default.btn-block', {
+                onClick: this.appendParagraph
+              }, [
                 h('i.fa.fa-plus')
               ])
             ])
@@ -194,5 +196,5 @@ module.exports.renderParagraphs = function (doc, module, config) {
       paragraphs: doc.paragraphs,
       config: config
     }),
-    document.getElementById('paragraphs'))
+    document.getElementById('document-form'))
 }
