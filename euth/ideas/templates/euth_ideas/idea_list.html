@@ -3,33 +3,34 @@
 
 {% block phase_content %}
 <div class="idea-list">
-    {% if view.sorts %}
-    <div class="dropdown">
-        <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
-            role="button" aria-haspopup="true" aria-expanded="false">
-            {% trans 'sort by' %} {{ view.get_current_sortname }}
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="drop">
-            {% for sort, sort_name in view.sorts %}
-            <li>
-                {% if view.sort == sort %}
-                <a><strong>{{ sort_name }}</strong></a>
-                {% else %}
-                <a href="?sort={{sort}}">{{ sort_name }}</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-
     {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
     {% if add_button_enabled %}
-    <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button">
+    <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
         <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
         {% trans 'Create Proposal' %}
     </a>
+    {% endif %}
+
+    {% if view.sorts %}
+        <div class="dropdown sort-dropdown pull-right">
+            {% trans 'Sort by' %}
+            <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
+                role="button" aria-haspopup="true" aria-expanded="false">
+                {{ view.get_current_sortname }}
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="drop">
+                {% for sort, sort_name in view.sorts %}
+                    <li>
+                        {% if view.sort == sort %}
+                            <a><strong>{{ sort_name }}</strong></a>
+                        {% else %}
+                            <a href="?sort={{sort}}#idea-create">{{ sort_name }}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
 
     {% for idea in idea_list %}
