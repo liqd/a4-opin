@@ -36,7 +36,11 @@ class CommentSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         positive_ratings = comment.ratings.filter(value=1).count()
         negative_ratings = comment.ratings.filter(value=-1).count()
-        user_rating = comment.ratings.filter(user=user).first()
+
+        if user.is_authenticated():
+            user_rating = comment.ratings.filter(user=user).first()
+        else:
+            user_rating = None
 
         if user_rating:
             user_rating_value = user_rating.value
