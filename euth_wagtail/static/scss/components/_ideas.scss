@@ -59,6 +59,7 @@
 }
 
 .idea-list-tile {
+    clear: right;
     @extend .tile-list;
 
     .idea-tile-image-link {
@@ -167,8 +168,6 @@
     text-transform: uppercase;
     width: 100%;
     color: $black;
-    -webkit-box-shadow: none;
-    box-shadow: none;
     font-weight: bold;
     transition: color 0.2s;
 
