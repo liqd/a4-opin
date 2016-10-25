@@ -99,7 +99,7 @@ var ParagraphBox = React.createClass({
     var submitData = {}
     submitData['name'] = this.state.name
     submitData['module'] = this.props.module
-    this.state.paragraphs.forEach(function (val, index) { val.weigth = index })
+    this.state.paragraphs.forEach(function (val, index) { val.weight = index })
     submitData['paragraphs'] = this.state.paragraphs
 
     api.document.change(JSON.stringify(submitData), id)
@@ -120,7 +120,7 @@ var ParagraphBox = React.createClass({
     var submitData = {}
     submitData['name'] = this.state.name
     submitData['module'] = this.props.module
-    this.state.paragraphs.forEach(function (val, index) { val.weigth = index })
+    this.state.paragraphs.forEach(function (val, index) { val.weight = index })
     submitData['paragraphs'] = this.state.paragraphs
 
     api.document.add(JSON.stringify(submitData))
