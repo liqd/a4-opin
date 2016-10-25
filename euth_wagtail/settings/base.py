@@ -317,6 +317,14 @@ ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_EMAIL_VERIFICATION = False
 
+# Rest framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
+
 # Euth settings
 
 COMMENTABLES = (

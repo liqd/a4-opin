@@ -87,7 +87,7 @@ var ParagraphBox = React.createClass({
     submitData['module'] = this.props.module
     submitData['paragraphs'] = this.state.paragraphs
 
-    api.document.change(JSON.stringify(submitData), id)
+    api.document.change(submitData, id)
       .done(function (data) {
         this.setState({
           name: data.name,
@@ -107,7 +107,7 @@ var ParagraphBox = React.createClass({
     submitData['module'] = this.props.module
     submitData['paragraphs'] = this.state.paragraphs
 
-    api.document.add(JSON.stringify(submitData))
+    api.document.add(submitData)
       .done(function (data) {
         this.setState({
           name: data.name,
