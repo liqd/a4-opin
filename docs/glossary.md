@@ -96,7 +96,7 @@ Add explantion here.
 
 ---
 **User**:
-After a User has registered to the platform he/she can participate in public projects or private projects he/she is invited in through creating proposals/collecting ideas, commenting or rating proposals, as well as editing his/her own content. Users can also be made initiators of an organisation by the owner or another initiator of the organisation. They can also be added as moderators to projects. Within a content management system (CMS) they can be added to the moderators and/or the editors group. Users can also receive administrator rights. By that they achieve access to the administrator interface, which allows them to add organisations and add, update or delete all available resource types on the platform.
+After a User has registered to the platform he/she can participate in public projects or private projects he/she is invited in through creating proposals/collecting ideas, commenting or rating proposals, as well as editing his/her own content. Users can also be made initiators of an organisation by the owner or another initiator of the organisation. They can also be added as moderators to projects. Within the content management system (CMS) they can be added to the moderators and/or the editors group. Users can also receive administrator rights. By that they achieve access to the administrator interface, which allows them to add organisations and add, update or delete all available resource types on the platform.
 
 ---
 **WISYWIG**:
