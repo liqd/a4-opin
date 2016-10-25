@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom')
 var h = require('react-hyperscript')
 var update = require('react-addons-update')
 var django = require('django')
+var FlipMove = require('react-flip-move')
 
 var ParagraphBox = React.createClass({
   getInitialState: function () {
@@ -162,9 +163,9 @@ var ParagraphBox = React.createClass({
               ])
             ])
           ]),
-          this.state.paragraphs.map(function (paragraph, index) {
-            return (
-              h(Paragraph, {
+          h(FlipMove, {easing: 'cubic-bezier(0.25, 0.5, 0.75, 1)'},
+            this.state.paragraphs.map(function (paragraph, index) {
+              return h(Paragraph, {
                 key: paragraph.paragraph_key || paragraph.id,
                 id: paragraph.paragraph_key || paragraph.id,
                 index: index,
@@ -178,10 +179,8 @@ var ParagraphBox = React.createClass({
                 addParagraphBeforeIndex: this.addParagraphBeforeIndex,
                 updateParagraphName: this.updateParagraphName,
                 updateParagraphText: this.updateParagraphText
-              }
-              )
-            )
-          }.bind(this)),
+              })
+            }.bind(this))),
           h('div.row', [
             h('div.col-md-9', [
               h('a.btn.btn-default.btn-block', {
