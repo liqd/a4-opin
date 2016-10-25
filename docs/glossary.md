@@ -1,5 +1,5 @@
-**CMS/Wagtail**:
-Add explantion here.
+**Contet Management System (CMS)**:
+The Opin Platform consists of the platform itself, meaning the part where users can add, edit, delete organisations, projects, modules, phases, ideas, comments, ratings, reports etc. as well as of descriptive webpages that give more information on the platform, such as imprint, help and how to's. As these webpages should be editable by a user a Content Management System (CMS) is used. For this project the Wagtail CMS used. Major advantage of this CMS is that it builds up upon the Webframework Django which is also used for the OPIN Platform. Because of that it is possible, that users who are logged in on the platform and also have rights to access the CMS-Administration interface, do not have to log in again. 
 
 ---
 **Comment**:
