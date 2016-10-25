@@ -1,7 +1,4 @@
-from django.contrib.contenttypes.models import ContentType
 from rest_framework import serializers
-
-from euth.ratings import models as rating_models
 
 from .models import Comment
 
@@ -31,22 +28,20 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         return (obj.is_censored or obj.is_removed)
 
-    def get_ratings(self, obj):
+    def get_ratings(self, comment):
         """
         Gets positve and negative rating count as well as
         info on the request users rating
         """
         user = self.context['request'].user
-        contenttype = ContentType.objects.get_for_model(obj)
-        obj_ratings = rating_models.Rating.objects.filter(
-            content_type=contenttype, object_pk=obj.pk)
-        positive_ratings = obj_ratings.filter(value=1).count()
-        negative_ratings = obj_ratings.filter(value=-1).count()
-        try:
-            user_rating = obj_ratings.get(user=user)
+        positive_ratings = comment.ratings.filter(value=1).count()
+        negative_ratings = comment.ratings.filter(value=-1).count()
+        user_rating = comment.ratings.filter(user=user).first()
+
+        if user_rating:
             user_rating_value = user_rating.value
             user_rating_id = user_rating.pk
-        except:
+        else:
             user_rating_value = None
             user_rating_id = None
 
@@ -64,22 +59,4 @@ class ThreadSerializer(CommentSerializer):
     """
     Serializes a comment including child comment (replies).
     """
-
-    child_comments = serializers.SerializerMethodField()
-
-    class Meta(CommentSerializer.Meta):
-        pass
-
-    def get_child_comments(self, obj):
-        """
-        Returns the comments of a comment
-        """
-        content_type = ContentType.objects.get_for_model(Comment)
-        pk = obj.pk
-        children = Comment.objects.filter(
-            content_type=content_type, object_pk=pk).order_by('created')
-        serializer = CommentSerializer(
-            children,
-            many=True,
-            context={'request': self.context['request']})
-        return serializer.data
+    child_comments = CommentSerializer(many=True, read_only=True)
