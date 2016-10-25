@@ -36,7 +36,7 @@ def test_document_paragraphs_sorted(document, paragraph_factory):
     paragraph_factory(document=document, weight=2)
     paragraph2 = paragraph_factory(document=document, weight=1)
 
-    assert document.paragraphs_sorted.first() == paragraph2
+    assert document.paragraphs.first() == paragraph2
 
 
 @pytest.mark.django_db
