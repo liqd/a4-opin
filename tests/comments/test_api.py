@@ -31,7 +31,7 @@ def test_authenticated_user_can_post_valid_data(user, apiclient):
         'content_type': 1
     }
     response = apiclient.post(url, data, format='json')
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
 
 
 @pytest.mark.django_db
@@ -76,7 +76,7 @@ def test_authenticated_user_can_reply_to_comment(user2, comment, apiclient):
         'content_type': comment_contenttype
     }
     response = apiclient.post(url, data, format='json')
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == status.HTTP_201_CREATED
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(url)
     assert len(response.data['child_comments']) == 1
