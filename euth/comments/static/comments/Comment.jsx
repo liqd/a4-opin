@@ -135,7 +135,7 @@ var Comment = React.createClass({
           </nav>
         </div>
         <CommentReplyBar allowForm={this.allowForm()} showComments={this.showComments}
-          childCommentsLength={this.props.child_comments.length} />
+          childCommentsLength={this.props.child_comments ? this.props.child_comments.length : 0} />
         {this.state.showChildComments
           ? <div className="child_comments_list">
             {[
