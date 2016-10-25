@@ -8,7 +8,6 @@ from .models import Comment
 
 class CommentSerializer(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField()
-    child_comments = serializers.SerializerMethodField()
     is_deleted = serializers.SerializerMethodField()
     ratings = serializers.SerializerMethodField()
 
@@ -25,20 +24,6 @@ class CommentSerializer(serializers.ModelSerializer):
         if(obj.is_censored or obj.is_removed):
             return 'unknown user'
         return str(obj.user.username)
-
-    def get_child_comments(self, obj):
-        """
-        Returns the comments of a comment
-        """
-        content_type = ContentType.objects.get_for_model(Comment)
-        pk = obj.pk
-        children = Comment.objects.all().filter(
-            content_type=content_type, object_pk=pk).order_by('created')
-        serializer = CommentSerializer(
-            children,
-            many=True,
-            context={'request': self.context['request']})
-        return serializer.data
 
     def get_is_deleted(self, obj):
         """
@@ -73,3 +58,28 @@ class CommentSerializer(serializers.ModelSerializer):
         }
 
         return result
+
+
+class ThreadSerializer(CommentSerializer):
+    """
+    Serializes a comment including child comment (replies).
+    """
+
+    child_comments = serializers.SerializerMethodField()
+
+    class Meta(CommentSerializer.Meta):
+        pass
+
+    def get_child_comments(self, obj):
+        """
+        Returns the comments of a comment
+        """
+        content_type = ContentType.objects.get_for_model(Comment)
+        pk = obj.pk
+        children = Comment.objects.filter(
+            content_type=content_type, object_pk=pk).order_by('created')
+        serializer = CommentSerializer(
+            children,
+            many=True,
+            context={'request': self.context['request']})
+        return serializer.data

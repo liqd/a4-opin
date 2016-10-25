@@ -4,13 +4,13 @@ from rest_framework.response import Response
 from euth.contrib.api.permissions import IsUserOrReadOnly
 
 from .models import Comment
-from .serializers import CommentSerializer
+from .serializers import ThreadSerializer
 
 
 class CommentViewSet(viewsets.ModelViewSet):
 
     queryset = Comment.objects.all().order_by('-created')
-    serializer_class = CommentSerializer
+    serializer_class = ThreadSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
     filter_backends = (filters.DjangoFilterBackend,)
