@@ -31,6 +31,14 @@ class Document(module_models.Item):
     def paragraphs_sorted(self):
         return self.paragraphs.all().order_by('weight')
 
+    @cached_property
+    def comments(self):
+        contenttype = ContentType.objects.get_for_model(self)
+        pk = self.id
+        comments = comment_models.Comment.objects.all().filter(
+            content_type=contenttype, object_pk=pk)
+        return comments
+
 
 class Paragraph(base_models.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)

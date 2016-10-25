@@ -44,3 +44,31 @@ def test_paragraphs_comments(paragraph, comment_factory):
         comment_factory(content_object=paragraph)
     comment_count = comments_models.Comment.objects.all().count()
     assert comment_count == paragraph.comments.count()
+
+
+@pytest.mark.django_db
+def test_delete_document(document, comment_factory):
+    for i in range(5):
+        comment_factory(content_object=document)
+    comment_count = comments_models.Comment.objects.all().count()
+    assert comment_count == len(document.comments.all())
+
+    assert comment_count == 5
+
+    document.delete()
+    comment_count = comments_models.Comment.objects.all().count()
+    assert comment_count == 0
+
+
+@pytest.mark.django_db
+def test_delete_paragraph(paragraph, comment_factory):
+    for i in range(5):
+        comment_factory(content_object=paragraph)
+    comment_count = comments_models.Comment.objects.all().count()
+    assert comment_count == len(paragraph.comments.all())
+
+    assert comment_count == 5
+
+    paragraph.delete()
+    comment_count = comments_models.Comment.objects.all().count()
+    assert comment_count == 0
