@@ -5,7 +5,7 @@
 <div>
     <article class="commenting-text">
         <h3>{{ object.name }}</h3>
-        {% for paragraph in object.paragraphs %}
+        {% for paragraph in object.paragraphs.all %}
         <section class="row commenting-paragraph">
             <div class="col-sm-9 paragraph">
                 <h4>{{ paragraph.name }}</h4>
@@ -14,7 +14,7 @@
             <div class="col-sm-3 comment-count">
                 <div>
                     <a href="{% url 'paragraph-detail' paragraph.pk %}">
-                        <span>{{ paragraph.comments|length }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
+                        <span>{{ paragraph.comments.all|length }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
                     </a>
                 </div>
                 <a href="{% url 'paragraph-detail' paragraph.pk %}" class="btn btn-ghost btn-primary">{% trans 'Add your comment' %}</a>
