@@ -100,4 +100,4 @@ Users can participate in public projects or private projects they are invited in
 
 ---
 **WISYWIG**:
-Add explantion here.
+A kind of editor where the user can immediately see the styles (bold, italics, links, images, etc.) that are applied to text. In Opin we are using the CKEditor for user generated content.
