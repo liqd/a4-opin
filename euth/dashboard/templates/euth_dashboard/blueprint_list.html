@@ -27,7 +27,9 @@
             </div>
 
             <div class="blueprint-description">
-                {% blocktrans with count=blueprint.content|length %}
+                {% blocktrans count count=blueprint.content|length %}
+                The resulting project will have one phase:
+                {% plural %}
                 The resulting project will have {{count}} phases:
                 {% endblocktrans %}
                 <ul>
