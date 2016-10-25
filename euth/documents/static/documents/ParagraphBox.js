@@ -172,8 +172,9 @@ var ParagraphBox = React.createClass({
                 errors: this.getErrors(index),
                 config: this.props.config,
                 deleteParagraph: this.deleteParagraph,
-                moveParagraphUp: this.moveParagraphUp,
-                moveParagraphDown: this.moveParagraphDown,
+                moveParagraphUp: index !== 0 ? this.moveParagraphUp : null,
+                moveParagraphDown: index < this.state.paragraphs.length - 1
+                  ? this.moveParagraphDown : null,
                 addParagraphBeforeIndex: this.addParagraphBeforeIndex,
                 updateParagraphName: this.updateParagraphName,
                 updateParagraphText: this.updateParagraphText

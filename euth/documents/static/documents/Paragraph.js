@@ -98,14 +98,20 @@ var Paragraph = React.createClass({
               h('nav.navbar.navbar-default.navbar-static', [
                 h('ul.nav.navbar-nav', [
                   h('li.entry', [
-                    h('a.tooltipclass', {
-                      onClick: this.up}, [
+                    h('a.tooltipclass',
+                      this.props.moveParagraphUp
+                      ? { onClick: this.up }
+                      : { style: { visibility: 'hidden' } },
+                      [
                         h('i.fa.fa-chevron-up.move')
                       ])
                   ]),
                   h('li.entry', [
-                    h('a.tooltipclass', {
-                      onClick: this.down }, [
+                    h('a.tooltipclass',
+                      this.props.moveParagraphDown
+                      ? { onClick: this.down }
+                      : { style: { visibility: 'hidden' } },
+                      [
                         h('i.fa.fa-chevron-down.move.')
                       ])
                   ]),
