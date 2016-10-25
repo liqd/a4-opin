@@ -29,6 +29,7 @@
         }
     }
 }
+
 .btn {
     border: 0;
     text-transform: uppercase;
@@ -36,6 +37,7 @@
     transition: color 0.2s, background 0.2s;
     -webkit-transition: color 0.2s, background 0.2s;
 }
+
 .btn-cta {
     @include rem(border-radius, 40px);
     @include rem(padding, 0 20px);
@@ -43,6 +45,18 @@
     line-height: 50px;
     margin: 0 auto;
     text-transform: uppercase;
+}
+
+.btn-hover-primary {
+    @include button-hover($brand-primary)
+}
+
+.btn-hover-danger {
+    @include button-hover($brand-danger)
+}
+
+.btn-hover-success {
+    @include button-hover($brand-success)
 }
 
 .btn-ghost {
