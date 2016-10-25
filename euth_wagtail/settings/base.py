@@ -326,8 +326,14 @@ COMMENTABLES = (
     ('euth_comments', 'comment'),
 )
 
-RATEABLES = COMMENTABLES
+RATEABLES = (
+    ('euth_ideas', 'ideas'),
+    ('euth_comments', 'comment'),
+)
 
-REPORTABLES = COMMENTABLES
+REPORTABLES = (
+    ('euth_ideas', 'ideas'),
+    ('euth_comments', 'comment'),
+)
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
