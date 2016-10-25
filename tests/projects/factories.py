@@ -10,10 +10,10 @@ class ProjectFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.Project
 
-    name = factory.Faker('name')
+    name = factory.Faker('text', max_nb_chars=120)
     slug = factory.Faker('slug')
     organisation = factory.SubFactory(org_factories.OrganisationFactory)
-    description = factory.Faker('text')
+    description = factory.Faker('text', max_nb_chars=120)
     information = factory.Faker('paragraphs')
     is_public = True
     is_draft = False

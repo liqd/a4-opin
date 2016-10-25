@@ -31,6 +31,7 @@
                 {% if not field == form.project.result %}
                 <div class="form-group{% if field.errors %} has-error{% endif %}">
                     <label>{{ field.label }}</label>
+                    <p class='form-help-text'>{{ field.help_text }}</p>
                     {% render_field field class="form-control" %}
                     {% for error in field.errors %}
                     <span class="help-block">{{ error }}</span>

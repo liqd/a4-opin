@@ -6,6 +6,10 @@
     }
 }
 
+.form-help-text {
+    font-style: italic;
+}
+
 label {
     @include rem(font-size, $font-size-large);
     font-weight: normal;
