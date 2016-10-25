@@ -9,11 +9,11 @@
 
 .custom-dropdown-menu {
     @include rem(border-radius, 3px)
-    border: solid 1px $warm-grey;
+    border: solid 1px $gray;
 
     .divider {
         margin: 0px;
-        background-color: $warm-grey;
+        background-color: $gray;
     }
 
     li {

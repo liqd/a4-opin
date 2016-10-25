@@ -8,28 +8,26 @@ $bootstrap-sass-asset-helper: false !default;
 //
 //## Gray and brand colors for use across Bootstrap.
 
-$gray-base:              #000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             #818181 !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-base:             #000000; // not actually used
+$gray-darker:           #131313;
+$gray-dark:             #2b2b2b;
+$gray:                  #818181;
+$gray-light:            #d8d8d8;
+$gray-lighter:          #f3f3f3;
 
-$brand-brand1:           #0076ae; // Blue
-$brand-brand2:           #fab61b; // Yellow
-$brand-brand3:           #5dbeba; // Green
-$brand-brand4:           #ef3789; // Pink
+$brand-brand1:          #0076ae; // Blue
+$brand-brand2:          #fcb52d; // Orange
+$brand-brand3:          #5cbeb9; // Turquoise
+$brand-brand4:          #ef3789; // Pink
 
-$brand-primary:         $brand-brand1 !default; // #337ab7
+$brand-primary:         $brand-brand1 !default;
 $brand-success:         #7ed321 !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-info:            #41a9e0 !default;
+$brand-warning:         $brand-brand2 !default;
+$brand-danger:          #e01431 !default;
 
+$black:                 $gray-darker;
 
-$black: #131313;
-$warm-grey: #818181;
-$text-grey: #202323;
 
 //== Blocks
 //
