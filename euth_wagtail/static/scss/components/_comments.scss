@@ -6,13 +6,13 @@
         @include rem(margin-top, 30px);
     }
     & textarea {
-        border: 1px solid $warm-grey;
+        border: 1px solid $gray;
         border-radius: 0;
         -moz-border-radius: 0;
         @include rem(font-size, 14px);
     }
     & textarea:focus {
-        border: 1px solid $warm-grey;
+        border: 1px solid $gray;
         border-radius: 0;
         -moz-border-radius: 0;
         @include rem(font-size, 14px);
@@ -39,7 +39,7 @@
                 @include rem(font-size, 14px);
                 @include rem(line-height, 1.6);
                 text-align: justify;
-                color: $text-grey;
+                color: $black;
             }
         }
         & .child_comments_list {
