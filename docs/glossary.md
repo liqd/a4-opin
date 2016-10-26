@@ -59,7 +59,7 @@ Add explantion here.
 
 ---
 **Popularity**:
-Ideas can be sorted by Popularity - popularity is defined by the number of upvotes.
+Ideas can be sorted by Popularity - popularity is defined by the number of positive ratings.
 
 ---
 **Process**:
