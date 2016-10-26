@@ -52,7 +52,8 @@ var Paragraph = React.createClass({
         h('div.row', [
           h('div.col-md-9', [
             h('button.btn.btn-hover-success.btn-block', {
-              onClick: this.add
+              onClick: this.add,
+              type: 'button'
             }, [
               h('i.fa.fa-plus')
             ])
@@ -97,14 +98,26 @@ var Paragraph = React.createClass({
             h('div.action-bar', [
               h('button.btn.btn-hover-primary',
                 this.props.moveParagraphUp
-                ? { onClick: this.up }
-                : { disabled: true },
+                ? {
+                  onClick: this.up,
+                  type: 'button'
+                }
+                : {
+                  disabled: true,
+                  type: 'button'
+                },
                 h('i.fa.fa-chevron-up')
                ),
               h('button.btn.btn-hover-primary',
                 this.props.moveParagraphDown
-                ? { onClick: this.down }
-                : { disabled: true },
+                ? {
+                  onClick: this.down,
+                  type: 'button'
+                }
+                : {
+                  disabled: true,
+                  type: 'button'
+                },
                 h('i.fa.fa-chevron-down')
                ),
               h('button.btn.btn-hover-danger', {

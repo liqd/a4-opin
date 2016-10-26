@@ -184,7 +184,8 @@ var ParagraphBox = React.createClass({
           h('div.row', [
             h('div.col-md-9', [
               h('button.btn.btn-hover-success.btn-block', {
-                onClick: this.appendParagraph
+                onClick: this.appendParagraph,
+                type: 'button'
               }, [
                 h('i.fa.fa-plus')
               ])
