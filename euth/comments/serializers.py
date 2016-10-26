@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext as _
 from rest_framework import serializers
 
 from .models import Comment
@@ -19,7 +20,7 @@ class CommentSerializer(serializers.ModelSerializer):
         Don't show username if comment is marked removed or censored
         """
         if(obj.is_censored or obj.is_removed):
-            return 'unknown user'
+            return _('unknown user')
         return str(obj.creator.username)
 
     def get_is_deleted(self, obj):
