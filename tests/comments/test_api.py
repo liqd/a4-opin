@@ -71,7 +71,14 @@ def test_authenticated_user_can_reply_to_comment(user2, comment, apiclient):
     apiclient.force_authenticate(user=user2)
     url = reverse('comments-list')
     data = {
-        'comment': 'comment comment',
+        'comment': 'comment-reply1',
+        'object_pk': comment.pk,
+        'content_type': comment_contenttype
+    }
+    response = apiclient.post(url, data, format='json')
+    assert response.status_code == status.HTTP_201_CREATED
+    data = {
+        'comment': 'comment-reply2',
         'object_pk': comment.pk,
         'content_type': comment_contenttype
     }
@@ -79,7 +86,10 @@ def test_authenticated_user_can_reply_to_comment(user2, comment, apiclient):
     assert response.status_code == status.HTTP_201_CREATED
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.get(url)
-    assert len(response.data['child_comments']) == 1
+    assert len(response.data['child_comments']) == 2
+    assert 'child_comments' not in response.data['child_comments'][0]
+    assert response.data['child_comments'][0]['comment'] == 'comment-reply1'
+    assert response.data['child_comments'][1]['comment'] == 'comment-reply2'
 
 
 @pytest.mark.django_db

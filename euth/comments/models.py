@@ -35,6 +35,7 @@ class Comment(TimeStampedModel):
     class Meta:
         verbose_name = _("Comment")
         verbose_name_plural = _("Comments")
+        ordering = ('created',)
 
     def __str__(self):
         return str(self.created)
