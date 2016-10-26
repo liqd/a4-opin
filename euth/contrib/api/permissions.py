@@ -9,7 +9,7 @@ class IsModerator(permissions.BasePermission):
             or obj.project.has_moderator(request.user))
 
 
-class IsUserOrReadOnly(permissions.BasePermission):
+class IsCreatorOrReadOnly(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:

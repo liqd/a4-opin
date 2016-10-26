@@ -1,7 +1,7 @@
 from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
-from euth.contrib.api.permissions import IsUserOrReadOnly
+from euth.contrib.api.permissions import IsCreatorOrReadOnly
 
 from .models import Rating
 from .serializers import RatingSerializer
@@ -14,7 +14,7 @@ class RatingViewSet(mixins.CreateModelMixin,
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
     permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly, IsUserOrReadOnly)
+        permissions.IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly)
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('object_pk', 'content_type')
 
