@@ -1,4 +1,5 @@
 import pytest
+from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 
 from euth.comments import models as comments_models
@@ -35,7 +36,7 @@ def test_document_paragraphs_sorted(document, paragraph_factory):
     paragraph_factory(document=document, weight=2)
     paragraph2 = paragraph_factory(document=document, weight=1)
 
-    assert document.paragraphs_sorted.first() == paragraph2
+    assert document.paragraphs.first() == paragraph2
 
 
 @pytest.mark.django_db
@@ -50,14 +51,16 @@ def test_paragraphs_comments(paragraph, comment_factory):
 def test_delete_document(document, comment_factory):
     for i in range(5):
         comment_factory(content_object=document)
-    comment_count = comments_models.Comment.objects.all().count()
-    assert comment_count == len(document.comments.all())
 
-    assert comment_count == 5
+    def comments_for_document(document):
+        return comments_models.Comment.objects.filter(
+            object_pk=document.pk,
+            content_type=ContentType.objects.get_for_model(document)
+        )
 
+    assert len(comments_for_document(document)) == 5
     document.delete()
-    comment_count = comments_models.Comment.objects.all().count()
-    assert comment_count == 0
+    assert len(comments_for_document(document)) == 0
 
 
 @pytest.mark.django_db

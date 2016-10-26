@@ -7,6 +7,7 @@ class ParagraphSerializer(serializers.Serializer):
     id = serializers.IntegerField(required=False)
     name = serializers.CharField(
         required=False,
+        allow_blank=True,
         max_length=Paragraph._meta.get_field('name').max_length
     )
     weight = serializers.IntegerField()

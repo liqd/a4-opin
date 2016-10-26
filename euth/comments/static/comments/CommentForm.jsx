@@ -35,11 +35,16 @@ let CommentForm = React.createClass({
           <input type="submit" value={django.gettext('post')} className="submit-button" />
         </form>
       )
-    }
-    if (!this.context.isAuthenticated) {
+    } else if (!this.context.isAuthenticated) {
       return (
         <div className="comments_login">
           <a href={config.loginUrl}>{django.gettext('Please login to comment')}</a>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          {django.gettext('The currently active phase doesn\'t allow to comment.')}
         </div>
       )
     }
@@ -51,4 +56,3 @@ CommentForm.contextTypes = {
 }
 
 module.exports = CommentForm
-

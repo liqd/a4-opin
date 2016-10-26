@@ -1,5 +1,5 @@
 from ckeditor.fields import RichTextField
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericRelation
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db import models
 from django.utils.functional import cached_property
@@ -27,18 +27,6 @@ class Document(module_models.Item):
                 super().clean(*args, **kwargs)
         super().clean(*args, **kwargs)
 
-    @cached_property
-    def paragraphs_sorted(self):
-        return self.paragraphs.all().order_by('weight')
-
-    @cached_property
-    def comments(self):
-        contenttype = ContentType.objects.get_for_model(self)
-        pk = self.id
-        comments = comment_models.Comment.objects.all().filter(
-            content_type=contenttype, object_pk=pk)
-        return comments
-
 
 class Paragraph(base_models.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
@@ -47,6 +35,9 @@ class Paragraph(base_models.TimeStampedModel):
     document = models.ForeignKey(Document,
                                  on_delete=models.CASCADE,
                                  related_name='paragraphs')
+    comments = GenericRelation(comment_models.Comment,
+                               related_query_name='paragraph',
+                               object_id_field='object_pk')
 
     class Meta:
         ordering = ('weight',)
@@ -58,14 +49,6 @@ class Paragraph(base_models.TimeStampedModel):
         self.text = html_transforms.clean_html_field(
             self.text)
         super().save(*args, **kwargs)
-
-    @cached_property
-    def comments(self):
-        contenttype = ContentType.objects.get_for_model(self)
-        pk = self.id
-        comments = comment_models.Comment.objects.all().filter(
-            content_type=contenttype, object_pk=pk)
-        return comments
 
     @cached_property
     def project(self):
