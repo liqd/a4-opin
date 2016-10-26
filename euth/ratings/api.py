@@ -19,7 +19,7 @@ class RatingViewSet(mixins.CreateModelMixin,
     filter_fields = ('object_pk', 'content_type')
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(creator=self.request.user)
 
     def destroy(self, request, pk=None):
         """

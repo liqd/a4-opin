@@ -9,5 +9,5 @@ class ReportFactory(factory.django.DjangoModelFactory):
         model = 'euth_reports.Report'
 
     description = factory.Faker('text')
-    user = factory.SubFactory(UserFactory)
+    creator = factory.SubFactory(UserFactory)
     content_object = factory.SubFactory(factories.FakeProjectContentFactory)

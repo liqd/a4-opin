@@ -23,7 +23,7 @@ def react_ratings(context, obj):
     else:
         authenticated_as = None
     user_rating = rating_models.Rating.objects.filter(
-        content_type=contenttype, object_pk=obj.pk, user=user.pk).first()
+        content_type=contenttype, object_pk=obj.pk, creator=user.pk).first()
     if user_rating:
         user_rating_value = user_rating.value
         user_rating_id = user_rating.pk

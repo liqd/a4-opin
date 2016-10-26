@@ -55,7 +55,7 @@ def test_authenticated_user_can_edit_own_rating(rating_factory,
                                                 apiclient):
     ct = ContentType.objects.get_for_model(comment)
     rating = rating_factory(object_pk=comment.id, content_type=ct)
-    apiclient.force_authenticate(user=rating.user)
+    apiclient.force_authenticate(user=rating.creator)
     data = {'value': 1}
     url = reverse('ratings-detail', kwargs={'pk': rating.pk})
     response = apiclient.patch(url, data, format='json')
@@ -69,7 +69,7 @@ def test_authenticated_user_can_rating_higher_1(rating_factory,
                                                 apiclient):
     ct = ContentType.objects.get_for_model(comment)
     rating = rating_factory(object_pk=comment.id, content_type=ct)
-    apiclient.force_authenticate(user=rating.user)
+    apiclient.force_authenticate(user=rating.creator)
     data = {'value': 10}
     url = reverse('ratings-detail', kwargs={'pk': rating.pk})
     response = apiclient.patch(url, data, format='json')
@@ -83,7 +83,7 @@ def test_authenticated_user_can_rating_lower_minus1(rating_factory,
                                                     apiclient):
     ct = ContentType.objects.get_for_model(comment)
     rating = rating_factory(object_pk=comment.id, content_type=ct)
-    apiclient.force_authenticate(user=rating.user)
+    apiclient.force_authenticate(user=rating.creator)
     data = {'value': -10}
     url = reverse('ratings-detail', kwargs={'pk': rating.pk})
     response = apiclient.patch(url, data, format='json')
@@ -112,7 +112,7 @@ def test_creater_of_rating_can_set_zero(rating_factory, comment,  apiclient):
     ct = ContentType.objects.get_for_model(comment)
     rating = rating_factory(object_pk=comment.id, content_type=ct)
     url = reverse('ratings-detail', kwargs={'pk': rating.pk})
-    apiclient.force_authenticate(user=rating.user)
+    apiclient.force_authenticate(user=rating.creator)
     response = apiclient.delete(url)
     assert response.status_code == status.HTTP_200_OK
     assert response.data['value'] == 0

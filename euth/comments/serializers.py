@@ -12,7 +12,7 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         read_only_fields = ('modified', 'created', 'id',
                             'user_name', 'ratings')
-        exclude = ('user', 'is_censored', 'is_removed')
+        exclude = ('creator', 'is_censored', 'is_removed')
 
     def get_user_name(self, obj):
         """
@@ -20,7 +20,7 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         if(obj.is_censored or obj.is_removed):
             return 'unknown user'
-        return str(obj.user.username)
+        return str(obj.creator.username)
 
     def get_is_deleted(self, obj):
         """
@@ -38,7 +38,7 @@ class CommentSerializer(serializers.ModelSerializer):
         negative_ratings = comment.ratings.filter(value=-1).count()
 
         if user.is_authenticated():
-            user_rating = comment.ratings.filter(user=user).first()
+            user_rating = comment.ratings.filter(creator=user).first()
         else:
             user_rating = None
 

@@ -16,6 +16,6 @@ class IsUserOrReadOnly(permissions.BasePermission):
             return True
 
         return (
-            obj.user == request.user
+            obj.creator == request.user
             or request.user.is_superuser
             or obj.project.has_moderator(request.user))
