@@ -39,12 +39,11 @@ Add explantion here.
 
 ---
 **Organisation**:
-Add explantion here.
+An organisation is a group of people with the permission to create private or public projects. They have their own dedicated page to display themselves on, using images and texts explaning why and how they are using Opin.me.
 
 ---
 **Organisation owner**:
 Add explantion here.
-
 
 ---
 **Participant**:
@@ -60,7 +59,7 @@ Add explantion here.
 
 ---
 **Popularity**:
-Add explantion here.
+Ideas can be sorted by Popularity - popularity is defined by the number of upvotes.
 
 ---
 **Process**:
@@ -84,15 +83,15 @@ Add explantion here.
 
 ---
 **Tab**:
-Add explantion here.
+Tabs are user interface elements used to group content together. Having several tabs next to each other creates a Tab group, where one Tab at a time can be activated to show its content. On Opin, we use Tabs to group content on the project detail page together ("Information, "Participation", "Result").
 
 ---
 **Templates or Blueprints**:
-Add explantion here.
+Blueprints are used to let initiators choose a set of premade phases with defined features (commenting, rating, adding proposals, etc.). These blueprints are used to establish a standard of projects.
 
 ---
 **Timeline**:
-Add explantion here.
+A design element used to show the chronological process of a Project. It is shown on the project detail page and highlights the active phase. It groups all phases to their modules, displaying further information about every phase (name, start/end date, whether it's active).
 
 ---
 **User**:
