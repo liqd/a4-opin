@@ -1,7 +1,12 @@
 .tabs {
-    background-color: $gray-lighter;
+    background-color: $brand-brand2;
     @include clearfix;
     @include rem(margin-top, 20px);
+
+    @media screen and (max-width: $screen-xs-max) {
+        @include rem(padding-top, 10px);
+
+    }
 
     .euth-hero-unit + &,
     .timeline + & {
@@ -24,6 +29,11 @@
     li.active a {
         background: #fff;
         color: $brand-brand1;
+        box-shadow: 0px -9px 10px 3px rgba(0, 0, 0, 0.1);
+
+        @media screen and (max-width: $screen-xs-max) {
+            box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.10);
+        }
     }
 
     a {

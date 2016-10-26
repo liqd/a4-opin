@@ -39,7 +39,7 @@ class CommentPhase(phases.PhaseContent):
     description = _('Collect comments for the text.')
 
     features = {
-        'comment': (models.Paragraph,),
+        'comment': (models.Paragraph, models.Document),
     }
 
 

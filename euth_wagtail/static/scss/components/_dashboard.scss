@@ -24,6 +24,11 @@ h1.dashboard-title {
     font-weight: bold;
     @include rem(font-size, $font-size-medium);
     @include rem(margin-bottom, 30px);
+
+    & + .general-form .tabs {
+        @include rem(margin-top, -30px);
+        @include rem(padding-top, 10px);
+    }
 }
 
 .email_list {

@@ -29,9 +29,8 @@ var api = (function () {
     }
     var defaultParams = {
       url: url,
-      contentType: 'application/json; charset=utf-8',
       dataType: 'json',
-      data: JSON.stringify(data),
+      data: data,
       error: function (xhr, status, err) {
         console.error(url, status, err.toString())
       },
@@ -40,6 +39,15 @@ var api = (function () {
       }
     }
     var params = $.extend(defaultParams, options)
+
+    if (typeof params.data !== 'undefined') {
+      if (params.type === 'PUT' || params.type === 'POST' ||
+          params.type === 'PATCH'
+      ) {
+        params.contentType = 'application/json; charset=utf-8'
+        params.data = JSON.stringify(params.data)
+      }
+    }
 
     $body.addClass('loading')
     return $.ajax(params)
