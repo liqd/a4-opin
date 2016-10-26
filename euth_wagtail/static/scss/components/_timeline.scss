@@ -1,5 +1,5 @@
 .timeline {
-    background-color: $brand-brand2;
+    background-color: $gray-dark;
     @include rem(padding, 10px 0 0);
     text-align: center;
 
@@ -9,6 +9,7 @@
         @include rem(margin-right, 10px);
         @include rem(font-size, 12px);
         font-weight: bold;
+        color: #FFF;
     }
 
     ul {
@@ -28,7 +29,7 @@
         }
 
         > span {
-            color: #fff;
+            color: $gray;
             @include rem(margin-right, 10px);
 
             @media screen and (max-width: $screen-xs-max) {
@@ -40,7 +41,7 @@
     .dot {
         display: inline-block;
         background-color: transparent;
-        border: 2px solid #fff;
+        border: 2px solid $brand-brand2;
         padding: 0;
         @include rem(margin-right, 15px);
         @include rem(margin-bottom, 3px);
@@ -48,12 +49,21 @@
         height: 17px;
         width: 17px;
         vertical-align: middle;
+
+        transition: transform 0.2s;
+        transform-origin: 50% 50%;
     }
+
+    .dot:hover,
+    .dot:focus {
+        transform: scale(1.25)
+    }
+
     li:last-child .dot {
         margin-right: 0;
     }
     .active .dot {
-        background: $brand-brand1;
+        background: $brand-brand2;
     }
 
     .popover {

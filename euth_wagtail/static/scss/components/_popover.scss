@@ -3,6 +3,7 @@
     border: 0;
     padding: 0;
     color: #fff;
+    background: $brand-brand1;
 
     h3,
     h4 {
@@ -14,14 +15,27 @@
     .small {
         font-weight: bold;
     }
+
+    .label {
+        @include rem(padding-top, 3px);
+        @include rem(margin-left, 10px);
+    }
 }
 
 .popover-title {
     border-radius: 0;
+    background: $brand-info;
+    border-bottom: 0;
+    @include rem(font-size, 12px);
 }
 .popover-content {
     @media screen and (max-width: $screen-xs-max) {
         max-height: 320px;
         overflow: auto;
     }
+}
+
+.popover.top > .arrow,
+.popover.top > .arrow:after {
+    border-top-color: $brand-brand1;
 }
