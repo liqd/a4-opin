@@ -135,25 +135,23 @@ var Comment = React.createClass({
           </nav>
         </div>
         <CommentReplyBar allowForm={this.allowForm()} showComments={this.showComments}
-          childCommentsLength={this.props.child_comments.length} />
+          childCommentsLength={this.props.child_comments ? this.props.child_comments.length : 0} />
         {this.state.showChildComments
           ? <div className="child_comments_list">
-            {[
-              <CommentList
-                comments={this.props.child_comments}
-                parentIndex={this.props.index}
-                handleCommentDelete={this.props.handleCommentDelete}
-                handleCommentModify={this.props.handleCommentModify}
-              />,
-              <CommentForm
-                subjectType={this.context.comments_contenttype}
-                subjectId={this.props.id}
-                onCommentSubmit={this.props.handleCommentSubmit}
-                parentIndex={this.props.index}
-                placeholder={django.gettext('Your reply here')}
-                rows="3"
-              />
-            ]}
+            <CommentList
+              comments={this.props.child_comments}
+              parentIndex={this.props.index}
+              handleCommentDelete={this.props.handleCommentDelete}
+              handleCommentModify={this.props.handleCommentModify}
+            />
+            <CommentForm
+              subjectType={this.context.comments_contenttype}
+              subjectId={this.props.id}
+              onCommentSubmit={this.props.handleCommentSubmit}
+              parentIndex={this.props.index}
+              placeholder={django.gettext('Your reply here')}
+              rows="3"
+            />
           </div> : null
         }
       </div>
