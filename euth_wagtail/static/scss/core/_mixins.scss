@@ -80,3 +80,12 @@ $rem-px-only: false !default;
         bottom: 0;
     }
 }
+
+@mixin button-hover($hover-color) {
+    background-color: $gray-lighter;
+    color: $black;
+
+    &:hover, &:focus {
+        color: $hover-color;
+    }
+}
