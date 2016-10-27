@@ -1,12 +1,11 @@
 .button {
     @include rem(border-radius, 25px);
-    @include rem(font-size, $font-size-large);
-    @include rem(padding, 0 30px);
+    @include rem(font-size, $font-size-medium);
+    @include rem(padding, 10px 30px);
     background: $brand-brand2;
-    color: #fff;
+    color: $gray-darker;
     display: inline-block;
     font-weight: bold;
-    line-height: 50px;
     text-transform: uppercase;
 
     transition: color 0.2s, background 0.2s;
@@ -14,7 +13,7 @@
 
     &:focus, &:hover {
         background: darken($brand-brand2, 10%);
-        color: #fff;
+        color: $gray-darker;
         text-decoration: none;
     }
 
@@ -78,7 +77,6 @@
 }
 
 .button-white {
-    line-height: 40px;
     border-radius: 25px;
     background-color: #ffffff;
     color: $brand-brand1;
@@ -103,10 +101,16 @@
     border-width: 0 2px 2px 2px;
     position: fixed;
     background: $brand-brand1;
+    color: #fff;
     right: 0;
     transform-origin: 100% 0;
     top: 40%;
     z-index: 100;
+
+    &:hover, &:focus {
+        background-color: darken($brand-brand1, 10%);
+        color: $gray-lighter;
+    }
 
     @media (max-width: $screen-sm-min) {
         display: none;
@@ -124,10 +128,12 @@
 }
 
 .submit-button {
+    @include rem(font-size, $font-size-base);
     @extend .btn;
     @extend .btn-primary;
     @extend .base-button;
     background-color: $brand-brand1;
+    padding: 10px 30px
 }
 
 .cancel-button {

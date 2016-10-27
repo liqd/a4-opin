@@ -17,7 +17,7 @@
                         <span>{{ paragraph.comments.all|length }} <i class="fa fa-comment-o" aria-hidden="true"></i></span>
                     </a>
                 </div>
-                <a href="{% url 'paragraph-detail' paragraph.pk %}" class="btn btn-ghost btn-primary">{% trans 'Add your comment' %}</a>
+                <a href="{% url 'paragraph-detail' paragraph.pk %}" class="btn btn-primary">{% trans 'Add your comment' %}</a>
             </div>
         </section>
         {% endfor %}
