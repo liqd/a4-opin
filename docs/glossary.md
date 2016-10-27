@@ -3,7 +3,7 @@ The Opin Platform consists of the platform itself, meaning the part where users 
 
 ---
 **Comment**:
-Add explantion here.
+A comment is the expressed opinion of a user. Users on Opin Can comment on ideas, documents and paragraphs. 
 
 ---
 **Creator**
