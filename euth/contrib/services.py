@@ -19,7 +19,8 @@ def delete_ratings(contenttype, pk):
 
 
 def delete_images(imagefields):
-    for image in imagefields:
-        thumbnailer = get_thumbnailer(image)
+    for imagefield in imagefields:
+        thumbnailer = get_thumbnailer(imagefield)
         thumbnailer.delete_thumbnails()
-        image.delete(False)
+        if imagefield.name:
+            imagefield.storage.delete(imagefield.name)
