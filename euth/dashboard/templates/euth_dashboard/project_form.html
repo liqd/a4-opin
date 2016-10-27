@@ -8,13 +8,13 @@
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
 
-        {% include 'euth_dashboard/includes/project_form_tabs.html' with form=form %}
+        {% include 'euth_dashboard/includes/project_form_tabs.html' with form=form view=view %}
 
-        {% include 'euth_dashboard/includes/project_form_information_tab.html' with form=form %}
+        {% include 'euth_dashboard/includes/project_form_information_tab.html' with form=form view=view %}
 
-        {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form %}
+        {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form view=view %}
 
-        {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form %}
+        {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
 
         {% if not project or project.is_draft %}
         <button type="submit" name="save_draft" class="submit-button">{% trans 'save draft' %}</button>
