@@ -46,7 +46,13 @@ class Project(base_models.TimeStampedModel):
         'participation will look like. It will be always visible '
         'in the „Info“ tab on your project’s page.')
     result = RichTextUploadingField(blank=True, config_name='image-editor')
-    is_public = models.BooleanField(default=True)
+    is_public = models.BooleanField(
+        default=True,
+        verbose_name=_('Access to the project'),
+        help_text=_('Please indicate who should be able to participate in '
+                    'your project. Teasers for your project including title '
+                    'and short description will always be visble to everyone')
+    )
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
         verbose_name=_('Header image'),
