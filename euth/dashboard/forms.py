@@ -1,3 +1,4 @@
+import collections
 import email.utils
 import re
 
@@ -77,6 +78,23 @@ class ProjectForm(forms.ModelForm):
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
+
+    @property
+    def formsections(self):
+        formsections = {}
+        information_section = collections.OrderedDict([
+            (_('Project settings'), [
+                'name',
+                'description',
+                'image',
+                'is_public'
+            ]),
+            (_('Information for your participants'), [
+                'information'
+            ])
+        ])
+        formsections['information'] = information_section
+        return formsections
 
 class PhaseForm(forms.ModelForm):
 
