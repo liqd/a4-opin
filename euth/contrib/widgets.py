@@ -47,7 +47,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
         checkbox_name = self.clear_checkbox_name(name)
         checkbox_input = widgets.CheckboxInput().render(checkbox_name, False, {
             'id': checkbox_id,
-            'class': 'clear-image'
+            'class': 'clear-image',
+            'data-upload-clear': name,
         })
 
         context = {

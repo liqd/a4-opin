@@ -26,13 +26,9 @@
         <div class="form-{{ name }}">
             {{ checkbox_input }}
             <img class="img-responsive" id="{{ file_id }}"
-                 src="{% if has_image_set %}{{ file_url }}{% endif %}">
+                 src="{% if has_image_set %}{{ file_url }}{% endif %}"
+                 data-upload-preview="{{ name }}"
+            >
         </div>
     </div>
 </div>
-<script>
-    uploadPreview(
-        "#{{ name }}",
-        "#{{ file_id }}",
-        {% if has_image_set %}"#{{ checkbox_id }}"{% else %}null{% endif%})
-</script>
