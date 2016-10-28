@@ -1,4 +1,5 @@
 var BundleTracker = require('webpack-bundle-tracker')
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var path = require('path')
 
 module.exports = {
@@ -30,29 +31,30 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass?sourceMap!resolve-url'
+        loader: ExtractTextPlugin.extract('style-loader','!css-loader!sass-loader?sourceMap')
       },
       {
         test: /\.woff2?$|\.ttf$|\.eot$/,
-        loader: 'file?name=/static/fonts/[name].[ext]'
+        loader: 'file-loader?name=/static/fonts/[name].[ext]'
       },
       {
         test: /\.svg$|\.png$/,
-        loader: 'file?name=/static/images/[name].[ext]'
+        loader: 'file-loader?name=/static/images/[name].[ext]'
       }
     ]
   },
-  resolveLoader: {
-    fail: true
-  },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.css'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css']
   },
   sassLoader: {
-    includePaths: [path.resolve(__dirname, "./euth_wagtail/static")]
+    includePaths: [
+      path.resolve('./euth_wagtail/static'),
+      path.resolve('./node_modules/bootstrap-sass/assets/stylesheets')
+    ]
   },
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'})
+    new BundleTracker({filename: './webpack-stats.json'}),
+    new ExtractTextPlugin("[name].css")
   ],
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
