@@ -57,15 +57,8 @@
         <div class="tab-panel-description">
 
             {% if view.is_between_phases %}
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="info-note">
-                    <img src="{% static 'images/project_info_note.png'%}">
-                    <h2>{% trans 'Thanks for participating!' %}</h2>
-                    <p>{% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}</p>
-                    </div>
-                </div>
-            </div>
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Thanks for participating!' text='This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}
+            {% endif %}
             {% endif %}
 
             <h2>{{ view.phase.name }}</h2>
