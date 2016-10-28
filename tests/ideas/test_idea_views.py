@@ -34,6 +34,36 @@ def test_detail_view(client, phase, idea):
 
 
 @pytest.mark.django_db
+@pytest.mark.parametrized('idea__module__project__is_public',
+                          [False])
+def test_detail_view_private(client, idea, user):
+    idea.module.project.is_public = False
+    idea.module.project.save()
+    url = reverse('idea-detail', kwargs={'slug': idea.slug})
+    response = client.get(url)
+    assert response.status_code == 302
+    assert redirect_target(response) == 'account_login'
+
+    idea.module.project.participants.add(user)
+    client.login(username=user.email,
+                 password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+    user = idea.project.moderators.first()
+    client.login(username=user.email,
+                 password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+    user = idea.project.organisation.initiators.first()
+    client.login(username=user.email,
+                 password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
 @pytest.mark.parametrize('phase__type',
                          [phases.CollectPhase().identifier])
 def test_create_view(client, phase, user):
