@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -55,6 +55,19 @@
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
         <div class="tab-panel-description">
+
+            {% if view.is_between_phases %}
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="info-note">
+                    <img src="{% static 'images/project_info_note.png'%}">
+                    <h2>{% trans 'Thanks for participating!' %}</h2>
+                    <p>{% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <h2>{{ view.phase.name }}</h2>
 
             {% if view.phase and not view.is_between_phases %}
