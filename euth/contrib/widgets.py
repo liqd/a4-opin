@@ -109,7 +109,7 @@ class DateTimeInput(widgets.DateTimeInput):
 
     class Media:
         js = (staticfiles_storage.url('flatpickr.min.js'),
-              'js/dateTimeInput.js')
+              staticfiles_storage.url('js/dateTimeInput.js'))
         css = {'all': [staticfiles_storage.url('flatpickr.min.css')]}
 
     input_type = 'text'
