@@ -65,10 +65,9 @@
             {% endif %}
 
             <h2>{{ view.phase.name }}</h2>
-
-            {% if view.phase and not view.is_between_phases %}
             <p class="idea-list-description">{{ view.phase.description }} </p>
 
+            {% if view.phase and not view.is_between_phases %}
             <div class="badge-group">
                 <span class="badge">
                     <strong>{% trans 'Start Date' %}</strong>
