@@ -1,6 +1,12 @@
 import rules
 
+from euth.organisations.predicates import is_initiator
 from euth.projects.predicates import is_member, is_moderator, is_public
+
+
+@rules.predicate
+def is_context_initiator(user, item):
+    return is_initiator(user, item.project)
 
 
 @rules.predicate
