@@ -110,6 +110,7 @@
 .org-location {
     @include  rem(font-size, $font-size-medium);
     @include rem(font-size, 20px);
+    margin: 0;
 }
 
 .org-location .fa {
@@ -130,7 +131,7 @@
         color: #fff;
 
         &:hover {
-            color: #fff;
+            color: $gray-light;
             text-decoration: underline;
         }
     }
