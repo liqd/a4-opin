@@ -1,8 +1,7 @@
 var api = require('../../../contrib/static/js/api')
-var Paragraph = require('./Paragraph.js')
+var Paragraph = require('./Paragraph.jsx')
 var React = require('react')
 var ReactDOM = require('react-dom')
-var h = require('react-hyperscript')
 var update = require('react-addons-update')
 var django = require('django')
 var FlipMove = require('react-flip-move')
@@ -146,68 +145,69 @@ var ParagraphBox = React.createClass({
   },
   render: function () {
     return (
-      h('div.general-form', [
-        h('form', {onSubmit: this.submitDocument}, [
-          h('div.row', [
-            h('div.col-sm-9', [
-              h('div.form-group', [
-                h('label', django.gettext('Title:')),
-                h('input.form-control', {
-                  type: 'text',
-                  defaultValue: this.state.name,
-                  onChange: this.handleDocumentNameChange
-                }),
-                this.state.nameErrors && this.state.nameErrors.length > 0 ? h('ul.errorlist', [
-                  h('li', this.state.nameErrors[0])
-                ]) : null
-              ])
-            ])
-          ]),
-          h(FlipMove, {easing: 'cubic-bezier(0.25, 0.5, 0.75, 1)'},
-            this.state.paragraphs.map(function (paragraph, index) {
-              return h(Paragraph, {
-                key: paragraph.paragraph_key || paragraph.id,
-                id: paragraph.paragraph_key || paragraph.id,
-                index: index,
-                paragraph: paragraph,
-                errors: this.getErrors(index),
-                config: this.props.config,
-                deleteParagraph: this.deleteParagraph,
-                moveParagraphUp: index !== 0 ? this.moveParagraphUp : null,
-                moveParagraphDown: index < this.state.paragraphs.length - 1
-                  ? this.moveParagraphDown : null,
-                addParagraphBeforeIndex: this.addParagraphBeforeIndex,
-                updateParagraphName: this.updateParagraphName,
-                updateParagraphText: this.updateParagraphText
-              })
-            }.bind(this))),
-          h('div.row', [
-            h('div.col-md-9', [
-              h('button.btn.btn-hover-success.btn-block', {
-                onClick: this.appendParagraph,
-                type: 'button'
-              }, [
-                h('i.fa.fa-plus')
-              ])
-            ])
-          ]),
-          h('button.submit-button', {
-            type: 'submit'
-          }, 'save')
-        ])
-      ])
+      <div className="general-form">
+        <form onSubmit={this.submitDocument}>
+          <div className="row">
+            <div className="col-sm-9">
+              <div className="form-group">
+                <label>{django.gettext('Title:')}</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  defaultValue={this.state.name}
+                  onChange={this.handleDocumentNameChange} />
+              </div>
+            </div>
+          </div>
+          <FlipMove easing="cubic-bezier(0.25, 0.5, 0.75, 1)">
+            {
+              this.state.paragraphs.map(function (paragraph, index) {
+                return (
+                  <Paragraph
+                    key={paragraph.paragraph_key || paragraph.id}
+                    id={paragraph.paragraph_key || paragraph.id}
+                    index={index}
+                    paragraph={paragraph}
+                    errors={this.getErrors(index)}
+                    config={this.props.config}
+                    deleteParagraph={this.deleteParagraph}
+                    moveParagraphUp={index !== 0 ? this.moveParagraphUp : null}
+                    moveParagraphDown={index < this.state.paragraphs.length - 1 ? this.moveParagraphDown : null}
+                    addParagraphBeforeIndex={this.addParagraphBeforeIndex}
+                    updateParagraphName={this.updateParagraphName}
+                    updateParagraphText={this.updateParagraphText}
+                  />
+                )
+              }.bind(this))
+            }
+          </FlipMove>
+          <div className="row">
+            <div className="col-md-9">
+              <button
+                className="btn btn-hover-success btn-block"
+                onClick={this.appendParagraph}
+                type="button">
+                <i className="fa fa-plus" />
+              </button>
+            </div>
+          </div>
+          <button
+            className="submit-button"
+            type="submit">
+            {django.gettext('save')}
+          </button>
+        </form>
+      </div>
     )
   }
 })
 
 module.exports.renderParagraphs = function (doc, module, config) {
-  ReactDOM.render(
-    h(ParagraphBox, {
-      name: doc.name,
-      id: doc.id,
-      module: module,
-      paragraphs: doc.paragraphs,
-      config: config
-    }),
-    document.getElementById('document-form'))
+  ReactDOM.render(<ParagraphBox
+    name={doc.name}
+    id={doc.id}
+    module={module}
+    paragraphs={doc.paragraphs}
+    config={config} />, document.getElementById('document-form')
+  )
 }
