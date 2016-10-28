@@ -129,13 +129,14 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
-    def __init__(self, blueprint, organisation, *args, **kwargs):
+    def __init__(self, blueprint, organisation, creator, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
         kwargs['phases__initial'] = [
             {'phase_content': t} for t in blueprint.content
         ]
         self.organisation = organisation
         self.blueprint = blueprint
+        self.creator = creator
 
         self.base_forms = [
             ('project', ProjectForm),
@@ -160,6 +161,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
         project.organisation = self.organisation
         if commit:
             project.save()
+            project.moderators.add(self.creator)
 
         module = module_models.Module(
             name=project.slug + '_module',

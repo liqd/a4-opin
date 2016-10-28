@@ -142,6 +142,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         kwargs = super().get_form_kwargs()
         kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
+        kwargs['creator'] = self.request.user
         return kwargs
 
     def get_success_url(self):

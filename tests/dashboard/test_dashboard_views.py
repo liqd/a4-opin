@@ -77,6 +77,7 @@ def test_initiator_create_project(client, organisation):
     project = organisation.project_set.first()
     assert project.is_draft
     assert project.name == 'Project name'
+    assert list(project.moderators.all()) == [user]
     assert len(project.module_set.first().phase_set.all()) == 2
 
 
