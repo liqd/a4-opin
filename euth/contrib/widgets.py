@@ -16,6 +16,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
     Allows to upload and delete uploaded files. It doesn't passing attributes
     using the positional `attrs` argument and hard codes css files.
     """
+    class Media:
+        js = (staticfiles_storage.url('js/imageUploader.js'),)
 
     def render(self, name, value, attrs=None):
 
@@ -57,7 +59,8 @@ class ImageInputWidget(widgets.ClearableFileInput):
             substitutions['url'] = conditional_escape(value.url)
             substitutions['filename'] = basename(value.name)
             snippets['img'] = (
-                '<img src="{url}" class="img-responsive" alt="" />'
+                '<img id="img-{name}" src="{url}" class="img-responsive" '
+                ' alt="" />'
             )
 
             if not self.is_required:
@@ -94,6 +97,9 @@ class ImageInputWidget(widgets.ClearableFileInput):
                 </div>
             </div>
         </div>
+        <script>
+          uploadPreview("#{name}", "#img-{name}")
+        </script>
         """.format(**snippets).format(**substitutions)
 
         return mark_safe(markup)
