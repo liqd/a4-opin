@@ -59,6 +59,9 @@
             {% if view.is_between_phases %}
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Thanks for participating!' text='This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}
             {% endif %}
+
+            {% if not view.phase and not view.is_between_phases %}
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Welcome!' text='This project has not started yet!' %}
             {% endif %}
 
             <h2>{{ view.phase.name }}</h2>
