@@ -2,6 +2,7 @@ from os.path import basename
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import widgets
+from django.template import loader
 from django.utils import formats
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
@@ -21,90 +22,52 @@ class ImageInputWidget(widgets.ClearableFileInput):
 
     def render(self, name, value, attrs=None):
 
-        substitutions = {
-            'name': name,
-            'filename': '',
-            'file_placeholder': ugettext(
-                'Select a picture from your local folder.'
-            ),
-            'post_note': ugettext(
-                'You’re image will be uploaded/removed '
-                'once you save your changes at the end of this page.'
-            ),
-            'upload_title': ugettext('Upload a picture'),
-            'clear_title': ugettext('Remove the picture'),
-            'checkbox_id': '',
-        }
-        snippets = {
-            'name': '{name}',
-            'checkbox_id': '{checkbox_id}',
-            'file_input': (
-                super(widgets.ClearableFileInput, self).render(name, value, {
-                    'id': name,
-                    'class': 'form-control form-control-file'
-                })
-            ),
-            'text_input': (
-                widgets.TextInput().render('__noname__', '{filename}', {
-                    'class': 'form-control form-control-file-dummy',
-                    'placeholder': '{file_placeholder}'
-                })
-            ),
-            'alert': (
-                '<div class="alert alert-info" role="alert">{post_note}</div>'
-            ),
-            'img': '',
-            'checkbox': '',
-        }
+        has_image_set = self.is_initial(value)
+        is_required = self.is_required
 
-        if self.is_initial(value):
-            substitutions['url'] = conditional_escape(value.url)
-            substitutions['filename'] = basename(value.name)
-            snippets['img'] = (
-                '<img id="img-{name}" src="{url}" class="img-responsive" '
-                ' alt="" />'
-            )
+        file_placeholder = ugettext('Select a picture from your local folder.')
+        file_input = super().render(name, None, {
+            'id': name,
+            'class': 'form-control form-control-file'
+        })
 
-            if not self.is_required:
-                substitutions['checkbox_id'] = self.clear_checkbox_id(name)
-                snippets['button'] = (
-                    '<label for="{checkbox_id}" class="btn btn-danger"'
-                    'title="{clear_title}"><i class="fa fa-trash"></i></label>'
-                )
-                snippets['checkbox'] = widgets.CheckboxInput()\
-                    .render(self.clear_checkbox_name(name), False,
-                            attrs={'id': '{checkbox_id}',
-                                   'class': 'clear-image'})
+        if has_image_set:
+            file_name = basename(value.name)
+            file_url = conditional_escape(value.url)
         else:
-            snippets['button'] = (
-                '<label for="{name}" class="btn btn-default"'
-                'title="{upload_title}">'
-                '<i class="fa fa-cloud-upload"></i></label>'
+            file_name = ""
+            file_url = ""
+
+        text_input = widgets.TextInput().render('__noname__', file_name, {
+            'class': 'form-control form-control-file-dummy',
+            'placeholder': file_placeholder
+        })
+
+        checkbox_id = self.clear_checkbox_id(name)
+        checkbox_name = self.clear_checkbox_name(name)
+        checkbox_input = widgets.CheckboxInput().render(checkbox_name, False, {
+            'id': checkbox_id,
+            'class': 'clear-image'
+        })
+
+        context = {
+            'name': name,
+            'has_image_set': has_image_set,
+            'is_required': is_required,
+            'file_url': file_url,
+            'file_input': file_input,
+            'file_id': name + '-file',
+            'text_input': text_input,
+            'checkbox_input': checkbox_input,
+            'checkbox_id': checkbox_id
+        }
+
+        return mark_safe(
+            loader.render_to_string(
+                'euth_contrib/image_upload_widget.html',
+                context
             )
-
-        markup = """
-        <div class="row">
-            <div class="upload-wrapper form-control-upload col-sm-9 col-md-8">
-                {text_input}
-                <span class="input-group-btn">
-                    {button}
-                </span>
-                {file_input}
-                {alert}
-            </div>
-            <div class="col-sm-3 col-md-4">
-                <div class="form-{name}">
-                    {checkbox}
-                    {img}
-                </div>
-            </div>
-        </div>
-        <script>
-          uploadPreview("#{name}", "#img-{name}", "#{checkbox_id}")
-        </script>
-        """.format(**snippets).format(**substitutions)
-
-        return mark_safe(markup)
+        )
 
 
 class DateTimeInput(widgets.DateTimeInput):
