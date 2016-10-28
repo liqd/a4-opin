@@ -33,9 +33,11 @@ class ImageInputWidget(widgets.ClearableFileInput):
             ),
             'upload_title': ugettext('Upload a picture'),
             'clear_title': ugettext('Remove the picture'),
+            'checkbox_id': '',
         }
         snippets = {
             'name': '{name}',
+            'checkbox_id': '{checkbox_id}',
             'file_input': (
                 super(widgets.ClearableFileInput, self).render(name, value, {
                     'id': name,
@@ -98,7 +100,7 @@ class ImageInputWidget(widgets.ClearableFileInput):
             </div>
         </div>
         <script>
-          uploadPreview("#{name}", "#img-{name}")
+          uploadPreview("#{name}", "#img-{name}", "#{checkbox_id}")
         </script>
         """.format(**snippets).format(**substitutions)
 
