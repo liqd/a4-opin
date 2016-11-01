@@ -57,22 +57,19 @@
         <div class="tab-panel-description">
 
             {% if view.is_between_phases %}
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="info-note">
-                    <img src="{% static 'images/project_info_note.png'%}">
-                    <h2>{% trans 'Thanks for participating!' %}</h2>
-                    <p>{% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}</p>
-                    </div>
-                </div>
-            </div>
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Thanks for participating!' text='This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}
             {% endif %}
 
+            {% if not view.phase and not view.is_between_phases %}
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Welcome!' text='This project has not started yet!' %}
+            {% endif %}
+
+            {% if view.phase %}
             <h2>{{ view.phase.name }}</h2>
+            <p class="idea-list-description">{{ view.phase.description }} </p>
+            {% endif %}
 
             {% if view.phase and not view.is_between_phases %}
-            <p class="idea-list-description">{{ view.phase.description }} </p>
-
             <div class="badge-group">
                 <span class="badge">
                     <strong>{% trans 'Start Date' %}</strong>
