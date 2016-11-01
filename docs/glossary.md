@@ -3,15 +3,15 @@ The Opin Platform consists of the platform itself, meaning the part where users 
 
 ---
 **Comment**:
-A comment is the expressed opinion of a user. Users on Opin Can comment on ideas, documents and paragraphs. 
+A comment is the expressed opinion of a user. Users on Opin can comment on ideas, documents and paragraphs. 
 
 ---
 **Creator**
-Add explantion here.
+User geneared content has to be created by an user (usally participant, but other roles possible). If an user has created content, she will assume the creator role for that content. Creators have special rights, because they can delete or modify thier own content.
 
 ---
 **Dashboard**:
-Add explantion here.
+The part of the opin interfaced, used by organisation owners, initators and moderators to manage projects on the platfrom.
 
 ---
 **Feature,Tool, or Method**:
@@ -35,7 +35,7 @@ Moderators are defined for each project, this means one user can be moderator of
 
 ---
 **Module**:
-Add explantion here.
+A sub unit of a process that contains user generated elements of a specific kind. For example all ideas of an project might be in one module, while all texts might be in an other one. A project might also contain two modules with both containg ideas. A module always belongs to a phase.
 
 ---
 **Organisation**:
@@ -43,7 +43,7 @@ An organisation is a group of people with the permission to create private or pu
 
 ---
 **Organisation owner**:
-Add explantion here.
+A user role with in an organisation, that allows to alter the details of the organisation. In addition this role can also create and manage processes. *Currently this role is not implemented, its responsibilites are taken over by the initiator*
 
 ---
 **Participant**:
@@ -96,6 +96,10 @@ A design element used to show the chronological process of a Project. It is show
 ---
 **User**:
 After a User has registered to the platform he/she can participate in public projects or private projects he/she is invited in through creating proposals/collecting ideas, commenting or rating proposals, as well as editing his/her own content. Users can also be made initiators of an organisation by the owner or another initiator of the organisation. They can also be added as moderators to projects. Within the content management system (CMS) they can be added to the moderators and/or the editors group. Users can also receive administrator rights. By that they achieve access to the administrator interface, which allows them to add organisations and add, update or delete all available resource types on the platform.
+
+---
+**User generated content**
+All things that will can be created by participants in a process (eg. comments, rates, ideas, reports).
 
 ---
 **WISYWIG**:
