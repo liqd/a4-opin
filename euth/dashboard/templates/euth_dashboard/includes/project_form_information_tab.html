@@ -14,7 +14,9 @@
         {% for field in form.project %}
         {% if field.name in fields %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
-            <label>{{ field.label }} {% if field.field.required %}*{% endif %}</label>
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }} {% if field.field.required %}*{% endif %}
+            </label>
             <p class='form-help-text'>{{ field.help_text }}</p>
             {% if field|is_checkbox %}
             <label>
