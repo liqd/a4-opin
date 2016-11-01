@@ -1,3 +1,4 @@
+import collections
 import email.utils
 import re
 
@@ -77,6 +78,32 @@ class ProjectForm(forms.ModelForm):
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
+    def get_checkbox_label(self, name):
+        checkbox_labels = {
+            'is_public': _('Accessible to all registered users of OPIN.me')
+        }
+        if name in checkbox_labels:
+            return checkbox_labels[name]
+        else:
+            return ''
+
+    @property
+    def formsections(self):
+        formsections = {}
+        information_section = collections.OrderedDict([
+            (_('Project settings'), [
+                'name',
+                'description',
+                'image',
+                'is_public'
+            ]),
+            (_('Information for your participants'), [
+                'information'
+            ])
+        ])
+        formsections['information'] = information_section
+        return formsections
+
 
 class PhaseForm(forms.ModelForm):
 
@@ -100,6 +127,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         )
 
     class ModuleSettings(forms.ModelForm):
+
         class Meta:
             model = settings_model
             exclude = ['module']
@@ -108,6 +136,7 @@ def get_module_settings_form(settings_instance_or_modelref):
 
 
 class ProjectUpdateForm(multiform.MultiModelForm):
+
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
         module = qs.first().module

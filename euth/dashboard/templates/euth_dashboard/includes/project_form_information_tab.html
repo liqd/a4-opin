@@ -1,0 +1,39 @@
+{% load i18n form_tags widget_tweaks %}
+<article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
+    {% for error in form.project.non_field_errors %}
+    <span class="help-block">{{ error }}</span>
+    {% endfor %}
+
+    {% for name, fields in form.project.formsections.information.items %}
+    <div class="form-section">
+        <div class="form-section-heading">
+            <h3>{{ name }}</h3>
+        </div>
+
+        <div class="form-section-fields">
+        {% for field in form.project %}
+        {% if field.name in fields %}
+        <div class="form-group{% if field.errors %} has-error{% endif %}">
+            <label for="{{ field.id_for_label }}">
+                {{ field.label }} {% if field.field.required %}*{% endif %}
+            </label>
+            <p class='form-help-text'>{{ field.help_text }}</p>
+            {% if field|widget_type == 'checkboxinput' %}
+            <label>
+                {% get_checkbox_label form.project field.name as checkboxlabel %}
+                {% render_field field %}
+                {{ checkboxlabel }}
+            </label>
+            {% else %}
+            {% render_field field class="form-control" %}
+            {% endif %}
+            {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</article>

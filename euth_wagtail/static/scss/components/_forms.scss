@@ -1,5 +1,25 @@
 .general-form {
 
+    .form-section {
+
+        .form-section-heading {
+            @include rem(margin-bottom, 40px);
+            border-bottom: 1px solid $gray;
+
+            h3 {
+                @include rem(font-size, 18px);
+                font-family: $font-family-sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+
+        .form-section-fields {
+            @include rem(margin-left, 40px);
+        }
+
+    }
+
     .form-group {
 
         label {
@@ -137,6 +157,11 @@
         @include rem(top, 16px);
         position: absolute;
     }
+}
+
+.form-help-text {
+    font-style: italic;
+    width: 80%;
 }
 
 
