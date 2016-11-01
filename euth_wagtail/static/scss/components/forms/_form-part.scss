@@ -1,0 +1,14 @@
+.form-part {
+    background: #f7f7f7;
+    @include rem(padding, 20px);
+    @include rem(margin-bottom, 30px);
+
+    input,
+    input:focus {
+        background-color: #fff;
+    }
+
+    div:last-child {
+        margin-bottom: 0;
+    }
+}

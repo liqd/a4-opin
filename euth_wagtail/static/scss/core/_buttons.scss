@@ -12,7 +12,8 @@
     transition: color 0.2s, background 0.2s;
     -webkit-transition: color 0.2s, background 0.2s;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
         background: darken($brand-brand2, 10%);
         color: #fff;
         text-decoration: none;
@@ -23,7 +24,8 @@
         border: 1px solid #fff;
         color: #fff;
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             background: #fff;
             color: #000;
         }
@@ -48,15 +50,15 @@
 }
 
 .btn-hover-primary {
-    @include button-hover($brand-primary)
+    @include button-hover($brand-primary);
 }
 
 .btn-hover-danger {
-    @include button-hover($brand-danger)
+    @include button-hover($brand-danger);
 }
 
 .btn-hover-success {
-    @include button-hover($brand-success)
+    @include button-hover($brand-success);
 }
 
 .btn-ghost {
@@ -80,7 +82,7 @@
 .button-white {
     line-height: 40px;
     border-radius: 25px;
-    background-color: #ffffff;
+    background-color: #fff;
     color: $brand-brand1;
     @include rem(font-size, $font-size-small);
 
@@ -88,7 +90,8 @@
         margin-right: 10px;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: #f4f4f4;
         color: darken($brand-brand1, 10%);
     }
@@ -114,7 +117,7 @@
 }
 
 .base-button {
-    border-radius: 0px;
+    border-radius: 0;
     text-transform: uppercase;
     @include rem(padding, 14px 57px 14px 57px);
     @include rem(font-size, 12px);
@@ -137,7 +140,10 @@
     background-color: transparent;
     color: $black;
 
-    &:focus, &:hover, &:active, &:visited {
+    &:focus,
+    &:hover,
+    &:active,
+    &:visited {
         outline: none;
         background-color: transparent;
         box-shadow: none;
@@ -151,10 +157,9 @@
 }
 
 .logout-button-form {
-
     & .btn {
         background-color: transparent;
-        padding: 0px;
+        padding: 0;
         text-transform: uppercase;
         font-weight: bold;
 
@@ -163,21 +168,23 @@
             box-shadow: none;
         }
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             outline: none;
         }
     }
-
 }
 
 .button-row {
     @media (max-width: $screen-xs) {
-        a, button {
+        a,
+        button {
             width: 100%;
             padding-left: 0;
             padding-right: 0;
         }
     }
+
     @media (min-width: $screen-xs) {
         .col-xs-6 {
             width: auto;

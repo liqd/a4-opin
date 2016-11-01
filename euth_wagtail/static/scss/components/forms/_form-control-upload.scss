@@ -1,0 +1,62 @@
+.upload-wrapper {
+    position: relative;
+    @include rem(margin-bottom, 20px);
+    @include clearfix();
+}
+
+.form-control-upload {
+    position: relative;
+    display: block;
+
+    .form-control-file {
+        cursor: pointer;
+        float: none;
+        left: 0;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+    }
+
+    .btn {
+        line-height: 65px;
+    }
+
+    .btn-default {
+        @include rem(font-size, 30px);
+        @include rem(width, 76px);
+        background: $brand-success;
+        border: 0;
+        color: #fff;
+    }
+
+    .btn-danger {
+        @include rem(font-size, 30px);
+        @include rem(width, 76px);
+        background: $brand-danger;
+        border: 0;
+        color: #fff;
+    }
+
+    .alert-info {
+        clear: left;
+        @include rem(margin-top, 20px);
+    }
+
+    .form-control {
+        float: none;
+    }
+
+    @media (min-width: $screen-sm) {
+        .input-group-btn {
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            right: 0;
+            width: auto;
+        }
+
+        &.col-sm-9 .input-group-btn {
+            right: 15px;
+        }
+    }
+}

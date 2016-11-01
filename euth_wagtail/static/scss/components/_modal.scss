@@ -52,10 +52,10 @@
     }
 
     .close {
-
         opacity: 1;
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             outline: none;
         }
 
@@ -72,7 +72,8 @@
             box-shadow: none;
         }
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             outline: none;
         }
     }
@@ -91,7 +92,8 @@
         text-transform: uppercase;
         background-color: $brand-brand1;
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             outline: none;
         }
     }
