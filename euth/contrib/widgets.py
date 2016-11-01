@@ -70,6 +70,19 @@ class ImageInputWidget(widgets.ClearableFileInput):
             )
         )
 
+    def value_from_datadict(self, data, files, name):
+        """
+        Modify value_from_datadict, so that delete takes precedence over
+        upload.
+        """
+        file_value = super(widgets.ClearableFileInput, self)\
+            .value_from_datadict(data, files, name)
+        checkbox_value = widgets.CheckboxInput()\
+            .value_from_datadict(data, files, self.clear_checkbox_name(name))
+        if not self.is_required and checkbox_value:
+            return False
+        return file_value
+
 
 class DateTimeInput(widgets.DateTimeInput):
 
