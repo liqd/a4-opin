@@ -4,7 +4,6 @@
 
     @media screen and (max-width: $screen-xs-max) {
         @include rem(margin, 20px 0 20px);
-
     }
 
     .dropdown-toggle {

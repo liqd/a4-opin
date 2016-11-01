@@ -1,9 +1,9 @@
 .rss-feed-entry {
-    text-align:left;
+    text-align: left;
     border: 1px solid $gray-light;
     @include rem(padding, 35px 32px 35px 32px);
     @include rem(margin-bottom, 30px);
-    @include rem(margin-left, 15px );
+    @include rem(margin-left, 15px);
 
     .rss-feed-entry-date {
         color: $black;
@@ -27,9 +27,8 @@
         text-align: justify;
         color: $black;
     }
-
 }
 
 .rss-feed-entries-title {
-    text-align:left;
+    text-align: left;
 }

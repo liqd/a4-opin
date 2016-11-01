@@ -1,6 +1,6 @@
 {% load static %}
 <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
-<div id="document-form"></div>
+<div id="document-form" class="document-form"></div>
 <script>
   window.opin.renderParagraphs(
     {{ document | safe }}, {{ module }} ,{{ config | safe }}
