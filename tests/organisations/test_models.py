@@ -85,10 +85,12 @@ def test_image_deleted_after_update(organisation_factory, ImagePNG):
     assert os.path.isfile(image_path)
     assert os.path.isfile(logo_path)
 
-    organisation.image = None
+    organisation.image = ImagePNG.generate(None, None, True, {})
     organisation.logo = None
     organisation.save()
 
+    new_image_path = os.path.join(settings.MEDIA_ROOT, organisation.image.path)
+    assert os.path.isfile(new_image_path)
     assert not os.path.isfile(thumbnail_image_path)
     assert not os.path.isfile(thumbnail_logo_path)
     assert not os.path.isfile(image_path)
