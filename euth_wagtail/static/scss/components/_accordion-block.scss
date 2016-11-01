@@ -15,14 +15,14 @@
 
     .accordion-title {
         margin: 0;
-        @include rem(padding, 30px 0);
+        @include rem(padding, 5px 0);
         text-align: center;
     }
 
     .accordion-link {
         @include rem(font-size, $font-size-medium);
         @include rem(padding, 20px 0);
-        color: $black;
+        color: $gray-darker;
         display: block;
         font-family: $font-family-sans-serif;
         line-height: 1.2;
@@ -31,7 +31,6 @@
         &:after {
             content: "–";
             @include rem(font-size, $font-size-large);
-            vertical-align: middle;
             @include rem(margin-left, 25px);
         }
 
@@ -47,7 +46,7 @@
     }
 
     .panel-body {
-        @include rem(padding-bottom, 105px);
+        @include rem(padding-bottom, 50px);
         @include rem(font-size, $font-size-base);
         line-height: 1.75;
     }

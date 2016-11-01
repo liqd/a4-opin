@@ -8,5 +8,5 @@ class RatingFactory(factory.django.DjangoModelFactory):
         model = 'euth_ratings.Rating'
 
     value = factory.Faker('random_digit')
-    user = factory.SubFactory(UserFactory)
+    creator = factory.SubFactory(UserFactory)
     content_object = factory.SubFactory(factories.FakeProjectContentFactory)

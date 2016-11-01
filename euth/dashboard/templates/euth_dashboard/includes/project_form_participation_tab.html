@@ -1,0 +1,112 @@
+{% load i18n widget_tweaks %}
+
+<article id="participation" class="tab-panel">
+    {{ form.phases.management_form }}
+    <h4 class="sans-serif">{% firstof view.blueprint.title view.object.module_set.first.phase_set.first.content.module_name %}</h4>
+    {% if view.module.description %}
+        <p>{{ view.module.description }}</p>
+    {% endif %}
+
+    <div class="form-part">
+        {% for field in form.module_settings.visible_fields %}
+        <div class="form-group {% if field.errors %} has-error{% endif %}">
+            <label>
+                {{ field.label }}
+            </label>
+            {% render_field field class="form-control" %}
+            {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        {% for form in form.phases %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            <div class="phase-form">
+                <h5 class="sans-serif text-uppercase">
+                    <a href="#phase-{{ forloop.counter }}" {% if not forloop.first %}class="collapsed"{% endif %} data-toggle="collapse">
+                        {% trans 'Phase '%} {{ forloop.counter }}:
+                        {% if form.instance.id %}
+                        {{ form.instance.content.name }}
+                        {% else %}
+                        {{ form.initial.phase_content.name }}{% endif %}
+                        {% if form.errors %}<span class="info-number">{{ form.errors|length }}</span>{% endif %}
+                        <i class="fa fa-chevron-up pull-right"></i>
+
+                    </a>
+                </h5>
+                {% for error in form.non_field_errors %}
+                <span class="help-block">{{ error }}</span>
+                {% endfor %}
+
+
+                <div class="single-phase {% if forloop.first %} in {% else %} collapse {% endif %}" id="phase-{{ forloop.counter }}">
+                {% for field in form.visible_fields %}
+                    {% if field != form.start_date and field != form.end_date %}
+                    <div class="form-group {% if field.errors %} has-error{% endif %}">
+                        <label>
+                            {{ field.label }} {% trans 'of Phase '%} {{ forloop.parentloop.counter }}:
+                            {% if form.instance.id %}
+                            {{ form.instance.content.name }}
+                            {% else %}
+                            {{ form.initial.phase_content.name }}{% endif %}<br />
+                            {% if field.help_text %}
+                            <p><i>{{ field.help_text }}</i></p>
+                            {% endif %}
+                        </label>
+                        {% render_field field class="form-control" %}
+                        {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group {% if form.start_date.errors %} has-error{% endif %}">
+                                <label>
+                                    {{ form.start_date.label }} {% trans 'of Phase: '%} {{ forloop.counter }}:
+                                    {% if form.instance.id %}
+                                    {{ form.instance.content.name }}
+                                    {% else %}
+                                    {{ form.initial.phase_content.name }}
+                                    {% endif %}</br>
+                                    {% if form.start_date.help_text %}
+                                    <i>{{ form.start_date.help_text }}</i><br />
+                                    {% endif %}
+                                </label>
+                                {% render_field form.start_date class="form-control" %}
+                                {% for error in form.start_date.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group {% if form.end_date.errors %} has-error{% endif %}">
+                                <label>
+                                    {{ form.end_date.label }} {% trans 'of Phase '%} {{ forloop.counter }}:
+                                    {% if form.instance.id %}
+                                    {{ form.instance.content.name }}
+                                    {% else %}
+                                    {{ form.initial.phase_content.name }}
+                                    {% endif %}<br />
+                                    {% if form.end_date.help_text %}
+                                    <i>{{ form.end_date.help_text }}</i><br />
+                                    {% endif %}
+                                </label>
+                                {% render_field form.end_date class="form-control" %}
+                                {% for error in form.end_date.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</article>

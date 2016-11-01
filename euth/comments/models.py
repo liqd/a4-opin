@@ -5,12 +5,12 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from euth.contrib.base_models import TimeStampedModel
+from euth.contrib.base_models import UserGeneratedContentModel
 from euth.contrib.generics import models_to_limit
 from euth.ratings import models as rating_models
 
 
-class Comment(TimeStampedModel):
+class Comment(UserGeneratedContentModel):
 
     content_type = models.ForeignKey(
         ContentType,
@@ -20,8 +20,6 @@ class Comment(TimeStampedModel):
     object_pk = models.PositiveIntegerField()
     content_object = GenericForeignKey(
         ct_field="content_type", fk_field="object_pk")
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     comment = models.TextField(max_length=1024)
     is_removed = models.BooleanField(default=False)
     is_censored = models.BooleanField(default=False)

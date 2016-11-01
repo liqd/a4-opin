@@ -36,7 +36,7 @@ def test_authenticated_user_can_post_valid_data(user, apiclient):
 
 @pytest.mark.django_db
 def test_authenticated_user_can_edit_own_comment(comment, apiclient):
-    apiclient.force_authenticate(user=comment.user)
+    apiclient.force_authenticate(user=comment.creator)
     data = {'comment': 'comment comment comment'}
     url = reverse('comments-detail', kwargs={'pk': comment.pk})
     response = apiclient.patch(url, data, format='json')

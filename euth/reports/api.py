@@ -13,6 +13,6 @@ class ReportViewSet(mixins.CreateModelMixin,
     permission_classes = (permissions.IsAuthenticated,)
 
     def perform_create(self, serializer):
-        report = serializer.save(user=self.request.user)
+        report = serializer.save(creator=self.request.user)
         emails.send_email_to_moderators(self.request, report)
         emails.send_email_to_creator(self.request, report)

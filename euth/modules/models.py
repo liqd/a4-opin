@@ -1,5 +1,4 @@
 from autoslug import AutoSlugField
-from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
@@ -22,10 +21,8 @@ class Module(models.Model):
         return self.phase_set.filter(end_date__lte=timezone.now())
 
 
-class Item(base_models.TimeStampedModel):
+class Item(base_models.UserGeneratedContentModel):
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
-    creator = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     @property
     def project(self):

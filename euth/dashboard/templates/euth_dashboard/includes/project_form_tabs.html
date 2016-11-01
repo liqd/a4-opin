@@ -1,0 +1,16 @@
+{% load i18n %}
+<nav class="tabs">
+    <ul>
+        <li class="col-md-4 active">
+            <a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a>
+            {% if form.project.errors %}<span class="info-number">{{ form.project.errors|length }}</span>{% endif %}
+        </li>
+        <li class="col-md-4">
+            <a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a>
+            {% if form.phases.total_error_count %}<span class="info-number">{{ form.phases.total_error_count }}</span>{% endif %}
+        </li>
+        <li class="col-md-4"><a href="#result" data-toggle="tab" class="tab">{% trans "Result" %}</a>
+            {% if form.project.result.errors %}<span class="info-number">{{ from.project.result.errors|length }}</span>{% endif %}
+        </li>
+    </ul>
+</nav>

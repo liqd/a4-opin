@@ -35,7 +35,7 @@ def send_email_to_moderators(request, report):
 
 def send_email_to_creator(request, report):
     obj = report.content_object
-    receiver = get_creator(obj).email
+    receiver = obj.creator.email
     name = obj._meta.verbose_name
 
     context = {
@@ -45,14 +45,3 @@ def send_email_to_creator(request, report):
     }
 
     emails.send_email_with_template([receiver], 'report_creator', context)
-
-
-def get_creator(obj):
-    """
-    Get creator either from user attr (comment, ratings) or creator attr (ideas
-    and other items).
-    """
-    if hasattr(obj, 'creator'):
-        return obj.creator
-    else:
-        return obj.user

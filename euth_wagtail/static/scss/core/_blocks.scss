@@ -23,7 +23,7 @@
         background: $brand-brand1;
 
         .button {
-            @extend .button-alt;
+            @extend .button;
         }
 
         a {
@@ -45,7 +45,7 @@
         }
 
         .button {
-            @extend .button-alt;
+            @extend .button;
         }
 
         p,
