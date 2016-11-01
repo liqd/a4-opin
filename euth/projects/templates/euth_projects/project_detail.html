@@ -64,8 +64,10 @@
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Welcome!' text='This project has not started yet!' %}
             {% endif %}
 
+            {% if view.phase %}
             <h2>{{ view.phase.name }}</h2>
             <p class="idea-list-description">{{ view.phase.description }} </p>
+            {% endif %}
 
             {% if view.phase and not view.is_between_phases %}
             <div class="badge-group">
