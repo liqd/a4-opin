@@ -43,7 +43,7 @@ def test_user_can_rating_once(rating_factory, rating, user):
     with pytest.raises(Exception) as e:
         rating_factory(
             value=1,
-            user=rating.user,
+            creator=rating.creator,
             content_object=rating.content_object,
         )
 

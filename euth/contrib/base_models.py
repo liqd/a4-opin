@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
@@ -14,3 +15,12 @@ class TimeStampedModel(models.Model):
         if self.pk is not None:
             self.modified = timezone.now()
         super(TimeStampedModel, self).save(*args, **kwargs)
+
+
+class UserGeneratedContentModel(TimeStampedModel):
+
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                on_delete=models.CASCADE)
+
+    class Meta:
+        abstract = True

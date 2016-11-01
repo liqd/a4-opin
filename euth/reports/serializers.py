@@ -7,4 +7,4 @@ class ReportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Report
-        exclude = ('user', 'modified', 'created')
+        exclude = ('creator', 'modified', 'created')

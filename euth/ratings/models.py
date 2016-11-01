@@ -4,11 +4,11 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
-from euth.contrib.base_models import TimeStampedModel
+from euth.contrib.base_models import UserGeneratedContentModel
 from euth.contrib.generics import models_to_limit
 
 
-class Rating(TimeStampedModel):
+class Rating(UserGeneratedContentModel):
 
     POSITIVE = 1
     NEGATIVE = -1
@@ -21,12 +21,10 @@ class Rating(TimeStampedModel):
     object_pk = models.PositiveIntegerField()
     content_object = GenericForeignKey(
         ct_field="content_type", fk_field="object_pk")
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     value = models.IntegerField()
 
     class Meta:
-        unique_together = (('content_type', 'object_pk', 'user'))
+        unique_together = (('content_type', 'object_pk', 'creator'))
 
     def __str__(self):
         return str(self.value)
@@ -58,7 +56,7 @@ class Rating(TimeStampedModel):
             value=self.NEGATIVE).count()
 
         try:
-            user_rating_on_same_object = ratings.get(user=user)
+            user_rating_on_same_object = ratings.get(creator=user)
             user_rating_on_same_object_val = user_rating_on_same_object.value
             user_rating_on_same_object_id = user_rating_on_same_object.pk
         except ObjectDoesNotExist:

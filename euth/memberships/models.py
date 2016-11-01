@@ -4,7 +4,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 
-from euth.contrib.base_models import TimeStampedModel
+from euth.contrib.base_models import (TimeStampedModel,
+                                      UserGeneratedContentModel)
 from euth.projects import models as prj_models
 
 from . import emails
@@ -59,14 +60,10 @@ class RequestManager(models.Manager):
         return request
 
 
-class Request(TimeStampedModel):
+class Request(UserGeneratedContentModel):
     """
     A request for joining a private project.
     """
-    creator = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
     project = models.ForeignKey(
         prj_models.Project,
         on_delete=models.CASCADE

@@ -9,4 +9,4 @@ class CommentFactory(factory.django.DjangoModelFactory):
 
     comment = factory.Faker('text')
     content_object = factory.SubFactory(factories.FakeProjectContentFactory)
-    user = factory.SubFactory(UserFactory)
+    creator = factory.SubFactory(UserFactory)
