@@ -32,6 +32,7 @@
 }
 
 .btn {
+    @include rem(padding, 10px 20px);
     border: 0;
     text-transform: uppercase;
     font-weight: bold;
