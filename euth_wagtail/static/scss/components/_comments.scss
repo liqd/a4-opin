@@ -1,99 +1,111 @@
-.commentBox {
-    @include rem(margin, 0px 134px 0px 134px);
+.comment-box {
+    @include rem(margin, 0 134px 0 134px);
     @include rem(padding-top, 35px);
 
     & .comments_login {
         @include rem(margin-top, 30px);
     }
+
     & textarea {
         border: 1px solid $gray;
         border-radius: 0;
         -moz-border-radius: 0;
         @include rem(font-size, 14px);
     }
+
     & textarea:focus {
         border: 1px solid $gray;
         border-radius: 0;
         -moz-border-radius: 0;
         @include rem(font-size, 14px);
     }
-    & .comment {
-        @include rem(margin-bottom, 50px);
-
-        & .commentAuthor {
-            color: $black;
-            font-family: $font-family-sans-serif;
-            text-align: justify;
-            font-weight: bold;
-            @include rem(font-size, 14px);
-        }
-        & .commentDeletedAuthor {
-            color: $gray;
-            font-family: $font-family-sans-serif;
-            text-align: justify;
-            @include rem(font-size, 14px);
-        }
-        & .comment-text {
-            & p {
-                font-family: $font-family-sans-serif;
-                @include rem(font-size, 14px);
-                @include rem(line-height, 1.6);
-                text-align: justify;
-                color: $black;
-            }
-        }
-        & .child_comments_list {
-            margin: 0px 40px 0px 40px;
-        }
-        & .general-form {
-            @include rem(margin-bottom, 88px);
-        }
-
-    }
 
     @media (max-width: $screen-sm-min) {
         margin: 0;
     }
 }
+
 .comment-list {
     @include rem('padding-top', 79px);
 }
+
 .comment {
-    & .icon::before {
+    @include rem(margin-bottom, 50px);
+
+    & .comment-author {
+        color: $black;
+        font-family: $font-family-sans-serif;
+        text-align: justify;
+        font-weight: bold;
+        @include rem(font-size, 14px);
+    }
+
+    & .comment-deleted-author {
+        color: $gray;
+        font-family: $font-family-sans-serif;
+        text-align: justify;
+        @include rem(font-size, 14px);
+    }
+
+    & .comment-text p {
+        font-family: $font-family-sans-serif;
+        @include rem(font-size, 14px);
+        @include rem(line-height, 1.6);
+        text-align: justify;
+        color: $black;
+    }
+
+    & .comment-child-list {
+        margin: 0 40px 0 40px;
+    }
+
+    & .general-form {
+        @include rem(margin-bottom, 88px);
+    }
+
+    & .icon:before {
         display: inline-block;
         margin-right: .5em;
-        font: normal normal normal 14px/1 FontAwesome;
+        font: normal normal normal 14px/1 "FontAwesome";
         font-size: inherit;
     }
+
     & .navbar-default {
         background-color: transparent;
         border: none;
     }
+
     & .navbar {
         min-height: initial;
         margin-bottom: 0;
     }
+
     & .nav {
         padding: 0;
 
-        & .open a, & .open a:hover, & .open a:focus {
+        & li a {
+            padding: 2px 14px 2px 0;
+            font-family: $font-family-sans-serif;
+            @include rem(font-size, 14px);
+            line-height: 1.6;
+            text-align: justify;
+            font-weight: bold;
+        }
+
+        & .open a,
+        & .open a:hover,
+        & .open a:focus {
             background-color: transparent;
         }
-        & li {
-            & a {
-                padding: 2px 14px 2px 0;
-                font-family: $font-family-sans-serif;
-                @include rem(font-size, 14px);
-                line-height: 1.6;
-                text-align: justify;
-            }
-            & .active {
-                color: $gray-dark;
-            }
+
+        & a.active {
+            color: $gray-dark;
         }
+
         & .dropdown {
             @extend .custom-dropdown;
         }
+
         & .dropdown-menu {
             @extend .custom-dropdown-menu;
         }
@@ -101,15 +113,10 @@
 
     & .action-bar {
         @include rem(margin-bottom, 10px);
-        & li {
-            & a {
-                font-weight: bold;
-            }
-        }
     }
 }
 
-.commentSubmissionDate {
+.comment-submission-date {
     font-weight: bold;
     margin-right: 5px;
     vertical-align: middle;

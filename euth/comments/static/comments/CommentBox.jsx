@@ -89,7 +89,7 @@ let CommentBox = React.createClass({
     return (
       <div>
         <div className="black-divider">{this.state.comments.length + ' ' + django.ngettext('comment', 'comments', this.state.comments.length)}</div>
-        <div className="commentBox">
+        <div className="comment-box">
           <CommentForm subjectType={this.props.subjectType} subjectId={this.props.subjectId}
             onCommentSubmit={this.handleCommentSubmit} placeholder={django.gettext('Your comment here')}
             rows="5" isReadOnly={this.props.isReadOnly} />

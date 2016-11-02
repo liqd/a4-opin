@@ -117,12 +117,12 @@ var Comment = React.createClass({
           contentType={this.context.comments_contenttype}
         />
         {this.renderDeleteModal()}
-        <h3 className={this.props.is_deleted ? 'commentDeletedAuthor' : 'commentAuthor'}>{this.props.user_name}</h3>
+        <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>{this.props.user_name}</h3>
         {this.renderComment()}
         <div className="action-bar">
           <nav className="navbar navbar-default navbar-static">
             <ul className="nav navbar-nav">
-              <li className="entry"><span className="commentSubmissionDate">{lastDate}</span></li>
+              <li className="entry"><span className="comment-submission-date">{lastDate}</span></li>
             </ul>
             {this.renderRatingBox()}
             {this.context.isAuthenticated && !this.props.is_deleted &&
@@ -137,7 +137,7 @@ var Comment = React.createClass({
         <CommentReplyBar allowForm={this.allowForm()} showComments={this.showComments}
           childCommentsLength={this.props.child_comments ? this.props.child_comments.length : 0} />
         {this.state.showChildComments
-          ? <div className="child_comments_list">
+          ? <div className="comment-child-list">
             <CommentList
               comments={this.props.child_comments}
               parentIndex={this.props.index}

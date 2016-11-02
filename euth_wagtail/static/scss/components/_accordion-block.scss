@@ -1,7 +1,7 @@
 .accordion-block {
     @include rem(margin-bottom, 40px);
     text-align: left;
-    background: #F4F4F4;
+    background: #f4f4f4;
 
     .panel {
         @include rem(margin-bottom, 9px);
@@ -17,31 +17,31 @@
         margin: 0;
         @include rem(padding, 5px 0);
         text-align: center;
+    }
 
-        .accordion-link {
-            @include rem(font-size, $font-size-medium);
-            @include rem(padding, 20px 0);
-            color: $gray-darker;
-            display: block;
-            font-family: $font-family-sans-serif;
-            line-height: 1.2;
-            text-decoration: none;
+    .accordion-link {
+        @include rem(font-size, $font-size-medium);
+        @include rem(padding, 20px 0);
+        color: $gray-darker;
+        display: block;
+        font-family: $font-family-sans-serif;
+        line-height: 1.2;
+        text-decoration: none;
 
-            &:after {
-                content: "–";
-                @include rem(font-size, $font-size-large);
-                @include rem(margin-left, 20px);
-            }
+        &:after {
+            content: "–";
+            @include rem(font-size, $font-size-large);
+            @include rem(margin-left, 25px);
+        }
 
-            &.collapsed {
-                border-color: $gray-light;
-                background: transparent;
-                color: #000;
+        &.collapsed {
+            border-color: $gray-light;
+            background: transparent;
+            color: #000;
+        }
 
-                &:after {
-                    content: "+";
-                }
-            }
+        &.collapsed:after {
+            content: "+";
         }
     }
 
@@ -58,6 +58,7 @@
 
 .accordion-content {
     background: transparent;
+
     .accordion-link,
     .panel-body {
         background: $brand-brand1;
@@ -67,19 +68,20 @@
     .accordion-title {
         padding: 0;
         text-align: left;
-        .accordion-link {
-            @include rem(font-size, $font-size-large);
-            @include rem(padding, 22px 30px 15px 22px);
-            border: 1px solid $brand-brand1;
-            position: relative;
-            color: #fff;
+    }
 
-            &:after {
-                @include rem(right, 22px);
-                @include rem(top, 22px);
-                content: "x";
-                position: absolute;
-            }
+    .accordion-link {
+        @include rem(font-size, $font-size-large);
+        @include rem(padding, 22px 30px 15px 22px);
+        border: 1px solid $brand-brand1;
+        position: relative;
+        color: #fff;
+
+        &:after {
+            @include rem(right, 22px);
+            @include rem(top, 22px);
+            content: "x";
+            position: absolute;
         }
     }
 

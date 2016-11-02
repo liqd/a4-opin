@@ -16,10 +16,12 @@
     h5 .fa {
         transition: transform 0.3s;
     }
+
     .collapsed .fa {
         transform: rotateZ(180deg);
     }
 }
+
 .single-phase {
-    @include rem(margin-top, 20px)
+    @include rem(margin-top, 20px);
 }

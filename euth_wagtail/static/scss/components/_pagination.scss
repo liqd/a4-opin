@@ -1,20 +1,20 @@
-nav {
-  .pagination {
-    li:last-child, li:first-child {
-      a {
-        border-radius: 0px;
-      }
-    }
+.pagination {
     li {
-      a {
-        margin-left: 20px;
-        padding: 6px 12px 6px 12px;
-        color: $gray-dark;
-      }
-
-      .page-current {
-        border: 2px solid $table-border-color;
-      }
+        a {
+            margin-left: 20px;
+            padding: 6px 12px 6px 12px;
+            color: $gray-dark;
+        }
     }
-  }
+
+    li:last-child,
+    li:first-child {
+        a {
+            border-radius: 0;
+        }
+    }
+
+    .page-current {
+        border: 2px solid $table-border-color;
+    }
 }

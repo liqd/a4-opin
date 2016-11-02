@@ -16,7 +16,7 @@
         <p class="text-uppercase">Timeline</p>
         <ul>
             {% for phase in phases %}
-                <li class="{% if phase == view.project.active_phase %}active{% endif %}">
+                <li class="{% if phase == view.project.active_phase %}active{% endif %} timeline-phase">
                     <div class="dot" title="{% trans "Phase" %} {{ forloop.counter }}/{{ phases|length }}
                          {% if phase == view.project.active_phase %}
                              <div class='label label-secondary pull-right'>{% trans 'Active phase' %}</div>
@@ -28,9 +28,9 @@
                                 <h4>{{ phase.name }}</h4>
                             "></div>
                     {% if not forloop.last and phases|length > 1 %}
-                        <span class="fa fa-caret-right"></span>
-                        <span class="fa fa-caret-right hidden-xs"></span>
-                        <span class="fa fa-caret-right hidden-xs"></span>
+                        <span class="timeline-arrow fa fa-caret-right"></span>
+                        <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
+                        <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
                     {% endif %}
                 </li>
             {% endfor %}

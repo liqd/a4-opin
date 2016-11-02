@@ -33,25 +33,29 @@
     }
 
     &.google {
-        background: #D34836;
+        background: #d34836;
     }
+
     &.google:after {
         content: '\f1a0';
     }
 
     &.facebook {
-        background-color: #3B5998;
+        background-color: #3b5998;
     }
+
     &.facebook:after {
         content: '\f230';
     }
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
         text-decoration: none;
         color: $black;
     }
 }
 
-.connections-form button{
+.connections-form button {
     @include rem(margin-top, 10px);
 }

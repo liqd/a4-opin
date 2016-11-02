@@ -5,35 +5,35 @@
         display: inline-block;
         text-align: center;
     }
+}
 
-    .inline-images-block-col {
-        @include rem(padding-bottom, $block-vpadding);
+.inline-images-block-col {
+    @include rem(padding-bottom, $block-vpadding);
 
-        .img-container {
-            display: inline-block;
+    .img-container {
+        display: inline-block;
+        position: relative;
+
+        img {
             position: relative;
-
-            img {
-                position: relative;
-                z-index: 1;
-            }
+            z-index: 1;
         }
+    }
 
-        .m-no-border .img-container:after {
-            display: none;
-        }
+    .m-no-border .img-container:after {
+        display: none;
+    }
 
+    .inline-images-text {
+        @include rem(font-size, $font-size-large);
+        @include rem(margin-top, 30px);
+        color: $brand-brand1;
+        font-family: $headings-font-family;
+    }
+
+    &:nth-child(even) {
         .inline-images-text {
-            @include rem(font-size, $font-size-large);
-            @include rem(margin-top, 30px);
-            color: $brand-brand1;
-            font-family: $headings-font-family;
-        }
-
-        &:nth-child(even) {
-            .inline-images-text {
-                color: $brand-brand2;
-            }
+            color: $brand-brand2;
         }
     }
 }

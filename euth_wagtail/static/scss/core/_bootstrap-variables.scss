@@ -1,3 +1,4 @@
+/* stylelint-disable */
 $bootstrap-sass-asset-helper: false !default;
 //
 // Variables
@@ -224,7 +225,7 @@ $input-border-radius-small:      0;
 $input-border-focus:             #66afe9 !default;
 
 //** Placeholder text color
-$input-color-placeholder:        #BBB !default;
+$input-color-placeholder:        #bbb !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;

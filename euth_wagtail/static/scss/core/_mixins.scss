@@ -1,3 +1,4 @@
+/* stylelint-disable */
 $rem-baseline: $font-size-base !default;
 $rem: true !default;
 $rem-px-only: false !default;
@@ -12,6 +13,7 @@ $rem-px-only: false !default;
 
     @each $value in $values {
         $item: $value;
+
         @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
             $item: $value / 1rem * $rem-baseline;
         } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
@@ -57,10 +59,10 @@ $rem-px-only: false !default;
     -o-transform: rotate(#{$degrees}deg);
     transform: rotate(#{$degrees}deg);
 
-    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
     zoom: 1;
- }
+}
 
 @mixin aspect-ratio($width, $height) {
     position: relative;

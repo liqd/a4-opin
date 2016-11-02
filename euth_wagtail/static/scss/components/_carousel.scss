@@ -12,17 +12,6 @@
         transition: opacity, 0.3s;
     }
 
-    &:hover {
-        .owl-prev,
-        .owl-next {
-            opacity: 1;
-
-            &.disabled {
-                opacity: 0;
-            }
-        }
-    }
-
     .owl-prev {
         @include rem(left, -70px);
     }
@@ -31,8 +20,21 @@
         @include rem(right, -70px);
     }
 
+    &:hover {
+        .owl-prev,
+        .owl-next {
+            opacity: 1;
+        }
+
+        .owl-prev.disabled,
+        .owl-next.disabled {
+            opacity: 0;
+        }
+    }
+
     @media (max-width: $screen-md-min) {
-        .owl-prev,.owl-next {
+        .owl-prev,
+        .owl-next {
             display: none;
         }
     }

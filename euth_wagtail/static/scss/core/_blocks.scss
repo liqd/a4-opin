@@ -5,14 +5,17 @@
     text-align: center;
 }
 
-.block, .block-inner {
+.block,
+.block-inner {
     @include rem(padding, $block-vpadding 0);
     @include rem(font-size, $font-size-medium);
     line-height: 1.4;
     text-align: center;
 
     &.m-highlight,
-    &.m-boxed, & input, & textarea {
+    &.m-boxed,
+    & input,
+    & textarea {
         color: #fff;
     }
 
@@ -60,16 +63,17 @@
 
     &.m-boxed {
         padding: 0;
+
         .container-inner {
             @extend .container-medium;
             padding: $block-vpadding 0;
             background: $brand-brand3;
+        }
 
-            .info-box-text {
-                @extend .col-md-10;
-                float: none;
-                margin: 0 auto;
-            }
+        .info-box-text {
+            @extend .col-md-10;
+            float: none;
+            margin: 0 auto;
         }
 
         &.m-variation .container-inner {
@@ -99,7 +103,11 @@
     @include rem(padding-bottom, $block-vpadding);
     text-align: left;
 
-    h2, h3, h4, h5, h6 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @extend .block-title;
         @include rem(font-size, $font-size-large);
         @include rem(margin, 0 0 $font-size-large);

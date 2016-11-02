@@ -5,7 +5,6 @@
 
     @media screen and (max-width: $screen-xs-max) {
         @include rem(padding-top, 10px);
-
     }
 
     .euth-hero-unit + &,
@@ -21,18 +20,18 @@
         padding-left: 0;
     }
 
-    ul, li {
+    ul,
+    li {
         list-style-type: none;
-
     }
 
     li.active a {
         background: #fff;
         color: $brand-brand1;
-        box-shadow: 0px -9px 10px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -9px 10px 3px rgba(0, 0, 0, 0.1);
 
         @media screen and (max-width: $screen-xs-max) {
-            box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.10);
+            box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.10);
         }
     }
 
@@ -48,7 +47,8 @@
             line-height: 50px;
         }
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: $brand-brand1;
         }
     }
@@ -71,7 +71,9 @@
         display: block;
     }
 
-    > h3, .idea-list > h2, .tab-panel-title {
+    > h3,
+    .idea-list > h2,
+    .tab-panel-title {
         @include rem(font-size, $font-size-large);
         @include rem(margin, 0 0 12px);
         text-transform: uppercase;

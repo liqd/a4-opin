@@ -1,22 +1,18 @@
-#document-form {
-    .general-form {
-        .btn {
-            @include rem(padding, 8px 12px);
-            @include rem(margin-bottom, 20px);
-        }
+.document-form {
+    .btn {
+        @include rem(padding, 8px 12px);
+        @include rem(margin-bottom, 20px);
+    }
 
-        section {
-            @include rem(margin-bottom, 22px);
-        }
+    section {
+        @include rem(margin-bottom, 22px);
+    }
 
-        .submit-button {
-            @include rem(margin-top, 100px);
-        }
+    .submit-button {
+        @include rem(margin-top, 100px);
+    }
 
-        .entry {
-            i {
-                @include rem(padding, 7px);
-            }
-        }
+    .entry i {
+        @include rem(padding, 7px);
     }
 }
