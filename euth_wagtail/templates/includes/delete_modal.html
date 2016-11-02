@@ -16,11 +16,11 @@
                 <div class="row">
                     <form method="POST" id="project_delete" action="{{ delete_action }}">
                         {% csrf_token %}
-                         <button type="submit" form="project_delete" class="danger-button">{% trans 'Delete'%}</button>
+                         <button type="submit" form="project_delete" class="btn btn-danger">{% trans 'Delete'%}</button>
                     </form>
                 </div>
                 <div class="row">
-                    <button type="button" data-dismiss="modal" class="cancel-button">{% trans 'Abort'%}</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-xs btn-default">{% trans 'Abort'%}</button>
                 </div>
             </div>
         </div>
