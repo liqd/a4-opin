@@ -1,22 +1,42 @@
 var BundleTracker = require('webpack-bundle-tracker')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
+var webpack = require("webpack");
+
 
 module.exports = {
-  entry: './euth/contrib/static/js/app.js',
+  entry: {
+    app: [
+      './euth/contrib/static/js/app.js',
+      './euth_wagtail/assets/scss/all.scss'
+    ],
+    vendor: [
+      'jquery',
+      'react',
+      'react-dom',
+      'react-flip-move',
+      'react-addons-update',
+      'classnames',
+      'moment',
+      'font-awesome/scss/font-awesome.scss',
+      'marked',
+      './euth_wagtail/assets/js/jquery-fix.js',
+      'bootstrap-sass',
+      './euth_wagtail/assets/js/modernizr-custom.js',
+      'owl.carousel',
+      'owl.carousel/dist/assets/owl.carousel.min.css'
+    ]
+  },
   devtool: 'source-map',
-  entry: [
-    './euth/contrib/static/js/app.js',
-    './euth_wagtail/static/scss/all.scss'
-  ],
   output: {
     libraryTarget: 'var',
     library: 'Opin',
-    path: './euth_wagtail/static/bundles/',
+    path: './euth_wagtail/static/',
+    publicPath: "/static/",
     filename: '[name].js'
   },
   externals: {
-    'jquery': 'jQuery',
     'django': 'django'
   },
   module: {
@@ -30,16 +50,16 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract('style-loader','!css-loader!sass-loader?sourceMap')
       },
       {
-        test: /\.woff2?$|\.ttf$|\.eot$/,
-        loader: 'file-loader?name=/static/fonts/[name].[ext]'
+        test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
+        loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
         test: /\.svg$|\.png$/,
-        loader: 'file-loader?name=/static/images/[name].[ext]'
+        loader: 'file-loader?name=images/[name].[ext]'
       }
     ]
   },
@@ -48,15 +68,24 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [
-      path.resolve('./euth_wagtail/static'),
       path.resolve('./node_modules/bootstrap-sass/assets/stylesheets')
     ]
   },
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'}),
-    new ExtractTextPlugin("[name].css")
-  ],
-  resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
-  }
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.js"),
+    new ExtractTextPlugin('[name].css'),
+    new CopyWebpackPlugin([
+      {
+        from: './euth_wagtail/assets/images/**/*',
+        to: 'images/',
+        flatten: true
+      },
+      {
+        from: './euth_wagtail/assets/icons/favicon.ico',
+        to: 'images/',
+        flatten: true
+      }
+
+    ])
+  ]
 }

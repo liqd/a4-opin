@@ -8,6 +8,7 @@
     "babel-preset-react": "^6.16.0",
     "bootstrap-sass": "3.3.6",
     "classnames": "^2.2.5",
+    "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",

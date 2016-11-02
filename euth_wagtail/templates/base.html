@@ -24,22 +24,14 @@
         <link rel="manifest" href="/static/icons/manifest.json">
         <link rel="shortcut icon" href="/static/icons/favicon.ico">
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'assets/owl.carousel.css' %}">
-
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'third-party/modernizr/modernizr-custom.js' %}"></script>
-        <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'bootstrap.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/euth_wagtail.js' %}"></script>
-        <script type="text/javascript" src="{% static 'owl.carousel.min.js' %}"></script>
         <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-        {% render_bundle 'main' %}
+        {% render_bundle 'vendor' %}
+        {% render_bundle 'app' %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
