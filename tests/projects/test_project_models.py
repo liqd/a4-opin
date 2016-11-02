@@ -45,7 +45,7 @@ def test_no_days_left(phase):
 @pytest.mark.django_db
 def test_one_day_left(phase):
     project = phase.module.project
-    with freeze_time(parse(phase.end_date) - timedelta(days=1)):
+    with freeze_time(phase.end_date - timedelta(days=1)):
         assert project.days_left == 1
 
 
