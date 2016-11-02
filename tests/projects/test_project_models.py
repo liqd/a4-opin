@@ -102,3 +102,61 @@ def test_phases_property(module, phase_factory):
     phase2 = phase_factory(module=module, type='fake:20:type')
 
     assert list(project.phases) == [phase2, phase1]
+
+
+@pytest.mark.django_db
+def test_future_phases_property(module, phase_factory):
+    project = module.project
+    phase1 = phase_factory(
+        module=module,
+        start_date=parse('2013-03-01 18:00:00 UTC'),
+        end_date=parse('2013-03-02 18:00:00 UTC')
+    )
+    phase2 = phase_factory(
+        module=module,
+        start_date=parse('2013-02-01 18:00:00 UTC'),
+        end_date=parse('2013-02-02 18:00:00 UTC')
+    )
+    phase3 = phase_factory(
+        module=module,
+        start_date=parse('2013-01-01 18:00:00 UTC'),
+        end_date=parse('2013-01-02 18:00:00 UTC')
+    )
+
+    with freeze_time(phase3.start_date):
+        assert list(project.future_phases) == [phase2, phase1]
+    with freeze_time(phase3.end_date):
+        assert list(project.future_phases) == [phase2, phase1]
+    with freeze_time(phase2.start_date):
+        assert list(project.future_phases) == [phase1]
+    with freeze_time(phase2.end_date):
+        assert list(project.future_phases) == [phase1]
+
+
+@pytest.mark.django_db
+def test_past_phases_property(module, phase_factory):
+    project = module.project
+    phase_factory(
+        module=module,
+        start_date=parse('2013-03-01 18:00:00 UTC'),
+        end_date=parse('2013-03-02 18:00:00 UTC')
+    )
+    phase2 = phase_factory(
+        module=module,
+        start_date=parse('2013-02-01 18:00:00 UTC'),
+        end_date=parse('2013-02-02 18:00:00 UTC')
+    )
+    phase3 = phase_factory(
+        module=module,
+        start_date=parse('2013-01-01 18:00:00 UTC'),
+        end_date=parse('2013-01-02 18:00:00 UTC')
+    )
+
+    with freeze_time(phase3.start_date):
+        assert list(project.past_phases) == []
+    with freeze_time(phase3.end_date):
+        assert list(project.past_phases) == [phase3]
+    with freeze_time(phase2.start_date):
+        assert list(project.past_phases) == [phase3]
+    with freeze_time(phase2.end_date):
+        assert list(project.past_phases) == [phase2, phase3]
