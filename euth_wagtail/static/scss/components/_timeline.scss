@@ -52,6 +52,11 @@
 
         transition: transform 0.2s;
         transform-origin: 50% 50%;
+
+        @media screen and (max-width: $screen-xs) {
+            width: 23px;
+            height: 23px;
+        }
     }
 
     .dot:hover,
@@ -67,6 +72,7 @@
     }
 
     .popover {
+        pointer-events: none;
         @include rem(margin-top, -18px);
     }
 }
