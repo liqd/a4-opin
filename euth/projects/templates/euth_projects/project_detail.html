@@ -3,11 +3,7 @@
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
-    <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-    </script>
+<script src="{% static 'euth_projects/timeline-popover.js' %}"></script>
 {% endblock %}
 {% block content %}
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
