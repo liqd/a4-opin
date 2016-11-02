@@ -55,13 +55,20 @@
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
         <div class="tab-panel-description">
-
-            {% if view.is_between_phases %}
-            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Thanks for participating!' text='This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' %}
+            {% if not view.phase %}
+            {% trans 'Welcome!' as title %}
+            {% trans 'This project has not started yet!' as text %}
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
             {% endif %}
 
-            {% if not view.phase and not view.is_between_phases %}
-            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title='Welcome!' text='This project has not started yet!' %}
+            {% if view.phase and view.phase.is_over and view.project.future_phases  %}
+            {% trans 'Thanks for participating!' as title %}
+            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' as text %}
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
+            {% elif view.phase and view.phase.is_over %}
+            {% trans 'Thanks for participating!' as title %}
+            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process!' as text %}
+            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
             {% endif %}
 
             {% if view.phase %}
@@ -69,7 +76,7 @@
             <p class="idea-list-description">{{ view.phase.description }} </p>
             {% endif %}
 
-            {% if view.phase and not view.is_between_phases %}
+            {% if view.phase and not view.phase.is_over %}
             <div class="badge-group">
                 <span class="badge">
                     <strong>{% trans 'Start Date' %}</strong>

@@ -52,22 +52,16 @@ def test_project_mixin(rf, phase):
     view_data = response.context_data['view']
     assert view_data.project == project
     assert view_data.phase == phase
-    assert view_data.is_between_phases is False
 
 
 @pytest.mark.django_db
-def test_project_mixin_between_phases(rf, phase_factory):
-    phase1 = phase_factory(
+def test_project_inject_phase_after_finish(rf, phase_factory):
+    phase = phase_factory(
         start_date=parse('2013-01-01 17:00:00 UTC'),
         end_date=parse('2013-01-01 18:00:00 UTC')
     )
-    module = phase1.module
+    module = phase.module
     project = module.project
-    phase2 = phase_factory(
-        module=module,
-        start_date=parse('2013-02-01 17:00:00 UTC'),
-        end_date=parse('2013-03-01 18:00:00 UTC')
-    )
 
     class DummyView(mixins.ProjectMixin, ListView):
         model = blog_models.Post
@@ -75,12 +69,10 @@ def test_project_mixin_between_phases(rf, phase_factory):
     view = DummyView.as_view()
     request = rf.get('/project_name/ideas')
 
-    with freeze_time('2013-01-02 17:00:00 UTC'):
+    with freeze_time(phase.end_date):
         response = view(request, project=project)
 
     response = view(request, project=project)
     view_data = response.context_data['view']
     assert view_data.project == project
-    assert view_data.phase == project.last_phase
-    assert project.last_phase == phase2
-    assert view_data.is_between_phases is True
+    assert view_data.phase == phase
