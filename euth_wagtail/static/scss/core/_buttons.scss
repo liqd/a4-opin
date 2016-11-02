@@ -110,7 +110,8 @@
     top: 40%;
     z-index: 100;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: darken($brand-brand1, 10%);
         color: $gray-lighter;
     }
