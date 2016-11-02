@@ -3,21 +3,7 @@
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
-    <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-
-        $('#main-menu').next().on('click', function() {});
-
-        $('body').on('click', function (e) {
-            $('[data-toggle="popover"]').each(function () {
-                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                    $(this).popover('hide')
-                }
-            });
-        });
-    </script>
+<script src="{% static 'euth_projects/timeline-popover.js' %}"></script>
 {% endblock %}
 {% block content %}
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
