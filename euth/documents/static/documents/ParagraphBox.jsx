@@ -14,7 +14,8 @@ var ParagraphBox = React.createClass({
       paragraphs: this.props.paragraphs,
       nameErrors: [],
       paragraphsErrors: [],
-      maxParagraphKey: 0
+      maxParagraphKey: 0,
+      successMessage: ''
     }
   },
   handleDocumentNameChange: function (e) {
@@ -105,8 +106,13 @@ var ParagraphBox = React.createClass({
       .done(function (data) {
         this.setState({
           name: data.name,
-          paragraphs: data.paragraphs
+          paragraphs: data.paragraphs,
+          successMessage: django.gettext('Your document has been updated.')
         })
+        setTimeout(function () {
+          this.setState({
+            successMessage: ''}
+          ) }.bind(this), 1500)
       }.bind(this))
       .fail(function (xhr, status, err) {
         this.setState({
@@ -127,8 +133,13 @@ var ParagraphBox = React.createClass({
         this.setState({
           id: data.id,
           name: data.name,
-          paragraphs: data.paragraphs
+          paragraphs: data.paragraphs,
+          successMessage: django.gettext('Your document has been saved.')
         })
+        setTimeout(function () {
+          this.setState({
+            successMessage: ''}
+          ) }.bind(this), 1500)
       }.bind(this))
       .fail(function (xhr, status, err) {
         this.setState({
@@ -192,10 +203,16 @@ var ParagraphBox = React.createClass({
             </div>
           </div>
           <button
-            className="submit-button"
+            id="submit-button"
+            className="btn btn-primary"
             type="submit">
             {django.gettext('save')}
           </button>
+          { this.state.successMessage
+            ? <p className="text-success">
+              {this.state.successMessage}
+            </p> : null
+          }
         </form>
       </div>
     )
