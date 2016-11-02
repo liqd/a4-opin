@@ -14,8 +14,8 @@ class PhaseDispatchMixin(generic.DetailView):
 
         if project.active_phase:
             return project.active_phase.view.as_view()
-        elif project.last_phase:
-            return project.last_phase.view.as_view()
+        elif project.past_phases:
+            return project.past_phases[0].view.as_view()
         else:
             return super().dispatch
 
@@ -23,8 +23,6 @@ class PhaseDispatchMixin(generic.DetailView):
 class ProjectMixin(generic.base.ContextMixin):
     def dispatch(self, *args, **kwargs):
         self.project = kwargs['project']
-        self.phase = self.project.active_phase or self.project.last_phase
-        self.is_between_phases = not self.project.\
-            active_phase and bool(self.project.last_phase)
+        self.phase = self.project.active_phase or self.project.past_phases[0]
         self.module = self.phase.module if self.phase else None
         return super(ProjectMixin, self).dispatch(*args, **kwargs)

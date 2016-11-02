@@ -134,7 +134,11 @@ class Project(base_models.TimeStampedModel):
         return phase_models.Phase.objects.filter(module__project=self)
 
     @property
-    def last_phase(self):
-        phases = self.phases.filter(end_date__lt=timezone.now())
-        phases_ordered = phases.order_by('end_date').last()
-        return phases_ordered
+    def future_phases(self):
+        phases = self.phases.filter(start_date__gt=timezone.now())
+        return phases.order_by('start_date')
+
+    @property
+    def past_phases(self):
+        phases = self.phases.filter(end_date__lte=timezone.now())
+        return phases.order_by('-end_date')

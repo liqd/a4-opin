@@ -1,4 +1,5 @@
 import factory
+from dateutil.parser import parse
 
 from euth.phases import models
 
@@ -14,5 +15,5 @@ class PhaseFactory(factory.django.DjangoModelFactory):
     description = factory.Faker('text')
     type = 'blog:020:phase'
     module = factory.SubFactory(module_factories.ModuleFactory)
-    start_date = '2013-01-02 00:00:00Z'
-    end_date = '2013-01-03 00:00:00Z'
+    start_date = parse('2013-01-02 00:00:00 UTC')
+    end_date = parse('2013-01-03 00:00:00 UTC')
