@@ -51,7 +51,7 @@ class Project(base_models.TimeStampedModel):
         verbose_name=_('Access to the project'),
         help_text=_('Please indicate who should be able to participate in '
                     'your project. Teasers for your project including title '
-                    'and short description will always be visble to everyone')
+                    'and short description will always be visible to everyone')
     )
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
