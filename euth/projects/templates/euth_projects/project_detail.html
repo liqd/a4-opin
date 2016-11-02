@@ -55,6 +55,7 @@
     </article>
     <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
         <div class="tab-panel-description">
+
             {% if not view.phase %}
             {% trans 'Welcome!' as title %}
             {% trans 'This project has not started yet!' as text %}
@@ -65,9 +66,10 @@
             {% trans 'Thanks for participating!' as title %}
             {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' as text %}
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
+
             {% elif view.phase and view.phase.is_over %}
             {% trans 'Thanks for participating!' as title %}
-            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process!' as text %}
+            {% trans 'This project is already over. Thanks a lot to everyone for taking part in the process!' as text %}
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
             {% endif %}
 
