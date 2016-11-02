@@ -23,9 +23,9 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['avatar', 'username']
+        fields = ['_avatar', 'username']
         widgets = {
-            'avatar': widgets.ImageInputWidget()
+            '_avatar': widgets.ImageInputWidget()
         }
 
 
