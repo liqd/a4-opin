@@ -44,17 +44,6 @@
         font-weight: normal;
     }
 
-    .btn-cta {
-        @include rem(border-radius, 40px);
-        @include rem(padding, 0 20px);
-        @include rem(top, 65px);
-        font-weight: bold;
-        line-height: 50px;
-        margin: -30px auto 0;
-        position: relative;
-        text-transform: uppercase;
-    }
-
     .errorlist {
         @include rem(font-size, $font-size-small);
         color: $brand-danger;

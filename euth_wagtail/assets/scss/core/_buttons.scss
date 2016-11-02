@@ -40,15 +40,6 @@
     -webkit-transition: color 0.2s, background 0.2s;
 }
 
-.btn-cta {
-    @include rem(border-radius, 40px);
-    @include rem(padding, 0 20px);
-    font-weight: bold;
-    line-height: 50px;
-    margin: 0 auto;
-    text-transform: uppercase;
-}
-
 .btn-hover-primary {
     @include button-hover($brand-primary);
 }
