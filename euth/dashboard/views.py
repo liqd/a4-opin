@@ -12,7 +12,6 @@ from rules.contrib import views as rules_views
 
 from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
-from euth.modules import models as module_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
 from euth.projects import models as project_models
@@ -44,6 +43,10 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
     def other_organisations_of_user(self):
         user = self.request.user
         return user.organisation_set.exclude(pk=self.organisation.pk)
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
 
 
 class DashboardEmailView(DashboardBaseMixin, account_views.EmailView):
@@ -101,10 +104,6 @@ class DashboardProjectListView(DashboardBaseMixin,
     def get_permission_object(self):
         return self.organisation
 
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
-
     def get_success_url(self):
         return reverse('dashboard-project-list')
 
@@ -139,14 +138,11 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     def get_permission_object(self):
         return self.organisation
 
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
-
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
+        kwargs['creator'] = self.request.user
         return kwargs
 
     def get_success_url(self):
@@ -173,14 +169,6 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
     def get_permission_object(self):
         return self.organisation
-
-    @property
-    def module(self):
-        return module_models.Module.objects.filter(project=self.object).first()
-
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
 
     def get_success_url(self):
             return reverse('dashboard-project-edit',
@@ -243,10 +231,6 @@ class DashboardProjectInviteView(DashboardBaseMixin,
     def get_permission_object(self):
         return self.organisation
 
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
-
     @functional.cached_property
     def project(self):
         return project_models.Project.objects.get(
@@ -286,10 +270,6 @@ class DashboardProjectUserView(DashboardBaseMixin,
 
     def get_permission_object(self):
         return self.organisation
-
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
