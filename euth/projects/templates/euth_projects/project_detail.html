@@ -40,20 +40,20 @@
 <nav class="tabs">
     <div class="container">
         <ul>
-            <li class="col-md-4 {% if not view.project.active_phase %} active {% endif %}"><a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
-            <li class="col-md-4 {% if view.project.active_phase %} active {% endif %}"><a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a></li>
+            <li class="col-md-4"><a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
+            <li class="col-md-4 active"><a href="#participation" data-toggle="tab" class="tab">{% trans "Participation" %}</a></li>
             <li class="col-md-4"><a href="#result" data-toggle="tab" class="tab">{% trans "Result" %}</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
+    <article id="information" class="tab-panel">
         <h3 class="tab-panel-title">{% trans "info" %}</h3>
         <div class="tab-panel-description">
             {{ view.project.information |safe|linebreaks }}
         </div>
     </article>
-    <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
+    <article id="participation" class="tab-panel active">
         <div class="tab-panel-description">
 
             {% if view.is_between_phases %}
