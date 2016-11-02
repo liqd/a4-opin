@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='project',
             name='description',
-            field=models.CharField(help_text='This short description will appear on the header of the project and in the teaser. It should briefly state the goal of the project in max. 120 chars.', verbose_name='Short description of your project', max_length=120),
+            field=models.CharField(help_text='This short description will appear on the header of the project and in the teaser. It should briefly state the goal of the project in max. 250 chars.', verbose_name='Short description of your project', max_length=250),
         ),
         migrations.AlterField(
             model_name='project',
