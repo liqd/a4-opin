@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract('style-loader','!css-loader!sass-loader?sourceMap')
+        loader: ExtractTextPlugin.extract('style-loader?sourceMap','!css-loader?sourceMap!sass-loader?sourceMap')
       },
       {
         test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
