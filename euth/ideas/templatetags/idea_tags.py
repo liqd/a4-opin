@@ -5,8 +5,6 @@ register = template.Library()
 
 @register.assignment_tag
 def get_range(number, listcount):
-    print(number)
-    print(listcount)
     if number < 3:
         return range(1, 6)
     elif number > listcount - 2:
