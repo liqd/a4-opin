@@ -11,7 +11,7 @@
     </a>
     {% endif %}
 
-    {% if view.sorts %}
+    {% if view.sorts and idea_list.count > 1 %}
         <div class="dropdown sort-dropdown pull-right">
             {% trans 'Sort by' %}
             <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
