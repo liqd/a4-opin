@@ -7,11 +7,11 @@ A comment is the expressed opinion of a user. Users on Opin can comment on ideas
 
 ---
 **Creator**
-User geneared content has to be created by an user (usally participant, but other roles possible). If an user has created content, she will assume the creator role for that content. Creators have special rights, because they can delete or modify thier own content.
+User geneared content has to be created by an user (usally participant, but other roles possible). If an user has created content, she will assume the creator role for that content. Creators have special rights, because they can delete or modify their own content.
 
 ---
 **Dashboard**:
-The part of the opin interfaced, used by organisation owners, initators and moderators to manage projects on the platfrom.
+The part of the opin interface, used by organisation owners, initators and moderators to manage projects on the platform. In the dashboard also users can edit their personal settings, such as username, email-adress, avatars. 
 
 ---
 **Feature,Tool, or Method**:
@@ -19,7 +19,7 @@ A feature/method/tool is a formalized way to collaborate in order to reach a com
 
 ---
 **Initiator**:
-There are various roles on OPIN: Different people may do different actions. For example, Initiators can manage users and groups, initiate participation projects, invite users to private processes, edit and delete projects, proposals and comments, receive emails on reported comments.
+There are various roles on OPIN: Different people may do different actions. For example, Initiators. They manage users and groups, initiate participation projects, invite users to private processes, edit and delete projects, proposals and comments, receive emails on reported comments.
 
 ---
 **Item**:  (for developers only)
@@ -31,11 +31,11 @@ Add explantion here.
 
 ---
 **Moderator**:
-Moderators are defined for each project, this means one user can be moderator of several projects at the same time. Moderators of a project can update the project settings and - if the project is private - invite and add participants to the project. They also receive a message, if a comment within this project was reported and can decide if the comment needs to be deleted. Depending on the modules and phases within in the project, thy have additional rights, e.g. create the document for a commenting text module.
+Moderators are defined for each project, this means one user can be moderator of several projects at the same time. Moderators of a project update the project settings and - if the project is private - invite and add participants to the project. They also receive a message, if a comment within this project was reported and can decide if the comment needs to be deleted. Depending on the modules and phases within in the project, they have additional rights, e.g. create the document for a commenting text module.
 
 ---
 **Module**:
-A sub unit of a process that contains user generated elements of a specific kind. For example all ideas of an project might be in one module, while all texts might be in an other one. A project might also contain two modules with both containg ideas. A module always belongs to a phase.
+A sub unit of a project that contains user generated elements of a specific kind. For example all ideas of an project might be in one module, while all texts might be in an other one. A project might also contain two modules with both containing ideas. A module always belongs to a phase.
 
 ---
 **Organisation**:
@@ -67,7 +67,7 @@ Add explantion here.
 
 ---
 **Project**:
-Add explantion here.
+OPIN offers initiators to execute digital participation projects. A project is initiated in the dashboard by an organisation. Each project follows the structure of "Information-Participation-Result". In the information tab, initiators tell about their aims and answer the "w" questions to their participants (why, what, when, who). In the participation tab, initiators set up modules. In the result tab, initiators present the results of the module when finished. 
 
 ---
 **Proposal vs idea**:
