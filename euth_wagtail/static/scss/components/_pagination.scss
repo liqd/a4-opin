@@ -1,20 +1,33 @@
 nav {
-  .pagination {
-    li:last-child, li:first-child {
-      a {
-        border-radius: 0px;
-      }
-    }
-    li {
-      a {
-        margin-left: 20px;
-        padding: 6px 12px 6px 12px;
-        color: $gray-dark;
-      }
 
-      .page-current {
-        border: 2px solid $table-border-color;
-      }
+    .pagination {
+
+        li:last-child, li:first-child {
+            a {
+                border-radius: 0;
+            }
+        }
+
+        a {
+            @include rem(margin-left, 4px)
+            @include rem(padding, 10px 15px 10px 16px);
+            color: $gray-darker;
+            background-color: $gray-lighter;
+            border: none;
+            border-radius: 0;
+            font-weight: bold;
+            @include rem(font-size, 14px);
+
+            &:hover, &:focus {
+                color: $brand-brand1;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                @include rem(margin-left, 3px);
+                @include rem(padding, 9px 13px 9px 13px);
+            }
+        }
+
     }
-  }
+
 }
