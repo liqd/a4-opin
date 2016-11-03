@@ -121,12 +121,12 @@
         &:before {
             @include rem(height, 107px);
             @include rem(margin-bottom, 10px);
-            background: url(../images/logo-white.png) no-repeat center top;
+            background: url('../images/logo-white.png') no-repeat center top;
             background-size: contain;
             display: block;
             content: " ";
             .svgasimg & {
-                background-image: url(../images/logo-white.svg);
+                background-image: url('../images/logo-white.svg');
             }
         }
     }
