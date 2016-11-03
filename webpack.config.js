@@ -5,6 +5,21 @@ var path = require('path')
 var webpack = require("webpack");
 
 
+/** How do we use webpack to handle static files?
+ *
+ * - dependencies (js, scss, and css) are installed via npm
+ * - dependencies (js, scss, and css ) are moved to `vendor.(js|css)`
+ *   by specifing them in the vendor entry point
+ * - everything else (our js, scss) is compiled into app.(js|css)
+ * - our images, fonts, icons, js, css and scss is either in each apps
+ *   static folder (/euth/<appname>/static) or in the projects asset folder
+ *   (/euth_wagtail/assets)
+ * - after running webpack all static ressources will be in the
+ *   project static folder (/euth_wagtail/static) and can then be served
+ *   by django
+ * - webpack compiles jsx+es2015 to js and scss to css for us
+ */
+
 module.exports = {
   entry: {
     app: [
