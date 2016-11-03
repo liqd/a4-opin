@@ -43,7 +43,7 @@ def react_comments(context, obj):
     }
 
     return mark_safe((
-        '<div id={mountpoint}></div><script>window.Opin.renderComment('
+        '<div id={mountpoint}></div><script>window.opin.renderComment('
         '{mountpoint}, {attributes})</script>').format(
             attributes=json.dumps(attributes),
             mountpoint=json.dumps(mountpoint)

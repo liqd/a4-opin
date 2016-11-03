@@ -257,7 +257,7 @@ STATICFILES_FINDERS = [
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': False,
-        'BUNDLE_DIR_NAME': 'bundles/', # must end with slash
+        'BUNDLE_DIR_NAME': '/static/', # must end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
         'POLL_INTERVAL': 0.1,
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
@@ -266,12 +266,7 @@ WEBPACK_LOADER = {
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'node_modules/jquery/dist'),
     os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
-    os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/javascripts'),
-    os.path.join(BASE_DIR, 'node_modules/bootstrap-sass/assets/stylesheets'),
-    os.path.join(BASE_DIR, 'node_modules/font-awesome'),
-    os.path.join(BASE_DIR, 'node_modules/owl.carousel/dist'),
     os.path.join(BASE_DIR, 'node_modules/flatpickr/assets'),
     os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
     os.path.join(PROJECT_DIR, 'static'),

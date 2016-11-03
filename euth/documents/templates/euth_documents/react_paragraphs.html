@@ -2,7 +2,7 @@
 <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 <div id="document-form"></div>
 <script>
-  window.Opin.renderParagraphs(
+  window.opin.renderParagraphs(
     {{ document | safe }}, {{ module }} ,{{ config | safe }}
 )
 </script>
