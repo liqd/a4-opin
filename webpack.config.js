@@ -22,9 +22,9 @@ var webpack = require("webpack");
 
 module.exports = {
   entry: {
-    app: [
-      './euth/contrib/static/js/app.js',
-      './euth_wagtail/assets/scss/all.scss'
+    opin: [
+      './euth_wagtail/assets/scss/all.scss',
+      './euth/contrib/static/js/app.js'
     ],
     vendor: [
       'jquery',
@@ -46,7 +46,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     libraryTarget: 'var',
-    library: 'Opin',
+    library: '[name]',
     path: './euth_wagtail/static/',
     publicPath: "/static/",
     filename: '[name].js'
