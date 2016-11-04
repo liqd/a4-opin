@@ -1,17 +1,19 @@
 @import "../fonts/fontcustom/fontcustom.css";
+
+// Core
 @import "core/bootstrap";
 @import "core/fonts";
 @import "core/mixins";
 @import "core/type";
 @import "core/containers";
-
 @import "core/badges";
 @import "core/buttons";
 @import "core/blocks";
-@import "core/forms";
 @import "core/tiles";
 @import "core/footer";
 @import "core/tabs";
+
+// Components
 @import "components/projects";
 @import "components/orgs";
 @import "components/menus";
@@ -30,7 +32,6 @@
 @import "components/alerts";
 @import "components/pagination";
 @import "components/carousel";
-@import "components/radio-action";
 @import "components/table-list";
 @import "components/action-bar";
 @import "components/dividers";
@@ -43,7 +44,7 @@
 @import "components/rss-feed-import";
 @import "components/membership-request";
 @import "components/membership-invite";
-@import "components/phases";
+@import "components/phase-form";
 @import "components/social-login";
 @import "components/info-number";
 @import "components/timeline";
@@ -53,3 +54,4 @@
 @import "components/document";
 @import "components/info-note";
 @import "components/label";
+@import "components/user-indicator";

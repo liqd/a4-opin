@@ -1,6 +1,7 @@
 .language-switch-list {
     @include clearfix;
 }
+
 .language-switch-list label {
     display: block;
 }
@@ -33,13 +34,14 @@
 
     .active a {
         background-color: $brand-brand1;
-        color: #FFF;
+        color: #fff;
     }
 }
 
 .language-switch-list .dropdown {
     float: left;
 }
+
 .language-switch-list .dropdown-toggle {
     @include rem(padding, 10px 15px);
     background-color: $gray-lighter;
@@ -48,6 +50,7 @@
 .language-switch {
     display: none;
 }
+
 :checked + .language-switch {
     display: block;
 }

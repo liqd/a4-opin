@@ -1,5 +1,5 @@
-#footer {
-    @extend #main-menu;
+.footer {
+    @extend .main-menu;
     @include rem(margin-top, 200px);
 
     a {
@@ -19,19 +19,19 @@
             clear: left;
             float: none;
         }
+    }
 
-        li {
-            float: left;
-            @include rem(margin-left, 8px);
+    .footer-item {
+        float: left;
+        @include rem(margin-left, 8px);
 
-            @media screen and (max-width: $screen-xs-max) {
-                float: none;
-            }
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
         }
+
         a {
             @include rem(padding, 5px 0);
         }
-
     }
 
     @media screen and (max-width: $screen-sm-max) {
@@ -47,23 +47,24 @@
     float: left;
     width: 100%;
 
-        .footer-disclaimer-logo {
-            max-width: 100%;
-            @include rem(margin-bottom, 20px);
-            @media (min-width: $screen-sm-min) {
-                @include rem(margin-right, 40px);
-                margin-bottom: 0;
-                float: left;
-                max-width: 80px;
-            }
+    .footer-disclaimer-logo {
+        max-width: 100%;
+        @include rem(margin-bottom, 20px);
+
+        @media (min-width: $screen-sm-min) {
+            @include rem(margin-right, 40px);
+            margin-bottom: 0;
+            float: left;
+            max-width: 80px;
         }
+    }
 
     .footer-disclaimer-text {
         overflow: hidden;
     }
 }
 
-#socials {
+.social-list {
     margin: 0;
     padding: 0;
 
@@ -71,7 +72,8 @@
         @include rem(margin-bottom, 20px);
     }
 
-    &, li {
+    &,
+    li {
         float: left;
     }
 
@@ -102,7 +104,7 @@
         }
 
         &.euth a {
-            color: #106CB6;
+            color: #106cb6;
             margin-top: -4px;
         }
     }

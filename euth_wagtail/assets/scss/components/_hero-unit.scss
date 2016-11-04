@@ -11,7 +11,7 @@
     justify-content: center;
 
     &:after {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         content: '\A';
         left: 0;
         min-height: 100%;
@@ -19,7 +19,6 @@
         top: 0;
         width: 100%;
     }
-
 }
 
 .euth-hero-unit-logo {
@@ -103,34 +102,34 @@
 .euth-home-hero {
     border: solid 5px $brand-brand3;
 
-    .euth-hero-unit-title {
-        @include rem(font-size, 60px);
-        @include rem(top, 163px);
-        color: #fff;
+    .euth-hero-unit-title:before {
+        @include rem(height, 107px);
+        @include rem(margin-bottom, 10px);
+        background: url(../images/logo-white.png) no-repeat center top;
+        background-size: contain;
+        display: block;
+        content: " ";
+    }
 
-        &:after {
-            background: rgba(0, 0, 0, 0.5);
-            content: '\A';
-            left: 0;
-            margin: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-
-        &:before {
-            @include rem(height, 107px);
-            @include rem(margin-bottom, 10px);
-            background: url('../images/logo-white.png') no-repeat center top;
-            background-size: contain;
-            display: block;
-            content: " ";
-            .svgasimg & {
-                background-image: url('../images/logo-white.svg');
-            }
-        }
+    .svgasimg .euth-hero-unit-title:before {
+        background-image: url(../images/logo-white.svg);
     }
 }
+
+.euth-hero-unit-title {
+    color: #fff;
+
+    &:after {
+        background: rgba(0, 0, 0, 0.5);
+        content: '\A';
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
 
 .euth-hero-unit-video {
     .close {

@@ -39,6 +39,7 @@ class SortMixin():
 
 class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
     model = idea_models.Idea
+    paginate_by = 15
     sort_default = '-created'
     sorts = [
         ('-created', _('Most recent')),

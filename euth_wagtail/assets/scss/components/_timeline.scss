@@ -9,7 +9,7 @@
         @include rem(margin-right, 10px);
         @include rem(font-size, 12px);
         font-weight: bold;
-        color: #FFF;
+        color: #fff;
     }
 
     ul {
@@ -20,21 +20,21 @@
         @include clearfix;
     }
 
-    li {
+    .timeline-phase {
         @include rem(margin, 0 15px 0 0);
         float: left;
 
         @media screen and (max-width: $screen-xs-max) {
             @include rem(margin-right, 10px);
         }
+    }
 
-        > span {
-            color: $gray;
-            @include rem(margin-right, 10px);
+    .timeline-arrow {
+        color: $gray;
+        @include rem(margin-right, 10px);
 
-            @media screen and (max-width: $screen-xs-max) {
-                @include rem(margin-right, 5px);
-            }
+        @media screen and (max-width: $screen-xs-max) {
+            @include rem(margin-right, 5px);
         }
     }
 
@@ -67,6 +67,7 @@
     li:last-child .dot {
         margin-right: 0;
     }
+
     .active .dot {
         background: $brand-brand2;
     }
