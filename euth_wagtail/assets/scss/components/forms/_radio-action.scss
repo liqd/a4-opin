@@ -28,19 +28,23 @@
         border: 2px solid $brand-success;
         color: $brand-success;
     }
+
     &.decline:before,
     &.delete:before {
         content: '\f00d';
         border: 2px solid $brand-danger;
         color: $brand-danger;
     }
+
     &.delete:before {
         content: '\f235';
     }
+
     :checked + &.accept:before {
         background-color: $brand-success;
         color: #fff;
     }
+
     :checked + &.decline:before,
     :checked + &.delete:before {
         background-color: $brand-danger;

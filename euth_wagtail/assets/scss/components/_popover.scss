@@ -28,6 +28,7 @@
     border-bottom: 0;
     @include rem(font-size, 12px);
 }
+
 .popover-content {
     @media screen and (max-width: $screen-xs-max) {
         max-height: 320px;

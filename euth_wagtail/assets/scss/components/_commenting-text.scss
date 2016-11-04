@@ -3,13 +3,16 @@
 }
 
 .commenting-paragraph {
+    @include rem(margin-bottom, 40px);
+
     @media screen and (min-width: $screen-sm-min) {
         display: flex;
     }
-    @include rem(margin-bottom, 40px);
 
     .btn-primary {
         @include rem(margin-top, 10px);
+        transition: opacity 0.15s;
+
         @media screen and (min-width: $screen-sm-min) {
             opacity: 0;
         }
@@ -24,6 +27,7 @@
             width: 4px;
             left: -2px;
         }
+
         .btn-primary {
             opacity: 1;
         }
@@ -43,10 +47,6 @@
         text-align: right;
     }
 
-    a:hover, a:focus {
-        text-decoration: none;
-    }
-
     &:before {
         content: '';
         position: absolute;
@@ -54,12 +54,17 @@
         bottom: 0;
         left: 0;
         width: 1px;
-        background-color: #297FB4;
+        background-color: #297fb4;
 
         transition: width 0.15s, left 0.15s;
 
         @media screen and (max-width: $screen-xs-max) {
             display: none;
         }
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: none;
     }
 }
