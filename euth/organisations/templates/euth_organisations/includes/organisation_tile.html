@@ -20,7 +20,7 @@
             </span>
             <h2 class="org-tile-title">
                 <a href="{% url 'organisation-detail' organisation.slug %}">
-                    {{ organisation.name }}
+                    {{ organisation.title }}
                 </a>
             </h2>
             <p class="org-tile-teaser">{{ organisation.description | truncatechars:200 }}</p>
