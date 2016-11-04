@@ -101,11 +101,22 @@
 
 .euth-home-hero {
     border: solid 5px $brand-brand3;
+
+    .euth-hero-unit-title:before {
+        @include rem(height, 107px);
+        @include rem(margin-bottom, 10px);
+        background: url(../images/logo-white.png) no-repeat center top;
+        background-size: contain;
+        display: block;
+        content: " ";
+    }
+
+    .svgasimg .euth-hero-unit-title:before {
+        background-image: url(../images/logo-white.svg);
+    }
 }
 
 .euth-hero-unit-title {
-    @include rem(font-size, 60px);
-    @include rem(top, 163px);
     color: #fff;
 
     &:after {
@@ -117,20 +128,8 @@
         top: 0;
         width: 100%;
     }
-
-    &:before {
-        @include rem(height, 107px);
-        @include rem(margin-bottom, 10px);
-        background: url(../images/logo-white.png) no-repeat center top;
-        background-size: contain;
-        display: block;
-        content: " ";
-    }
 }
 
-.svgasimg .euth-hero-unit-title:before {
-    background-image: url(../images/logo-white.svg);
-}
 
 .euth-hero-unit-video {
     .close {
