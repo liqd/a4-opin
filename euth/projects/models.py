@@ -31,12 +31,12 @@ class Project(base_models.TimeStampedModel):
     organisation = models.ForeignKey(
         org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(
-        max_length=120,
+        max_length=250,
         verbose_name=_('Short description of your project'),
         help_text=_('This short description will appear on '
                     'the header of the project and in the teaser. '
                     'It should briefly state the goal of the project '
-                    'in max. 120 chars.')
+                    'in max. 250 chars.')
     )
     information = RichTextUploadingField(
         config_name='image-editor',
