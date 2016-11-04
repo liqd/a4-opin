@@ -59,6 +59,7 @@ body {
     .dropdown-menu button {
         @include rem(padding-left, 20px);
         @include rem(padding-right, 20px);
+        font-weight: bold;
 
         @media (max-width: $screen-sm-min) {
             @include rem(margin-left, 40px);
