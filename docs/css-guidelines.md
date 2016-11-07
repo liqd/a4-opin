@@ -1,10 +1,8 @@
-CSS guidelines for developers
-============================
+#CSS guidelines for developers
 
 This document is explains the rulesets used for frontend development at Opin.me. 
 
-Coding style
------------------
+##Coding style
 
 Since we are using bootstrap, we found it convenient to try and adapt their coding style
 as much as possible. The guide can be found on (codeguide.co)[http://codeguide.co/]. 
@@ -17,8 +15,7 @@ request.
 To furthermore make sure, these guidelines are followed, we use (stylelint.io)[http://stylelint.io/]. The rules specified
 in the .stylelintrc.json file will be checked against the entire SCSS code before allowing a commit.
 
-Class names
-----------------------
+##Class names
 
 The conventions for class names are an extended version of the ones you can find on codeguide.co:
 
@@ -35,16 +32,18 @@ The conventions for class names are an extended version of the ones you can find
   `.dropdown-large` instead of `.drop-down-large` 
   and `.tweetbox-title` instead of `.tweet-box-title` 
   
-**Examples:**
+###Examples:
 
-* Button:
+####Button:
   ```
   <button class="btn btn-danger">Hello World</button>
                   |         |
               base class    |
                       modifier class
   ```
-* Tweet element:
+  
+  
+####Tweet element:
   ```
                 child-element class
             base class  |
