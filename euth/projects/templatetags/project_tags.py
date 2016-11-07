@@ -1,6 +1,6 @@
-from django.utils.translation import ungettext
-from django.utils.translation import ugettext as _
 from django import template
+from django.utils.translation import ugettext as _
+from django.utils.translation import ungettext
 
 register = template.Library()
 
@@ -19,6 +19,7 @@ def get_days(number):
         return _('a few hours left')
     else:
         return ''
+
 
 @register.assignment_tag
 def get_class(project):
