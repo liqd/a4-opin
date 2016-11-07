@@ -22,6 +22,7 @@ Class names
 
 The conventions for class names are an extended version of the ones you can find on codeguide.co:
 
+* no underscores, all lowercase
 * the first word in a class will always be the container of a component (this also goes for dash-
   separated words, they will be written together as one word) 
   `.btn`
@@ -30,6 +31,9 @@ The conventions for class names are an extended version of the ones you can find
   `.tweet-header`
 * should a class modify the usual appearance of an element, it will follow a dash as well
   `.btn-danger`
+* use dashes only to emphasize a child-parent relation or a modifier 
+  `.dropdown-large` instead of `.drop-down-large` 
+  and `.tweetbox-title` instead of `.tweet-box-title` 
   
 **Examples:**
 
@@ -49,7 +53,7 @@ The conventions for class names are an extended version of the ones you can find
       <div class="tweet-header tweet-header-large">
           <h3 class="tweet-title">Hello World</h3>
       </div>
-      <div class="tweet-body">
+      <div class="twee-body">
           Lorem ipsum dolor sit amet.
       </div>
   </div>
