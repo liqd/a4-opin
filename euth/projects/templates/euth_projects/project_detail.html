@@ -60,7 +60,7 @@
 
             {% if view.phase and view.phase.is_over and view.project.future_phases  %}
             {% trans 'Thanks for participating!' as title %}
-            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' as text %}
+            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the project! The next phase will start soon.' as text %}
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
 
             {% elif view.phase and view.phase.is_over %}

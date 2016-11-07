@@ -30,16 +30,26 @@
         margin: 0;
     }
 
+    &.finished .project-tile-image-link {
+        border: solid 5px $brand-brand2;
+    }
+
+    &.finished .project-tile-badge {
+        background-color: $brand-brand2;
+        color: $gray-darker;
+        text-transform: uppercase;
+    }
+
     &.public .project-tile-image-link {
         border: solid 5px $brand-brand3;
     }
 
     &.running-out .project-tile-badge {
-        background-color: #c8423a;
+        background-color: $brand-danger;
     }
 
     &.running-out .project-tile-image-link {
-        border: solid 5px #c8423a;
+        border: solid 5px $brand-danger;
     }
 
     &.private .project-tile-badge {
@@ -66,17 +76,10 @@
 }
 
 .project-tile-badge {
-    border-radius: 100px;
-    @include rem(padding, 4px 20px);
+    @extend .euth-badge;
     position: absolute;
     @include rem(left, 27px);
     @include rem(bottom, 10px);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 2;
-    letter-spacing: -0.2px;
 }
 
 .project-tile-body {
@@ -155,7 +158,22 @@
 }
 
 .project-tile-list {
-    @include rem(padding, 50px 40px);
+    @include rem(padding, 30px 30px 30px 0);
+
+    .col-md-9,
+    .col-xs-11 {
+        padding-left: 0;
+    }
+
+    .col-md-1,
+    .col-xs-1 {
+        @include rem(padding-right, 10px);
+        @include rem(padding-left, 0);
+    }
+}
+
+.project-tile-badges {
+    @include rem(margin-top, 10px);
 }
 
 .badge-group {

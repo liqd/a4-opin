@@ -1,14 +1,17 @@
-{% load i18n thumbnail %}
-<div class="project-tile {{ project.is_public|yesno:'public,private' }} {% if not project.image %} no-image {% endif %} {% if project.days_left <= 5 %} running-out {% endif %}">
+{% load i18n project_tags thumbnail %}
+{% get_class project as class %}
+<div class="project-tile {{ class }} {% if not project.image %} no-image {% endif %}">
     <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
        style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');">
         <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
-        {% if project.days_left >= 1 and project.days_left <= 5 %}
-        <p class="project-tile-badge">{% blocktrans count days=project.days_left %}{{ days }} day left{% plural %}{{ days }} days left{% endblocktrans %}</p>
-        {% elif project.days_left == 0 %}
-        <p class="project-tile-badge">{% trans 'a few hours left' %}</p>
+
+        {% get_days project.days_left as days %}
+        {% if project.has_finished %}
+        <p class="project-tile-badge">{% trans 'finished' %}</p>
+        {% elif days %}
+        <p class="project-tile-badge">{{ days }}</p>
         {% elif not project.is_public %}
-        <p class="project-tile-badge">private</p>
+        <p class="project-tile-badge">{% trans 'private' %}</p>
         {% endif %}
     </a>
     <div class="project-tile-body">
