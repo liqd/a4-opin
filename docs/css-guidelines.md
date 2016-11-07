@@ -52,7 +52,7 @@ The conventions for class names are an extended version of the ones you can find
       <div class="tweet-header tweet-header-large">
           <h3 class="tweet-title">Hello World</h3>
       </div>
-      <div class="twee-body">
+      <div class="tweet-body">
           Lorem ipsum dolor sit amet.
       </div>
   </div>
