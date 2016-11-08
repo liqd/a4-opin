@@ -14,7 +14,7 @@
                         <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                             <span class="circle-bg"><img src="{{ view.organisation.logo|thumbnail_url:'avatar_small' }}"
-                                                         alt=""></span>{{ view.organisation.name }}
+                                                         alt=""></span>{{ view.organisation.title }}
                             {% if view.other_organisations_of_user %}
                             <span class="caret"></span>
                             {% endif %}
@@ -22,7 +22,7 @@
                         {% if view.other_organisations_of_user %}
                         <ul class="dropdown-menu" aria-labelledby="dLabel">
                             {% for organisation in view.other_organisations_of_user %}
-                            <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">{{ organisation.name }}</a></li>
+                            <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">{{ organisation.title }}</a></li>
                             {% endfor %}
                         </ul>
                         {% endif %}
