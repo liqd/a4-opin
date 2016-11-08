@@ -146,4 +146,4 @@ class Project(base_models.TimeStampedModel):
 
     @property
     def has_finished(self):
-        return self.past_phases.count() == self.phases.count()
+        return not self.active_phase and self.future_phases.count() == 0
