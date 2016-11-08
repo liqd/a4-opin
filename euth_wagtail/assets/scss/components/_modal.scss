@@ -81,22 +81,6 @@
     .row {
         padding-top: 10px;
     }
-
-    .btn-cta {
-        @include rem(border-radius, 40px);
-        @include rem(padding, 0 20px);
-        @extend .btn-primary;
-        font-weight: bold;
-        line-height: 50px;
-        position: relative;
-        text-transform: uppercase;
-        background-color: $brand-brand1;
-
-        &:focus,
-        &:hover {
-            outline: none;
-        }
-    }
 }
 
 .modal-backdrop {
@@ -123,4 +107,3 @@
 .loading {
     cursor: wait;
 }
-

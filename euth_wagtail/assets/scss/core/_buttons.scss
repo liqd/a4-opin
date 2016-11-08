@@ -32,20 +32,12 @@
 }
 
 .btn {
+    @include rem(padding, 10px 20px);
     border: 0;
     text-transform: uppercase;
     font-weight: bold;
     transition: color 0.2s, background 0.2s;
     -webkit-transition: color 0.2s, background 0.2s;
-}
-
-.btn-cta {
-    @include rem(border-radius, 40px);
-    @include rem(padding, 0 20px);
-    font-weight: bold;
-    line-height: 50px;
-    margin: 0 auto;
-    text-transform: uppercase;
 }
 
 .btn-hover-primary {
@@ -155,12 +147,6 @@
         background-color: transparent;
         box-shadow: none;
     }
-}
-
-.danger-button {
-    @extend .btn;
-    @extend .base-button;
-    @extend .btn-danger;
 }
 
 .logout-button-form {
