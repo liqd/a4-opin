@@ -124,7 +124,8 @@ var Paragraph = React.createClass({
               </button> }
               <button
                 className="btn btn-hover-danger"
-                onClick={this.delete}>
+                onClick={this.delete}
+                type="button">
                 <i className="fa fa-trash" />
               </button>
             </div>
