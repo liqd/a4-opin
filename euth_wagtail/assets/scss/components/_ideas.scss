@@ -163,6 +163,7 @@
     @extend .idea-list-tile;
     display: block;
     @include rem(font-size, $font-size-large);
+    @include rem(margin-top, 50px);
     line-height: $tile-list-thumbnail-size;
     background: transparent;
     border: 2px solid $brand-success;

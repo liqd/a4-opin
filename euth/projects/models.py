@@ -136,7 +136,8 @@ class Project(base_models.TimeStampedModel):
 
     @property
     def future_phases(self):
-        phases = self.phases.filter(start_date__gt=timezone.now())
+        phases = self.phases.filter(models.Q(start_date__gt=timezone.now())
+                                    | models.Q(start_date=None))
         return phases.order_by('start_date')
 
     @property

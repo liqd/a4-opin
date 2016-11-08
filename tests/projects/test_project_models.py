@@ -122,15 +122,20 @@ def test_future_phases_property(module, phase_factory):
         start_date=parse('2013-01-01 18:00:00 UTC'),
         end_date=parse('2013-01-02 18:00:00 UTC')
     )
+    phase4 = phase_factory(
+        module=module,
+        start_date=None,
+        end_date=None
+    )
 
     with freeze_time(phase3.start_date):
-        assert list(project.future_phases) == [phase2, phase1]
+        assert list(project.future_phases) == [phase4, phase2, phase1]
     with freeze_time(phase3.end_date):
-        assert list(project.future_phases) == [phase2, phase1]
+        assert list(project.future_phases) == [phase4, phase2, phase1]
     with freeze_time(phase2.start_date):
-        assert list(project.future_phases) == [phase1]
+        assert list(project.future_phases) == [phase4, phase1]
     with freeze_time(phase2.end_date):
-        assert list(project.future_phases) == [phase1]
+        assert list(project.future_phases) == [phase4, phase1]
 
 
 @pytest.mark.django_db
