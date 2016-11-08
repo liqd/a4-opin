@@ -78,6 +78,14 @@
     .button {
         @include rem(margin-top, 13px);
     }
+
+    a {
+        color: #fff;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
 }
 
 .euth-hero-unit-title {
