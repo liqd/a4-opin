@@ -1,0 +1,126 @@
+.modal-content {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    text-align: center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+
+    .modal-footer {
+        @include rem(padding, 60px 0);
+        border: none;
+        text-align: center;
+    }
+
+    .modal-title {
+        font-family: $font-family-sans-serif;
+        font-weight: normal;
+
+        &:before {
+            @include rem(height, 100px);
+            @include rem(margin-bottom, 40px);
+            background: url(/assets/images/attention.svg) no-repeat center top;
+            background-size: contain;
+            content: "";
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .modal-body.success {
+        @include rem(padding-bottom, 80px);
+
+        .modal-title:before {
+            content: none;
+        }
+
+        .fa {
+            color: $brand-success;
+            display: block;
+            text-align: center;
+            font-size: 100px;
+        }
+    }
+
+    .modal-header {
+        border: none;
+    }
+
+    .modal-body {
+        padding: 0 60px 0 60px;
+    }
+
+    .close {
+        opacity: 1;
+
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+
+        & i {
+            color: $gray-darker;
+        }
+    }
+
+    .btn {
+        text-transform: uppercase;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+    }
+
+    .row {
+        padding-top: 10px;
+    }
+
+    .btn-cta {
+        @include rem(border-radius, 40px);
+        @include rem(padding, 0 20px);
+        @extend .btn-primary;
+        font-weight: bold;
+        line-height: 50px;
+        position: relative;
+        text-transform: uppercase;
+        background-color: $brand-brand1;
+
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+    }
+}
+
+.modal-backdrop {
+    background-color: #0076ae;
+    opacity: 0.9;
+}
+
+.report-message {
+    @include rem(margin-top, 80px);
+}
+
+.modal.permission {
+    .modal-title:before {
+        content: none;
+    }
+
+    .modal-title .fa {
+        display: block;
+        text-align: center;
+        font-size: 100px;
+    }
+}
+
+.loading {
+    cursor: wait;
+}
+

@@ -1,0 +1,14 @@
+.membership-request {
+    .alert {
+        @include rem(margin-top, 20px);
+    }
+}
+
+.center-wrapper {
+    text-align: center;
+
+    button,
+    a {
+        text-align: center;
+    }
+}

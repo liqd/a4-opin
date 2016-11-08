@@ -1,0 +1,46 @@
+.django-ckeditor-widget {
+    width: 100%;
+
+    .cke_top,
+    .cke_bottom,
+    .cke_toolgroup {
+        box-shadow: none;
+        background: #e7ecee;
+    }
+
+    .cke_top {
+        padding: 0;
+    }
+
+    .cke_toolbar {
+        border-right: 1px solid #ced9db;
+    }
+
+    a.cke_button {
+        border-radius: 0;
+        padding: 6px 8px;
+    }
+
+    a.cke_button_off:hover,
+    a.cke_button_off:focus,
+    a.cke_button_off:active,
+    a.cke_button_disabled:hover,
+    a.cke_button_disabled:focus,
+    a.cke_button_disabled:active,
+    a.cke_button_on {
+        box-shadow: none;
+        background: darken(#fff, 1%);
+    }
+
+    a.cke_button_on:hover,
+    a.cke_button_on:focus,
+    a.cke_button_on:active {
+        box-shadow: none;
+    }
+
+    .cke_toolgroup {
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+    }
+}

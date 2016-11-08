@@ -1,0 +1,107 @@
+.custom-dropdown {
+    li {
+        a {
+            @include rem(padding, 10px);
+            text-align: center;
+        }
+    }
+}
+
+.custom-dropdown-menu {
+    @include rem(border-radius, 3px);
+    border: solid 1px $gray;
+
+    .divider {
+        margin: 0;
+        background-color: $gray;
+    }
+
+    li {
+        a {
+            text-transform: uppercase;
+            @include rem(font-size, 12px);
+            @include rem(letter-spacing, -0.2px);
+            font-family: $font-family-sans-serif;
+            color: $black;
+            @include rem(font-size, 12px);
+        }
+    }
+}
+
+.action-bar {
+    nav {
+        background-color: transparent;
+        border-color: transparent;
+        margin: 0;
+
+        li a {
+            @include rem(padding, 35px 15px 35px 0);
+        }
+    }
+
+    @media (max-width: $screen-sm-min) {
+        .navbar-nav {
+            float: left;
+            margin: 0;
+        }
+
+        .navbar-nav li {
+            float: left;
+        }
+
+        .navbar-right {
+            float: right !important;
+            margin-right: -15px;
+        }
+
+        .navbar-right .dropdown-menu {
+            position: absolute;
+            right: 0;
+            left: auto;
+            background-color: white;
+        }
+    }
+
+    .dropdown {
+        @extend .custom-dropdown;
+    }
+
+    .navbar {
+        li .dropdown-menu {
+            @extend .custom-dropdown-menu;
+            margin-top: -40px !important;
+        }
+    }
+
+    .open {
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+
+        a,
+        a:focus,
+        a:hover {
+            background-color: transparent;
+        }
+    }
+
+    .navbar-default,
+    .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        background-color: transparent;
+    }
+
+    .dropdown-toggle {
+        background-color: transparent;
+
+        &:focus,
+        &:hover,
+        &:active,
+        &:visited {
+            outline: none;
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+}

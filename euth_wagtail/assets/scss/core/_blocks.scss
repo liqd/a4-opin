@@ -1,0 +1,124 @@
+.block-title,
+.page-title {
+    @include rem(font-size, $font-size-xlarge);
+    @include rem(margin, 0 0 25px 0);
+    text-align: center;
+}
+
+.block,
+.block-inner {
+    @include rem(padding, $block-vpadding 0);
+    @include rem(font-size, $font-size-medium);
+    line-height: 1.4;
+    text-align: center;
+
+    &.m-highlight,
+    &.m-boxed,
+    & input,
+    & textarea {
+        color: #fff;
+    }
+
+    &.m-highlight {
+        background: $brand-brand1;
+
+        .button {
+            @extend .button;
+        }
+
+        a {
+            color: $brand-brand2;
+        }
+    }
+
+    &.m-accent {
+        background-color: #f3f3f3;
+    }
+
+    &.m-highlight-purple {
+        background: #3c487d;
+        @include rem(padding, 140px 0);
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button {
+            @extend .button;
+        }
+
+        p,
+        h3,
+        a,
+        & {
+            text-align: left;
+            color: #fff;
+        }
+
+        .more {
+            float: right;
+        }
+    }
+
+    &.m-boxed {
+        padding: 0;
+
+        .container-inner {
+            @extend .container-medium;
+            padding: $block-vpadding 0;
+            background: $brand-brand3;
+        }
+
+        .info-box-text {
+            @extend .col-md-10;
+            float: none;
+            margin: 0 auto;
+        }
+
+        &.m-variation .container-inner {
+            background: $gray-lighter;
+        }
+    }
+}
+
+.block + .page-body {
+    @include rem(margin-top, -$block-vpadding);
+}
+
+.block-inner {
+    padding: 0;
+
+    img {
+        @include rem(margin, 20px 0);
+    }
+}
+
+.block-image {
+    @include rem(padding-bottom, $block-vpadding);
+    text-align: center;
+}
+
+.rich-text {
+    @include rem(padding-bottom, $block-vpadding);
+    text-align: left;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @extend .block-title;
+        @include rem(font-size, $font-size-large);
+        @include rem(margin, 0 0 $font-size-large);
+        text-align: center;
+    }
+
+    p {
+        @include rem(margin, 0 0 $font-size-large);
+    }
+}
+
+.m-clear {
+    clear: left;
+}

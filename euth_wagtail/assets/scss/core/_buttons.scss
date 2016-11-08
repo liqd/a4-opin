@@ -1,0 +1,200 @@
+.button {
+    @include rem(border-radius, 25px);
+    @include rem(font-size, $font-size-medium);
+    @include rem(padding, 10px 30px);
+    background: $brand-brand2;
+    color: $gray-darker;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    transition: color 0.2s, background 0.2s;
+    -webkit-transition: color 0.2s, background 0.2s;
+
+    &:focus,
+    &:hover {
+        background: darken($brand-brand2, 10%);
+        color: $gray-darker;
+        text-decoration: none;
+    }
+
+    &.button-alt {
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+
+        &:focus,
+        &:hover {
+            background: #fff;
+            color: #000;
+        }
+    }
+}
+
+.btn {
+    border: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.2s, background 0.2s;
+    -webkit-transition: color 0.2s, background 0.2s;
+}
+
+.btn-cta {
+    @include rem(border-radius, 40px);
+    @include rem(padding, 0 20px);
+    font-weight: bold;
+    line-height: 50px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.btn-hover-primary {
+    @include button-hover($brand-primary);
+}
+
+.btn-hover-danger {
+    @include button-hover($brand-danger);
+}
+
+.btn-hover-success {
+    @include button-hover($brand-success);
+}
+
+.btn-ghost {
+    border: 1px solid currentColor;
+    text-transform: uppercase;
+    background: transparent;
+    @include rem(padding, 10px);
+
+    &.btn-primary {
+        color: $brand-primary;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: transparent;
+            color: darken($brand-primary, 20%)
+        }
+    }
+}
+
+.button-white {
+    border-radius: 25px;
+    background-color: #fff;
+    color: $brand-brand1;
+    @include rem(font-size, $font-size-small);
+
+    .fa-link {
+        margin-right: 10px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: #f4f4f4;
+        color: darken($brand-brand1, 10%);
+    }
+}
+
+.feedback-button {
+    @extend .button;
+    @include rem(border-radius, 0 0 25px 25px);
+    @include rem(margin-top, $navbar-height);
+    @include rotate(90);
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 2px;
+    position: fixed;
+    background: $brand-brand1;
+    color: #fff;
+    right: 0;
+    transform-origin: 100% 0;
+    top: 40%;
+    z-index: 100;
+
+    &:hover,
+    &:focus {
+        background-color: darken($brand-brand1, 10%);
+        color: $gray-lighter;
+    }
+
+    @media (max-width: $screen-sm-min) {
+        display: none;
+    }
+}
+
+.base-button {
+    border-radius: 0;
+    text-transform: uppercase;
+    @include rem(padding, 14px 57px 14px 57px);
+    @include rem(font-size, 12px);
+    @include rem(letter-spacing, -0.2px);
+    font-weight: bold;
+    font-family: $font-family-sans-serif;
+}
+
+.submit-button {
+    @include rem(font-size, $font-size-base);
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .base-button;
+    background-color: $brand-brand1;
+    padding: 10px 30px
+}
+
+.cancel-button {
+    @extend .btn;
+    @extend .base-button;
+    border: none;
+    background-color: transparent;
+    color: $black;
+
+    &:focus,
+    &:hover,
+    &:active,
+    &:visited {
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.danger-button {
+    @extend .btn;
+    @extend .base-button;
+    @extend .btn-danger;
+}
+
+.logout-button-form {
+    & .btn {
+        background-color: transparent;
+        padding: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:active {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+    }
+}
+
+.button-row {
+    @media (max-width: $screen-xs) {
+        a,
+        button {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media (min-width: $screen-xs) {
+        .col-xs-6 {
+            width: auto;
+        }
+    }
+}

@@ -31,12 +31,12 @@ class Project(base_models.TimeStampedModel):
     organisation = models.ForeignKey(
         org_models.Organisation, on_delete=models.CASCADE)
     description = models.CharField(
-        max_length=120,
+        max_length=250,
         verbose_name=_('Short description of your project'),
         help_text=_('This short description will appear on '
                     'the header of the project and in the teaser. '
                     'It should briefly state the goal of the project '
-                    'in max. 120 chars.')
+                    'in max. 250 chars.')
     )
     information = RichTextUploadingField(
         config_name='image-editor',
@@ -51,7 +51,7 @@ class Project(base_models.TimeStampedModel):
         verbose_name=_('Access to the project'),
         help_text=_('Please indicate who should be able to participate in '
                     'your project. Teasers for your project including title '
-                    'and short description will always be visble to everyone')
+                    'and short description will always be visible to everyone')
     )
     is_draft = models.BooleanField(default=True)
     image = models.ImageField(
@@ -134,7 +134,11 @@ class Project(base_models.TimeStampedModel):
         return phase_models.Phase.objects.filter(module__project=self)
 
     @property
-    def last_phase(self):
-        phases = self.phases.filter(end_date__lt=timezone.now())
-        phases_ordered = phases.order_by('end_date').last()
-        return phases_ordered
+    def future_phases(self):
+        phases = self.phases.filter(start_date__gt=timezone.now())
+        return phases.order_by('start_date')
+
+    @property
+    def past_phases(self):
+        phases = self.phases.filter(end_date__lte=timezone.now())
+        return phases.order_by('-end_date')

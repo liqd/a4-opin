@@ -65,3 +65,11 @@ def test_blogapp_phase_view(phase):
 @pytest.mark.django_db
 def test_blogapp_phase_feature(phase):
     assert phase.has_feature('comment', blog_models.Post)
+
+
+@pytest.mark.django_db
+def test_is_over_property(phase):
+    with freeze_time(phase.start_date):
+        assert phase.is_over is False
+    with freeze_time(phase.end_date):
+        assert phase.is_over is True

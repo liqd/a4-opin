@@ -42,8 +42,8 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=IS_ACTIVE_HELP)
     date_joined = models.DateTimeField(editable=False, default=timezone.now)
-    avatar = models.ImageField(upload_to='users/images', blank=True,
-                               validators=[euth_validators.validate_logo])
+    _avatar = models.ImageField(upload_to='users/images', blank=True,
+                                validators=[euth_validators.validate_logo])
 
     objects = auth_models.UserManager()
 
@@ -56,6 +56,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     def __str__(self):
         return self.get_full_name()
+
+    @property
+    def avatar(self):
+        return self._avatar
 
     def get_full_name(self):
         """

@@ -2,17 +2,17 @@
 {% load url_translations base_tags wagtailcore_tags %}
 {% load static from staticfiles %}
 {% load_site_menu "footer" as footer_menu_items %}
-<footer id="footer">
+<footer id="footer" class="footer">
     <div class="container">
         <p class="h6 sans-serif">Connect with us</p>
-        <ul id="socials">
+        <ul id="socials" class="social-list">
             <li class="facebook"><a href="http://facebook.com/euth.net" title="facebook" target="_new"><i class="icon-facebook"></i></a></li>
             <li class="twitter"><a href="http://twitter.com/euthnet" title="twitter" target="_new"><i class="icon-twitter"></i></a></li>
             <li class="euth"><a href="http://euth.net" title="euth.net" target="_new"><i class="icon-euth"></i></a></li>
         </ul>
         <ul class="nav">
             {% for menuitem in footer_menu_items %}
-            <li><a href="{{ menuitem.url }}">{{ menuitem.translated_menu_title }}</a></li>
+            <li class="footer-item"><a href="{{ menuitem.url }}">{{ menuitem.translated_menu_title }}</a></li>
             {% endfor %}
         </ul>
     </div>

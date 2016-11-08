@@ -1,0 +1,63 @@
+.dashboard {
+    @include rem(padding, 113px 0 0 0);
+    display: flex;
+}
+
+.circle-bg {
+    display: inline-block;
+    @include rem(width, 50px);
+    @include rem(height, 50px);
+    @include rem(line-height, 46px);
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.dashboard-content {
+    & h1 {
+        margin: 0;
+        @include rem(font-size, 30px);
+    }
+}
+
+h1.dashboard-title {
+    font-family: $font-family-sans-serif;
+    margin-top: 0;
+    font-weight: bold;
+    @include rem(font-size, $font-size-medium);
+    @include rem(margin-bottom, 30px);
+
+    & + .general-form .tabs {
+        @include rem(margin-top, -30px);
+        @include rem(padding-top, 10px);
+    }
+}
+
+.email_list {
+    .checkbox label {
+        font-weight: 400;
+        @include rem(margin-bottom, 5px);
+    }
+}
+
+.blueprint-tile {
+
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    margin: 1em 0;
+
+    > h2 {
+        text-align: center;
+        line-height: 2em;
+        margin: 0 0 0 0;
+        background-color: $brand-primary;
+        color: #fff;
+    }
+
+    > .blueprint-description {
+        margin: 1em;
+    }
+
+    > .blueprint-footer {
+        text-align: center;
+        margin: 1em;
+    }
+}

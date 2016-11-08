@@ -48,5 +48,9 @@ class Phase(models.Model):
     def view(self):
         return content[self.type].view
 
+    @property
+    def is_over(self):
+        return self.end_date <= timezone.now()
+
     def has_feature(self, feature, model):
         return content[self.type].has_feature(feature, model)
