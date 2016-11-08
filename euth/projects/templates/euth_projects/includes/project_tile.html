@@ -6,12 +6,12 @@
         <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
 
         {% get_days project.days_left as days %}
-        {% if project.has_finished %}
-        <p class="project-tile-badge">{% trans 'finished' %}</p>
+        {% if not project.is_public %}
+        <p class="badge private">{% trans 'private' %}</p>
+        {% elif project.has_finished %}
+        <p class="badge finished">{% trans 'finished' %}</p>
         {% elif days %}
-        <p class="project-tile-badge">{{ days }}</p>
-        {% elif not project.is_public %}
-        <p class="project-tile-badge">{% trans 'private' %}</p>
+        <p class="badge running-out">{{ days }}</p>
         {% endif %}
     </a>
     <div class="project-tile-body">
