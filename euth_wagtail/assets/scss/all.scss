@@ -7,7 +7,6 @@
 @import "core/type";
 @import "core/containers";
 @import "core/buttons";
-@import "core/blocks";
 @import "core/tiles";
 @import "core/footer";
 @import "core/tabs";
@@ -17,14 +16,8 @@
 @import "components/orgs";
 @import "components/menus";
 @import "components/hero-unit";
-@import "components/info-block";
-@import "components/video-block";
-@import "components/inline-images-block";
 @import "components/commenting-text";
-@import "components/wide-image-block";
 @import "components/language-switch-list";
-@import "components/accordion-block";
-@import "components/image-text-list-block";
 @import "components/comments";
 @import "components/modal";
 @import "components/label";
@@ -40,7 +33,6 @@
 @import "components/ideas";
 @import "components/dashboard";
 @import "components/dashboard-nav";
-@import "components/rss-feed-import";
 @import "components/membership-request";
 @import "components/membership-invite";
 @import "components/phase-form";
@@ -54,3 +46,13 @@
 @import "components/info-note";
 @import "components/badges";
 @import "components/user-indicator";
+
+// Wagtail blocks
+@import "wagtail-blocks/blocks";
+@import "wagtail-blocks/info-block";
+@import "wagtail-blocks/video-block";
+@import "wagtail-blocks/inline-images-block";
+@import "wagtail-blocks/wide-image-block";
+@import "wagtail-blocks/accordion-block";
+@import "wagtail-blocks/image-text-list-block";
+@import "wagtail-blocks/rss-feed-import";
