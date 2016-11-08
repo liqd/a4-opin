@@ -35,7 +35,7 @@
 
                 {% get_days project.days_left as days %}
                 <div class="project-tile-badges">
-                    <span class="type euth-badge">{{ project.module_set.first.phase_set.first.content.module_name }}</span> {% if not project.is_public %}<span class="private euth-badge">private</span>{% endif%} {% if project.has_finished %}<span class="finished euth-badge">Finished</span>{% endif %} {% if days %}<span class="running-out euth-badge">{{ days }}</span>{% endif %}
+                    <span class="type badge">{{ project.module_set.first.phase_set.first.content.module_name }}</span> {% if not project.is_public %}<span class="private badge">private</span>{% endif%} {% if project.has_finished %}<span class="finished badge">Finished</span>{% endif %} {% if days %}<span class="running-out badge">{{ days }}</span>{% endif %}
                 </div>
             </div>
 

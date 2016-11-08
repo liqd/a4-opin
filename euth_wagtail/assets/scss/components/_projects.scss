@@ -34,27 +34,12 @@
         border: solid 5px $brand-brand2;
     }
 
-    &.finished .project-tile-badge {
-        background-color: $brand-brand2;
-        color: $gray-darker;
-        text-transform: uppercase;
-    }
-
     &.public .project-tile-image-link {
         border: solid 5px $brand-brand3;
     }
 
-    &.running-out .project-tile-badge {
-        background-color: $brand-danger;
-    }
-
     &.running-out .project-tile-image-link {
         border: solid 5px $brand-danger;
-    }
-
-    &.private .project-tile-badge {
-        background-color: $brand-brand1;
-        text-transform: uppercase;
     }
 
     &.private .project-tile-image-link {
@@ -73,13 +58,12 @@
     .project-tile-org-avatar {
         border-radius: 50%;
     }
-}
 
-.project-tile-badge {
-    @extend .euth-badge;
-    position: absolute;
-    @include rem(left, 27px);
-    @include rem(bottom, 10px);
+    .badge {
+        position: absolute;
+        @include rem(left, 27px);
+        @include rem(bottom, 10px);
+    }
 }
 
 .project-tile-body {
@@ -174,8 +158,4 @@
 
 .project-tile-badges {
     @include rem(margin-top, 10px);
-}
-
-.badge-group {
-    @include rem(margin-bottom, 50px);
 }
