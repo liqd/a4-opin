@@ -5,14 +5,14 @@ This document is explains the rulesets used for frontend development at Opin.me.
 ##Coding style
 
 Since we are using bootstrap, we found it convenient to try and adapt their coding style
-as much as possible. The guide can be found on (codeguide.co)[http://codeguide.co/]. 
+as much as possible. The guide can be found on [http://codeguide.co/]. 
 
 We did make one small deviation from the codeguide and decided to use four spaces instead
 of two. 
 You are encouraged to follow these rulesets to ensure a quick merge of your pull-
 request.
 
-To furthermore make sure, these guidelines are followed, we use (stylelint.io)[http://stylelint.io/]. The rules specified
+To furthermore make sure, these guidelines are followed, we use [http://stylelint.io/]. The rules specified
 in the .stylelintrc.json file will be checked against the entire SCSS code before allowing a commit.
 
 ##Class names
