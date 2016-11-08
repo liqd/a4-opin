@@ -13,6 +13,7 @@
 
     .divider {
         margin: 0;
+
         background-color: $gray;
     }
 
@@ -30,9 +31,11 @@
 
 .action-bar {
     nav {
-        background-color: transparent;
-        border-color: transparent;
         margin: 0;
+
+        background-color: transparent;
+
+        border-color: transparent;
 
         li a {
             @include rem(padding, 35px 15px 35px 0);
@@ -58,6 +61,7 @@
             position: absolute;
             right: 0;
             left: auto;
+
             background-color: white;
         }
     }
@@ -74,8 +78,11 @@
     }
 
     .open {
-        outline: none;
+
         background-color: transparent;
+
+        outline: none;
+
         box-shadow: none;
 
         a,
@@ -99,8 +106,11 @@
         &:hover,
         &:active,
         &:visited {
-            outline: none;
+
             background-color: transparent;
+
+            outline: none;
+
             box-shadow: none;
         }
     }
