@@ -30,21 +30,16 @@
         margin: 0;
     }
 
+    &.finished .project-tile-image-link {
+        border: solid 5px $brand-brand2;
+    }
+
     &.public .project-tile-image-link {
         border: solid 5px $brand-brand3;
     }
 
-    &.running-out .project-tile-badge {
-        background-color: #c8423a;
-    }
-
     &.running-out .project-tile-image-link {
-        border: solid 5px #c8423a;
-    }
-
-    &.private .project-tile-badge {
-        background-color: $brand-brand1;
-        text-transform: uppercase;
+        border: solid 5px $brand-danger;
     }
 
     &.private .project-tile-image-link {
@@ -63,20 +58,12 @@
     .project-tile-org-avatar {
         border-radius: 50%;
     }
-}
 
-.project-tile-badge {
-    border-radius: 100px;
-    @include rem(padding, 4px 20px);
-    position: absolute;
-    @include rem(left, 27px);
-    @include rem(bottom, 10px);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 2;
-    letter-spacing: -0.2px;
+    .badge {
+        position: absolute;
+        @include rem(left, 27px);
+        @include rem(bottom, 10px);
+    }
 }
 
 .project-tile-body {
@@ -155,9 +142,20 @@
 }
 
 .project-tile-list {
-    @include rem(padding, 50px 40px);
+    @include rem(padding, 30px 30px 30px 0);
+
+    .col-md-9,
+    .col-xs-11 {
+        padding-left: 0;
+    }
+
+    .col-md-1,
+    .col-xs-1 {
+        @include rem(padding-right, 10px);
+        @include rem(padding-left, 0);
+    }
 }
 
-.badge-group {
-    @include rem(margin-bottom, 50px);
+.project-tile-badges {
+    @include rem(margin-top, 10px);
 }

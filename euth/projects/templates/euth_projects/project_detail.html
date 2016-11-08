@@ -60,7 +60,7 @@
 
             {% if view.phase and view.phase.is_over and view.project.future_phases  %}
             {% trans 'Thanks for participating!' as title %}
-            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the process! The next phase will start soon.' as text %}
+            {% trans 'This phase is already over. Thanks a lot to everyone for taking part in the project! The next phase will start soon.' as text %}
             {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
 
             {% elif view.phase and view.phase.is_over %}
@@ -71,21 +71,18 @@
 
             {% if view.phase %}
             <h2>{{ view.phase.name }}</h2>
+            {% if view.phase and not view.phase.is_over %}
+            <p>
+                <strong>{% trans 'Start Date' %}</strong>
+                {{ view.phase.start_date.date }}
+                <br />
+                <strong>{% trans 'End Date' %}</strong>
+                {{ view.phase.end_date.date }}
+            </p>
+            {% endif %}
             <p class="idea-list-description">{{ view.phase.description }} </p>
             {% endif %}
 
-            {% if view.phase and not view.phase.is_over %}
-            <div class="badge-group">
-                <span class="badge">
-                    <strong>{% trans 'Start Date' %}</strong>
-                    {{ view.phase.start_date.date }}
-                </span>
-                <span class="badge">
-                    <strong>{% trans 'End Date' %}</strong>
-                    {{ view.phase.end_date.date }}
-                </span>
-            </div>
-            {% endif %}
 
             {% block phase_content %}{% endblock %}
         </div>

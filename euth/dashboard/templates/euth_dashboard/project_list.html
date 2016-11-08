@@ -1,5 +1,5 @@
 {% extends "euth_dashboard/base_dashboard.html" %}
-{% load widget_tweaks i18n %}
+{% load project_tags widget_tweaks i18n %}
 
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{% trans 'Projects' %}</h1>
@@ -12,32 +12,43 @@
     {% trans 'No projects created' %}
     {% else %}
     <ul>
-      {% for project in project_list %}
-      <li class="tile-list project-tile-list">
-          <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
-              <strong>
-                  {{ project.name }}
-              </strong>
-          </a>
-          {% if not project.is_public %}
-          <span class="label label-danger">private</span>
-          {% endif %}
-          <span class="label label-primary">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
-          {% if project.active_phase %}
-          <span class="text-muted">Phase {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
-          {% endif %}
-          <div class="pull-right">
-              {% if not project.is_public %}
-              <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Users' %}">
-                  <i class="fa fa-users" aria-hidden="true"></i>
-              </a>
-              {% endif %}
-              <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Edit project' %}">
-                  <i class="fa fa-edit"></i>
-              </a>
-              <a href="{% url 'project-detail' project.slug %}" title="{% trans 'View project' %}"><i class="fa fa-eye"></i></a>
-          <div>
-        </a>
+        {% for project in project_list %}
+        <li class="row tile-list project-tile-list">
+
+            <div class="col-md-1 col-xs-1">
+                <div class="pull-right">
+                    <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-xs-11">
+                <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
+                    <strong>
+                    {{ project.name }}
+                    </strong>
+                </a>
+                {% if project.active_phase %}
+                <span class="text-muted">Phase {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
+                {% endif %}
+
+                {% get_days project.days_left as days %}
+                <div class="project-tile-badges">
+                    <span class="type badge">{{ project.module_set.first.phase_set.first.content.module_name }}</span> {% if not project.is_public %}<span class="private badge">private</span>{% endif%} {% if project.has_finished %}<span class="finished badge">Finished</span>{% endif %} {% if days %}<span class="running-out badge">{{ days }}</span>{% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="pull-right">
+                {% if not project.is_public %}
+                    <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Users' %}">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+                <a href="{% url 'project-detail' project.slug %}" title="{% trans 'View project' %}"><i class="fa fa-eye"></i></a>
+                </div>
+          </div>
       </li>
       {% endfor %}
     </ul>

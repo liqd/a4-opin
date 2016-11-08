@@ -40,11 +40,12 @@ class Project(base_models.TimeStampedModel):
     )
     information = RichTextUploadingField(
         config_name='image-editor',
-        verbose_name='Description of your project',
-        help_text='This description should tell participants '
-        'what the goal of the project is, how the project’s '
-        'participation will look like. It will be always visible '
-        'in the „Info“ tab on your project’s page.')
+        verbose_name=_('Description of your project'),
+        help_text=_('This description should tell participants '
+                    'what the goal of the project is, how the project’s '
+                    'participation will look like. It will be always visible '
+                    'in the „Info“ tab on your project’s page.')
+    )
     result = RichTextUploadingField(blank=True, config_name='image-editor')
     is_public = models.BooleanField(
         default=True,
@@ -135,10 +136,15 @@ class Project(base_models.TimeStampedModel):
 
     @property
     def future_phases(self):
-        phases = self.phases.filter(start_date__gt=timezone.now())
+        phases = self.phases.filter(models.Q(start_date__gt=timezone.now())
+                                    | models.Q(start_date=None))
         return phases.order_by('start_date')
 
     @property
     def past_phases(self):
         phases = self.phases.filter(end_date__lte=timezone.now())
         return phases.order_by('-end_date')
+
+    @property
+    def has_finished(self):
+        return not self.active_phase and self.future_phases.count() == 0
