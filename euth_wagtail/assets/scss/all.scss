@@ -11,6 +11,16 @@
 @import "core/footer";
 @import "core/tabs";
 
+// Wagtail blocks
+@import "wagtail-blocks/blocks";
+@import "wagtail-blocks/info-block";
+@import "wagtail-blocks/video-block";
+@import "wagtail-blocks/inline-images-block";
+@import "wagtail-blocks/wide-image-block";
+@import "wagtail-blocks/accordion-block";
+@import "wagtail-blocks/image-text-list-block";
+@import "wagtail-blocks/rss-feed-import";
+
 // Components
 @import "components/projects";
 @import "components/orgs";
@@ -46,13 +56,3 @@
 @import "components/info-note";
 @import "components/badges";
 @import "components/user-indicator";
-
-// Wagtail blocks
-@import "wagtail-blocks/blocks";
-@import "wagtail-blocks/info-block";
-@import "wagtail-blocks/video-block";
-@import "wagtail-blocks/inline-images-block";
-@import "wagtail-blocks/wide-image-block";
-@import "wagtail-blocks/accordion-block";
-@import "wagtail-blocks/image-text-list-block";
-@import "wagtail-blocks/rss-feed-import";
