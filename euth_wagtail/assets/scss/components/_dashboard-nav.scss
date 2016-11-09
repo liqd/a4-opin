@@ -117,8 +117,6 @@
 
     .dropdown-menu {
         @include rem(left, 5px);
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
         border-radius: 0;
     }
 }

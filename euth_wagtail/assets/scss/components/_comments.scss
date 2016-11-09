@@ -9,14 +9,12 @@
     & textarea {
         border: 1px solid $gray;
         border-radius: 0;
-        -moz-border-radius: 0;
         @include rem(font-size, 14px);
     }
 
     & textarea:focus {
         border: 1px solid $gray;
         border-radius: 0;
-        -moz-border-radius: 0;
         @include rem(font-size, 14px);
     }
 
