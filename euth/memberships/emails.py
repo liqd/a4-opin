@@ -14,3 +14,8 @@ class RequestReceivedEmail(emails.OpinEmail,
 class RequestAcceptedEmail(emails.OpinEmail,
                            emails.UserNotification):
     template_name = 'request_accepted'
+
+
+class RequestDeniedEmail(emails.OpinEmail,
+                         emails.UserNotification):
+    template_name = 'request_denied'

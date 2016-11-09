@@ -1,0 +1,18 @@
+{% extends 'email_base.html' %}
+{% block subject %}
+Your membership request to {{ request.project.name }} denied
+{% endblock %}
+{% block content %}
+<h2>Your membership request to {{ request.project.name }} on {{ site.name }}</h2>
+<p>Dear {{ receiver.username }},</p>
+
+<p>
+  Your membership request was denied by the initiator or a moderator.
+</p>
+
+<p>
+Best wishes<br>
+<br>
+{{ site.name }} team
+</p>
+{% endblock %}

@@ -84,3 +84,4 @@ class Request(UserGeneratedContentModel):
 
     def decline(self):
         self.delete()
+        emails.RequestDeniedEmail.send(self)
