@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'euth.users.apps.UsersConfig',
+    'euth.actions.apps.ActionsConfig',
     'euth.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
