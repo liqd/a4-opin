@@ -28,10 +28,14 @@
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
 
+        {% render_bundle 'vendor' 'css %}
+        {% render_bundle 'opin' 'css' %}
+
         {# Global javascript #}
         <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-        {% render_bundle 'vendor' %}
-        {% render_bundle 'opin' %}
+
+        {% render_bundle 'vendor' 'js' %}
+        {% render_bundle 'opin' 'js' %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
