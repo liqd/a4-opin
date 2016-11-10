@@ -1,9 +1,44 @@
 .label {
-    border-radius: 0;
+    @include rem(padding, 4px 10px);
+    @include rem(font-size, 12px);
+    font-style: italic;
     text-transform: uppercase;
+    @include rem(letter-spacing, -0.2px);
+    border-radius: 100px;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.label-private {
+    background-color: $brand-brand1;
+    text-transform: uppercase;
+}
+
+.label-runningout {
+    background-color: $brand-danger;
+}
+
+.label-finished {
+    background-color: $brand-brand2;
+    color: $gray-darker;
+    text-transform: uppercase;
+}
+
+.label-type {
+    background-color: $black;
 }
 
 .label-secondary {
     @include label-variant($brand-brand2);
     color: $black;
+}
+
+.label-subtle {
+    border-radius: 5px;
+    text-transform: none;
+    background-color: $gray-lighter;
+    color: $gray-darker;
+    @include rem(font-size, 10px);
+    font-weight: 600;
+    font-style: normal;
 }

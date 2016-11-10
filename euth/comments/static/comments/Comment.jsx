@@ -99,12 +99,17 @@ var Comment = React.createClass({
   },
 
   render: function () {
-    var CommentList = require('./CommentList')
+    let CommentList = require('./CommentList')
     let lastDate
     if (this.props.modified === null) {
       lastDate = moment(this.props.created).format('D MMM YY')
     } else {
       lastDate = django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow()
+    }
+
+    let moderatorLabel
+    if (this.props.authorIsModerator) {
+      moderatorLabel = <span className="label label-subtle">{django.gettext('Moderator')}</span>
     }
 
     return (
@@ -117,7 +122,7 @@ var Comment = React.createClass({
           contentType={this.context.comments_contenttype}
         />
         {this.renderDeleteModal()}
-        <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>{this.props.user_name}</h3>
+        <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>{this.props.user_name} {moderatorLabel}</h3>
         {this.renderComment()}
         <div className="action-bar">
           <nav className="navbar navbar-default navbar-static">

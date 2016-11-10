@@ -36,6 +36,10 @@
         text-align: justify;
         font-weight: bold;
         @include rem(font-size, 14px);
+
+        span {
+            @include rem(margin-left, 10px);
+        }
     }
 
     & .comment-deleted-author {

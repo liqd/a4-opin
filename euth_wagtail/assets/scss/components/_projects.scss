@@ -59,7 +59,7 @@
         border-radius: 50%;
     }
 
-    .badge {
+    .label {
         position: absolute;
         @include rem(left, 27px);
         @include rem(bottom, 10px);

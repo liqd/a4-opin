@@ -8,6 +8,7 @@ class CommentSerializer(serializers.ModelSerializer):
     user_name = serializers.SerializerMethodField()
     is_deleted = serializers.SerializerMethodField()
     ratings = serializers.SerializerMethodField()
+    is_moderator = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
@@ -22,6 +23,9 @@ class CommentSerializer(serializers.ModelSerializer):
         if(obj.is_censored or obj.is_removed):
             return _('unknown user')
         return str(obj.creator.username)
+
+    def get_is_moderator(self, obj):
+        return obj.creator in obj.project.moderators.all()
 
     def get_is_deleted(self, obj):
         """
