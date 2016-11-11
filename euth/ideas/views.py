@@ -64,6 +64,12 @@ class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
     def raise_exception(self):
         return self.request.user.is_authenticated()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author_is_moderator'] = self.object.creator in self.object.\
+            project.moderators.all()
+        return context
+
 
 class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = idea_models.Idea

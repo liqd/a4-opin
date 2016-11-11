@@ -14,6 +14,7 @@ var CommentList = React.createClass({
               child_comments={comment.child_comments}
               created={comment.created}
               modified={comment.modified}
+              authorIsModerator={comment.is_moderator}
               id={comment.id}
               content_type={comment.content_type}
               is_deleted={comment.is_deleted}

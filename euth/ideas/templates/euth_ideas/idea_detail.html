@@ -52,7 +52,10 @@
                 {% else %}
                 <img src=""></img>
                 {% endif %}
-                <div class="name">{{ idea.creator.username }}</div>
+                <div class="name">
+                    {{ idea.creator.username }}
+                    {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
+                </div>
             </div>
 
             <div class="idea-description">

@@ -204,12 +204,12 @@ var ParagraphBox = React.createClass({
           </div>
           { this.state.successMessage
             ? <div className="row">
-            <div className="col-md-9">
-              <p className="alert alert-success ">
-              {this.state.successMessage}
-            </p>
-            </div>
-          </div> : null
+              <div className="col-md-9">
+                <p className="alert alert-success ">
+                  {this.state.successMessage}
+                </p>
+              </div>
+            </div> : null
           }
           <button
             id="submit-button"
