@@ -22,13 +22,15 @@ def test_authenticated_user_can_not_post_invalid_data(user, apiclient):
 
 
 @pytest.mark.django_db
-def test_authenticated_user_can_post_valid_data(user, apiclient):
+def test_authenticated_user_can_post_valid_data(user, fake_project_content,
+                                                apiclient):
+    contenttype = ContentType.objects.get_for_model(fake_project_content).pk
     apiclient.force_authenticate(user=user)
     url = reverse('comments-list')
     data = {
         'comment': 'comment comment',
-        'object_pk': 1,
-        'content_type': 1
+        'object_pk': fake_project_content.pk,
+        'content_type': contenttype
     }
     response = apiclient.post(url, data, format='json')
     assert response.status_code == status.HTTP_201_CREATED

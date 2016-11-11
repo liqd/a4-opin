@@ -25,7 +25,7 @@ class CommentSerializer(serializers.ModelSerializer):
         return str(obj.creator.username)
 
     def get_is_moderator(self, obj):
-        return obj.creator in obj.project.moderators.all()
+        return obj.project.has_moderator(obj.creator)
 
     def get_is_deleted(self, obj):
         """
