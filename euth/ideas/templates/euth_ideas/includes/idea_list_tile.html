@@ -1,7 +1,7 @@
 {% load i18n thumbnail static %}
 <div class="idea-list-tile">
     {% if idea.image %}
-    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link" style="background-image: url({{ idea.image.url }});">
+    <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link" style="background-image: url({{ idea.image | thumbnail_url:'idea_thumbnail' }});">
     </a>
     {% else %}
     <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link">
