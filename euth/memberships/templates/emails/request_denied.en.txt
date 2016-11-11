@@ -1,0 +1,7 @@
+Dear {{ receiver.username }},
+
+
+Your membership request was denied by the initiator or a moderator.
+
+Best wishes
+{{ site.name }} team
