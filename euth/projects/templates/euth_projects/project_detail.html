@@ -45,7 +45,7 @@
 <div class="container">
     <article id="information" class="tab-panel">
         <h3 class="tab-panel-title">{% trans "info" %}</h3>
-        <div class="tab-panel-description">
+        <div class="tab-panel-description usercontent">
             {{ view.project.information |safe|linebreaks }}
         </div>
     </article>
@@ -88,7 +88,7 @@
         </div>
     </article>
     <article id="result" class="tab-panel">
-        <div class="tab-panel-description">
+        <div class="tab-panel-description project usercontent">
             {% trans 'There are no results yet. Please check back later.' as no_results %}
             {{ view.project.result |default:no_results|safe|linebreaks }}
         </div>
