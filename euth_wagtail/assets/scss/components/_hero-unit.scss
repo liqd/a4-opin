@@ -101,6 +101,7 @@
     @include rem(padding, 0 70px);
     line-height: 1.63;
     margin-bottom: 0;
+    font-weight: 600;
 
     @media screen and (max-width: $screen-sm-max) {
         padding: 0;
