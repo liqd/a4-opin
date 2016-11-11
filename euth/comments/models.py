@@ -36,7 +36,7 @@ class Comment(UserGeneratedContentModel):
         ordering = ('created',)
 
     def __str__(self):
-        return str(self.created)
+        return "comment({})".format(self.comment[:75])
 
     @property
     def project(self):
