@@ -78,7 +78,7 @@
         @include rem(margin-top, 13px);
     }
 
-    a {
+    a:not(.button) {
         color: #fff;
 
         &:hover {
