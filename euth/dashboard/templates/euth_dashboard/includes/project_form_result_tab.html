@@ -1,8 +1,17 @@
-{% load widget_tweaks %}
+{% load i18n widget_tweaks %}
+
 <article id="result" class="tab-panel">
-    <div class="form-group{% if field.errors %} has-error{% endif %}">
-        <label>{{ form.result.label }}</label>
-        {% render_field form.project.result class="form-control" %}
-        <span class="help-block">{{ error }}</span>
+
+    <div class="form-section">
+        <h3 class="form-section-heading">{% trans 'Result '%}</h3>
+        <div class="form-section-fields">
+
+            <div class="form-group{% if field.errors %} has-error{% endif %}" style="margin-top: -30px;">
+                <label>{{ form.result.label }}</label>
+                {% render_field form.project.result class="form-control" %}
+                <span class="help-block">{{ error }}</span>
+            </div>
+        </div>
     </div>
+
 </article>
