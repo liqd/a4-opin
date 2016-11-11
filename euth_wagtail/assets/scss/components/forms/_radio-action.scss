@@ -14,8 +14,6 @@
         display: block;
         @include rem(width, 35px);
         @include rem(height, 35px);
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
         border-radius: 50%;
         font-family: 'FontAwesome';
         @include rem(line-height, 30px);

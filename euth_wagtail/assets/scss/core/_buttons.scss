@@ -9,7 +9,6 @@
     text-transform: uppercase;
 
     transition: color 0.2s, background 0.2s;
-    -webkit-transition: color 0.2s, background 0.2s;
 
     &:focus,
     &:hover {
@@ -37,7 +36,6 @@
     text-transform: uppercase;
     font-weight: bold;
     transition: color 0.2s, background 0.2s;
-    -webkit-transition: color 0.2s, background 0.2s;
 }
 
 .btn-hover-primary {

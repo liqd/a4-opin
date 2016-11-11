@@ -3,6 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
 var webpack = require("webpack");
+var autoprefixer = require('autoprefixer');
 
 
 /** How do we use webpack to handle static files?
@@ -66,7 +67,7 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract('style-loader?sourceMap','!css-loader?sourceMap!sass-loader?sourceMap')
+        loader: ExtractTextPlugin.extract('style?sourceMap','!css?sourceMap!postcss?sourceMap!sass?sourceMap')
       },
       {
         test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
@@ -78,6 +79,9 @@ module.exports = {
       }
     ]
   },
+  postcss: [
+    autoprefixer({browsers: ['last 3 versions', 'ie >= 10']})
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css']
   },

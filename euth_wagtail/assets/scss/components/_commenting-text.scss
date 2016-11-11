@@ -11,14 +11,12 @@
 
     .btn-primary {
         @include rem(margin-top, 10px);
-        transition: opacity 0.15s;
 
         @media screen and (min-width: $screen-sm-min) {
             opacity: 0;
         }
         @include rem(font-size, $font-size-base);
         transition: opacity 0.2s, color 0.2s, background 0.2s;
-        -webkit-transition: opacity 0.2s, color 0.2s, background 0.2s;
     }
 
     &:hover {

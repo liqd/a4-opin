@@ -5,5 +5,4 @@
 .clear-image:checked + img {
     opacity: 0.2;
     filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
 }
