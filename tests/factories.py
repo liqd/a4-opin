@@ -31,3 +31,22 @@ class ContentTypeFactory(factory.django.DjangoModelFactory):
     app_label = factory.Faker('name')
     model = factory.Faker('name')
     name = factory.Faker('name')
+
+
+class ImageFactory():
+    """
+    Create a django file object containg an image.
+    """
+
+    def __call__(self, resolution, image_format='JPEG', name=None):
+        from PIL import Image
+        from io import BytesIO
+        from django.core.files import images, base
+
+        filename = name or 'default.{}'.format(image_format.lower())
+        color = 'blue'
+        image = Image.new('RGB', resolution, color)
+        image_data = BytesIO()
+        image.save(image_data, image_format)
+        image_content = base.ContentFile(image_data.getvalue())
+        return images.ImageFile(image_content.file, filename)
