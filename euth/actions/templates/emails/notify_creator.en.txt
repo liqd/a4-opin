@@ -9,4 +9,3 @@ On your {{ target_object_verbose_name }} {% if target_object_title %}<b>{{ targe
 {% if url %}
 See more: {{ email.get_host }}{{ url }}
 {% endif %}
-{% endblock %}
