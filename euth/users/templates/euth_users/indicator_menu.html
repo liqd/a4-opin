@@ -2,17 +2,17 @@
 
 <ul class="nav navbar-nav navbar-right user-indicator" id="user-indicator">
     <li class="dropdown">
-    {% if user.is_authenticated %}
+    {% if request.user.is_authenticated %}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{ user.username }}<span class="caret"></span>
+            {{ request.user.username }}<span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            {% if user.is_superuser %}
+            {% if request.user.is_superuser %}
                 <li>
                     <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
                 </li>
             {% endif %}
-            {% if user.is_authenticated %}
+            {% if request.user.is_authenticated %}
                 <li>
                     <a href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
                 </li>

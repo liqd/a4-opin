@@ -3,8 +3,10 @@ from django.core import validators
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+from django_countries import fields as countries_fields
 
 from euth.contrib import validators as euth_validators
+from euth.users import USERNAME_REGEX
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
                              'only letters, digits, spaces and @/./+/-/_ '
@@ -13,7 +15,7 @@ USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
 USERNAME_NOT_UNIQUE = _('A user with that username already exists.')
 USERNAME_HELP = _('Required. 60 characters or fewer. Letters, digits, spaces '
                   'and @/./+/-/_ only.')
-USERNAME_VALIDATOR = validators.RegexValidator(r'^[\w]+[ \w.@+-]*$',
+USERNAME_VALIDATOR = validators.RegexValidator(USERNAME_REGEX,
                                                USERNAME_INVALID_MESSAGE,
                                                'invalid')
 
@@ -45,6 +47,65 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     _avatar = models.ImageField(upload_to='users/images', blank=True,
                                 validators=[euth_validators.validate_logo])
 
+    description = models.CharField(
+        blank=True,
+        max_length=250,
+        verbose_name=_('Short description about yourself'),
+        help_text=_('This short description will appear on '
+                    'your public profile.')
+    )
+
+    twitter_handle = models.CharField(
+        blank=True,
+        max_length=15,
+        verbose_name=_('Twitter name'),
+    )
+
+    facebook_handle = models.CharField(
+        blank=True,
+        max_length=50,
+        verbose_name=_('Facebook name'),
+    )
+
+    instagram_handle = models.CharField(
+        blank=True,
+        max_length=30,
+        verbose_name=_('Instagram name'),
+    )
+
+    country = countries_fields.CountryField(
+        blank=True,
+        verbose_name=_('Country of residence'),
+    )
+
+    city = models.CharField(
+        blank=True,
+        max_length=80,
+        verbose_name=_('City'),
+    )
+
+    age = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
+        verbose_name=_('Age'),
+    )
+
+    gender = models.CharField(
+        blank=True,
+        verbose_name=_('Gender'),
+        max_length=1,
+        choices=[
+            ('M', _('Male')),
+            ('F', _('Female'))
+        ],
+    )
+
+    languages = models.CharField(
+        blank=True,
+        verbose_name=_('Languages'),
+        max_length=150,
+    )
+
     objects = auth_models.UserManager()
 
     USERNAME_FIELD = 'email'
@@ -54,8 +115,19 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name = _("User")
         verbose_name_plural = _("Users")
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('profile', kwargs={'slug': str(self.username)})
+
     def __str__(self):
         return self.get_full_name()
+
+    @property
+    def has_social_share(self):
+        return (
+            self.twitter_handle or self.facebook_handle
+            or self.instagram_handle
+        )
 
     @property
     def avatar(self):
