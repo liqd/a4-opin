@@ -1,0 +1,19 @@
+{% extends 'email_base.html' %}
+{% block subject %}
+A comment was added.
+{% endblock %}
+{% block content %}
+<h2>Someone created a {{ object_verbose_name }} on your {{ target_object_verbose_name }}</h2>
+
+<p>On your {{ target_object_verbose_name }} {% if target_object_title %}<b>{{ target_object_title }}</b>{% endif %} a {{ object_verbose_name }} was added</p>
+
+{% if notification_content %}
+<p><i>{{ notification_content }}</i></p>
+{% endif %}
+
+{% if url %}
+<p>
+  <a href="{{ email.get_host }}{{ url }}">See more</a>
+</p>
+{% endif %}
+{% endblock %}
