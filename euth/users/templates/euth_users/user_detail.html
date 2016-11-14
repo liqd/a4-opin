@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load i18n thumbnail static %}
-{% block title %} {{ object.username }} {% endblock %}
+{% block title %}{{ object.username }}{% endblock %}
 
 {% block content %}
-    <header class="herounit">
+    <header class="herounit herounit-purple">
         <div class="container">
             <div class="container-narrow">
                 <div class="herounit-header">
@@ -20,12 +20,48 @@
                             {% endif %}
                         </ul>
                     {% endif %}
-                    <h1 class="herounit-title">{{ object.username }}</h1>
+                    <div class="herounit-logo herounit-logo-lg">
+                        {% if object.avatar %}
+                            <img alt="{{ object.username }}" src="{{ object.avatar|thumbnail_url:'org_avatar_medium' }}">
+                        {% else %}
+                            <img alt="opin logo" src="{% static "images/logo.png" %}">
+                        {% endif %}
+                    </div>
+                    <h1 class="herounit-title">
+                        {{ object.username }}
+                    </h1>
                     {% if object.city or object.country %}
                         <p class="herounit-location"><i class="fa fa-map-marker"></i> {{object.city}}, {{object.country.name}}</p>
+                    {% endif %}
+                    {% if object.languages %}
+                        <p class="herounit-location"><i class="fa fa-comment"></i> {{object.languages}}</p>
                     {% endif %}
                 </div>
             </div>
         </div>
     </header>
+    {% if object.description %}
+        <div class="herounit-box">
+            <p>{{ object.description }}</p>
+        </div>
+    {% endif %}
+
+
+    {% if view.get_participated_projects %}
+        <div class="container org-page">
+            <h2>{% trans 'Participations of' %} {{ object.username }}</h2>
+            <section class="block-inner page-body">
+                <div id="project-tile-grid" class="organisation-tiles" data-columns>
+                    {% for project in view.get_participated_projects %}
+                        {% include "euth_projects/includes/project_tile.html" with project=project %}
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    {% endif %}
 {% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static "salvattore.min.js" %}"></script>
+{% endblock %}
+

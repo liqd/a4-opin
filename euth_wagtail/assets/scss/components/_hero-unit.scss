@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     &:after {
         background: rgba(0, 0, 0, 0.5);
@@ -18,6 +19,14 @@
         position: absolute;
         top: 0;
         width: 100%;
+    }
+}
+
+.herounit-purple {
+    background: $brand-brand5;
+
+    &:after {
+        content: none;
     }
 }
 
@@ -65,10 +74,6 @@
     color: #fff;
     position: relative;
     z-index: 1;
-
-    .m-dark-text {
-        color: #000;
-    }
 
     .button {
         @include rem(margin-top, 13px);
@@ -165,4 +170,29 @@
 
 .herounit-location .fa {
     @include rem(margin-right, 10px);
+}
+
+.herounit-box {
+    clear: both;
+    @include rem(padding, 15px 20px);
+    margin: 0 auto;
+    @include rem(margin-top, -30px);
+    max-width: 520px;
+    background-color: #fff;
+    font-style: italic;
+    font-weight: 600;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: 85%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
