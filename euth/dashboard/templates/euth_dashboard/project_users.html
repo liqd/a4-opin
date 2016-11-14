@@ -22,7 +22,7 @@
             {% for form in form.requests.forms %}
                 {{ form.id }}
                 <div class="table-list-row tile-list row">
-                    <div class="col-sm-4"><span class="text-muted">{{ form.instance.creator.username }}</span></div>
+                    <div class="col-sm-4"><a href="{% url 'profile' form.instance.creator.username %}" class="text-muted">{{ form.instance.creator.username }}</a></div>
                     <div class="col-sm-5"><strong>{{ form.instance.creator.email }}</strong></div>
                     <div class="col-sm-3">
                         {% for radio in form.action %}
@@ -56,7 +56,7 @@
             {% for form in form.users.forms %}
                 {{ form.id }}
                 <div class="table-list-row tile-list row">
-                    <div class="col-sm-4"><span class="text-muted">{{ form.instance.username}}</span></div>
+                    <div class="col-sm-4"><a href="{% url 'profile' form.instance.username %}" class="text-muted">{{ form.instance.username}}</a></div>
                     <div class="col-sm-5"><strong>{{ form.instance.email }}</strong></div>
                     <div class="col-sm-3">
                         <div class="radio-action">

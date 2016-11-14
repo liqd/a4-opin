@@ -26,8 +26,8 @@
                     {% else %}
                     <img src="/static/images/logo.svg" width="30" height="30" alt=""/>
                     {% endif %}
-                    <div class="name">{{ idea.creator.username }} <span class="idea-date"> {{ idea.created | date }}</span>
-                    </div>
+                    <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
+                    <span class="idea-date"> {{ idea.created |date }}</span>
                 </div>
             </div>
         </div>
