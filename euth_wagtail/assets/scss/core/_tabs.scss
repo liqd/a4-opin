@@ -7,7 +7,7 @@
         @include rem(padding-top, 10px);
     }
 
-    .euth-hero-unit + &,
+    .herounit + &,
     .timeline + & {
         margin-top: 0;
     }
