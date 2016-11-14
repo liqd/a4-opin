@@ -1,7 +1,7 @@
 .phase-form {
     background-color: $gray-lighter;
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
     position: relative;
 
     .form-control {
@@ -11,6 +11,14 @@
     h5 a {
         display: block;
         letter-spacing: 0.1px;
+        color: $gray-darker;
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    h5 a:hover {
+        color: $brand-brand1;
     }
 
     h5 .fa {

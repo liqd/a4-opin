@@ -6,9 +6,7 @@
 
     {% for name, fields in form.project.formsections.information.items %}
     <div class="form-section">
-        <div class="form-section-heading">
-            <h3>{{ name }}</h3>
-        </div>
+        <h3 class="form-section-heading">{{ name }}</h3>
 
         <div class="form-section-fields">
         {% for field in form.project %}
