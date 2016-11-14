@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
+from django.db import models, migrations
 import django.utils.timezone
 from django.conf import settings
 
@@ -18,17 +18,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Action',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
                 ('target_object_id', models.CharField(null=True, blank=True, max_length=255)),
                 ('action_object_object_id', models.CharField(null=True, blank=True, max_length=255)),
                 ('timestamp', models.DateTimeField(default=django.utils.timezone.now)),
                 ('public', models.BooleanField(db_index=True, default=True)),
                 ('verb', models.CharField(db_index=True, max_length=255)),
-                ('description', models.TextField(null=True, blank=True)),
-                ('action_object_content_type', models.ForeignKey(blank=True, related_name='action_object', null=True, to='contenttypes.ContentType')),
+                ('description', models.TextField(blank=True, null=True)),
+                ('action_object_content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', related_name='action_object', null=True)),
                 ('actor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='euth_projects.Project')),
-                ('target_content_type', models.ForeignKey(blank=True, related_name='target', null=True, to='contenttypes.ContentType')),
+                ('project', models.ForeignKey(blank=True, to='euth_projects.Project', null=True)),
+                ('target_content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', related_name='target', null=True)),
             ],
         ),
     ]

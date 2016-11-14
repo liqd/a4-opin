@@ -35,7 +35,7 @@ class Action(models.Model):
 
     # project
     project = models.ForeignKey(
-        Project, on_delete=models.CASCADE)
+        Project, on_delete=models.CASCADE, blank=True, null=True)
 
     timestamp = models.DateTimeField(default=timezone.now)
     public = models.BooleanField(default=True, db_index=True)
