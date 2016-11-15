@@ -48,7 +48,7 @@
     "heroku-postbuild": "npm run webpack:build",
     "build": "npm run webpack:build",
     "watch": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx; stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
+    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
     "precommit": "make lint"
   }
 }
