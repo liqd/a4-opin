@@ -61,5 +61,6 @@
 }
 
 .home-carousel {
+    overflow-x: hidden;
     @include rem(padding, 20px 0 30px);
 }

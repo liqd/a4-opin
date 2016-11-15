@@ -11,8 +11,10 @@
     <div class="container">
         <h2 class="h3">{% trans 'Latest projects on OPIN' %}</h2>
     </div>
-    <div class="container home-carousel">
-          {% include "euth_projects/includes/project_carousel.html" with projects=page.featured_projects %}
+    <div class="home-carousel">
+        <div class="container">
+              {% include "euth_projects/includes/project_carousel.html" with projects=page.featured_projects %}
+        </div>
     </div>
     {% endif %}
     <section class="page-body">
