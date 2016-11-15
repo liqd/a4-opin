@@ -4,7 +4,7 @@
         <div class="container-narrow">
             <h3 class="block-title">{{ self.title }}</h3>
             <div class="embed-responsive embed-responsive-16by9">
-            	{{ self.video.url | embed:"500" }}
+            	{% embed self.video.url "500" %}
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 Django>=1.8,<1.9
-wagtail==1.6.2
+wagtail==1.7
 feedparser==5.2.1
 python-dateutil==2.5.3
 django-allauth==0.27.0
