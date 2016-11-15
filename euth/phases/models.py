@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
@@ -14,6 +16,12 @@ class PhasesQuerySet(models.QuerySet):
     def active_phases(self):
         now = timezone.now()
         return self.filter(start_date__lte=now, end_date__gt=now)
+
+    def finish_next(self):
+        now = timezone.now()
+        tomorrow = (now + timedelta(days=1))
+        active = self.filter(start_date__lte=now, end_date__gt=now)
+        return active.filter(end_date__lte=tomorrow)
 
 
 class Phase(models.Model):
