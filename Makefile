@@ -39,7 +39,7 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
 watch:
-	trap 'kill %1' SIGINIT; \
+	trap 'kill %1' KILL; \
 	npm run watch & \
 	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8000
 
