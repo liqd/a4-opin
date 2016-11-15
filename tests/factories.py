@@ -1,6 +1,10 @@
+from io import BytesIO
+
 import factory
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
+from django.core.files import base, images
+from PIL import Image
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -39,9 +43,6 @@ class ImageFactory():
     """
 
     def __call__(self, resolution, image_format='JPEG', name=None):
-        from PIL import Image
-        from io import BytesIO
-        from django.core.files import images, base
 
         filename = name or 'default.{}'.format(image_format.lower())
         color = 'blue'
