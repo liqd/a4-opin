@@ -50,6 +50,20 @@
     @include button-hover($brand-success);
 }
 
+
+.btn-dark {
+    background-color: $black;
+
+    &.btn-primary i {
+        color: $brand-primary;
+    }
+
+    &:hover,
+    &:focus {
+        color: $gray-light;
+    }
+}
+
 .btn-ghost {
     border: 1px solid currentColor;
     text-transform: uppercase;
