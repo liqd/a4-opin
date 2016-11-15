@@ -23,7 +23,7 @@ There are various roles on OPIN: Different people may do different actions. For 
 
 ---
 **Item**:  (for developers only)
-Add explantion here.
+Items are an abstraction for any kind of resource that have a link to a module. At the moment ideas and documents inherit the the item class. On database level there is a table for each items, ideas, documents. If a new model that inherits the Item model is created it will get its own table and each row in the table will automatically have a foreign key to the item in the Item table. More on the topic can be found here: https://docs.djangoproject.com/el/1.10/topics/db/models/#multi-table-inheritance
 
 ---
 **Language Switch**:
@@ -63,7 +63,7 @@ Ideas can be sorted by Popularity - popularity is defined by the number of posit
 
 ---
 **Process**:
-Add explantion here.
+In OPIN we decided not to use the term 'process' but instead use 'project' as this term is more user friendly. 
 
 ---
 **Project**:
