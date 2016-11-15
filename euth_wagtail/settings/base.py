@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
     'euth.flashpoll.apps.FlashpollConfig',
+    'euth.follows.apps.FollowsConfig',
     'euth.contrib',
 ]
 
