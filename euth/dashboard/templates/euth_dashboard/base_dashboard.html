@@ -5,76 +5,23 @@
 
 {% block content %}
 <div class="container">
-    <div class="dashboard row">
+    <div class="dashboard dashboard-bright row">
         <div class="col-md-3">
             <div class="dashboard-nav">
-                {% if view.user_has_organisation %}
                 <div class="dashboard-nav-group">
-                    <div class="dropdown">
-                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                            <span class="circle-bg"><img src="{{ view.organisation.logo|thumbnail_url:'avatar_small' }}"
-                                                         alt=""></span>{{ view.organisation.title }}
-                            {% if view.other_organisations_of_user %}
-                            <span class="caret"></span>
-                            {% endif %}
-                        </button>
-                        {% if view.other_organisations_of_user %}
-                        <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            {% for organisation in view.other_organisations_of_user %}
-                            <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">{{ organisation.title }}</a></li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </div>
-                    <hr>
-                    <h4 class="h6 sans-serif text-uppercase dashboard-nav-title">{% trans 'Organisation settings' %}</h4>
-
-                    <!-- Organisation preferences -->
-                    <div class="list-group">
-                        {% url 'dashboard-organisation-edit' organisation_slug=view.organisation.slug as dashboard_organisations_edit %}
-                        <a href="{{dashboard_organisations_edit}}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'organisation' %}selected{% endif %}">
-                            <i class="fa fa-rocket" aria-hidden="true"></i> <span>{% trans 'Organisation information' %}</span>
-                        </a>
-
-                        {% url 'dashboard-project-list' organisation_slug=view.organisation.slug as dashboard_project_list %}
-                        {% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug as dashboard_blueprint_list %}
-                        <a href="{{dashboard_project_list}}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'project' %}selected{% endif %}">
-                            <i class="fa fa-clone" aria-hidden="true"></i> <span>{% trans 'Projects' %}</span>
-                        </a>
-
-                        <!--
-                        <a href="#" class="list-group-item list-group-item-heading">
-                            <i class="fa fa-check" aria-hidden="true"></i> <span>Moderation</span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">
-                                <i class="fa fa-users" aria-hidden="true"></i> Users
-                            </h4>
-                        </a>-->
-
-                    </div>
-                </div>
-                {% endif %}
-                <!-- User preferences -->
-                <div class="dashboard-nav-group">
-                    <h4 class="h6 sans-serif text-uppercase dashboard-nav-title">{% trans 'Personal settings' %}</h4>
+                    {% include 'euth_dashboard/includes/dropdown.html' with logo=request.user.avatar title=request.user.username other_orgs=view.other_organisations_of_user %}
                     <div class="list-group">
                         {% url 'dashboard-profile' as dashboard_profile %}
                         <a href="{{ dashboard_profile }}"
                            class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'profile' %}selected{% endif %}">
                             <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Profile' %}</span>
                         </a>
-                        {% url 'account_email' as account_email %}
                         {% url 'dashboard-email' as dashboard_email %}
                         <a href="{{ dashboard_email }}"
                            class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'email' %}selected{% endif %}">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <span>{% trans 'E-mail Addresses' %}</span>
                         </a>
-                        {% url 'socialaccount_connections' as socialaccount_connections %}
                         {% url 'dashboard-connections' as dashboard_connections %}
                         <a href="{{ dashboard_connections }}"
                            class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'connections' %}selected{% endif %}">
@@ -87,8 +34,7 @@
         </div>
         <div class="col-md-9">
             <div class="dashboard-content">
-                {% block dashboard_content %}
-                {% endblock %}
+                {% block dashboard_content %}{% endblock %}
             </div>
         </div>
     </div>

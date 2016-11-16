@@ -1,9 +1,19 @@
-.black-divider {
+%divider {
     @include rem(margin, 40px 0);
     @include rem(padding, 20px 40px 20px 20px);
     @include rem(font-size, 18px);
-    background: $black;
-    color: white;
     text-transform: uppercase;
     position: relative;
+}
+
+.black-divider {
+    @extend %divider;
+    background: $black;
+    color: #fff;
+}
+
+.gray-divider {
+    @extend %divider;
+    background: $gray-lighter;
+    color: $gray-darker;
 }
