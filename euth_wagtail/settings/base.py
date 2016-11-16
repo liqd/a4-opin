@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'wagtail.contrib.wagtailstyleguide',
 
     'modelcluster',
-    'compressor',
     'taggit',
     'widget_tweaks',
     'webpack_loader',
@@ -251,7 +250,6 @@ THUMBNAIL_ALIASES = {
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 ]
 
 
@@ -277,11 +275,6 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-LIBSASS_SOURCEMAPS = True
 
 EMAIL_SUBJECT_PREFIX = '[OPIN] '
 
