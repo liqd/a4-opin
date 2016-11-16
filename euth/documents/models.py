@@ -13,6 +13,9 @@ from euth.modules import models as module_models
 
 class Document(module_models.Item):
     name = models.CharField(max_length=120)
+    comments = GenericRelation(comment_models.Comment,
+                               related_query_name='document',
+                               object_id_field='object_pk')
 
     def __str__(self):
         return "{}_document_{}".format(str(self.module), self.pk)
