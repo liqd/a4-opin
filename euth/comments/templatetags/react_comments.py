@@ -4,7 +4,9 @@ from django import template, utils
 from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
 
+
 from ..models import Comment
+from ..serializers import ThreadSerializer
 
 register = template.Library()
 
@@ -12,6 +14,10 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def react_comments(context, obj):
     request = context['request']
+
+    serializer = ThreadSerializer(
+        obj.comments.all(), many=True, context={'request': request})
+    comments = serializer.data
 
     user = request.user
     is_authenticated = user.is_authenticated()
@@ -32,6 +38,7 @@ def react_comments(context, obj):
         pk=pk
     )
     attributes = {
+        'comments': comments,
         'comments_contenttype': comments_contenttype.pk,
         'subjectType': contenttype.pk,
         'subjectId': pk,
@@ -47,5 +54,5 @@ def react_comments(context, obj):
         '{mountpoint}, {attributes})</script>').format(
             attributes=json.dumps(attributes),
             mountpoint=json.dumps(mountpoint)
-        )
+    )
     )
