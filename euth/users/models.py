@@ -130,6 +130,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         )
 
     @property
+    def organisations(self):
+        return self.organisation_set.all()
+
+    @property
     def avatar(self):
         return self._avatar
 

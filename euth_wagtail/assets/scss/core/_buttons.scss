@@ -147,25 +147,6 @@
     }
 }
 
-.logout-button-form {
-    & .btn {
-        background-color: transparent;
-        padding: 0;
-        text-transform: uppercase;
-        font-weight: bold;
-
-        &:active {
-            background-color: transparent;
-            box-shadow: none;
-        }
-
-        &:focus,
-        &:hover {
-            outline: none;
-        }
-    }
-}
-
 .button-row {
     @media (max-width: $screen-xs) {
         a,

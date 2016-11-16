@@ -24,6 +24,7 @@
             font-family: $font-family-sans-serif;
             color: $black;
             @include rem(font-size, 12px);
+            border-bottom: 0;
         }
     }
 }
@@ -45,7 +46,7 @@
             margin: 0;
         }
 
-        .navbar-nav li {
+        .navbar-nav > li {
             float: left;
         }
 
@@ -59,6 +60,13 @@
             right: 0;
             left: auto;
             background-color: white;
+        }
+
+        .navbar-nav .open .dropdown-menu {
+            position: absolute;
+            @include rem(top, 80px);
+            @include rem(left, -80px);
+            background-color: #fff;
         }
     }
 
