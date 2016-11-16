@@ -91,7 +91,7 @@ msgstr ""
 #: dashboard/forms.py:298
 #, python-format
 msgid ""
-"Your image should be at least 200px wide and 200px high. Supported formats "
+"Your logo should be at least 200px wide and square. Supported formats "
 "are %s."
 msgstr ""
 

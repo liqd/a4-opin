@@ -325,8 +325,8 @@ class OrganisationForm(forms.ModelForm):
             'image': _("Your image should be at least 1300px wide and "
                        "600px high. Supported formats are %s."
                        % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
-            'logo': _("Your image should be at least 200px wide and "
-                      "200px high. Supported formats are %s."
+            'logo': _("Your logo should be at least 200px wide "
+                      "and square. Supported formats are %s."
                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
         }
 
