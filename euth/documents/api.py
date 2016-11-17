@@ -7,9 +7,7 @@ from .serializers import DocumentSerializer
 
 
 class DocumentViewSet(mixins.CreateModelMixin,
-                      mixins.RetrieveModelMixin,
                       mixins.UpdateModelMixin,
-                      mixins.DestroyModelMixin,
                       viewsets.GenericViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
