@@ -44,15 +44,20 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=IS_ACTIVE_HELP)
     date_joined = models.DateTimeField(editable=False, default=timezone.now)
-    _avatar = models.ImageField(upload_to='users/images', blank=True,
-                                validators=[euth_validators.validate_logo])
+
+    _avatar = models.ImageField(
+        upload_to='users/images',
+        blank=True,
+        validators=[euth_validators.validate_logo],
+        verbose_name=_('Avatar'),
+    )
 
     description = models.CharField(
         blank=True,
         max_length=250,
         verbose_name=_('Short description about yourself'),
-        help_text=_('This short description will appear on '
-                    'your public profile.')
+        help_text=_('Write a little bit about yourself. '
+                    '(max. 250 characters)')
     )
 
     twitter_handle = models.CharField(
@@ -84,10 +89,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name=_('City'),
     )
 
-    age = models.PositiveSmallIntegerField(
+    birthdate = models.DateField(
         blank=True,
         null=True,
-        verbose_name=_('Age'),
+        verbose_name=_('Birthdate'),
     )
 
     gender = models.CharField(
@@ -104,6 +109,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         blank=True,
         verbose_name=_('Languages'),
         max_length=150,
+        help_text=_('Enter the languages you’re speaking.')
     )
 
     objects = auth_models.UserManager()

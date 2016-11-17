@@ -1,5 +1,5 @@
 {% extends "euth_dashboard/base_dashboard.html" %}
-{% load widget_tweaks i18n %}
+{% load widget_tweaks i18n form_tags %}
 
 {% block title %}{% trans 'Your user profile' %}{% endblock %}
 {% block dashboard_content %}
@@ -8,29 +8,29 @@
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
-        {{ form.media }}
         <div class="form-section">
             <h3 class="form-section-heading">{% trans 'Basic Info' %}</h3>
-            <div class="form-section-fields">
-                {% for field in form %}
-                <div class="form-group {% if field.errors %} has-error{% endif %}">
-                    <label>
-                        {{ field.label }}
-                    </label>
-                    {% render_field field class="form-control" %}
-                    {% for error in field.errors %}
-                    <span class="help-block">{{ error }}</span>
+            <div class="form-section-fields row">
+                <div class="col-md-10">
+                    {% for field in form %}
+                            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                                <label for="{{ field.id_for_label }}">
+                                    {{ field.label }} {% if field.field.required %}*{% endif %}
+                                </label>
+                                <p class='form-help-text'>{{ field.help_text }}</p>
+                                {% render_field field class="form-control" %}
+                                {% for error in field.errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
                     {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-            <li>
-                <a href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a>
-            </li>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-sm btn-primary">{% trans 'post'%}</button>
         </div>
     </form>
+    {{ form.media }}
 </div>
 {% endblock %}

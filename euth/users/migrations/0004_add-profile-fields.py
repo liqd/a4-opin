@@ -14,8 +14,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='user',
-            name='age',
-            field=models.SmallIntegerField(verbose_name='Age', null=True, blank=True),
+            name='birthdate',
+            field=models.DateField(verbose_name='Birthdate', blank=True, null=True),
         ),
         migrations.AddField(
             model_name='user',
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='description',
-            field=models.CharField(verbose_name='Short description about yourself', blank=True, max_length=250, help_text='This short description will appear on your public profile.'),
+            field=models.CharField(verbose_name='Short description about yourself', blank=True, max_length=250, help_text='Write a little bit about yourself. (max. 220 characters)'),
         ),
         migrations.AddField(
             model_name='user',
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='gender',
-            field=models.CharField(verbose_name='Gender', blank=True, max_length=1, choices=[('M', 'Male'), ('F', 'Female')]),
+            field=models.CharField(verbose_name='Gender', blank=True, choices=[('M', 'Male'), ('F', 'Female')], max_length=1),
         ),
         migrations.AddField(
             model_name='user',
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='languages',
-            field=models.CharField(verbose_name='Languages', blank=True, max_length=150),
+            field=models.CharField(verbose_name='Languages', blank=True, max_length=150, help_text='Enter the languages you’re speaking.'),
         ),
         migrations.AddField(
             model_name='user',
