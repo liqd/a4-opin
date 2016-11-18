@@ -20,13 +20,13 @@
                             {% endif %}
                         </ul>
                     {% endif %}
-                    <div class="herounit-logo herounit-logo-lg">
                         {% if object.avatar %}
-                            <img alt="{{ object.username }}" src="{{ object.avatar|thumbnail_url:'org_avatar_medium' }}">
+                            <span class="circled circled-lg" style="background-image: url({{ object.avatar|thumbnail_url:'org_avatar_medium' }});"></span>
                         {% else %}
-                            <img alt="opin logo" src="{% static "images/logo.png" %}">
+                            <div class="herounit-logo herounit-logo-lg">
+                                <img alt="opin logo" src="{% static "images/logo.png" %}">
+                            </div>
                         {% endif %}
-                    </div>
                     <h1 class="herounit-title">
                         {{ object.username }}
                     </h1>

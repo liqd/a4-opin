@@ -16,14 +16,14 @@
                     <div class="list-group">
                         {% url 'dashboard-organisation-edit' organisation_slug=view.organisation.slug as dashboard_organisations_edit %}
                         <a href="{{dashboard_organisations_edit}}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'organisation' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'organisation' %}selected{% endif %}">
                             <i class="fa fa-rocket" aria-hidden="true"></i> <span>{% trans 'Organisation information' %}</span>
                         </a>
 
                         {% url 'dashboard-project-list' organisation_slug=view.organisation.slug as dashboard_project_list %}
                         {% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug as dashboard_blueprint_list %}
                         <a href="{{dashboard_project_list}}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'project' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'project' %}selected{% endif %}">
                             <i class="fa fa-clone" aria-hidden="true"></i> <span>{% trans 'Projects' %}</span>
                         </a>
 

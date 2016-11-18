@@ -9,27 +9,27 @@
         <div class="col-md-3">
             <div class="dashboard-nav">
                 <div class="dashboard-nav-group">
-                    {% include 'euth_dashboard/includes/dropdown.html' with logo=request.user.avatar title=request.user.username other_orgs=view.other_organisations_of_user %}
+                    {% include 'euth_dashboard/includes/dropdown.html' with logo=request.user.avatar is_user=True title=request.user.username %}
                     <div class="list-group">
                         {% url 'dashboard-profile' as dashboard_profile %}
                         <a href="{{ dashboard_profile }}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'profile' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'profile' %}selected{% endif %}">
                             <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Profile' %}</span>
                         </a>
                         <a href="{% url 'dashboard-password' %}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'password' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'password' %}selected{% endif %}">
                             <i class="fa fa-lock"></i>
                             <span>{% trans "Change Password" %}</span>
                         </a>
                         {% url 'dashboard-email' as dashboard_email %}
                         <a href="{{ dashboard_email }}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'email' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'email' %}selected{% endif %}">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <span>{% trans 'E-mail Addresses' %}</span>
                         </a>
                         {% url 'dashboard-connections' as dashboard_connections %}
                         <a href="{{ dashboard_connections }}"
-                           class="list-group-item list-group-item-heading {% if view.kwargs.dashboard_menu_item == 'connections' %}selected{% endif %}">
+                           class="list-group-item list-group-item-heading {% if view.menu_item == 'connections' %}selected{% endif %}">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>{% trans 'Account Connections' %}</span>
                         </a>
