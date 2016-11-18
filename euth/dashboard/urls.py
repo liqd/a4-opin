@@ -25,6 +25,12 @@ urlpatterns = [
         name='dashboard-connections'
     ),
     url(
+        r'^projects/$',
+        views.DashboardUserProjectsView.as_view(),
+        {'dashboard_menu_item': 'projects'},
+        name='dashboard-user-projects'
+    ),
+    url(
         r'^(?P<organisation_slug>[-\w_]+)/$',
         views.DashboardOrganisationUpdateView.as_view(),
         {'dashboard_menu_item': 'organisation'},

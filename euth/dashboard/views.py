@@ -3,6 +3,7 @@ from allauth.socialaccount import views as socialaccount_views
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
+from django.db import models
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import functional
 from django.utils.translation import ugettext as _
@@ -56,6 +57,21 @@ class DashboardEmailView(DashboardBaseMixin, account_views.EmailView):
 class DashboardAccountView(DashboardBaseMixin,
                            socialaccount_views.ConnectionsView):
     pass
+
+
+class DashboardUserProjectsView(DashboardBaseMixin,
+                                generic.ListView):
+    model = project_models.Project
+    template_name = "euth_dashboard/user_projects.html"
+
+    def get_queryset(self):
+        user = self.request.user
+        qs = self.model.objects.filter(
+            models.Q(follow__creator=user) |
+            models.Q(participants=user) |
+            models.Q(moderators=user)
+        ).distinct()
+        return qs
 
 
 class DashboardProfileView(DashboardBaseMixin,
