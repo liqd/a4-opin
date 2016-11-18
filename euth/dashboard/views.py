@@ -73,6 +73,12 @@ class DashboardProfileView(DashboardBaseMixin,
         return self.request.path
 
 
+class ChangePasswordView(DashboardBaseMixin,
+                         account_views.PasswordChangeView):
+    def get_success_url(self):
+        return reverse('dashboard-password')
+
+
 class DashboardOrganisationUpdateView(DashboardBaseMixin,
                                       rules_views.PermissionRequiredMixin,
                                       SuccessMessageMixin,

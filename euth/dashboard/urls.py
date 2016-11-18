@@ -13,6 +13,11 @@ urlpatterns = [
         {'dashboard_menu_item': 'profile'},
         name='dashboard-profile'),
     url(
+        r'^change_password$',
+        views.ChangePasswordView.as_view(),
+        {'dashboard_menu_item': 'profile'},
+        name='dashboard-password'),
+    url(
         r'^email/$',
         views.DashboardEmailView.as_view(),
         {'dashboard_menu_item': 'email'},
