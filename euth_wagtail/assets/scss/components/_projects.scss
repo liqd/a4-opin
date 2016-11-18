@@ -62,7 +62,7 @@
     .label {
         position: absolute;
         @include rem(left, 10px);
-        @include rem(bottom, 0px);
+        @include rem(bottom, 0);
     }
 }
 
