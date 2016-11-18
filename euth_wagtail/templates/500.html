@@ -1,6 +1,34 @@
-{% extends "base_errors.html" %}
-{% load i18n %}
+{% load i18n static webpack_loader %}
+<html>
+    <head>
+        <title>Error | Opin.me</title>
+        {% render_bundle 'vendor' 'css' %}
+        {% render_bundle 'opin' 'css' %}
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top main-menu" id="main-menu">
+            <div class="container">
+                <a class="navbar-brand" href="/">Opin.me</a>
+            </div>
+        </nav>
 
-{% block error_status %}500{% endblock %}
-
-{% block error_description %}{% trans 'Internal server error' %}{% endblock %}
+        <div class="error text-center">
+            <div class="error-banner">
+                <div class="error-banner-header">
+                    <img src="{% static 'images/error.png'%}">
+                    <div class="error-banner-header-text">
+                        <h1>500</h1>
+                        <h2>{% trans 'Error' %}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="error-info">
+                    <p>{% trans 'Sorry, something went wrong.' %}<br>
+                        {% trans 'Internal server error.'%}</p>
+                    <a href="/" class="button">{% trans 'Get back to OPIN.ME' %}</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
