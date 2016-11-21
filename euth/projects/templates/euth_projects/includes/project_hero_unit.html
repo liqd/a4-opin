@@ -7,7 +7,7 @@
             <div class="euth-hero-unit-header">
 
                 {% get_days project.days_left as days %}
-            <span>
+            <p>
                 {% if not project.is_public %}
                     <span class="label label-private">{% trans 'private' %}</span>
                 {% endif %}
