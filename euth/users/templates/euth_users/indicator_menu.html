@@ -13,7 +13,10 @@
                 </li>
             {% endif %}
             <li>
-                <a href="{% url 'dashboard' %}"><i class="fa fa-user"></i> <span class="dropdown-text">{% trans "Profile" %}</span></a>
+                <a href="{% url 'profile' request.user.username %}"><i class="fa fa-user"></i> <span class="dropdown-text">{% trans "Profile" %}</span></a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
             </li>
             {% for organisation in request.user.organisations %}
                 <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">
