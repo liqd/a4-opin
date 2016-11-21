@@ -1,0 +1,1 @@
+A {{ object_verbose_name }} was added to your {{ target_object_verbose_name }}

@@ -30,6 +30,10 @@ class Document(module_models.Item):
                 super().clean(*args, **kwargs)
         super().clean(*args, **kwargs)
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('project-detail', args=[str(self.project.slug)])
+
 
 class Paragraph(base_models.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
@@ -52,6 +56,14 @@ class Paragraph(base_models.TimeStampedModel):
         self.text = html_transforms.clean_html_field(
             self.text)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('paragraph-detail', args=[str(self.pk)])
+
+    @cached_property
+    def creator(self):
+        return self.document.creator
 
     @cached_property
     def project(self):
