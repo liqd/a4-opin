@@ -1,5 +1,10 @@
 .dashboard-nav {
     height: 100%;
+    color: #fff;
+
+    a {
+        color: inherit;
+    }
 
     a,
     a:active,
@@ -18,7 +23,6 @@
     }
 
     .dashboard-nav-title {
-        color: #fff;
         @include rem(padding, 10px);
         line-height: 1.2;
         margin-top: 0;
@@ -29,7 +33,6 @@
         @include rem(padding, 20px 30px 20px 70px);
         margin: 0;
         @include rem(font-size, 14px);
-        color: #fff;
         font-weight: bold;
         position: relative;
 
@@ -103,7 +106,7 @@
             text-align: left;
         }
 
-        img {
+        img:not(.circled) {
             width: 30px;
         }
 
@@ -118,5 +121,27 @@
     .dropdown-menu {
         @include rem(left, 5px);
         border-radius: 0;
+    }
+}
+
+.dashboard-bright {
+    .dashboard-nav {
+        color: $gray-darker;
+    }
+
+    .dashboard-nav-group {
+        background-color: $gray-lighter;
+    }
+
+    .dashboard-nav-title {
+        color: $gray-darker;
+    }
+
+    .dropdown button {
+        color: $gray-darker;
+    }
+
+    hr {
+        border-top-color: #fff;
     }
 }

@@ -23,6 +23,7 @@ from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
+from euth.users import urls as user_urls
 
 js_info_dict = {
     'packages': ('euth.comments',),
@@ -48,6 +49,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^dashboard/', include(dashboard_urls)),
+    url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),

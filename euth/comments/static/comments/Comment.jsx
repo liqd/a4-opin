@@ -122,7 +122,12 @@ var Comment = React.createClass({
           contentType={this.context.comments_contenttype}
         />
         {this.renderDeleteModal()}
-        <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>{this.props.user_name} {moderatorLabel}</h3>
+        <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>
+          {this.props.is_deleted ? this.props.user_name
+            : <a href={`/profile/${this.props.user_name}`}>{this.props.user_name}</a>
+          }
+          {moderatorLabel}
+        </h3>
         {this.renderComment()}
         <div className="action-bar">
           <nav className="navbar navbar-default navbar-static">

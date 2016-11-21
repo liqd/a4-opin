@@ -108,31 +108,8 @@
 }
 
 .org-badge-title,
-.org-location {
+.herounit-location {
     @include rem(font-size, $font-size-medium);
     @include rem(font-size, 20px);
     margin: 0;
-}
-
-.org-location .fa {
-    @include rem(margin-right, 10px);
-}
-
-.orgs-social-links {
-    list-style: none;
-    padding-left: 0;
-
-    li {
-        display: inline-block;
-        @include rem(margin, 0 10px);
-    }
-
-    a {
-        @include rem(font-size, 24px);
-        color: #fff;
-
-        &:hover {
-            color: $gray-light;
-        }
-    }
 }
