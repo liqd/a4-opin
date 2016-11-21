@@ -123,8 +123,8 @@ var Comment = React.createClass({
         />
         {this.renderDeleteModal()}
         <h3 className={this.props.is_deleted ? 'comment-deleted-author' : 'comment-author'}>
-          {this.props.is_deleted ? this.props.user_name :
-            <a href={`/profile/${this.props.user_name}`}>{this.props.user_name}</a>
+          {this.props.is_deleted ? this.props.user_name
+            : <a href={`/profile/${this.props.user_name}`}>{this.props.user_name}</a>
           }
           {moderatorLabel}
         </h3>
