@@ -36,7 +36,6 @@ module.exports = {
       'classnames',
       'moment',
       'font-awesome/scss/font-awesome.scss',
-      'marked',
       './euth_wagtail/assets/js/jquery-fix.js',
       'bootstrap-sass',
       './euth_wagtail/assets/js/modernizr-custom.js',

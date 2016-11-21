@@ -9,11 +9,9 @@ var CommentManageDropdown = require('./CommentManageDropdown')
 var React = require('react')
 var django = require('django')
 var moment = require('moment')
-var marked = require('marked')
 
-var markdown2html = function (text) {
-  var rawMarkup = marked(text.toString(), {sanitize: true})
-  return { __html: rawMarkup }
+var safeHtml = function (text) {
+  return { __html: text }
 }
 
 var Comment = React.createClass({
@@ -78,7 +76,7 @@ var Comment = React.createClass({
         />
       )
     } else {
-      comment = <div className="comment-text" dangerouslySetInnerHTML={markdown2html(this.props.children)} />
+      comment = <div className="comment-text" dangerouslySetInnerHTML={safeHtml(this.props.children)} />
     }
     return comment
   },
@@ -108,7 +106,7 @@ var Comment = React.createClass({
     }
 
     let moderatorLabel
-    if (this.props.authorIsModerator) {
+    if (this.props.authorIsModerator && !this.props.is_deleted) {
       moderatorLabel = <span className="label label-subtle">{django.gettext('Moderator')}</span>
     }
 

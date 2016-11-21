@@ -16,7 +16,8 @@ def react_comments(context, obj):
     request = context['request']
 
     serializer = ThreadSerializer(
-        obj.comments.all(), many=True, context={'request': request})
+        obj.comments.all().order_by('-created'),
+        many=True, context={'request': request})
     comments = serializer.data
 
     user = request.user
