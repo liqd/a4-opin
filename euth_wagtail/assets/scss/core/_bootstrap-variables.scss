@@ -20,6 +20,7 @@ $brand-brand1:          #0076ae; // Blue
 $brand-brand2:          #fcb52d; // Orange
 $brand-brand3:          #5cbeb9; // Turquoise
 $brand-brand4:          #ef3789; // Pink
+$brand-brand5:          #3c487d; // Purple
 
 $brand-primary:         $brand-brand1 !default;
 $brand-success:         #7ed321 !default;
@@ -265,9 +266,9 @@ $dropdown-divider-bg:            #e5e5e5 !default;
 //** Dropdown link text color.
 $dropdown-link-color:            $gray-dark !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      darken($gray-dark, 5%) !default;
+$dropdown-link-hover-color:      $brand-brand1 !default;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         #f5f5f5 !default;
+$dropdown-link-hover-bg:         transparent !default;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $component-active-color !default;

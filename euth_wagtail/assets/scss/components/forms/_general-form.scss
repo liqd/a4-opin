@@ -41,3 +41,7 @@
         box-shadow: none;
     }
 }
+
+.flatpickr-input[readonly] {
+    background-color: #fff;
+}
