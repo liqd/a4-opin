@@ -48,7 +48,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     _avatar = models.ImageField(
         upload_to='users/images',
         blank=True,
-        validators=[euth_validators.validate_logo],
+        validators=[euth_validators.validate_avatar],
         verbose_name=_('Avatar'),
     )
 
