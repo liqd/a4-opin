@@ -138,6 +138,18 @@
     }
 }
 
+.herounit-link {
+    @include rem(margin-top, -20px);
+
+    a {
+        color: #fff;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
+}
+
 
 .euth-hero-unit-video {
     .close {
