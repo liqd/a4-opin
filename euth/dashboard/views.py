@@ -41,7 +41,10 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
     @functional.cached_property
     def other_organisations_of_user(self):
         user = self.request.user
-        return user.organisation_set.exclude(pk=self.organisation.pk)
+        if self.organisation:
+            return user.organisation_set.exclude(pk=self.organisation.pk)
+        else:
+            return None
 
     @property
     def raise_exception(self):
@@ -184,11 +187,11 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return self.organisation
 
     def get_success_url(self):
-            return reverse('dashboard-project-edit',
-                           kwargs={
-                               'organisation_slug': self.organisation.slug,
-                               'slug': self.get_object().slug
-                           })
+        return reverse('dashboard-project-edit',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                           'slug': self.get_object().slug
+                       })
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
