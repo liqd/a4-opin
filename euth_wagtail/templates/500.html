@@ -1,17 +1,34 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+{% load i18n static webpack_loader %}
+<html>
     <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Internal server error</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Error | Opin.me</title>
+        {% render_bundle 'vendor' 'css' %}
+        {% render_bundle 'opin' 'css' %}
     </head>
     <body>
-        <h1>Internal server error</h1>
+        <nav class="navbar navbar-default navbar-fixed-top main-menu" id="main-menu">
+            <div class="container">
+                <a class="navbar-brand" href="/">Opin.me</a>
+            </div>
+        </nav>
 
-        <h2>Sorry, there seems to be an error. Please try again soon.</h2>
+        <div class="error text-center">
+            <div class="error-banner">
+                <div class="error-banner-header">
+                    <img src="{% static 'images/error.png'%}">
+                    <div class="error-banner-header-text">
+                        <h1>500</h1>
+                        <h2>{% trans 'Error' %}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="error-info">
+                    <p>{% trans 'Sorry, something went wrong.' %}<br>
+                        {% trans 'Internal server error.'%}</p>
+                    <a href="/" class="button">{% trans 'Get back to OPIN.ME' %}</a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

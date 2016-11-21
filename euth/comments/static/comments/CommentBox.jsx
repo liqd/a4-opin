@@ -8,16 +8,6 @@ var moment = require('moment')
 var django = require('django')
 
 let CommentBox = React.createClass({
-  loadCommentsFromServer: function () {
-    api.comments.get({
-      object_pk: this.props.subjectId,
-      content_type: this.props.subjectType
-    }).done(function (comments) {
-      this.setState({
-        comments: comments
-      })
-    }.bind(this))
-  },
   updateStateComment: function (index, parentIndex, updatedComment) {
     var comments = this.state.comments
     var diff = {}
@@ -69,11 +59,10 @@ let CommentBox = React.createClass({
   },
   getInitialState: function () {
     return {
-      comments: []
+      comments: this.props.comments
     }
   },
   componentDidMount: function () {
-    this.loadCommentsFromServer()
     moment.locale(this.props.language)
   },
   getChildContext: function () {

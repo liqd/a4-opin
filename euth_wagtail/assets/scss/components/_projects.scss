@@ -61,8 +61,8 @@
 
     .label {
         position: absolute;
-        @include rem(left, 27px);
-        @include rem(bottom, 10px);
+        @include rem(left, 10px);
+        @include rem(bottom, 0);
     }
 }
 

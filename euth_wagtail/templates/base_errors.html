@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <div class="error-banner">
+        <div class="error-banner-header">
+            <img src="{% static 'images/error.png'%}">
+            <div class="error-banner-header-text">
+                <h1>{% block error_status %}{% endblock %}</h1>
+                <h2>{% trans 'Error' %}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="error-info">
+            <p>{% trans 'Sorry, something went wrong.' %}<br>
+            {% block error_description %}{% endblock %}</p>
+            <a href="/" class="button">{% trans 'Get back to OPIN.ME' %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

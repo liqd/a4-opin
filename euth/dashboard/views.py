@@ -10,7 +10,6 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
-from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
@@ -183,9 +182,8 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         kwargs['phases__queryset'] = qs
 
         if qs.first().type.startswith('euth_flashpoll'):
-            reference_instance = flashpoll_models.Flashpoll.objects.get(
-                module=self.module)
-            kwargs['module_settings__instance'] = reference_instance
+            settings_instance = qs.first().module.settings
+            kwargs['module_settings__instance'] = settings_instance
 
         return kwargs
 

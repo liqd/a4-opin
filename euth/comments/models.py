@@ -36,14 +36,10 @@ class Comment(UserGeneratedContentModel):
         ordering = ('created',)
 
     def __str__(self):
-        return str(self.created)
-
-    @property
-    def project(self):
-        co = self.content_object
-        if isinstance(co, self.__class__):
-            co = co.content_object
-        return co.project
+        if len(self.comment) > 50:
+            return "comment: {} ...".format(self.comment[:50])
+        else:
+            return "comment: {}".format(self.comment)
 
     def save(self, *args, **kwargs):
         """
@@ -56,3 +52,22 @@ class Comment(UserGeneratedContentModel):
         if self.is_censored:
             self.comment = 'deleted by moderator'
         return super(Comment, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        if hasattr(self.content_object, 'get_absolute_url'):
+            return self.content_object.get_absolute_url()
+        elif hasattr(self.project, 'get_absolute_url'):
+            return self.project.get_absolute_url()
+        else:
+            return None
+
+    @property
+    def notification_content(self):
+        return self.comment
+
+    @property
+    def project(self):
+        co = self.content_object
+        if isinstance(co, self.__class__):
+            co = co.content_object
+        return co.project
