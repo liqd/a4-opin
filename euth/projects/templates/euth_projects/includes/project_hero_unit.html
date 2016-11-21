@@ -28,7 +28,9 @@
                 <h1 class="euth-hero-unit-title">{{ project.name }}</h1>
                 <p class="euth-hero-unit-description">{{ project.description | truncatechars:200 }}</p>
                 {% block phase_cta %}{% endblock %}
+                {% comment %}
                 {% react_follows project %}
+                {% endcomment %}
             </div>
         </div>
     </div>
