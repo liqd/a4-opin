@@ -1,8 +1,8 @@
-.info-note {
+.infonote {
     @include rem(padding, 20px);
     @include rem(max-width, 530px);
-    @include rem(margin-bottom, 100px);
-    @include rem(margin-top, 190px);
+    @include rem(margin-bottom, 50px);
+    @include rem(margin-top, 140px);
     background-color: $brand-brand1;
     color: #fff;
     text-align: center;
