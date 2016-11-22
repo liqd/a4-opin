@@ -51,11 +51,6 @@
     .close {
         opacity: 1;
 
-        &:focus,
-        &:hover {
-            outline: none;
-        }
-
         & i {
             color: $gray-darker;
         }
@@ -67,11 +62,6 @@
         &:active {
             background-color: transparent;
             box-shadow: none;
-        }
-
-        &:focus,
-        &:hover {
-            outline: none;
         }
     }
 
