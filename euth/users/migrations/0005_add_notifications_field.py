@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='get_notifications',
-            field=models.BooleanField(help_text='Designates whether you want to receive notifications. Unselect if you do not want to receive notifications.', verbose_name='get notifications', default=True),
+            field=models.BooleanField(default=True, help_text='Designates whether you want to receive notifications. Unselect if you do not want to receive notifications.', verbose_name='Send me email notifications')
         )
     ]

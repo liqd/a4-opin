@@ -46,11 +46,12 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
                                    help_text=IS_STAFF_HELP)
     is_active = models.BooleanField(_('active'), default=True,
                                     help_text=IS_ACTIVE_HELP)
-    get_notifications = models.BooleanField(
-        _('get notifications'), default=True,
-        help_text=GET_NOTIFICATIONS_HELP)
     date_joined = models.DateTimeField(editable=False, default=timezone.now)
 
+    get_notifications = models.BooleanField(
+        verbose_name=_('Send me email notifications'),
+        default=True,
+        help_text=GET_NOTIFICATIONS_HELP)
     _avatar = models.ImageField(
         upload_to='users/images',
         blank=True,
