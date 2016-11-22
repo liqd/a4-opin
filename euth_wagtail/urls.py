@@ -16,6 +16,7 @@ from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
+from euth.follows.api import FollowViewSet
 from euth.ideas import urls as ideas_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
@@ -30,6 +31,7 @@ js_info_dict = {
 
 router = routers.DefaultRouter()
 router.register(r'comments', CommentViewSet, base_name='comments')
+router.register(r'follows', FollowViewSet, base_name='follows')
 router.register(r'ratings', RatingViewSet, base_name='ratings')
 router.register(r'reports', ReportViewSet, base_name='reports')
 router.register(r'documents', DocumentViewSet, base_name='documents')
