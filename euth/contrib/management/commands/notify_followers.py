@@ -11,8 +11,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         phases = Phase.objects.finish_next()
-        modules_list = phases.values_list('module', flat=True)
-        modules = Module.objects.filter(pk__in=modules_list)
-        project_list = modules.values_list('project', flat=True)
-        projects = Project.objects.filter(pk__in=project_list)
-        print(projects)
+        projects = Project.objects.filter(module__phase=phases)
