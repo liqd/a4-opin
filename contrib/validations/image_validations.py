@@ -8,7 +8,7 @@ image_max_mb = 5
 
 
 
-def validate_image(image, min_width, min_height):
+def validate_image(image, min_width, min_height, aspect_ratio=None, aspect_marign=0.1):
     errors = []
 
     imagetype = magic.from_buffer(image.read(), mime=True)
@@ -26,6 +26,17 @@ def validate_image(image, min_width, min_height):
     if image.height < min_height:
         msg = _('Image must be at least {min_height} pixels high')
         errors.append(ValidationError(msg.format(min_height=min_height)))
+
+    if aspect_ratio:
+        aspect_heigth, aspect_width = aspect_ratio
+        target_ratio = aspect_heigth/aspect_width
+        actual_ratio = image.height/image.width
+
+        if abs(target_ratio - actual_ratio) > aspect_marign:
+            msg = _('Image aspect ratio should be {aspect_width}:{aspect_height}')
+            errors.append(ValidationError(
+                msg.format(aspect_width=aspect_width, aspect_height=aspect_heigth)))
+
     if errors:
         raise ValidationError(errors)
     return image

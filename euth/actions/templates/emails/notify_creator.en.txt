@@ -1,0 +1,11 @@
+Someone created a {{ object_verbose_name }} on your {{ target_object_verbose_name }}
+
+On your {{ target_object_verbose_name }} {% if target_object_title %}<b>{{ target_object_title }}</b>{% endif %} a {{ object_verbose_name }} was added
+
+{% if notification_content %}
+{{ notification_content }}
+{% endif %}
+
+{% if url %}
+See more: {{ email.get_host }}{{ url }}
+{% endif %}

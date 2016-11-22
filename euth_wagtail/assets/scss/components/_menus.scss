@@ -17,7 +17,7 @@ body {
     .navbar-brand {
         @include rem(font-size, 14px);
         @include text-hide;
-        background: url(../images/logo.png) no-repeat left center;
+        background: url(../images/logo.png) no-repeat left center/contain;
         width: 47px;
 
         .svgasimg & {
@@ -41,7 +41,6 @@ body {
 
     a,
     button {
-        @include rem(padding-left, 40px);
         color: #000;
         font-weight: bold;
         padding-right: 0;
@@ -50,10 +49,7 @@ body {
 
     .dropdown a,
     .dropdown button {
-        @include rem(padding-left, 20px);
-        @include rem(padding-right, 20px);
         font-weight: bold;
-
 
         @media (max-width: $screen-sm-min) {
             @include rem(margin-left, 40px);
@@ -71,7 +67,42 @@ body {
         }
     }
 
+    .dropdown-menu {
+        padding-bottom: 0;
+    }
+
+    .dropdown-menu li {
+        position: relative;
+    }
+
+    .user-indicator li:nth-last-child(2) a {
+        border-bottom: 0;
+    }
+
+    .dropdown-menu li i,
+    .dropdown-menu li img {
+        position: absolute;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dropdown-text {
+        @include rem(padding-left, 30px);
+    }
+
     .language-selector a {
         color: $brand-brand2;
+    }
+
+    .logout-button-form {
+        background-color: $gray-lighter;
+    }
+
+    .logout-button-form button {
+        width: 100%;
+        border-bottom: 0;
+        text-align: left;
+        @include rem(padding-left, 15px);
+        background-color: transparent;
     }
 }

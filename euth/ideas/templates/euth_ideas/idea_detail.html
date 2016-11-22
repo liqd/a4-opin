@@ -14,7 +14,7 @@
                             {% trans 'back to project' %}</a>
                     </li>
                 </ul>
-                {% has_perm 'euth_ideas.modify_ideas' request.user ideas as show_dropdown %}
+                {% has_perm 'euth_ideas.modify_idea' request.user idea as show_dropdown %}
                 {% if show_dropdown %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -52,10 +52,8 @@
                 {% else %}
                 <img src=""></img>
                 {% endif %}
-                <div class="name">
-                    {{ idea.creator.username }}
-                    {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
-                </div>
+                <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
+                {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
 
             <div class="idea-description">

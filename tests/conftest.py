@@ -50,6 +50,11 @@ def ImagePNG():
 
 
 @pytest.fixture
+def image_factory():
+    return factories.ImageFactory()
+
+
+@pytest.fixture
 def login_url():
     return reverse('account_login')
 

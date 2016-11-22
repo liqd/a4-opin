@@ -23,9 +23,13 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['_avatar', 'username']
+        fields = ['username', '_avatar', 'description', 'birthdate', 'city',
+                  'country', 'gender', 'languages', 'twitter_handle',
+                  'facebook_handle', 'instagram_handle']
         widgets = {
-            '_avatar': widgets.ImageInputWidget()
+            '_avatar': widgets.ImageInputWidget(),
+            'description': forms.Textarea(),
+            'birthdate': widgets.DateInput(),
         }
 
 
@@ -325,8 +329,8 @@ class OrganisationForm(forms.ModelForm):
             'image': _("Your image should be at least 1300px wide and "
                        "600px high. Supported formats are %s."
                        % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
-            'logo': _("Your image should be at least 200px wide and "
-                      "200px high. Supported formats are %s."
+            'logo': _("Your logo should be at least 200px wide "
+                      "and square. Supported formats are %s."
                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
         }
 

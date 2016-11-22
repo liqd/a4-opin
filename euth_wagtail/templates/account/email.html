@@ -6,7 +6,7 @@
 {% block title %}{% trans 'E-mail Addresses' %}{% endblock %}
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{% trans 'E-mail Addresses' %}</h1>
+<h1 class="gray-divider dashboard-title">{% trans 'E-mail Addresses' %}</h1>
 <div class="general-form">
     <form action="{% url 'account_email' %}?next={{ request.path }}" class="email_list" method="post">
         {% csrf_token %}

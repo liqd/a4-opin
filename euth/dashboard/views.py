@@ -10,7 +10,6 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
-from euth.flashpoll import models as flashpoll_models
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.phases import models as phase_models
@@ -42,7 +41,10 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
     @functional.cached_property
     def other_organisations_of_user(self):
         user = self.request.user
-        return user.organisation_set.exclude(pk=self.organisation.pk)
+        if self.organisation:
+            return user.organisation_set.exclude(pk=self.organisation.pk)
+        else:
+            return None
 
     @property
     def raise_exception(self):
@@ -50,12 +52,12 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
 
 
 class DashboardEmailView(DashboardBaseMixin, account_views.EmailView):
-    pass
+    menu_item = 'email'
 
 
 class DashboardAccountView(DashboardBaseMixin,
                            socialaccount_views.ConnectionsView):
-    pass
+    menu_item = 'connections'
 
 
 class DashboardProfileView(DashboardBaseMixin,
@@ -66,12 +68,21 @@ class DashboardProfileView(DashboardBaseMixin,
     template_name = "euth_dashboard/profile_detail.html"
     form_class = forms.ProfileForm
     success_message = _("Your profile was successfully updated.")
+    menu_item = 'profile'
 
     def get_object(self):
         return get_object_or_404(user_models.User, pk=self.request.user.id)
 
     def get_success_url(self):
         return self.request.path
+
+
+class ChangePasswordView(DashboardBaseMixin,
+                         account_views.PasswordChangeView):
+    menu_item = 'password'
+
+    def get_success_url(self):
+        return reverse('dashboard-password')
 
 
 class DashboardOrganisationUpdateView(DashboardBaseMixin,
@@ -84,6 +95,7 @@ class DashboardOrganisationUpdateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/organisation_form.html'
     success_message = _('Organisation successfully updated.')
     permission_required = 'euth_organisations.modify_organisation'
+    menu_item = 'organisation'
 
     def get_success_url(self):
         return self.request.path
@@ -95,6 +107,7 @@ class DashboardProjectListView(DashboardBaseMixin,
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
     permission_required = 'euth_organisations.modify_organisation'
+    menu_item = 'project'
 
     def get_queryset(self):
         return self.model.objects.filter(
@@ -114,6 +127,7 @@ class DashboardBlueprintListView(DashboardBaseMixin,
     template_name = 'euth_dashboard/blueprint_list.html'
     blueprints = blueprints.blueprints
     permission_required = 'euth_organisations.initiate_project'
+    menu_item = 'project'
 
     def get_permission_object(self):
         return self.organisation
@@ -129,6 +143,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
     permission_required = 'euth_organisations.initiate_project'
+    menu_item = 'project'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -161,6 +176,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'
+    menu_item = 'project'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -171,11 +187,11 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return self.organisation
 
     def get_success_url(self):
-            return reverse('dashboard-project-edit',
-                           kwargs={
-                               'organisation_slug': self.organisation.slug,
-                               'slug': self.get_object().slug
-                           })
+        return reverse('dashboard-project-edit',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                           'slug': self.get_object().slug
+                       })
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -183,9 +199,8 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         kwargs['phases__queryset'] = qs
 
         if qs.first().type.startswith('euth_flashpoll'):
-            reference_instance = flashpoll_models.Flashpoll.objects.get(
-                module=self.module)
-            kwargs['module_settings__instance'] = reference_instance
+            settings_instance = qs.first().module.settings
+            kwargs['module_settings__instance'] = settings_instance
 
         return kwargs
 
@@ -197,6 +212,7 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
     form_class = forms.ProjectUpdateForm
     permission_required = 'euth_organisations.initiate_project'
     success_message = _('Your project has been deleted.')
+    menu_item = 'project'
 
     @property
     def raise_exception(self):
@@ -227,6 +243,7 @@ class DashboardProjectInviteView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
     permission_required = 'euth_organisations.initiate_project'
+    menu_item = 'project'
 
     def get_permission_object(self):
         return self.organisation
@@ -267,6 +284,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_users.html'
     success_message = _("User request successfully updated.")
     permission_required = 'euth_organisations.initiate_project'
+    menu_item = 'project'
 
     def get_permission_object(self):
         return self.organisation

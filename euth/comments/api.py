@@ -1,4 +1,4 @@
-from rest_framework import filters, permissions, viewsets
+from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
 from euth.contrib.api.permissions import IsCreatorOrReadOnly
@@ -7,7 +7,11 @@ from .models import Comment
 from .serializers import ThreadSerializer
 
 
-class CommentViewSet(viewsets.ModelViewSet):
+class CommentViewSet(mixins.CreateModelMixin,
+                     mixins.RetrieveModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.DestroyModelMixin,
+                     viewsets.GenericViewSet):
 
     queryset = Comment.objects.all().order_by('-created')
     serializer_class = ThreadSerializer

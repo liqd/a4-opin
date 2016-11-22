@@ -13,6 +13,9 @@ from euth.modules import models as module_models
 
 class Document(module_models.Item):
     name = models.CharField(max_length=120)
+    comments = GenericRelation(comment_models.Comment,
+                               related_query_name='document',
+                               object_id_field='object_pk')
 
     def __str__(self):
         return "{}_document_{}".format(str(self.module), self.pk)
@@ -26,6 +29,10 @@ class Document(module_models.Item):
             except ObjectDoesNotExist:
                 super().clean(*args, **kwargs)
         super().clean(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('project-detail', args=[str(self.project.slug)])
 
 
 class Paragraph(base_models.TimeStampedModel):
@@ -49,6 +56,14 @@ class Paragraph(base_models.TimeStampedModel):
         self.text = html_transforms.clean_html_field(
             self.text)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('paragraph-detail', args=[str(self.pk)])
+
+    @cached_property
+    def creator(self):
+        return self.document.creator
 
     @cached_property
     def project(self):
