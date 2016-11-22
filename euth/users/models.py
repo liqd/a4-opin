@@ -24,6 +24,9 @@ EMAIL_NOT_UNIQUE = _('A user with that email address already exists.')
 IS_STAFF_HELP = _('Designates whether the user can log into this admin site.')
 IS_ACTIVE_HELP = _('Designates whether this user should be treated as active. '
                    'Unselect this instead of deleting accounts.')
+GET_NOTIFICATIONS_HELP = _('Designates whether you want to receive'
+                           'notifications. Unselect if you do not '
+                           'want to receive notifications.')
 
 
 class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
@@ -45,6 +48,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
                                     help_text=IS_ACTIVE_HELP)
     date_joined = models.DateTimeField(editable=False, default=timezone.now)
 
+    get_notifications = models.BooleanField(
+        verbose_name=_('Send me email notifications'),
+        default=True,
+        help_text=GET_NOTIFICATIONS_HELP)
     _avatar = models.ImageField(
         upload_to='users/images',
         blank=True,
