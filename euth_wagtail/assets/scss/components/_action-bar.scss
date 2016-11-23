@@ -82,7 +82,6 @@
     }
 
     .open {
-        outline: none;
         background-color: transparent;
         box-shadow: none;
 
@@ -107,7 +106,6 @@
         &:hover,
         &:active,
         &:visited {
-            outline: none;
             background-color: transparent;
             box-shadow: none;
         }
