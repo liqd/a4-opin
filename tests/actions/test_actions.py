@@ -9,16 +9,17 @@ from euth.actions.models import Action
 
 @pytest.mark.django_db
 def test_no_notification_if_flag_is_not_set(
-        user_factory, idea_factory, comment_factory):
+        user_factory, document_factory, comment_factory):
 
     user = user_factory(get_notifications=False)
     user2 = user_factory()
-    idea = idea_factory(creator=user)
+    document = document_factory(creator=user)
 
     action_count = Action.objects.all().count()
     assert action_count == 0
+    assert len(mail.outbox) == 0
 
-    comment_factory(content_object=idea, creator=user2)
+    comment_factory(content_object=document, creator=user2)
 
     action_count = Action.objects.all().count()
     assert action_count == 1
@@ -32,13 +33,16 @@ def test_idea_creator_gets_email_after_comment(
     user = user_factory()
     user2 = user_factory()
     idea = idea_factory(creator=user)
+    action_count = Action.objects.all().count()
+    assert action_count == 1
 
     comment_factory(content_object=idea, creator=user2)
 
     action_count = Action.objects.all().count()
-    assert action_count == 1
-    assert len(mail.outbox) == 1
-    assert 'A Comment was added to your idea' in mail.outbox[0].subject
+    assert action_count == 2
+    assert len(mail.outbox) == 2
+    assert 'A idea was added to your project' in mail.outbox[0].subject
+    assert 'A Comment was added to your idea' in mail.outbox[1].subject
 
 
 @pytest.mark.django_db
@@ -76,19 +80,19 @@ def test_document_creator_gets_email_after_comment_on_paragraph(
 
 @pytest.mark.django_db
 def test_comment_creator_gets_email_after_comment(
-        user_factory, idea_factory, comment_factory):
+        user_factory, document_factory, comment_factory):
 
     user = user_factory()
     user2 = user_factory()
-    idea = idea_factory(creator=user)
+    document = document_factory(creator=user)
 
-    comment = comment_factory(content_object=idea, creator=user2)
+    comment = comment_factory(content_object=document, creator=user2)
     comment_factory(content_object=comment, creator=user)
 
     action_count = Action.objects.all().count()
     assert action_count == 2
     assert len(mail.outbox) == 2
-    assert 'A Comment was added to your idea' in mail.outbox[0].subject
+    assert 'A Comment was added to your document' in mail.outbox[0].subject
     assert mail.outbox[0].recipients() == [user.email]
     assert 'A Comment was added to your Comment' in mail.outbox[1].subject
     assert mail.outbox[1].recipients() == [user2.email]
@@ -96,12 +100,12 @@ def test_comment_creator_gets_email_after_comment(
 
 @pytest.mark.django_db
 def test_comment_creator_gets_no_email_after_comment_on_own_resource(
-        user_factory, idea_factory, comment_factory):
+        user_factory, document_factory, comment_factory):
 
     user = user_factory()
-    idea = idea_factory(creator=user)
+    document = document_factory(creator=user)
 
-    comment_factory(content_object=idea, creator=user)
+    comment_factory(content_object=document, creator=user)
 
     action_count = Action.objects.all().count()
     assert action_count == 1
