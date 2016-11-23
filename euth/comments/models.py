@@ -5,6 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from contrib.transforms import html_transforms
 from euth.contrib.base_models import UserGeneratedContentModel
 from euth.contrib.generics import models_to_limit
 from euth.ratings import models as rating_models
@@ -46,6 +47,9 @@ class Comment(UserGeneratedContentModel):
         Change the text of the comment if
         the comment was marked removed or censored
         """
+
+        self.comment = html_transforms.clean_html_all(
+            self.comment)
 
         if self.is_removed:
             self.comment = 'deleted by creator'
