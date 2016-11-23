@@ -1,0 +1,15 @@
+{% extends 'email_base.html' %}
+{% block subject %}
+Participation in a project you follow will be over soon.
+{% endblock %}
+{% block content %}
+<h2>Participation in a project you follow will be over soon</h2>
+
+<p>The current phase of <i>{{ project.name }}</i> will be over at {{ project.active_phase.end_date }}</p>
+
+{% if url %}
+<p>
+  <a href="{{ email.get_host }}{{ url }}">See more</a>
+</p>
+{% endif %}
+{% endblock %}

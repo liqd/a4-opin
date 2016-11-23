@@ -1,6 +1,7 @@
 from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import functional, timezone
 from django.utils.translation import ugettext as _
@@ -94,7 +95,6 @@ class Project(base_models.TimeStampedModel):
         super(Project, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
         return reverse('project-detail', args=[str(self.slug)])
 
     def has_member(self, user):
