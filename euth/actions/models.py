@@ -43,6 +43,8 @@ class Action(models.Model):
     verb = models.CharField(max_length=255, db_index=True)
     description = models.TextField(blank=True, null=True)
 
+    recipients = models.TextField(blank=True, null=True)
+
     def __str__(self):
 
         ctx = {
