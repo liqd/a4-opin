@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
@@ -16,26 +18,27 @@ def add_action(sender, instance, created, **kwargs):
     project = instance.project if hasattr(instance, 'project') and isinstance(
         instance.project, Project) else None
 
-    if created:
-        Action.objects.create(
-            actor=instance.creator,
-            target_content_type=instance.content_type,
-            target_object_id=instance.object_pk,
-            action_object_content_type=comment_contenttype,
-            action_object_object_id=instance.pk,
-            project=project,
-            verb='created'
-        )
-    else:
-        Action.objects.create(
-            actor=instance.creator,
-            target_content_type=instance.content_type,
-            target_object_id=instance.object_pk,
-            action_object_content_type=comment_contenttype,
-            action_object_object_id=instance.pk,
-            project=project,
-            verb='updated'
-        )
+    target = instance.content_type.get_object_for_this_type(
+        pk=instance.object_pk)
+
+    recipients = []
+
+    if hasattr(target, 'creator') and target.creator.get_notifications:
+        if not target.creator == instance.creator:
+            recipients.append(target.creator.email)
+
+    verb = 'created' if created else 'updated'
+
+    Action.objects.create(
+        actor=instance.creator,
+        target_content_type=instance.content_type,
+        target_object_id=instance.object_pk,
+        action_object_content_type=comment_contenttype,
+        action_object_object_id=instance.pk,
+        project=project,
+        verb=verb,
+        recipients=json.dumps(recipients)
+    )
 
 
 @receiver(post_delete, sender=Comment)
