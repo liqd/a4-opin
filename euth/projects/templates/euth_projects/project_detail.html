@@ -89,7 +89,7 @@
     </article>
     <article id="result" class="tab-panel">
         <div class="tab-panel-description project usercontent">
-            {% trans 'There are no results yet. Please check back later.' as no_results %}
+            {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
             {{ view.project.result |default:no_results|safe|linebreaks }}
         </div>
     </article>
