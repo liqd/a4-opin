@@ -16,12 +16,14 @@ from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
+from euth.follows.api import FollowViewSet
 from euth.ideas import urls as ideas_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
+from euth.users import urls as user_urls
 
 js_info_dict = {
     'packages': ('euth.comments',),
@@ -29,6 +31,7 @@ js_info_dict = {
 
 router = routers.DefaultRouter()
 router.register(r'comments', CommentViewSet, base_name='comments')
+router.register(r'follows', FollowViewSet, base_name='follows')
 router.register(r'ratings', RatingViewSet, base_name='ratings')
 router.register(r'reports', ReportViewSet, base_name='reports')
 router.register(r'documents', DocumentViewSet, base_name='documents')
@@ -46,6 +49,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^dashboard/', include(dashboard_urls)),
+    url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(projects_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),

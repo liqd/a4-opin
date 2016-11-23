@@ -1,4 +1,4 @@
-{% extends "euth_dashboard/base_dashboard.html" %}
+{% extends "euth_dashboard/base_organisation.html" %}
 {% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
@@ -13,7 +13,7 @@
 
         {% for field in form.untranslated %}
         <div class="form-group{% if field.errors %} has-error{% endif %}">
-            <label>{{ field.label }}</label>
+            <label for="{{field.id_for_label}}">{{ field.label }}</label>
             {% if field.help_text %}
             <p><i>{{ field.help_text }}</i></p>
             {% endif %}
@@ -45,7 +45,7 @@
         <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">
             {% for field in fields %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
-                <label>{{ field.label }}</label>
+                <label for="{{field.id_for_label}}">{{ field.label }}</label>
                 {% if field.help_text %}
                 <p><i>{{ field.help_text }}</i></p>
                 {% endif %}

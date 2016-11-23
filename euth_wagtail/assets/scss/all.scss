@@ -10,6 +10,7 @@
 @import "core/tiles";
 @import "core/footer";
 @import "core/tabs";
+@import "core/utilities";
 
 // Wagtail blocks
 @import "wagtail-blocks/blocks";
@@ -56,4 +57,5 @@
 @import "components/info-note";
 @import "components/user-indicator";
 @import "components/usercontent";
+@import "components/dropdown";
 @import "components/error-pages"

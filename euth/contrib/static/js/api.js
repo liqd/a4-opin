@@ -14,7 +14,8 @@ var api = (function () {
     comment: baseURL + 'comments/',
     rating: baseURL + 'ratings/',
     report: baseURL + 'reports/',
-    document: baseURL + 'documents/'
+    document: baseURL + 'documents/',
+    follow: baseURL + 'follows/'
   }
 
   function _sendRequest (endpoint, id, options, data, contentType) {
@@ -24,7 +25,7 @@ var api = (function () {
       // there's no id, switch parameters
       data = options
       options = id
-    } else if (typeof id === 'number') {
+    } else if (typeof id === 'number' || typeof id === 'string') {
       url = url + id + '/'
     }
     var defaultParams = {
@@ -107,6 +108,18 @@ var api = (function () {
       },
       change: function (data, id) {
         return _sendRequest('document', id, {
+          type: 'PUT'
+        }, data)
+      }
+    },
+    follow: {
+      get: function (slug) {
+        return _sendRequest('follow', slug, {
+          type: 'GET'
+        }, {})
+      },
+      change: function (data, slug) {
+        return _sendRequest('follow', slug, {
           type: 'PUT'
         }, data)
       }

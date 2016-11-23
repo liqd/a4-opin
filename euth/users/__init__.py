@@ -1,5 +1,7 @@
 from django.core.urlresolvers import resolve, Resolver404
 
+USERNAME_REGEX = r'^[\w]+[ \w.@+-]*$'
+
 
 def _get_account_url_names():
     from allauth.account import urls

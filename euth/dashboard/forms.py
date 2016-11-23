@@ -23,9 +23,13 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['_avatar', 'username']
+        fields = ['username', '_avatar', 'description', 'birthdate', 'city',
+                  'country', 'gender', 'languages', 'twitter_handle',
+                  'facebook_handle', 'instagram_handle']
         widgets = {
-            '_avatar': widgets.ImageInputWidget()
+            '_avatar': widgets.ImageInputWidget(),
+            'description': forms.Textarea(),
+            'birthdate': widgets.DateInput(),
         }
 
 

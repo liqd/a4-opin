@@ -50,6 +50,20 @@
     @include button-hover($brand-success);
 }
 
+
+.btn-dark {
+    background-color: $black;
+
+    &.btn-primary i {
+        color: $brand-primary;
+    }
+
+    &:hover,
+    &:focus {
+        color: $gray-light;
+    }
+}
+
 .btn-ghost {
     border: 1px solid currentColor;
     text-transform: uppercase;
@@ -141,28 +155,8 @@
     &:hover,
     &:active,
     &:visited {
-        outline: none;
         background-color: transparent;
         box-shadow: none;
-    }
-}
-
-.logout-button-form {
-    & .btn {
-        background-color: transparent;
-        padding: 0;
-        text-transform: uppercase;
-        font-weight: bold;
-
-        &:active {
-            background-color: transparent;
-            box-shadow: none;
-        }
-
-        &:focus,
-        &:hover {
-            outline: none;
-        }
     }
 }
 

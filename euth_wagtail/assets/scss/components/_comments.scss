@@ -13,7 +13,6 @@
     }
 
     & textarea:focus {
-        border: 1px solid $gray;
         border-radius: 0;
         @include rem(font-size, 14px);
     }

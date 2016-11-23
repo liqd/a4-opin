@@ -111,8 +111,9 @@ var ParagraphBox = React.createClass({
         })
         setTimeout(function () {
           this.setState({
-            successMessage: ''}
-          ) }.bind(this), 1500)
+            successMessage: ''
+          })
+        }.bind(this), 1500)
       }.bind(this))
       .fail(function (xhr, status, err) {
         this.setState({
@@ -138,8 +139,9 @@ var ParagraphBox = React.createClass({
         })
         setTimeout(function () {
           this.setState({
-            successMessage: ''}
-          ) }.bind(this), 1500)
+            successMessage: ''
+          })
+        }.bind(this), 1500)
       }.bind(this))
       .fail(function (xhr, status, err) {
         this.setState({

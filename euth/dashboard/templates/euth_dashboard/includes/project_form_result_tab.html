@@ -6,8 +6,9 @@
         <h3 class="form-section-heading">{% trans 'Result '%}</h3>
         <div class="form-section-fields">
 
-            <div class="form-group{% if field.errors %} has-error{% endif %}" style="margin-top: -30px;">
-                <label>{{ form.result.label }}</label>
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{form.project.result.id_for_label}}">{{ form.project.result.label }}</label>
+                <p class='form-help-text'>{{ form.project.result.help_text }}</p>
                 {% render_field form.project.result class="form-control" %}
                 <span class="help-block">{{ error }}</span>
             </div>
