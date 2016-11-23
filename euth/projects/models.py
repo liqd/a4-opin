@@ -46,7 +46,14 @@ class Project(base_models.TimeStampedModel):
                     'participation will look like. It will be always visible '
                     'in the „Info“ tab on your project’s page.')
     )
-    result = RichTextUploadingField(blank=True, config_name='image-editor')
+    result = RichTextUploadingField(
+        blank=True,
+        config_name='image-editor',
+        help_text=_('Here you should explain what the expected outcome of the '
+                    'project will be and how you are planning to use the '
+                    'results. If the project is finished you should add a '
+                    'summary of the results.')
+    )
     is_public = models.BooleanField(
         default=True,
         verbose_name=_('Access to the project'),
