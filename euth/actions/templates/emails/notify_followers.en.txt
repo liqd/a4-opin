@@ -1,4 +1,4 @@
-Participation in a project you follow will beover soon
+Participation in a project you follow will be over soon
 
 The current phase of {{ project.name }} will be over at {{ project.active_phase.end_date }}
 
