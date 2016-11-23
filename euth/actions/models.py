@@ -12,7 +12,9 @@ class Action(models.Model):
 
     # actor
     actor = models.ForeignKey(settings.AUTH_USER_MODEL,
-                              on_delete=models.CASCADE)
+                              on_delete=models.CASCADE,
+                              blank=True,
+                              null=True)
 
     # target eg. idea
     target_content_type = models.ForeignKey(ContentType, blank=True, null=True,
@@ -42,20 +44,22 @@ class Action(models.Model):
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
+
         ctx = {
-            'actor': self.actor.username,
+            'actor': self.actor.username if self.actor else '',
             'verb': self.verb,
             'action_object': self.action_object,
             'target': self.target
         }
+
         if self.target:
             if self.action_object:
                 return _('%(actor)s %(verb)s '
                          '%(action_object)s on '
                          '%(target)s') % ctx
             return _('%(actor)s %(verb)s '
-                     '%(target)s ago') % ctx
+                     '%(target)s') % ctx
         if self.action_object:
             return _('%(actor)s %(verb)s '
-                     '%(action_object)s ago') % ctx
-        return _('%(actor)s %(verb)s ago') % ctx
+                     '%(action_object)s') % ctx
+        return _('%(actor)s %(verb)s') % ctx
