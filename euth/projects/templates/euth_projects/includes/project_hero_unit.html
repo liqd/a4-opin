@@ -8,26 +8,26 @@
             <div class="herounit-header">
 
                 {% get_days project.days_left as days %}
-            <p>
-                {% if not project.is_public %}
+                <p>
+                    {% if not project.is_public %}
                     <span class="label label-private">{% trans 'private' %}</span>
-                {% endif %}
-                {% if project.has_finished %}
-                    <span class="label label-finished">{% trans 'finished' %}</span>
-                {% elif days %}
-                    <span class="label label-runningout">{{ days }}</span>
-                {% endif %}
-            </p>
-                <a href="{% url 'organisation-detail' slug=project.organisation.slug %}">
-                    {% if project.organisation.logo %}
-                    <div class="herounit-logo">
-                        <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium'}}" alt="" />
-                    </div>
                     {% endif %}
-                    <p class="org-badge-title">{{ project.organisation }}</p>
-                </a>
+                    {% if project.has_finished %}
+                    <span class="label label-finished">{% trans 'finished' %}</span>
+                    {% elif days %}
+                    <span class="label label-runningout">{{ days }}</span>
+                    {% endif %}
+                </p>
+
                 <h1 class="herounit-title">{{ project.name }}</h1>
+                <p class="herounit-link">
+                    {% trans 'by' %}
+                    <a href="{% url 'organisation-detail' slug=project.organisation.slug %}">
+                        {{ project.organisation }}
+                    </a>
+                </p>
                 <p class="herounit-description">{{ project.description | truncatechars:200 }}</p>
+
                 {% block phase_cta %}{% endblock %}
                 {% comment %}
                 {% react_follows project %}
