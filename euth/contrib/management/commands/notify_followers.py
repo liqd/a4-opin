@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 
 from euth.actions.models import Action
 from euth.phases.models import Phase
-from euth.projects.models import Project
 
 
 class Command(BaseCommand):
@@ -11,10 +10,20 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         phases = Phase.objects.finish_next()
-        projects = Project.objects.filter(module__phase=phases)
 
-        for project in projects:
-            Action.objects.get_or_create(
+        for phase in phases:
+            project = phase.module.project
+            actions = Action.objects.filter(
                 project=project,
-                verb='project almost finished'
+                verb='project almost finished',
+            ).filter(
+                timestamp__lt=phase.end_date
+            ).filter(
+                timestamp__gte=phase.start_date
             )
+
+            if not actions:
+                Action.objects.create(
+                    project=project,
+                    verb='project almost finished'
+                )
