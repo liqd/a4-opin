@@ -25,7 +25,7 @@ class ProfileForm(forms.ModelForm):
         model = user_models.User
         fields = ['username', '_avatar', 'description', 'birthdate', 'city',
                   'country', 'gender', 'languages', 'twitter_handle',
-                  'facebook_handle', 'instagram_handle']
+                  'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
             '_avatar': widgets.ImageInputWidget(),
             'description': forms.Textarea(),
