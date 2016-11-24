@@ -21,6 +21,7 @@ from euth.ideas import urls as ideas_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as projects_urls
+from euth.proposals import urls as proposals_urls
 from euth.ratings.api import RatingViewSet
 from euth.reports.api import ReportViewSet
 from euth.users import urls as user_urls
@@ -54,6 +55,7 @@ urlpatterns += i18n_patterns(
     url(r'^projects/', include(projects_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),
     url(r'^ideas/', include(ideas_urls)),
+    url(r'^proposals/', include(proposals_urls)),
     url(r'^memberships/', include(memberships_urls)),
     url(r'^adhocracy/',
         TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
