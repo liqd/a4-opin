@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    {% for proposal in proposal_list %}
+    <div>
+        {{ proposal.description1 }}
+    </div>
+    <div>
+        {{ proposal.description2 }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
