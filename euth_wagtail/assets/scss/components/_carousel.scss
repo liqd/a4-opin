@@ -1,57 +1,62 @@
-.owl-carousel {
+.slick-slider {
     position: relative;
 
-    .owl-prev,
-    .owl-next {
+    .slick-prev,
+    .slick-next {
         @include rem(font-size, 40px);
         @include rem(margin-top, -20px);
         position: absolute;
         top: 50%;
+        z-index: 1;
         opacity: 0;
+        background-color: transparent;
+        border: 0;
 
         transition: opacity, 0.3s;
     }
 
-    .owl-prev {
+    .slick-prev {
         @include rem(left, -70px);
     }
 
-    .owl-next {
+    .slick-next {
         @include rem(right, -70px);
     }
 
     &:hover {
-        .owl-prev,
-        .owl-next {
+        .slick-prev,
+        .slick-next {
             opacity: 1;
         }
 
-        .owl-prev.disabled,
-        .owl-next.disabled {
+        .slick-prev.slick-disabled,
+        .slick-next.slick-disabled {
             opacity: 0;
         }
     }
 
     @media (max-width: $screen-md-min) {
-        .owl-prev,
-        .owl-next {
+        .slick-prev,
+        .slick-next {
             display: none;
         }
     }
 
-    .project-tile {
-        margin: 0;
+    .slick-slide {
+        margin: 0 10px;
     }
 
-    .owl-stage-outer {
+
+    .slick-list {
         overflow: visible;
+        @include rem(padding, 20px 0 30px);
 
         @media (max-width: $screen-md-min) {
             overflow: hidden;
         }
     }
 
-    .owl-item:not(.active) {
+    .slick-slide:not(.slick-active) {
         opacity: 0.4;
 
         .project-tile {
@@ -62,5 +67,4 @@
 
 .home-carousel {
     overflow-x: hidden;
-    @include rem(padding, 20px 0 30px);
 }

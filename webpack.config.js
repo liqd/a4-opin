@@ -39,8 +39,8 @@ module.exports = {
       './euth_wagtail/assets/js/jquery-fix.js',
       'bootstrap-sass',
       './euth_wagtail/assets/js/modernizr-custom.js',
-      'owl.carousel',
-      'owl.carousel/dist/assets/owl.carousel.min.css'
+      'slick-carousel/slick/slick.min.js',
+      'slick-carousel/slick/slick.css'
     ]
   },
   devtool: 'source-map',

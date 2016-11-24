@@ -16,28 +16,47 @@ $(document).ready(function () {
     }
   });
 
-  $('.owl-carousel').owlCarousel({
-    center: false,
-    items: 4,
+  $('.owl-carousel').slick({
+    centerMode: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     dots: false,
-    nav: true,
-    margin: 20,
-    stagePadding: 30,
-    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-    responsive: {
-      0: {
-        items: 1
+    arrows: true,
+    centerPadding: 30,
+    mobileFirst: true,
+    infinite: false,
+    prevArrow: '<button class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slick-next"><i class="fa fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 0,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       },
-      480: {
-        items: 2
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
       },
-      768: {
-        items: 3
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
       },
-      992: {
-        items: 4
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4
+        }
       }
-    }
+    ]
   });
 
   $(".form-control-file").change(function() {
