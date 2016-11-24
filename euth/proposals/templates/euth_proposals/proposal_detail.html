@@ -1,14 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    {% for proposal in proposal_list %}
-    <a href="{% url 'proposal-detail' proposal.pk %}">{{ proposal.name }}</a>
     <div>
         {{ proposal.description1 }}
     </div>
     <div>
         {{ proposal.description2 }}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
