@@ -19,7 +19,6 @@
     "js-cookie": "~2.1.2",
     "moment": "^2.14.1",
     "node-sass": "3.10.1",
-    "owl.carousel": "~2.1.4",
     "postcss-loader": "^1.1.0",
     "react": "15.1.0",
     "react-addons-update": "~15.1.0",
@@ -28,6 +27,7 @@
     "react-hyperscript": "2.4.0",
     "salvattore": "1.0.9",
     "sass-loader": "4.0.2",
+    "slick-carousel": "^1.6.0",
     "style-loader": "0.13.1",
     "webpack": "1.13.1",
     "webpack-bundle-tracker": "0.0.93"
