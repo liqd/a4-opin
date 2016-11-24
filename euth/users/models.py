@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
@@ -149,6 +151,15 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     @property
     def avatar(self):
         return self._avatar
+
+    @property
+    def age(self):
+        today = date.today()
+        years_difference = today.year - self.birthdate.year
+        is_before_birthday = (today.month, today.day) < (self.birthdate.month,
+                                                         self.birthdate.day)
+        elapsed_years = years_difference - int(is_before_birthday)
+        return elapsed_years
 
     def get_full_name(self):
         """

@@ -59,6 +59,30 @@ $(document).ready(function () {
     ]
   });
 
+  $('.slider-xs').slick({
+    centerMode: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+    arrows: false,
+    centerPadding: 30,
+    mobileFirst: true,
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 0,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: 'unslick'
+      }
+    ]
+  });
+
   $(".form-control-file").change(function() {
     var string = $(this).val().match(/[^\\/]+$/)[0]
     $(this).parent().find(".form-control-file-dummy").val(string)

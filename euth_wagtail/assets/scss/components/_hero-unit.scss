@@ -22,6 +22,86 @@
     }
 }
 
+.herounit-profile {
+    min-height: 200px;
+    @include rem(padding, 80px 0 0);
+    @include rem(margin-bottom, 30px);
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @media screen and (max-width: $screen-xs-max) {
+        @include rem(padding, 40px 0 0);
+        display: block;
+    }
+
+    .herounit-header {
+        float: left;
+        position: relative;
+        top: 25px;
+        display: flex;
+        align-items: flex-end;
+
+        @media screen and (max-width: $screen-xs-max) {
+            display: block;
+            position: static;
+            overflow: hidden;
+        }
+    }
+
+    .circled {
+        float: left;
+
+        @media screen and (max-width: $screen-xs-max) {
+            float: none;
+        }
+    }
+
+    .herounit-description {
+        overflow: hidden;
+
+        @media screen and (min-width: $screen-sm-min) {
+            @include rem(margin-bottom, 35px);
+            @include rem(padding-left, 20px);
+        }
+    }
+
+    .herounit-title {
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .herounit-links {
+        @media screen and (min-width: $screen-sm-min) {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        a {
+            @include rem(font-size, $font-size-medium);
+        }
+    }
+
+    .herounit-meta {
+        width: 230px;
+        margin: 0 auto;
+
+        p {
+            margin-bottom: 0;
+            text-align: left;
+        }
+    }
+
+    .bio,
+    strong {
+        color: #fff;
+    }
+
+    .slick-track {
+        display: flex;
+        align-items: center;
+    }
+}
+
 .herounit-purple {
     background: $brand-brand5;
 
@@ -182,29 +262,4 @@
 
 .herounit-location .fa {
     @include rem(margin-right, 10px);
-}
-
-.herounit-box {
-    clear: both;
-    @include rem(padding, 15px 20px);
-    margin: 0 auto;
-    @include rem(margin-top, -30px);
-    max-width: 520px;
-    background-color: #fff;
-    font-style: italic;
-    font-weight: 600;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.3);
-    text-align: center;
-
-    @media screen and (max-width: $screen-xs-max) {
-        width: 85%;
-        margin-left: 7.5%;
-        margin-right: 7.5%;
-    }
-
-    p:last-child {
-        margin-bottom: 0;
-    }
 }
