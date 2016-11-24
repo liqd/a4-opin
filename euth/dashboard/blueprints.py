@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from euth.documents import phases as documents_phases
 from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
+from euth.proposals import phases as proposal_phases
 
 ProjectBlueprint = namedtuple(
     'ProjectBlueprint', [
@@ -55,6 +56,17 @@ blueprints = [
          ],
          image='images/placeholder.png',
          settings_model=('euth_flashpoll', 'Flashpoll'),
+     )),
+    ('proposals',
+     ProjectBlueprint(
+         title=_('Proposals'),
+         description=_('Initiate a prposal process'),
+         content=[
+             proposal_phases.IssuePhase(),
+             proposal_phases.FeedbackPhase(),
+         ],
+         image='images/placeholder.png',
+         settings_model=None,
      )),
 ]
 
