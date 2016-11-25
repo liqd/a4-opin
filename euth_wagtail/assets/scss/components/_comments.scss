@@ -29,12 +29,17 @@
 .comment {
     @include rem(margin-bottom, 50px);
 
-    & .comment-author {
+    .comment-author {
         color: $black;
         font-family: $font-family-sans-serif;
         text-align: justify;
         font-weight: bold;
-        @include rem(font-size, 14px);
+        display: inline-block;
+        @include rem(font-size, $font-size-base);
+
+        a {
+            vertical-align: bottom;
+        }
 
         span {
             @include rem(margin-left, 10px);
@@ -42,17 +47,18 @@
     }
 
     & .comment-deleted-author {
+        display: inline-block;
         color: $gray;
         font-family: $font-family-sans-serif;
         text-align: justify;
-        @include rem(font-size, 14px);
+        @include rem(font-size, $font-size-base);
     }
 
-    & .comment-text p {
+    .comment-text {
         font-family: $font-family-sans-serif;
-        @include rem(font-size, 14px);
+        @include rem(font-size, $font-size-base);
         @include rem(line-height, 1.6);
-        text-align: justify;
+        @include rem(margin-bottom, 10px);
         color: $black;
     }
 
@@ -118,8 +124,9 @@
 }
 
 .comment-submission-date {
-    font-weight: bold;
+    @include rem(margin-left, 10px);
+    display: inline-block;
     margin-right: 5px;
-    vertical-align: middle;
-    @include rem(font-size, 14px);
+    vertical-align: baseline;
+    @include rem(font-size, $font-size-small);
 }

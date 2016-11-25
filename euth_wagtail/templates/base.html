@@ -33,6 +33,10 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+        <script>
+            var django = window.django || (window.django = {});
+            django.languageCode = '{{ request.LANGUAGE_CODE }}';
+        </script>
 
         {% render_bundle 'vendor' 'js' %}
         {% render_bundle 'opin' 'js' %}

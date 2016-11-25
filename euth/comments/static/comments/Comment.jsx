@@ -10,6 +10,8 @@ var React = require('react')
 var django = require('django')
 var moment = require('moment')
 
+moment.locale(django.languageCode)
+
 var safeHtml = function (text) {
   return { __html: text }
 }
@@ -100,9 +102,9 @@ var Comment = React.createClass({
     let CommentList = require('./CommentList')
     let lastDate
     if (this.props.modified === null) {
-      lastDate = moment(this.props.created).format('D MMM YY')
+      lastDate = moment(this.props.created).format('lll')
     } else {
-      lastDate = django.gettext('Latest edit') + ' ' + moment(this.props.modified).fromNow()
+      lastDate = django.gettext('Latest edit on') + ' ' + moment(this.props.modified).format('lll')
     }
 
     let moderatorLabel
@@ -126,12 +128,10 @@ var Comment = React.createClass({
           }
           {moderatorLabel}
         </h3>
+        <span className="comment-submission-date">{lastDate}</span>
         {this.renderComment()}
         <div className="action-bar">
           <nav className="navbar navbar-default navbar-static">
-            <ul className="nav navbar-nav">
-              <li className="entry"><span className="comment-submission-date">{lastDate}</span></li>
-            </ul>
             {this.renderRatingBox()}
             {this.context.isAuthenticated && !this.props.is_deleted &&
               <CommentManageDropdown
