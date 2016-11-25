@@ -7,11 +7,11 @@
 
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+        <p>{% trans 'The information you give in your profile will be shown to all users of OPIN.me.' %}</p>
         {% csrf_token %}
         {% for name, fields in form.formsections.items %}
             <div class="form-section">
                 <h3 class="form-section-heading">{{ name }}</h3>
-                <p>{% trans 'The information you give in your profile will be shown to all users of OPIN.me.' %}</p>
                 <div class="form-section-fields row">
                     <div class="col-md-10">
                         {% for field in form %}
