@@ -23,14 +23,41 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['username', '_avatar', 'description', 'birthdate', 'city',
-                  'country', 'gender', 'languages', 'twitter_handle',
+        fields = ['username', '_avatar', 'description', 'birthdate',
+                  'country', 'city', 'gender', 'languages', 'twitter_handle',
                   'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
             '_avatar': widgets.ImageInputWidget(),
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
         }
+
+    @property
+    def formsections(self):
+        formsections = collections.OrderedDict([
+            (_('Basic Info'), [
+                'username',
+                '_avatar',
+            ]),
+            (_('Personal Info'), [
+                'description',
+                'birthdate',
+                'country',
+                'city',
+                'gender',
+            ]),
+            (_('Ways to connect with you'), [
+                'languages',
+                'twitter_handle',
+                'facebook_handle',
+                'instagram_handle',
+            ]),
+            (_('Notifications'), [
+                'get_notifications',
+            ])
+        ])
+
+        return formsections
 
 
 class ProjectInviteForm(forms.Form):

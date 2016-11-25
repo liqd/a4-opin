@@ -97,7 +97,8 @@
         @include rem(padding, 10px);
 
         button {
-            display: block;
+            display: flex;
+            align-items: center;
             color: #fff;
             width: 100%;
             background: transparent;
