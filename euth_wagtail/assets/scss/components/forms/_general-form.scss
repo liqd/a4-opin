@@ -3,10 +3,9 @@
 
     label {
         @include rem(font-size, 14px);
-        @include rem(height, 19px);
+        @include rem(height, 16px);
         font-weight: bold;
         font-family: $font-family-sans-serif;
-        @include rem(letter-spacing, -0.2px);
         color: $black;
     }
 
@@ -17,7 +16,7 @@
 
     .input-group-btn .btn,
     .form-control {
-        @include rem(height, 76px);
+        @include rem(height, 48px);
         border-radius: 0;
     }
 
@@ -28,6 +27,7 @@
 
 .form-help-text {
     font-style: italic;
+    font-size: $font-size-small;
 }
 
 .form-control {

@@ -18,23 +18,25 @@
     }
 
     .btn {
-        line-height: 65px;
+        line-height: 48px;
     }
 
     .btn-default {
-        @include rem(font-size, 30px);
-        @include rem(width, 76px);
+        @include rem(font-size, 24px);
+        @include rem(width, 48px);
         background: $brand-success;
         border: 0;
         color: #fff;
+        padding: 0;
     }
 
     .btn-danger {
-        @include rem(font-size, 30px);
-        @include rem(width, 76px);
+        @include rem(font-size, 24px);
+        @include rem(width, 48px);
         background: $brand-danger;
         border: 0;
         color: #fff;
+        padding: 0;
     }
 
     .alert-info {
