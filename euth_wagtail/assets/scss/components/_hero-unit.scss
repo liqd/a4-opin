@@ -11,6 +11,11 @@
     justify-content: center;
     flex-direction: column;
 
+    @media only screen and (max-width: $screen-xs) {
+        min-height: 200px;
+        @include rem(padding, 40px 0);
+    }
+
     &:after {
         background: rgba(0, 0, 0, 0.5);
         content: '\A';
@@ -54,6 +59,11 @@
 .herounit-logo-lg {
     @include rem(width, 150px);
     @include rem(height, 150px);
+
+    @media only screen and (max-width: $screen-xs) {
+        @include rem(width, 90px);
+        @include rem(height, 90px);
+    }
 }
 
 .herounit-image {
@@ -90,11 +100,17 @@
 
 .herounit-title {
     @include rem(font-size, $font-size-xlarge);
-    @include rem(margin, 0 0 20px 0);
+    @include rem(margin, 0 0 10px 0);
 
     @media screen and (max-width: $screen-md-max) {
         @include rem(padding, 0 40px);
     }
+
+    @media screen and (max-width: $screen-xs) {
+        @include rem(font-size, $font-size-large);
+        @include rem(padding, 0 10px);
+    }
+
 }
 
 .herounit-description {
@@ -180,8 +196,14 @@
     }
 }
 
+.herounit-location {
+    @media screen and (max-width: $screen-xs) {
+        font-size: $font-size-small;
+    }
+}
+
 .herounit-location .fa {
-    @include rem(margin-right, 10px);
+    @include rem(margin-right, 5px);
 }
 
 .herounit-box {
