@@ -53,7 +53,6 @@
     </header>
 
 
-    {% if view.get_participated_projects %}
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 hidden-xs">
@@ -71,15 +70,16 @@
                     {% endif %}
                 </div>
                 <div class="col-sm-9">
-                    <div class="teaserlist">
-                        {% for project in view.get_participated_projects %}
-                            {% include 'euth_projects/includes/project_list_item.html' with project=project show_follow=True %}
-                        {% endfor %}
-                    </div>
+                    {% if view.get_participated_projects %}
+                        <div class="teaserlist">
+                            {% for project in view.get_participated_projects %}
+                                {% include 'euth_projects/includes/project_list_item.html' with project=project show_follow=True %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>{{ object.username }} {% trans 'has not participated yet' %} :(</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    {% else %}
-        <p>You are neither member nor follower of a project yet.</p>
-    {% endif %}
 {% endblock %}
