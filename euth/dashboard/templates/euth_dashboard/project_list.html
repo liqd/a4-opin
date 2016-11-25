@@ -30,7 +30,7 @@
                     </strong>
                 </a>
                 {% if project.active_phase %}
-                <span class="text-muted">Phase {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
+                <span class="text-muted">{% trans 'Phase' %} {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
                 {% endif %}
 
                 {% get_days project.days_left as days %}

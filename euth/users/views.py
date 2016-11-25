@@ -1,3 +1,4 @@
+from django.db import models as django_models
 from django.views.generic.detail import DetailView
 from euth.projects.models import Project
 from . import models
@@ -9,4 +10,12 @@ class ProfileView(DetailView):
 
     @property
     def get_participated_projects(self):
-        return Project.objects.filter(participants=self.object)
+        user = self.object
+
+        qs = Project.objects.filter(
+            django_models.Q(follow__creator=user),
+            django_models.Q(follow__enabled=True) |
+            django_models.Q(participants=user)
+        ).distinct()
+
+        return qs

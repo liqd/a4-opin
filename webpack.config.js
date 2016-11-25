@@ -43,7 +43,7 @@ module.exports = {
       'slick-carousel/slick/slick.css'
     ]
   },
-  devtool: 'source-map',
+  devtool: 'eval',
   output: {
     libraryTarget: 'var',
     library: '[name]',

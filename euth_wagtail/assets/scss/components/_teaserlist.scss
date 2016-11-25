@@ -1,0 +1,70 @@
+.teaserlist-item {
+    position: relative;
+    min-height: 200px;
+    @include rem(padding-top, 50px);
+    @include rem(margin-bottom, 10px);
+
+    background-size: cover;
+    background-position: 50% 50%;
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    }
+
+    &.no-image {
+        background-image: url(/static/images/placeholder.png);
+    }
+
+    &.finished {
+        border: solid 5px $brand-brand2;
+    }
+
+    &.public {
+        border: solid 5px $brand-brand3;
+    }
+
+    &.running-out {
+        border: solid 5px $brand-danger;
+    }
+
+    &.private {
+        border: solid 5px $brand-brand1;
+    }
+}
+
+.teaserlist-body {
+    position: relative;
+    z-index: 1;
+
+    @include rem(padding, 0 20px 20px);
+
+
+    &,
+    p,
+    a {
+        color: #fff;
+    }
+
+    h3 {
+        @include rem(margin-bottom, 5px);
+    }
+
+    .avatar {
+        @include rem(margin-top, 15px);
+        margin-bottom: 0;
+    }
+}
+
+.teaserlist-actions {
+    position: absolute;
+    @include rem(right, 25px);
+    @include rem(bottom, 20px);
+}
