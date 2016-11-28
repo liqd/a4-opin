@@ -3,35 +3,38 @@
 <ul class="nav navbar-nav navbar-right user-indicator" id="user-indicator">
     <li class="dropdown">
     {% if request.user.is_authenticated %}
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{ request.user.username }}<span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            {% if request.user.is_superuser %}
+        <div class="btngroup btngroup-primary">
+            <a href="{% url 'profile' request.user.username %}" class="btn">
+                <img src="{{ request.user.avatar|thumbnail_url:'org_avatar_small' }}" alt="" width="30">
+                {{ request.user.username }}
+            </a>
+            <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                {% if request.user.is_superuser %}
+                    <li>
+                        <a href="{% url 'admin:index' %}"><i class="fa fa-hand-spock-o"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
+                    </li>
+                {% endif %}
                 <li>
-                    <a href="{% url 'admin:index' %}"><i class="fa fa-hand-spock-o"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
+                    <a href="{% url 'dashboard' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
-            {% endif %}
-            <li>
-                <a href="{% url 'profile' request.user.username %}"><i class="fa fa-user"></i> <span class="dropdown-text">{% trans "Profile" %}</span></a>
-            </li>
-            <li>
-                <a href="{% url 'dashboard' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
-            </li>
-            {% for organisation in request.user.organisations %}
-                <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">
-                    <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20">
-                    <span class="dropdown-text">{{ organisation.title }}</span>
-                </a></li>
-            {% endfor %}
-            <li>
-                <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ redirect_field_value }}">
-                    <button class="btn" type="submit" value="Register"><i class="fa fa-sign-out"></i> <span class="dropdown-text">{% trans "logout" %}</span></button>
-                </form>
-            </li>
-        </ul>
+                {% for organisation in request.user.organisations %}
+                    <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">
+                        <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20">
+                        <span class="dropdown-text">{{ organisation.title }}</span>
+                    </a></li>
+                {% endfor %}
+                <li>
+                    <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ redirect_field_value }}">
+                        <button type="submit" value="Register"><i class="fa fa-sign-out"></i> <span class="dropdown-text">{% trans "logout" %}</span></button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     {% else %}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login / Register"%}<span class="caret"></span></span>
         </a>

@@ -180,7 +180,7 @@
 .herounit-description {
     @include rem(padding, 0 70px);
     line-height: 1.63;
-    margin-bottom: 0;
+    @include rem(margin-bottom, 15px);
     font-weight: 600;
 
     @media screen and (max-width: $screen-sm-max) {

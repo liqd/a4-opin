@@ -24,3 +24,22 @@
         margin-left: 0;
     }
 }
+
+@media screen and (min-width: $grid-float-breakpoint) {
+    .user-indicator .btngroup {
+        margin-top: $navbar-padding-vertical / 2;
+    }
+
+    .user-indicator .btngroup > a {
+        height: 50px;
+        display: block;
+        padding: $navbar-padding-vertical / 2 10px;
+    }
+}
+
+.user-indicator .btn {
+    background-color: $brand-brand5;
+    color: #fff;
+    min-width: 45px;
+    text-align: center;
+}
