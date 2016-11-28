@@ -101,9 +101,9 @@ var Comment = React.createClass({
   render: function () {
     let CommentList = require('./CommentList')
     let lastDate
-    if (this.props.modified === null) {
+    if (this.props.modified === null && !this.props.is_deleted) {
       lastDate = moment(this.props.created).format('lll')
-    } else {
+    } else if (!this.props.is_deleted) {
       lastDate = django.gettext('Latest edit on') + ' ' + moment(this.props.modified).format('lll')
     }
 
