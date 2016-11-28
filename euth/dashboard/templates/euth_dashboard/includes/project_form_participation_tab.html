@@ -28,7 +28,7 @@
 
                 <div class="phase-form">
                     <h5>
-                        <a href="#phase-{{ forloop.counter }}" {% if not forloop.first %}class="collapsed"{% endif %} data-toggle="collapse">
+                        <a href="#phase-{{ forloop.counter }}" class="collapse collapsed" data-toggle="collapse">
                             {% trans 'Phase '%} {{ forloop.counter }}:
                             {% if form.instance.id %}
                             {{ form.instance.content.name }}
@@ -44,7 +44,7 @@
                     {% endfor %}
 
 
-                    <div class="single-phase {% if forloop.first %} in {% else %} collapse {% endif %}" id="phase-{{ forloop.counter }}">
+                    <div class="single-phase collapse" id="phase-{{ forloop.counter }}">
                     {% for field in form.visible_fields %}
                         {% if field != form.start_date and field != form.end_date %}
                         <div class="form-group {% if field.errors %} has-error{% endif %}">
