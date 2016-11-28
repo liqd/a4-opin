@@ -21,7 +21,8 @@
 
     .accordion-link {
         @include rem(font-size, $font-size-medium);
-        @include rem(padding, 20px 0);
+        @include rem(padding, 20px 20px);
+        position: relative;
         color: $gray-darker;
         display: block;
         font-family: $font-family-sans-serif;
@@ -31,7 +32,10 @@
         &:after {
             content: "–";
             @include rem(font-size, $font-size-large);
-            @include rem(margin-left, 20px);
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -14px;
         }
 
         &.collapsed {
