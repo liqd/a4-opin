@@ -6,6 +6,7 @@ Opin uses Transifex to translate strings using *.po and *.mo files.
 
 To update the translations in *.po files, you have to pull the latest
 versions using the [`bin/tx pull -a`](http://docs.transifex.com/client/pull/) command.
+If this does not work, add a `-f` to the command to force the pulling.
 
 ## Extracting Strings
 
@@ -30,7 +31,7 @@ bin/python manage.py makemessages -a -d djangojs
 To push the newly extracted strings to Transifex, you have to push the
 changes with [`bin/tx push -t`](http://docs.transifex.com/client/push/). To push the source files (*.po files
 of the project's source language - English) as well, run `bin/tx push -s -t`.
-When pushing source files, be careful not to [override files in Transifex](http://docs.transifex.com/client/push/how-source-string-updates-are-handled).
+When pushing source files, be careful not to [override files in Transifex](http://docs.transifex.com/client/push/#how-source-string-updates-are-handled).
 
 ## Compiling
 
