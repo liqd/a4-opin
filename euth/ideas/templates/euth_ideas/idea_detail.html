@@ -48,9 +48,9 @@
 
             <div class="avatar-small">
                 {% if idea.creator.avatar %}
-                <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small' }}"></img>
+                <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small' }}" alt="" />
                 {% else %}
-                <img src=""></img>
+                <img src="{{ idea.creator.default_avatar }}" alt="" />
                 {% endif %}
                 <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
                 {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}

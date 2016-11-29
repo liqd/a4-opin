@@ -5,6 +5,12 @@
     display: inline-block;
     background-size: cover;
     background-position: 50% 50%;
+    vertical-align: middle;
+}
+
+.circled-xs {
+    height: 30px;
+    width: 30px;
 }
 
 .circled-lg {

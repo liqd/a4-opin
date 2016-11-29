@@ -22,9 +22,9 @@
                 </h3>
                 <div class="avatar-small">
                     {% if idea.creator.avatar %}
-                    <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small'}}" width="30" height="30" alt=""/>
+                        <span class="circled circled-xs" style="background-image: url({{ idea.creator.avatar | thumbnail_url:'avatar_small' }})"></span>
                     {% else %}
-                    <img src="/static/images/logo.svg" width="30" height="30" alt=""/>
+                        <span class="circled circled-xs" style="background-image: url({{ idea.creator.default_avatar }})"></span>
                     {% endif %}
                     <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
                     <span class="idea-date"> {{ idea.created |date }}</span>

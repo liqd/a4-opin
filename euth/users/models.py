@@ -3,6 +3,7 @@ from datetime import date
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
+from django.templatetags.static import static
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
@@ -151,6 +152,11 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     @property
     def avatar(self):
         return self._avatar
+
+    @property
+    def default_avatar(self):
+        id = self.pk % 6
+        return static('images/placeholder_{}.png'.format(id))
 
     @property
     def age(self):

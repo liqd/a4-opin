@@ -6,12 +6,13 @@
     <header class="herounit herounit-profile herounit-purple">
         <div class="container{% if object.description %} slider-xs{% endif %}">
             <div class="herounit-header">
+            {{ object.avatar }}
                 {% if object.avatar %}
                     <span class="circled circled-lg"
                           style="background-image: url({{ object.avatar|thumbnail_url:'org_avatar_medium' }});"></span>
                 {% else %}
                     <span class="circled circled-lg"
-                          style="background-image: url({% static "images/placeholder.png" %});"></span>
+                          style="background-image: url({{ object.default_avatar }});"></span>
                 {% endif %}
                 <div class="herounit-description">
                     {% if object.has_social_share %}
