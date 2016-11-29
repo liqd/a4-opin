@@ -4,7 +4,7 @@
     <li class="dropdown">
     {% if request.user.is_authenticated %}
         <div class="btngroup btngroup-primary">
-            <a href="{% url 'profile' request.user.username %}" class="btn">
+            <a href="{% url 'profile' request.user.username %}" class="btn userindicator-profile">
                 <img src="{{ request.user.avatar|thumbnail_url:'org_avatar_small' }}" alt="" width="30">
                 {{ request.user.username }}
             </a>

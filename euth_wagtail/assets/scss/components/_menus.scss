@@ -43,17 +43,12 @@ body {
     button {
         color: #000;
         font-weight: bold;
-        padding-right: 0;
         text-transform: uppercase;
     }
 
     .dropdown a,
     .dropdown button {
         font-weight: bold;
-
-        @media (max-width: $screen-sm-min) {
-            @include rem(margin-left, 40px);
-        }
     }
 
     .dropdown.open a.dropdown-toggle,
