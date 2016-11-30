@@ -140,7 +140,9 @@
 }
 
 .project-tile-list {
-    @include rem(padding, 30px 30px 30px 0);
+    @include rem(padding, 15px);
+    min-height: 0;
+    display: block;
 
     .col-md-9,
     .col-xs-11 {

@@ -38,6 +38,10 @@
     transition: color 0.2s, background 0.2s;
 }
 
+.btn-sm {
+    @include rem(padding, 7px 15px);
+}
+
 .btn-hover-primary {
     @include button-hover($brand-primary);
 }

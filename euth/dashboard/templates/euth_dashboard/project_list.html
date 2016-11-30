@@ -9,51 +9,49 @@
     <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary">Create project</a>
 
     {% if project_list|length == 0 %}
-    {% trans 'No projects created' %}
+        {% trans 'No projects created' %}
     {% else %}
     <ul>
         {% for project in project_list %}
-        <li class="row tile-list project-tile-list">
-
-            <div class="col-md-1 col-xs-1">
-                <div class="pull-right">
-                    <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
+            <li class="tile-list project-tile-list">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
                         <i class="fa fa-edit" aria-hidden="true"></i>
+                        <strong>
+                            {{ project.name }}
+                        </strong>
                     </a>
-                </div>
-            </div>
+                        {% if project.active_phase %}
+                            <span class="text-muted">{% trans 'Phase' %} {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
+                        {% endif %}
 
-            <div class="col-md-10 col-xs-11">
-                <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
-                    <strong>
-                    {{ project.name }}
-                    </strong>
-                </a>
-                {% if project.active_phase %}
-                <span class="text-muted">{% trans 'Phase' %} {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}</span>
-                {% endif %}
+                        {% get_days project.days_left as days %}
+                        <div class="project-tile-badges">
+                            <span class="label label-type">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
+                            {% if not project.is_public %}<span class="label label-private">private</span>{% endif %}
+                            {% if project.has_finished %}<span class="label label-finished">Finished</span>{% endif %}
+                            {% if days %}<span class="label label-runningout">{{ days }}</span>{% endif %}
+                        </div>
+                    </div>
 
-                {% get_days project.days_left as days %}
-                <div class="project-tile-badges">
-                    <span class="label label-type">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
-                    {% if not project.is_public %}<span class="label label-private">private</span>{% endif%}
-                    {% if project.has_finished %}<span class="label label-finished">Finished</span>{% endif %}
-                    {% if days %}<span class="label label-runningout">{{ days }}</span>{% endif %}
+                    <div class="col-sm-3">
+                        <span class="pull-right">
+                            <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
+                            {% if not project.is_public %}
+                                <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}"
+                                   title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
+                                        <i class="fa fa-user"></i> {{ project.participants.all.count }}
+                                </a>
+                            {% endif %}
+                            <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'View project' %}">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </span>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-md-1">
-                <div class="pull-right">
-                {% if not project.is_public %}
-                    <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}" title="{% trans 'Users' %}">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                    </a>
-                {% endif %}
-                <a href="{% url 'project-detail' project.slug %}" title="{% trans 'View project' %}"><i class="fa fa-eye"></i></a>
-                </div>
-          </div>
-      </li>
-      {% endfor %}
+            </li>
+        {% endfor %}
     </ul>
 </div>
 {% endif %}
