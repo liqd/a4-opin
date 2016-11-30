@@ -34,7 +34,16 @@ class ProfileForm(forms.ModelForm):
 
 
 class ProjectInviteForm(forms.Form):
-    emails = forms.CharField()
+    emails = forms.CharField(
+        label=_('E-mail addresses of invited users'),
+        help_text=_('Enter the e-mail addresses of users who you want '
+                    'to invite, separated by commas. Invited users will get '
+                    'an email to confirm their membership in the project.'),
+        widget=forms.TextInput(attrs={
+            'placeholder': 'magdalena@example.com, yves@example.com,'
+                           ' nadine@example.com…'}
+        )
+    )
 
     def __init__(self, project, *args, **kwargs):
         self.project = project
