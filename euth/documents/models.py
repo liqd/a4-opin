@@ -47,7 +47,7 @@ class Paragraph(base_models.TimeStampedModel):
 
     def save(self, *args, **kwargs):
         self.text = html_transforms.clean_html_field(
-            self.text)
+            self.text, 'image-editor')
         super().save(*args, **kwargs)
 
     @cached_property
