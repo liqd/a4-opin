@@ -1,4 +1,4 @@
-from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import template
 from rest_framework.renderers import JSONRenderer
 
@@ -13,7 +13,8 @@ def react_paragraphs(context, doc, module):
 
     serializer = DocumentSerializer(doc)
     document = JSONRenderer().render(serializer.data)
-    widget = CKEditorWidget()
+    widget = CKEditorUploadingWidget(config_name='image-editor')
+    widget._set_config()
     config = widget.config
 
     context = {
