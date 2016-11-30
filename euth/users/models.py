@@ -156,7 +156,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     @property
     def default_avatar(self):
         id = self.pk % 6
-        return static('images/placeholder_{}.png'.format(id))
+        return static('images/penguin_{}.png'.format(id))
 
     @property
     def age(self):
