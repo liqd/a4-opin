@@ -8,14 +8,14 @@ import euth.contrib.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_users', '0005_add_notifications_field'),
+        ('euth_users', '0006_change_avatar_validator_and_helptext'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='user',
             name='_avatar',
-            field=models.ImageField(validators=[euth.contrib.validators.validate_avatar], verbose_name='Avatar picture', blank=True, upload_to='users/images'),
+            field=models.ImageField(verbose_name='Avatar picture', upload_to='users/images', blank=True, validators=[euth.contrib.validators.validate_avatar]),
         ),
         migrations.AlterField(
             model_name='user',
@@ -30,11 +30,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='gender',
-            field=models.CharField(verbose_name='Gender', max_length=1, choices=[('M', 'Male'), ('F', 'Female'), ('T', 'Transgender'), ('TF', 'Transgender Female'), ('TM', 'Transgender Male'), ('I', 'Intersex'), ('GF', 'Gender Fluid'), ('O', 'Other')], blank=True),
-        ),
-        migrations.AlterField(
-            model_name='user',
-            name='get_notifications',
-            field=models.BooleanField(verbose_name='Send me email notifications', default=True, help_text='Designates whether you want to receivenotifications. Unselect if you do not want to receive notifications.'),
+            field=models.CharField(verbose_name='Gender', max_length=1, blank=True, choices=[('M', 'Male'), ('F', 'Female'), ('T', 'Transgender'), ('TF', 'Transgender Female'), ('TM', 'Transgender Male'), ('I', 'Intersex'), ('GF', 'Gender Fluid'), ('O', 'Other')]),
         ),
     ]
