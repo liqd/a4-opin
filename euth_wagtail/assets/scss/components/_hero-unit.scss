@@ -55,6 +55,7 @@
 
     .circled {
         float: left;
+        background-color: #fff;
 
         @media screen and (max-width: $screen-xs-max) {
             float: none;
