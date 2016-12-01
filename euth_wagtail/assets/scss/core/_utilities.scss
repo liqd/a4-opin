@@ -3,8 +3,13 @@
     height: 50px;
     border-radius: 50%;
     display: inline-block;
-    background-size: cover;
-    background-position: 50% 50%;
+    vertical-align: middle;
+    background: #fff center center / cover;
+}
+
+.circled-xs {
+    height: 30px;
+    width: 30px;
 }
 
 .circled-lg {

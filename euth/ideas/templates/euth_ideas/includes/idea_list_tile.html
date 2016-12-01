@@ -1,4 +1,4 @@
-{% load i18n thumbnail static %}
+{% load i18n thumbnail static avatar %}
 <div class="idea-list-tile">
     {% if idea.image %}
     <a href="{% url 'idea-detail' idea.slug %}" class="idea-tile-image-link" style="background-image: url({{ idea.image | thumbnail_url:'idea_thumbnail' }});">
@@ -21,11 +21,7 @@
                     </a>
                 </h3>
                 <div class="avatar-small">
-                    {% if idea.creator.avatar %}
-                    <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small'}}" width="30" height="30" alt=""/>
-                    {% else %}
-                    <img src="/static/images/logo.svg" width="30" height="30" alt=""/>
-                    {% endif %}
+                    <span class="circled circled-xs" style="background-image: url({% get_avatar idea.creator 'avatar_small' %})"></span>
                     <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
                     <span class="idea-date"> {{ idea.created |date }}</span>
                 </div>
