@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 
+from euth.actions import verbs
 from euth.actions.models import Action
 from euth.phases.models import Phase
 
@@ -15,7 +16,7 @@ class Command(BaseCommand):
             project = phase.module.project
             actions = Action.objects.filter(
                 project=project,
-                verb='project almost finished',
+                verb=verbs.COMPLETE,
             ).filter(
                 timestamp__lt=phase.end_date
             ).filter(
@@ -25,5 +26,5 @@ class Command(BaseCommand):
             if not actions:
                 Action.objects.create(
                     project=project,
-                    verb='project almost finished'
+                    verb=verbs.COMPLETE
                 )
