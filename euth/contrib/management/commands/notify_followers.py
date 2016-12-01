@@ -26,5 +26,7 @@ class Command(BaseCommand):
             if not actions:
                 Action.objects.create(
                     project=project,
-                    verb=verbs.COMPLETE
+                    verb=verbs.COMPLETE,
+                    timestamp=phase.end_date,
+                    target=phase,
                 )
