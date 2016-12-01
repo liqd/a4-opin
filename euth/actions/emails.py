@@ -37,5 +37,6 @@ def notify_followers_on_almost_finished(project):
         'url': project.get_absolute_url()
     }
 
-    emails.send_email_with_template(
-        recipients, 'notify_followers', context)
+    for recipient in recipients:
+        emails.send_email_with_template(
+            [recipient], 'notify_followers', context)
