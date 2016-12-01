@@ -17,13 +17,13 @@
                     {% if object.has_social_share %}
                         <ul class="herounit-links">
                             {% if object.facebook_handle  %}
-                                <li><a href="https://www.facebook.com/{{ object.facebook_handle }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/{{ object.facebook_handle }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             {% endif %}
                             {% if object.twitter_handle %}
-                                <li><a href="https://twitter.com/{{ object.twitter_handle }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://twitter.com/{{ object.twitter_handle }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             {% endif %}
                             {% if object.instagram_handle %}
-                                <li><a href="https://www.instagram.com/{{ object.instagram_handle }}"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/{{ object.instagram_handle }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             {% endif %}
                         </ul>
                     {% endif %}
