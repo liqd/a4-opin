@@ -47,6 +47,11 @@
     min-width: 45px;
 }
 
+.user-indicator .circled {
+    margin-top: -3px;
+    margin-right: 10px;
+}
+
 .user-indicator .open a.dropdown-toggle {
     background-color: darken($brand-brand5, 10);
 }

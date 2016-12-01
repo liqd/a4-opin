@@ -3,9 +3,8 @@
     height: 50px;
     border-radius: 50%;
     display: inline-block;
-    background-size: cover;
     vertical-align: middle;
-    background: #fff 50% 50%;
+    background: #fff center center / cover;
 }
 
 .circled-xs {
