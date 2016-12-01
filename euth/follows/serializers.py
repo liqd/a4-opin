@@ -1,4 +1,3 @@
-from django.db.models import Q
 from rest_framework import serializers
 
 from euth.projects import models as prj_models
@@ -28,6 +27,6 @@ class FollowSerializer(serializers.ModelSerializer):
 
     def get_follows(self, obj):
         return models.Follow.objects.filter(
-            Q(project=obj.project),
-            Q(enabled=True)
+            project=obj.project,
+            enabled=True
         ).count()
