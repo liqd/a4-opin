@@ -10,7 +10,7 @@ class ProjectDetailView(rules_views.PermissionRequiredMixin,
                         generic.DetailView):
 
     model = models.Project
-    permission_required = 'projects.view_project'
+    permission_required = 'euth_projects.view_project'
 
     @property
     def raise_exception(self):

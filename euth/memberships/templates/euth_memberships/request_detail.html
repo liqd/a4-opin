@@ -38,31 +38,16 @@
                         <div class="row">
                             <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
                                 {% csrf_token %}
-                                <button type="submit" class="submit-button">{% trans 'request membership' %}</button>
+                                <button type="submit" class="btn btn-primary">{% trans 'request membership' %}</button>
                             </form>
                         </div>
                         <div class="row">
-                            <button type="button" data-dismiss="modal" class="cancel-button">{% trans 'Abort'%}</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-default">{% trans 'Abort'%}</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     {% endif %}
-
-    <article id="information" class="tab-panel {% if not view.project.active_phase %} active {% endif %}">
-        <h3 class="tab-panel-title">{% trans "info" %}</h3>
-        <div class="tab-panel-description">
-            {{ view.project.information |safe }}
-        </div>
-    </article>
-    <article id="participation" class="tab-panel {% if view.project.active_phase %} active {% endif %}">
-        <div class="tab-panel-description">
-            {% block phase_content %}{% endblock %}
-        </div>
-    </article>
-    <article id="result" class="tab-panel">
-    </article>
 </div>
-
 {% endblock %}
