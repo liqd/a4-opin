@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <div class="dashboard-nav">
                 <div class="dashboard-nav-group">
-                    {% include 'euth_dashboard/includes/dropdown.html' with logo=request.user.avatar is_user=True title=request.user.username orgs=request.user.organisation_set.all %}
+                    {% include 'euth_dashboard/includes/dropdown.html' with is_user=True title=request.user.username orgs=request.user.organisation_set.all %}
                     <div class="list-group">
                         {% url 'dashboard-profile' as dashboard_profile %}
                         <a href="{{ dashboard_profile }}"
