@@ -200,7 +200,7 @@ var ParagraphBox = React.createClass({
                 className="btn btn-hover-success btn-block"
                 onClick={this.appendParagraph}
                 type="button">
-                <i className="fa fa-plus" />
+                <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
               </button>
             </div>
           </div>
