@@ -1,19 +1,16 @@
 from django.utils import translation
 from wagtail.wagtailcore.blocks.stream_block import StreamValue
 
+from euth_wagtail.settings import LANGUAGES
+
 
 class TranslatedField(object):
 
-    def __init__(self, de_field, it_field, en_field, fr_field, sv_field, sl_field, da_field):
-        self.de_field = de_field
-        self.it_field = it_field
-        self.en_field = en_field
-        self.fr_field = fr_field
-        self.sv_field = sv_field
-        self.sl_field = sl_field
-        self.da_field = da_field
+    def __init__(self, field_name):
+        for language_code, language in LANGUAGES:
+            setattr(self, language_code + '_field', field_name + '_' + language_code)
 
-    def hasContent(self, field):
+    def has_content(self, field):
         if isinstance(field, StreamValue):
             value = field.stream_data
             if value:
@@ -37,17 +34,17 @@ class TranslatedField(object):
         sl = getattr(instance, self.sl_field)
         da = getattr(instance, self.da_field)
 
-        if translation.get_language() == 'de' and self.hasContent(de):
+        if translation.get_language() == 'de' and self.has_content(de):
             return de
-        elif translation.get_language() == 'it' and self.hasContent(it):
+        elif translation.get_language() == 'it' and self.has_content(it):
             return it
-        elif translation.get_language() == 'fr' and self.hasContent(fr):
+        elif translation.get_language() == 'fr' and self.has_content(fr):
             return fr
-        elif translation.get_language() == 'sv' and self.hasContent(sv):
+        elif translation.get_language() == 'sv' and self.has_content(sv):
             return sv
-        elif translation.get_language() == 'sl' and self.hasContent(sl):
+        elif translation.get_language() == 'sl' and self.has_content(sl):
             return sl
-        elif translation.get_language() == 'da' and self.hasContent(da):
+        elif translation.get_language() == 'da' and self.has_content(da):
             return da
         else:
             return en
