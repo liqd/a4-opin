@@ -23,8 +23,8 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['username', '_avatar', 'description', 'birthdate', 'city',
-                  'country', 'gender', 'languages', 'twitter_handle',
+        fields = ['username', '_avatar', 'description', 'birthdate',
+                  'country', 'city', 'gender', 'languages', 'twitter_handle',
                   'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
             '_avatar': widgets.ImageInputWidget(),
@@ -32,9 +32,45 @@ class ProfileForm(forms.ModelForm):
             'birthdate': widgets.DateInput(),
         }
 
+    @property
+    def formsections(self):
+        formsections = collections.OrderedDict([
+            (_('Basic Info'), [
+                'username',
+                '_avatar',
+            ]),
+            (_('Personal Info'), [
+                'description',
+                'birthdate',
+                'country',
+                'city',
+                'gender',
+            ]),
+            (_('Ways to connect with you'), [
+                'languages',
+                'twitter_handle',
+                'facebook_handle',
+                'instagram_handle',
+            ]),
+            (_('Notifications'), [
+                'get_notifications',
+            ])
+        ])
+
+        return formsections
+
 
 class ProjectInviteForm(forms.Form):
-    emails = forms.CharField()
+    emails = forms.CharField(
+        label=_('E-mail addresses of invited users'),
+        help_text=_('Enter the e-mail addresses of users who you want '
+                    'to invite, separated by commas. Invited users will get '
+                    'an email to confirm their membership in the project.'),
+        widget=forms.TextInput(attrs={
+            'placeholder': 'magdalena@example.com, yves@example.com,'
+                           ' nadine@example.com…'}
+        )
+    )
 
     def __init__(self, project, *args, **kwargs):
         self.project = project

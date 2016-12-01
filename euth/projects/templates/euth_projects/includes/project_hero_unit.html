@@ -1,5 +1,6 @@
+{% load thumbnail react_follows project_tags i18n rules %}
+{% has_perm 'euth_projects.view_project' request.user project as can_view_project %}
 
-{% load thumbnail react_follows project_tags i18n %}
 <header class="herounit" style="{% if project.image %}
                background-image: url({{ project.image |thumbnail_url:'heroimage' }});
                {% endif %}">
@@ -29,7 +30,9 @@
                 <p class="herounit-description">{{ project.description | truncatechars:200 }}</p>
 
                 {% block phase_cta %}{% endblock %}
-                {% react_follows project %}
+                {% if can_view_project %}
+                    {% react_follows project %}
+                {% endif %}
             </div>
         </div>
     </div>

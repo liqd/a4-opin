@@ -5,14 +5,16 @@ var React = require('react')
 var FollowButton = React.createClass({
   getInitialState: function () {
     return {
-      followed: undefined
+      followed: undefined,
+      follows: 0
     }
   },
   toggleFollow: function () {
     api.follow.change({ enabled: !this.state.followed }, this.props.project)
        .done((follow) => {
          this.setState({
-           followed: follow.enabled
+           followed: follow.enabled,
+           follows: follow.follows
          })
        })
   },
@@ -20,7 +22,8 @@ var FollowButton = React.createClass({
     api.follow.get(this.props.project)
        .done((follow) => {
          this.setState({
-           followed: follow.enabled
+           followed: follow.enabled,
+           follows: follow.follows
          })
        })
        .fail((response) => {
@@ -32,11 +35,12 @@ var FollowButton = React.createClass({
   },
   render: function () {
     return (
-      <span>
+      <span className="btngroup btngroup-gray">
         <button className="btn btn-sm btn-dark btn-primary" type="button" onClick={this.toggleFollow}>
           <i className={this.state.followed ? 'fa fa-star' : 'fa fa-star-o'} aria-hidden="true" />
           &nbsp;{this.state.followed ? django.gettext('Unfollow') : django.gettext('Follow')}
         </button>
+        <span className="btn btn-sm btn-dark btn-primary">{this.state.follows}</span>
       </span>
     )
   }

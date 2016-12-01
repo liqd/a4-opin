@@ -43,17 +43,12 @@ body {
     button {
         color: #000;
         font-weight: bold;
-        padding-right: 0;
         text-transform: uppercase;
     }
 
     .dropdown a,
     .dropdown button {
         font-weight: bold;
-
-        @media (max-width: $screen-sm-min) {
-            @include rem(margin-left, 40px);
-        }
     }
 
     .dropdown.open a.dropdown-toggle,
@@ -100,9 +95,9 @@ body {
 
     .logout-button-form button {
         width: 100%;
-        border-bottom: 0;
+        border: 0;
         text-align: left;
-        @include rem(padding-left, 15px);
+        @include rem(padding, 7px 0 7px 15px);
         background-color: transparent;
     }
 }

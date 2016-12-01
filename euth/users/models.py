@@ -59,7 +59,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         upload_to='users/images',
         blank=True,
         validators=[euth_validators.validate_avatar],
-        verbose_name=_('Avatar'),
+        verbose_name=_('Avatar picture'),
     )
 
     description = models.CharField(
@@ -96,13 +96,13 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     city = models.CharField(
         blank=True,
         max_length=80,
-        verbose_name=_('City'),
+        verbose_name=_('City of residence'),
     )
 
     birthdate = models.DateField(
         blank=True,
         null=True,
-        verbose_name=_('Birthdate'),
+        verbose_name=_('Date of birth'),
     )
 
     gender = models.CharField(
@@ -111,7 +111,13 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         max_length=1,
         choices=[
             ('M', _('Male')),
-            ('F', _('Female'))
+            ('F', _('Female')),
+            ('T', _('Transgender')),
+            ('TF', _('Transgender Female')),
+            ('TM', _('Transgender Male')),
+            ('I', _('Intersex')),
+            ('GF', _('Gender Fluid')),
+            ('O', _('Other')),
         ],
     )
 
