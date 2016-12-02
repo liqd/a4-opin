@@ -14,16 +14,13 @@ class Command(BaseCommand):
 
         for phase in phases:
             project = phase.module.project
-            actions = Action.objects.filter(
+            existing_action = Action.objects.filter(
                 project=project,
                 verb=verbs.COMPLETE,
-            ).filter(
-                timestamp__lt=phase.end_date
-            ).filter(
-                timestamp__gte=phase.start_date
+                timestamp=phase.end_date,
             )
 
-            if not actions:
+            if not existing_action:
                 Action.objects.create(
                     project=project,
                     verb=verbs.COMPLETE,
