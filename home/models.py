@@ -21,7 +21,7 @@ from euth.projects import models as prj_models
 class RSSImport(models.Model):
     url = models.URLField(null=True, blank=True)
 
-    rss_title = models.CharField(max_length=255)
+    rss_title_en = models.CharField(max_length=255)
     rss_title_de = models.CharField(max_length=255, blank=True)
     rss_title_it = models.CharField(max_length=255, blank=True)
     rss_title_fr = models.CharField(max_length=255, blank=True)
@@ -29,21 +29,13 @@ class RSSImport(models.Model):
     rss_title_sl = models.CharField(max_length=255, blank=True)
     rss_title_da = models.CharField(max_length=255, blank=True)
 
-    translated_rss_title = TranslatedField(
-        'rss_title_de',
-        'rss_title_it',
-        'rss_title',
-        'rss_title_fr',
-        'rss_title_sv',
-        'rss_title_sl',
-        'rss_title_da',
-    )
+    translated_rss_title = TranslatedField('rss_title')
 
     panels = [
         edit_handlers.FieldPanel('url'),
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('rss_title'),
+                edit_handlers.FieldPanel('rss_title_en'),
                 edit_handlers.FieldPanel('rss_title_de'),
                 edit_handlers.FieldPanel('rss_title_it'),
                 edit_handlers.FieldPanel('rss_title_fr'),
@@ -57,7 +49,7 @@ class RSSImport(models.Model):
     ]
 
     def __str__(self):
-        return self.rss_title
+        return self.rss_title_en
 
 
 class LinkFields(models.Model):
@@ -79,7 +71,7 @@ class LinkFields(models.Model):
 
 
 class MenuItem(LinkFields):
-    menu_title = models.CharField(max_length=255)
+    menu_title_en = models.CharField(max_length=255)
     menu_title_de = models.CharField(max_length=255, blank=True)
     menu_title_it = models.CharField(max_length=255, blank=True)
     menu_title_fr = models.CharField(max_length=255, blank=True)
@@ -87,15 +79,7 @@ class MenuItem(LinkFields):
     menu_title_sl = models.CharField(max_length=255, blank=True)
     menu_title_da = models.CharField(max_length=255, blank=True)
 
-    translated_menu_title = TranslatedField(
-        'menu_title_de',
-        'menu_title_it',
-        'menu_title',
-        'menu_title_fr',
-        'menu_title_sv',
-        'menu_title_sl',
-        'menu_title_da',
-    )
+    translated_menu_title = TranslatedField('menu_title')
 
     @property
     def url(self):
@@ -105,7 +89,7 @@ class MenuItem(LinkFields):
         return self.title
 
     panels = [
-        edit_handlers.FieldPanel('menu_title'),
+        edit_handlers.FieldPanel('menu_title_en'),
         edit_handlers.MultiFieldPanel(
             [
                 edit_handlers.FieldPanel('menu_title_de'),
@@ -339,88 +323,25 @@ class HomePage(Page):
     videoplayer_url = models.URLField()
 
     # Body
-    body_en = StreamField([
+    block_types = [
         ('image', image_blocks.ImageChooserBlock(icon="image")),
         ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
         ('news_block', NewsBlock()),
         ('rss_feed', RSSImportBlock()),
         ('column_block', ColumnBlock()),
-    ], null=True)
+    ]
+    body_en = StreamField(block_types, null=True)
+    body_de = StreamField(block_types, null=True, blank=True)
+    body_it = StreamField(block_types, null=True, blank=True)
+    body_fr = StreamField(block_types, null=True, blank=True)
+    body_sv = StreamField(block_types, null=True, blank=True)
+    body_sl = StreamField(block_types, null=True, blank=True)
+    body_da = StreamField(block_types, null=True, blank=True)
 
-    body_de = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
+    body = TranslatedField('body')
 
-    body_it = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
-
-    body_fr = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
-
-    body_sv = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
-
-    body_sl = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
-
-    body_da = StreamField([
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('info_block', InfoBlock()),
-        ('video_block', VideoBlock()),
-        ('news_block', NewsBlock()),
-        ('rss_feed', RSSImportBlock()),
-        ('column_block', ColumnBlock()),
-    ], null=True, blank=True)
-
-    body = TranslatedField(
-        'body_de',
-        'body_it',
-        'body_en',
-        'body_fr',
-        'body_sv',
-        'body_sl',
-        'body_da',
-    )
-
-    translated_title = TranslatedField(
-        'title_de',
-        'title_it',
-        'title_en',
-        'title_fr',
-        'title_sv',
-        'title_sl',
-        'title_da',
-    )
+    translated_title = TranslatedField('title')
 
     class Meta:
         verbose_name = "Homepage"
@@ -550,9 +471,9 @@ class SimplePage(Page):
     )
 
     # Body
-    body_en = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
+    block_types = [
+        ('heading', core_blocks.CharBlock(classname="full title",
+                                          icon="title")),
         ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
         ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
         ('info_block', InfoBlock()),
@@ -563,127 +484,28 @@ class SimplePage(Page):
         ('accordion_block', AccordionBlock(icon="collapse-down")),
         ('image_text_block_list', ImageTextBlockList()),
         ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
+    ]
 
-    body_de = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
+    body_en = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_de = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_it = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_fr = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_sv = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_sl = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_da = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
 
-    body_it = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
+    translated_title = TranslatedField('title')
 
-    body_fr = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
+    translated_intro = TranslatedField('intro')
 
-    body_sv = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
-
-    body_sl = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
-
-    body_da = StreamField([
-        ('heading', core_blocks.CharBlock(
-            classname="full title", icon="title")),
-        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
-        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
-        ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
-        ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
-        ('rss_feed', RSSImportBlock()),
-    ], null=True, blank=True, verbose_name="body")
-
-    translated_title = TranslatedField(
-        'title_de',
-        'title_it',
-        'title_en',
-        'title_fr',
-        'title_sv',
-        'title_sl',
-        'title_da',
-    )
-
-    translated_intro = TranslatedField(
-        'intro_de',
-        'intro_it',
-        'intro_en',
-        'intro_fr',
-        'intro_sv',
-        'intro_sl',
-        'intro_da',
-    )
-
-    body = TranslatedField(
-        'body_de',
-        'body_it',
-        'body_en',
-        'body_fr',
-        'body_sv',
-        'body_sl',
-        'body_da',
-    )
+    body = TranslatedField('body')
 
     general_panels = [
         edit_handlers.FieldPanel('title', classname='title'),
