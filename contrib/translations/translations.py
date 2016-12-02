@@ -26,25 +26,10 @@ class TranslatedField(object):
             return False
 
     def __get__(self, instance, owner):
-        de = getattr(instance, self.de_field)
-        it = getattr(instance, self.it_field)
-        en = getattr(instance, self.en_field)
-        fr = getattr(instance, self.fr_field)
-        sv = getattr(instance, self.sv_field)
-        sl = getattr(instance, self.sl_field)
-        da = getattr(instance, self.da_field)
+        lang = translation.get_language()
+        value = getattr(instance, getattr(self, '{}_field'.format(lang)))
 
-        if translation.get_language() == 'de' and self.has_content(de):
-            return de
-        elif translation.get_language() == 'it' and self.has_content(it):
-            return it
-        elif translation.get_language() == 'fr' and self.has_content(fr):
-            return fr
-        elif translation.get_language() == 'sv' and self.has_content(sv):
-            return sv
-        elif translation.get_language() == 'sl' and self.has_content(sl):
-            return sl
-        elif translation.get_language() == 'da' and self.has_content(da):
-            return da
+        if self.has_content(value):
+            return value
         else:
-            return en
+            return getattr(instance, self.en_field)
