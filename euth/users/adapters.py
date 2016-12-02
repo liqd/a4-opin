@@ -19,7 +19,7 @@ class EuthAccountAdapter(DefaultAccountAdapter):
         return send_email_with_template([email], template_prefix, context)
 
     def get_email_confirmation_redirect_url(self, request):
-        if 'next' in request.POST:
-            return request.POST['next']
+        if 'next' in request.GET:
+            return request.GET['next']
         else:
-            super().get_email_confirmation_redirect_url(request)
+            return super().get_email_confirmation_redirect_url(request)
