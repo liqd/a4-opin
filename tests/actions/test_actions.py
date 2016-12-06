@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from dateutil.parser import parse
 from django.core import mail
@@ -136,13 +138,14 @@ def test_24_hour_script(
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 1
-        assert len(mail.outbox) == 1
-        assert mail.outbox[0].recipients() == [user.email, user2.email]
+        assert len(mail.outbox) == 2
+        assert mail.outbox[0].recipients() == [user.email]
+        assert mail.outbox[1].recipients() == [user2.email]
 
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 1
-        assert len(mail.outbox) == 1
+        assert len(mail.outbox) == 2
 
 
 @pytest.mark.django_db
@@ -156,13 +159,13 @@ def test_24_hour_script_adds_action_for_next_pahse(
         end_date=parse('2013-01-01 18:00:00 UTC')
     )
 
-    phase_factory(
+    phase2 = phase_factory(
         module=phase1.module,
         start_date=parse('2013-02-02 17:00:00 UTC'),
         end_date=parse('2013-02-02 18:00:00 UTC')
     )
 
-    phase_factory(
+    phase3 = phase_factory(
         module=phase1.module,
         start_date=parse('2013-02-02 18:01:00 UTC'),
         end_date=parse('2013-02-02 19:00:00 UTC')
@@ -176,7 +179,7 @@ def test_24_hour_script_adds_action_for_next_pahse(
     assert action_count == 0
 
     # first phase ends within 24 h
-    with freeze_time('2013-01-01 17:30:00 UTC'):
+    with freeze_time(phase1.end_date - timedelta(hours=1)):
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 1
@@ -184,7 +187,7 @@ def test_24_hour_script_adds_action_for_next_pahse(
         assert mail.outbox[0].recipients() == [user.email]
 
     # second phase ends within 24 h
-    with freeze_time('2013-02-02 17:30:00 UTC'):
+    with freeze_time(phase2.end_date - timedelta(hours=1)):
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 2
@@ -192,7 +195,7 @@ def test_24_hour_script_adds_action_for_next_pahse(
         assert mail.outbox[0].recipients() == [user.email]
 
     # second phase ends within 24 h but script has already run
-    with freeze_time('2013-02-02 17:40:00 UTC'):
+    with freeze_time(phase2.end_date - timedelta(hours=1)):
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 2
@@ -200,7 +203,7 @@ def test_24_hour_script_adds_action_for_next_pahse(
         assert mail.outbox[0].recipients() == [user.email]
 
     # third phase ends within 24 h but script has already run
-    with freeze_time('2013-02-02 18:02:00 UTC'):
+    with freeze_time(phase3.start_date):
         call_command('notify_followers')
         action_count = Action.objects.all().count()
         assert action_count == 3

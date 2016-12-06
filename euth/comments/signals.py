@@ -2,6 +2,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
+from euth.actions import verbs
 from euth.actions.models import Action
 from euth.contrib import services
 
@@ -24,7 +25,7 @@ def add_action(sender, instance, created, **kwargs):
             action_object_content_type=comment_contenttype,
             action_object_object_id=instance.pk,
             project=project,
-            verb='created'
+            verb=verbs.CREATE
         )
     else:
         Action.objects.create(
@@ -34,7 +35,7 @@ def add_action(sender, instance, created, **kwargs):
             action_object_content_type=comment_contenttype,
             action_object_object_id=instance.pk,
             project=project,
-            verb='updated'
+            verb=verbs.UPDATE
         )
 
 

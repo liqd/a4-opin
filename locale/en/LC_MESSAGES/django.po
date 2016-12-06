@@ -16,26 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: actions/models.py:57
-#, python-format
-msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
-msgstr "%(actor)s %(verb)s %(action_object)s on %(target)s"
-
-#: actions/models.py:60
-#, python-format
-msgid "%(actor)s %(verb)s %(target)s"
-msgstr "%(actor)s %(verb)s %(target)s"
-
-#: actions/models.py:63
-#, python-format
-msgid "%(actor)s %(verb)s %(action_object)s"
-msgstr "%(actor)s %(verb)s %(action_object)s"
-
-#: actions/models.py:65
-#, python-format
-msgid "%(actor)s %(verb)s"
-msgstr "%(actor)s %(verb)s"
-
 #: comments/models.py:35
 msgid "Comment"
 msgstr "Comment"

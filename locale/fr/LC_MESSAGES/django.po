@@ -17,26 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: actions/models.py:57
-#, python-format
-msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
-msgstr ""
-
-#: actions/models.py:60
-#, python-format
-msgid "%(actor)s %(verb)s %(target)s"
-msgstr ""
-
-#: actions/models.py:63
-#, python-format
-msgid "%(actor)s %(verb)s %(action_object)s"
-msgstr ""
-
-#: actions/models.py:65
-#, python-format
-msgid "%(actor)s %(verb)s"
-msgstr ""
-
 #: comments/models.py:35
 msgid "Comment"
 msgstr ""
