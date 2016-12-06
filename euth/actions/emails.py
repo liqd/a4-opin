@@ -1,3 +1,5 @@
+import json
+
 from django.contrib import auth
 from django.utils import translation
 
@@ -19,8 +21,10 @@ def notify_creator_on_create_action(action):
         'url': url,
     }
 
+    jsonDec = json.decoder.JSONDecoder()
+
     emails.send_email_with_template(
-        [action.target.creator.email], 'notify_creator', context)
+        jsonDec.decode(action.recipients), 'notify_creator', context)
 
 
 def notify_followers_on_almost_finished(project):
