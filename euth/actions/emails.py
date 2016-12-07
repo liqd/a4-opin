@@ -4,7 +4,7 @@ from django.utils import translation
 from euth.contrib import emails
 
 
-def notify_creator_on_create_action(action):
+def notify_users_on_create_action(action, users):
     title = action.target.name if hasattr(action.target, 'name') else None
     content = action.action_object.notification_content if hasattr(
         action.action_object, 'notification_content') else None
@@ -19,8 +19,9 @@ def notify_creator_on_create_action(action):
         'url': url,
     }
 
-    emails.send_email_with_template(
-        [action.target.creator.email], 'notify_creator', context)
+    for user in users:
+        emails.send_email_with_template(
+            [user], 'notify_creator', context)
 
 
 def notify_followers_on_almost_finished(project):
