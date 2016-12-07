@@ -335,4 +335,9 @@ REPORTABLES = (
     ('euth_comments', 'comment'),
 )
 
+ACTIONABLE = [
+    ('euth_ideas', 'Idea'),
+    ('euth_comments', 'Comment')
+]
+
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
