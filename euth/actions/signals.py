@@ -1,19 +1,31 @@
+from django.apps import apps
+from django.conf import settings
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from euth.actions import emails
+from euth.modules.models import Item
+from euth.projects.models import Project
 
 from . import verbs
 from .models import Action
 
 
-@receiver(post_save, sender=Action)
-def send_notification(sender, instance, created, **kwargs):
-
-    if instance.verb == verbs.CREATE and hasattr(instance.target, 'creator'):
+def notify_creator(instance):
+    if hasattr(instance.target, 'creator'):
         creator = instance.target.creator
         if creator.get_notifications and not creator == instance.actor:
-            emails.notify_creator_on_create_action(instance)
+            emails.notify_users_on_create_action(instance, [creator.email])
+
+
+def notify_moderators(instance):
+    if str(instance.target_content_type) == 'project':
+        recipients = instance.target.moderators.all().values_list(
+            'email', flat=True)
+        emails.notify_users_on_create_action(instance, recipients)
+
+
 def add_action(sender, instance, created, **kwargs):
     content_type = ContentType.objects.get_for_model(instance)
     verb = verbs.CREATE if created else verbs.UPDATE
@@ -51,5 +63,13 @@ def add_action(sender, instance, created, **kwargs):
 
 for app, model in settings.ACTIONABLE:
     post_save.connect(add_action, apps.get_model(app, model))
+
+
+@receiver(post_save, sender=Action)
+def send_notification(sender, instance, created, **kwargs):
+
+    if instance.verb == verbs.CREATE:
+        notify_creator(instance)
+        notify_moderators(instance)
     if instance.verb == verbs.COMPLETE:
         emails.notify_followers_on_almost_finished(instance.project)
