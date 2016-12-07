@@ -35,6 +35,20 @@ def add_action(sender, instance, created, **kwargs):
         action.target_object_id = instance.object_pk
         action.project = project
         action.save()
+
+    elif isinstance(instance, Item):
+        project = instance.module.project
+        project_contenttype = ContentType.objects.get_for_model(project)
+
+        action.target_content_type = project_contenttype
+        action.target_object_id = project.pk
+        action.project = project
+        action.save()
+
+    else:
+        pass
+
+
 for app, model in settings.ACTIONABLE:
     post_save.connect(add_action, apps.get_model(app, model))
     if instance.verb == verbs.COMPLETE:
