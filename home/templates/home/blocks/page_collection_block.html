@@ -1,0 +1,10 @@
+{% load wagtailimages_tags %}
+<h3 class="sans-serif">{{ self.title }}</h3>
+<div class="row">
+    <div class="col-md-2">
+        {% image self.image width-166 %}
+    </div>
+    <div class="col-md-3">
+        {{ self.highlighted_page }}
+    </div>
+</div>

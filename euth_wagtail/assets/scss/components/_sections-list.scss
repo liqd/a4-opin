@@ -1,0 +1,37 @@
+$sectionslist-gutter: 14px;
+
+.sectionslist {
+    background-color: $brand-brand5;
+
+    ul {
+        list-style: none;
+        padding: 100px 0;
+        display: flex;
+        align-items: stretch;
+        @include rem(margin, 0 -($sectionslist-gutter/2));
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.sectionslist-section {
+    flex-basis: 25%;
+    text-align: center;
+    @include rem(padding, 0 $sectionslist-gutter/2);
+    @include rem(margin-bottom, $sectionslist-gutter);
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionslist-image {
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.sectionslist-body {
+    background-color: #fff;
+    @include rem(padding, 15px);
+    // stretch the body all the way down
+    flex-grow: 1;
+}
