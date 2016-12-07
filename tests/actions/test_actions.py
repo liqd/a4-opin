@@ -18,13 +18,13 @@ def test_no_notification_if_flag_is_not_set(
     idea = idea_factory(creator=user)
 
     action_count = Action.objects.all().count()
-    assert action_count == 0
+    assert action_count == 1
 
     comment_factory(content_object=idea, creator=user2)
 
     action_count = Action.objects.all().count()
-    assert action_count == 1
-    assert len(mail.outbox) == 0
+    assert action_count == 2
+    assert len(mail.outbox) == 1
 
 
 @pytest.mark.django_db
@@ -38,9 +38,9 @@ def test_idea_creator_gets_email_after_comment(
     comment_factory(content_object=idea, creator=user2)
 
     action_count = Action.objects.all().count()
-    assert action_count == 1
-    assert len(mail.outbox) == 1
-    assert 'A Comment was added to your idea' in mail.outbox[0].subject
+    assert action_count == 2
+    assert len(mail.outbox) == 2
+    assert 'A Comment was added to your idea' in mail.outbox[1].subject
 
 
 @pytest.mark.django_db
@@ -88,12 +88,12 @@ def test_comment_creator_gets_email_after_comment(
     comment_factory(content_object=comment, creator=user)
 
     action_count = Action.objects.all().count()
-    assert action_count == 2
-    assert len(mail.outbox) == 2
-    assert 'A Comment was added to your idea' in mail.outbox[0].subject
-    assert mail.outbox[0].recipients() == [user.email]
-    assert 'A Comment was added to your Comment' in mail.outbox[1].subject
-    assert mail.outbox[1].recipients() == [user2.email]
+    assert action_count == 3
+    assert len(mail.outbox) == 3
+    assert 'A Comment was added to your idea' in mail.outbox[1].subject
+    assert mail.outbox[1].recipients() == [user.email]
+    assert 'A Comment was added to your Comment' in mail.outbox[2].subject
+    assert mail.outbox[2].recipients() == [user2.email]
 
 
 @pytest.mark.django_db
@@ -106,8 +106,8 @@ def test_comment_creator_gets_no_email_after_comment_on_own_resource(
     comment_factory(content_object=idea, creator=user)
 
     action_count = Action.objects.all().count()
-    assert action_count == 1
-    assert len(mail.outbox) == 0
+    assert action_count == 2
+    assert len(mail.outbox) == 1
 
 
 @pytest.mark.django_db
