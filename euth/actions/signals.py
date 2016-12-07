@@ -14,5 +14,7 @@ def send_notification(sender, instance, created, **kwargs):
         creator = instance.target.creator
         if creator.get_notifications and not creator == instance.actor:
             emails.notify_creator_on_create_action(instance)
+for app, model in settings.ACTIONABLE:
+    post_save.connect(add_action, apps.get_model(app, model))
     if instance.verb == verbs.COMPLETE:
         emails.notify_followers_on_almost_finished(instance.project)
