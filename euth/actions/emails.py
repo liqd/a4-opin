@@ -27,8 +27,8 @@ def notify_followers_on_almost_finished(project):
     translation.activate('en')
     User = auth.get_user_model()
     recipients = User.objects.filter(
-        follow__project=project).filter(
-        follow__enabled=True).filter(
+        follow__project=project,
+        follow__enabled=True,
         get_notifications=True
     ).values_list('email', flat=True)
 
