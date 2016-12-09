@@ -42,6 +42,7 @@
     "husky": "0.11.4",
     "stylelint": "^7.5.0"
   },
+  "license": "AGPL-3.0+",
   "scripts": {
     "webpack:build": "webpack --config ./webpack.config.js --progress --colors",
     "heroku-postbuild": "npm run webpack:build",
