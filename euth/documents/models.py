@@ -5,9 +5,9 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.models import base
 from contrib.transforms import html_transforms
 from euth.comments import models as comment_models
-from euth.contrib import base_models
 from euth.modules import models as module_models
 
 
@@ -35,7 +35,7 @@ class Document(module_models.Item):
         return reverse('project-detail', args=[str(self.project.slug)])
 
 
-class Paragraph(base_models.TimeStampedModel):
+class Paragraph(base.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
     text = RichTextField()
     weight = models.PositiveIntegerField()

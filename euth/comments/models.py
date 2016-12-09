@@ -5,13 +5,13 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.generics import models_to_limit
+from adhocracy4.models import base
+from adhocracy4.ratings import models as rating_models
 from contrib.transforms import html_transforms
-from euth.contrib.base_models import UserGeneratedContentModel
-from euth.contrib.generics import models_to_limit
-from euth.ratings import models as rating_models
 
 
-class Comment(UserGeneratedContentModel):
+class Comment(base.UserGeneratedContentModel):
 
     content_type = models.ForeignKey(
         ContentType,

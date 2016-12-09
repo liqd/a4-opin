@@ -1,10 +1,10 @@
 from django.db import models
 
-from euth.contrib import base_models
+from adhocracy4.models import base
 from euth.projects import models as prj_models
 
 
-class Follow(base_models.UserGeneratedContentModel):
+class Follow(base.UserGeneratedContentModel):
     project = models.ForeignKey(prj_models.Project)
     enabled = models.BooleanField(default=True)
 

@@ -1,4 +1,4 @@
-var config = require('../../../contrib/static/js/config')
+var config = require('adhocracy4').config
 
 var React = require('react')
 var django = require('django')

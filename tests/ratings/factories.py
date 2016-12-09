@@ -5,7 +5,7 @@ from tests.factories import UserFactory
 
 class RatingFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = 'euth_ratings.Rating'
+        model = 'a4ratings.Rating'
 
     value = factory.Faker('random_digit')
     creator = factory.SubFactory(UserFactory)

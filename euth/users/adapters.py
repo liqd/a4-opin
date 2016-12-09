@@ -1,4 +1,5 @@
 import re
+
 from allauth.account.adapter import DefaultAccountAdapter
 
 from euth.contrib.emails import send_email_with_template
