@@ -1,68 +1,54 @@
 from django.apps import apps
 from django.conf import settings
-from django.contrib.contenttypes.models import ContentType
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from euth.actions import emails
-from euth.modules.models import Item
+from euth.modules.models import Module
 from euth.projects.models import Project
 
 from . import verbs
 from .models import Action
 
 
-def notify_creator(instance):
-    if hasattr(instance.target, 'creator'):
-        creator = instance.target.creator
-        if creator.get_notifications and not creator == instance.actor:
-            emails.notify_users_on_create_action(instance, [creator.email])
-
-
-def notify_moderators(instance):
-    if str(instance.target_content_type) == 'project':
-        recipients = instance.target.moderators.all().values_list(
-            'email', flat=True)
-        emails.notify_users_on_create_action(instance, recipients)
-
-
 def add_action(sender, instance, created, **kwargs):
-    content_type = ContentType.objects.get_for_model(instance)
     verb = verbs.CREATE if created else verbs.UPDATE
     actor = instance.creator
 
     action = Action(
         actor=actor,
         verb=verb,
-        action_object_content_type=content_type,
-        action_object_object_id=instance.pk,
+        action_object=instance
     )
 
-    if str(content_type) == 'Comment':
-        project = instance.project if hasattr(
-            instance, 'project') and isinstance(
-            instance.project, Project) else None
+    if hasattr(instance, 'project') and instance.project.__class__ is Project:
+        action.project = instance.project
 
-        action.target_content_type = instance.content_type
-        action.target_object_id = instance.object_pk
-        action.project = project
-        action.save()
+    if hasattr(instance, 'content_object'):
+        action.target = instance.content_object
+    elif hasattr(instance, 'module'):
+        action.target = instance.module
 
-    elif isinstance(instance, Item):
-        project = instance.module.project
-        project_contenttype = ContentType.objects.get_for_model(project)
-
-        action.target_content_type = project_contenttype
-        action.target_object_id = project.pk
-        action.project = project
-        action.save()
-
-    else:
-        pass
+    action.save()
 
 
 for app, model in settings.ACTIONABLE:
     post_save.connect(add_action, apps.get_model(app, model))
+
+
+def notify_creator(action):
+    if hasattr(action.target, 'creator'):
+        creator = action.target.creator
+        if creator.get_notifications and not creator == action.actor:
+            emails.notify_users_on_create_action(action, [creator.email])
+
+
+def notify_moderators(action):
+    if action.target_content_type.model_class() is Module:
+        recipients = action.project.moderators \
+                                   .filter(get_notifications=True) \
+                                   .values_list('email', flat=True)
+        emails.notify_users_on_create_action(action, recipients)
 
 
 @receiver(post_save, sender=Action)
