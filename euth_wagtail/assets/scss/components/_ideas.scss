@@ -24,7 +24,7 @@
 
     p {
         font-family: $font-family-sans-serif;
-        font-size: $font-size-medium;
+        @include rem(font-size, $font-size-medium);
         @include rem(line-height, 1.6);
         color: $black;
     }
