@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from euth.actions import emails
-from euth.modules.models import Module
 from euth.projects.models import Project
 
 from . import verbs
@@ -23,11 +22,10 @@ def add_action(sender, instance, created, **kwargs):
 
     if hasattr(instance, 'project') and instance.project.__class__ is Project:
         action.project = instance.project
+        action.target = instance.project
 
     if hasattr(instance, 'content_object'):
         action.target = instance.content_object
-    elif hasattr(instance, 'module'):
-        action.target = instance.module
 
     action.save()
 
@@ -44,7 +42,7 @@ def notify_creator(action):
 
 
 def notify_moderators(action):
-    if action.target_content_type.model_class() is Module:
+    if action.target_content_type.model_class() is Project:
         recipients = action.project.moderators \
                                    .exclude(id=action.actor.id) \
                                    .filter(get_notifications=True) \
