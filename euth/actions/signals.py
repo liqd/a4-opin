@@ -46,8 +46,10 @@ def notify_creator(action):
 def notify_moderators(action):
     if action.target_content_type.model_class() is Module:
         recipients = action.project.moderators \
+                                   .exclude(id=action.actor.id) \
                                    .filter(get_notifications=True) \
                                    .values_list('email', flat=True)
+
         emails.notify_users_on_create_action(action, recipients)
 
 

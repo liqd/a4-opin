@@ -111,6 +111,27 @@ def test_comment_creator_gets_no_email_after_comment_on_own_resource(
 
 
 @pytest.mark.django_db
+def test_moderator_self_notification(project, module, idea_factory):
+    project = module.project
+    idea = idea_factory(module=module, creator=project.moderators.first())
+    action = Action.objects.get(project=project)
+    assert action.target == project
+    assert action.action_object == idea
+    assert len(mail.outbox) == 0
+
+
+@pytest.mark.django_db
+def test_moderator_notification(project, user, module, idea_factory):
+    project = module.project
+    idea = idea_factory(module=module, creator=user)
+    action = Action.objects.filter(project=project).last()
+    assert action.target == project
+    assert action.action_object == idea
+    assert len(mail.outbox) == 1
+    assert mail.outbox[0].to == [project.moderators.first().email]
+
+
+@pytest.mark.django_db
 def test_24_hour_script(
         phase_factory, user_factory, follow_factory):
 
