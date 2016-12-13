@@ -198,8 +198,8 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
 
-        if qs.first().type.startswith('euth_flashpoll'):
-            settings_instance = qs.first().module.settings
+        if qs.first().module.settings_instance:
+            settings_instance = qs.first().module.settings_instance
             kwargs['module_settings__instance'] = settings_instance
 
         return kwargs

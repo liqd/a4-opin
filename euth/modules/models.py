@@ -20,6 +20,14 @@ class Module(models.Model):
     def phases_passed(self):
         return self.phase_set.filter(end_date__lte=timezone.now())
 
+    @property
+    def settings_instance(self):
+        settingslist = [field for field in self._meta.get_all_field_names()
+                        if field.endswith('_settings')]
+        for setting in settingslist:
+            if hasattr(self, setting):
+                return getattr(self, setting)
+
 
 class Item(base_models.UserGeneratedContentModel):
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
@@ -31,7 +39,7 @@ class Item(base_models.UserGeneratedContentModel):
 
 class AbstractSettings(models.Model):
     module = models.OneToOneField(Module, on_delete=models.CASCADE,
-                                  related_name='settings')
+                                  related_name='%(class)s_settings')
 
     class Meta:
         abstract = True
