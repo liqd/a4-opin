@@ -24,7 +24,7 @@
 
     p {
         font-family: $font-family-sans-serif;
-        @include rem(font-size, 16px);
+        @include rem(font-size, $font-size-medium);
         @include rem(line-height, 1.6);
         color: $black;
     }
@@ -166,7 +166,6 @@
     @include rem(margin-top, 50px);
     line-height: $tile-list-thumbnail-size;
     background: transparent;
-    border: 2px solid $brand-success;
     padding: 0;
     text-align: center;
     text-transform: uppercase;
