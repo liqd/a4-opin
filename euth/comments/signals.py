@@ -3,10 +3,7 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 from adhocracy4.ratings import services as rating_services
-from euth.actions import verbs
-from euth.actions.models import Action
 from euth.contrib import services
-from euth.projects.models import Project
 
 from .models import Comment
 
