@@ -17,3 +17,4 @@ indent_size = 2
 [*.py]
 skip=migrations
 known_third_party=ckeditor
+known_first_party=adhocracy4

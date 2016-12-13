@@ -6,8 +6,9 @@ from django.db import models
 from django.utils import functional, timezone
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.models import base
 from contrib.transforms import html_transforms
-from euth.contrib import base_models, validators
+from euth.contrib import validators
 from euth.organisations import models as org_models
 
 
@@ -20,7 +21,7 @@ class ProjectManager(models.Manager):
         return self.filter(is_draft=False).order_by('-created')[:8]
 
 
-class Project(base_models.TimeStampedModel):
+class Project(base.TimeStampedModel):
     slug = AutoSlugField(populate_from='name', unique=True)
     name = models.CharField(
         max_length=120,

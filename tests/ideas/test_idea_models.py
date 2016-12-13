@@ -5,9 +5,9 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from tests import helpers
 
+from adhocracy4.ratings import models as rating_models
 from euth.comments import models as comments_models
 from euth.ideas import models as idea_models
-from euth.ratings import models as rating_models
 
 
 @pytest.mark.django_db

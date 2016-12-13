@@ -1,6 +1,6 @@
 from rest_framework import mixins, permissions, viewsets
 
-from euth.contrib.api.permissions import IsModerator
+from adhocracy4.api.permissions import IsModerator
 
 from .models import Document
 from .serializers import DocumentSerializer

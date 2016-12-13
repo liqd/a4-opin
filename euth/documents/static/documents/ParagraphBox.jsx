@@ -1,4 +1,4 @@
-var api = require('../../../contrib/static/js/api')
+var api = require('adhocracy4').api
 var Paragraph = require('./Paragraph.jsx')
 var React = require('react')
 var ReactDOM = require('react-dom')

@@ -1,6 +1,6 @@
 import pytest
-
 from django.core.exceptions import ValidationError
+
 from contrib.validations.image_validations import validate_image
 
 

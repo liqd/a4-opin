@@ -1,4 +1,4 @@
-var api = require('../../../contrib/static/js/api')
+var api = require('adhocracy4').api
 var django = require('django')
 var React = require('react')
 

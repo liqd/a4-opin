@@ -1,7 +1,7 @@
 from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.response import Response
 
-from euth.contrib.api.permissions import IsCreatorOrReadOnly
+from adhocracy4.api.permissions import IsCreatorOrReadOnly
 
 from .models import Comment
 from .serializers import ThreadSerializer

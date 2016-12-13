@@ -3,11 +3,11 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
-from euth.contrib.base_models import UserGeneratedContentModel
-from euth.contrib.generics import models_to_limit
+from adhocracy4.generics import models_to_limit
+from adhocracy4.models import base
 
 
-class Report(UserGeneratedContentModel):
+class Report(base.UserGeneratedContentModel):
 
     content_type = models.ForeignKey(
         ContentType,
