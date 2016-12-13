@@ -171,6 +171,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         class Meta:
             model = settings_model
             exclude = ['module']
+            widgets = settings_model().widgets()
 
     return ModuleSettings
 
