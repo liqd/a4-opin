@@ -1,0 +1,29 @@
+{% extends "euth_ideas/idea_form.html" %}
+{% load widget_tweaks i18n thumbnail base_tags %}
+
+{% block additional_fields %}
+<div class="form-group">
+    <label class="control-label" for="{{ form.point.id_for_label }}">{% trans 'Point'%}</label>
+    {% if form.point.errors %}
+        {{ form.point|add_class:"form-control form-error" }}
+    {% else %}
+        {{ form.point|add_class:"form-control"}}
+    {% endif %}
+    {{ form.point.errors }}
+</div>
+{% endblock %}
+{% block post_form %}
+<div class="row button-row">
+    <div class="col-xs-6 col-sm-2">
+        <button type="submit" class="submit-button">{% trans 'post'%}</button>
+    </div>
+    <div class="col-xs-6">
+        {% if mode == 'create' %}
+        <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+        {% elif mode == 'update' %}
+        <a href="{% url 'map-idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
