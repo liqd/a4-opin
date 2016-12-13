@@ -16,3 +16,5 @@ class AreaSettings(module_models.AbstractSettings):
 
 class MapIdea(idea_models.Idea):
     point = PointField()
+
+    objects = idea_models.IdeaQuerySet.as_manager()
