@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('euth_projects', '0001_initial'),
+        ('a4projects', '0001_initial'),
         ('euth_memberships', '0001_initial'),
     ]
 
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254)),
                 ('token', models.UUIDField(default=uuid.uuid4, unique=True)),
                 ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='euth_projects.Project')),
+                ('project', models.ForeignKey(to='a4projects.Project')),
             ],
         ),
         migrations.AlterUniqueTogether(

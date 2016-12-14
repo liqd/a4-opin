@@ -1,7 +1,7 @@
 from django.db import models as django_models
 from django.views.generic.detail import DetailView
 
-from euth.projects.models import Project
+from adhocracy4.projects.models import Project
 
 from . import models
 

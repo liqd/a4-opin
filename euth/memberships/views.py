@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views import generic
 from rules.compat import access_mixins as mixin
 
-from euth.projects import models as prj_models
+from adhocracy4.projects import models as prj_models
 
 from . import forms, models
 

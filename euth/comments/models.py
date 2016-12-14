@@ -5,10 +5,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4 import transforms
 from adhocracy4.generics import models_to_limit
 from adhocracy4.models import base
 from adhocracy4.ratings import models as rating_models
-from contrib.transforms import html_transforms
 
 
 class Comment(base.UserGeneratedContentModel):
@@ -48,7 +48,7 @@ class Comment(base.UserGeneratedContentModel):
         the comment was marked removed or censored
         """
 
-        self.comment = html_transforms.clean_html_all(
+        self.comment = transforms.clean_html_all(
             self.comment)
 
         if self.is_removed:

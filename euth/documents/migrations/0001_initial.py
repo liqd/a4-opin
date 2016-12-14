@@ -9,20 +9,20 @@ import ckeditor.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_modules', '0001_initial'),
+        ('a4modules', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Document',
             fields=[
-                ('item_ptr', models.OneToOneField(auto_created=True, primary_key=True, to='euth_modules.Item', serialize=False, parent_link=True)),
+                ('item_ptr', models.OneToOneField(auto_created=True, primary_key=True, to='a4modules.Item', serialize=False, parent_link=True)),
                 ('name', models.CharField(max_length=120)),
             ],
             options={
                 'abstract': False,
             },
-            bases=('euth_modules.item',),
+            bases=('a4modules.item',),
         ),
         migrations.CreateModel(
             name='Paragraph',

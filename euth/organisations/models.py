@@ -4,8 +4,8 @@ from django_countries import fields as countries_fields
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
+from adhocracy4.images import validators
 from adhocracy4.models import base
-from euth.contrib import validators
 
 
 class OrganisationManager(TranslatableManager):

@@ -12,6 +12,7 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
+from adhocracy4.projects import urls as projects_urls
 from adhocracy4.ratings.api import RatingViewSet
 from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
@@ -22,7 +23,6 @@ from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
-from euth.projects import urls as projects_urls
 from euth.reports.api import ReportViewSet
 from euth.users import urls as user_urls
 

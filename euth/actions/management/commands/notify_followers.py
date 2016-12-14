@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
 
+from adhocracy4.phases.models import Phase
 from euth.actions import verbs
 from euth.actions.models import Action
-from euth.phases.models import Phase
 
 
 class Command(BaseCommand):

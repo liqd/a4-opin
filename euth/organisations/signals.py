@@ -1,7 +1,7 @@
 from django.db.models.signals import post_delete, post_init, post_save
 from django.dispatch import receiver
 
-from euth.contrib import services
+from adhocracy4.images import services
 
 from .models import Organisation
 

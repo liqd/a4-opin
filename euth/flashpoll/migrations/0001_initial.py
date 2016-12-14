@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_modules', '0002_use-autoslug-filed'),
+        ('a4modules', '0001_initial'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
                 ('key', models.CharField(max_length=30)),
-                ('module', models.OneToOneField(related_name='settings', to='euth_modules.Module')),
+                ('module', models.OneToOneField(related_name='settings', to='a4modules.Module')),
             ],
             options={
                 'abstract': False,
