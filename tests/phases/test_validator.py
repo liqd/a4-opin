@@ -1,7 +1,7 @@
 import pytest
 from django.core import exceptions
 
-from euth.phases import validators
+from adhocracy4.phases import validators
 
 
 def test_validator_with_testapp():

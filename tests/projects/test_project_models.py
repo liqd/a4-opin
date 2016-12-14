@@ -7,8 +7,9 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from freezegun import freeze_time
 
-from euth.projects import models
 from tests import helpers
+
+from adhocracy4.projects import models
 
 
 @pytest.mark.django_db

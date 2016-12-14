@@ -1,6 +1,6 @@
 import factory
 
-from euth.projects import models
+from adhocracy4.projects import models
 
 from .. import factories as user_factories
 from ..organisations import factories as org_factories

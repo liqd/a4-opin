@@ -1,7 +1,7 @@
 import factory
 from dateutil.parser import parse
 
-from euth.phases import models
+from adhocracy4.phases import models
 
 from ..modules import factories as module_factories
 

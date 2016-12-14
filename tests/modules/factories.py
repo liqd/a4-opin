@@ -2,7 +2,7 @@ import random
 
 import factory
 
-from euth.modules import models
+from adhocracy4.modules import models
 
 from ..projects import factories as project_factories
 
