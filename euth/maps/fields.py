@@ -12,7 +12,7 @@ class GeoJSONValidator(object):
     def __call__(self, value):
         err_msg = None
         json_type = value.get('type')
-        if json_type == 'Feature' and self.type == 'GEOMETRY':
+        if json_type == 'Feature' and self.geom_type == 'GEOMETRY':
             geom_type = value.get('geometry').get('type')
             is_geometry = geom_type in (
                 "Point", "MultiPoint", "LineString", "MultiLineString",
