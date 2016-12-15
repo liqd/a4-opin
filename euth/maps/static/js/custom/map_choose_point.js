@@ -34,9 +34,6 @@ window.jQuery(document).ready(function () {
   var point = window.point
   var baseurl = window.baseurl
   var map = createMap(L, baseurl, name)
-  var mapVisible = $('#map_' + name).width() !== 0
-
-  var drawnItems = L.featureGroup().addTo(map)
 
   var polygonStyle = {
     'color': '#0076ae',
@@ -48,59 +45,52 @@ window.jQuery(document).ready(function () {
   var basePolygon = L.geoJson(polygon, {style: polygonStyle}).addTo(map)
   map.fitBounds(basePolygon)
 
+  var marker
+  var latlng
+
   if (point) {
     L.geoJson(point, {
-      onEachFeature: function (feature, layer) {
-        if (layer.getLayers) {
-          layer.getLayers().forEach(function (l) {
-            drawnItems.addLayer(l)
+      pointToLayer: function (feature, latlng) {
+        marker = L.marker(latlng, { draggable: true }).addTo(map)
+        marker.on('dragend', function () {
+          var markerInsidePolygon = false
+          basePolygon.getLayers().forEach(function (each) {
+            if (isMarkerInsidePolygon(marker, each)) {
+              markerInsidePolygon = true
+              latlng = marker.getLatLng()
+              var shape = marker.toGeoJSON()
+              $('#id_' + name).val(JSON.stringify(shape))
+            }
           })
-        } else {
-          drawnItems.addLayer(layer)
-        }
+          if (!markerInsidePolygon) {
+            marker.setLatLng(latlng)
+          }
+        })
+        return marker
       }
     })
   }
 
-  map.addControl(new L.Control.Draw({
-    edit: {
-      featureGroup: drawnItems
-    },
-    draw: {
-      polygon: false,
-      rectangle: false,
-      marker: true,
-      polyline: false,
-      circle: false
-    }
-  }))
-
-  map.on(L.Draw.Event.CREATED, function (event) {
-    var layer = event.layer
-    basePolygon.getLayers().forEach(function (each) {
-      if (isMarkerInsidePolygon(layer, each)) {
-        drawnItems.addLayer(layer)
-        var shape = drawnItems.toGeoJSON()
-        $('#id_' + name).val(JSON.stringify(shape))
-        return
-      }
-    })
-  })
-
-  map.on(L.Draw.Event.EDITED, function (event) {
-    var shape = drawnItems.toGeoJSON()
-    $('#id_' + name).val(JSON.stringify(shape))
-  })
-
-  map.on(L.Draw.Event.DELETED, function (event) {
-    var shape = drawnItems.toGeoJSON()
-    $('#id_' + name).val(JSON.stringify(shape))
-  })
-
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-    if (!mapVisible) {
-      map.invalidateSize().fitBounds(basePolygon)
-      mapVisible = true
+  basePolygon.on('click', function (event) {
+    if (typeof marker === 'undefined') {
+      marker = L.marker(event.latlng, {draggable: true}).addTo(map)
+      latlng = event.latlng
+      var shape = marker.toGeoJSON()
+      $('#id_' + name).val(JSON.stringify(shape))
+      marker.on('dragend', function () {
+        var markerInsidePolygon = false
+        basePolygon.getLayers().forEach(function (each) {
+          if (isMarkerInsidePolygon(marker, each)) {
+            markerInsidePolygon = true
+            latlng = marker.getLatLng()
+            var shape = marker.toGeoJSON()
+            $('#id_' + name).val(JSON.stringify(shape))
+          }
+        })
+        if (!markerInsidePolygon) {
+          marker.setLatLng(latlng)
+        }
+      })
     }
   })
 })
