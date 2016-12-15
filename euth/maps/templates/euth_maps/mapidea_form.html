@@ -21,7 +21,7 @@
         {% if mode == 'create' %}
         <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
         {% elif mode == 'update' %}
-        <a href="{% url 'map-idea-detail' idea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+        <a href="{% url 'map-idea-detail' mapidea.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
         {% endif %}
     </div>
 </div>
