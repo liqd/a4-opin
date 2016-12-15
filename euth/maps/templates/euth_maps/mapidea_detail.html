@@ -7,7 +7,6 @@
     var point = {{ object.point | safe }}
     var polygon = {{ object.module.settings_instance.polygon | safe }}
 </script>
-<script type="text/javascript" src="{% static 'jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/custom/map_display_point.js' %}"></script>
 {% endblock %}
