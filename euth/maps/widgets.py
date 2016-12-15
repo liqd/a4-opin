@@ -9,10 +9,12 @@ class MapChoosePolygonWidget(Widget):
 
     class Media:
         js = (staticfiles_storage.url('leaflet.js'),
+              staticfiles_storage.url('leaflet.draw.js'),
               staticfiles_storage.url('js/custom/map_choose_polygon.js')
               )
         css = {'all': [
             staticfiles_storage.url('leaflet.css'),
+            staticfiles_storage.url('leaflet.draw.css'),
         ]}
 
     def render(self, name, value, attrs):
@@ -40,12 +42,10 @@ class MapChoosePointWidget(Widget):
 
     class Media:
         js = (staticfiles_storage.url('leaflet.js'),
-              staticfiles_storage.url('leaflet.draw.js'),
-              staticfiles_storage.url('js/custom/map_choose_point.js')
+              staticfiles_storage.url('js/custom/map_choose_point.js'),
               )
         css = {'all': [
             staticfiles_storage.url('leaflet.css'),
-            staticfiles_storage.url('leaflet.draw.css'),
         ]}
 
     def render(self, name, value, attrs):
