@@ -20,12 +20,14 @@ class GeoJSONField(JSONField):
     dim = 2
     geom_type = 'GEOMETRY'
 
+    '''
     def __init__(self, *args, **kwargs):
         required = kwargs.pop('required', True)
         kwargs.setdefault(
             'validators', [GeoJSONFormFieldValidator(
                 self.geom_type, required)])
         super().__init__(*args, **kwargs)
+    '''
 
     def formfield(self, **kwargs):
         kwargs.setdefault('geom_type', self.geom_type)
