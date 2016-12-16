@@ -28,8 +28,6 @@ window.jQuery(document).ready(function () {
   var map = createMap(L, baseurl, name)
   var mapVisible = $('#map_' + name).width() !== 0
 
-  var drawnItems = L.featureGroup().addTo(map)
-
   var polygonStyle = {
     'color': '#0076ae',
     'weight': 2,
@@ -37,18 +35,10 @@ window.jQuery(document).ready(function () {
     'fillOpacity': 0.2
   }
 
+  var drawnItems
   if (polygon) {
-    L.geoJson(polygon, {
-      style: polygonStyle,
-      onEachFeature: function (feature, layer) {
-        if (layer.getLayers) {
-          layer.getLayers().forEach(function (l) {
-            drawnItems.addLayer(l)
-          })
-        } else {
-          drawnItems.addLayer(layer)
-        }
-      }
+    drawnItems = L.geoJson(polygon, {
+      style: polygonStyle
     })
     if (drawnItems.getLayers().length > 0) {
       map.fitBounds(drawnItems)
@@ -56,8 +46,10 @@ window.jQuery(document).ready(function () {
       map.fitBounds(getBasePolygon(L, polygon, bbox))
     }
   } else {
+    drawnItems = L.featureGroup()
     map.fitBounds(getBasePolygon(L, polygon, bbox))
   }
+  drawnItems.addTo(map)
 
   map.addControl(new L.Control.Draw({
     edit: {
