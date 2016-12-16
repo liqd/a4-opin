@@ -68,7 +68,7 @@
                     {% if view.get_participated_projects %}
                         <div class="teaserlist">
                             {% for project in view.get_participated_projects %}
-                                {% include 'euth_projects/includes/project_list_item.html' with project=project show_follow=True %}
+                                {% include 'euth_projects/includes/project_list_item.html' with project=project follow_user=object %}
                             {% endfor %}
                         </div>
                     {% else %}
