@@ -72,7 +72,9 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        <p>{{ object.username }} {% trans 'has not participated yet' %} :(</p>
+                        <p>
+                            {% blocktrans with username=object.username %}{{ username }} follows no projects at the moment.{% endblocktrans %}
+                        </p>
                     {% endif %}
                 </div>
             </div>
