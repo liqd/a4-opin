@@ -31,10 +31,6 @@ class GeoJSONField(JSONField):
         kwargs.setdefault('geom_type', self.geom_type)
         return super(GeoJSONField, self).formfield(**kwargs)
 
-    def clean(self, *args, **kwargs):
-        print(self.validators)
-        super().clean(*args, **kwargs)
-
 
 class GeometryField(GeoJSONField):
     pass
