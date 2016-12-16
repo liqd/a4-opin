@@ -40,9 +40,5 @@ class PointField(GeometryField):
     geom_type = 'POINT'
 
 
-class PolygonField(GeometryField):
-    geom_type = 'POLYGON'
-
-
 class MultiPolygonField(GeoJSONField):
     geom_type = 'MULTIPOLYGON'

@@ -7,6 +7,25 @@ function createMap (L, baseurl, name) {
   return map
 }
 
+function createMarker ($, L, newlatln, oldlatln, basePolygon, map, name) {
+  var marker = L.marker(newlatln, { draggable: true }).addTo(map)
+  marker.on('dragend', function () {
+    var markerInsidePolygon = false
+    basePolygon.getLayers().forEach(function (each) {
+      if (isMarkerInsidePolygon(marker, each)) {
+        markerInsidePolygon = true
+        oldlatln = marker.getLatLng()
+        var shape = marker.toGeoJSON()
+        $('#id_' + name).val(JSON.stringify(shape))
+      }
+    })
+    if (!markerInsidePolygon) {
+      marker.setLatLng(oldlatln)
+    }
+  })
+  return marker
+}
+
 function isMarkerInsidePolygon (marker, poly) {
   var polyPoints = poly.getLatLngs()
   var x = marker.getLatLng().lat
@@ -46,51 +65,20 @@ window.jQuery(document).ready(function () {
   map.fitBounds(basePolygon)
 
   var marker
-  var latlng
 
   if (point) {
     L.geoJson(point, {
-      pointToLayer: function (feature, latlng) {
-        marker = L.marker(latlng, { draggable: true }).addTo(map)
-        marker.on('dragend', function () {
-          var markerInsidePolygon = false
-          basePolygon.getLayers().forEach(function (each) {
-            if (isMarkerInsidePolygon(marker, each)) {
-              markerInsidePolygon = true
-              latlng = marker.getLatLng()
-              var shape = marker.toGeoJSON()
-              $('#id_' + name).val(JSON.stringify(shape))
-            }
-          })
-          if (!markerInsidePolygon) {
-            marker.setLatLng(latlng)
-          }
-        })
-        return marker
+      pointToLayer: function (feature, newlatlng) {
+        var oldlatlng = newlatlng
+        return createMarker($, L, newlatlng, oldlatlng, basePolygon, map, name)
       }
     })
   }
 
   basePolygon.on('click', function (event) {
     if (typeof marker === 'undefined') {
-      marker = L.marker(event.latlng, {draggable: true}).addTo(map)
-      latlng = event.latlng
-      var shape = marker.toGeoJSON()
-      $('#id_' + name).val(JSON.stringify(shape))
-      marker.on('dragend', function () {
-        var markerInsidePolygon = false
-        basePolygon.getLayers().forEach(function (each) {
-          if (isMarkerInsidePolygon(marker, each)) {
-            markerInsidePolygon = true
-            latlng = marker.getLatLng()
-            var shape = marker.toGeoJSON()
-            $('#id_' + name).val(JSON.stringify(shape))
-          }
-        })
-        if (!markerInsidePolygon) {
-          marker.setLatLng(latlng)
-        }
-      })
+      var oldlatlng = event.latlng
+      createMarker($, L, event.latlng, oldlatlng, basePolygon, map, name)
     }
   })
 })
