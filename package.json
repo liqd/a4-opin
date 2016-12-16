@@ -18,6 +18,8 @@
     "font-awesome": "4.6.3",
     "jquery": "2.2.4",
     "js-cookie": "~2.1.2",
+    "leaflet": "^0.7.7",
+    "leaflet-draw": "^0.4.2",
     "moment": "^2.14.1",
     "node-sass": "3.10.1",
     "postcss-loader": "^1.1.0",

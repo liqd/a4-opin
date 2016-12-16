@@ -1,0 +1,20 @@
+{% extends 'euth_projects/project_detail.html' %}
+{% load i18n rules idea_tags %}
+
+{% block phase_content %}
+<div class="idea-list">
+    {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
+    {% if add_button_enabled %}
+    <a href="{% url 'map-idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
+        <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
+        {% trans 'Create Proposal' %}
+    </a>
+    {% endif %}
+
+
+    {% for idea in mapidea_list %}
+    {% include "euth_maps/includes/mapidea_list_tile.html" with idea=idea %}
+    {% endfor %}
+
+</div>
+{% endblock %}

@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
     'euth.flashpoll.apps.FlashpollConfig',
+    'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.contrib',
 ]
@@ -271,6 +272,8 @@ WEBPACK_LOADER = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
     os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
+    os.path.join(BASE_DIR, 'node_modules/leaflet/dist'),
+    os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
@@ -342,3 +345,11 @@ ACTIONABLE = [
 ]
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
+
+BASE_MAP = 'http://{s}.tile.openstreetmap.org/'
+
+MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
+            '[71.35706654962706,-28.388671875],'
+            '[71.35706654962706,50.88867187499999],'
+            '[34.95799531086792,50.88867187499999],'
+            '[34.95799531086792,-28.388671875]]]')

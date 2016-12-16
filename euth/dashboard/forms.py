@@ -171,6 +171,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         class Meta:
             model = settings_model
             exclude = ['module']
+            widgets = settings_model().widgets()
 
     return ModuleSettings
 
@@ -187,10 +188,10 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             )),
         ]
 
-        if hasattr(module, 'settings'):
+        if module.settings_instance:
             self.base_forms.append((
                 'module_settings',
-                get_module_settings_form(module.settings),
+                get_module_settings_form(module.settings_instance),
             ))
 
         super().__init__(*args, **kwargs)
@@ -218,8 +219,10 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         module_settings = blueprint.settings_model
         if module_settings:
-            self.base_forms.append(('module_settings',
-                                    get_module_settings_form(module_settings)))
+            self.base_forms.append((
+                'module_settings',
+                get_module_settings_form(module_settings),
+            ))
 
         return super().__init__(*args, **kwargs)
 

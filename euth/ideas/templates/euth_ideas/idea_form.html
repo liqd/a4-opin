@@ -65,6 +65,8 @@
                 </div>
                 {{ form.image.errors }}
             </div>
+            {% block additional_fields %}{% endblock %}
+            {% block post_form %}
             <div class="row button-row">
                 <div class="col-xs-6 col-sm-2">
                     <button type="submit" class="submit-button">{% trans 'post'%}</button>
@@ -77,6 +79,7 @@
                     {% endif %}
                 </div>
             </div>
+            {% endblock %}
         </form>
     </div>
 </div>
