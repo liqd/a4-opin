@@ -27,9 +27,17 @@
 
     <div id="map" style="height: 300px;"></div>
 
+    {% if view.sorts and mapidea_list.count > 1 %}
+    {% include "euth_ideas/includes/sort.html" %}
+    {% endif %}
+
     {% for idea in mapidea_list %}
     {% include "euth_maps/includes/mapidea_list_tile.html" with idea=idea %}
     {% endfor %}
+
+    {% if is_paginated %}
+    {% include "euth_ideas/includes/pagination.html"%}
+    {% endif %}
 
 </div>
 {% endblock %}
