@@ -80,6 +80,8 @@ window.jQuery(document).ready(function () {
     if (typeof marker === 'undefined') {
       var oldlatlng = event.latlng
       marker = createMarker($, L, event.latlng, oldlatlng, basePolygon, map, name)
+      var shape = marker.toGeoJSON()
+      $('#id_' + name).val(JSON.stringify(shape))
     }
   })
 })
