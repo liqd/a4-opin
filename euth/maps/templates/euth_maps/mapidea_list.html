@@ -1,5 +1,19 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n rules idea_tags %}
+{% load static i18n rules idea_tags %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    var baseurl = "{{ map_url }}"
+    var point = {{ mapideas_json | safe }}
+    var polygon = {{ polygon | safe }}
+</script>
+<script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/custom/map_display_points.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+<link type="text/css" href="{% static 'leaflet.css'%}" rel="stylesheet" />
+{% endblock %}
 
 {% block phase_content %}
 <div class="idea-list">
@@ -11,6 +25,7 @@
     </a>
     {% endif %}
 
+    <div id="map" style="height: 300px;"></div>
 
     {% for idea in mapidea_list %}
     {% include "euth_maps/includes/mapidea_list_tile.html" with idea=idea %}
