@@ -1,9 +1,9 @@
 import pytest
 from django.core import mail
 from django.core.urlresolvers import reverse
-from tests.helpers import redirect_target, templates_used
 
 from euth.memberships import models
+from tests.helpers import redirect_target, templates_used
 
 
 @pytest.mark.parametrize('project__is_public', [False])

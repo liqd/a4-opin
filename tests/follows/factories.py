@@ -1,8 +1,8 @@
 import factory
-from tests.factories import UserFactory
-from tests.projects.factories import ProjectFactory
 
 from euth.follows import models as follow_models
+from tests.factories import UserFactory
+from tests.projects.factories import ProjectFactory
 
 
 class FollowFactory(factory.django.DjangoModelFactory):

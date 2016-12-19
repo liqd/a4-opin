@@ -1,4 +1,5 @@
 import json
+
 import factory
 
 from euth.maps import models as maps_models

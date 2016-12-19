@@ -3,9 +3,9 @@ import os
 import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from tests import helpers
 
 from euth.organisations import models
+from tests import helpers
 
 
 @pytest.mark.django_db

@@ -1,4 +1,5 @@
 from django.conf import settings
+
 from euth.ideas import views as idea_views
 
 from . import forms
