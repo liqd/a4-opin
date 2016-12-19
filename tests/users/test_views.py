@@ -5,9 +5,9 @@ from allauth.account.models import EmailAddress
 from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
-from tests.helpers import redirect_target
 
 from euth.users import models
+from tests.helpers import redirect_target
 
 User = auth.get_user_model()
 

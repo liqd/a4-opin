@@ -2,10 +2,10 @@ import pytest
 from dateutil.parser import parse
 from django.core.exceptions import ValidationError
 from freezegun import freeze_time
-from tests.apps.blog import models as blog_models
-from tests.apps.blog import views as blog_views
 
 from euth.phases import models
+from tests.apps.blog import models as blog_models
+from tests.apps.blog import views as blog_views
 
 
 @pytest.mark.django_db

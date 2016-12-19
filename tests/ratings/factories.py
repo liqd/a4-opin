@@ -1,4 +1,5 @@
 import factory
+
 from tests.apps.fakeprojects import factories
 from tests.factories import UserFactory
 
