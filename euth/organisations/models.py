@@ -47,6 +47,9 @@ class Organisation(base.TimeStampedModel, TranslatableModel):
             or self.instagram_handle or self.webpage
         )
 
+    def has_initiator(self, user):
+        return user in self.initiators.all()
+
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse('organisation-detail', args=[str(self.slug)])
