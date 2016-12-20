@@ -115,6 +115,23 @@
     }
 }
 
+
+.herounit-blue {
+    background: $brand-brand1;
+}
+
+.herounit-orange {
+    background: $brand-brand2;
+}
+
+.herounit-turquoise {
+    background: $brand-brand3;
+}
+
+.herounit-pink {
+    background: $brand-brand4;
+}
+
 .herounit-purple {
     background: $brand-brand5;
 }
@@ -127,6 +144,10 @@
     }
 }
 
+.herounit-blue,
+.herounit-orange,
+.herounit-turquoise,
+.herounit-pink,
 .herounit-purple,
 .herounit-yellow {
     &:after {

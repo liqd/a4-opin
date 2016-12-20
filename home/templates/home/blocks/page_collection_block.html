@@ -1,10 +1,18 @@
-{% load wagtailimages_tags %}
-<h3 class="sans-serif">{{ self.title }}</h3>
+{% load wagtailimages_tags wagtailcore_tags %}
+<h3 class="sans-serif" id="{{ self.title|slugify }}">{{ self.title }}</h3>
 <div class="row">
-    <div class="col-md-2">
-        {% image self.image width-166 %}
+    <div class="col-md-4">
+        {% image self.image width-270 as image %}
+        <img src="{{ image.url }}" alt="" class="img-responsive">
     </div>
     <div class="col-md-3">
-        {{ self.highlighted_page }}
+        <a href="{% pageurl self.highlighted_page %}"><strong>{{ self.highlighted_page }}</strong></a>
+    </div>
+    <div class="col-md-3 col-md-offset-1">
+        {% for page in self.pages %}
+            {% if page %}
+                <a href="{% pageurl page %}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
     </div>
 </div>

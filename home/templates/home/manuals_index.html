@@ -14,11 +14,11 @@
         <div class="container">
             <ul>
                 {% for subpage in page.subpages %}
-                <li class="sectionslist-section">
+                <li class="sectionslist-section {{ subpage.color }}">
                     {% image subpage.image max-220x220 as image %}
                     <a href="{% pageurl subpage %}">
                         <div class="sectionslist-image"
-                             style="background-image: url({{ image.url }}); background-color: {{ subpage.color }};"
+                             style="background-image: url({{ image.url }});"
                              aria-labelledby="card-title-{{ forloop.counter }}"></div>
                     </a>
                     <div class="sectionslist-body">

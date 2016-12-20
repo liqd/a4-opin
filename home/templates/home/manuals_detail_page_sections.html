@@ -15,11 +15,25 @@
         </div>
     </header>
 
+    {% if self.get_ancestors|length > 1 %}
+        <ul class=”breadcrumb”>
+
+            {% for page in self.get_ancestors %}
+                {% if page.is_root == False %}
+                    <li><a href=”{% pageurl page %}”>{{ page.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            <li class=”active”>{{ self.title }}</li>
+
+        </ul>
+    {% endif %}
+
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
                 <h2>Contents</h2>
-                {% for block in page.body %}
+                {% for block in page.parent_page.body %}
                     <a href="#{{ block.value.title|slugify }}">{{ block.value.title }}</a>
                 {% endfor %}
             </div>

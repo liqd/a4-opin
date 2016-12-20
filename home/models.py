@@ -188,6 +188,11 @@ class PageCollection(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def pages(self):
+        return [self.page_1, self.page_2, self.page_3, self.page_4,
+                self.page_5, self.page_6, self.page_7, self.page_8]
+
 register_snippet(NavigationMenu)
 register_snippet(RSSImport)
 register_snippet(PageCollection)
@@ -711,7 +716,8 @@ class ManualsIndex(Page):
                           blank=True, verbose_name="body")
 
     subpage_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage',
+        'home.ManualsDetailPage'
     ]
 
     content_panels = [
@@ -736,7 +742,7 @@ class ManualsIndex(Page):
 
     @property
     def subpages(self):
-        return self.get_descendants().live().specific()
+        return self.get_children().live().specific()
 
 
 class ManualsSectionPage(Page):
@@ -792,18 +798,18 @@ class ManualsSectionPage(Page):
     )
 
     colors = {
-        ('#0076ae', 'Blue'),
-        ('#fcb52d', 'Orange'),
-        ('#5cbeb9', 'Turquoise'),
-        ('#ef3789', 'Pink'),
-        ('#3c487d', 'Purple'),
+        ('blue', 'Blue'),
+        ('orange', 'Orange'),
+        ('turquoise', 'Turquoise'),
+        ('pink', 'Pink'),
+        ('purple', 'Purple'),
     }
 
     color = models.CharField(
         choices=colors,
-        max_length=7,
+        max_length=9,
         blank=False,
-        default='#5cbeb9'
+        default='blue'
     )
 
     general_panels = [
@@ -842,5 +848,111 @@ class ManualsSectionPage(Page):
 class ManualsDetailPage(Page):
     subpage_types = []
     parent_page_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage',
+        'home.ManualsIndex'
     ]
+
+    # Title
+    translated_title = TranslatedField('title')
+    title_en = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_de = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_it = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_fr = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_sv = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_sl = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_da = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+
+    # Body
+    body = TranslatedField('body')
+    block_types = [
+        ('heading', core_blocks.CharBlock(classname="full title",
+                                          icon="title")),
+        ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
+        ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
+        ('info_block', InfoBlock()),
+        ('video_block', VideoBlock()),
+        ('image', image_blocks.ImageChooserBlock(icon="image")),
+        ('wide_image', WideImageBlock(icon="image")),
+        ('images', InlineImagesBlock(icon="image")),
+        ('contact_block', ContactBlock(icon="form")),
+        ('accordion_block', AccordionBlock(icon="collapse-down")),
+        ('image_text_block_list', ImageTextBlockList()),
+    ]
+
+    body_en = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_de = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_it = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_fr = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_sv = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_sl = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_da = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+
+    content_panels = [
+        edit_handlers.MultiFieldPanel([
+                edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.StreamFieldPanel('body_' + lang_code),
+            ],
+            heading=lang,
+            classname="collapsible collapsed"
+        ) for lang_code, lang in LANGUAGES
+    ]
+
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    colors = {
+        ('blue', 'Blue'),
+        ('orange', 'Orange'),
+        ('turquoise', 'Turquoise'),
+        ('pink', 'Pink'),
+        ('purple', 'Purple'),
+    }
+
+    color = models.CharField(
+        choices=colors,
+        max_length=9,
+        blank=True,
+        default='blue'
+    )
+
+    general_panels = [
+        edit_handlers.FieldPanel('title', classname='title'),
+        edit_handlers.FieldPanel('slug'),
+        edit_handlers.FieldPanel('color'),
+        ImageChooserPanel('image'),
+    ]
+
+    edit_handler = edit_handlers.TabbedInterface([
+        edit_handlers.ObjectList(content_panels, heading='Content'),
+        edit_handlers.ObjectList(general_panels, heading='General')
+    ])
+
+    def get_template(self, request, **kwargs):
+        # only render detail page with sidebar if there's a section
+        if self.parent_page.__class__.__name__ == 'ManualsSectionPage':
+            return 'home/manuals_detail_page_sections.html'
+        else:
+            return 'home/manuals_detail_page.html'
+
+    @property
+    def parent_page(self):
+        return self.get_ancestors().live().specific().last()
