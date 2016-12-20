@@ -11,7 +11,7 @@
     {% user_display confirmation.email_address.user as user_display %}
     <div class="skinny-form">
         <header class="skinny-form-header"></header>
-        <form class="skinny-form-inner" id="ActivateForm" method="post">
+        <form class="skinny-form-inner" id="ActivateForm" action="{% url 'account_confirm_email' confirmation.key %}" method="post">
             {% csrf_token %}
             <h2>{% trans 'Welcome to Opin!' %}</h2>
             <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>

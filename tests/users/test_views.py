@@ -7,7 +7,6 @@ from django.core import mail
 from django.core.urlresolvers import reverse
 
 from euth.users import models
-from tests.helpers import redirect_target
 
 User = auth.get_user_model()
 
@@ -75,8 +74,7 @@ def test_register(client, signup_url):
     ).count() == 1
     assert len(mail.outbox) == 1
     confirmation_url = re.search(
-        r'(http://testserver/.*/)',
-        str(mail.outbox[0].message())
+        r'(http://testserver/.*/)', str(mail.outbox[0].message())
     ).group(0)
     confirm_email_response = client.get(confirmation_url)
     assert confirm_email_response.status_code == 200
@@ -85,42 +83,6 @@ def test_register(client, signup_url):
     ).count() == 1
     confirm_email_response = client.post(confirmation_url)
     assert confirm_email_response.status_code == 302
-    assert EmailAddress.objects.filter(
-        email=email, verified=True
-    ).count() == 1
-
-
-@pytest.mark.django_db
-def test_register_with_next(client, signup_url):
-    assert EmailAddress.objects.count() == 0
-    email = 'testuser@liqd.de'
-    response = client.post(
-        signup_url, {
-            'username': 'testuser2',
-            'email': email,
-            'password1': 'password',
-            'password2': 'password',
-            'terms_of_use': 'on',
-            'next': '/en/projects/pppp/',
-        }
-    )
-    assert response.status_code == 302
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    assert len(mail.outbox) == 1
-    confirmation_url = re.search(
-        r'(http://testserver/.*/?next=/en/projects/pppp/)',
-        str(mail.outbox[0].message())
-    ).group(0)
-    confirm_email_response = client.get(confirmation_url)
-    assert confirm_email_response.status_code == 200
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    confirm_email_response = client.post(confirmation_url)
-    assert confirm_email_response.status_code == 302
-    assert redirect_target(confirm_email_response) == "project-detail"
     assert EmailAddress.objects.filter(
         email=email, verified=True
     ).count() == 1

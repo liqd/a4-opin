@@ -1,7 +1,7 @@
 import factory
+from tests.factories import UserFactory
 
 from euth.documents import models as document_models
-from tests.factories import UserFactory
 
 from ..modules.factories import ModuleFactory
 

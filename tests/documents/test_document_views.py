@@ -1,6 +1,5 @@
 import pytest
 from django.core.urlresolvers import reverse
-
 from tests.helpers import redirect_target
 
 

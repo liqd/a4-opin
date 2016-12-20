@@ -1,4 +1,4 @@
-{% load i18n project_tags thumbnail follow_tags %}
+{% load i18n project_tags thumbnail react_follows %}
 {% get_class project as class %}
 <div class="teaserlist-item {{ class }} {% if not project.image %} no-image {% endif %}"
      style="{% if project.image %}background-image: url({{ project.image|thumbnail_url:'heroimage_preview' }}){% endif %}">
@@ -16,21 +16,16 @@
         </p>
         <h3 class="sans-serif"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h3>
         {% if project.active_phase %}
-            {% trans 'Phase' %} {{ project.module_set.first.phases_passed|length|add:1 }}:
-            {{ project.active_phase.content.name }}
+            {% trans 'Phase' %} {{ project.module_set.first.phases_passed|length|add:1 }}: {{ project.active_phase.content.name }}
         {% endif %}
         <p class="avatar">
             <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium' }}" height="30" width="30" alt=""/>
             <span class="name">{{ project.organisation.title }}</span>
         </p>
-        <div class="teaserlist-actions">
-            {% if request.user in project.participants.all %}
-                <i class="fa fa-user"></i>
-            {% endif %}
-            {% is_following request.user project as is_follower %}
-            {% if is_follower %}
-                <i class="fa fa-star"></i>
-            {% endif %}
-        </div>
+        {% if show_follow %}
+            <div class="teaserlist-actions">
+                {% react_follows project %}
+            </div>
+        {% endif %}
     </div>
 </div>

@@ -25,10 +25,6 @@
         top: 0;
         width: 100%;
     }
-
-    a {
-        vertical-align: top;
-    }
 }
 
 .herounit-profile {
@@ -59,7 +55,6 @@
 
     .circled {
         float: left;
-        background-color: #fff;
 
         @media screen and (max-width: $screen-xs-max) {
             float: none;
@@ -200,7 +195,7 @@
 .herounit-description {
     @include rem(padding, 0 70px);
     line-height: 1.63;
-    @include rem(margin-bottom, 15px);
+    margin-bottom: 0;
     font-weight: 600;
 
     @media screen and (max-width: $screen-sm-max) {

@@ -4,7 +4,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 
-from adhocracy4.models import base
+from euth.contrib.base_models import (TimeStampedModel,
+                                      UserGeneratedContentModel)
 from euth.projects import models as prj_models
 
 from . import emails
@@ -17,7 +18,7 @@ class InviteManager(models.Manager):
         return invite
 
 
-class Invite(base.TimeStampedModel):
+class Invite(TimeStampedModel):
     """
     An invite to join a privte project.
     """
@@ -59,7 +60,7 @@ class RequestManager(models.Manager):
         return request
 
 
-class Request(base.UserGeneratedContentModel):
+class Request(UserGeneratedContentModel):
     """
     A request for joining a private project.
     """

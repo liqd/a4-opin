@@ -38,10 +38,6 @@
     transition: color 0.2s, background 0.2s;
 }
 
-.btn-sm {
-    @include rem(padding, 7px 15px);
-}
-
 .btn-hover-primary {
     @include button-hover($brand-primary);
 }
@@ -179,31 +175,4 @@
             width: auto;
         }
     }
-}
-
-
-.btngroup {
-    display: inline-block;
-    overflow: hidden;
-
-    > :first-child {
-        margin-left: 0;
-    }
-
-    > * {
-        @include rem(margin-left, 1px);
-        float: left;
-    }
-
-    > span {
-        cursor: default;
-    }
-}
-
-.btngroup-gray {
-    background-color: $gray;
-}
-
-.btngroup-primary {
-    background-color: $brand-brand1;
 }

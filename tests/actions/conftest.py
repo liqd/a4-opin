@@ -1,5 +1,4 @@
 from pytest_factoryboy import register
-
 from tests.actions import factories as actions_factories
 from tests.documents import factories as document_factories
 from tests.follows import factories as follow_factories

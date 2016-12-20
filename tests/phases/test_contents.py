@@ -1,8 +1,8 @@
 import pytest
-
-from euth.phases import PhaseContent, content
 from tests.apps.blog import models
 from tests.apps.blog.phases import BlogPhase
+
+from euth.phases import PhaseContent, content
 
 
 @pytest.fixture

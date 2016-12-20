@@ -9,12 +9,12 @@
         <div class="col-md-3">
             <div class="dashboard-nav">
                 <div class="dashboard-nav-group">
-                    {% include 'euth_dashboard/includes/dropdown.html' with is_user=True title=request.user.username orgs=request.user.organisation_set.all %}
+                    {% include 'euth_dashboard/includes/dropdown.html' with logo=request.user.avatar is_user=True title=request.user.username orgs=request.user.organisation_set.all %}
                     <div class="list-group">
                         {% url 'dashboard-profile' as dashboard_profile %}
                         <a href="{{ dashboard_profile }}"
                            class="list-group-item list-group-item-heading {% if view.menu_item == 'profile' %}selected{% endif %}">
-                            <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Edit profile' %}</span>
+                            <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Profile' %}</span>
                         </a>
                         <a href="{% url 'dashboard-password' %}"
                            class="list-group-item list-group-item-heading {% if view.menu_item == 'password' %}selected{% endif %}">

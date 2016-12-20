@@ -4,8 +4,7 @@ from django_countries import fields as countries_fields
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
-from adhocracy4.models import base
-from euth.contrib import validators
+from euth.contrib import base_models, validators
 
 
 class OrganisationManager(TranslatableManager):
@@ -13,7 +12,7 @@ class OrganisationManager(TranslatableManager):
         return self.get(name=name)
 
 
-class Organisation(base.TimeStampedModel, TranslatableModel):
+class Organisation(base_models.TimeStampedModel, TranslatableModel):
     name = models.CharField(max_length=512, unique=True)
     slug = models.SlugField(max_length=512, unique=True)
 

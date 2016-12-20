@@ -1,7 +1,13 @@
 import collections
 import email.utils
 import re
+import json
+import time
+import datetime
+import requests
+import uuid
 
+from requests.auth import HTTPBasicAuth
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -23,8 +29,8 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
-        fields = ['username', '_avatar', 'description', 'birthdate',
-                  'country', 'city', 'gender', 'languages', 'twitter_handle',
+        fields = ['username', '_avatar', 'description', 'birthdate', 'city',
+                  'country', 'gender', 'languages', 'twitter_handle',
                   'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
             '_avatar': widgets.ImageInputWidget(),
@@ -32,45 +38,9 @@ class ProfileForm(forms.ModelForm):
             'birthdate': widgets.DateInput(),
         }
 
-    @property
-    def formsections(self):
-        formsections = collections.OrderedDict([
-            (_('Basic Info'), [
-                'username',
-                '_avatar',
-            ]),
-            (_('Personal Info'), [
-                'description',
-                'birthdate',
-                'country',
-                'city',
-                'gender',
-            ]),
-            (_('Ways to connect with you'), [
-                'languages',
-                'twitter_handle',
-                'facebook_handle',
-                'instagram_handle',
-            ]),
-            (_('Notifications'), [
-                'get_notifications',
-            ])
-        ])
-
-        return formsections
-
 
 class ProjectInviteForm(forms.Form):
-    emails = forms.CharField(
-        label=_('E-mail addresses of invited users'),
-        help_text=_('Enter the e-mail addresses of users who you want '
-                    'to invite, separated by commas. Invited users will get '
-                    'an email to confirm their membership in the project.'),
-        widget=forms.TextInput(attrs={
-            'placeholder': 'magdalena@example.com, yves@example.com,'
-                           ' nadine@example.com…'}
-        )
-    )
+    emails = forms.CharField()
 
     def __init__(self, project, *args, **kwargs):
         self.project = project
@@ -115,6 +85,98 @@ class ProjectForm(forms.ModelForm):
         }
 
     def save(self, commit=True):
+
+        print("save:"+ json.dumps(self.data))
+
+        startTime = time.mktime(datetime.datetime.strptime(self.data['startTime'], "%d/%m/%Y %H:%M").timetuple())
+        endTime = time.mktime(datetime.datetime.strptime(self.data['endTime'], "%d/%m/%Y %H:%M").timetuple())
+
+        jsonGenerator = {}
+        print("json:"+ json.dumps(jsonGenerator))
+        jsonGenerator['title'] = self.data['title']
+        print("json:"+ json.dumps(jsonGenerator))
+        jsonGenerator['shortDescription'] = self.data['shortDescription']
+        print("json:"+ json.dumps(jsonGenerator))
+        jsonGenerator['longDescription'] = self.data['longDescription']
+        jsonGenerator['concludeMessage'] = self.data['concludeMessage']
+        jsonGenerator['descriptionMediaURLs'] = [""]
+        jsonGenerator['keywords'] = []
+        jsonGenerator['startTime'] = startTime
+        jsonGenerator['endTime'] = endTime
+        jsonGenerator['resultVisibility'] = 0
+        jsonGenerator['preview'] = False
+
+        # context
+        jsonGenerator['lab'] = 'opin'
+        jsonGenerator['domain'] = 'organisation'
+        jsonGenerator['campaign'] = self.data['project-name']
+
+        # location
+        jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
+        jsonGenerator['geofenceRadius'] = 0
+        jsonGenerator['geofenceId'] = ''
+
+        # questions
+        q = 1
+        questions = []
+        question_key = "question-"+str(q)+".questionType"
+        while  question_key in self.data:
+            question = {}
+            question['questionText'] = self.data["question-"+str(q)+".questionText"]
+            question['orderId'] = q
+            question['questionType'] = self.data["question-"+str(q)+".questionType"]
+
+            if "question-"+str(q)+".mandatory" in self.data:
+                question['mandatory'] = True
+            else:
+                question['mandatory'] = False
+
+            question['mediaURLs'] = [""]
+
+            # answers
+            a = 1
+            answers = []
+            answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+            while  answer_key in self.data:
+                answer = {}
+                print("question-"+str(q)+".choice-"+str(a)+".answerText")
+                answer['answerText'] = self.data["question-"+str(q)+".choice-"+str(a)+".answerText"]
+                answer['orderId'] = a
+                answer['mediaURL'] = ''
+                if self.data["question-"+str(q)+".questionType"] == "FREETEXT":
+                    answer['freetextAnswer'] = True
+                else:
+                    answer['freetextAnswer'] = False
+
+                answers.append(answer)
+                a=a+1
+                answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+
+            question['answers'] = answers
+            questions.append(question)
+            q=q+1
+            question_key = "question-"+str(q)+".questionType"
+
+
+        jsonGenerator['questions'] = questions
+        json_data = json.dumps(jsonGenerator)
+        print("json:"+ json.dumps(jsonGenerator))
+
+        url_poll = '{base_url}/poll/{poll_id}/opin'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=self.data['module_settings-key']
+        )
+
+        print("url_poll:"+ url_poll)
+
+        # Handle post
+        headers = {'Content-type': 'application/json'}
+        response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+
+        print ("code:"+str(response.status_code))
+        print ("headers:"+ str(response.headers))
+        print ("content:"+ str(response.text))
+
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
@@ -171,7 +233,6 @@ def get_module_settings_form(settings_instance_or_modelref):
         class Meta:
             model = settings_model
             exclude = ['module']
-            widgets = settings_model().widgets()
 
     return ModuleSettings
 
@@ -188,10 +249,10 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             )),
         ]
 
-        if module.settings_instance:
+        if hasattr(module, 'settings'):
             self.base_forms.append((
                 'module_settings',
-                get_module_settings_form(module.settings_instance),
+                get_module_settings_form(module.settings),
             ))
 
         super().__init__(*args, **kwargs)
@@ -219,10 +280,8 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         module_settings = blueprint.settings_model
         if module_settings:
-            self.base_forms.append((
-                'module_settings',
-                get_module_settings_form(module_settings),
-            ))
+            self.base_forms.append(('module_settings',
+                                    get_module_settings_form(module_settings)))
 
         return super().__init__(*args, **kwargs)
 

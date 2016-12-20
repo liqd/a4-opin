@@ -4,7 +4,7 @@ from django.utils import translation
 from euth.contrib import emails
 
 
-def notify_users_on_create_action(action, users):
+def notify_creator_on_create_action(action):
     title = action.target.name if hasattr(action.target, 'name') else None
     content = action.action_object.notification_content if hasattr(
         action.action_object, 'notification_content') else None
@@ -19,17 +19,16 @@ def notify_users_on_create_action(action, users):
         'url': url,
     }
 
-    for user in users:
-        emails.send_email_with_template(
-            [user], 'notify_creator', context)
+    emails.send_email_with_template(
+        [action.target.creator.email], 'notify_creator', context)
 
 
 def notify_followers_on_almost_finished(project):
     translation.activate('en')
     User = auth.get_user_model()
     recipients = User.objects.filter(
-        follow__project=project,
-        follow__enabled=True,
+        follow__project=project).filter(
+        follow__enabled=True).filter(
         get_notifications=True
     ).values_list('email', flat=True)
 
@@ -38,6 +37,5 @@ def notify_followers_on_almost_finished(project):
         'url': project.get_absolute_url()
     }
 
-    for recipient in recipients:
-        emails.send_email_with_template(
-            [recipient], 'notify_followers', context)
+    emails.send_email_with_template(
+        recipients, 'notify_followers', context)

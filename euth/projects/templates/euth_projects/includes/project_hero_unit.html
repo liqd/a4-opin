@@ -1,5 +1,5 @@
-{% load thumbnail react_follows project_tags i18n rules %}
 
+{% load thumbnail react_follows project_tags i18n %}
 <header class="herounit" style="{% if project.image %}
                background-image: url({{ project.image |thumbnail_url:'heroimage' }});
                {% endif %}">
@@ -28,18 +28,8 @@
                 </p>
                 <p class="herounit-description">{{ project.description | truncatechars:200 }}</p>
 
-                {% has_perm 'euth_projects.edit_project' user project as can_edit_project %}
-                {% if can_edit_project %}
-                    <a href="{% url 'dashboard-project-edit' project.organisation.slug project.slug %}" class="btn btn-dark btn-primary btn-sm">
-                        <i class="fa fa-edit"></i> {% trans 'edit' %}
-                    </a>
-                {% endif %}
-
-                {% has_perm 'euth_projects.view_project' request.user project as can_view_project %}
                 {% block phase_cta %}{% endblock %}
-                {% if can_view_project %}
-                    {% react_follows project %}
-                {% endif %}
+                {% react_follows project %}
             </div>
         </div>
     </div>

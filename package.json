@@ -2,7 +2,6 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "adhocracy4": "liqd/adhocracy4#master",
     "autoprefixer": "^6.5.2",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
@@ -18,8 +17,6 @@
     "font-awesome": "4.6.3",
     "jquery": "2.2.4",
     "js-cookie": "~2.1.2",
-    "leaflet": "^0.7.7",
-    "leaflet-draw": "^0.4.2",
     "moment": "^2.14.1",
     "node-sass": "3.10.1",
     "postcss-loader": "^1.1.0",
@@ -27,6 +24,7 @@
     "react-addons-update": "~15.1.0",
     "react-dom": "15.1.0",
     "react-flip-move": "^2.6.1",
+    "react-hyperscript": "2.4.0",
     "salvattore": "1.0.9",
     "sass-loader": "4.0.2",
     "slick-carousel": "^1.6.0",
@@ -44,7 +42,6 @@
     "husky": "0.11.4",
     "stylelint": "^7.5.0"
   },
-  "license": "AGPL-3.0+",
   "scripts": {
     "webpack:build": "webpack --config ./webpack.config.js --progress --colors",
     "heroku-postbuild": "npm run webpack:build",

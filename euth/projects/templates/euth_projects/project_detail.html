@@ -15,7 +15,7 @@
                 <li class="{% if phase == view.project.active_phase %}active{% endif %} timeline-phase">
                     <div class="dot" title="{% trans "Phase" %} {{ forloop.counter }}/{{ phases|length }}
                          {% if phase == view.project.active_phase %}
-                             <div class='label label-secondary label-xs pull-right'>{% trans 'Active phase' %}</div>
+                             <div class='label label-secondary pull-right'>{% trans 'Active phase' %}</div>
                          {% endif %}"
                          data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
                          id="button-phase-{{ forloop.counter }}"
@@ -44,11 +44,9 @@
 </nav>
 <div class="container">
     <article id="information" class="tab-panel">
-        <div class="container-narrow">
-            <h3 class="tab-panel-title">{% trans "info" %}</h3>
-            <div class="tab-panel-description usercontent">
-                {{ view.project.information |safe|linebreaks }}
-            </div>
+        <h3 class="tab-panel-title">{% trans "info" %}</h3>
+        <div class="tab-panel-description usercontent">
+            {{ view.project.information |safe|linebreaks }}
         </div>
     </article>
     <article id="participation" class="tab-panel active">
@@ -72,19 +70,17 @@
             {% endif %}
 
             {% if view.phase %}
-            <div class="container-narrow">
-                <h2>{{ view.phase.name }}</h2>
-                {% if view.phase and not view.phase.is_over %}
-                <p>
-                    <strong>{% trans 'Start Date' %}</strong>
-                    {{ view.phase.start_date.date }}
-                    <br />
-                    <strong>{% trans 'End Date' %}</strong>
-                    {{ view.phase.end_date.date }}
-                </p>
-                {% endif %}
-                <p class="idea-list-description">{{ view.phase.description }} </p>
-            </div>
+            <h2>{{ view.phase.name }}</h2>
+            {% if view.phase and not view.phase.is_over %}
+            <p>
+                <strong>{% trans 'Start Date' %}</strong>
+                {{ view.phase.start_date.date }}
+                <br />
+                <strong>{% trans 'End Date' %}</strong>
+                {{ view.phase.end_date.date }}
+            </p>
+            {% endif %}
+            <p class="idea-list-description">{{ view.phase.description }} </p>
             {% endif %}
 
 
@@ -92,11 +88,9 @@
         </div>
     </article>
     <article id="result" class="tab-panel">
-        <div class="container-narrow">
-            <div class="tab-panel-description project usercontent">
-                {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
-                {{ view.project.result |default:no_results|safe|linebreaks }}
-            </div>
+        <div class="tab-panel-description project usercontent">
+            {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
+            {{ view.project.result |default:no_results|safe|linebreaks }}
         </div>
     </article>
 </div>

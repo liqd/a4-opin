@@ -3,11 +3,11 @@ from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 
-from adhocracy4.ratings import models as rating_models
 from contrib.transforms import html_transforms
 from euth.comments import models as comment_models
 from euth.contrib import validators
 from euth.modules import models as module_models
+from euth.ratings import models as rating_models
 
 
 class IdeaQuerySet(models.QuerySet):

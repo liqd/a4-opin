@@ -1,5 +1,4 @@
 import factory
-
 from tests.factories import UserFactory
 
 

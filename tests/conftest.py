@@ -3,7 +3,6 @@ import pytest
 from django.core.urlresolvers import reverse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
-
 from tests.memberships import factories as member_factories
 from tests.modules import factories as mod_factories
 from tests.organisations import factories as org_factories
