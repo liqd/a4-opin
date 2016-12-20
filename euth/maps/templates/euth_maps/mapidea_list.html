@@ -38,6 +38,7 @@
         <div id="map" style="height: 600px;"></div>
     </div>
 
+    <div id="idea-list">
     {% if view.sorts and mapidea_list.count > 1 %}
     {% include "euth_ideas/includes/sort.html" %}
     {% endif %}
@@ -49,6 +50,7 @@
     {% if is_paginated %}
     {% include "euth_ideas/includes/pagination.html"%}
     {% endif %}
+    </div>
 
 </div>
 {% endblock %}

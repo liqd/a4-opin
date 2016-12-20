@@ -12,6 +12,7 @@
         </a>
         {% endif %}
 
+        <div id="idea-list">
         {% if view.sorts and idea_list.count > 1 %}
         {% include "euth_ideas/includes/sort.html" %}
         {% endif %}
@@ -23,6 +24,7 @@
         {% if is_paginated %}
         {% include "euth_ideas/includes/pagination.html"%}
         {% endif %}
+        </div>
 
     </div>
 </div>
