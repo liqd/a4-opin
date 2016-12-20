@@ -41,12 +41,15 @@
 
 .idea-map {
     margin-bottom: 30px;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+
+    @media screen and (min-width: $screen-sm-min) {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
 
     .idea-map-buttons {
         z-index: 7;
