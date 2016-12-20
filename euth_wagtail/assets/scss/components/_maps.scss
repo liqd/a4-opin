@@ -6,6 +6,7 @@
 
     .leaflet-popup-content-wrapper {
         border-radius: 4px;
+        padding: 0;
     }
 
     .maps-popups-popup-meta {
@@ -24,6 +25,7 @@
     .maps-popups-popup-image {
         height: 100px;
         background-size: cover;
+        background-color: $brand-brand1;
     }
 
     .maps-popups-popup-name {
@@ -36,3 +38,32 @@
         padding: 4px 10px 16px 10px;
     }
 }
+
+.idea-map {
+    margin-bottom: 30px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    .idea-map-buttons {
+        z-index: 7;
+        position: relative;
+
+        .idea-map-buttons-list {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+        }
+
+        .idea-map-buttons-zoom {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+    }
+}
+
+
