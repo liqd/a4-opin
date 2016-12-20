@@ -331,7 +331,7 @@ COMMENTABLES = (
     ('euth_comments', 'comment'),
 )
 
-RATEABLES = (
+A4_RATEABLES = (
     ('euth_ideas', 'ideas'),
     ('euth_comments', 'comment'),
 )
