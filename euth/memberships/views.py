@@ -4,8 +4,25 @@ from django.views import generic
 from rules.compat import access_mixins as mixin
 
 from adhocracy4.projects import models as prj_models
+from adhocracy4.projects import views as prj_views
 
 from . import forms, models
+
+
+class RequestsProjectDetailView(prj_views.ProjectDetailView):
+
+    def handle_no_membership(self):
+        membership_impossible = (
+            not self.request.user.is_authenticated()
+            or self.project.is_draft
+            or self.project.has_member(self.request.user)
+        )
+
+        if membership_impossible:
+            return super().handle_no_permission()
+        else:
+            return redirect('memberships-request',
+                            project_slug=self.project.slug)
 
 
 class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):
