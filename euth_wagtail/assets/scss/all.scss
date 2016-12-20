@@ -21,6 +21,7 @@
 @import "wagtail-blocks/accordion-block";
 @import "wagtail-blocks/image-text-list-block";
 @import "wagtail-blocks/rss-feed-import";
+@import "wagtail-blocks/page-collection";
 
 // Components
 @import "components/projects";
@@ -61,3 +62,5 @@
 @import "components/error-pages";
 @import "components/teaserlist";
 @import "components/sections-list";
+@import "components/breadcrumb";
+@import "components/linklist";

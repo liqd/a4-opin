@@ -876,14 +876,9 @@ class ManualsDetailPage(Page):
                                           icon="title")),
         ('paragraph', core_blocks.TextBlock(icon="pilcrow")),
         ('rich_text', core_blocks.RichTextBlock(icon="pilcrow")),
-        ('info_block', InfoBlock()),
         ('video_block', VideoBlock()),
         ('image', image_blocks.ImageChooserBlock(icon="image")),
-        ('wide_image', WideImageBlock(icon="image")),
-        ('images', InlineImagesBlock(icon="image")),
-        ('contact_block', ContactBlock(icon="form")),
         ('accordion_block', AccordionBlock(icon="collapse-down")),
-        ('image_text_block_list', ImageTextBlockList()),
     ]
 
     body_en = StreamField(block_types, null=True,

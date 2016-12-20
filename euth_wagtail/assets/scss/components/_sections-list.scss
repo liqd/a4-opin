@@ -22,6 +22,24 @@ $sectionslist-gutter: 14px;
     display: flex;
     flex-direction: column;
 
+    @media screen and (max-width: $screen-md-max) {
+        flex-basis: 33.3333%;
+    }
+
+    @media screen and (max-width: $screen-sm-max) {
+        flex-basis: 50%;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        flex-basis: 100%;
+    }
+}
+
+.sectionslist-image {
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
     &.blue {
         background-color: $brand-brand1;
     }
@@ -45,12 +63,6 @@ $sectionslist-gutter: 14px;
     &.yellow {
         background-color: $brand-brand6;
     }
-}
-
-.sectionslist-image {
-    height: 250px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
 }
 
 .sectionslist-body {

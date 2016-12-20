@@ -1,0 +1,13 @@
+.linklist {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        padding-left: 20px;
+        @include rem(margin-bottom, 3px);
+    }
+
+    a {
+        font-weight: 600;
+    }
+}
