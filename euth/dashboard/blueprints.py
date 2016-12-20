@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from euth.documents import phases as documents_phases
 from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
-from euth.maps import phases as map_phases
 
 ProjectBlueprint = namedtuple(
     'ProjectBlueprint', [
@@ -56,16 +55,6 @@ blueprints = [
          ],
          image='images/placeholder.png',
          settings_model=('euth_flashpoll', 'Flashpoll'),
-     )),
-    ('MapIdeas',
-     ProjectBlueprint(
-         title=_('Spatial Brainstorming'),
-         description=_('Initiate spatial brainstorming process'),
-         content=[
-             map_phases.IssuePhase(),
-         ],
-         image='images/placeholder.png',
-         settings_model=('euth_maps', 'AreaSettings'),
      )),
 ]
 

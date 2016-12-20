@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail rules avatar %}
+{% load i18n react_comments react_ratings thumbnail rules %}
 
 {% block title %}{{idea.name}}{% endblock %}
 {% block content %}
@@ -47,7 +47,11 @@
             </div>
 
             <div class="avatar-small">
-                <span class="circled circled-xs" style="background-image: url({% get_avatar idea.creator 'avatar_small' %})"></span>
+                {% if idea.creator.avatar %}
+                <img src="{{ idea.creator.avatar | thumbnail_url:'avatar_small' }}"></img>
+                {% else %}
+                <img src=""></img>
+                {% endif %}
                 <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
                 {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>

@@ -73,13 +73,12 @@ INSTALLED_APPS = [
     'euth.phases.apps.PhasesConfig',
     'euth.modules.apps.ModuleConfig',
     'euth.ideas.apps.IdeaConfig',
-    'adhocracy4.ratings.apps.RatingsConfig',
+    'euth.ratings.apps.RatingsConfig',
     'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
     'euth.flashpoll.apps.FlashpollConfig',
-    'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.contrib',
 ]
@@ -151,7 +150,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 CKEDITOR_CONFIGS = {
@@ -272,8 +270,6 @@ WEBPACK_LOADER = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
     os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
-    os.path.join(BASE_DIR, 'node_modules/leaflet/dist'),
-    os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
@@ -339,17 +335,7 @@ REPORTABLES = (
     ('euth_comments', 'comment'),
 )
 
-ACTIONABLE = [
-    ('euth_ideas', 'Idea'),
-    ('euth_comments', 'Comment')
-]
-
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
-
-BASE_MAP = 'http://{s}.tile.openstreetmap.org/'
-
-MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
-            '[71.35706654962706,-28.388671875],'
-            '[71.35706654962706,50.88867187499999],'
-            '[34.95799531086792,50.88867187499999],'
-            '[34.95799531086792,-28.388671875]]]')
+FLASHPOLL_BACK_URL = "http://int.backend.flashpoll.eu/flashpoll/api/v7/management"
+FLASHPOLL_BACK_USER = "fp_management"
+FLASHPOLL_BACK_PASSWORD = "53c4100e8ab143fe59fcb2e743cf4aba662ad25lacab0eb37fb9c69d8f27363fa19f0531bd681"

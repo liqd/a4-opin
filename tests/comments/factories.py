@@ -1,6 +1,5 @@
 import factory
 from django.db.models import signals
-
 from tests.apps.fakeprojects import factories
 from tests.factories import UserFactory
 

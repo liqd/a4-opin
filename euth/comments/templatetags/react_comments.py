@@ -4,6 +4,7 @@ from django import template, utils
 from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
 
+
 from ..models import Comment
 from ..serializers import ThreadSerializer
 

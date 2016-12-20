@@ -54,7 +54,7 @@ var Paragraph = React.createClass({
               className="btn btn-hover-success btn-block"
               onClick={this.add}
               type="button">
-              <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
+              <i className="fa fa-plus" />
             </button>
           </div>
         </div>

@@ -15,7 +15,7 @@ def react_follows(project):
     mountpoint = 'follow_{}'.format(project.slug)
 
     return mark_safe((
-        '<span id={mountpoint}></span><script>window.opin.renderFollow('
+        '<div id={mountpoint}></div><script>window.opin.renderFollow('
         '{mountpoint}, {attributes})</script>').format(
             attributes=json.dumps(attributes),
             mountpoint=json.dumps(mountpoint)

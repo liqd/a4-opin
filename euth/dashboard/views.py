@@ -1,3 +1,8 @@
+import json
+import requests
+import uuid
+from requests.auth import HTTPBasicAuth
+from django.conf import settings
 from allauth.account import views as account_views
 from allauth.socialaccount import views as socialaccount_views
 from django.contrib import messages
@@ -148,6 +153,13 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("New project based on")
+        pollid = str(uuid.uuid4())
+        context['pollid']  = pollid
+        pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
+        context['poll'] = json.loads(pollinit)
+        context['module_settings'] = self.kwargs['module_settings']
+
+        print("module_settings: "+str(context['module_settings']))
         return context
 
     def get_permission_object(self):
@@ -158,6 +170,12 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
         kwargs['creator'] = self.request.user
+
+        if self.blueprint.settings_model:
+            self.kwargs['module_settings'] = 'euth_flashpoll'
+        else:
+            self.kwargs['module_settings'] = 'default'
+
         return kwargs
 
     def get_success_url(self):
@@ -181,6 +199,48 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("Update project: " + self.object.name)
+
+        context['pollid'] = self.kwargs['pollid']
+        # context['pollid'] = "579a30a584ae278ebdd1ad56"
+        context['module_settings'] = self.kwargs['module_settings']
+
+        print("module_settings: "+str(context['module_settings']))
+
+        url_poll = '{base_url}/poll/{poll_id}'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=context['pollid']
+        )
+
+        print("url_poll get:"+ url_poll)
+
+        # Handle get
+        headers = {'Content-type': 'application/json'}
+        response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+        # context['poll'] = json.dumps(response.text)
+        context['poll'] = json.loads(response.text)
+
+        print ("code:"+str(response.status_code))
+        print ("headers:"+ str(response.headers))
+        print ("content:"+ str(response.json()))
+
+
+        url_poll = '{base_url}/poll/{poll_id}/result'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=context['pollid']
+        )
+
+        print("url_poll result:"+ url_poll)
+
+        headers = {'Content-type': 'application/json'}
+        response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+        context['pollresult'] = json.loads(response.text)
+        # context['pollresult'] = json.loads(response.text)
+
+        print ("code:"+str(response.status_code))
+        print ("headers:"+ str(response.headers))
+        print ("content:"+ str(response.json()))
+
+
         return context
 
     def get_permission_object(self):
@@ -198,9 +258,16 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
 
-        if qs.first().module.settings_instance:
-            settings_instance = qs.first().module.settings_instance
+        if qs.first().type.startswith('euth_flashpoll'):
+            settings_instance = qs.first().module.settings
             kwargs['module_settings__instance'] = settings_instance
+            self.kwargs['module_settings'] = 'euth_flashpoll'
+            self.kwargs['pollid'] = settings_instance.key
+        else:
+            self.kwargs['module_settings'] = 'default'
+
+
+        return kwargs
 
         return kwargs
 

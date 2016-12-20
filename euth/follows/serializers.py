@@ -8,7 +8,6 @@ from . import models
 class FollowSerializer(serializers.ModelSerializer):
 
     project = serializers.SlugRelatedField(read_only=True, slug_field='slug')
-    follows = serializers.SerializerMethodField()
     creator = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -24,9 +23,3 @@ class FollowSerializer(serializers.ModelSerializer):
             project = prj_models.Project.objects.get(slug=slug)
             kwargs['project'] = project
         return super().save(*args, **kwargs)
-
-    def get_follows(self, obj):
-        return models.Follow.objects.filter(
-            project=obj.project,
-            enabled=True
-        ).count()

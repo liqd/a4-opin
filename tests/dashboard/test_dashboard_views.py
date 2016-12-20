@@ -3,7 +3,6 @@ from django.contrib import auth
 from django.core import mail
 from django.core.urlresolvers import reverse
 from parler.utils.context import switch_language
-
 from tests.helpers import redirect_target
 
 User = auth.get_user_model()

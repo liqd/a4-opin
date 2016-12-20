@@ -58,10 +58,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules\/(?!adhocracy4)/,  // exclude all dependencies but adhocracy4
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['babel-preset-es2015', 'babel-preset-react'].map(require.resolve)
+          presets: ['es2015', 'react']
         }
       },
       {
@@ -82,10 +82,8 @@ module.exports = {
     autoprefixer({browsers: ['last 3 versions', 'ie >= 10']})
   ],
   resolve: {
-    fallback: path.join(__dirname, 'node_modules'),
     extensions: ['', '.js', '.jsx', '.scss', '.css']
   },
-  resolveLoader: { fallback: path.join(__dirname, "node_modules") },
   sassLoader: {
     includePaths: [
       path.resolve('./node_modules/bootstrap-sass/assets/stylesheets')

@@ -3,7 +3,6 @@ from datetime import date
 from django.contrib.auth import models as auth_models
 from django.core import validators
 from django.db import models
-from django.templatetags.static import static
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
@@ -59,7 +58,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         upload_to='users/images',
         blank=True,
         validators=[euth_validators.validate_avatar],
-        verbose_name=_('Avatar picture'),
+        verbose_name=_('Avatar'),
     )
 
     description = models.CharField(
@@ -96,13 +95,13 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     city = models.CharField(
         blank=True,
         max_length=80,
-        verbose_name=_('City of residence'),
+        verbose_name=_('City'),
     )
 
     birthdate = models.DateField(
         blank=True,
         null=True,
-        verbose_name=_('Date of birth'),
+        verbose_name=_('Birthdate'),
     )
 
     gender = models.CharField(
@@ -111,13 +110,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         max_length=1,
         choices=[
             ('M', _('Male')),
-            ('F', _('Female')),
-            ('T', _('Transgender')),
-            ('TF', _('Transgender Female')),
-            ('TM', _('Transgender Male')),
-            ('I', _('Intersex')),
-            ('GF', _('Gender Fluid')),
-            ('O', _('Other')),
+            ('F', _('Female'))
         ],
     )
 
@@ -158,11 +151,6 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     @property
     def avatar(self):
         return self._avatar
-
-    @property
-    def default_avatar(self):
-        id = self.pk % 6
-        return static('images/penguin_{}.png'.format(id))
 
     @property
     def age(self):

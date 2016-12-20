@@ -1,6 +1,6 @@
 .label {
     @include rem(padding, 4px 10px);
-    @include rem(font-size, $font-size-small);
+    @include rem(font-size, 12px);
     font-style: italic;
     text-transform: uppercase;
     @include rem(letter-spacing, -0.2px);
@@ -31,14 +31,6 @@
 .label-secondary {
     @include label-variant($brand-brand2);
     color: $black;
-}
-
-.label-xs {
-    @include rem(padding, 2px 4px);
-    @include rem(margin-top, -1px);
-    @include rem(font-size, 10px);
-    border-radius: 2px;
-    line-height: 1;
 }
 
 .label-subtle {

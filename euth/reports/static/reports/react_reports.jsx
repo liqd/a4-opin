@@ -1,4 +1,4 @@
-var api = require('adhocracy4').api
+var api = require('../../../contrib/static/js/api')
 var Modal = require('../../../contrib/static/js/Modal')
 
 var $ = require('jquery')

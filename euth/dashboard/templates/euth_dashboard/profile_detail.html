@@ -7,40 +7,28 @@
 
 <div class="general-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
-        <p>{% trans 'The information you give in your profile will be shown to all users of OPIN.me.' %}</p>
         {% csrf_token %}
-        {% for name, fields in form.formsections.items %}
-            <div class="form-section">
-                <h3 class="form-section-heading">{{ name }}</h3>
-                <div class="form-section-fields row">
-                    <div class="col-md-10">
-                        {% for field in form %}
-                            {% if field.name in fields %}
-                                <div class="form-group">
-                                    {% if field|widget_type == 'checkboxinput' %}
-                                        {% if field.help_text %}
-                                            <p class='form-help-text'>{{ field.help_text }}</p>
-                                        {% endif %}
-                                        <label>
-                                            {% render_field field %}
-                                            {{ field.label }}
-                                        </label>
-                                    {% else %}
-                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                        {% if field.help_text %}
-                                            <p class='form-help-text'>{{ field.help_text }}</p>
-                                        {% endif %}
-                                        {% render_field field class="form-control" %}
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+        <div class="form-section">
+            <h3 class="form-section-heading">{% trans 'Basic Info' %}</h3>
+            <div class="form-section-fields row">
+                <div class="col-md-10">
+                    {% for field in form %}
+                            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                                <label for="{{ field.id_for_label }}">
+                                    {{ field.label }} {% if field.field.required %}*{% endif %}
+                                </label>
+                                <p class='form-help-text'>{{ field.help_text }}</p>
+                                {% render_field field class="form-control" %}
+                                {% for error in field.errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                    {% endfor %}
                 </div>
             </div>
-        {% endfor %}
+        </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-sm btn-primary">{% trans 'Save changes'%}</button>
+          <button type="submit" class="btn btn-sm btn-primary">{% trans 'post'%}</button>
         </div>
     </form>
     {{ form.media }}

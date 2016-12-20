@@ -48,7 +48,7 @@
     width: 100%;
 
     .footer-disclaimer-logo {
-        max-width: 33%;
+        max-width: 100%;
         @include rem(margin-bottom, 20px);
 
         @media (min-width: $screen-sm-min) {

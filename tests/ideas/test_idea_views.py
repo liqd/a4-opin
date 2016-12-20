@@ -1,9 +1,9 @@
 import pytest
 from django.core.urlresolvers import reverse
 from freezegun import freeze_time
+from tests.helpers import redirect_target
 
 from euth.ideas import models, phases, views
-from tests.helpers import redirect_target
 
 
 @pytest.mark.django_db

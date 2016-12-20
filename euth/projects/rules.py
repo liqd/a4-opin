@@ -9,6 +9,6 @@ rules.add_perm('euth_projects.edit_project',
                is_superuser | is_initiator)
 
 
-rules.add_perm('euth_projects.view_project',
+rules.add_perm('projects.view_project',
                is_superuser | is_initiator |
                ((is_public | is_member) & is_live))

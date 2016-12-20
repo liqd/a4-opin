@@ -6,9 +6,9 @@ from dateutil.parser import parse
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from freezegun import freeze_time
+from tests import helpers
 
 from euth.projects import models
-from tests import helpers
 
 
 @pytest.mark.django_db
