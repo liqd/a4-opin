@@ -4,9 +4,8 @@ from django.http import HttpResponse
 from django.views.generic import ListView, View
 from freezegun import freeze_time
 
-from tests.apps.blog import models as blog_models
-
 from adhocracy4.projects import mixins, models
+from tests.apps.blog import models as blog_models
 
 
 @pytest.fixture

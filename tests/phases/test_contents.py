@@ -1,9 +1,8 @@
 import pytest
 
+from adhocracy4.phases import PhaseContent, content
 from tests.apps.blog import models
 from tests.apps.blog.phases import BlogPhase
-
-from adhocracy4.phases import PhaseContent, content
 
 
 @pytest.fixture
