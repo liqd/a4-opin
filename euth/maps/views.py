@@ -1,4 +1,5 @@
 from django.conf import settings
+from easy_thumbnails.files import get_thumbnailer
 
 from euth.ideas import views as idea_views
 
@@ -14,11 +15,20 @@ class MapIdeaListView(idea_views.IdeaListView):
         result['type'] = 'FeatureCollection'
         feature_list = []
 
+        options = {'size': (400, 200), 'crop': True}
+
         for item in self.get_queryset():
+
+            url = ''
+
+            if item.image:
+                image = get_thumbnailer(item.image)
+                url = image.get_thumbnail(options).url
+
             properties = {
                 'name': item.name,
                 'slug': item.slug,
-                'image': item.image.url if item.image else '',
+                'image':  url,
                 'comments_count': item.comment_count,
                 'positive_rating_count': item.positive_rating_count,
                 'negative_rating_count': item.negative_rating_count,
