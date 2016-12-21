@@ -1,9 +1,8 @@
 import factory
 
+from adhocracy4.test import factories
 from euth.documents import models as document_models
 from tests.factories import UserFactory
-
-from ..modules.factories import ModuleFactory
 
 
 class DocumentFactory(factory.django.DjangoModelFactory):
@@ -13,7 +12,7 @@ class DocumentFactory(factory.django.DjangoModelFactory):
 
     name = factory.Faker('name')
     creator = factory.SubFactory(UserFactory)
-    module = factory.SubFactory(ModuleFactory)
+    module = factory.SubFactory(factories.ModuleFactory)
 
 
 class ParagraphFactory(factory.django.DjangoModelFactory):

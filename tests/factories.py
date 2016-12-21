@@ -6,6 +6,8 @@ from django.contrib.auth.hashers import make_password
 from django.core.files import base, images
 from PIL import Image
 
+from adhocracy4.test import factories
+
 
 class UserFactory(factory.django.DjangoModelFactory):
 
@@ -35,6 +37,11 @@ class ContentTypeFactory(factory.django.DjangoModelFactory):
     app_label = factory.Faker('name')
     model = factory.Faker('name')
     name = factory.Faker('name')
+
+
+class PhaseFactory(factories.PhaseFactory):
+
+    type = 'blog:020:phase'
 
 
 class ImageFactory():
