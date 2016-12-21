@@ -2,9 +2,8 @@ import json
 
 import factory
 
+from adhocracy4.test.factories import ModuleFactory
 from euth.maps import models as maps_models
-
-from ..modules.factories import ModuleFactory
 
 
 class AreaSettingsFactory(factory.django.DjangoModelFactory):

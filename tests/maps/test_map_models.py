@@ -1,6 +1,6 @@
 import pytest
 
-from euth.modules.models import AbstractSettings
+from adhocracy4.modules.models import AbstractSettings
 
 
 @pytest.mark.django_db
