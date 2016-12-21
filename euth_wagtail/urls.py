@@ -20,8 +20,8 @@ from euth.documents.api import DocumentViewSet
 from euth.follows.api import FollowViewSet
 from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
+from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
-from euth.memberships import projects_urls
 from euth.organisations import urls as organisations_urls
 from euth.reports.api import ReportViewSet
 from euth.users import urls as user_urls
@@ -52,7 +52,7 @@ urlpatterns += i18n_patterns(
     url(r'^dashboard/', include(dashboard_urls)),
     url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
-    url(r'^projects/', include(projects_urls)),
+    url(r'^projects/', include(memberships_project_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),
     url(r'^ideas/', include(ideas_urls)),
     url(r'^maps/', include(maps_urls)),

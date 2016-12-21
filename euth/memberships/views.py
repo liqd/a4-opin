@@ -11,6 +11,18 @@ from . import forms, models
 
 class RequestsProjectDetailView(prj_views.ProjectDetailView):
 
+    def handle_no_permission(self):
+        """
+        Check if user clould join
+        """
+        user = self.request.user
+        is_member = user.is_authenticated() and self.project.has_member(user)
+
+        if is_member:
+            return super().handle_no_permission()
+        else:
+            return self.handle_no_membership()
+
     def handle_no_membership(self):
         membership_impossible = (
             not self.request.user.is_authenticated()

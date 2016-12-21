@@ -1,6 +1,6 @@
 import factory
 
-from tests.projects.factories import ProjectFactory
+from adhocracy4.test.factories import ProjectFactory
 
 from ..factories import UserFactory
 

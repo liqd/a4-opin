@@ -14,7 +14,7 @@ def test_detail_private_project(client, project, user):
     assert response.status_code == 302
     assert redirect_target(response) == 'account_login'
 
-    client.login(username=user.username, password='password')
+    client.login(username=user.email, password='password')
     response = client.get(project_url)
     assert response.status_code == 302
     assert redirect_target(response) == 'memberships-request'
@@ -33,7 +33,7 @@ def test_detail_draft_project(client, project, user):
     assert response.status_code == 302
     assert redirect_target(response) == 'account_login'
 
-    client.login(username=user.username, password='password')
+    client.login(username=user.email, password='password')
     response = client.get(project_url)
     assert response.status_code == 403
     assert (
