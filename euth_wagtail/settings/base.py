@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     'adhocracy4.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
     'adhocracy4.phases.apps.PhasesConfig',
-    'adhocracy4.modules.apps.ModuleConfig',
+    'adhocracy4.modules.apps.ModulesConfig',
     'euth.ideas.apps.IdeaConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
     'euth.reports.apps.ReportConfig',
