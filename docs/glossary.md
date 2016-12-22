@@ -27,7 +27,7 @@ Items are an abstraction for any kind of resource that have a link to a module. 
 
 ---
 **Language Switch**:
-Add explantion here.
+OPIN offers the user several languages. The selection of languages can be changed at the top menue bar next to the log-in. In a drop-down menue users can select a language. OPIN offers its editorial content in several languages. Comments and proposals and other content added by users are not translated.
 
 ---
 **Moderator**:
@@ -51,11 +51,11 @@ Participants are defined for each project, this means one user can be participan
 
 ---
 **Phase**:
-Add explantion here.
+A phase is characterized by a starting and an ending time and date. It is a part of the participation project and allow users to divide actions in their project. For example, in the first phase, users post ideas, in the second phase, users can comment on the ideas and rate them. Sometimes a participation project consists thus of two phases. In another scenario a participation project consists of one phase only: Then users can post an idea, add a comment and rate at the same time.
 
 ---
 **Poll**:
-Add explantion here.
+A poll is a way to collect many opinions in a short time. It is similiar to a survey: Users are asked to indicate their opinion from a list of possibilities. The results are usually visible after finishing the poll.
 
 ---
 **Popularity**:
