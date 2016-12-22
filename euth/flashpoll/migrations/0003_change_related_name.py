@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='flashpoll',
             name='module',
-            field=models.OneToOneField(related_name='flashpoll_settings', to='euth_modules.Module'),
+            field=models.OneToOneField(related_name='flashpoll_settings', to='a4modules.Module'),
         ),
     ]
