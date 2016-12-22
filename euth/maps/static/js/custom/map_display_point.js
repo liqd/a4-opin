@@ -17,12 +17,19 @@ window.jQuery(document).ready(function () {
     'fillOpacity': 0.2
   }
 
+  var icon = L.icon({
+    iconUrl: '/static/images/map_pin_01_2x.png',
+    iconSize: [30, 45],
+    iconAnchor: [15, 45],
+    popupAnchor: [0, -45]
+  })
+
   var basePolygon = L.geoJson(polygon, {style: polygonStyle}).addTo(map)
   map.fitBounds(basePolygon)
 
   L.geoJson(point, {
     pointToLayer: function (feature, latlng) {
-      var marker = L.marker(latlng, {draggable: false}).addTo(map)
+      var marker = L.marker(latlng, {icon: icon}).addTo(map)
       return marker
     }
   })
