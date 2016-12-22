@@ -16,5 +16,4 @@ indent_size = 2
 # isort configruation
 [*.py]
 skip=migrations
-known_third_party=ckeditor
-known_first_party=adhocracy4
+known_first_party=adhocracy4, tests, euth, euth_wagtail

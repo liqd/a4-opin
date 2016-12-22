@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('euth_projects', '0001_initial'),
+        ('a4projects', '0001_initial'),
     ]
 
     operations = [
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
                 ('modified', models.DateTimeField(null=True, editable=False, blank=True)),
                 ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='euth_projects.Project')),
+                ('project', models.ForeignKey(to='a4projects.Project')),
             ],
         ),
         migrations.AlterUniqueTogether(

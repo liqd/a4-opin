@@ -10,10 +10,10 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
+from adhocracy4.phases import models as phase_models
+from adhocracy4.projects import models as project_models
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
-from euth.phases import models as phase_models
-from euth.projects import models as project_models
 from euth.users import models as user_models
 
 from . import blueprints, emails, forms

@@ -70,7 +70,8 @@ window.jQuery(document).ready(function () {
     L.geoJson(point, {
       pointToLayer: function (feature, newlatlng) {
         var oldlatlng = newlatlng
-        return createMarker($, L, newlatlng, oldlatlng, basePolygon, map, name)
+        marker = createMarker($, L, newlatlng, oldlatlng, basePolygon, map, name)
+        return marker
       }
     })
   }
@@ -78,7 +79,9 @@ window.jQuery(document).ready(function () {
   basePolygon.on('click', function (event) {
     if (typeof marker === 'undefined') {
       var oldlatlng = event.latlng
-      createMarker($, L, event.latlng, oldlatlng, basePolygon, map, name)
+      marker = createMarker($, L, event.latlng, oldlatlng, basePolygon, map, name)
+      var shape = marker.toGeoJSON()
+      $('#id_' + name).val(JSON.stringify(shape))
     }
   })
 })

@@ -68,10 +68,12 @@ INSTALLED_APPS = [
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
     'euth.organisations.apps.OrganisationsConfig',
+    'adhocracy4.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
+    'adhocracy4.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
-    'euth.phases.apps.PhasesConfig',
-    'euth.modules.apps.ModuleConfig',
+    'adhocracy4.phases.apps.PhasesConfig',
+    'adhocracy4.modules.apps.ModulesConfig',
     'euth.ideas.apps.IdeaConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
     'euth.reports.apps.ReportConfig',
@@ -329,7 +331,7 @@ COMMENTABLES = (
     ('euth_comments', 'comment'),
 )
 
-RATEABLES = (
+A4_RATEABLES = (
     ('euth_ideas', 'ideas'),
     ('euth_comments', 'comment'),
 )
@@ -346,10 +348,14 @@ ACTIONABLE = [
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
 
-BASE_MAP = 'http://{s}.tile.openstreetmap.org/'
+BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
 
 MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
             '[71.35706654962706,-28.388671875],'
             '[71.35706654962706,50.88867187499999],'
             '[34.95799531086792,50.88867187499999],'
             '[34.95799531086792,-28.388671875]]]')
+
+# Adhocracy4
+
+A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'

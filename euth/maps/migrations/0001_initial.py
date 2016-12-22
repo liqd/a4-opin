@@ -8,7 +8,7 @@ import euth.maps.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_modules', '0002_use-autoslug-filed'),
+        ('a4modules', '0001_initial'),
         ('euth_ideas', '0002_change_image_validator'),
     ]
 
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('polygon', euth.maps.fields.MultiPolygonField()),
-                ('module', models.OneToOneField(to='euth_modules.Module', related_name='areasettings_settings')),
+                ('module', models.OneToOneField(to='a4modules.Module', related_name='areasettings_settings')),
             ],
             options={
                 'abstract': False,

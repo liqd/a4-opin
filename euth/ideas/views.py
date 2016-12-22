@@ -4,8 +4,8 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from euth.modules.models import Module
-from euth.projects import mixins
+from adhocracy4.modules.models import Module
+from adhocracy4.projects import mixins
 
 from . import models as idea_models
 from . import forms

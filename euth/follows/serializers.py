@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from euth.projects import models as prj_models
+from adhocracy4.projects import models as prj_models
 
 from . import models
 

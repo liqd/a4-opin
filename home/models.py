@@ -13,8 +13,8 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets import blocks as snippet_blocks
 from wagtail.wagtailsnippets.models import register_snippet
 
+from adhocracy4.projects import models as prj_models
 from contrib.translations.translations import TranslatedField
-from euth.projects import models as prj_models
 
 
 # Snippets

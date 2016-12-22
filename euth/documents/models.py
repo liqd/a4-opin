@@ -5,10 +5,10 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4 import transforms
 from adhocracy4.models import base
-from contrib.transforms import html_transforms
+from adhocracy4.modules import models as module_models
 from euth.comments import models as comment_models
-from euth.modules import models as module_models
 
 
 class Document(module_models.Item):
@@ -53,7 +53,7 @@ class Paragraph(base.TimeStampedModel):
         return "{}_paragraph_{}".format(str(self.document), self.weight)
 
     def save(self, *args, **kwargs):
-        self.text = html_transforms.clean_html_field(
+        self.text = transforms.clean_html_field(
             self.text, 'image-editor')
         super().save(*args, **kwargs)
 

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from euth.modules import models as module_models
+from adhocracy4.modules import models as module_models
 
 
 class Flashpoll(module_models.AbstractSettings):

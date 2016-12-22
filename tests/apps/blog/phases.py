@@ -1,4 +1,4 @@
-from euth import phases
+from adhocracy4 import phases
 
 from . import apps, models, views
 

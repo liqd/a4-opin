@@ -3,9 +3,38 @@ from django.shortcuts import redirect
 from django.views import generic
 from rules.compat import access_mixins as mixin
 
-from euth.projects import models as prj_models
+from adhocracy4.projects import models as prj_models
+from adhocracy4.projects import views as prj_views
 
 from . import forms, models
+
+
+class RequestsProjectDetailView(prj_views.ProjectDetailView):
+
+    def handle_no_permission(self):
+        """
+        Check if user clould join
+        """
+        user = self.request.user
+        is_member = user.is_authenticated() and self.project.has_member(user)
+
+        if is_member:
+            return super().handle_no_permission()
+        else:
+            return self.handle_no_membership()
+
+    def handle_no_membership(self):
+        membership_impossible = (
+            not self.request.user.is_authenticated()
+            or self.project.is_draft
+            or self.project.has_member(self.request.user)
+        )
+
+        if membership_impossible:
+            return super().handle_no_permission()
+        else:
+            return redirect('memberships-request',
+                            project_slug=self.project.slug)
 
 
 class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):

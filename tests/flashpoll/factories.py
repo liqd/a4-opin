@@ -1,8 +1,7 @@
 import factory
 
+from adhocracy4.test.factories import ModuleFactory
 from euth.flashpoll import models as flashpoll_models
-
-from ..modules.factories import ModuleFactory
 
 
 class FlashpollFactory(factory.django.DjangoModelFactory):

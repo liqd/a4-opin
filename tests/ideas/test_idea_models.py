@@ -3,11 +3,11 @@ import os
 import pytest
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from tests import helpers
 
 from adhocracy4.ratings import models as rating_models
 from euth.comments import models as comments_models
 from euth.ideas import models as idea_models
+from tests import helpers
 
 
 @pytest.mark.django_db

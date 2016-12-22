@@ -1,0 +1,45 @@
+{% load idea_tags %}
+<nav aria-label="Page navigation">
+    <div class="text-center">
+        <ul class="pagination">
+            {% if page_obj.has_previous and page_obj.paginator.num_pages >= 6  %}
+            <li>
+                <a href="?{% if view.sort %}sort={{view.sort}}&{% endif %}page={{ page_obj.previous_page_number }}#idea-create" aria-label="Previous">
+                    <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.paginator.num_pages < 6 %}
+            {% for page in page_obj.paginator.page_range %}
+            <li {% ifequal page page_obj.number %}class="active"{% endifequal %}>
+                <a href="?{% if view.sort %}sort={{view.sort}}&{% endif %}page={{ page }}#idea-create" aria-label="Next">
+                    {{ page }}
+                </a>
+            </li>
+            {% endfor %}
+            {% else %}
+            {% get_range page_obj.number page_obj.paginator.num_pages as range %}
+            {% for page in range %}
+            <li {% ifequal page page_obj.number %}class="active"{% endifequal %}>
+                <a href="?{% if view.sort %}sort={{view.sort}}&{% endif %}page={{ page }}#idea-create">
+                    {{ page }}
+                </a>
+            </li>
+            {% endfor %}
+            {% endif %}
+
+            {% if page_obj.has_next and page_obj.paginator.num_pages >= 6 %}
+            <li>
+                <a href="?{% if view.sort %}sort={{view.sort}}&{% endif %}page={{ page_obj.next_page_number }}#idea-create" aria-label="Next">
+                    <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+        {% if page_obj.paginator.num_pages >= 6 %}
+        <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+        {% endif %}
+    </div>
+</nav>
