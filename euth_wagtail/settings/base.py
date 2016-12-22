@@ -346,7 +346,7 @@ ACTIONABLE = [
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
 
-BASE_MAP = 'http://{s}.tile.openstreetmap.org/'
+BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
 
 MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
             '[71.35706654962706,-28.388671875],'
