@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n wagtailimages_tags wagtailcore_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+    <header class="herounit herounit-sm herounit-{{ page.color }}">
+        <div class="container">
+            <div class="herounit-header">
+                <h1>
+                    {% image page.image width-80 %}
+                    {{ page.title }}
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    {% include 'home/blocks/breadcrumb.html' with current_page=page %}
+
+    <section class="page-body">
+    {% for block in self.body %}
+        {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
+        <div class="block-inner">
+            {% if block.block_type == 'image' %}
+                 {% image block.value original class="img-responsive" %}
+            {% elif block.block_type == 'heading' %}
+                <h2>{{ block.value }}</h2>
+            {% else %}
+                {{ block.value }}
+            {% endif %}
+        </div>
+        {% else %}
+            {{ block.value }}
+        {% endif %}
+    {% endfor %}
+    </section>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

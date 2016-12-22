@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n wagtailimages_tags wagtailcore_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+    <header class="herounit herounit-sm herounit-{{ page.color }}">
+        <div class="container">
+            <div class="herounit-header">
+                <h1>
+                    {% image page.image width-80 %}
+                    {{ page.title }}
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    {% include 'home/blocks/breadcrumb.html' with current_page=page %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h2>Contents</h2>
+                <ul class="linklist">
+                    {% for block in page.parent_page.body %}
+                        <li>
+                            <a href="{% pageurl page.parent_page %}#{{ block.value.title|slugify }}">{{ block.value.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                {% for block in page.body %}
+                    {% include_block block %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n wagtailimages_tags wagtailcore_tags react_comments %}
+
+{% block body_class %}template-homepage{% endblock %}
+{% block title %}{{ page.translated_title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ page.translated_title }}</h1>
+    </div>
+
+    {% if page.subpages %}
+    <div class="sectionslist">
+        <div class="container">
+            <ul>
+                {% for subpage in page.subpages %}
+                <li class="sectionslist-section">
+                    {% image subpage.image max-220x220 as image %}
+                    <a href="{% pageurl subpage %}">
+                        <div class="sectionslist-image {{ subpage.color }}"
+                             style="background-image: url({{ image.url }});"
+                             aria-labelledby="card-title-{{ forloop.counter }}"></div>
+                    </a>
+                    <div class="sectionslist-body">
+                        <h2 id="card-title-{{ forloop.counter }}">
+                            <a href="{% pageurl subpage %}">{{ subpage.translated_title }}</a>
+                        </h2>
+                        <p>{{ subpage.description }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
+    <section class="page-body">
+        {% for block in page.body %}
+            {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
+            <div class="block-inner">
+                <div class="container">
+                    <div class="container-narrow">
+                    {% if block.block_type == 'image' %}
+                         {% image block.value original class="img-responsive" %}
+                    {% elif block.block_type == 'heading' %}
+                        <h2>{{ block.value }}</h2>
+                    {% else %}
+                        {{ block.value }}
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                {{ block.value }}
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block footer %}
+{% include "includes/footer.html" %}
+{% endblock %}
