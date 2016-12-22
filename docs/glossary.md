@@ -70,16 +70,16 @@ In OPIN we decided not to use the term 'process' but instead use 'project' as th
 OPIN offers initiators to execute digital participation projects. A project is initiated in the dashboard by an organisation. Each project follows the structure of "Information-Participation-Result". In the information tab, initiators tell about their aims and answer the "w" questions to their participants (why, what, when, who). In the participation tab, initiators set up modules. In the result tab, initiators present the results of the module when finished. 
 
 ---
-**Proposal vs idea**:
-Add explantion here.
+**(Proposal vs) idea**:
+An idea is a contribution by a user in a e-participation project. It is an expression of opinion towards the concrete topic of the project. An idea can be just text or can be text and a picture or just a picture. Other users can comment on an idea, asking questions or providing additional input. It is possible to rate an idea and hereby express agreement or disagreement.
 
 ---
 **Rating**:
-Add explantion here.
+Through rating ideas or comments users express their agreement or disagreement with its content. 
 
 ---
 **Social media verknüpfungen**:
-Add explantion here.
+Users have the possibility to connect to OPIN through social media accounts, such as Facebook or Google+. These settings can be managed in the user profile in the section "account connections". 
 
 ---
 **Tab**:
