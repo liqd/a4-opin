@@ -9,7 +9,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_projects', '0007_fix_typo_in_is_public_helptext'),
+        ('a4projects', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(blank=True, null=True, editable=False)),
                 ('enabled', models.BooleanField(default=True)),
                 ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='euth_projects.Project')),
+                ('project', models.ForeignKey(to='a4projects.Project')),
             ],
         ),
         migrations.AlterUniqueTogether(

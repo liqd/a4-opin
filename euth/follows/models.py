@@ -1,7 +1,7 @@
 from django.db import models
 
 from adhocracy4.models import base
-from euth.projects import models as prj_models
+from adhocracy4.projects import models as prj_models
 
 
 class Follow(base.UserGeneratedContentModel):

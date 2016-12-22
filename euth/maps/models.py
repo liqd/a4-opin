@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.modules import models as module_models
 from euth.ideas import models as idea_models
-from euth.modules import models as module_models
 
 from .fields import MultiPolygonField, PointField
 from .widgets import MapChoosePolygonWidget

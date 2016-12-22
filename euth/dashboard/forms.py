@@ -9,13 +9,13 @@ from django.db.models import loading
 from django.forms import modelformset_factory
 from django.utils.translation import ugettext as _
 
+from adhocracy4.modules import models as module_models
+from adhocracy4.phases import models as phase_models
+from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
 from euth.memberships import models as member_models
-from euth.modules import models as module_models
 from euth.organisations import models as org_models
-from euth.phases import models as phase_models
-from euth.projects import models as project_models
 from euth.users import models as user_models
 
 

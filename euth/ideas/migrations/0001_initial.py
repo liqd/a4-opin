@@ -10,14 +10,14 @@ import euth.contrib.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('euth_modules', '0001_initial'),
+        ('a4modules', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Idea',
             fields=[
-                ('item_ptr', models.OneToOneField(to='euth_modules.Item', parent_link=True, serialize=False, auto_created=True, primary_key=True)),
+                ('item_ptr', models.OneToOneField(to='a4modules.Item', parent_link=True, serialize=False, auto_created=True, primary_key=True)),
                 ('slug', autoslug.fields.AutoSlugField(unique=True, editable=False, populate_from='name')),
                 ('name', models.CharField(max_length=120)),
                 ('description', ckeditor.fields.RichTextField()),
@@ -26,6 +26,6 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-            bases=('euth_modules.item',),
+            bases=('a4modules.item',),
         ),
     ]

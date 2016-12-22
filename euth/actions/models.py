@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils import timezone
 
-from euth.projects.models import Project
+from adhocracy4.projects.models import Project
 
 from . import verbs
 

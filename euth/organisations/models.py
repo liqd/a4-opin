@@ -4,8 +4,8 @@ from django_countries import fields as countries_fields
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
+from adhocracy4.images import validators
 from adhocracy4.models import base
-from euth.contrib import validators
 
 
 class OrganisationManager(TranslatableManager):
@@ -46,6 +46,9 @@ class Organisation(base.TimeStampedModel, TranslatableModel):
             self.twitter_handle or self.facebook_handle
             or self.instagram_handle or self.webpage
         )
+
+    def has_initiator(self, user):
+        return user in self.initiators.all()
 
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse

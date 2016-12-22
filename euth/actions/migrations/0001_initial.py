@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('euth_projects', '0007_fix_typo_in_is_public_helptext'),
+        ('a4projects', '0001_initial'),
     ]
 
     operations = [
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, null=True)),
                 ('action_object_content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', related_name='action_object', null=True)),
                 ('actor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(blank=True, to='euth_projects.Project', null=True)),
+                ('project', models.ForeignKey(blank=True, to='a4projects.Project', null=True)),
                 ('target_content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', related_name='target', null=True)),
             ],
         ),

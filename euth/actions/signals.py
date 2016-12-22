@@ -3,8 +3,8 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from adhocracy4.projects.models import Project
 from euth.actions import emails
-from euth.projects.models import Project
 
 from . import verbs
 from .models import Action

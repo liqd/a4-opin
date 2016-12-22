@@ -3,8 +3,8 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 from adhocracy4.ratings import services as rating_services
-from euth.contrib import services
 
+from . import services
 from .models import Comment
 
 

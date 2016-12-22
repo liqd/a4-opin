@@ -1,7 +1,7 @@
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from euth.projects import mixins
+from adhocracy4.projects import mixins
 
 from . import models
 

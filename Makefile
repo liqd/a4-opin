@@ -24,7 +24,7 @@ install:
 	npm install
 	npm run build
 	if [ ! -f $(VIRTUAL_ENV)/bin/python3 ]; then python3 -m venv .; fi
-	$(VIRTUAL_ENV)/bin/python3 -m pip install -r requirements/dev.txt
+	$(VIRTUAL_ENV)/bin/python3 -m pip install --upgrade -r requirements/dev.txt
 	$(VIRTUAL_ENV)/bin/python3 manage.py migrate
 	$(VIRTUAL_ENV)/bin/python3 manage.py loaddata site-dev
 
@@ -33,9 +33,9 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_users.User:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.Organisation:5
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.OrganisationTranslation:4
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_projects.Project:10
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_modules.Module:15
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_phases.Phase:20
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4projects.Project:10
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4modules.Module:15
+	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4phases.Phase:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
 watch:
