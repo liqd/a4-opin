@@ -6,7 +6,7 @@ import uuid
 import django.contrib.auth.models
 import django.core.validators
 import django.utils.timezone
-import euth.contrib.validators
+import adhocracy4.images.validators
 from django.conf import settings
 
 
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('is_staff', models.BooleanField(verbose_name='staff status', default=False, help_text='Designates whether the user can log into this admin site.')),
                 ('is_active', models.BooleanField(verbose_name='active', default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.')),
                 ('date_joined', models.DateTimeField(editable=False, default=django.utils.timezone.now)),
-                ('avatar', models.ImageField(blank=True, upload_to='users/images', validators=[euth.contrib.validators.validate_logo])),
+                ('avatar', models.ImageField(blank=True, upload_to='users/images', validators=[adhocracy4.images.validators.validate_logo])),
                 ('groups', models.ManyToManyField(blank=True, verbose_name='groups', to='auth.Group', related_name='user_set', related_query_name='user', help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.')),
                 ('user_permissions', models.ManyToManyField(blank=True, verbose_name='user permissions', to='auth.Permission', related_name='user_set', related_query_name='user', help_text='Specific permissions for this user.')),
             ],

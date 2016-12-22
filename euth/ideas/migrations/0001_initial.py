@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import autoslug.fields
 import ckeditor.fields
-import euth.contrib.validators
+import adhocracy4.images.validators
 
 
 class Migration(migrations.Migration):
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('slug', autoslug.fields.AutoSlugField(unique=True, editable=False, populate_from='name')),
                 ('name', models.CharField(max_length=120)),
                 ('description', ckeditor.fields.RichTextField()),
-                ('image', models.ImageField(upload_to='ideas/images', blank=True, validators=[euth.contrib.validators.validate_hero_image])),
+                ('image', models.ImageField(upload_to='ideas/images', blank=True, validators=[adhocracy4.images.validators.validate_hero_image])),
             ],
             options={
                 'abstract': False,

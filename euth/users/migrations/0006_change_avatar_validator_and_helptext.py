@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import euth.contrib.validators
+import adhocracy4.images.validators
 
 
 class Migration(migrations.Migration):
@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='_avatar',
-            field=models.ImageField(upload_to='users/images', validators=[euth.contrib.validators.validate_avatar], blank=True, verbose_name='Avatar'),
+            field=models.ImageField(upload_to='users/images', validators=[adhocracy4.images.validators.validate_avatar], blank=True, verbose_name='Avatar'),
         ),
         migrations.AlterField(
             model_name='user',

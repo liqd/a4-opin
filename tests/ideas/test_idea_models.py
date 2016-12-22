@@ -22,6 +22,11 @@ def test_save(idea):
 
 
 @pytest.mark.django_db
+def test_clean(idea):
+    idea.clean()
+
+
+@pytest.mark.django_db
 def test_str(idea):
     idea_string = idea.__str__()
     assert idea_string == idea.name

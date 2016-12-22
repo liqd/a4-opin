@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
 
-from euth.contrib import validators as euth_validators
+from adhocracy4.images import validators as euth_validators
 from euth.users import USERNAME_REGEX
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '

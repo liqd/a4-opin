@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.utils.timezone
 import parler.models
-import euth.contrib.validators
+import adhocracy4.images.validators
 import django_countries.fields
 from django.conf import settings
 
@@ -24,8 +24,8 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(blank=True, null=True, editable=False)),
                 ('name', models.CharField(max_length=512, unique=True)),
                 ('slug', models.SlugField(max_length=512, unique=True)),
-                ('image', models.ImageField(upload_to='organisations/images', blank=True, validators=[euth.contrib.validators.validate_hero_image])),
-                ('logo', models.ImageField(upload_to='organisations/logos', blank=True, validators=[euth.contrib.validators.validate_logo])),
+                ('image', models.ImageField(upload_to='organisations/images', blank=True, validators=[adhocracy4.images.validators.validate_hero_image])),
+                ('logo', models.ImageField(upload_to='organisations/logos', blank=True, validators=[adhocracy4.images.validators.validate_logo])),
                 ('twitter_handle', models.CharField(max_length=200, blank=True)),
                 ('facebook_handle', models.CharField(max_length=200, blank=True)),
                 ('instagram_handle', models.CharField(max_length=200, blank=True)),
