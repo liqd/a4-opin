@@ -6,5 +6,6 @@ COMPLETE = 'complete'
 
 
 def all():
-    return [(value, name) for name, value in globals().items()
+    items = sorted(globals().items())
+    return [(value, name) for name, value in items
             if not name.startswith('_') and name != 'all']
