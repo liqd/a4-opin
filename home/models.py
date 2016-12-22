@@ -716,8 +716,7 @@ class ManualsIndex(Page):
                           blank=True, verbose_name="body")
 
     subpage_types = [
-        'home.ManualsSectionPage',
-        'home.ManualsDetailPage'
+        'home.ManualsSectionPage'
     ]
 
     content_panels = [
@@ -848,8 +847,7 @@ class ManualsSectionPage(Page):
 class ManualsDetailPage(Page):
     subpage_types = []
     parent_page_types = [
-        'home.ManualsSectionPage',
-        'home.ManualsIndex'
+        'home.ManualsSectionPage'
     ]
 
     # Title
