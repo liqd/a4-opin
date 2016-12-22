@@ -12,7 +12,7 @@
                   style="background-image: url({% get_avatar request.user 'avatar_small' %});"></span>
         {% endif %}
         <span class="dropdown-title">{{ title }}</span>
-        {% if view.other_organisations_of_user %}
+        {% if orgs %}
             <span class="caret"></span>
         {% endif %}
     </button>

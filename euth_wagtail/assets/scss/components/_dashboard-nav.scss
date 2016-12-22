@@ -111,6 +111,10 @@
             width: 30px;
         }
 
+        .circled {
+            @include rem(margin-right, 10px);
+        }
+
         .circle-bg {
             @include rem(margin-right, 10px);
             display: block;
