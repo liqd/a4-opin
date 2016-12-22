@@ -15,15 +15,13 @@ class MapIdeaListView(idea_views.IdeaListView):
         result['type'] = 'FeatureCollection'
         feature_list = []
 
-        options = {'size': (400, 200), 'crop': True}
-
         for item in self.get_queryset():
 
             url = ''
 
             if item.image:
-                image = get_thumbnailer(item.image)
-                url = image.get_thumbnail(options).url
+                image = get_thumbnailer(item.image)['map_thumbnail']
+                url = image.url
 
             properties = {
                 'name': item.name,
