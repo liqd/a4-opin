@@ -43,8 +43,11 @@ window.jQuery(document).ready(function () {
 
   var icon = L.icon({
     iconUrl: '/static/images/map_pin_01_2x.png',
+    shadowUrl: '/static/images/map_shadow_01_2x.png',
     iconSize: [30, 45],
     iconAnchor: [15, 45],
+    shadowSize: [40, 54],
+    shadowAnchor: [20, 54],
     popupAnchor: [0, -45]
   })
 
