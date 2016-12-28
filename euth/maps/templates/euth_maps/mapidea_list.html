@@ -17,7 +17,7 @@
 
 {% block phase_content %}
 <div class="idea-list">
-    {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
+    {% has_perm 'euth_maps.propose_idea' request.user view.module as add_button_enabled %}
     {% if add_button_enabled %}
     <a href="{% url 'map-idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
         <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
