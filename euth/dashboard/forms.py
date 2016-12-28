@@ -27,7 +27,6 @@ class ProfileForm(forms.ModelForm):
                   'country', 'city', 'gender', 'languages', 'twitter_handle',
                   'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
-            '_avatar': widgets.ImageInputWidget(),
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
         }
@@ -110,9 +109,6 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
-        widgets = {
-            'image': widgets.ImageInputWidget()
-        }
 
     def save(self, commit=True):
         self.instance.is_draft = 'save_draft' in self.data
@@ -357,21 +353,6 @@ class OrganisationForm(forms.ModelForm):
             'image', 'logo', 'twitter_handle', 'facebook_handle',
             'instagram_handle', 'webpage', 'country', 'place'
         ]
-        widgets = {
-            'image': widgets.ImageInputWidget(),
-            'logo': widgets.ImageInputWidget(),
-        }
-        labels = {
-            'image': _('Header Image'),
-        }
-        help_texts = {
-            'image': _("Your image should be at least 1300px wide and "
-                       "600px high. Supported formats are %s."
-                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
-            'logo': _("Your logo should be at least 200px wide "
-                      "and square. Supported formats are %s."
-                      % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
-        }
 
     def _get_identifier(self, language, fieldname):
         return '{}__{}'.format(language, fieldname)
