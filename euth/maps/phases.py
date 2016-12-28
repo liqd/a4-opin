@@ -17,6 +17,8 @@ class IssuePhase(phases.PhaseContent):
 
     features = {
         'crud': (models.MapIdea,),
+        'comment': (models.MapIdea,),
+        'rate': (models.MapIdea,),
     }
 
 phases.content.register(IssuePhase())

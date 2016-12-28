@@ -15,8 +15,6 @@ from wagtail.wagtailsnippets.models import register_snippet
 
 from adhocracy4.projects import models as prj_models
 from contrib.translations.translations import TranslatedField
-
-
 # Snippets
 from euth_wagtail.settings import LANGUAGES
 

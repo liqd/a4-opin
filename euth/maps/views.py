@@ -50,6 +50,7 @@ class MapIdeaListView(idea_views.IdeaListView):
 class MapIdeaCreateView(idea_views.IdeaCreateView):
     model = MapIdea
     form_class = forms.MapIdeaForm
+    permission_required = 'euth_maps.propose_idea'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
