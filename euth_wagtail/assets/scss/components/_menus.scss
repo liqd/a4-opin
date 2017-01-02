@@ -100,4 +100,10 @@ body {
         @include rem(padding, 7px 0 7px 15px);
         background-color: transparent;
     }
+
+    @media screen and (max-width: $screen-sm-max) {
+        .dropdown .dropdown-menu li a {
+            @include rem(padding, 5px 0);
+        }
+    }
 }
