@@ -78,6 +78,8 @@ class ProjectInviteForm(forms.Form):
 
     def clean_emails(self):
         emails_str = self.cleaned_data['emails']
+        if re.search(r'\w\s\w', emails_str):
+            raise ValidationError('Please separate adresses with commas')
         emails = email.utils.getaddresses([emails_str])
 
         invalid_emails = []
