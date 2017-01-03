@@ -263,8 +263,8 @@ class DashboardProjectInviteView(DashboardBaseMixin,
         emails = form.cleaned_data['emails']
         user = self.request.user
         project = self.project
-        for (name, address) in emails:
-            member_models.Invite.objects.invite(user, project, address)
+        for email in emails:
+            member_models.Invite.objects.invite(user, project, email)
         return super().form_valid(form)
 
     def get_success_url(self):
