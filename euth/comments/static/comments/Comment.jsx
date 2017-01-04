@@ -1,4 +1,4 @@
-var ReportModal = require('../../../reports/static/reports/react_reports')
+var ReportModal = require('adhocracy4').reports
 var RatingBox = require('adhocracy4').ratings.RatingBox
 var Modal = require('../../../contrib/static/js/Modal')
 var CommentEditForm = require('./CommentEditForm')

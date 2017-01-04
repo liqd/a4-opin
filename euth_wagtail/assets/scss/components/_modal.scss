@@ -17,7 +17,7 @@
         &:before {
             @include rem(height, 100px);
             @include rem(margin-bottom, 40px);
-            background: url(/assets/images/attention.svg) no-repeat center top;
+            background: url(/static/images/attention.svg) no-repeat center top;
             background-size: contain;
             content: "";
             display: block;

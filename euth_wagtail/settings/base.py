@@ -76,7 +76,7 @@ INSTALLED_APPS = [
     'adhocracy4.modules.apps.ModulesConfig',
     'euth.ideas.apps.IdeaConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
-    'euth.reports.apps.ReportConfig',
+    'adhocracy4.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
