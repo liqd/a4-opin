@@ -1,10 +1,10 @@
 import collections
-import email.utils
 import re
 
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 from django.db.models import loading
 from django.forms import modelformset_factory
 from django.utils.translation import ugettext as _
@@ -68,7 +68,13 @@ class ProjectInviteForm(forms.Form):
         widget=forms.TextInput(attrs={
             'placeholder': 'magdalena@example.com, yves@example.com,'
                            ' nadine@example.com…'}
-        )
+        ),
+        validators=[RegexValidator(
+            # a list of emails, separated by commas with optional space after
+            regex=r'^([^@]+@[^@\s]+\.[^@\s,]+((,\s?)|$))+$',
+            message=_('Please enter correct e-mail addresses, separated by '
+                      'commas.')
+        )]
     )
 
     def __init__(self, project, *args, **kwargs):
@@ -76,21 +82,12 @@ class ProjectInviteForm(forms.Form):
         super().__init__(*args, **kwargs)
 
     def clean_emails(self):
-        emails_str = self.cleaned_data['emails']
-        emails = email.utils.getaddresses([emails_str])
+        emails_str = self.cleaned_data['emails'].strip(' ,')
+        emails = re.split(r',\s?', emails_str)
 
-        invalid_emails = []
-        for name, email_addr in emails:
-            if not re.match(r'^[^@]+@[^@\s]+\.[^@\s]+$', email_addr):
-                invalid_emails.append(email_addr)
-        if invalid_emails:
-            message = '{} invalid email address'
-            raise ValidationError(message.format(', '.join(invalid_emails)))
-
-        addresses = [email[1] for email in emails]
         query = {
             'project': self.project,
-            'email__in': addresses,
+            'email__in': emails,
         }
         existing = member_models.Invite.objects.filter(**query)\
                                                .values_list('email', flat=True)
