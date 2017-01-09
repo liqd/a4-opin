@@ -65,17 +65,18 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'adhocracy4.images.apps.ImagesConfig',
+    'adhocracy4.phases.apps.PhasesConfig',
+    'adhocracy4.projects.apps.ProjectsConfig',
+    'adhocracy4.ratings.apps.RatingsConfig',
+    'adhocracy4.modules.apps.ModulesConfig',
+
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
     'euth.organisations.apps.OrganisationsConfig',
-    'adhocracy4.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
-    'adhocracy4.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
-    'adhocracy4.phases.apps.PhasesConfig',
-    'adhocracy4.modules.apps.ModulesConfig',
     'euth.ideas.apps.IdeaConfig',
-    'adhocracy4.ratings.apps.RatingsConfig',
     'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
@@ -236,7 +237,16 @@ PARLER_LANGUAGES = {
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
 
-ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg', 'image/gif')
+IMAGE_ALIASES = {
+    '*': {
+        'max_size': 5*10**6,
+        'fileformats': ('image/png', 'image/jpeg', 'image/gif')
+    },
+    'heroimage': {'min_resolution': (1300, 600)},
+    'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
+    'avatar': {'min_resolution': (200, 200)},
+    'idea_image': {'min_resolution': (800, 200)},
+}
 
 THUMBNAIL_ALIASES = {
     '': {
