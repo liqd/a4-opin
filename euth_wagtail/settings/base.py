@@ -348,6 +348,10 @@ ACTIONABLE = [
 ]
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"
+FLASHPOLL_URL = "https://opin.flashpoll.eu/"
+FLASHPOLL_BACK_URL = "http://int.backend.flashpoll.eu/flashpoll/api/v7/management"
+FLASHPOLL_BACK_USER = "fp_management"
+FLASHPOLL_BACK_PASSWORD = "53c4100e8ab143fe59fcb2e743cf4aba662ad25lacab0eb37fb9c69d8f27363fa19f0531bd681"
 
 BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
 

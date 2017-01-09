@@ -12,9 +12,13 @@
 
         {% include 'euth_dashboard/includes/project_form_information_tab.html' with form=form view=view %}
 
-        {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form view=view %}
-
-        {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
+        {% if module_settings == "euth_flashpoll" %}
+            {% include 'euth_dashboard/includes/project_form_participation_flashpoll_tab.html' with form=form view=view %}
+            {% include 'euth_dashboard/includes/project_form_result_flashpoll_tab.html' with form=form view=view %}
+        {% else %}
+            {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form view=view %}
+            {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
+        {% endif %}
 
         {% if not project or project.is_draft %}
         <button type="submit" name="save_draft" class="btn btn-sm btn-primary">{% trans 'save draft' %}</button>
