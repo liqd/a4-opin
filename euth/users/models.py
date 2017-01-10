@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
 
-from adhocracy4.images import validators as euth_validators
+from adhocracy4.images import fields
 from euth.users import USERNAME_REGEX
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
@@ -55,10 +55,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name=_('Send me email notifications'),
         default=True,
         help_text=GET_NOTIFICATIONS_HELP)
-    _avatar = models.ImageField(
+    _avatar = fields.ConfiguredImageField(
+        'avatar',
         upload_to='users/images',
         blank=True,
-        validators=[euth_validators.validate_avatar],
         verbose_name=_('Avatar picture'),
     )
 

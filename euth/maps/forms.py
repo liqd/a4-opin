@@ -1,7 +1,5 @@
 from django import forms
 
-from euth.contrib.widgets import ImageInputWidget
-
 from . import models
 from .widgets import MapChoosePointWidget
 
@@ -17,6 +15,3 @@ class MapIdeaForm(forms.ModelForm):
     class Meta:
         model = models.MapIdea
         fields = ['name', 'description', 'image', 'point']
-        widgets = {
-            'image': ImageInputWidget(),
-        }
