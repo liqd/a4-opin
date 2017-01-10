@@ -26,8 +26,15 @@
         <button type="submit" name="save_draft" class="btn btn-sm btn-default">{% trans 'unpublish' %}</button>
         {% endif %}
         <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save and publish' %}</button>
-        {% if project.pk != None %}
-        <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+        
+        {% if module_settings == "euth_flashpoll" %}
+            {% if project.pk != None and poll.preview == False %}
+            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+            {% endif %}
+        {% else %}
+            {% if project.pk != None %}
+            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+            {% endif %}        
         {% endif %}
 
         {{ form.media }}

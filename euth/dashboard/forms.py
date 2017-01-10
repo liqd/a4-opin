@@ -122,97 +122,114 @@ class ProjectForm(forms.ModelForm):
 
     def save(self, commit=True):
 	
-
         print("save:"+ json.dumps(self.data))
+        
+        if 'save_draft' in self.data and self.data['current_preview']=='True':
+            #Handling unpublish		
+            url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
+                base_url=settings.FLASHPOLL_BACK_URL,
+                poll_id=self.data['module_settings-key']
+            )
+            print("url_poll:"+ url_poll)
+            # Handle delete
+            headers = {'Content-type': 'application/json'}        
+            response = requests.delete(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+            print ("code:"+str(response.status_code))
+            print ("headers:"+ str(response.headers))
+            print ("content:"+ str(response.text))              
+        else:            
 
-        startTime = time.mktime(datetime.datetime.strptime(self.data['startTime'], "%d/%m/%Y %H:%M").timetuple())
-        endTime = time.mktime(datetime.datetime.strptime(self.data['endTime'], "%d/%m/%Y %H:%M").timetuple())
+            startTime = time.mktime(datetime.datetime.strptime(self.data['startTime'], "%d/%m/%Y %H:%M").timetuple())
+            endTime = time.mktime(datetime.datetime.strptime(self.data['endTime'], "%d/%m/%Y %H:%M").timetuple())
 
-        jsonGenerator = {}
-        print("json:"+ json.dumps(jsonGenerator))
-        jsonGenerator['title'] = self.data['title']
-        print("json:"+ json.dumps(jsonGenerator))
-        jsonGenerator['shortDescription'] = self.data['shortDescription']
-        print("json:"+ json.dumps(jsonGenerator))
-        jsonGenerator['longDescription'] = self.data['longDescription']
-        jsonGenerator['concludeMessage'] = self.data['concludeMessage']
-        jsonGenerator['descriptionMediaURLs'] = [""]
-        jsonGenerator['keywords'] = []
-        jsonGenerator['startTime'] = startTime
-        jsonGenerator['endTime'] = endTime
-        jsonGenerator['resultVisibility'] = 0
-        jsonGenerator['preview'] = False
+            jsonGenerator = {}
+            print("json:"+ json.dumps(jsonGenerator))
+            jsonGenerator['title'] = self.data['title']
+            print("json:"+ json.dumps(jsonGenerator))
+            jsonGenerator['shortDescription'] = self.data['shortDescription']
+            print("json:"+ json.dumps(jsonGenerator))
+            jsonGenerator['longDescription'] = self.data['longDescription']
+            jsonGenerator['concludeMessage'] = self.data['concludeMessage']
+            jsonGenerator['descriptionMediaURLs'] = [""]
+            jsonGenerator['keywords'] = []
+            jsonGenerator['startTime'] = startTime
+            jsonGenerator['endTime'] = endTime
+            jsonGenerator['resultVisibility'] = 0        
+            jsonGenerator['preview'] = not 'save_draft' in self.data
 
-        # context
-        jsonGenerator['lab'] = 'opin'
-        jsonGenerator['domain'] = 'organisation'
-        jsonGenerator['campaign'] = self.data['project-name']
 
-        # location
-        jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
-        jsonGenerator['geofenceRadius'] = 0
-        jsonGenerator['geofenceId'] = ''
+            # context
+            jsonGenerator['lab'] = 'opin'
+            jsonGenerator['domain'] = 'opin'
+            jsonGenerator['campaign'] = 'default'		
 
-        # questions
-        q = 1
-        questions = []
-        question_key = "question-"+str(q)+".questionType"
-        while  question_key in self.data:
-            question = {}
-            question['questionText'] = self.data["question-"+str(q)+".questionText"]
-            question['orderId'] = q
-            question['questionType'] = self.data["question-"+str(q)+".questionType"]
+            # location
+            jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
+            jsonGenerator['geofenceRadius'] = 0
+            jsonGenerator['geofenceId'] = ''
 
-            if "question-"+str(q)+".mandatory" in self.data:
-                question['mandatory'] = True
-            else:
-                question['mandatory'] = False
-
-            question['mediaURLs'] = [""]
-
-            # answers
-            a = 1
-            answers = []
-            answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
-            while  answer_key in self.data:
-                answer = {}
-                print("question-"+str(q)+".choice-"+str(a)+".answerText")
-                answer['answerText'] = self.data["question-"+str(q)+".choice-"+str(a)+".answerText"]
-                answer['orderId'] = a
-                answer['mediaURL'] = ''
-                if self.data["question-"+str(q)+".questionType"] == "FREETEXT":
-                    answer['freetextAnswer'] = True
-                else:
-                    answer['freetextAnswer'] = False
-
-                answers.append(answer)
-                a=a+1
-                answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
-
-            question['answers'] = answers
-            questions.append(question)
-            q=q+1
+            # questions
+            q = 1
+            questions = []
             question_key = "question-"+str(q)+".questionType"
+            while  question_key in self.data:
+                question = {}
+                question['questionText'] = self.data["question-"+str(q)+".questionText"]
+                question['orderId'] = q
+                question['questionType'] = self.data["question-"+str(q)+".questionType"]
+
+                if "question-"+str(q)+".mandatory" in self.data:
+                    question['mandatory'] = True
+                else:
+                    question['mandatory'] = False
+
+        
+                
+                question['mediaURLs'] = [""]
+
+                # answers
+                a = 1
+                answers = []
+                answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+                while  answer_key in self.data:
+                    answer = {}
+                    print("question-"+str(q)+".choice-"+str(a)+".answerText")
+                    answer['answerText'] = self.data["question-"+str(q)+".choice-"+str(a)+".answerText"]
+                    answer['orderId'] = a
+                    answer['mediaURL'] = ''
+                    if self.data["question-"+str(q)+".questionType"] == "FREETEXT":
+                        answer['freetextAnswer'] = True
+                    else:
+                        answer['freetextAnswer'] = False
+
+                    answers.append(answer)
+                    a=a+1
+                    answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+
+                question['answers'] = answers
+                questions.append(question)
+                q=q+1
+                question_key = "question-"+str(q)+".questionType"
 
 
-        jsonGenerator['questions'] = questions
-        json_data = json.dumps(jsonGenerator)
-        print("json:"+ json.dumps(jsonGenerator))
+            jsonGenerator['questions'] = questions
+            json_data = json.dumps(jsonGenerator)
+            print("json:"+ json.dumps(jsonGenerator))
 
-        url_poll = '{base_url}/poll/{poll_id}/opin'.format(
-            base_url=settings.FLASHPOLL_BACK_URL,
-            poll_id=self.data['module_settings-key']
-        )
+            url_poll = '{base_url}/poll/{poll_id}/opin'.format(
+                base_url=settings.FLASHPOLL_BACK_URL,
+                poll_id=self.data['module_settings-key']
+            )
 
-        print("url_poll:"+ url_poll)
+            print("url_poll:"+ url_poll)
 
-        # Handle post
-        headers = {'Content-type': 'application/json'}
-        response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+            # Handle post
+            headers = {'Content-type': 'application/json'}
+            response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
 
-        print ("code:"+str(response.status_code))
-        print ("headers:"+ str(response.headers))
-        print ("content:"+ str(response.text))
+            print ("code:"+str(response.status_code))
+            print ("headers:"+ str(response.headers))
+            print ("content:"+ str(response.text))
 		
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
