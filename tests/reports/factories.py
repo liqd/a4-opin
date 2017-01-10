@@ -7,7 +7,7 @@ from tests.factories import UserFactory
 class ReportFactory(factory.django.DjangoModelFactory):
 
     class Meta:
-        model = 'euth_reports.Report'
+        model = 'a4reports.Report'
 
     description = factory.Faker('text')
     creator = factory.SubFactory(UserFactory)
