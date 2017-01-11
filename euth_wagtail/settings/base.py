@@ -335,7 +335,7 @@ REST_FRAMEWORK = {
 
 # Euth settings
 
-COMMENTABLES = (
+A4_COMMENTABLES = (
     ('euth_ideas', 'idea'),
     ('euth_documents', 'paragraph'),
     ('euth_documents', 'document'),
