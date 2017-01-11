@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'adhocracy4.phases.apps.PhasesConfig',
     'adhocracy4.projects.apps.ProjectsConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
+    'adhocracy4.reports.apps.ReportConfig',
     'adhocracy4.modules.apps.ModulesConfig',
 
     'euth.users.apps.UsersConfig',
@@ -77,7 +78,6 @@ INSTALLED_APPS = [
     'euth.projects.apps.ProjectsConfig',
     'euth.comments.apps.CommentConfig',
     'euth.ideas.apps.IdeaConfig',
-    'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
@@ -347,7 +347,7 @@ A4_RATEABLES = (
     ('euth_comments', 'comment'),
 )
 
-REPORTABLES = (
+A4_REPORTABLES = (
     ('euth_ideas', 'ideas'),
     ('euth_comments', 'comment'),
 )

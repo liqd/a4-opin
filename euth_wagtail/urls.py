@@ -13,6 +13,7 @@ from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from adhocracy4.ratings.api import RatingViewSet
+from adhocracy4.reports.api import ReportViewSet
 from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
@@ -23,7 +24,6 @@ from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
-from euth.reports.api import ReportViewSet
 from euth.users import urls as user_urls
 
 js_info_dict = {
