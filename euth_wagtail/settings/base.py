@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'euth.flashpoll.apps.FlashpollConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
+    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.contrib',
 ]
 
