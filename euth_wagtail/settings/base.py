@@ -71,12 +71,12 @@ INSTALLED_APPS = [
     'adhocracy4.ratings.apps.RatingsConfig',
     'adhocracy4.reports.apps.ReportConfig',
     'adhocracy4.modules.apps.ModulesConfig',
+    'adhocracy4.comments.apps.CommentConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
     'euth.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
-    'euth.comments.apps.CommentConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
@@ -339,22 +339,22 @@ COMMENTABLES = (
     ('euth_ideas', 'idea'),
     ('euth_documents', 'paragraph'),
     ('euth_documents', 'document'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
 A4_RATEABLES = (
     ('euth_ideas', 'idea'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
 A4_REPORTABLES = (
     ('euth_ideas', 'ideas'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
 ACTIONABLE = [
     ('euth_ideas', 'Idea'),
-    ('euth_comments', 'Comment')
+    ('a4comments', 'Comment')
 ]
 
 FLASHPOLL_URL = "https://opin.flashpoll.eu/"

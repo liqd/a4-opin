@@ -13,5 +13,5 @@ def autofollow_hook(instance, **kwargs):
             })
 
 
-post_save.connect(autofollow_hook, 'euth_comments.Comment')
+post_save.connect(autofollow_hook, 'a4comments.Comment')
 post_save.connect(autofollow_hook, 'euth_ideas.Idea')
