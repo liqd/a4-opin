@@ -142,7 +142,7 @@ class PhaseForm(forms.ModelForm):
 
     class Meta:
         model = phase_models.Phase
-        exclude = ('module', 'type')
+        exclude = ('module', 'type', 'weight')
 
         widgets = {
             'end_date': widgets.DateTimeInput(),
@@ -247,6 +247,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
         for phase, phase_content in zip(phases, self.blueprint.content):
             phase.module = module
             phase.type = phase_content.identifier
+            phase.weight = int(phase.type.split(':')[1])
             if commit:
                 phase.save()
 
