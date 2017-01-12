@@ -1,4 +1,4 @@
-var ReactComments = require('../../../comments/static/comments/react_comments.jsx')
+var ReactComments = require('adhocracy4').comments
 var ReactParagraphs = require('../../../documents/static/documents/ParagraphBox.jsx')
 var ReactRatings = require('adhocracy4').ratings
 var ReactFollow = require('../../../follows/static/follows/react_follows.jsx')

@@ -12,9 +12,9 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
+from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
-from euth.comments.api import CommentViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
@@ -27,7 +27,7 @@ from euth.organisations import urls as organisations_urls
 from euth.users import urls as user_urls
 
 js_info_dict = {
-    'packages': ('euth.comments',),
+    'packages': ('adhocracy4.comments',),
 }
 
 router = routers.DefaultRouter()
