@@ -6,9 +6,9 @@ from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4 import transforms
+from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.modules import models as module_models
-from euth.comments import models as comment_models
 
 
 class Document(module_models.Item):

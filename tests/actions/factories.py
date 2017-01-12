@@ -7,7 +7,7 @@ from tests.factories import UserFactory
 class CommentFactory(factory.django.DjangoModelFactory):
 
     class Meta:
-        model = 'euth_comments.Comment'
+        model = 'a4comments.Comment'
 
     comment = factory.Faker('text')
     content_object = factory.SubFactory(factories.FakeProjectContentFactory)
