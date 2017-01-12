@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'micawber.contrib.mcdjango',
 
     'adhocracy4.images.apps.ImagesConfig',
     'adhocracy4.phases.apps.PhasesConfig',
@@ -205,6 +206,8 @@ BLEACH_LIST = {
         ],
     }
 }
+
+MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
