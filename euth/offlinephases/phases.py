@@ -16,7 +16,7 @@ class OfflinePhase(phases.PhaseContent):
     module_name = _('offlinephase')
 
     features = {
-        'crud': (models.Idea,),
+        'crud': (models.Offlinephase,),
     }
 
 phases.content.register(OfflinePhase())
