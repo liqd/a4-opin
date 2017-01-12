@@ -187,10 +187,9 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return self.organisation
 
     def get_success_url(self):
-        return reverse('dashboard-project-edit',
+        return reverse('dashboard-project-list',
                        kwargs={
                            'organisation_slug': self.organisation.slug,
-                           'slug': self.get_object().slug
                        })
 
     def get_form_kwargs(self):
