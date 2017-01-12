@@ -15,6 +15,7 @@ from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.offlinephases.phases import OfflinePhase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 
@@ -194,9 +195,14 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
     def __init__(self, blueprint, organisation, creator, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
-        kwargs['phases__initial'] = [
-            {'phase_content': t} for t in blueprint.content
-        ]
+
+        phase_list = [{'phase_content': OfflinePhase()}]
+
+        for t in blueprint.content:
+            phase_list.append({'phase_content': t})
+            phase_list.append({'phase_content': OfflinePhase()})
+
+        kwargs['phases__initial'] = phase_list
         self.organisation = organisation
         self.blueprint = blueprint
         self.creator = creator
@@ -205,8 +211,8 @@ class ProjectCreateForm(multiform.MultiModelForm):
             ('project', ProjectForm),
             ('phases', modelformset_factory(
                 phase_models.Phase, PhaseForm,
-                min_num=len(blueprint.content),
-                max_num=len(blueprint.content),
+                min_num=len(blueprint.content)*2+1,
+                max_num=len(blueprint.content)*2+1,
             )),
         ]
 
@@ -244,10 +250,19 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 module_settings.save()
 
         phases = objects['phases']
-        for phase, phase_content in zip(phases, self.blueprint.content):
+
+        phase_list = [{'phase_content': OfflinePhase()}]
+
+        for t in self.blueprint.content:
+            phase_list.append({'phase_content': t})
+            phase_list.append({'phase_content': OfflinePhase()})
+
+        for index, val in enumerate(zip(phases, phase_list)):
+            phase = val[0]
+            phase_content = val[1]
             phase.module = module
-            phase.type = phase_content.identifier
-            phase.weight = int(phase.type.split(':')[1])
+            phase.type = phase_content['phase_content'].identifier
+            phase.weight = index
             if commit:
                 phase.save()
 
