@@ -1,0 +1,8 @@
+{% extends 'euth_projects/project_detail.html' %}
+{% load i18n rules idea_tags micawber_tags %}
+
+{% block phase_content %}
+<div class="container-narrow">
+{{ object.text | oembed_html }}
+</div>
+{% endblock %}
