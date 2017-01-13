@@ -117,7 +117,7 @@ def test_initiator_create_flashpoll_project(client, organisation):
     project = organisation.project_set.first()
     assert project.is_draft
     assert project.name == 'Project name Flashpoll'
-    assert len(project.module_set.first().phase_set.all()) == 1
+    assert len(project.module_set.first().phase_set.all()) == 2
 
 
 @pytest.mark.django_db
