@@ -17,7 +17,6 @@ from euth.contrib import widgets
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.users import models as user_models
-from euth.users.widgets import UserSearchInput
 
 
 class ProfileForm(forms.ModelForm):
@@ -66,7 +65,7 @@ class ProjectInviteForm(forms.Form):
         help_text=_('Enter the e-mail addresses of users who you want '
                     'to invite, separated by commas. Invited users will get '
                     'an email to confirm their membership in the project.'),
-        widget=UserSearchInput(attrs={
+        widget=forms.TextInput(attrs={
             'placeholder': 'magdalena@example.com, yves@example.com,'
                            ' nadine@example.com…'}
         ),
