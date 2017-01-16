@@ -2,7 +2,8 @@ var $ = require('jquery')
 
 const UserSearch = {
   renderSuggestions (context) {
-    return `<div><img src="${context.default_avatar}" alt="" class="circled"> ${context.username}</div>`
+    let avatar = context.avatar ? context.avatar : context.default_avatar
+    return `<div><img src="${avatar}" alt="" class="circled"> ${context.username}</div>`
   },
 
   findMatches (q, cb, acb) {
