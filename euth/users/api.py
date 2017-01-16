@@ -11,7 +11,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('username',)
+    search_fields = ('^username',)
 
     def list(self, request, *args, **kwargs):
         is_no_search = not (hasattr(request, 'query_params') and
