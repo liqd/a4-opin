@@ -121,121 +121,110 @@ class ProjectForm(forms.ModelForm):
         }
 
     def send_to_flashpoll(self):
-        print("@@@@@In send_to_flashpoll")
-        if 'save_draft' in self.data and self.data['current_preview']=='True':
-            #Handling unpublish		
-            url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
-                base_url=settings.FLASHPOLL_BACK_URL,
-                poll_id=self.data['module_settings-key']
-            )
-            print("url_poll:"+ url_poll)
-            # Handle delete
-            headers = {'Content-type': 'application/json'}        
-            response = requests.delete(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
-            print ("code:"+str(response.status_code))
-            print ("headers:"+ str(response.headers))
-            print ("content:"+ str(response.text))              
-        else:            
-		        
-            startTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-start_date'], "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-end_date'], "%d/%m/%Y %H:%M").timetuple())
+        if 'current_preview' in self.data:    
+            if 'save_draft' in self.data and self.data['current_preview']=='True':
+                #Handling unpublish		
+                url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
+                    base_url=settings.FLASHPOLL_BACK_URL,
+                    poll_id=self.data['module_settings-key']
+                )
+                # Handle delete
+                headers = {'Content-type': 'application/json'}        
+                response = requests.delete(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))           
+            else:            
+                    
+                startTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-start_date'], "%d/%m/%Y %H:%M").timetuple())
+                endTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-end_date'], "%d/%m/%Y %H:%M").timetuple())
 
-            jsonGenerator = {}
-            print("json:"+ json.dumps(jsonGenerator))
-            jsonGenerator['title'] = self.data['title']
-            print("json:"+ json.dumps(jsonGenerator))
-            jsonGenerator['shortDescription'] = self.data['shortDescription']
-            print("json:"+ json.dumps(jsonGenerator))
-            jsonGenerator['longDescription'] = self.data['longDescription']
-            jsonGenerator['concludeMessage'] = self.data['concludeMessage']
-            jsonGenerator['descriptionMediaURLs'] = [""]
-            jsonGenerator['keywords'] = []
-            jsonGenerator['startTime'] = startTime
-            jsonGenerator['endTime'] = endTime
-            jsonGenerator['resultVisibility'] = 0        
-            jsonGenerator['preview'] = not 'save_draft' in self.data
+                jsonGenerator = {}
+                jsonGenerator['title'] = self.data['title']
+                jsonGenerator['shortDescription'] = self.data['shortDescription']
+                jsonGenerator['longDescription'] = self.data['longDescription']
+                jsonGenerator['concludeMessage'] = self.data['concludeMessage']
+                jsonGenerator['descriptionMediaURLs'] = [""]
+                jsonGenerator['keywords'] = []
+                jsonGenerator['startTime'] = startTime
+                jsonGenerator['endTime'] = endTime
+                jsonGenerator['resultVisibility'] = 0        
+                jsonGenerator['preview'] = not 'save_draft' in self.data
 
 
-            # context
-            jsonGenerator['lab'] = 'opin'
-            jsonGenerator['domain'] = 'opin'
-            jsonGenerator['campaign'] = 'default'		
+                # context
+                jsonGenerator['lab'] = 'opin'
+                jsonGenerator['domain'] = 'opin'
+                jsonGenerator['campaign'] = 'default'		
 
-            # location
-            jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
-            jsonGenerator['geofenceRadius'] = 0
-            jsonGenerator['geofenceId'] = ''
+                # location
+                jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
+                jsonGenerator['geofenceRadius'] = 0
+                jsonGenerator['geofenceId'] = ''
 
-            # questions
-            q = 1
-            questions = []
-            question_key = "question-"+str(q)+".questionType"
-            while  question_key in self.data:
-                question = {}
-                question['questionText'] = self.data["question-"+str(q)+".questionText"]
-                question['orderId'] = q
-                question['questionType'] = self.data["question-"+str(q)+".questionType"]
-
-                if "question-"+str(q)+".mandatory" in self.data:
-                    question['mandatory'] = True
-                else:
-                    question['mandatory'] = False
-
-        
-                
-                question['mediaURLs'] = [""]
-
-                # answers
-                a = 1
-                answers = []
-                answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
-                while  answer_key in self.data:
-                    answer = {}
-                    print("question-"+str(q)+".choice-"+str(a)+".answerText")
-                    answer['answerText'] = self.data["question-"+str(q)+".choice-"+str(a)+".answerText"]
-                    answer['orderId'] = a
-                    answer['mediaURL'] = ''
-                    if self.data["question-"+str(q)+".questionType"] == "FREETEXT":
-                        answer['freetextAnswer'] = True
-                    else:
-                        answer['freetextAnswer'] = False
-
-                    answers.append(answer)
-                    a=a+1
-                    answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
-
-                question['answers'] = answers
-                questions.append(question)
-                q=q+1
+                # questions
+                q = 1
+                questions = []
                 question_key = "question-"+str(q)+".questionType"
+                while  question_key in self.data:
+                    question = {}
+                    question['questionText'] = self.data["question-"+str(q)+".questionText"]
+                    question['orderId'] = q
+                    question['questionType'] = self.data["question-"+str(q)+".questionType"]
+
+                    if "question-"+str(q)+".mandatory" in self.data:
+                        question['mandatory'] = True
+                    else:
+                        question['mandatory'] = False
+
+            
+                    
+                    question['mediaURLs'] = [""]
+
+                    # answers
+                    a = 1
+                    answers = []
+                    answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+                    while  answer_key in self.data:
+                        answer = {}
+                        answer['answerText'] = self.data["question-"+str(q)+".choice-"+str(a)+".answerText"]
+                        answer['orderId'] = a
+                        answer['mediaURL'] = ''
+                        if self.data["question-"+str(q)+".questionType"] == "FREETEXT":
+                            answer['freetextAnswer'] = True
+                        else:
+                            answer['freetextAnswer'] = False
+
+                        answers.append(answer)
+                        a=a+1
+                        answer_key = "question-"+str(q)+".choice-"+str(a)+".answerText"
+
+                    question['answers'] = answers
+                    questions.append(question)
+                    q=q+1
+                    question_key = "question-"+str(q)+".questionType"
 
 
-            jsonGenerator['questions'] = questions
-            json_data = json.dumps(jsonGenerator)
-            print("json:"+ json.dumps(jsonGenerator))
+                jsonGenerator['questions'] = questions
+                json_data = json.dumps(jsonGenerator)            
 
-            url_poll = '{base_url}/poll/{poll_id}/opin'.format(
-                base_url=settings.FLASHPOLL_BACK_URL,
-                poll_id=self.data['module_settings-key']
-            )
+                url_poll = '{base_url}/poll/{poll_id}/opin'.format(
+                    base_url=settings.FLASHPOLL_BACK_URL,
+                    poll_id=self.data['module_settings-key']
+                )
 
-            print("url_poll:"+ url_poll)
 
-            # Handle post
-            headers = {'Content-type': 'application/json'}
-            response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+                # Handle post
+                headers = {'Content-type': 'application/json'}
+                response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
 
-            print ("code:"+str(response.status_code))
-            print ("headers:"+ str(response.headers))
-            print ("content:"+ str(response.text))
+                print ("code:"+str(response.status_code))
+                print ("headers:"+ str(response.headers))
+                print ("content:"+ str(response.text))
             
 
         
     def save(self, commit=True):
-
-        print("save:"+ json.dumps(self.data))
         #calling flashpoll service
-        self.send_to_flashpoll()
+        if 'module_settings-key' in self.data:            
+            self.send_to_flashpoll()
        
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
@@ -265,15 +254,7 @@ class ProjectForm(forms.ModelForm):
             ])
         ])
         formsections['information'] = information_section
-        return formsections
-        
-
-    def clean(self):	
-        print("@@@@@@@@@@@@@@@@@ Here 2")        
-        if 'title' not in self.data:
-            raise ValidationError('Title not found')
-
-        return self.cleaned_data        
+        return formsections                
 
 class PhaseForm(forms.ModelForm):
 
@@ -389,11 +370,6 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         return objects
         
-    def clean(self):	
-        print("@@@@@@@@@@@@@@@@@ Here")
-
-
-        return self.cleaned_data
 
 
 class RequestModerationForm(forms.ModelForm):
@@ -484,11 +460,7 @@ class OrganisationForm(forms.ModelForm):
         ('description', forms.CharField(
             widget=forms.Textarea, help_text=_(
                 'More info about the organisation / '
-                'Short text for organisation overview'))),
-        ('startTime', forms.CharField(
-        help_text=_(
-            'startTime '
-            'your startTime')))]
+                'Short text for organisation overview')))]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
 
     class Meta:
@@ -579,26 +551,13 @@ class OrganisationForm(forms.ModelForm):
         return instance
 
     def clean(self):	        
-        #clean_flashpoll(self)	
         for lang_code in self.languages:
             if lang_code in self.data:
-                for fieldname in self.translated_fields:                    
-                    print("fieldname:"+ str(fieldname))
+                for fieldname in self.translated_fields:                                        
                     identifier = self._get_identifier(lang_code, fieldname[0])
                     data = self.cleaned_data
                     if identifier not in data or not data[identifier]:
                         msg = 'This field is required'
                         raise ValidationError((identifier, msg))
 
-        return self.cleaned_data
-
-		
-		
-    def clean_flashpoll(self):
-        if not "startTime" in self.data:
-            raise ValidationError({
-                'startTime': _('End date can not be smaller'
-                              'than the start date.')
-            })	
-            
         return self.cleaned_data

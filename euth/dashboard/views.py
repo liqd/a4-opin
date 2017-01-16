@@ -153,16 +153,25 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("New project based on")
-		
+        context['module_settings'] = self.kwargs['module_settings']
+        
+        #initiating flashpoll data
+        if context['module_settings']== 'euth_flashpoll':
+            context = self.fp_context_data(context)         
+
+        return context
+
+    def fp_context_data(self, context):
+
         pollid = str(uuid.uuid4())
         context['pollid']  = pollid
         pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
         context['poll'] = json.loads(pollinit)
         context['module_settings'] = self.kwargs['module_settings']
-
-        print("module_settings: "+str(context['module_settings']))
+        
         return context
-
+        
+        
     def get_permission_object(self):
         return self.organisation
 
@@ -200,47 +209,41 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("Update project: " + self.object.name)
+        #initiating flashpoll data
+        if 'pollid' in self.kwargs:            
+            context = self.fp_context_data(context)                
+        
+        return context
 
-        context['pollid'] = self.kwargs['pollid']        
+        
+    def fp_context_data(self, context):
+
+        context['pollid'] = self.kwargs['pollid']
         context['module_settings'] = self.kwargs['module_settings']
-
-        print("module_settings: "+str(context['module_settings']))
 
         url_poll = '{base_url}/poll/{poll_id}'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
             poll_id=context['pollid']
         )
 
-        print("url_poll get:"+ url_poll)
-
         # Handle get
         headers = {'Content-type': 'application/json'}
         response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))        
         context['poll'] = json.loads(response.text)
-
-        print ("code:"+str(response.status_code))
-        print ("headers:"+ str(response.headers))
-        print ("content:"+ str(response.json()))
-
 
         url_poll = '{base_url}/poll/{poll_id}/result'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
             poll_id=context['pollid']
         )
 
-        print("url_poll result:"+ url_poll)
 
         headers = {'Content-type': 'application/json'}
         response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
         context['pollresult'] = json.loads(response.text)        
-
-        print ("code:"+str(response.status_code))
-        print ("headers:"+ str(response.headers))
-        print ("content:"+ str(response.json()))
-
-		
+        
         return context
-
+        
+        
     def get_permission_object(self):
         return self.organisation
 

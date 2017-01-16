@@ -1,74 +1,51 @@
 {% load i18n form_tags widget_tweaks %}
 
 <script src="http://code.highcharts.com/js/highcharts.js"></script>
-<script src="http://code.highcharts.com/js/highcharts-more.js"></script>
-<script src="http://code.highcharts.com/stock/js/highstock.js"></script>
-<script src="http://code.highcharts.com/maps/js/modules/map.js"></script>
-
 <script type="text/javascript">
 
 var pollresult = {{pollresult|get_simplejson|safe}};
 var poll = {{poll|get_simplejson|safe}};
-console.log("noOfReceivedResults: "+ pollresult.noOfReceivedResults);
 
 $(function () {
+        if(pollresult.noOfReceivedResults && pollresult.noOfReceivedResults != 0){
+            for(ind=0;ind<poll.questions.length;ind++){
+                question = poll.questions[ind];
+                var answer_text_list = [];
+                var answer_percent_list = [];
 
-    console.log("noOfReceivedResults 1");
+                for(indc=0;indc<question.answers.length;indc++){
+                    answer = question.answers[indc];
+                    answer_text_list.push(answer.answerText);
+                    var score = pollresult.pollResQuestions[ind].pollResultAnswers[indc].answerScore;
+                    var percent = (score/pollresult.noOfReceivedResults)*100;
+                    answer_percent_list.push(percent);
+                }
 
-		for(ind=0;ind<poll.questions.length;ind++){
-			question = poll.questions[ind];
-			var answer_text_list = [];
-			var answer_percent_list = [];
-
-			for(indc=0;indc<question.answers.length;indc++){
-			    answer = question.answers[indc];
-			    answer_text_list.push(answer.answerText);
-			    var score = pollresult.pollResQuestions[ind].pollResultAnswers[indc].answerScore;
-			    var percent = (score/pollresult.noOfReceivedResults)*100;
-			    answer_percent_list.push(percent);
-			}
-
-            var myChart = Highcharts.chart('container-'+question.orderId, {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: question.questionText
-                },
-                xAxis: {
-                    categories: answer_text_list
-                },
-                yAxis: {
-                    title: {
-                        text: 'Percent'
+                var myChart = Highcharts.chart('container-'+question.orderId, {
+                    chart: {
+                        type: 'bar'
                     },
-                    max: 100
-                },
-                series: [{
-                    name: 'Total: '+pollresult.noOfReceivedResults,
-                    data: answer_percent_list
-                }]
-            });
+                    title: {
+                        text: question.questionText
+                    },
+                    xAxis: {
+                        categories: answer_text_list
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Percent'
+                        },
+                        max: 100
+                    },
+                    series: [{
+                        name: 'Total: '+pollresult.noOfReceivedResults,
+                        data: answer_percent_list
+                    }]
+                });
+        }
     }
 });
 
-var chart1; // globally available
-$(function() {
-       console.log("noOfReceivedResults 2");
-
-		for(ind=0;ind<poll.questions.length;ind++){
-			question = poll.questions[ind];
-           chart1 = Highcharts.stockChart('container-'+question.orderId, {
-             rangeSelector: {
-                selected: 1
-             },
-             series: [{
-                name: 'USD to EUR',
-                data: usdtoeur // predefined JavaScript array
-             }]
-          });
-      }
-   });
 </script>
 
 <article id="result" class="tab-panel">

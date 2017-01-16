@@ -10,31 +10,21 @@
  * param (string key) : html element's key
 */
 function removeChoice(choices, qcorderIdIn, qorderId, key) {
-    console.log("removeChoice");
-	console.log("key: "+key);
-    console.log("In choices.length: "+choices.length);
-	console.log("qcorderIdIn: "+qcorderIdIn);
-	console.log("qorderId: "+qorderId);
 	if(choices.length>1) {
         var index,ind;
-        for(i=0;i<choices.length;i++){
-			console.log("choices[i].orderId: "+choices[i].orderId);
+        for(i=0;i<choices.length;i++){			
             if(choices[i].orderId == qcorderIdIn){
                 index = i;
                 break;
             }
 
         }
-			choices.splice(index,1);
-
-        console.log("Index: "+index);
+			choices.splice(index,1);        
 
 		// update the position value of choice by starting at "index"
 		for(ind=index;ind<choices.length;ind++)
 			choices[ind].position=ind+1;	
-
-    console.log("Out choices.length: "+choices.length);
-
+    
     var elem = document.getElementById(key);
     var parent = elem.parentNode;
     elem.parentNode.removeChild(elem);
@@ -42,12 +32,9 @@ function removeChoice(choices, qcorderIdIn, qorderId, key) {
     // update the Dom elements
     var qcorderId = 1;
     $(parent).children().each(function(){        		
-		if($(this).children()[1].children[0])	{	
-			console.log("qcorderId: "+qcorderId);
-			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   					
-			console.log("before this.children(): "+$(this).children()[0].innerHTML);		
-			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-			console.log("after this.children(): "+$(this).children()[0].innerHTML);			
+		if($(this).children()[1] && $(this).children()[1].children[0] )	{				
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   								
+			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    			
 			
 			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
 			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
@@ -60,8 +47,6 @@ function removeChoice(choices, qcorderIdIn, qorderId, key) {
 		}
 	});
 
-	
-	console.log("qorderId: "+qorderId);
 	
 	var remvkey = "icon-plus-question-"+qorderId;
     var elem = document.getElementById(remvkey);
@@ -113,8 +98,7 @@ function removeQuestion(questions,qorderIdIn,key) {
     // update the Dom elements
     var qorderId = 1;
     $(parent).children().each(function(){  		
-		if($(this).children()[1].children[0])	{	
-			console.log("qorderId: "+qorderId);
+		if($(this).children()[1] && $(this).children()[1].children[0])	{				
 			$(this).attr('id','form-group-question-'+qorderId);   		
 			
 			// Titre - $(this).children()[0]			
@@ -142,22 +126,16 @@ function removeQuestion(questions,qorderIdIn,key) {
 			var qcorderId = 1;
 			var answers = questions[qorderId-1].answers;
 			$(node).children().each(function(){						      
-				if($(this).children()[1].children[0])	{		
-					console.log("qcorderId: "+qcorderId);
-					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
-					console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+				if($(this).children()[1] && $(this).children()[1].children[0])	{							
+					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   							
 					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-					console.log("after this.children(): "+$(this).children()[0].innerHTML);
+					
 										
 					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
 					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
 							
 					
 					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;					
-					console.log("qorderId-1: "+(qorderId-1));	
-					console.log("questions[qorderId-1]: "+JSON.stringify(questions[qorderId-1]));	
-					console.log("answers: "+JSON.stringify(answers));						
-					console.log("@@@@@@@@@@@@@ in remove questions length: "+questions.length);
 					var orderId = qcorderId;
 					var orderIdQ = qorderId;
 					$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
@@ -203,12 +181,6 @@ function removeQuestion(questions,qorderIdIn,key) {
  * param (string key) : html element's key
 */
 function addChoice(choices,questionPos, key) {
-
-    console.log("addChoice");
-	console.log("key: "+key);
-    console.log("In choices.length: "+choices.length);
-	console.log("questionPos: "+questionPos);
-	
     var choice;
 	if (choices[choices.length-1].freetextAnswer) {
 	    choice = {"answerText":"","orderId":choices.length,"mediaURL":"","freetextAnswer":false};
@@ -251,19 +223,16 @@ function addChoice(choices,questionPos, key) {
 	d2.innerHTML = choiceKey2;
 	
 	document.getElementById(key).appendChild(d.firstChild);
-	document.getElementById(key).appendChild(d2.firstChild);
-	console.log("parent: "+parent.innerHTML);
+	document.getElementById(key).appendChild(d2.firstChild);	
 	// Reorder
     // update the Dom elements
     var qcorderId = 1;
 	var qorderId = questionPos;
     $(parent).children().each(function(){        		
-		if($(this).children()[1].children[0])	{	
-			console.log("qcorderId: "+qcorderId);
-			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
-			console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+		if($(this).children()[1] && $(this).children()[1].children[0])	{	
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   					
 			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-			console.log("after this.children(): "+$(this).children()[0].innerHTML);			
+					
 			
 			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
 			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
@@ -284,6 +253,9 @@ function addChoice(choices,questionPos, key) {
  * param ($event object) : event object
 */
 function addQuestion(questions, key) {
+    if(!questions){
+        var questions = [];
+    }
     var question = {"questionText":"","orderId":questions.length+1,"questionType":"CHECKBOX","mandatory":true,"mediaURLs":[""],"answers":[{"answerText":"","orderId":1,"mediaURL":"","freetextAnswer":false},{"answerText":"","orderId":2,"mediaURL":"","freetextAnswer":false}]};
 	questions.push(question);
 
@@ -376,14 +348,11 @@ function addQuestion(questions, key) {
     // update the Dom elements
     var qorderId = 1;	
     $(parent).children().each(function(){  		
-		if($(this).children()[1].children[0])	{	
-			console.log("qorderId: "+qorderId);
+		if($(this).children()[1] && $(this).children()[1].children[0])	{				
 			$(this).attr('id','form-group-question-'+qorderId);   		
 			
 			// Titre - $(this).children()[0]			
-			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    
-			
-			console.log("this.children()[0]: "+$(this).children()[0].innerHTML);	
+			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    					
 			$(this).children()[0].children[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-questionText';
 			$(this).children()[0].children[1].children[0].children[0].name = 'question-'+qorderId+'.questionText';		
 			
@@ -406,22 +375,15 @@ function addQuestion(questions, key) {
 			var qcorderId = 1;
 			var answers = questions[qorderId-1].answers;
 			$(node).children().each(function(){		      	
-				if($(this).children()[1].children[0])	{		
-					console.log("qcorderId: "+qcorderId);
+				if($(this).children()[1] && $(this).children()[1].children[0])	{		
 					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
-					console.log("before this.children(): "+$(this).children()[0].innerHTML);		
 					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-					console.log("after this.children(): "+$(this).children()[0].innerHTML);
 										
 					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
 					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
 							
 					
 					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
-					console.log();
-					console.log("questions[qorderId]: "+JSON.stringify(questions[0]));	
-					console.log("@@@@@@@@@@@@@ questions length: "+questions.length);
-					console.log("@@@@@@@@@@@@@ qcorderId: "+qcorderId);		
 					var orderId = qcorderId; 	
 					var orderIdQ = qorderId;					
 					$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
@@ -430,8 +392,6 @@ function addQuestion(questions, key) {
 				}else{
 					$(this).attr('id','icon-plus-question-'+qorderId); 		
 					var formkey ='fp-phase-qc-'+qorderId;
-					console.log("formkey: "+formkey);
-					console.log("answers: "+answers);
 					var orderId = qorderId;
 					$(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };								
 				}
@@ -452,11 +412,9 @@ function changeType(questionType, key, qorderId) {
 			$(elem).children().each(function(){		
                 elem.removeChild(this);                
 			});                      
-	}else {
-        console.log("elem.children() :"+$(elem).children().length);
+	}else {        
 		if($(elem).children().length == 0){
             var question = {"questionText":"","orderId":qorderId,"questionType":"CHECKBOX","mandatory":true,"mediaURLs":[""],"answers":[{"answerText":"","orderId":1,"mediaURL":"","freetextAnswer":false},{"answerText":"","orderId":2,"mediaURL":"","freetextAnswer":false}]};
-            console.log();
             var questionKey="";
                 for(ind=0;ind<question.answers.length;ind++){
                     answer = question.answers[ind];
@@ -495,16 +453,7 @@ function changeType(questionType, key, qorderId) {
 }
 </script>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=drawing"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/common.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/map.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/util.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/controls.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/drawing_impl.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/onion.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/stats.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/geometry.js"></script>
-<script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/27/3/intl/fr_ALL/poly.js"></script>
+<script type="text/javascript" charset="UTF-8" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=true&amp;libraries=drawing"></script>
 <script type="text/javascript">
       var map;
       var drawingManager;
@@ -612,9 +561,7 @@ function changeType(questionType, key, qorderId) {
 	/* create a location with the supplied infomation and do clean after receiving the request response
 	*/
 	function create_location (){
-        console.log("in create_location path: "+selectedShape.getPath());
-        wktFormat = trans_to_wkt(selectedShape.getPath().b);
-        console.log("in create_location, wktFormat:"+wktFormat);
+        wktFormat = trans_to_wkt(selectedShape.getPath().b);        
         selectedShape.setMap(null);
         drawLocation(wktFormat);
 
@@ -630,21 +577,18 @@ function changeType(questionType, key, qorderId) {
 	/* draw a location at the map and center the map by its geographic coordinates
 	 * param (location : object) : the location object
 	*/
-	function drawLocation(location) {
-	console.log("in drawLocation");
+	function drawLocation(location) {	
 		var center = drawPolygon(location)[0];
 
 		if(center.lat() && center.lng()) {
 			map.setCenter(center);
-		}else {
-			//setFocusByLabel("berlin");
+		}else {			
             map.setCenter(defaultLatLng);
 		}
 	}
 
 
-	function drawPolygon(wktFormat) {
-    console.log("in drawPolygon");
+	function drawPolygon(wktFormat) {    
 		var polygon = trans_to_array(wktFormat);
 
 	    selectedShape = new google.maps.Polygon({
@@ -693,8 +637,7 @@ function changeType(questionType, key, qorderId) {
   	}
 
 
-      function initialize() {
-        console.log("in initialize");
+      function initialize() {        
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: new google.maps.LatLng(22.344, 114.048),
@@ -940,18 +883,14 @@ function changeType(questionType, key, qorderId) {
             </div>
             {% endif %}			
 			{% endfor %}								
-		</div>   
-		
+		</div>   		
+		</div>	
         {% if question.orderId == poll.questions|length  %}
         <div id="icon-plus-poll" class="span3">
             <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
             <div style="clear:both;"></div>
-        </div>
+        </div>     
         {% endif %}
-
-        <br>
-        <br>
-		</div>		
     {% endfor %}     
 	</div>
 </div>
