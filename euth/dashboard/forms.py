@@ -15,6 +15,7 @@ from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.offlinephases.models import Offlinephase
 from euth.offlinephases.phases import OfflinePhase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
@@ -265,6 +266,8 @@ class ProjectCreateForm(multiform.MultiModelForm):
             phase.weight = index
             if commit:
                 phase.save()
+                if phase.type.startswith('euth_offlinephases'):
+                    Offlinephase.objects.create(phase=phase)
 
         return objects
 
