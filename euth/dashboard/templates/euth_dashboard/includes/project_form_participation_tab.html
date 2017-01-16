@@ -21,6 +21,8 @@
             </div>
             {% endfor %}
 
+            <a href="">{% trans 'add offline phase documentation'%}</a>
+
             {% for form in form.phases %}
                 {% for hidden in form.hidden_fields %}
                     {{ hidden }}
@@ -111,6 +113,7 @@
                         {% endif %}
                     </div>
             </div>
+            <a class="" href="">{% trans 'add offline phase documentation'%}</a>
             {% endfor %}
         </div>
     </div>

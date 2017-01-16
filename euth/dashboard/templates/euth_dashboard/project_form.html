@@ -1,5 +1,5 @@
 {% extends "euth_dashboard/base_organisation.html" %}
-{% load widget_tweaks i18n %}
+{% load static widget_tweaks i18n %}
 
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
@@ -33,4 +33,8 @@
 {% url 'dashboard-project-delete' view.organisation.slug project.slug as delete_view_url %}
 {% include 'includes/delete_modal.html' with name=project.name delete_action=delete_view_url %}
 
+{% endblock %}
+
+{% block extra_js %}
+{% static 'add_offline_phase/add_offline_phase.js' %}
 {% endblock %}
