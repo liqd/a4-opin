@@ -4,6 +4,8 @@ from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    avatar = serializers.ImageField()
+
     class Meta:
         model = User
         fields = ('id', 'username', 'avatar', 'default_avatar')
