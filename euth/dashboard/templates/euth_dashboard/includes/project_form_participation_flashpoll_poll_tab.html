@@ -9,13 +9,17 @@
  * param (choice object) : choice object to be removed from collection
  * param (string key) : html element's key
 */
-function removeChoice(choices,choice, key) {
+function removeChoice(choices, qcorderIdIn, qorderId, key) {
     console.log("removeChoice");
+	console.log("key: "+key);
     console.log("In choices.length: "+choices.length);
-	if(choices.length>2) {
+	console.log("qcorderIdIn: "+qcorderIdIn);
+	console.log("qorderId: "+qorderId);
+	if(choices.length>1) {
         var index,ind;
         for(i=0;i<choices.length;i++){
-            if(choices[i].orderId == choice.orderId){
+			console.log("choices[i].orderId: "+choices[i].orderId);
+            if(choices[i].orderId == qcorderIdIn){
                 index = i;
                 break;
             }
@@ -27,13 +31,54 @@ function removeChoice(choices,choice, key) {
 
 		// update the position value of choice by starting at "index"
 		for(ind=index;ind<choices.length;ind++)
-			choices[ind].position=ind+1;
-	}
+			choices[ind].position=ind+1;	
 
     console.log("Out choices.length: "+choices.length);
 
     var elem = document.getElementById(key);
+    var parent = elem.parentNode;
     elem.parentNode.removeChild(elem);
+        
+    // update the Dom elements
+    var qcorderId = 1;
+    $(parent).children().each(function(){        		
+		if($(this).children()[1].children[0])	{	
+			console.log("qcorderId: "+qcorderId);
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   					
+			console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
+			console.log("after this.children(): "+$(this).children()[0].innerHTML);			
+			
+			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
+			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+					
+			
+			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
+			$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(choices, qcorderId, qorderId, formkey); };
+						
+			qcorderId++;
+		}
+	});
+
+	
+	console.log("qorderId: "+qorderId);
+	
+	var remvkey = "icon-plus-question-"+qorderId;
+    var elem = document.getElementById(remvkey);
+	elem.parentNode.removeChild(elem);	
+		
+	var pluskey= '<div id="icon-plus-question-'+qorderId+'" class="span3">'+
+		'<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+qorderId+',"fp-phase-qc-'+qorderId+'")\' tabindex="-1" style="float:left;"></div>'+
+		'<div style="clear:both;"></div>'+
+	'</div>';
+
+	var d = document.createElement('div');
+	d.innerHTML = pluskey;
+	
+	parent.appendChild(d.firstChild);		
+	
+}
+	
     return false;
 
 };
@@ -44,12 +89,12 @@ function removeChoice(choices,choice, key) {
  * param (question object) : question object to be removed from collection
  * param (string key) : html element's key
 */
-function removeQuestion(questions,question,key) {
+function removeQuestion(questions,qorderIdIn,key) {
 
 	if(questions.length>1) {
         var index,ind;
         for(i=0;i<questions.length;i++){
-            if(questions[i].orderId == question.orderId){
+            if(questions[i].orderId == qorderIdIn){
                 index = i;
                 break;
             }
@@ -61,12 +106,91 @@ function removeQuestion(questions,question,key) {
 			questions[ind].position=ind+1;
 	}
 
-    var elem = document.getElementById(key);
-    elem.parentNode.removeChild(elem);
+    var elem = document.getElementById(key);    
+    var parent = elem.parentNode;
+    elem.parentNode.removeChild(elem);	
 
+    // update the Dom elements
+    var qorderId = 1;
+    $(parent).children().each(function(){  		
+		if($(this).children()[1].children[0])	{	
+			console.log("qorderId: "+qorderId);
+			$(this).attr('id','form-group-question-'+qorderId);   		
+			
+			// Titre - $(this).children()[0]			
+			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    
+								
+			$(this).children()[0].children[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-questionText';
+			$(this).children()[0].children[1].children[0].children[0].name = 'question-'+qorderId+'.questionText';		
+			
+			var formkey ='form-group-question-'+qorderId;
+			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
+			
+			// Type - $(this).children()[1]					
+			$(this).children()[1].children[1].id = 'fp-id_phases-'+qorderId+'-questionType';
+			$(this).children()[1].children[1].name = 'question-'+qorderId+'.questionType';	
+			
+						
+			// Mandatory - $(this).children()[2]					
+			$(this).children()[2].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-mandatory';
+			$(this).children()[2].children[0].children[0].name = 'question-'+qorderId+'.mandatory';		
+						
+			// Choices - $(this).children()[3]									
+			$(this).children()[3].id = 'fp-phase-qc-'+qorderId;
+			var node = $(this).children()[3];			
+			// update the Dom elements
+			var qcorderId = 1;
+			var answers = questions[qorderId-1].answers;
+			$(node).children().each(function(){						      
+				if($(this).children()[1].children[0])	{		
+					console.log("qcorderId: "+qcorderId);
+					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
+					console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
+					console.log("after this.children(): "+$(this).children()[0].innerHTML);
+										
+					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
+					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+							
+					
+					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;					
+					console.log("qorderId-1: "+(qorderId-1));	
+					console.log("questions[qorderId-1]: "+JSON.stringify(questions[qorderId-1]));	
+					console.log("answers: "+JSON.stringify(answers));						
+					console.log("@@@@@@@@@@@@@ in remove questions length: "+questions.length);
+					var orderId = qcorderId;
+					var orderIdQ = qorderId;
+					$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
+					
+					qcorderId++;
+				}else{
+					$(this).attr('id','icon-plus-question-'+qorderId); 		
+					var formkey ='fp-phase-qc-'+qorderId;
+					var orderId = qorderId;
+					$(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };									
+				}
+			});
+			
+			qorderId++;
+		}
+	});
 
-    //dealing with buttons
-
+	
+	
+	var remvkey = "icon-plus-poll";
+    var elem = document.getElementById(remvkey);
+	elem.parentNode.removeChild(elem);
+	
+    var pluskey = '<div id="icon-plus-poll" class="span3">'+
+            '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>'+
+            '<div style="clear:both;"></div>'+
+        '</div>';
+		
+	
+	var d = document.createElement('div');
+	d.innerHTML = pluskey;
+	
+	parent.appendChild(d.firstChild);		
 
     return false;
 };
@@ -80,6 +204,11 @@ function removeQuestion(questions,question,key) {
 */
 function addChoice(choices,questionPos, key) {
 
+    console.log("addChoice");
+	console.log("key: "+key);
+    console.log("In choices.length: "+choices.length);
+	console.log("questionPos: "+questionPos);
+	
     var choice;
 	if (choices[choices.length-1].freetextAnswer) {
 	    choice = {"answerText":"","orderId":choices.length,"mediaURL":"","freetextAnswer":false};
@@ -92,7 +221,8 @@ function addChoice(choices,questionPos, key) {
     // Remove the button
     var remvkey = "icon-plus-question-"+questionPos;
     var elem = document.getElementById(remvkey);
-    elem.parentNode.removeChild(elem);
+	var parent = elem.parentNode;
+    parent.removeChild(elem);
 
     var choiceKey = '<div id="form-group-question-'+questionPos+'.choice-'+choice.orderId+'" class="form-group">'+
             '<label>'+
@@ -101,20 +231,50 @@ function addChoice(choices,questionPos, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                    '<input class="form-control choice" id="fp-id_phases-'+questionPos+'-choice-'+choice.orderId+'.answerText" maxlength="80" name="question-'+questionPos+'.choice-'+choice.orderId+'.answerText" type="text" value="">'+
+                    '<input class="form-control choice" id="fp-id_phases-'+questionPos+'-choice-'+choice.orderId+'.answerText" maxlength="80" name="question-'+questionPos+'.choice-'+choice.orderId+'.answerText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                    '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+JSON.stringify(choice)+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                    '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+choice.orderId+','+questionPos+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                 '</div>'+
-            '</div>'+
-            '<div id="icon-plus-question-'+questionPos+'" class="span3">'+
-                '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+questionPos+',"form-group-question-'+questionPos+'")\' tabindex="-1" style="float:left;"></div>'+
-                '<div style="clear:both;"></div>'+
             '</div>'+
         '</div>';
 
-    document.getElementById(key).innerHTML += choiceKey;
-
+    var choiceKey2 = '<div id="icon-plus-question-'+questionPos+'" class="span3">'+
+			'<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+questionPos+',"fp-phase-qc-'+questionPos+'")\' tabindex="-1" style="float:left;"></div>'+
+			'<div style="clear:both;"></div>'+
+		'</div>';
+		
+	var d = document.createElement('div');
+	d.innerHTML = choiceKey;
+	
+	var d2 = document.createElement('div');
+	d2.innerHTML = choiceKey2;
+	
+	document.getElementById(key).appendChild(d.firstChild);
+	document.getElementById(key).appendChild(d2.firstChild);
+	console.log("parent: "+parent.innerHTML);
+	// Reorder
+    // update the Dom elements
+    var qcorderId = 1;
+	var qorderId = questionPos;
+    $(parent).children().each(function(){        		
+		if($(this).children()[1].children[0])	{	
+			console.log("qcorderId: "+qcorderId);
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
+			console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
+			console.log("after this.children(): "+$(this).children()[0].innerHTML);			
+			
+			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
+			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+					
+			
+			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
+			$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(choices, qcorderId, qorderId, formkey); };
+						
+			qcorderId++;
+		}
+	});
 };
 
 
@@ -130,8 +290,9 @@ function addQuestion(questions, key) {
     // Remove the button
     var remvkey = "icon-plus-poll";
     var elem = document.getElementById(remvkey);
-    elem.parentNode.removeChild(elem);
-
+	var parent = elem.parentNode;
+    parent.removeChild(elem);
+	
 	var questionKey ='<div id="form-group-question-'+question.orderId+'">'+
         '<div class="form-group">'+
             '<label>'+
@@ -140,10 +301,10 @@ function addQuestion(questions, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                   '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-questionText" maxlength="80" name="question-'+question.orderId+'.questionText" type="text" value="">'+
+                   '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-questionText" maxlength="80" name="question-'+question.orderId+'.questionText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                    '<i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+JSON.stringify(question)+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
+                    '<i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
                 '</div>'+
             '</div>'+
         '</div>'+
@@ -152,7 +313,7 @@ function addQuestion(questions, key) {
                 'Type'+
                 '<br>'+
             '</label>'+
-            '<select class="form-control select" id="fp-id_phases-'+question.orderId+'-questionType" name="question-'+question.orderId+'.questionType" >'+
+            '<select class="form-control select" id="fp-id_phases-'+question.orderId+'-questionType" name="question-'+question.orderId+'.questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+question.orderId+'", '+question.orderId+')\' >'+
                 '<option value="CHECKBOX"  selected>MULTIPLE</option>'+
                 '<option value="RADIO" >SINGLE</option>'+
                 '<option value="FREETEXT" >OPEN</option>'+
@@ -161,16 +322,14 @@ function addQuestion(questions, key) {
         '</div>'+
         '<div class="form-group ">'+
             '<label>'+
-                '<input id="fp-id_phases-'+question.orderId+'-mandatory" name="question-'+question.orderId+'.mandatory" type="checkbox" value="" checked="checked">'+
+                '<input id="fp-id_phases-'+question.orderId+'-mandatory" name="question-'+question.orderId+'.mandatory" type="checkbox" value="" checked="checked" />'+
                 'Mandatory'+
                 '<br>'+
             '</label>'+
-        '</div>';
-
+        '</div>'+
+		'<div id="fp-phase-qc-'+question.orderId+'">';
         for(ind=0;ind<question.answers.length;ind++){
             answer = question.answers[ind];
-            console.log("answers: "+JSON.stringify(question.answers));
-            console.log("answer: "+JSON.stringify(answer));
             questionKey = questionKey +'<div id="form-group-question-'+question.orderId+'.choice-'+answer.orderId+'" class="form-group">'+
                 '<label>'+
                     'Choice '+answer.orderId+
@@ -178,37 +337,162 @@ function addQuestion(questions, key) {
                 '</label>'+
                 '<div style="position:relative;">'+
                     '<div style="margin-right: 44px;">'+
-                        '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-choice-'+answer.orderId+'.answerText" maxlength="80" name="question-'+question.orderId+'.choice-'+answer.orderId+'.answerText" type="text" value="">'+
+                        '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-choice-'+answer.orderId+'.answerText" maxlength="80" name="question-'+question.orderId+'.choice-'+answer.orderId+'.answerText" type="text" value="" //>'+
                     '</div>'+
                     '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                        '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+JSON.stringify(answer)+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                        '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                    '</div>'+
                     '</div>'+
                 '</div>';
 
                 if (answer.orderId == question.answers.length){
                     questionKey = questionKey +
                     '<div id="icon-plus-question-'+question.orderId+'" class="span3">'+
-                        '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
+                        '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
                         '<div style="clear:both;"></div>'+
                     '</div>';
-                }
-            questionKey = questionKey +'</div>';
-
+                }            
         }
 
     questionKey = questionKey +'</div>'+
+				'</div>';
 
-        '<div id="icon-plus-poll" class="span3">'+
+    questionKey1 = '<div id="icon-plus-poll" class="span3">'+
             '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>'+
             '<div style="clear:both;"></div>'+
         '</div>';
+		
+	var d = document.createElement('div');
+	d.innerHTML = questionKey;
 
-    document.getElementById(key).innerHTML += questionKey;
+	var d1 = document.createElement('div');
+	d1.innerHTML = questionKey1;
+	
+	document.getElementById(key).appendChild(d.firstChild);
+	document.getElementById(key).appendChild(d1.firstChild);	
+	
+	var parent = document.getElementById(key);
+	
+    // update the Dom elements
+    var qorderId = 1;	
+    $(parent).children().each(function(){  		
+		if($(this).children()[1].children[0])	{	
+			console.log("qorderId: "+qorderId);
+			$(this).attr('id','form-group-question-'+qorderId);   		
+			
+			// Titre - $(this).children()[0]			
+			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    
+			
+			console.log("this.children()[0]: "+$(this).children()[0].innerHTML);	
+			$(this).children()[0].children[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-questionText';
+			$(this).children()[0].children[1].children[0].children[0].name = 'question-'+qorderId+'.questionText';		
+			
+			var formkey ='form-group-question-'+qorderId;
+			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
+			
+			// Type - $(this).children()[1]					
+			$(this).children()[1].children[1].id = 'fp-id_phases-'+qorderId+'-questionType';
+			$(this).children()[1].children[1].name = 'question-'+qorderId+'.questionType';	
+			
+						
+			// Mandatory - $(this).children()[2]					
+			$(this).children()[2].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-mandatory';
+			$(this).children()[2].children[0].children[0].name = 'question-'+qorderId+'.mandatory';		
+						
+			// Choices - $(this).children()[3]									
+			$(this).children()[3].id = 'fp-phase-qc-'+qorderId;
+			var node = $(this).children()[3];			
+			// update the Dom elements
+			var qcorderId = 1;
+			var answers = questions[qorderId-1].answers;
+			$(node).children().each(function(){		      	
+				if($(this).children()[1].children[0])	{		
+					console.log("qcorderId: "+qcorderId);
+					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
+					console.log("before this.children(): "+$(this).children()[0].innerHTML);		
+					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
+					console.log("after this.children(): "+$(this).children()[0].innerHTML);
+										
+					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
+					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+							
+					
+					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
+					console.log();
+					console.log("questions[qorderId]: "+JSON.stringify(questions[0]));	
+					console.log("@@@@@@@@@@@@@ questions length: "+questions.length);
+					console.log("@@@@@@@@@@@@@ qcorderId: "+qcorderId);		
+					var orderId = qcorderId; 	
+					var orderIdQ = qorderId;					
+					$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
+					
+					qcorderId++;
+				}else{
+					$(this).attr('id','icon-plus-question-'+qorderId); 		
+					var formkey ='fp-phase-qc-'+qorderId;
+					console.log("formkey: "+formkey);
+					console.log("answers: "+answers);
+					var orderId = qorderId;
+					$(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };								
+				}
+			});
+			
+			qorderId++;
+		}
+	});
+	
 
 };
 
-
-
+/* Update the appearance of question when the question type is changed
+*/
+function changeType(questionType, key, qorderId) { 
+    var elem = document.getElementById(key);	    
+	if(questionType === 'FREETEXT') {
+			$(elem).children().each(function(){		
+                elem.removeChild(this);                
+			});                      
+	}else {
+        console.log("elem.children() :"+$(elem).children().length);
+		if($(elem).children().length == 0){
+            var question = {"questionText":"","orderId":qorderId,"questionType":"CHECKBOX","mandatory":true,"mediaURLs":[""],"answers":[{"answerText":"","orderId":1,"mediaURL":"","freetextAnswer":false},{"answerText":"","orderId":2,"mediaURL":"","freetextAnswer":false}]};
+            console.log();
+            var questionKey="";
+                for(ind=0;ind<question.answers.length;ind++){
+                    answer = question.answers[ind];
+                    questionKey = '<div id="form-group-question-'+question.orderId+'.choice-'+answer.orderId+'" class="form-group">'+
+                        '<label>'+
+                            'Choice '+answer.orderId+
+                            '<br>'+
+                        '</label>'+
+                        '<div style="position:relative;">'+
+                            '<div style="margin-right: 44px;">'+
+                                '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-choice-'+answer.orderId+'.answerText" maxlength="80" name="question-'+question.orderId+'.choice-'+answer.orderId+'.answerText" type="text" value="" //>'+
+                            '</div>'+
+                            '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
+                                '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                            '</div>'+
+                            '</div>'+
+                        '</div>';
+                        
+                        var d = document.createElement('div');
+                        d.innerHTML = questionKey;
+                        document.getElementById(key).appendChild(d.firstChild);  
+                
+                        if (answer.orderId == question.answers.length){
+                            questionKey ='<div id="icon-plus-question-'+question.orderId+'" class="span3">'+
+                                '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
+                                '<div style="clear:both;"></div>'+
+                            '</div>';                            
+                            var d = document.createElement('div');
+                            d.innerHTML = questionKey;
+                            document.getElementById(key).appendChild(d.firstChild);  
+                
+                        }            
+                }                 
+        }       
+    }
+}
 </script>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=drawing"></script>
@@ -229,6 +513,7 @@ function addQuestion(questions, key) {
       var selectedColor;
       var colorButtons = {};
 	  var geocoder = new google.maps.Geocoder();
+      var defaultLatLng = new google.maps.LatLng(52.520, 13.404);
 
       function clearSelection() {
         if (selectedShape) {
@@ -337,7 +622,7 @@ function addQuestion(questions, key) {
         var elem = document.getElementById("geofenceLocation");
         elem.parentNode.removeChild(elem);
 
-        geofenceKey = '<input type="hidden" id="geofenceLocation" name="geofenceLocation" value="'+wktFormat+'"">';
+        geofenceKey = '<input type="hidden" id="geofenceLocation" name="geofenceLocation" value="'+wktFormat+'""/>';
         document.getElementById("field-hide").innerHTML += geofenceKey;
 
 	}
@@ -352,7 +637,8 @@ function addQuestion(questions, key) {
 		if(center.lat() && center.lng()) {
 			map.setCenter(center);
 		}else {
-			setFocusByLabel("berlin");
+			//setFocusByLabel("berlin");
+            map.setCenter(defaultLatLng);
 		}
 	}
 
@@ -417,6 +703,11 @@ function addQuestion(questions, key) {
           zoomControl: true
         });
 
+        $('.tabs a[href="#participation"]').click(function(){
+           $(this).tab('show');           
+           initialize();
+        });        
+        
         var polyOptions = {
           strokeWeight: 0,
           fillOpacity: 0.45,
@@ -471,7 +762,8 @@ function addQuestion(questions, key) {
 
         var geofenceLocation = '{{poll.geofenceLocation}}';
         if(!geofenceLocation){
-		    setFocusByLabel("Berlin", map);
+		    //setFocusByLabel("Berlin", map);
+            map.setCenter(defaultLatLng);
 		}else{
 		    drawLocation(geofenceLocation);
             //var newShape = geofenceLocation;
@@ -479,7 +771,7 @@ function addQuestion(questions, key) {
            // setSelection(newShape);
 		}
 
-		setFocusByLabel("Berlin", map);
+		//setFocusByLabel("Berlin", map);
         // Clear the current selection when the drawing mode is changed, or when the
         // map is clicked.
         google.maps.event.addListener(drawingManager, 'drawingmode_changed', clearSelection);
@@ -530,19 +822,19 @@ function addQuestion(questions, key) {
 <!--Description section -->
 <div class="phase-form">
     <h5>
-        <a href="#fp-phase-1" class="collapse" data-toggle="collapse">
-            Description
+        <a href="#fp-phase-1"  class="collapse collapsed" data-toggle="collapse" aria-expanded="false">
+            Poll: Description            
             <i class="fa fa-chevron-up pull-right"></i>
         </a>
     </h5>
 
-    <div class="single-phase collapse in" id="fp-phase-1">
+    <div class="single-phase collapse" id="fp-phase-1" aria-expanded="false" style="height: 0px;">
         <div class="form-group ">
             <label>
                 Title
                 <br>
             </label>
-            <input class="form-control" id="fp-id_phases-0-title" maxlength="80" name="title" type="text" value="{{poll.title}}">
+            <input class="form-control" id="fp-id_phases-0-title" maxlength="80" name="title" type="text" value="{{poll.title}}" />
 
         </div>
         <div class="form-group ">
@@ -566,29 +858,8 @@ function addQuestion(questions, key) {
                 Conclude message
                 <br>
             </label>
-            <input class="form-control" id="fp-id_phases-0-concludeMessage" maxlength="80" name="concludeMessage" type="text" value="{{poll.concludeMessage}}">
+            <input class="form-control" id="fp-id_phases-0-concludeMessage" maxlength="80" name="concludeMessage" type="text" value="{{poll.concludeMessage}}" />
 
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group ">
-                    <label>
-                        Start date
-                        <br>
-                    </label>
-                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.startTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="fp-id_phases-0-start_date" name="startTime" type="text" value="" readonly="readonly">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group ">
-                    <label>
-                        End date
-                        <br>
-                    </label>
-                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.endTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="fp-id_phases-0-end_date" name="endTime" type="text" value="" readonly="readonly">
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -597,13 +868,13 @@ function addQuestion(questions, key) {
 <!-- Questions section -->
 <div class="phase-form">
     <h5>
-        <a href="#fp-phase-2" class="collapse" data-toggle="collapse">
-            Questions
+        <a href="#fp-phase-2" class="collapse collapsed" data-toggle="collapse" aria-expanded="false">
+            Poll: Questions
             <i class="fa fa-chevron-up pull-right"></i>
         </a>
     </h5>
 
-    <div class="single-phase collapse in" id="fp-phase-2">
+    <div class="single-phase collapse" id="fp-phase-2" aria-expanded="false" style="height: 0px;">
     {% for question in poll.questions %}
         <div id="form-group-question-{{question.orderId}}">
         <div class="form-group">
@@ -613,10 +884,10 @@ function addQuestion(questions, key) {
             </label>
             <div style="position:relative;">
                 <div style="margin-right: 44px;">
-                    <input class="form-control choice" id="fp-id_phases-{{question.orderId}}-questionText" maxlength="80" name="question-{{question.orderId}}.questionText" type="text" value="{{question.questionText}}">
+                    <input class="form-control choice" id="fp-id_phases-{{question.orderId}}-questionText" maxlength="80" name="question-{{question.orderId}}.questionText" type="text" value="{{question.questionText}}" />
                 </div>
                 <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
-                    <i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick='removeQuestion({{questions|get_simplejson }},{{question|get_simplejson}}, "form-group-question-{{question.orderId}}")' tabindex="-1"></i>
+                    <i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick='removeQuestion({{questions|get_simplejson }},{{question.orderId}}, "form-group-question-{{question.orderId}}")' tabindex="-1"></i>
                 </div>
             </div>
 
@@ -627,7 +898,7 @@ function addQuestion(questions, key) {
                 <br>
             </label>
             <!--<div class="form-control">-->
-            <select class="form-control select" id="fp-id_phases-{{question.orderId}}-questionType" name="question-{{question.orderId}}.questionType" >
+            <select class="form-control select" id="fp-id_phases-{{question.orderId}}-questionType" name="question-{{question.orderId}}.questionType" onchange='changeType(this.options[this.selectedIndex].value, "fp-phase-qc-{{question.orderId}}", {{question.orderId}})' >
                 <option value="CHECKBOX"  {% if question.questionType == 'CHECKBOX' %}selected{% endif %}>MULTIPLE</option>
                 <option value="RADIO"  {% if question.questionType == 'RADIO' %}selected{% endif %}>SINGLE</option>
                 <option value="FREETEXT"  {% if question.questionType == 'FREETEXT' %}selected{% endif %}>OPEN</option>
@@ -638,42 +909,39 @@ function addQuestion(questions, key) {
 
         <div class="form-group ">
             <label>
-                <input id="fp-id_phases-{{question.orderId}}-mandatory" name="question-{{question.orderId}}.mandatory" type="checkbox" value="" {% if question.mandatory == True %} checked="checked" {% endif %}>
+                <input id="fp-id_phases-{{question.orderId}}-mandatory" name="question-{{question.orderId}}.mandatory" type="checkbox" value="" {% if question.mandatory == True %} checked="checked" {% endif %} />
                 Mandatory
                 <br>
             </label>
         </div>
 
-        {% for answer in question.answers %}
+        <div id="fp-phase-qc-{{question.orderId}}">
+			{% for answer in question.answers %}
+			<div id="form-group-question-{{question.orderId}}.choice-{{answer.orderId}}" class="form-group">            
+				<label>
+					Choice {{answer.orderId}}
+					<br>
+				</label>
 
-        <div id="form-group-question-{{question.orderId}}.choice-{{answer.orderId}}" class="form-group">
-            <!--<div class="choice">-->
-            <label>
-                Choice {{answer.orderId}}
-                <br>
-            </label>
-
-            <div style="position:relative;">
-                <div style="margin-right: 44px;">
-                    <input class="form-control choice" id="fp-id_phases-{{question.orderId}}-choice-{{answer.orderId}}.answerText" maxlength="80" name="question-{{question.orderId}}.choice-{{answer.orderId}}.answerText" type="text" value="{{answer.answerText}}">
-                </div>
-                <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
-                    <i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='removeChoice({{question.answers|get_simplejson }},{{answer|get_simplejson}}, "form-group-question-{{question.orderId}}.choice-{{answer.orderId}}")' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>
-                </div>
-            </div>
-
+				<div style="position:relative;">
+					<div style="margin-right: 44px;">
+						<input class="form-control choice" id="fp-id_phases-{{question.orderId}}-choice-{{answer.orderId}}.answerText" maxlength="80" name="question-{{question.orderId}}.choice-{{answer.orderId}}.answerText" type="text" value="{{answer.answerText}}" />
+					</div>
+					<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
+						<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='removeChoice({{question.answers|get_simplejson }},{{answer.orderId}}, {{question.orderId}}, "form-group-question-{{question.orderId}}.choice-{{answer.orderId}}")' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled" >	</i>
+					</div>
+				</div>	
+			</div>
+			
             {% if answer.orderId == question.answers|length  %}
             <div id="icon-plus-question-{{question.orderId}}" class="span3">
-                <div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{question.answers|get_simplejson }},{{question.orderId}}, "form-group-question-{{question.orderId}}")' tabindex="-1" style="float:left;"></div>
+                <div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{question.answers|get_simplejson }},{{question.orderId}}, "fp-phase-qc-{{question.orderId}}")' tabindex="-1" style="float:left;"></div>
                 <div style="clear:both;"></div>
             </div>
-            {% endif %}
-        </div>
-
-        {% endfor %}
-
-    </div>
-
+            {% endif %}			
+			{% endfor %}								
+		</div>   
+		
         {% if question.orderId == poll.questions|length  %}
         <div id="icon-plus-poll" class="span3">
             <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
@@ -683,10 +951,9 @@ function addQuestion(questions, key) {
 
         <br>
         <br>
-    {% endfor %}
-
-    </div>
-
+		</div>		
+    {% endfor %}     
+	</div>
 </div>
 
 
@@ -694,8 +961,8 @@ function addQuestion(questions, key) {
 <!--Location section -->
 <div class="phase-form">
     <h5>
-        <a href="#fp-phase-3" class="collapse" data-toggle="collapse">
-            Location
+        <a href="#fp-phase-3" class="collapse collapsed" data-toggle="collapse">
+            Poll: Location
             <i class="fa fa-chevron-up pull-right"></i>
         </a>
     </h5>

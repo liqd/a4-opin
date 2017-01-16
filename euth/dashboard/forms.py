@@ -120,10 +120,8 @@ class ProjectForm(forms.ModelForm):
             'image': widgets.ImageInputWidget()
         }
 
-    def save(self, commit=True):
-	
-        print("save:"+ json.dumps(self.data))
-        
+    def send_to_flashpoll(self):
+        print("@@@@@In send_to_flashpoll")
         if 'save_draft' in self.data and self.data['current_preview']=='True':
             #Handling unpublish		
             url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
@@ -138,9 +136,9 @@ class ProjectForm(forms.ModelForm):
             print ("headers:"+ str(response.headers))
             print ("content:"+ str(response.text))              
         else:            
-
-            startTime = time.mktime(datetime.datetime.strptime(self.data['startTime'], "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(self.data['endTime'], "%d/%m/%Y %H:%M").timetuple())
+		        
+            startTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-start_date'], "%d/%m/%Y %H:%M").timetuple())
+            endTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-end_date'], "%d/%m/%Y %H:%M").timetuple())
 
             jsonGenerator = {}
             print("json:"+ json.dumps(jsonGenerator))
@@ -230,10 +228,19 @@ class ProjectForm(forms.ModelForm):
             print ("code:"+str(response.status_code))
             print ("headers:"+ str(response.headers))
             print ("content:"+ str(response.text))
-		
+            
+
+        
+    def save(self, commit=True):
+
+        print("save:"+ json.dumps(self.data))
+        #calling flashpoll service
+        self.send_to_flashpoll()
+       
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
+    
     def get_checkbox_label(self, name):
         checkbox_labels = {
             'is_public': _('Accessible to all registered users of OPIN.me')
@@ -259,7 +266,14 @@ class ProjectForm(forms.ModelForm):
         ])
         formsections['information'] = information_section
         return formsections
+        
 
+    def clean(self):	
+        print("@@@@@@@@@@@@@@@@@ Here 2")        
+        if 'title' not in self.data:
+            raise ValidationError('Title not found')
+
+        return self.cleaned_data        
 
 class PhaseForm(forms.ModelForm):
 
@@ -374,6 +388,12 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 phase.save()
 
         return objects
+        
+    def clean(self):	
+        print("@@@@@@@@@@@@@@@@@ Here")
+
+
+        return self.cleaned_data
 
 
 class RequestModerationForm(forms.ModelForm):
@@ -464,7 +484,11 @@ class OrganisationForm(forms.ModelForm):
         ('description', forms.CharField(
             widget=forms.Textarea, help_text=_(
                 'More info about the organisation / '
-                'Short text for organisation overview')))]
+                'Short text for organisation overview'))),
+        ('startTime', forms.CharField(
+        help_text=_(
+            'startTime '
+            'your startTime')))]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
 
     class Meta:
@@ -554,13 +578,27 @@ class OrganisationForm(forms.ModelForm):
                     instance.save()
         return instance
 
-    def clean(self):
+    def clean(self):	        
+        #clean_flashpoll(self)	
         for lang_code in self.languages:
             if lang_code in self.data:
-                for fieldname in self.translated_fields:
+                for fieldname in self.translated_fields:                    
+                    print("fieldname:"+ str(fieldname))
                     identifier = self._get_identifier(lang_code, fieldname[0])
                     data = self.cleaned_data
                     if identifier not in data or not data[identifier]:
                         msg = 'This field is required'
                         raise ValidationError((identifier, msg))
+
+        return self.cleaned_data
+
+		
+		
+    def clean_flashpoll(self):
+        if not "startTime" in self.data:
+            raise ValidationError({
+                'startTime': _('End date can not be smaller'
+                              'than the start date.')
+            })	
+            
         return self.cleaned_data
