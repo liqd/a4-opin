@@ -106,6 +106,9 @@
                                 </div>
                             </div>
                         </div>
+                        {% if form.instance.offlinephase %}
+                        <a href="{% url 'offlinephase-edit' form.instance.offlinephase.pk %}">{% trans 'Edit Offlinephase documentation' %}</a>
+                        {% endif %}
                     </div>
             </div>
             {% endfor %}

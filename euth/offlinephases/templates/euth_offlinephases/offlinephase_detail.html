@@ -3,6 +3,7 @@
 
 {% block phase_content %}
 <div class="container-narrow">
+<a href="{% url 'offlinephase-edit' object.pk %}">{% trans 'Edit' %}</a>
 {{ object.text | oembed_html }}
 </div>
 {% endblock %}
