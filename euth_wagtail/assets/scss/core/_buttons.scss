@@ -40,6 +40,7 @@
 
 .btn-sm {
     @include rem(padding, 7px 15px);
+    text-transform: capitalize;
 }
 
 .btn-hover-primary {
