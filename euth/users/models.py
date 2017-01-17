@@ -157,7 +157,8 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     @property
     def avatar(self):
-        return self._avatar
+        if self._avatar:
+            return self._avatar
 
     @property
     def default_avatar(self):
