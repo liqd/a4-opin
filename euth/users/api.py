@@ -1,3 +1,4 @@
+from django.db.models.functions import Lower
 from rest_framework import filters, permissions, serializers, viewsets
 
 from .models import User
@@ -8,7 +9,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     A simple ViewSet for viewing accounts.
     """
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by(Lower('username'))
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticated,)
     filter_backends = (filters.SearchFilter,)
