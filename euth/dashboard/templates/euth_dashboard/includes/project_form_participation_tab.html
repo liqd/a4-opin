@@ -21,12 +21,9 @@
             </div>
             {% endfor %}
 
-            <a href="">{% trans 'add offline phase documentation'%}</a>
+            <a class="add-offline-phase" href="">{% trans 'add offline phase documentation'%}</a>
 
             {% for form in form.phases %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
 
                 <div class="phase-form">
                     <h5>
@@ -51,11 +48,7 @@
                         {% if field != form.start_date and field != form.end_date %}
                         <div class="form-group {% if field.errors %} has-error{% endif %}">
                             <label>
-                                {{ field.label }} {% trans 'of Phase '%} {{ forloop.parentloop.counter }}:
-                                {% if form.instance.id %}
-                                {{ form.instance.content.name }}
-                                {% else %}
-                                {{ form.initial.phase_content.name }}{% endif %}<br />
+                                {{ field.label }} {% trans 'of Phase '%}: <br />
                                 {% if field.help_text %}
                                 <p><i>{{ field.help_text }}</i></p>
                                 {% endif %}
@@ -72,12 +65,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group {% if form.start_date.errors %} has-error{% endif %}">
                                     <label>
-                                        {{ form.start_date.label }} {% trans 'of Phase: '%} {{ forloop.counter }}:
-                                        {% if form.instance.id %}
-                                        {{ form.instance.content.name }}
-                                        {% else %}
-                                        {{ form.initial.phase_content.name }}
-                                        {% endif %}</br>
+                                        {{ form.start_date.label }} {% trans 'of Phase '%}:</br>
                                         {% if form.start_date.help_text %}
                                         <i>{{ form.start_date.help_text }}</i><br />
                                         {% endif %}
@@ -91,12 +79,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group {% if form.end_date.errors %} has-error{% endif %}">
                                     <label>
-                                        {{ form.end_date.label }} {% trans 'of Phase '%} {{ forloop.counter }}:
-                                        {% if form.instance.id %}
-                                        {{ form.instance.content.name }}
-                                        {% else %}
-                                        {{ form.initial.phase_content.name }}
-                                        {% endif %}<br />
+                                        {{ form.end_date.label }} {% trans 'of Phase '%}:<br />
                                         {% if form.end_date.help_text %}
                                         <i>{{ form.end_date.help_text }}</i><br />
                                         {% endif %}
@@ -108,12 +91,15 @@
                                 </div>
                             </div>
                         </div>
+                        {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                        {% endfor %}
                         {% if form.instance.offlinephase %}
                         <a href="{% url 'offlinephase-edit' form.instance.offlinephase.pk %}">{% trans 'Edit Offlinephase documentation' %}</a>
                         {% endif %}
                     </div>
             </div>
-            <a class="" href="">{% trans 'add offline phase documentation'%}</a>
+            <a class="add-offline-phase" href="">{% trans 'add offline phase documentation'%}</a>
             {% endfor %}
         </div>
     </div>

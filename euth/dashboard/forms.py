@@ -249,16 +249,8 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         phases = objects['phases']
 
-        phase_list = []
-
-        for t in self.blueprint.content:
-            phase_list.append({'phase_content': t})
-
-        for index, val in enumerate(zip(phases, phase_list)):
-            phase = val[0]
-            phase_content = val[1]
+        for index, phase in enumerate(phases):
             phase.module = module
-            phase.type = phase_content['phase_content'].identifier
             phase.weight = index
             if commit:
                 phase.save()
