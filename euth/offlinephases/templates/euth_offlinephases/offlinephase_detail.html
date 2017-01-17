@@ -1,9 +1,16 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n rules idea_tags micawber_tags %}
+{% load i18n rules idea_tags micawber_tags rules %}
 
 {% block phase_content %}
-<div class="container-narrow">
-<a href="{% url 'offlinephase-edit' object.pk %}">{% trans 'Edit' %}</a>
+<div class="container-narrow offline-phase">
+
+{% has_perm 'euth_offlinephases.modify_offlinephase' request.user object as is_moderator %}
+{% if is_moderator %}
+<a href="{% url 'offlinephase-edit' object.pk %}" class="btn btn-dark btn-primary btn-sm">
+    <i class="fa fa-edit"></i> {% trans 'Edit documentation' %}
+</a>
+{% endif %}
+
 {{ object.text | oembed_html }}
 </div>
 {% endblock %}
