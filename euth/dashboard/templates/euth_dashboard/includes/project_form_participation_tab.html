@@ -1,4 +1,4 @@
-{% load i18n widget_tweaks %}
+{% load i18n widget_tweaks form_tags %}
 
 <article id="participation" class="tab-panel">
     {{ form.phases.management_form }}
@@ -21,8 +21,13 @@
             </div>
             {% endfor %}
 
-            <a class="add-offline-phase" href="">{% trans 'add offline phase documentation'%}</a>
+            {% if not form.phases.0.instance.type == 'euth_offlinephases:000:offline' %}
+            <a class="add-offline-phase btn btn-gray btn-primary btn-sm" href="">
+                <i class="fa fa-plus"></i> {% trans 'add offline phase'%}
+            </a>
+            {% endif %}
 
+            {% with form.phases as phase_forms %}
             {% for form in form.phases %}
 
                 <div class="phase-form">
@@ -99,8 +104,14 @@
                         {% endif %}
                     </div>
             </div>
-            <a class="add-offline-phase" href="">{% trans 'add offline phase documentation'%}</a>
+            {% next phase_forms forloop.counter0 as next_element %}
+            {% if not form.instance.type == 'euth_offlinephases:000:offline' and not next_element.instance.type == 'euth_offlinephases:000:offline' %}
+            <a class="add-offline-phase btn btn-gray btn-primary btn-sm" href="">
+                <i class="fa fa-plus"></i> {% trans 'add offline phase'%}
+            </a>
+            {% endif %}
             {% endfor %}
+            {% endwith %}
         </div>
     </div>
 </article>
