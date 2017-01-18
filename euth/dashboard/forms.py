@@ -143,12 +143,13 @@ class PhaseForm(forms.ModelForm):
 
     class Meta:
         model = phase_models.Phase
-        exclude = ('module', 'weight')
+        exclude = ('module', )
 
         widgets = {
             'end_date': widgets.DateTimeInput(),
             'start_date': widgets.DateTimeInput(),
-            'type': forms.HiddenInput()
+            'type': forms.HiddenInput(),
+            'weight': forms.HiddenInput(),
         }
 
 
@@ -191,6 +192,27 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         super().__init__(*args, **kwargs)
 
+    def save(self, commit=True):
+        objects = super().save(commit=False)
+        project = objects['project']
+        phases = objects['phases']
+
+        if commit:
+            project.save()
+
+        module = project.module_set.first()
+
+        for phase in module.phase_set.all():
+            phase.delete()
+
+        for phase in phases:
+            if not phase.pk:
+                phase.module = module
+            if commit:
+                phase.save()
+                if phase.type.startswith('euth_offlinephases'):
+                    Offlinephase.objects.get_or_create(phase=phase)
+
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
@@ -198,7 +220,9 @@ class ProjectCreateForm(multiform.MultiModelForm):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
         kwargs['phases__initial'] = [
             {'phase_content': t,
-             'type': t.identifier} for t in blueprint.content
+             'type': t.identifier,
+             'weight': index
+             } for index, t in enumerate(blueprint.content)
         ]
 
         self.organisation = organisation
@@ -251,7 +275,6 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         for index, phase in enumerate(phases):
             phase.module = module
-            phase.weight = index
             if commit:
                 phase.save()
                 if phase.type.startswith('euth_offlinephases'):
