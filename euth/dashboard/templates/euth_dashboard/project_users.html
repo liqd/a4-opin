@@ -3,11 +3,45 @@
 
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{% trans 'Manage user of ' %}{{ project.name }}</h1>
+            <form method="POST">
+
+{% if not project.is_public %}
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
+        <li role="presentation"><a href="#moderators" aria-controls="moderators" role="tab" data-toggle="tab">Moderators</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="members">
+
+{% endif %}
+            {{ form.mailinvites.as_p }}
+            <h2 class="sans-serif">Members</h2>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.moderators.user.id_for_label }}">{{ form.moderators.user.label }}</label>
+                    <p class='form-help-text'>{{ form.moderators.user.help_text }}</p>
+                    {{ form.moderators.user|add_class:'form-control' }}
+                    {{ form.moderators.user.errors }}
+                </div>
+                {{ form.moderators.media }}
+                <button type="submit"></button>
+    {{ project.moderators.all }}
+{% if not project.is_public %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="moderators">
+            <h2 class="sans-serif">Moderators</h2>
+        </div>
+    </div>
+{% endif %}
+{{ form.requests.management_form }}
+{{ form.invites.management_form }}
+{{ form.users.management_form }}
+
 <p>
     <a href="{% url 'dashboard-project-invite' organisation_slug=view.organisation.slug slug=project.slug %}" class="btn btn-primary">{% trans 'Invite users' %}</a>
 </p>
 {% if form.requests.forms or form.invites.forms or form.users.forms %}
-<form method="POST">
     {% csrf_token %}
     <div class="table-list">
         <div class="table-list-head">
@@ -18,7 +52,6 @@
             </div>
         </div>
         <div class="table-list-body">
-            {{ form.requests.management_form }}
             {% for form in form.requests.forms %}
                 {{ form.id }}
                 <div class="table-list-row tile-list row">
@@ -36,7 +69,6 @@
                     </div>
                 </div>
             {% endfor %}
-            {{ form.invites.management_form }}
             {% for form in form.invites.forms %}
                 {{ form.id }}
                 <div class="table-list-row tile-list row">
@@ -52,7 +84,6 @@
                     </div>
                 </div>
             {% endfor %}
-            {{ form.users.management_form }}
             {% for form in form.users.forms %}
                 {{ form.id }}
                 <div class="table-list-row tile-list row">

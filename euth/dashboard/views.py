@@ -238,7 +238,6 @@ class DashboardProjectInviteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
                                  generic.FormView):
-    form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
     permission_required = 'euth_organisations.initiate_project'
@@ -302,6 +301,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
             project_participant__slug=self.kwargs['slug']
         )
         kwargs['users__queryset'] = qs
+        kwargs['moderators__instance'] = self.project
         kwargs['project'] = self.project
         return kwargs
 

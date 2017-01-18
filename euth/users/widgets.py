@@ -12,8 +12,11 @@ class UserSearchInput(TextInput):
         )
 
     def render(self, name, value, attrs=None):
-        if attrs:
+        if attrs and hasattr(attrs, 'class'):
             attrs['class'] += ' typeahead'
+        else:
+            attrs['class'] = 'typeahead'
+
         input_field = super().render(name, value, attrs)
 
         template = get_template('euth_users/user_search.html')

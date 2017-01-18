@@ -17,6 +17,7 @@ from euth.contrib import widgets
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.users import models as user_models
+from euth.users.fields import UserSearchField
 
 
 class ProfileForm(forms.ModelForm):
@@ -287,6 +288,14 @@ class ParticipantsModerationForm(forms.ModelForm):
         fields = ['delete']
 
 
+class AddModeratorForm(forms.ModelForm):
+    user = UserSearchField(required=False)
+
+    class Meta:
+        model = project_models.Project
+        fields = ('user',)
+
+
 class ProjectUserForm(multiform.MultiModelForm):
     base_forms = [
         ('requests', forms.modelformset_factory(
@@ -301,6 +310,8 @@ class ProjectUserForm(multiform.MultiModelForm):
             user_models.User,
             ParticipantsModerationForm,
             extra=0)),
+        ('moderators',
+            AddModeratorForm,),
     ]
 
     def __init__(self, *args, **kwargs):
@@ -323,6 +334,10 @@ class ProjectUserForm(multiform.MultiModelForm):
                 data = form.cleaned_data
                 if 'delete' in data and data['delete']:
                     self.project.participants.remove(form.instance)
+            if self['moderators'].changed_data:
+                self['moderators'].instance.moderators.add(
+                    self['moderators'].cleaned_data['user']
+                )
 
 
 class OrganisationForm(forms.ModelForm):
