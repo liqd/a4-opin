@@ -8,27 +8,43 @@ window.jQuery(document).ready(function () {
     newElement.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
     newElement.find('.collapse').eq(0).text('Offline Phase ').append('<i class="fa fa-chevron-up pull-right"></i>')
 
+    var accordion = newElement.find('.collapse')
+    accordion.eq(0).attr('href', '#phase-' + (parseInt(total) + 1))
+    accordion.eq(1).attr('id', 'phase-' + (parseInt(total) + 1))
+
+    newElement.find(':input').each(function () {
+      var currentType = $(this).attr('name').split('-')[2]
+      if (currentType !== 'type') {
+        $(this).val('')
+      }
+      if (currentType === 'start_date' || currentType === 'end_date') {
+        $(this).flatpickr()
+      }
+      if (currentType === 'id') {
+        $(this).removeAttr('value')
+      }
+    })
+
     $(target).after(newElement)
     $(target).remove()
 
     $('.phase-form').each(function (index) {
-      var accordion = $(this).find('.collapse')
-      accordion.eq(0).attr('href', '#phase-' + index)
-      accordion.eq(1).attr('id', 'phase-' + index)
-
       $(this).find(':input').each(function () {
         var currentNumber = $(this).attr('name').split('-')[1]
+        var currentType = $(this).attr('name').split('-')[2]
         var name = $(this).attr('name').replace('-' + currentNumber + '-', '-' + index + '-')
         var id = 'id_' + name
         $(this).attr({'name': name, 'id': id})
+        if (currentType === 'weight') {
+          $(this).val(index)
+        }
       })
     })
 
     total++
 
     $('#id_' + type + '-TOTAL_FORMS').val(total)
-
-    $('.flatpickr').flatpickr()
+    $('#id_' + type + '-INITIAL_FORMS').val(0)
   }
 
   $('.add-offline-phase').click(function (e) {
