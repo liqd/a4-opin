@@ -69,6 +69,21 @@
     }
 }
 
+.btn-gray {
+    background-color: $gray-lighter;
+    color: $gray-darker;
+    @include rem(font-size, 12px);
+
+    &.btn-primary i {
+        color: $gray-darker;
+    }
+
+    &:hover,
+    &:focus {
+        color: $gray-light;
+    }
+}
+
 .btn-ghost {
     border: 1px solid currentColor;
     text-transform: uppercase;
