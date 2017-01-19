@@ -1,5 +1,7 @@
 from django import template
 
+from adhocracy4 import phases
+
 register = template.Library()
 
 
@@ -19,3 +21,9 @@ def next(some_list, current_index):
         return some_list[int(current_index) + 1]
     except:
         return ''
+
+
+@register.assignment_tag
+def getPhaseName(type):
+    name = phases.content.__getitem__(type).name
+    return name

@@ -37,10 +37,11 @@
                             {% if form.instance.id %}
                             {{ form.instance.content.name }}
                             {% else %}
-                            {{ form.initial.phase_content.name }}{% endif %}
+                            {% getPhaseName form.type.value as phasename %}
+                            {{ phasename }}
+                            {% endif %}
                             {% if form.errors %}<span class="info-number">{{ form.errors|length }}</span>{% endif %}
                             <i class="fa fa-chevron-up pull-right"></i>
-
                         </a>
                     </h5>
                     {% for error in form.non_field_errors %}
