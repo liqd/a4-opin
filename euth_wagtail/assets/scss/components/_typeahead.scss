@@ -1,0 +1,37 @@
+.twitter-typeahead {
+    width: 100%;
+}
+
+.tt-menu {
+    background-color: #fff;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    right: 0;
+}
+
+.tt-hint {
+    color: $gray;
+}
+
+@mixin select-state {
+    background-color: $gray-lighter;
+}
+
+.tt-suggestion {
+    @include rem(padding, 5px 10px);
+    border-bottom: 1px solid $gray-light;
+
+    &:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    &:hover {
+        @include select-state;
+    }
+}
+
+.tt-cursor {
+    @include select-state;
+}
+
+
