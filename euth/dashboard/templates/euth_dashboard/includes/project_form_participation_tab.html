@@ -100,7 +100,7 @@
                         {{ hidden }}
                         {% endfor %}
                         {% if form.instance.offlinephase %}
-                        <a href="{% url 'offlinephase-edit' form.instance.offlinephase.pk %}">{% trans 'Edit Offlinephase documentation' %}</a>
+                        <a class="update-offline-documentation" href="{% url 'offlinephase-edit' form.instance.offlinephase.pk %}">{% trans 'Edit Offlinephase documentation' %}</a>
                         {% endif %}
                     </div>
             </div>
