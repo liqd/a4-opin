@@ -140,6 +140,7 @@ class ProjectForm(forms.ModelForm):
 
 
 class PhaseForm(forms.ModelForm):
+    delete = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = phase_models.Phase
@@ -149,7 +150,7 @@ class PhaseForm(forms.ModelForm):
             'end_date': widgets.DateTimeInput(),
             'start_date': widgets.DateTimeInput(),
             'type': forms.HiddenInput(),
-            'weight': forms.HiddenInput(),
+            'weight': forms.HiddenInput()
         }
 
 
@@ -193,25 +194,46 @@ class ProjectUpdateForm(multiform.MultiModelForm):
         super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
+
         objects = super().save(commit=False)
+
         project = objects['project']
-        phases = objects['phases']
+        module_settings = objects['module_settings']
 
         if commit:
             project.save()
+            module_settings.save()
 
         module = project.module_set.first()
 
-        for phase in module.phase_set.all():
-            phase.delete()
+        cleaned_data = self._combine('cleaned_data', call=False,
+                                     call_kwargs={'commit': commit})
+        phases = cleaned_data['phases']
 
         for phase in phases:
-            if not phase.pk:
-                phase.module = module
-            if commit:
-                phase.save()
-                if phase.type.startswith('euth_offlinephases'):
-                    Offlinephase.objects.get_or_create(phase=phase)
+            delete = phase['delete']
+            del phase['delete']
+            if phase['id']:
+                phase_object = phase['id']
+                del phase['id']
+                if not delete:
+                    for key in phase:
+                        value = phase[key]
+                        setattr(phase_object, key, value)
+                    if commit:
+                        phase_object.save()
+                else:
+                    if commit:
+                        phase_object.delete()
+            else:
+                if not delete:
+                    del phase['id']
+                    new_phase = phase_models.Phase(**phase)
+                    new_phase.module = module
+                    if commit:
+                        new_phase.save()
+                        if new_phase.type.startswith('euth_offlinephases'):
+                            Offlinephase.objects.get_or_create(phase=new_phase)
 
 
 class ProjectCreateForm(multiform.MultiModelForm):

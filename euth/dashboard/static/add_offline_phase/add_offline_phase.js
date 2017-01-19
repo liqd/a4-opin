@@ -7,12 +7,11 @@ window.jQuery(document).ready(function () {
 
     newElement.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
     newElement.find('.collapse').eq(0).text('Offline Phase ').append('<i class="fa fa-chevron-up pull-right"></i>')
-
     newElement.find('.update-offline-documentation').remove()
 
     newElement.find(':input').each(function () {
       var currentType = $(this).attr('name').split('-')[2]
-      if (currentType !== 'type') {
+      if (currentType !== 'type' && currentType !== 'delete') {
         $(this).val('')
       }
       if (currentType === 'start_date' || currentType === 'end_date') {
@@ -51,10 +50,29 @@ window.jQuery(document).ready(function () {
     $('#id_' + type + '-INITIAL_FORMS').val(0)
   }
 
+  function deletePhase (phase) {
+    var input = $(phase).find('[id^="id_phases-"][id$="-delete"]')[0]
+    $(input).val(1)
+    var newElement = $('<a class="add-offline-phase btn btn-gray btn-primary btn-sm" href=""><i class="fa fa-plus"></i>add offline phase</a>')
+    newElement.click(function (e) {
+      e.preventDefault()
+      var phaseForm = $('.phase-form').first()
+      cloneMore(phaseForm, 'phases', e.target)
+      return false
+    })
+    $(phase).after(newElement)
+    $(phase).css('display', 'none')
+  }
+
   $('.add-offline-phase').click(function (e) {
     e.preventDefault()
     var phaseForm = $('.phase-form').first()
     cloneMore(phaseForm, 'phases', e.target)
     return false
+  })
+
+  $('.delete-offline-phase').click(function (e) {
+    e.preventDefault()
+    deletePhase(e.target.parentElement)
   })
 })

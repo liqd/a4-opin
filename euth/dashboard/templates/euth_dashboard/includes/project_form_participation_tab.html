@@ -30,10 +30,12 @@
             {% with form.phases as phase_forms %}
             {% for form in form.phases %}
 
-                <div class="phase-form">
+                <div class="phase-form" {% if form.delete.value == '1' %}style="display: none;"{% endif %}>
+                    {% if form.instance.id and form.instance.type == 'euth_offlinephases:000:offline' %}
+                    <a href="" class="delete-offline-phase">X</a>
+                    {% endif %}
                     <h5>
                         <a href="#phase-{{ forloop.counter }}" class="collapse collapsed" data-toggle="collapse">
-                            {% trans 'Phase '%} {{ forloop.counter }}:
                             {% if form.instance.id %}
                             {{ form.instance.content.name }}
                             {% else %}
