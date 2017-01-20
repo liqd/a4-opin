@@ -43,6 +43,11 @@ class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):
     slug_field = 'token'
     slug_url_kwarg = 'invite_token'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
     def form_valid(self, form):
         if form.is_accepted():
             form.instance.accept(self.request.user)

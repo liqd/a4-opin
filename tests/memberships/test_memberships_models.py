@@ -48,14 +48,14 @@ def test_invite_email(project, user):
 
 
 @pytest.mark.django_db
-def test_invate_accept(invite, user):
+def test_invite_accept(invite, user):
     invite.accept(user)
     assert not bool(models.Invite.objects.filter(pk=invite.pk))
     assert user in invite.project.participants.all()
 
 
 @pytest.mark.django_db
-def test_invate_reject(invite, user):
+def test_invite_reject(invite, user):
     invite.reject()
     assert not bool(models.Invite.objects.filter(pk=invite.pk))
     assert user not in invite.project.participants.all()
