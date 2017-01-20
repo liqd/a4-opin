@@ -108,6 +108,11 @@ module.exports = {
         from: './euth_wagtail/assets/icons/favicon.ico',
         to: 'images/',
         flatten: true
+      },
+      {
+        from: './euth_wagtail/assets/scss/wagtail_admin',
+        to: '',
+        flatten: true
       }
 
     ])

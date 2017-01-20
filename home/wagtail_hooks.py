@@ -7,4 +7,4 @@ from wagtail.wagtailcore import hooks
 def editor_css():
     return format_html('<link rel="stylesheet" href="'
                        + settings.STATIC_URL
-                       + 'scss/wagtail_admin/wagtail_admin.css">')
+                       + 'wagtail_admin.css">')
