@@ -24,7 +24,7 @@ class CollectPhase(phases.PhaseContent):
 class IssuePhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'issue'
-    weight = 10
+    weight = 20
     view = views.MapIdeaListView
 
     name = _('Issue Phase')
@@ -41,7 +41,7 @@ class IssuePhase(phases.PhaseContent):
 class RatingPhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'rating'
-    weight = 10
+    weight = 30
     view = views.MapIdeaListView
 
     name = _('Rating Phase')
@@ -55,3 +55,4 @@ class RatingPhase(phases.PhaseContent):
 
 phases.content.register(IssuePhase())
 phases.content.register(CollectPhase())
+phases.content.register(RatingPhase())
