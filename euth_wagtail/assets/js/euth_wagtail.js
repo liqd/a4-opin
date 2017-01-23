@@ -16,7 +16,7 @@ $(document).ready(function () {
     }
   });
 
-  $('.owl-carousel').slick({
+  $('.carousel').slick({
     centerMode: false,
     slidesToShow: 4,
     slidesToScroll: 4,
