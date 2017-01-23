@@ -5,26 +5,10 @@ from adhocracy4 import phases
 from . import apps, models, views
 
 
-class CollectPhase(phases.PhaseContent):
-    app = apps.MapConfig.label
-    phase = 'collect'
-    weight = 10
-    view = views.MapIdeaListView
-
-    name = _('Collect Phase')
-    description = _('Add and comment new ideas on a map.')
-    module_name = _('ideas collection')
-
-    features = {
-        'crud': (models.MapIdea,),
-        'comment': (models.MapIdea,),
-    }
-
-
 class IssuePhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'issue'
-    weight = 20
+    weight = 10
     view = views.MapIdeaListView
 
     name = _('Issue Phase')
@@ -35,6 +19,22 @@ class IssuePhase(phases.PhaseContent):
         'crud': (models.MapIdea,),
         'comment': (models.MapIdea,),
         'rate': (models.MapIdea,),
+    }
+
+
+class CollectPhase(phases.PhaseContent):
+    app = apps.MapConfig.label
+    phase = 'collect'
+    weight = 20
+    view = views.MapIdeaListView
+
+    name = _('Collect Phase')
+    description = _('Add and comment new ideas on a map.')
+    module_name = _('ideas collection')
+
+    features = {
+        'crud': (models.MapIdea,),
+        'comment': (models.MapIdea,),
     }
 
 
