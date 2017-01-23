@@ -39,25 +39,40 @@ h1.dashboard-title {
     }
 }
 
-.blueprint-tile {
+.blueprint-list {
+    display: flex;
+    flex-wrap: wrap;
 
+    > div {
+        margin: 1em 0;
+    }
+}
+
+.blueprint-tile {
+    height: 100%;
     border: solid 1px rgba(0, 0, 0, 0.1);
-    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
 
     > h2 {
         text-align: center;
-        line-height: 2em;
+        @include rem(padding, 15px 0);
         margin: 0 0 0 0;
         background-color: $brand-primary;
         color: #fff;
     }
+}
 
-    > .blueprint-description {
-        margin: 1em;
-    }
+.blueprint-description {
+    margin: 1em;
+}
 
-    > .blueprint-footer {
-        text-align: center;
-        margin: 1em;
-    }
+.blueprint-phases {
+    flex-grow: 1;
+    margin: 0 1em;
+}
+
+.blueprint-footer {
+    text-align: center;
+    margin: 1em;
 }

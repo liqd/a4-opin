@@ -79,7 +79,7 @@ def test_initiator_create_project(client, organisation):
     assert project.is_draft
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 2
+    assert len(project.module_set.first().phase_set.all()) == 1
 
 
 @pytest.mark.django_db
