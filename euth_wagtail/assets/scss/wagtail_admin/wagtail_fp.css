@@ -145,3 +145,35 @@ textarea.span3,
   width: 65.95744680851064%;
   *width: 65.90425531914893%;
 }
+
+    #map, html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    }
+
+    #panel {
+    width: 200px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    float: right;
+    margin: 10px;
+    }
+
+    #color-palette {
+    clear: both;
+    }
+
+    .color-button {
+    display: none;
+    width: 14px;
+    height: 14px;
+    font-size: 0;
+    margin: 2px;
+    float: left;
+    cursor: pointer;
+    }
+
+    #delete-button {
+    margin-top: 5px;
+    }
