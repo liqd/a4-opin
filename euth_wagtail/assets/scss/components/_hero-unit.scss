@@ -44,6 +44,10 @@
     @media screen and (max-width: $screen-xs-max) {
         @include rem(padding, 40px 0 0);
         display: block;
+
+        .herounit-links {
+            @include rem(margin-top, 10px);
+        }
     }
 
     .herounit-header {
