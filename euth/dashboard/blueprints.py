@@ -16,19 +16,57 @@ ProjectBlueprint = namedtuple(
 blueprints = [
     ('ideas-collection-1',
      ProjectBlueprint(
-         title=_('Idea collection 1'),
-         description=_('Collect ideas'),
+         title=_('Brainstorming'),
+         description=_('Collect ideas, questions and input concerning '
+                       'a problem or a question from a wide array of people.'),
          content=[
-             ideas_phases.IssuePhase(),
-             ideas_phases.FeedbackPhase(),
+             ideas_phases.CollectPhase(),
          ],
          image='images/placeholder.png',
          settings_model=None,
      )),
+    ('MapIdeas',
+     ProjectBlueprint(
+         title=_('Spatial Brainstorming'),
+         description=_('Collect ideas, questions and input concerning a '
+                       'problem or a question from a wide array of people.'),
+         content=[
+             map_phases.CollectPhase(),
+         ],
+         image='images/placeholder.png',
+         settings_model=('euth_maps', 'AreaSettings'),
+     )),
     ('ideas-collection-2',
      ProjectBlueprint(
-         title=_('Idea collection 2'),
-         description=_('Collect ideas'),
+         title=_('Idea Challenge'),
+         description=_('Run a challenge and find the best ideas to solve '
+                       'a particular problem.'),
+         content=[
+             ideas_phases.CollectPhase(),
+             ideas_phases.RatingPhase(),
+         ],
+         image='images/placeholder.png',
+         settings_model=None,
+     )),
+    ('map-ideas-challenge',
+     ProjectBlueprint(
+         title=_('Spatial Idea Challenge'),
+         description=_('Run a challenge concerning a certain area or space in '
+                       'your community and find the best ideas to solve a '
+                       'particular problem.'),
+         content=[
+             map_phases.CollectPhase(),
+             map_phases.RatingPhase(),
+         ],
+         image='images/placeholder.png',
+         settings_model=('euth_maps', 'AreaSettings'),
+     )),
+    ('agenda-setting',
+     ProjectBlueprint(
+         title=_('Agenda Setting'),
+         description=_('You can involve everyone in planning a meeting. '
+                       'Collect ideas for an upcoming event and let your '
+                       'participants vote on the topics you want to tackle.'),
          content=[
              ideas_phases.CollectPhase(),
              ideas_phases.RatingPhase(),
@@ -38,8 +76,10 @@ blueprints = [
      )),
     ('commenting-text',
      ProjectBlueprint(
-         title=_('Commenting text'),
-         description=_('Add comments to an existing text'),
+         title=_('Text Review'),
+         description=_('Let participants discuss individual paragraphs of a '
+                       'text. This is ideal for discussing position papers or '
+                       'a mission statements with many people.'),
          content=[
              documents_phases.CreateDocumentPhase(),
              documents_phases.CommentPhase(),
@@ -49,23 +89,16 @@ blueprints = [
      )),
     ('flashpoll',
      ProjectBlueprint(
-         title=_('Mobile Polling'),
-         description=_('Initiate a mobile polling process'),
+         title=_('Poll'),
+         description=_('Run customizable, multi-step polls on OPIN to get '
+                       'detailed opinions on topics from the public or your '
+                       'members. Via the OPIN polling app for iOS and Android '
+                       'these polls are also accessible on smartphones.'),
          content=[
              flashpoll_phases.FlashpollPhase(),
          ],
          image='images/placeholder.png',
          settings_model=('euth_flashpoll', 'Flashpoll'),
-     )),
-    ('MapIdeas',
-     ProjectBlueprint(
-         title=_('Spatial Brainstorming'),
-         description=_('Initiate spatial brainstorming process'),
-         content=[
-             map_phases.IssuePhase(),
-         ],
-         image='images/placeholder.png',
-         settings_model=('euth_maps', 'AreaSettings'),
      )),
 ]
 

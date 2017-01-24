@@ -12,8 +12,9 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
+from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
-from euth.comments.api import CommentViewSet
+from adhocracy4.reports.api import ReportViewSet
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
@@ -23,11 +24,11 @@ from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
-from euth.reports.api import ReportViewSet
 from euth.users import urls as user_urls
+from euth.users.api import UserViewSet
 
 js_info_dict = {
-    'packages': ('euth.comments',),
+    'packages': ('adhocracy4.comments',),
 }
 
 router = routers.DefaultRouter()
@@ -36,6 +37,7 @@ router.register(r'follows', FollowViewSet, base_name='follows')
 router.register(r'ratings', RatingViewSet, base_name='ratings')
 router.register(r'reports', ReportViewSet, base_name='reports')
 router.register(r'documents', DocumentViewSet, base_name='documents')
+router.register(r'users', UserViewSet, base_name='users')
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),

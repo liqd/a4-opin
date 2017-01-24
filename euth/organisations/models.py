@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
 from parler.models import (TranslatableManager, TranslatableModel,
                            TranslatedFields)
 
-from adhocracy4.images import validators
+from adhocracy4.images import fields
 from adhocracy4.models import base
 
 
@@ -25,10 +26,23 @@ class Organisation(base.TimeStampedModel, TranslatableModel):
     )
 
     initiators = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    image = models.ImageField(upload_to='organisations/images', blank=True,
-                              validators=[validators.validate_hero_image])
-    logo = models.ImageField(upload_to='organisations/logos', blank=True,
-                             validators=[validators.validate_logo])
+    image = fields.ConfiguredImageField(
+        'heroimage',
+        upload_to='organisations/images',
+        blank=True,
+        verbose_name=_('Header image'),
+        help_prefix=_(
+            'The image sets the atmosphere for your organisation page.'
+        ),
+    )
+    logo = fields.ConfiguredImageField(
+        'logo',
+        upload_to='organisations/logos',
+        blank=True,
+        help_prefix=_(
+            'The official logo of your organisation.'
+        ),
+    )
     twitter_handle = models.CharField(max_length=200, blank=True)
     facebook_handle = models.CharField(max_length=200, blank=True)
     instagram_handle = models.CharField(max_length=200, blank=True)

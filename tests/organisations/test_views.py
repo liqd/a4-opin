@@ -15,6 +15,8 @@ def test_list_view(client, organisation_factory):
         organisation_factory()
     url = reverse('organisation-list')
     response = client.get(url)
-    assert len(response.context[-1]['object_list']) == 10
+    from euth.organisations.views import OrganisationListView
+    assert len(response.context[-1]['object_list']) == OrganisationListView\
+        .paginate_by
     assert response.context['is_paginated']
     assert response.status_code == 200

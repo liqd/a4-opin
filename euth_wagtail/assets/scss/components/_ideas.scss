@@ -87,7 +87,7 @@
 
 .idea-tile-body {
     @include rem(margin-left, $tile-list-thumbnail-size);
-    @include rem(padding, 24px 43px 0 28px);
+    @include rem(padding, 24px 43px 24px 28px);
     border: none;
 
     @media (max-width: $screen-sm-min) {

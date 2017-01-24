@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
 
-from adhocracy4.images import validators as euth_validators
+from adhocracy4.images import fields
 from euth.users import USERNAME_REGEX
 
 USERNAME_INVALID_MESSAGE = _('Enter a valid username. This value may contain '
@@ -27,7 +27,7 @@ EMAIL_NOT_UNIQUE = _('A user with that email address already exists.')
 IS_STAFF_HELP = _('Designates whether the user can log into this admin site.')
 IS_ACTIVE_HELP = _('Designates whether this user should be treated as active. '
                    'Unselect this instead of deleting accounts.')
-GET_NOTIFICATIONS_HELP = _('Designates whether you want to receive'
+GET_NOTIFICATIONS_HELP = _('Designates whether yo u want to receive '
                            'notifications. Unselect if you do not '
                            'want to receive notifications.')
 
@@ -55,10 +55,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name=_('Send me email notifications'),
         default=True,
         help_text=GET_NOTIFICATIONS_HELP)
-    _avatar = models.ImageField(
+    _avatar = fields.ConfiguredImageField(
+        'avatar',
         upload_to='users/images',
         blank=True,
-        validators=[euth_validators.validate_avatar],
         verbose_name=_('Avatar picture'),
     )
 
@@ -157,7 +157,8 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     @property
     def avatar(self):
-        return self._avatar
+        if self._avatar:
+            return self._avatar
 
     @property
     def default_avatar(self):

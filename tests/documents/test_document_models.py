@@ -2,7 +2,7 @@ import pytest
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 
-from euth.comments import models as comments_models
+from adhocracy4.comments import models as comments_models
 from euth.documents.models import Document
 
 
