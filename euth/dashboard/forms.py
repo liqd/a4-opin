@@ -196,13 +196,12 @@ class ProjectUpdateForm(multiform.MultiModelForm):
     def save(self, commit=True):
 
         objects = super().save(commit=False)
-
         project = objects['project']
-        module_settings = objects['module_settings']
 
         if commit:
             project.save()
-            module_settings.save()
+            if 'module_settings' in objects:
+                objects['module_settings'].save()
 
         module = project.module_set.first()
 
