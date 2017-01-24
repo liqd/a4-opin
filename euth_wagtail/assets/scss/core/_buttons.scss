@@ -69,6 +69,12 @@
     }
 }
 
+span.btn-dark:hover,
+span.btn-dark:focus {
+    background-color: $black;
+    color: #fff;
+}
+
 .btn-gray {
     background-color: $gray-lighter;
     color: $gray-darker;

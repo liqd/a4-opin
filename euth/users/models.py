@@ -27,7 +27,7 @@ EMAIL_NOT_UNIQUE = _('A user with that email address already exists.')
 IS_STAFF_HELP = _('Designates whether the user can log into this admin site.')
 IS_ACTIVE_HELP = _('Designates whether this user should be treated as active. '
                    'Unselect this instead of deleting accounts.')
-GET_NOTIFICATIONS_HELP = _('Designates whether you want to receive'
+GET_NOTIFICATIONS_HELP = _('Designates whether yo u want to receive '
                            'notifications. Unselect if you do not '
                            'want to receive notifications.')
 
@@ -157,7 +157,8 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     @property
     def avatar(self):
-        return self._avatar
+        if self._avatar:
+            return self._avatar
 
     @property
     def default_avatar(self):

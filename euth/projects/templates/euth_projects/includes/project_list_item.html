@@ -24,10 +24,10 @@
             <span class="name">{{ project.organisation.title }}</span>
         </p>
         <div class="teaserlist-actions">
-            {% if request.user in project.participants.all %}
+            {% if follow_user in project.participants.all %}
                 <i class="fa fa-user"></i>
             {% endif %}
-            {% is_following request.user project as is_follower %}
+            {% is_following follow_user project as is_follower %}
             {% if is_follower %}
                 <i class="fa fa-star"></i>
             {% endif %}

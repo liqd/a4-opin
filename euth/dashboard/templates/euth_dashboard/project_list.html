@@ -41,7 +41,7 @@
                             {% if not project.is_public %}
                                 <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}"
                                    title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
-                                        <i class="fa fa-user"></i> {{ project.participants.all.count }}
+                                        <i class="fa fa-user"></i>
                                 </a>
                             {% endif %}
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'View project' %}">

@@ -50,6 +50,14 @@
         margin-right: -50vw;
     }
 
+    .map {
+        height: 350px;
+
+        @media screen and (min-width: $screen-sm-min) {
+            height: 600px;
+        }
+    }
+
     .idea-map-buttons {
         z-index: 7;
         position: relative;

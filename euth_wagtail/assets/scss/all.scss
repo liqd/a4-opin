@@ -22,6 +22,7 @@
 @import "wagtail-blocks/image-text-list-block";
 @import "wagtail-blocks/rss-feed-import";
 @import "wagtail-blocks/page-collection";
+@import "wagtail-blocks/richtext-block";
 
 // Components
 @import "components/projects";
@@ -66,3 +67,4 @@
 @import "components/linklist";
 @import "components/maps";
 @import "components/offline-phases";
+@import "components/typeahead";
