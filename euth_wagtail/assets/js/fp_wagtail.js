@@ -240,7 +240,8 @@ window.initialize = function(){
       }
     });
 
-    var geofenceLocation = '{{poll.geofenceLocation}}';
+    var key = "geofenceLocation"    
+    var geofenceLocation = document.getElementById(key).value;    
     if(!geofenceLocation){
         map.setCenter(defaultLatLng);
     }else{
@@ -315,8 +316,8 @@ window.removeChoice = function(choices, qcorderIdIn, qorderId, key){
 			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   								
 			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    			
 			
-			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
-			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+			$(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+			$(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
 					
 			
 			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
@@ -384,20 +385,19 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
 			// Titre - $(this).children()[0]			
 			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    
 								
-			$(this).children()[0].children[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-questionText';
-			$(this).children()[0].children[1].children[0].children[0].name = 'question-'+qorderId+'.questionText';		
-			
+			$(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_questionText';
+			$(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_questionText';
+
 			var formkey ='form-group-question-'+qorderId;
 			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
 			
 			// Type - $(this).children()[1]					
-			$(this).children()[1].children[1].id = 'fp-id_phases-'+qorderId+'-questionType';
-			$(this).children()[1].children[1].name = 'question-'+qorderId+'.questionType';	
-			
+			$(this).children()[1].children[1].id = 'id_module_settings-question_'+qorderId+'_questionType';
+			$(this).children()[1].children[1].name = 'module_settings-question_'+qorderId+'_questionType';
 						
 			// Mandatory - $(this).children()[2]					
-			$(this).children()[2].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-mandatory';
-			$(this).children()[2].children[0].children[0].name = 'question-'+qorderId+'.mandatory';		
+			$(this).children()[2].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_mandatory';
+			$(this).children()[2].children[0].children[0].name = 'module_settings-question_'+qorderId+'_mandatory';
 						
 			// Choices - $(this).children()[3]									
 			$(this).children()[3].id = 'fp-phase-qc-'+qorderId;
@@ -409,11 +409,9 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
 				if($(this).children()[1] && $(this).children()[1].children[0])	{							
 					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   							
 					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-					
-										
-					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
-					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
-							
+					                   
+                    $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+                    $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';							
 					
 					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;					
 					var orderId = qcorderId;
@@ -475,8 +473,8 @@ window.addChoice = function(choices,questionPos, key) {
     var remvkey = "icon-plus-question-"+questionPos;
     var elem = document.getElementById(remvkey);
 	var parent = elem.parentNode;
-    parent.removeChild(elem);
-
+    parent.removeChild(elem);               
+    
     var choiceKey = '<div id="form-group-question-'+questionPos+'.choice-'+choice.orderId+'" class="form-group">'+
             '<label>'+
                 'Choice '+choice.orderId+
@@ -484,7 +482,7 @@ window.addChoice = function(choices,questionPos, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                    '<input class="form-control choice" id="fp-id_phases-'+questionPos+'-choice-'+choice.orderId+'.answerText" maxlength="80" name="question-'+questionPos+'.choice-'+choice.orderId+'.answerText" type="text" value="" />'+
+                    '<input class="form-control choice" id="id_module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" maxlength="80" name="module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                     '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+choice.orderId+','+questionPos+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
@@ -514,9 +512,8 @@ window.addChoice = function(choices,questionPos, key) {
 			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   					
 			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
 					
-			
-			$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
-			$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
+			$(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+			$(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';            
 					
 			
 			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
@@ -545,8 +542,8 @@ window.addQuestion = function(questions, key) {
     var remvkey = "icon-plus-poll";
     var elem = document.getElementById(remvkey);
 	var parent = elem.parentNode;
-    parent.removeChild(elem);
-	
+    parent.removeChild(elem);	
+            
 	var questionKey ='<div id="form-group-question-'+question.orderId+'">'+
         '<div class="form-group">'+
             '<label>'+
@@ -555,7 +552,7 @@ window.addQuestion = function(questions, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                   '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-questionText" maxlength="80" name="question-'+question.orderId+'.questionText" type="text" value="" />'+
+                   '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_questionText" maxlength="80" name="module_settings-question_'+question.orderId+'_questionText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                     '<i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
@@ -567,7 +564,7 @@ window.addQuestion = function(questions, key) {
                 'Type'+
                 '<br>'+
             '</label>'+
-            '<select class="form-control select" id="fp-id_phases-'+question.orderId+'-questionType" name="question-'+question.orderId+'.questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+question.orderId+'", '+question.orderId+')\' >'+
+            '<select class="form-control select" id="id_module_settings-question_'+question.orderId+'_questionType" name="module_settings-question_'+question.orderId+'_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+question.orderId+'", '+question.orderId+')\' >'+
                 '<option value="CHECKBOX"  selected>MULTIPLE</option>'+
                 '<option value="RADIO" >SINGLE</option>'+
                 '<option value="FREETEXT" >OPEN</option>'+
@@ -576,7 +573,7 @@ window.addQuestion = function(questions, key) {
         '</div>'+
         '<div class="form-group ">'+
             '<label>'+
-                '<input id="fp-id_phases-'+question.orderId+'-mandatory" name="question-'+question.orderId+'.mandatory" type="checkbox" value="" checked="checked" />'+
+                '<input id="id_module_settings-question_'+question.orderId+'_mandatory" name="module_settings-question_'+question.orderId+'_mandatory" type="checkbox" value="" checked="checked" />'+
                 'Mandatory'+
                 '<br>'+
             '</label>'+
@@ -591,13 +588,13 @@ window.addQuestion = function(questions, key) {
                 '</label>'+
                 '<div style="position:relative;">'+
                     '<div style="margin-right: 44px;">'+
-                        '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-choice-'+answer.orderId+'.answerText" maxlength="80" name="question-'+question.orderId+'.choice-'+answer.orderId+'.answerText" type="text" value="" //>'+
+                        '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
                     '</div>'+
                     '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                         '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                     '</div>'+
                     '</div>'+
-                '</div>';
+                '</div>';                 
 
                 if (answer.orderId == question.answers.length){
                     questionKey = questionKey +
@@ -635,20 +632,20 @@ window.addQuestion = function(questions, key) {
 			
 			// Titre - $(this).children()[0]			
 			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    					
-			$(this).children()[0].children[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-questionText';
-			$(this).children()[0].children[1].children[0].children[0].name = 'question-'+qorderId+'.questionText';		
+			$(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_questionText';
+			$(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_questionText';
 			
 			var formkey ='form-group-question-'+qorderId;
 			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
 			
 			// Type - $(this).children()[1]					
-			$(this).children()[1].children[1].id = 'fp-id_phases-'+qorderId+'-questionType';
-			$(this).children()[1].children[1].name = 'question-'+qorderId+'.questionType';	
+			$(this).children()[1].children[1].id = 'id_module_settings-question_'+qorderId+'_questionType';
+			$(this).children()[1].children[1].name = 'module_settings-question_'+qorderId+'_questionType';
 			
 						
 			// Mandatory - $(this).children()[2]					
-			$(this).children()[2].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-mandatory';
-			$(this).children()[2].children[0].children[0].name = 'question-'+qorderId+'.mandatory';		
+			$(this).children()[2].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_mandatory';
+			$(this).children()[2].children[0].children[0].name = 'module_settings-question_'+qorderId+'_mandatory';
 						
 			// Choices - $(this).children()[3]									
 			$(this).children()[3].id = 'fp-phase-qc-'+qorderId;
@@ -660,10 +657,10 @@ window.addQuestion = function(questions, key) {
 				if($(this).children()[1] && $(this).children()[1].children[0])	{		
 					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
 					$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-										
-					$(this).children()[1].children[0].children[0].id = 'fp-id_phases-'+qorderId+'-choice-'+qcorderId+'.answerText';
-					$(this).children()[1].children[0].children[0].name = 'question-'+qorderId+'.choice-'+qcorderId+'.answerText';
 							
+                    $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+                    $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+                    
 					
 					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
 					var orderId = qcorderId; 	
@@ -708,13 +705,14 @@ window.changeType = function(questionType, key, qorderId) {
                         '</label>'+
                         '<div style="position:relative;">'+
                             '<div style="margin-right: 44px;">'+
-                                '<input class="form-control choice" id="fp-id_phases-'+question.orderId+'-choice-'+answer.orderId+'.answerText" maxlength="80" name="question-'+question.orderId+'.choice-'+answer.orderId+'.answerText" type="text" value="" //>'+
+                                '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" //>'+
                             '</div>'+
                             '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                                 '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                             '</div>'+
                             '</div>'+
                         '</div>';
+                    
                         
                         var d = document.createElement('div');
                         d.innerHTML = questionKey;

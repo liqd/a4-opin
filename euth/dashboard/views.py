@@ -155,6 +155,12 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         context['heading'] = _("New project based on")
         context['module_settings'] = self.kwargs['module_settings']
         
+        
+        if 'poll' in context: 
+            print("in the DashboardProjectCreateView poll is there context")
+        else:        
+            print("in the DashboardProjectCreateView not poll context")
+        
         #initiating flashpoll data
         if context['module_settings']== 'euth_flashpoll':
             context = self.fp_context_data(context)         
@@ -162,11 +168,11 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         return context
 
     def fp_context_data(self, context):
-
+        print('fp_context_data createview')
         pollid = str(uuid.uuid4())
         context['pollid']  = pollid
-        pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
-        context['poll'] = json.loads(pollinit)
+        #pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
+        #context['poll'] = json.loads(pollinit)
         context['module_settings'] = self.kwargs['module_settings']
         
         return context
@@ -181,6 +187,9 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         kwargs['organisation'] = self.organisation
         kwargs['creator'] = self.request.user
 
+        print("setting get_form_kwargs create")
+        print("setting self.blueprint.settings_model: "+str(self.blueprint.settings_model))       
+        
         if self.blueprint.settings_model:
             self.kwargs['module_settings'] = 'euth_flashpoll'
         else:
@@ -217,7 +226,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
         
     def fp_context_data(self, context):
-
+        print("In fp_context_data")
         context['pollid'] = self.kwargs['pollid']
         context['module_settings'] = self.kwargs['module_settings']
 
@@ -229,7 +238,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         # Handle get
         headers = {'Content-type': 'application/json'}
         response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))        
-        context['poll'] = json.loads(response.text)
+        #context['poll'] = json.loads(response.text)
 
         url_poll = '{base_url}/poll/{poll_id}/result'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
@@ -255,6 +264,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                        })
 
     def get_form_kwargs(self):
+        print("setting pollid")
         kwargs = super().get_form_kwargs()
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
