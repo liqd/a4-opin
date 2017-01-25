@@ -63,11 +63,17 @@ def test_initiator_create_project(client, organisation):
         'phases-0-end_date': '2016-10-01 16:13',
         'phases-0-name': 'Name 0',
         'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
         'phases-1-id': '',
         'phases-1-start_date': '2016-10-01 16:14',
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
@@ -79,7 +85,7 @@ def test_initiator_create_project(client, organisation):
     assert project.is_draft
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 1
+    assert len(project.module_set.first().phase_set.all()) == 2
 
 
 @pytest.mark.django_db
@@ -101,11 +107,17 @@ def test_initiator_create_flashpoll_project(client, organisation):
         'phases-0-end_date': '2016-10-01 16:13',
         'phases-0-name': 'Name 0',
         'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
         'phases-1-id': '',
         'phases-1-start_date': '2016-10-01 16:14',
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
         'project-description': 'Project description',
         'project-name': 'Project name Flashpoll',
         'project-information': 'Project info',
