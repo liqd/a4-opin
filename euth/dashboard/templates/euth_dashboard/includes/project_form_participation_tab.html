@@ -30,22 +30,24 @@
             {% with form.phases as phase_forms %}
             {% for form in form.phases %}
 
-                <div class="phase-form" {% if form.delete.value == '1' %}style="display: none;"{% endif %}>
-                    {% if form.instance.id and form.instance.type == 'euth_offlinephases:000:offline' %}
-                    <a href="" class="delete-offline-phase">X</a>
-                    {% endif %}
-                    <h5>
-                        <a href="#phase-{{ forloop.counter }}" class="collapse collapsed" data-toggle="collapse">
-                            {% if form.instance.id %}
-                            {{ form.instance.content.name }}
-                            {% else %}
-                            {% getPhaseName form.type.value as phasename %}
-                            {{ phasename }}
-                            {% endif %}
-                            {% if form.errors %}<span class="info-number">{{ form.errors|length }}</span>{% endif %}
-                            <i class="fa fa-chevron-up pull-right"></i>
-                        </a>
-                    </h5>
+                <div class="phase-form {% if form.instance.type == 'euth_offlinephases:000:offline' %}phaseform-offline-phase{% endif %}" {% if form.delete.value == '1' %}style="display: none;"{% endif %}>
+                    <div class="phasefrom-collapse-top">
+                        {% if form.instance.type == 'euth_offlinephases:000:offline' %}
+                        <button type="button" class="phaseform-delete btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                        {% endif %}
+                        <h5>
+                            <a href="#phase-{{ forloop.counter }}" class="collapse collapsed" data-toggle="collapse">
+                                {% if form.instance.id %}
+                                {{ form.instance.content.name }}
+                                {% else %}
+                                {% getPhaseName form.type.value as phasename %}
+                                {{ phasename }}
+                                {% endif %}
+                                {% if form.errors %}<span class="info-number">{{ form.errors|length }}</span>{% endif %}
+                                <i class="fa fa-chevron-up pull-right"></i>
+                            </a>
+                        </h5>
+                    </div>
                     {% for error in form.non_field_errors %}
                     <span class="help-block">{{ error }}</span>
                     {% endfor %}

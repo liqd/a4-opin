@@ -1,12 +1,16 @@
 .phase-form {
     background-color: $gray-lighter;
-    padding: 10px 20px;
     margin-bottom: 10px;
     margin-left: 20px;
     position: relative;
 
     .form-control {
         background-color: white;
+    }
+
+    h5 {
+        padding: 15px 20px;
+        margin-bottom: 0;
     }
 
     h5 a {
@@ -16,6 +20,7 @@
         font-family: $font-family-sans-serif;
         font-weight: bold;
         text-transform: uppercase;
+        position: relative;
     }
 
     h5 a:hover {
@@ -31,6 +36,30 @@
     }
 }
 
+.phaseform-offline-phase {
+    margin-left: 0;
+
+    .phasefrom-collapse-top {
+        h5 {
+            padding-left: 68px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.phaseform-delete {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
 .single-phase {
     @include rem(margin-top, 20px);
+    padding: 0 20px;
+}
+
+.phasefrom-collapse-top {
+    position: relative;
 }

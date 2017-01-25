@@ -1,15 +1,33 @@
 window.jQuery(document).ready(function () {
   var $ = window.jQuery
 
-  function cloneMore (selector, type, target) {
-    var newElement = $(selector).clone()
-    var total = $('#id_' + type + '-TOTAL_FORMS').val()
+  function updateNewElement (element) {
+    element.addClass('phaseform-offline-phase')
+    element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
+    element.find('#id_phases-0-delete').val(0)
+    element.find('.collapse').eq(0).text('Offline Phase ').append('<i class="fa fa-chevron-up pull-right"></i>')
+    element.find('.update-offline-documentation').remove()
+    element.css('display', 'block')
 
-    newElement.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
-    newElement.find('.collapse').eq(0).text('Offline Phase ').append('<i class="fa fa-chevron-up pull-right"></i>')
-    newElement.find('.update-offline-documentation').remove()
+    var buttons = element.find(':input[type=button]')
+    if (buttons.length > 0) {
+      $(buttons[0]).click(function (e) {
+        e.preventDefault()
+        deletePhase($(e.target).closest('.phase-form'))
+        return false
+      })
+    } else {
+      var newElement = $('<button type="button" class="phaseform-delete btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>')
+      newElement.click(function (e) {
+        e.preventDefault()
+        deletePhase($(e.target).closest('.phase-form'))
+      })
+      element.find('.phasefrom-collapse-top').after(newElement)
+    }
+  }
 
-    newElement.find(':input').each(function () {
+  function setNewElementInputValues (element) {
+    element.find(':input:not([type=button])').each(function () {
       var currentType = $(this).attr('name').split('-')[2]
       if (currentType !== 'type' && currentType !== 'delete') {
         $(this).val('')
@@ -23,16 +41,15 @@ window.jQuery(document).ready(function () {
         $(this).removeAttr('value')
       }
     })
+  }
 
-    $(target).after(newElement)
-    $(target).remove()
-
+  function setPhaseIds () {
     $('.phase-form').each(function (index) {
       var accordion = $(this).find('.collapse')
       accordion.eq(0).attr('href', '#phase-' + index)
       accordion.eq(1).attr('id', 'phase-' + index)
 
-      $(this).find(':input').each(function () {
+      $(this).find(':input:not([type=button])').each(function () {
         var currentNumber = $(this).attr('name').split('-')[1]
         var currentType = $(this).attr('name').split('-')[2]
         var name = $(this).attr('name').replace('-' + currentNumber + '-', '-' + index + '-')
@@ -43,6 +60,18 @@ window.jQuery(document).ready(function () {
         }
       })
     })
+  }
+
+  function cloneMore (selector, type, target) {
+    var newElement = $(selector).clone()
+    var total = $('#id_' + type + '-TOTAL_FORMS').val()
+    updateNewElement(newElement)
+    setNewElementInputValues(newElement)
+
+    $(target).after(newElement)
+    $(target).remove()
+
+    setPhaseIds()
 
     total++
 
@@ -51,28 +80,36 @@ window.jQuery(document).ready(function () {
   }
 
   function deletePhase (phase) {
-    var input = $(phase).find('[id^="id_phases-"][id$="-delete"]')[0]
-    $(input).val(1)
+    var deleteInput = $(phase).find('[id^="id_phases-"][id$="-delete"]')[0]
+    var nameInput = $(phase).find('[id^="id_phases-"][id$="-name"]')[0]
+    var descriptionInput = $(phase).find('[id^="id_phases-"][id$="-description"]')[0]
+    $(deleteInput).val(1)
+    $(nameInput).val('xx')
+    $(descriptionInput).val('xx')
+
     var newElement = $('<a class="add-offline-phase btn btn-gray btn-primary btn-sm" href=""><i class="fa fa-plus"></i>add offline phase</a>')
     newElement.click(function (e) {
       e.preventDefault()
-      var phaseForm = $('.phase-form').first()
-      cloneMore(phaseForm, 'phases', e.target)
+      addPhase($(e.target).closest('.add-offline-phase'))
       return false
     })
-    $(phase).after(newElement)
     $(phase).css('display', 'none')
+    $(phase).after(newElement)
+  }
+
+  function addPhase (element) {
+    var phaseForm = $('.phase-form').first()
+    cloneMore(phaseForm, 'phases', element)
   }
 
   $('.add-offline-phase').click(function (e) {
     e.preventDefault()
-    var phaseForm = $('.phase-form').first()
-    cloneMore(phaseForm, 'phases', e.target)
+    addPhase($(e.target).closest('.add-offline-phase'))
     return false
   })
 
-  $('.delete-offline-phase').click(function (e) {
+  $('.phaseform-delete').click(function (e) {
     e.preventDefault()
-    deletePhase(e.target.parentElement)
+    deletePhase($(e.target).closest('.phase-form'))
   })
 })
