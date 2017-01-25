@@ -22,7 +22,7 @@ window.jQuery(document).ready(function () {
         e.preventDefault()
         deletePhase($(e.target).closest('.phase-form'))
       })
-      element.find('.phasefrom-collapse-top').after(newElement)
+      element.find('.phasefrom-collapse-top').prepend(newElement)
     }
   }
 
