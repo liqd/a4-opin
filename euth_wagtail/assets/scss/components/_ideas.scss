@@ -78,9 +78,9 @@
 }
 
 .idea-comments-count {
-    @inclue rem(font-size, 14);
-    @inclue rem(line-height, 1.6);
-    @inclue rem (letter-spacing, -0.2px);
+    @include rem(font-size, 14);
+    @include rem(line-height, 1.6);
+    @include rem (letter-spacing, -0.2px);
     text-align: justify;
     @include rem(line-height, 1.8);
 }
