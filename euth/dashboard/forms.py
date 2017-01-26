@@ -15,6 +15,7 @@ from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
 from euth.memberships import models as member_models
+from euth.offlinephases.models import Offlinephase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 
@@ -139,14 +140,17 @@ class ProjectForm(forms.ModelForm):
 
 
 class PhaseForm(forms.ModelForm):
+    delete = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = phase_models.Phase
-        exclude = ('module', 'type', 'weight')
+        exclude = ('module', )
 
         widgets = {
             'end_date': widgets.DateTimeInput(),
             'start_date': widgets.DateTimeInput(),
+            'type': forms.HiddenInput(),
+            'weight': forms.HiddenInput()
         }
 
 
@@ -189,14 +193,65 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         super().__init__(*args, **kwargs)
 
+    def _update_or_delete_phase(self, phase, delete, commit):
+        phase_object = phase['id']
+        del phase['id']
+        if not delete:
+            for key in phase:
+                value = phase[key]
+                setattr(phase_object, key, value)
+            if commit:
+                phase_object.save()
+        else:
+            if commit:
+                phase_object.delete()
+
+    def _create_phase(self, phase, commit, module):
+        del phase['id']
+        new_phase = phase_models.Phase(**phase)
+        new_phase.module = module
+        if commit:
+            new_phase.save()
+            if new_phase.type.startswith('euth_offlinephases'):
+                Offlinephase.objects.get_or_create(phase=new_phase)
+
+    def save(self, commit=True):
+
+        objects = super().save(commit=False)
+        project = objects['project']
+
+        if commit:
+            project.save()
+            if 'module_settings' in objects:
+                objects['module_settings'].save()
+
+        module = project.module_set.first()
+
+        cleaned_data = self._combine('cleaned_data', call=False,
+                                     call_kwargs={'commit': commit})
+        phases = cleaned_data['phases']
+
+        for phase in phases:
+            delete = phase['delete']
+            del phase['delete']
+            if phase['id']:
+                self._update_or_delete_phase(phase, delete, commit)
+            else:
+                if not delete:
+                    self._create_phase(phase, commit, module)
+
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
     def __init__(self, blueprint, organisation, creator, *args, **kwargs):
         kwargs['phases__queryset'] = phase_models.Phase.objects.none()
         kwargs['phases__initial'] = [
-            {'phase_content': t} for t in blueprint.content
+            {'phase_content': t,
+             'type': t.identifier,
+             'weight': index
+             } for index, t in enumerate(blueprint.content)
         ]
+
         self.organisation = organisation
         self.blueprint = blueprint
         self.creator = creator
@@ -244,12 +299,13 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 module_settings.save()
 
         phases = objects['phases']
-        for phase, phase_content in zip(phases, self.blueprint.content):
+
+        for index, phase in enumerate(phases):
             phase.module = module
-            phase.type = phase_content.identifier
-            phase.weight = int(phase.type.split(':')[1])
             if commit:
                 phase.save()
+                if phase.type.startswith('euth_offlinephases'):
+                    Offlinephase.objects.create(phase=phase)
 
         return objects
 

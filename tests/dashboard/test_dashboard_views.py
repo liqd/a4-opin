@@ -45,7 +45,7 @@ def test_initiator_list_projects(client, project):
 
 
 @pytest.mark.django_db
-def test_initiator_create_project(client, organisation):
+def test_initiator_create_and_update_project(client, organisation):
     user = organisation.initiators.first()
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-create', kwargs={
@@ -63,11 +63,17 @@ def test_initiator_create_project(client, organisation):
         'phases-0-end_date': '2016-10-01 16:13',
         'phases-0-name': 'Name 0',
         'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
         'phases-1-id': '',
         'phases-1-start_date': '2016-10-01 16:14',
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
@@ -79,6 +85,43 @@ def test_initiator_create_project(client, organisation):
     assert project.is_draft
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
+    assert len(project.module_set.first().phase_set.all()) == 2
+
+    update_url = reverse('dashboard-project-edit', kwargs={
+        'organisation_slug': organisation.slug,
+        'slug': project.slug
+    })
+
+    module = project.module_set.first()
+
+    phase_1 = module.phase_set.first().pk
+    phase_2 = module.phase_set.all()[1].pk
+
+    response = client.post(update_url, {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': str(phase_1),
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '1',
+        'phases-1-id': str(phase_2),
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'save_draft': ''
+    })
+    assert response.status_code == 302
     assert len(project.module_set.first().phase_set.all()) == 1
 
 
@@ -101,11 +144,17 @@ def test_initiator_create_flashpoll_project(client, organisation):
         'phases-0-end_date': '2016-10-01 16:13',
         'phases-0-name': 'Name 0',
         'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
         'phases-1-id': '',
         'phases-1-start_date': '2016-10-01 16:14',
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
         'project-description': 'Project description',
         'project-name': 'Project name Flashpoll',
         'project-information': 'Project info',
@@ -117,7 +166,7 @@ def test_initiator_create_flashpoll_project(client, organisation):
     project = organisation.project_set.first()
     assert project.is_draft
     assert project.name == 'Project name Flashpoll'
-    assert len(project.module_set.first().phase_set.all()) == 1
+    assert len(project.module_set.first().phase_set.all()) == 2
 
 
 @pytest.mark.django_db
