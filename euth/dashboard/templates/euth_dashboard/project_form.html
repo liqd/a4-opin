@@ -36,5 +36,6 @@
 {% endblock %}
 
 {% block extra_js %}
+{{ block.super }}
 <script type="text/javascript" src="{% static 'add_offline_phase/add_offline_phase.js' %}"></script>
 {% endblock %}

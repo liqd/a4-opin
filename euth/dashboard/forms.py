@@ -193,6 +193,28 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         super().__init__(*args, **kwargs)
 
+    def _update_or_delete_phase(self, phase, delete, commit):
+        phase_object = phase['id']
+        del phase['id']
+        if not delete:
+            for key in phase:
+                value = phase[key]
+                setattr(phase_object, key, value)
+            if commit:
+                phase_object.save()
+        else:
+            if commit:
+                phase_object.delete()
+
+    def _create_phase(self, phase, commit, module):
+        del phase['id']
+        new_phase = phase_models.Phase(**phase)
+        new_phase.module = module
+        if commit:
+            new_phase.save()
+            if new_phase.type.startswith('euth_offlinephases'):
+                Offlinephase.objects.get_or_create(phase=new_phase)
+
     def save(self, commit=True):
 
         objects = super().save(commit=False)
@@ -213,26 +235,10 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             delete = phase['delete']
             del phase['delete']
             if phase['id']:
-                phase_object = phase['id']
-                del phase['id']
-                if not delete:
-                    for key in phase:
-                        value = phase[key]
-                        setattr(phase_object, key, value)
-                    if commit:
-                        phase_object.save()
-                else:
-                    if commit:
-                        phase_object.delete()
+                self._update_or_delete_phase(phase, delete, commit)
             else:
                 if not delete:
-                    del phase['id']
-                    new_phase = phase_models.Phase(**phase)
-                    new_phase.module = module
-                    if commit:
-                        new_phase.save()
-                        if new_phase.type.startswith('euth_offlinephases'):
-                            Offlinephase.objects.get_or_create(phase=new_phase)
+                    self._create_phase(phase, commit, module)
 
 
 class ProjectCreateForm(multiform.MultiModelForm):

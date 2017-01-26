@@ -1,28 +1,28 @@
+/* global django $ */
 window.jQuery(document).ready(function () {
-  var $ = window.jQuery
-
   function updateNewElement (element) {
     element.addClass('phaseform-offline-phase')
     element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
     element.find('#id_phases-0-delete').val(0)
-    element.find('.collapse').eq(0).text('Offline Phase ').append('<i class="fa fa-chevron-up pull-right"></i>')
+    element.find('.collapse').eq(0).text(django.gettext('Offline Phase')).append('<i class="fa fa-chevron-up pull-right"></i>')
     element.find('.update-offline-documentation').remove()
     element.css('display', 'block')
 
+    var button = getButton(element)
+    button.click(function (e) {
+      e.preventDefault()
+      deletePhase($(e.target).closest('.phase-form'))
+    })
+  }
+
+  function getButton (element) {
     var buttons = element.find(':input[type=button]')
     if (buttons.length > 0) {
-      $(buttons[0]).click(function (e) {
-        e.preventDefault()
-        deletePhase($(e.target).closest('.phase-form'))
-        return false
-      })
+      return $(buttons[0])
     } else {
-      var newElement = $('<button type="button" class="phaseform-delete btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>')
-      newElement.click(function (e) {
-        e.preventDefault()
-        deletePhase($(e.target).closest('.phase-form'))
-      })
-      element.find('.phasefrom-collapse-top').prepend(newElement)
+      var button = $('<button type="button" class="phaseform-delete btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>')
+      element.find('.phasefrom-collapse-top').prepend(button)
+      return button
     }
   }
 
@@ -87,7 +87,7 @@ window.jQuery(document).ready(function () {
     $(nameInput).val('xx')
     $(descriptionInput).val('xx')
 
-    var newElement = $('<a class="add-offline-phase btn btn-gray btn-primary btn-sm" href=""><i class="fa fa-plus"></i>add offline phase</a>')
+    var newElement = $('<a class="add-offline-phase btn btn-gray btn-primary btn-sm" href=""><i class="fa fa-plus"></i>' + django.gettext('add offline phase') + '</a>')
     newElement.click(function (e) {
       e.preventDefault()
       addPhase($(e.target).closest('.add-offline-phase'))
