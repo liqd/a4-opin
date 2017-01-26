@@ -1,3 +1,4 @@
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.core.urlresolvers import reverse
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
@@ -22,6 +23,12 @@ class OfflinephaseEditView(PermissionRequiredMixin, generic.UpdateView):
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
+
+    def get_form(self, form_class):
+        form = super().get_form(form_class)
+        form.fields['text'].widget = CKEditorUploadingWidget(
+            config_name='image-editor')
+        return form
 
     def get_success_url(self):
         project = self.object.project

@@ -10,7 +10,7 @@ from adhocracy4.phases import models as phase_models
 
 
 class Offlinephase(base.TimeStampedModel):
-    text = RichTextField(blank=True)
+    text = RichTextField(blank=True, config_name='image-editor')
     phase = models.OneToOneField(
         phase_models.Phase,
         on_delete=models.CASCADE,
@@ -26,7 +26,7 @@ class Offlinephase(base.TimeStampedModel):
 
     def save(self, *args, **kwargs):
         self.text = transforms.clean_html_field(
-            self.text)
+            self.text, 'image-editor')
         super().save(*args, **kwargs)
 
     @functional.cached_property
