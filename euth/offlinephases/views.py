@@ -11,7 +11,7 @@ class OfflinephaseView(generic.DetailView, mixins.ProjectMixin):
     model = offlinephase_models.Offlinephase
 
     def get_object(self):
-        return self.module.project.active_phase.offlinephase
+        return self.phase.offlinephase
 
 
 class OfflinephaseEditView(PermissionRequiredMixin, generic.UpdateView):
