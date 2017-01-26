@@ -5,7 +5,7 @@ window.jQuery(document).ready(function () {
     element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
     element.find('#id_phases-0-delete').val(0)
     element.find('.collapse').eq(0).text(django.gettext('Offline Phase')).append('<i class="fa fa-chevron-up pull-right"></i>')
-    element.find('.update-offline-documentation').remove()
+    element.find(('[type=text][readonly]')).remove()
     element.css('display', 'block')
 
     var button = getButton(element)
@@ -50,13 +50,15 @@ window.jQuery(document).ready(function () {
       accordion.eq(1).attr('id', 'phase-' + index)
 
       $(this).find(':input:not([type=button])').each(function () {
-        var currentNumber = $(this).attr('name').split('-')[1]
-        var currentType = $(this).attr('name').split('-')[2]
-        var name = $(this).attr('name').replace('-' + currentNumber + '-', '-' + index + '-')
-        var id = 'id_' + name
-        $(this).attr({'name': name, 'id': id})
-        if (currentType === 'weight') {
-          $(this).val(index)
+        if ($(this).attr('name')) {
+          var currentNumber = $(this).attr('name').split('-')[1]
+          var currentType = $(this).attr('name').split('-')[2]
+          var name = $(this).attr('name').replace('-' + currentNumber + '-', '-' + index + '-')
+          var id = 'id_' + name
+          $(this).attr({'name': name, 'id': id})
+          if (currentType === 'weight') {
+            $(this).val(index)
+          }
         }
       })
     })
