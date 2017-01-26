@@ -122,6 +122,7 @@ def test_initiator_create_and_update_project(client, organisation):
         'save_draft': ''
     })
     assert response.status_code == 302
+    assert len(project.module_set.first().phase_set.all()) == 1
 
 
 @pytest.mark.django_db
