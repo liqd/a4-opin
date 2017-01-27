@@ -6,9 +6,11 @@ from euth.users.widgets import UserSearchInput
 
 
 class UserSearchField(Field):
-    widget = UserSearchInput
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, identifier=None, *args, **kwargs):
+        self.identifier = identifier
+        self.widget = UserSearchInput(identifier=self.identifier)
+
         super().__init__(*args, **kwargs)
 
     def to_python(self, value):

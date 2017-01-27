@@ -16,6 +16,10 @@ a {
     transition: color 0.2s;
 }
 
+strong {
+    font-weight: 600;
+}
+
 .rich-text a {
     color: $brand-brand1;
     text-decoration: underline;

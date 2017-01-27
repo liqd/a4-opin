@@ -24,6 +24,7 @@ from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
+from euth.projects.api import ProjectViewSet
 from euth.users import urls as user_urls
 from euth.users.api import UserViewSet
 
@@ -37,6 +38,7 @@ router.register(r'follows', FollowViewSet, base_name='follows')
 router.register(r'ratings', RatingViewSet, base_name='ratings')
 router.register(r'reports', ReportViewSet, base_name='reports')
 router.register(r'documents', DocumentViewSet, base_name='documents')
+router.register(r'projects', ProjectViewSet, base_name='projects')
 router.register(r'users', UserViewSet, base_name='users')
 
 urlpatterns = [

@@ -289,7 +289,15 @@ class ParticipantsModerationForm(forms.ModelForm):
 
 
 class AddModeratorForm(forms.ModelForm):
-    user = UserSearchField(required=False)
+    user = UserSearchField(required=False, identifier='moderators',)
+
+    class Meta:
+        model = project_models.Project
+        fields = ('user',)
+
+
+class AddMemberForm(forms.ModelForm):
+    user = UserSearchField(required=False, identifier='members')
 
     class Meta:
         model = project_models.Project
