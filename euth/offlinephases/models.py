@@ -40,3 +40,14 @@ class Offlinephase(base.TimeStampedModel):
     @functional.cached_property
     def organisation(self):
         return self.project.organisation
+
+
+def document_path(instance, filename):
+    return 'documents/offlinephase_{}/{}'.format(
+        instance.offlinephase.pk, filename)
+
+
+class FileUpload(base.TimeStampedModel):
+    title = models.CharField(max_length=256)
+    document = models.FileField(upload_to=document_path)
+    offlinephase = models.ForeignKey(Offlinephase)
