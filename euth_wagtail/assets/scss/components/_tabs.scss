@@ -1,0 +1,38 @@
+.nav-tabs {
+    background-color: $gray-lighter;
+    border-bottom: 0;
+    @include rem(padding-top, 10px);
+
+    > li {
+        > a {
+            font-weight: 600;
+            color: $gray-darker;
+        }
+
+        > a,
+        > a:hover,
+        > a:focus {
+            border: 0;
+        }
+    }
+
+    > li:first-child {
+        @include rem(margin-left, 10px);
+    }
+
+    > li.active {
+        background: #fff;
+        box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
+        margin-top: 1px;
+
+        > a {
+            color: $gray-darker;
+        }
+
+        > a,
+        > a:hover,
+        > a:focus {
+            border: 0;
+        }
+    }
+}
