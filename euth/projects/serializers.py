@@ -17,7 +17,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         self.fields['participants'].allow_empty = True
 
     def to_representation(self, instance):
-        print(vars(self.fields))
         data = super().to_representation(instance)
         moderators = UserWithMailSerializer(
             instance=instance.moderators.order_by(Lower('username')).all(),
