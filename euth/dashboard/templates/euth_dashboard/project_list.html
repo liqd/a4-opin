@@ -38,12 +38,10 @@
                     <div class="col-sm-3">
                         <span class="pull-right">
                             <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
-                            {% if not project.is_public %}
-                                <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}"
-                                   title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
-                                        <i class="fa fa-user"></i>
-                                </a>
-                            {% endif %}
+                            <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}"
+                               title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
+                                    <i class="fa fa-user"></i>
+                            </a>
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'View project' %}">
                                 <i class="fa fa-eye"></i>
                             </a>
