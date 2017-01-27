@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% load widget_tweaks i18n thumbnail base_tags %}
+{% load i18n thumbnail widget_tweaks form_tags %}
 
 {% block title %}{% trans 'Edit offlinephase content' %}{% endblock %}
 {% block content %}
+
 <div class="container">
 
     <div class="black-divider">
@@ -10,38 +11,65 @@
     </div>
 
     <div class="proposals-project">
-        <h3 class="sans-serif">
-            {{ object.project.name }}
-        </h3>
+        <h3 class="sans-serif">{{ object.project.name }}</h3>
         <p class="project-tile-teaser">{{ object.project.description | truncatechars:185 }}</p>
         <div class="avatar-small">
             <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
             <div class="name">{{ object.project.organisation }}</div>
         </div>
     </div>
+
     <div class="general-form">
         <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
-            {% csrf_token %}
-            {{ form.media }}
-            <div class="form-group">
-                <label class="control-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
-                {% if form.text.errors %}
-                    {{ form.text|add_class:"form-control form-error" }}
+        {% csrf_token %}
+        {{ form.fileuploads.management_form }}
+
+        {% for field in form.offlinephase.visible_fields %}
+            <div class="form-group {% if field.errors %} has-error{% endif %}">
+                <label>
+                    {{ field.label }}
+                </label>
+                {% if field.errors %}
+                    {{ field|add_class:"form-control form-error" }}
                 {% else %}
-                    {{ form.text|add_class:"form-control"}}
+                    {{ field|add_class:"form-control"}}
                 {% endif %}
-                {{ form.text.errors }}
+                {{ field.errors }}
             </div>
-            {% block post_form %}
-            <div class="row button-row">
-                <div class="col-xs-6 col-sm-2">
-                    <button type="submit" class="submit-button">{% trans 'post'%}</button>
+        {% endfor %}
+
+        {% for form in form.fileuploads %}
+            {% for field in form.visible_fields %}
+            <div class="row">
+                <div class="col-sm-6">
+                <div class="form-group {% if field.errors %} has-error{% endif %}">
+                    <label>
+                        {{ field.label }}
+                    </label>
+                    {% if field.errors %}
+                        {{ field|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ field|add_class:"form-control"}}
+                    {% endif %}
+                    {{ field.errors }}
                 </div>
-                <div class="col-xs-6">
-                    <a href="{% url 'offlinephase-edit' object.pk %}" class="cancel-button">{% trans 'cancel'%}</a>
                 </div>
             </div>
-            {% endblock %}
+            {% endfor %}
+            {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
+        {% endfor %}
+
+        {% block post_form %}
+        <div class="row button-row">
+            <div class="col-xs-6 col-sm-2">
+                <button type="submit" class="submit-button">{% trans 'post'%}</button>
+            </div>
+        </div>
+        {% endblock %}
+
+        {{ form.media }}
         </form>
     </div>
 </div>
