@@ -6,6 +6,7 @@ from django.utils.translation import get_language
 
 
 class DateInput(widgets.DateInput):
+
     class Media:
         js = (staticfiles_storage.url('flatpickr.min.js'),
               staticfiles_storage.url('js/dateTimeInput.js'))
@@ -16,7 +17,7 @@ class DateInput(widgets.DateInput):
 
     # becomes a public value in Django 1.10
     def _format_value(self, value):
-        return value
+        return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
 
     def render(self, name, value, attrs=None):
         if attrs:
@@ -34,8 +35,9 @@ class DateInput(widgets.DateInput):
                 attrs.update(self.additional_attrs)
 
             if value:
+                date_string = value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
                 attrs.update({
-                    'data-default-date': value
+                    'data-default-date': date_string
                 })
         input = mark_safe(super().render(name, value, attrs))
 
