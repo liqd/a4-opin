@@ -27,7 +27,12 @@
                     </h1>
                     <div class="visible-xs herounit-meta">
                         {% if object.city or object.country %}
-                            <p><i class="fa fa-map-marker"></i> {{object.city}}, {{object.country.name}}</p>
+                            <p>
+                                <i class="fa fa-map-marker"></i>
+                                {{object.city}}
+                                {% if object.city and object.country %}, {% endif %}
+                                {{object.country.name}}
+                            </p>
                         {% endif %}
                         {% if object.languages %}
                             <p><i class="fa fa-comment"></i> {{object.languages}}</p>
@@ -52,7 +57,11 @@
             <div class="row">
                 <div class="col-sm-3 hidden-xs">
                     {% if object.city or object.country %}
-                        <p><i class="fa fa-map-marker"></i> {{object.city}}, {{object.country.name}}</p>
+                        <p>
+                            <i class="fa fa-map-marker"></i>
+                            {{object.city}}{% if object.city and object.country %}, {% endif %}
+                            {{object.country.name}}
+                        </p>
                     {% endif %}
                     {% if object.languages %}
                         <p><i class="fa fa-comment"></i> {{object.languages}}</p>
