@@ -1,6 +1,7 @@
 import collections
 import re
 
+import parler
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -446,11 +447,17 @@ class OrganisationForm(forms.ModelForm):
                 label = name.replace('_', ' ').capitalize()
                 identifier = self._get_identifier(
                     lang_code, name)
-                initial = self.instance.safe_translation_getter(
-                    name)
+
                 field = translated_field
                 field.label = label
                 field.required = False
+
+                try:
+                    translation = self.instance.get_translation(lang_code)
+                    initial = getattr(translation, name)
+                except parler.models.TranslationDoesNotExist:
+                    initial = ''
+
                 field.initial = initial
                 self.fields[identifier] = field
 
