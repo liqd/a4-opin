@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import widgets
 from django.utils import formats
@@ -17,7 +18,11 @@ class DateInput(widgets.DateInput):
 
     # becomes a public value in Django 1.10
     def _format_value(self, value):
-        return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
+        if isinstance(value, str):
+            date = datetime.strptime(value, '%d.%m.%Y %H:%M')
+            return date.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
+        else:
+            return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
 
     def render(self, name, value, attrs=None):
         if attrs:
@@ -35,9 +40,8 @@ class DateInput(widgets.DateInput):
                 attrs.update(self.additional_attrs)
 
             if value:
-                date_string = value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
                 attrs.update({
-                    'data-default-date': date_string
+                    'data-default-date': self._format_value(value)
                 })
         input = mark_safe(super().render(name, value, attrs))
 
