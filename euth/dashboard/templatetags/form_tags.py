@@ -128,10 +128,6 @@ def get_checkbox_label(form, fieldname):
 def add(number1, number2):
     return number1 + number2
 
-<<<<<<< HEAD
-    
-    
-=======
 
 @register.assignment_tag
 def next(some_list, current_index):
@@ -145,4 +141,3 @@ def next(some_list, current_index):
 def getPhaseName(type):
     name = phases.content.__getitem__(type).name
     return name
->>>>>>> upstream/master
