@@ -410,18 +410,19 @@ class OrganisationForm(forms.ModelForm):
     Special form that allows editing of all translated fields.
     """
 
-    translated_fields = [('title', forms.CharField(
-        help_text=_(
-            'The title of '
-            'your organisation'))),
-        ('description_why', forms.CharField(
-            widget=forms.Textarea)),
-        ('description_how', forms.CharField(
-            widget=forms.Textarea)),
-        ('description', forms.CharField(
-            widget=forms.Textarea, help_text=_(
+    translated_fields = [
+        ('title', forms.CharField, {
+            'help_text': _('The title of your organisation')
+        }),
+        ('description_why', forms.CharField, {'widget': forms.Textarea}),
+        ('description_how', forms.CharField, {'widget': forms.Textarea}),
+        ('description', forms.CharField, {
+            'widget': forms.Textarea,
+            'help_text': _(
                 'More info about the organisation / '
-                'Short text for organisation overview')))]
+                'Short text for organisation overview')
+        })
+    ]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
 
     class Meta:
@@ -439,8 +440,9 @@ class OrganisationForm(forms.ModelForm):
 
         # inject additional form fields for translated model fields
         for lang_code in self.languages:
-            for name, translated_field in self.translated_fields:
+            for name, field_cls, kwargs in self.translated_fields:
                 self.instance.set_current_language(lang_code)
+                translated_field = field_cls(**kwargs)
                 label = name.replace('_', ' ').capitalize()
                 identifier = self._get_identifier(
                     lang_code, name)
