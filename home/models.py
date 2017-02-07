@@ -141,11 +141,8 @@ class PageCollection(models.Model):
         related_name='+',
         help_text='The Image that is shown on top of the page'
     )
-    highlighted_page = models.ForeignKey(
-        'wagtailcore.Page',
-        on_delete=models.SET_NULL,
-        null=True,
-    )
+
+    intro_text = models.CharField(max_length=250, blank=True)
 
     args = {
         'on_delete': models.SET_NULL,
@@ -171,7 +168,7 @@ class PageCollection(models.Model):
         ],
             heading="Title",
         ),
-        edit_handlers.PageChooserPanel('highlighted_page'),
+        edit_handlers.FieldPanel('intro_text'),
         edit_handlers.MultiFieldPanel([
             edit_handlers.PageChooserPanel(
                 'page_{}'.format(x)
@@ -714,7 +711,7 @@ class ManualsIndex(Page):
                           blank=True, verbose_name="body")
 
     subpage_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage', 'home.ManualsDetailPage'
     ]
 
     content_panels = [
@@ -845,7 +842,8 @@ class ManualsSectionPage(Page):
 class ManualsDetailPage(Page):
     subpage_types = []
     parent_page_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage',
+        'home.ManualsIndex'
     ]
 
     # Title
