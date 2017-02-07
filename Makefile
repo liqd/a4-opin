@@ -1,6 +1,6 @@
 all: help
 
-VIRTUAL_ENV ?= .
+VIRTUAL_ENV ?= /usr
 SOURCE_DIRS = euth euth_wagtail home tests
 
 help:
@@ -41,10 +41,10 @@ fixtures:
 watch:
 	trap 'kill %1' KILL; \
 	npm run watch & \
-	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8000
+	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 0.0.0.0:8000
 
 server:
-	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8000
+	$(VIRTUAL_ENV)/bin/python3 manage.py runserver  0.0.0.0:8000
 
 test:
 	$(VIRTUAL_ENV)/bin/py.test --reuse-db

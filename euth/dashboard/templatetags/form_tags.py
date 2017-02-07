@@ -2,6 +2,8 @@ from django import template
 import datetime
 import json
 from django.conf import settings
+from adhocracy4 import phases
+
 register = template.Library()
 
 
@@ -126,5 +128,21 @@ def get_checkbox_label(form, fieldname):
 def add(number1, number2):
     return number1 + number2
 
+<<<<<<< HEAD
     
     
+=======
+
+@register.assignment_tag
+def next(some_list, current_index):
+    try:
+        return some_list[int(current_index) + 1]
+    except:
+        return ''
+
+
+@register.assignment_tag
+def getPhaseName(type):
+    name = phases.content.__getitem__(type).name
+    return name
+>>>>>>> upstream/master

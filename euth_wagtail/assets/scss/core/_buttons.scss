@@ -40,6 +40,7 @@
 
 .btn-sm {
     @include rem(padding, 7px 15px);
+    text-transform: capitalize;
 }
 
 .btn-hover-primary {
@@ -72,6 +73,21 @@ span.btn-dark:hover,
 span.btn-dark:focus {
     background-color: $black;
     color: #fff;
+}
+
+.btn-gray {
+    background-color: $gray-lighter;
+    color: $gray-darker;
+    @include rem(font-size, 12px);
+
+    &.btn-primary i {
+        color: $gray-darker;
+    }
+
+    &:hover,
+    &:focus {
+        color: $gray-light;
+    }
 }
 
 .btn-ghost {

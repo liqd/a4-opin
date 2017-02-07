@@ -369,6 +369,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
             project_participant__slug=self.kwargs['slug']
         )
         kwargs['users__queryset'] = qs
+        kwargs['moderators__instance'] = self.project
         kwargs['project'] = self.project
         return kwargs
 

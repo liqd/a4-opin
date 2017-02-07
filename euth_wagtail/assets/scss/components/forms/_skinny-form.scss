@@ -59,11 +59,19 @@
     background: $brand-brand1 url('/static/images/logo.svg') no-repeat center 40%;
     background-size: 35%;
 
+    .nav-tabs {
+        background-color: transparent;
+    }
+
     .nav-tabs > li {
         font-weight: bold;
         text-align: center;
         text-transform: uppercase;
         width: 50%;
+
+        &:first-child {
+            margin: 0;
+        }
 
         > a {
             border: 0;

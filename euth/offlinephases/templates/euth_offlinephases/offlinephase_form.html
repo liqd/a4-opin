@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load widget_tweaks i18n thumbnail base_tags %}
+
+{% block title %}{% trans 'Edit offlinephase content' %}{% endblock %}
+{% block content %}
+<div class="container">
+
+    <div class="black-divider">
+        {% trans 'update offlinephase'%}
+    </div>
+
+    <div class="proposals-project">
+        <h3 class="sans-serif">
+            {{ object.project.name }}
+        </h3>
+        <p class="project-tile-teaser">{{ object.project.description | truncatechars:185 }}</p>
+        <div class="avatar-small">
+            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
+            <div class="name">{{ object.project.organisation }}</div>
+        </div>
+    </div>
+    <div class="general-form">
+        <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            <div class="form-group">
+                <label class="control-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
+                {% if form.text.errors %}
+                    {{ form.text|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.text|add_class:"form-control"}}
+                {% endif %}
+                {{ form.text.errors }}
+            </div>
+            {% block post_form %}
+            <div class="row button-row">
+                <div class="col-xs-6 col-sm-2">
+                    <button type="submit" class="submit-button">{% trans 'post'%}</button>
+                </div>
+                <div class="col-xs-6">
+                    <a href="{% url 'offlinephase-edit' object.pk %}" class="cancel-button">{% trans 'cancel'%}</a>
+                </div>
+            </div>
+            {% endblock %}
+        </form>
+    </div>
+</div>
+{% endblock %}
