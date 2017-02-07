@@ -21,14 +21,15 @@ class ProjectViewSet(viewsets.mixins.UpdateModelMixin,
         moderators = set(moderators)
         post_moderators = set(serializer.initial_data['moderators'])
         new_moderator = post_moderators - moderators
-        new_moderator = User.objects.get(id__exact=new_moderator.pop())
+        if len(new_moderator) == 1:
+            new_moderator = User.objects.get(id__exact=new_moderator.pop())
 
-        send_email_with_template(
-            [new_moderator.email],
-            'notify_new_moderator',
-            {
-                'project': serializer.instance,
-            }
-        )
+            send_email_with_template(
+                [new_moderator.email],
+                'notify_new_moderator',
+                {
+                    'project': serializer.instance,
+                }
+            )
 
         serializer.save()
