@@ -17,23 +17,29 @@
 
     {% include 'home/blocks/breadcrumb.html' with current_page=page %}
 
-    <section class="page-body">
-    {% for block in self.body %}
-        {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
-        <div class="block-inner">
-            {% if block.block_type == 'image' %}
-                 {% image block.value original class="img-responsive" %}
-            {% elif block.block_type == 'heading' %}
-                <h2>{{ block.value }}</h2>
-            {% else %}
-                {{ block.value }}
-            {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-9 col-md-6">
+                <section class="page-body">
+                {% for block in self.body %}
+                    {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
+                    <div class="block-inner">
+                        {% if block.block_type == 'image' %}
+                             {% image block.value original class="img-responsive" %}
+                        {% elif block.block_type == 'heading' %}
+                            <h2>{{ block.value }}</h2>
+                        {% else %}
+                            {{ block.value }}
+                        {% endif %}
+                    </div>
+                    {% else %}
+                        {{ block.value }}
+                    {% endif %}
+                {% endfor %}
+                </section>
+            <div class="col-sm-9 col-md-6">
         </div>
-        {% else %}
-            {{ block.value }}
-        {% endif %}
-    {% endfor %}
-    </section>
+    </div>
 
 {% endblock %}
 
