@@ -8,7 +8,7 @@ register = template.Library()
 def print_timestamp(timestamp):
     try:
         #assume, that timestamp is given in seconds with decimal point
-        ts = float(timestamp)
+        ts = float(str(timestamp))
     except ValueError:
         return None
     print("timestamp: "+str(timestamp)+" date: "+str(datetime.datetime.fromtimestamp(ts)))
@@ -28,11 +28,15 @@ def get_poll_from_string(poll):
 @register.filter(name='get_description_errors')
 def get_description_errors(errors):    
     qerrors = 0
+    geoerrors = 0
     for line in errors:
         if "question" in line:
             qerrors = qerrors + 1
             
-    return len(errors) - qerrors
+        if "geofenceLocation" in line:
+            geoerrors = geoerrors + 1            
+            
+    return len(errors) - (qerrors + geoerrors)
         
 @register.filter(name='get_questions_errors')
 def get_questions_errors(errors):
@@ -79,6 +83,12 @@ def is_firstanswer(field_name):
 def is_firstquestion(field_name):
     orderid = int(field_name.split("_")[1])    
     return (1 == orderid)
+    
+@register.filter(name='is_openquestion')
+def is_openquestion(questions, field_name):
+    orderid = int(field_name.split("_")[1])  
+    type = questions[orderid-1]['questionType']      
+    return (type[0] == 'FREETEXT' or type == 'FREETEXT')
     
 @register.filter(name='get_field_endswith')
 def get_field_endswith(field_name, end_name):

@@ -135,8 +135,8 @@ class ProjectForm(forms.ModelForm):
                 response = requests.delete(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))           
             else:            
                     
-                startTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-start_date'], "%d/%m/%Y %H:%M").timetuple())
-                endTime = time.mktime(datetime.datetime.strptime(self.data['phases-0-end_date'], "%d/%m/%Y %H:%M").timetuple())
+                startTime = time.mktime(datetime.datetime.strptime(self.data['module_settings-startTime'], "%d/%m/%Y %H:%M").timetuple())
+                endTime = time.mktime(datetime.datetime.strptime(self.data['module_settings-endTime'], "%d/%m/%Y %H:%M").timetuple())
 
                 
                 jsonGenerator = {}
@@ -159,7 +159,7 @@ class ProjectForm(forms.ModelForm):
                 jsonGenerator['campaign'] = 'default'		
 
                 # location
-                jsonGenerator['geofenceLocation'] = self.data['geofenceLocation']
+                jsonGenerator['geofenceLocation'] = self.data['module_settings-geofenceLocation']
                 jsonGenerator['geofenceRadius'] = 0
                 jsonGenerator['geofenceId'] = ''
                                                 
@@ -233,6 +233,7 @@ class ProjectForm(forms.ModelForm):
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
+        
     
     def get_checkbox_label(self, name):
         checkbox_labels = {
@@ -292,17 +293,18 @@ def get_module_settings_form(settings_instance_or_modelref):
         def __init__(self, *args, **kwargs):
             
             super(ModuleSettings, self).__init__(*args, **kwargs)
-            # setting fields
-            self.fp_context_data(kwargs)
+            
+            # setting flashpoll fields
+            if 'key' in self.fields:                                       
+                self.fp_context_data()
             
        
-        def fp_context_data(self, kwargs):
-            print("In fp_context_data in module_settings")
-            print("self.data: "+str(self.data))
+        def fp_context_data(self):
             data = dict(self.data)
             # case submitted
             if ('save_draft' in data) or ('publish' in data):           
-                #print('setting form:'+str(data))                
+                print('setting form:'+str(data))                
+
                 jsonGenerator = {}
                 
                 jsonGenerator['title'] = data['module_settings-title']
@@ -311,10 +313,22 @@ def get_module_settings_form(settings_instance_or_modelref):
                 jsonGenerator['concludeMessage'] = data['module_settings-concludeMessage']
                 jsonGenerator['descriptionMediaURLs'] = [""]
                 jsonGenerator['keywords'] = []
-                jsonGenerator['resultVisibility'] = 0        
+                jsonGenerator['resultVisibility'] = 0  
+                
+                
+                if data['module_settings-startTime'] != [''] and data['module_settings-endTime'] != ['']:
+                    startTime = time.mktime(datetime.datetime.strptime(data['module_settings-startTime'][0], "%d/%m/%Y %H:%M").timetuple())
+                    endTime = time.mktime(datetime.datetime.strptime(data['module_settings-endTime'][0], "%d/%m/%Y %H:%M").timetuple())   
+
+                    jsonGenerator['startTime'] = startTime
+                    jsonGenerator['endTime'] = endTime
+                else:
+                    jsonGenerator['startTime'] = data['module_settings-startTime']
+                    jsonGenerator['endTime'] = data['module_settings-endTime']                 
+                
                 
                 # location
-                jsonGenerator['geofenceLocation'] = data['geofenceLocation']
+                jsonGenerator['geofenceLocation'] = data['module_settings-geofenceLocation']
 
                 # questions
                 q = 1
@@ -359,9 +373,9 @@ def get_module_settings_form(settings_instance_or_modelref):
 
 
                 jsonGenerator['questions'] = questions     
-                print('poll str(jsonGenerator): '+str(jsonGenerator))                                  
+                #print('poll str(jsonGenerator): '+str(jsonGenerator))                                  
                 poll = jsonGenerator
-                print('poll submitted: '+str(poll)) 
+                #print('poll submitted: '+str(poll)) 
                 self.data._mutable = True    
                 self.data['module_settings-poll'] = json.dumps(poll)
             
@@ -371,7 +385,7 @@ def get_module_settings_form(settings_instance_or_modelref):
                 if 'key' in self.initial:
                     pollid = self.initial['key']
                     if pollid:
-                        print('pollid: '+pollid)
+                        #print('pollid: '+pollid)
                         
                         url_poll = '{base_url}/poll/{poll_id}'.format(
                             base_url=settings.FLASHPOLL_BACK_URL,
@@ -381,19 +395,20 @@ def get_module_settings_form(settings_instance_or_modelref):
                         # Handle get
                         headers = {'Content-type': 'application/json'}
                         response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))        
-                        poll = json.loads(response.text)                        
-                        print('poll edit: '+str(poll))
+                        poll = json.loads(response.text)   
+                        poll = self.get_ordered_poll(poll)
+                        #print('poll edit: '+str(poll))
                         
                         
                 else:
                     # case create                                
-                    print('init self: ' +str(self.data))
-                    jsonstring = '{\"title\":\"\",\"shortDescription\":\"\",\"longDescription\":\"\",\"concludeMessage\":\"\",\"descriptionMediaURLs\":[\"\"],\"keywords\":[\"\"],\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'                    
+                    #print('init self: ' +str(self.data))
+                    jsonstring = '{\"title\":\"\",\"shortDescription\":\"\",\"longDescription\":\"\",\"concludeMessage\":\"\",\"geofenceLocation\":\"\", \"startTime\":\"\", \"endTime\":\"\", \"descriptionMediaURLs\":[\"\"],\"keywords\":[\"\"],\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'                    
                     poll = json.loads(jsonstring)
                     print('poll create: ' +str(poll))
                         
             
-            print('setting form: '+str(poll))
+            #print('setting form: '+str(poll))
             self.fields['poll'] = forms.CharField(widget=forms.Textarea)
             self.initial['poll'] = json.dumps(poll)
                     
@@ -409,6 +424,16 @@ def get_module_settings_form(settings_instance_or_modelref):
             
             self.fields['concludeMessage'] = forms.CharField(label='Conclude message', required=False)
             self.initial['concludeMessage'] = poll['concludeMessage']
+                      
+            self.fields['startTime'] = forms.CharField(label='Start time', required=True)
+            self.initial['startTime'] = poll['startTime']
+            
+            self.fields['endTime'] = forms.CharField(label='End time', required=True)
+            self.initial['endTime'] = poll['endTime']            
+            
+            
+            self.fields['geofenceLocation'] = forms.CharField(widget=forms.Textarea, label='Location', required=True)
+            self.initial['geofenceLocation'] = poll['geofenceLocation']           
 
             # questions                                    
             for question in poll['questions']:
@@ -420,7 +445,7 @@ def get_module_settings_form(settings_instance_or_modelref):
                      choices = ([('CHECKBOX','MULTIPLE'), ('RADIO','SINGLE'),('FREETEXT','OPEN'),('ORDER','RANKING'),]), initial='3', required = True,)                
                 self.initial['question_'+str(q)+'_questionType']  = question['questionType']
 
-                self.fields['question_'+str(q)+'_mandatory'] = forms.BooleanField(label='Mandatory')
+                self.fields['question_'+str(q)+'_mandatory'] = forms.BooleanField(label='Mandatory', required = False,)
                 self.initial['question_'+str(q)+'_mandatory'] = question['mandatory']
                 
                 for answer in question['answers']:
@@ -429,8 +454,56 @@ def get_module_settings_form(settings_instance_or_modelref):
                     self.initial['question_'+str(q)+'_choice_'+str(a)+'_answerText'] = answer['answerText']                                               
                 
                 
-                
+        def get_ordered_poll(self, poll):                                 
+            # answers                                    
+            for question in poll['questions']:             
+                answers = []                
+                for orderid in range(1, len(question['answers'])+1):
+                    answer = self.get_elt_at(question['answers'], orderid)
+                    answers.append(answer)
 
+                question['answers'] = answers
+            
+            # questions 
+            questions = []                
+            for orderid in range(1, len(poll['questions'])+1):
+                question = self.get_elt_at(poll['questions'], orderid)
+                questions.append(question)
+                                
+            poll['questions'] = questions
+                        
+            return poll
+            
+            
+        def get_elt_at(self, list, orderid):            
+            for elt in list:
+                if elt['orderId'] == orderid:
+                    return elt
+            
+            return None       
+
+        
+        def clean(self):            
+            data = dict(self.data)
+            if data['module_settings-startTime'] != [''] and data['module_settings-endTime'] != ['']:
+                startTime = time.mktime(datetime.datetime.strptime(data['module_settings-startTime'][0], "%d/%m/%Y %H:%M").timetuple())
+                endTime = time.mktime(datetime.datetime.strptime(data['module_settings-endTime'][0], "%d/%m/%Y %H:%M").timetuple())
+                if endTime and startTime:
+                    if endTime < startTime:
+                        raise ValidationError({
+                            'endTime': _('End time can not be smaller '
+                                          'than the start time.')
+                        })
+                        
+               # if startTime:
+               #     if startTime < int(time.time()):
+               #         raise ValidationError({
+               #             'startTime': _('Start time can not be smaller '
+               #                           'than the current time.')
+               #         })
+                        
+                    
+            super().clean()        
         
     return ModuleSettings
 

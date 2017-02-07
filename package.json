@@ -32,7 +32,8 @@
     "slick-carousel": "^1.6.0",
     "style-loader": "0.13.1",
     "webpack": "1.13.1",
-    "webpack-bundle-tracker": "0.0.93"
+    "webpack-bundle-tracker": "0.0.93",
+    "google-maps": "3.2.1"    
   },
   "devDependencies": {
     "eslint": "^3.7.1",

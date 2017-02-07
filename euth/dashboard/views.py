@@ -155,12 +155,6 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         context['heading'] = _("New project based on")
         context['module_settings'] = self.kwargs['module_settings']
         
-        
-        if 'poll' in context: 
-            print("in the DashboardProjectCreateView poll is there context")
-        else:        
-            print("in the DashboardProjectCreateView not poll context")
-        
         #initiating flashpoll data
         if context['module_settings']== 'euth_flashpoll':
             context = self.fp_context_data(context)         
@@ -168,7 +162,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         return context
 
     def fp_context_data(self, context):
-        print('fp_context_data createview')
+        #print('fp_context_data createview')
         pollid = str(uuid.uuid4())
         context['pollid']  = pollid
         #pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
@@ -191,7 +185,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         print("setting self.blueprint.settings_model: "+str(self.blueprint.settings_model))       
         
         if self.blueprint.settings_model:
-            self.kwargs['module_settings'] = 'euth_flashpoll'
+            self.kwargs['module_settings'] = self.blueprint.settings_model[0]
         else:
             self.kwargs['module_settings'] = 'default'
 			
@@ -225,8 +219,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return context
 
         
-    def fp_context_data(self, context):
-        print("In fp_context_data")
+    def fp_context_data(self, context):        
         context['pollid'] = self.kwargs['pollid']
         context['module_settings'] = self.kwargs['module_settings']
 
@@ -263,8 +256,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                            'slug': self.get_object().slug
                        })
 
-    def get_form_kwargs(self):
-        print("setting pollid")
+    def get_form_kwargs(self):        
         kwargs = super().get_form_kwargs()
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs

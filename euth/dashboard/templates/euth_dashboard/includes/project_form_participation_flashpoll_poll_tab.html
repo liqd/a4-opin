@@ -12,7 +12,7 @@
     <h5>
         <a href="#phase-{{ forloop.counter }}" class="collapse collapsed" data-toggle="collapse">
             Poll: Description
-            {% if form.module_settings.errors %}<span class="info-number">{{ form.module_settings.errors|get_description_errors }}</span>{% endif %}
+            {% if form.module_settings.errors|get_description_errors != 0 %}<span class="info-number">{{ form.module_settings.errors|get_description_errors }}</span>{% endif %}
             <i class="fa fa-chevron-up pull-right"></i>
 
         </a>
@@ -47,7 +47,48 @@
             {% endif %}
         {% endif %}        
 
-    {% endfor %}                
+    {% endfor %}     
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group {% if form.module_settings.startTime.errors %} has-error{% endif %}">
+                    <label>
+                        {{ form.module_settings.startTime.label }}:
+                        {% if form.instance.id %}
+                        {{ form.instance.content.name }}
+                        {% else %}
+                        {{ form.initial.phase_content.name }}
+                        {% endif %}</br>
+                        {% if form.module_settings.startTime.help_text %}
+                        <i>{{ form.module_settings.startTime.help_text }}</i><br />
+                        {% endif %}
+                    </label>                    
+                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.startTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-startTime" name="module_settings-startTime" type="text" value="" readonly="readonly">                                                            
+                    {% for error in form.module_settings.startTime.errors %}
+                    <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group {% if form.module_settings.endTime.errors %} has-error{% endif %}">
+                    <label>
+                        {{ form.module_settings.endTime.label }}:
+                        {% if form.instance.id %}
+                        {{ form.instance.content.name }}
+                        {% else %}
+                        {{ form.initial.phase_content.name }}
+                        {% endif %}<br />
+                        {% if form.module_settings.endTime.help_text %}
+                        <i>{{ form.module_settings.endTime.help_text }}</i><br />
+                        {% endif %}
+                    </label>                    
+                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.endTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-endTime" name="module_settings-endTime" type="text" value="" readonly="readonly">                    
+                    {% for error in form.module_settings.endTime.errors %}
+                    <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>        
     </div>
 </div>
 
@@ -55,7 +96,7 @@
     <h5>
         <a href="#fp-phase-2" class="collapse collapsed" data-toggle="collapse" aria-expanded="false">
             Poll: Questions            
-            {% if form.module_settings.errors %}<span class="info-number">{{ form.module_settings.errors|get_questions_errors }}</span>{% endif %}
+            {% if form.module_settings.errors|get_questions_errors != 0 %}<span class="info-number">{{ form.module_settings.errors|get_questions_errors }}</span>{% endif %}
             <i class="fa fa-chevron-up pull-right"></i>            
             
         </a>
@@ -67,9 +108,9 @@
         <!-- question_1_questionText -->
         {% if field.name|get_field_endswith:"questionText" %}
                 
-        {% if field.name|is_firstquestion %}
+        
         <div id="form-group-question-{{field.name|get_question_orderid}}">
-        {% endif %}
+        
         
             <div class="form-group {% if field.errors %} has-error{% endif %}">
                 <label>
@@ -132,6 +173,17 @@
                     <br>
                 </label>
             </div>  
+                        
+                {% if poll.questions|is_openquestion:field.name %}         
+                </div>            
+            {% if poll.questions|is_lastquestion:field.name %}              
+        <div id="icon-plus-poll" class="span3">
+            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
+            <div style="clear:both;"></div>
+        </div>        
+        {% endif %}        
+        {% endif %}  
+        
             {% endif %}      
             
             <!-- module_settings-question_1_choice_1_answerText -->        
@@ -166,17 +218,19 @@
                 </div>
                 
                 {% if poll.questions|is_lastanswer:field.name %}
+                
                 <div id="icon-plus-question-{{field.name|get_question_orderid}}" class="span3">
                     <div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_question_orderid}}, "fp-phase-qc-{{field.name|get_question_orderid}}")' tabindex="-1" style="float:left;"></div>
                     <div style="clear:both;"></div>
                 </div>
             </div>
             
+            </div> 
             {% if poll.questions|is_lastquestion:field.name %}
-            <div id="icon-plus-poll" class="span3">
-                <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
-                <div style="clear:both;"></div>
-            </div>
+             
+        <div id="icon-plus-poll" class="span3">
+            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
+            <div style="clear:both;"></div>
         </div>        
         {% endif %}        
         {% endif %}        
@@ -196,7 +250,9 @@
     <h5>
         <a href="#fp-phase-3" class="collapse collapsed" data-toggle="collapse">
             Poll: Location
-            <i class="fa fa-chevron-up pull-right"></i>
+            
+            {% if form.module_settings.geofenceLocation.errors %}<span class="info-number">{{ form.module_settings.geofenceLocation.errors|length }}</span>{% endif %}
+            <i class="fa fa-chevron-up pull-right"></i>                        
         </a>
     </h5>
 
@@ -214,7 +270,8 @@
             </div>
             <div class="row-fluid">
                 <div class="span4 search-bloc">
-                    <div class="btn ng-isolate-scope" id="delete-button" i18n="" key="'popup.button.cancel'">Undo</div>
+                    <div class="btn ng-isolate-scope" id="delete-button" i18n="" key="'popup.button.cancel'">Clear</div>
+                    <div class="btn ng-isolate-scope" id="restore-button" i18n="" key="'popup.button.cancel'">Restore</div>
                 </div>
             </div>
         </div>
@@ -225,6 +282,6 @@
 <div id="field-hide">
     <input type="hidden" name="module_settings-key" value="{{pollid}}">
 	<input type="hidden" name="current_preview" value="{{poll.preview}}">
-    <input type="hidden" id="geofenceLocation" name="geofenceLocation" value="{{poll.geofenceLocation}}">
+    <input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value="{{form.module_settings.geofenceLocation.value}}">
 </div>
 {% endwith %}
