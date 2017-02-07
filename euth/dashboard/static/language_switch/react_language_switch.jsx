@@ -24,7 +24,7 @@ var LanguageSwitch = React.createClass({
           {
             this.props.languages.map((languageCode, i) => {
               return (
-                <li className={i === 0 ? '.active' : ''} key={i}>
+                <li key={languageCode} className={i === 0 ? 'active' : ''}>
                   <input type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
                     defaultChecked={this.props.defaultLanguages.indexOf(languageCode) !== -1} />
                   <a href={'#' + languageCode + '_language_panel'} className="language-switch btn"
@@ -42,7 +42,7 @@ var LanguageSwitch = React.createClass({
             {
               this.props.languages.map(languageCode => {
                 return (
-                  <li><label htmlFor={languageCode + '_language-switch'}
+                  <li key={languageCode}><label htmlFor={languageCode + '_language-switch'}
                     onClick={this.switchLanguage}>{languageCode}</label></li>
                 )
               })
