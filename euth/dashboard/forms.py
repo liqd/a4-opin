@@ -498,11 +498,13 @@ class OrganisationForm(forms.ModelForm):
             for lang_code in self.languages:
                 if lang_code in self.data:
                     instance.set_current_language(lang_code)
-                    for fieldname in self.translated_fields:
-                        identifier = '{}__{}'.format(lang_code, fieldname[0])
-                        setattr(instance, fieldname[0],
+                    for fieldname, _cls, _kwargs in self.translated_fields:
+                        identifier = '{}__{}'.format(lang_code, fieldname)
+                        setattr(instance, fieldname,
                                 self.cleaned_data.get(identifier))
                     instance.save()
+                elif instance.has_translation(lang_code):
+                    instance.delete_translation(lang_code)
         return instance
 
     def clean(self):
