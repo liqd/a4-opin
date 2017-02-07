@@ -79,7 +79,7 @@ def test_initiator_create_project(client, organisation):
     assert project.is_draft
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 2
+    assert len(project.module_set.first().phase_set.all()) == 1
 
 
 @pytest.mark.django_db
@@ -243,7 +243,7 @@ def test_dashboard_project_invite(client, project):
     assert response.status_code == 200
 
     response = client.post(url, {
-        'emails': 'Jimmy Hendrix <j@he.ix>, james.dean@gmail.com'
+        'emails': 'j@he.ix, james.dean@gmail.com'
     })
     assert redirect_target(response) == 'dashboard-project-users'
     assert len(project.invite_set.all()) == 2
@@ -273,13 +273,15 @@ def test_dashboard_project_invalid(client, project):
         'emails': 'test@test.de foo@bar.de'
     })
     errors = response.context_data['form']['emails'].errors
-    assert errors == ['@bar.de invalid email address']
+    assert errors == ['Please enter correct e-mail addresses,'
+                      ' separated by commas.']
 
     response = client.post(url, {
         'emails': 'test@foo, @aded'
     })
     errors = response.context_data['form']['emails'].errors
-    assert errors == ['test@foo, @aded invalid email address']
+    assert errors == ['Please enter correct e-mail addresses,'
+                      ' separated by commas.']
 
 
 @pytest.mark.django_db

@@ -13,6 +13,10 @@
         border: 0;
 
         transition: opacity, 0.3s;
+
+        @media screen and (max-width: $screen-xs-max) {
+            display: none;
+        }
     }
 
     .slick-prev {
@@ -44,6 +48,7 @@
 
     .slick-slide {
         margin: 0 10px;
+        display: flex;
     }
 
 

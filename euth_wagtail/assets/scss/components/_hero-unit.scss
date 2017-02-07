@@ -44,6 +44,10 @@
     @media screen and (max-width: $screen-xs-max) {
         @include rem(padding, 40px 0 0);
         display: block;
+
+        .herounit-links {
+            @include rem(margin-top, 10px);
+        }
     }
 
     .herounit-header {
@@ -262,6 +266,7 @@
 
 .herounit-title {
     color: #fff;
+    margin-bottom: 0;
 
     &:after {
         background: rgba(0, 0, 0, 0.5);
@@ -274,15 +279,11 @@
     }
 }
 
-.herounit-link {
-    @include rem(margin-top, -20px);
+.herounit-link a {
+    color: #fff;
 
-    a {
-        color: #fff;
-
-        &:hover {
-            color: $gray-light;
-        }
+    &:hover {
+        color: $gray-light;
     }
 }
 

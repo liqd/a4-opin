@@ -1,5 +1,4 @@
 import collections
-import email.utils
 import re
 import json
 import time
@@ -12,6 +11,7 @@ from requests.auth import HTTPBasicAuth
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 from django.db.models import loading
 from django.forms import modelformset_factory
 from django.utils.translation import ugettext as _
@@ -34,7 +34,6 @@ class ProfileForm(forms.ModelForm):
                   'country', 'city', 'gender', 'languages', 'twitter_handle',
                   'facebook_handle', 'instagram_handle', 'get_notifications']
         widgets = {
-            '_avatar': widgets.ImageInputWidget(),
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
         }
@@ -76,7 +75,13 @@ class ProjectInviteForm(forms.Form):
         widget=forms.TextInput(attrs={
             'placeholder': 'magdalena@example.com, yves@example.com,'
                            ' nadine@example.com…'}
-        )
+        ),
+        validators=[RegexValidator(
+            # a list of emails, separated by commas with optional space after
+            regex=r'^([^@]+@[^@\s]+\.[^@\s,]+((,\s?)|$))+$',
+            message=_('Please enter correct e-mail addresses, separated by '
+                      'commas.')
+        )]
     )
 
     def __init__(self, project, *args, **kwargs):
@@ -84,21 +89,12 @@ class ProjectInviteForm(forms.Form):
         super().__init__(*args, **kwargs)
 
     def clean_emails(self):
-        emails_str = self.cleaned_data['emails']
-        emails = email.utils.getaddresses([emails_str])
+        emails_str = self.cleaned_data['emails'].strip(' ,')
+        emails = re.split(r',\s?', emails_str)
 
-        invalid_emails = []
-        for name, email_addr in emails:
-            if not re.match(r'^[^@]+@[^@\s]+\.[^@\s]+$', email_addr):
-                invalid_emails.append(email_addr)
-        if invalid_emails:
-            message = '{} invalid email address'
-            raise ValidationError(message.format(', '.join(invalid_emails)))
-
-        addresses = [email[1] for email in emails]
         query = {
             'project': self.project,
-            'email__in': addresses,
+            'email__in': emails,
         }
         existing = member_models.Invite.objects.filter(**query)\
                                                .values_list('email', flat=True)
@@ -117,9 +113,6 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
-        widgets = {
-            'image': widgets.ImageInputWidget()
-        }
 
     def send_to_flashpoll(self):
         if 'current_preview' in self.data:    
@@ -265,7 +258,7 @@ class PhaseForm(forms.ModelForm):
 
     class Meta:
         model = phase_models.Phase
-        exclude = ('module', 'type')
+        exclude = ('module', 'type', 'weight')
 
         widgets = {
             'end_date': widgets.DateTimeInput(),
@@ -586,6 +579,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
         for phase, phase_content in zip(phases, self.blueprint.content):
             phase.module = module
             phase.type = phase_content.identifier
+            phase.weight = int(phase.type.split(':')[1])
             if commit:
                 phase.save()
 
@@ -690,21 +684,6 @@ class OrganisationForm(forms.ModelForm):
             'image', 'logo', 'twitter_handle', 'facebook_handle',
             'instagram_handle', 'webpage', 'country', 'place'
         ]
-        widgets = {
-            'image': widgets.ImageInputWidget(),
-            'logo': widgets.ImageInputWidget(),
-        }
-        labels = {
-            'image': _('Header Image'),
-        }
-        help_texts = {
-            'image': _("Your image should be at least 1300px wide and "
-                       "600px high. Supported formats are %s."
-                       % ", ".join(settings.ALLOWED_UPLOAD_IMAGES)),
-            'logo': _("Your logo should be at least 200px wide "
-                      "and square. Supported formats are %s."
-                      % ", ".join(settings.ALLOWED_UPLOAD_IMAGES))
-        }
 
     def _get_identifier(self, language, fieldname):
         return '{}__{}'.format(language, fieldname)

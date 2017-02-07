@@ -41,6 +41,9 @@ module.exports = {
       './euth_wagtail/assets/js/modernizr-custom.js',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css'
+    ],
+    user_search: [
+      './euth/users/static/users/js/user_search.js'
     ]
   },
   devtool: 'eval',
@@ -104,6 +107,11 @@ module.exports = {
       {
         from: './euth_wagtail/assets/icons/favicon.ico',
         to: 'images/',
+        flatten: true
+      },
+      {
+        from: './euth_wagtail/assets/scss/wagtail_admin',
+        to: '',
         flatten: true
       }
 

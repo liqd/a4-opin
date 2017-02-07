@@ -4,10 +4,10 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 
 from adhocracy4 import transforms
-from adhocracy4.images import validators
+from adhocracy4.comments import models as comment_models
+from adhocracy4.images import fields
 from adhocracy4.modules import models as module_models
 from adhocracy4.ratings import models as rating_models
-from euth.comments import models as comment_models
 
 
 class IdeaQuerySet(models.QuerySet):
@@ -47,8 +47,11 @@ class Idea(module_models.Item):
     slug = AutoSlugField(populate_from='name', unique=True)
     name = models.CharField(max_length=120)
     description = RichTextField()
-    image = models.ImageField(upload_to='ideas/images', blank=True,
-                              validators=[validators.validate_idea_image])
+    image = fields.ConfiguredImageField(
+        'idea_image',
+        upload_to='ideas/images',
+        blank=True,
+    )
     ratings = GenericRelation(rating_models.Rating,
                               related_query_name='idea',
                               object_id_field='object_pk')

@@ -68,6 +68,12 @@
     }
 }
 
+span.btn-dark:hover,
+span.btn-dark:focus {
+    background-color: $black;
+    color: #fff;
+}
+
 .btn-ghost {
     border: 1px solid currentColor;
     text-transform: uppercase;

@@ -64,19 +64,21 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'micawber.contrib.mcdjango',
+
+    'adhocracy4.images.apps.ImagesConfig',
+    'adhocracy4.phases.apps.PhasesConfig',
+    'adhocracy4.projects.apps.ProjectsConfig',
+    'adhocracy4.ratings.apps.RatingsConfig',
+    'adhocracy4.reports.apps.ReportConfig',
+    'adhocracy4.modules.apps.ModulesConfig',
+    'adhocracy4.comments.apps.CommentConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
     'euth.organisations.apps.OrganisationsConfig',
-    'adhocracy4.organisations.apps.OrganisationsConfig',
     'euth.projects.apps.ProjectsConfig',
-    'adhocracy4.projects.apps.ProjectsConfig',
-    'euth.comments.apps.CommentConfig',
-    'adhocracy4.phases.apps.PhasesConfig',
-    'adhocracy4.modules.apps.ModulesConfig',
     'euth.ideas.apps.IdeaConfig',
-    'adhocracy4.ratings.apps.RatingsConfig',
-    'euth.reports.apps.ReportConfig',
     'euth.dashboard.apps.DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
@@ -205,6 +207,8 @@ BLEACH_LIST = {
     }
 }
 
+MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -236,7 +240,16 @@ PARLER_LANGUAGES = {
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
 
-ALLOWED_UPLOAD_IMAGES = ('image/png', 'image/jpeg', 'image/gif')
+IMAGE_ALIASES = {
+    '*': {
+        'max_size': 5*10**6,
+        'fileformats': ('image/png', 'image/jpeg', 'image/gif')
+    },
+    'heroimage': {'min_resolution': (1300, 600)},
+    'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
+    'avatar': {'min_resolution': (200, 200)},
+    'idea_image': {'min_resolution': (800, 200)},
+}
 
 THUMBNAIL_ALIASES = {
     '': {
@@ -277,6 +290,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
     os.path.join(BASE_DIR, 'node_modules/leaflet/dist'),
     os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
+    os.path.join(BASE_DIR, 'node_modules/typeahead.js/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
@@ -325,26 +339,26 @@ REST_FRAMEWORK = {
 
 # Euth settings
 
-COMMENTABLES = (
+A4_COMMENTABLES = (
     ('euth_ideas', 'idea'),
     ('euth_documents', 'paragraph'),
     ('euth_documents', 'document'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
 A4_RATEABLES = (
     ('euth_ideas', 'idea'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
-REPORTABLES = (
+A4_REPORTABLES = (
     ('euth_ideas', 'ideas'),
-    ('euth_comments', 'comment'),
+    ('a4comments', 'comment'),
 )
 
 ACTIONABLE = [
     ('euth_ideas', 'Idea'),
-    ('euth_comments', 'Comment')
+    ('a4comments', 'Comment')
 ]
 
 FLASHPOLL_URL = "http://int.opin.flashpoll.eu/"
