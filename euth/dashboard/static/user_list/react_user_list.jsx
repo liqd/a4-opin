@@ -91,10 +91,10 @@ UserList.defaultProps = {
 
 module.exports.renderUserList = function (target, userArray, listenTo) {
   // check if userList object exists, otherwise create an empty one
-  window.opin.userList = window.opin.userList || {}
-  window.opin.userList[listenTo] = window.opin.userList[listenTo] || []
+  window.adhocracy4.userList = window.adhocracy4.userList || {}
+  window.adhocracy4.userList[listenTo] = window.adhocracy4.userList[listenTo] || []
   // add just created React component to the object
-  window.opin.userList[listenTo].push(
+  window.adhocracy4.userList[listenTo].push(
     ReactDOM.render(
       <UserList users={userArray} listenTo={listenTo} />,
       document.getElementById(target)
