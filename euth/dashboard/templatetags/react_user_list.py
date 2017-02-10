@@ -27,7 +27,7 @@ def react_user_list(users, identifier=None):
         format_strings['listen_to'] = ', "{}"'.format(identifier)
 
     return mark_safe((
-        '<span id="{mountpoint}"></span><script>window.opin.renderUserList('
-        '"{mountpoint}", {users}{listen_to})</script>')
-                     .format(**format_strings)
+        '<span id="{mountpoint}"></span><script>window.adhocracy4'
+        '.renderUserList("{mountpoint}", {users}{listen_to})</script>')
+        .format(**format_strings)
     )
