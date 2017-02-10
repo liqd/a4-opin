@@ -57,11 +57,12 @@
 
 
 .btn-dark {
-    background-color: $black;
+    background-color: $gray-dark;
 
     &:hover,
     &:focus {
         color: $gray-light;
+        background-color: $gray-darker;
     }
 }
 
