@@ -21,8 +21,26 @@
     }
 
     .errorlist {
-        @include rem(margin-top, 20px);
+      display: block;
+      position: relative;
+      background-color: $brand-danger;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: right;
+      padding: 4px 8px;
+      margin-top: 0;
+      list-style-type:none;
+
+      &:before {
+        display: inline;
+        position: absolute;
+        left: 8px;
+        font-family: FontAwesome;
+        content: "\f071";
+      }
     }
+
+
 }
 
 .form-help-text {
