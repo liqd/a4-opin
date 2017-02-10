@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Find the right project template' %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+    {% for choice in form.aim_choices %}
+        <p>{{ choice.label }}</p>
+        <p>{{ choice.example }}</p>
+    {% endfor %}
+
+        {{ form }}
+    </div>
+{% endblock %}
