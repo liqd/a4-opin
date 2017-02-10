@@ -266,7 +266,7 @@
 
 .herounit-title {
     color: #fff;
-    margin-bottom: 0;
+    margin-bottom: 10;
 
     &:after {
         background: rgba(0, 0, 0, 0.5);
@@ -277,6 +277,10 @@
         top: 0;
         width: 100%;
     }
+}
+
+.herounit-link {
+  font-weight: 600;
 }
 
 .herounit-link a {
