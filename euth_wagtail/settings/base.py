@@ -231,6 +231,9 @@ LANGUAGES = [
     ('sv', _('Swedish')),
     ('sl', _('Slovene')),
     ('da', _('Danish')),
+    ('uk', _('Ukrainian')),
+    ('el', _('Greek')),
+    ('ru', _('Russian')),
 ]
 
 PARLER_LANGUAGES = {
