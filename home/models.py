@@ -39,16 +39,8 @@ class RSSImport(models.Model):
         edit_handlers.FieldPanel('url'),
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('rss_title_en'),
-                edit_handlers.FieldPanel('rss_title_de'),
-                edit_handlers.FieldPanel('rss_title_it'),
-                edit_handlers.FieldPanel('rss_title_fr'),
-                edit_handlers.FieldPanel('rss_title_sv'),
-                edit_handlers.FieldPanel('rss_title_sl'),
-                edit_handlers.FieldPanel('rss_title_da'),
-                edit_handlers.FieldPanel('rss_title_uk'),
-                edit_handlers.FieldPanel('rss_title_el'),
-                edit_handlers.FieldPanel('rss_title_ru'),
+                edit_handlers.FieldPanel('rss_title_' + lang_code)
+                for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
             classname="collapsible collapsed"
@@ -102,15 +94,8 @@ class MenuItem(LinkFields):
         edit_handlers.FieldPanel('menu_title_en'),
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('menu_title_de'),
-                edit_handlers.FieldPanel('menu_title_it'),
-                edit_handlers.FieldPanel('menu_title_fr'),
-                edit_handlers.FieldPanel('menu_title_sv'),
-                edit_handlers.FieldPanel('menu_title_sl'),
-                edit_handlers.FieldPanel('menu_title_da'),
-                edit_handlers.FieldPanel('menu_title_uk'),
-                edit_handlers.FieldPanel('menu_title_el'),
-                edit_handlers.FieldPanel('menu_title_ru'),
+                edit_handlers.FieldPanel('menu_title_' + lang_code)
+                for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
             classname="collapsible collapsed"
@@ -458,84 +443,12 @@ class HomePage(Page):
     content_panels = [
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_en'),
-                edit_handlers.StreamFieldPanel('body_en')
+                edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.StreamFieldPanel('body_' + lang_code)
             ],
-            heading="English",
+            heading=lang,
             classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_de'),
-                edit_handlers.StreamFieldPanel('body_de')
-            ],
-            heading="German",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_it'),
-                edit_handlers.StreamFieldPanel('body_it')
-            ],
-            heading="Italien",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_fr'),
-                edit_handlers.StreamFieldPanel('body_fr')
-            ],
-            heading="French",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sv'),
-                edit_handlers.StreamFieldPanel('body_sv')
-            ],
-            heading="Swedish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sl'),
-                edit_handlers.StreamFieldPanel('body_sl')
-            ],
-            heading="Slovene",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_da'),
-                edit_handlers.StreamFieldPanel('body_da')
-            ],
-            heading="Danish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_uk'),
-                edit_handlers.StreamFieldPanel('body_uk')
-            ],
-            heading="Ukrainian",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_el'),
-                edit_handlers.StreamFieldPanel('body_el')
-            ],
-            heading="Greek",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_ru'),
-                edit_handlers.StreamFieldPanel('body_ru')
-            ],
-            heading="Russian",
-            classname="collapsible collapsed"
-        )
+        ) for lang_code, lang in LANGUAGES
     ]
 
     edit_handler = edit_handlers.TabbedInterface([
@@ -659,94 +572,13 @@ class SimplePage(Page):
     content_panels = [
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_en'),
-                edit_handlers.FieldPanel('intro_en'),
-                edit_handlers.StreamFieldPanel('body_en')
+                edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.FieldPanel('intro_' + lang_code),
+                edit_handlers.StreamFieldPanel('body_' + lang_code)
             ],
-            heading="English",
+            heading=lang,
             classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_de'),
-                edit_handlers.FieldPanel('intro_de'),
-                edit_handlers.StreamFieldPanel('body_de')
-            ],
-            heading="German",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_it'),
-                edit_handlers.FieldPanel('intro_it'),
-                edit_handlers.StreamFieldPanel('body_it')
-            ],
-            heading="Italien",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_fr'),
-                edit_handlers.FieldPanel('intro_fr'),
-                edit_handlers.StreamFieldPanel('body_fr')
-            ],
-            heading="French",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sv'),
-                edit_handlers.FieldPanel('intro_sv'),
-                edit_handlers.StreamFieldPanel('body_sv')
-            ],
-            heading="Swedish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sl'),
-                edit_handlers.FieldPanel('intro_sl'),
-                edit_handlers.StreamFieldPanel('body_sl')
-            ],
-            heading="Slovene",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_da'),
-                edit_handlers.FieldPanel('intro_da'),
-                edit_handlers.StreamFieldPanel('body_da')
-            ],
-            heading="Danish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_uk'),
-                edit_handlers.FieldPanel('intro_uk'),
-                edit_handlers.StreamFieldPanel('body_uk')
-            ],
-            heading="Ukrainian",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_el'),
-                edit_handlers.FieldPanel('intro_el'),
-                edit_handlers.StreamFieldPanel('body_el')
-            ],
-            heading="Greek",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_ru'),
-                edit_handlers.FieldPanel('intro_ru'),
-                edit_handlers.StreamFieldPanel('body_ru')
-            ],
-            heading="Russian",
-            classname="collapsible collapsed"
-        ),
+        ) for lang_code, lang in LANGUAGES
     ]
 
     edit_handler = edit_handlers.TabbedInterface([
