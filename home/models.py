@@ -737,13 +737,13 @@ class ManualsSectionPage(Page):
         related_name='+'
     )
 
-    colors = {
+    colors = (
         ('blue', 'Blue'),
         ('orange', 'Orange'),
         ('turquoise', 'Turquoise'),
         ('pink', 'Pink'),
         ('purple', 'Purple'),
-    }
+    )
 
     color = models.CharField(
         choices=colors,
@@ -866,13 +866,13 @@ class ManualsDetailPage(Page):
         related_name='+'
     )
 
-    colors = {
+    colors = (
         ('blue', 'Blue'),
         ('orange', 'Orange'),
         ('turquoise', 'Turquoise'),
         ('pink', 'Pink'),
         ('purple', 'Purple'),
-    }
+    )
 
     color = models.CharField(
         choices=colors,
