@@ -367,7 +367,7 @@ window.removeChoice = function(choices, qcorderIdIn, qorderId, key){
 	elem.parentNode.removeChild(elem);	
 		
 	var pluskey= '<div id="icon-plus-question-'+qorderId+'" class="span3">'+
-		'<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+qorderId+',"fp-phase-qc-'+qorderId+'")\' tabindex="-1" style="float:left;"></div>'+
+		'<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+qorderId+',"fp-phase-qc-'+qorderId+'")\' tabindex="-1" style="float:left;"></div>'+
 		'<div style="clear:both;"></div>'+
 	'</div>';
 
@@ -507,7 +507,7 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
 	elem.parentNode.removeChild(elem);
 	
     var pluskey = '<div id="icon-plus-poll" class="span3">'+
-            '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>'+
+            '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>'+
             '<div style="clear:both;"></div>'+
         '</div>';
 		
@@ -554,13 +554,13 @@ window.addChoice = function(choices,questionPos, key) {
                     '<input class="form-control choice" id="id_module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" maxlength="80" name="module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                    '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+choice.orderId+','+questionPos+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                    '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+choice.orderId+','+questionPos+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                 '</div>'+
             '</div>'+
         '</div>';
 
     var choiceKey2 = '<div id="icon-plus-question-'+questionPos+'" class="span3">'+
-			'<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+questionPos+',"fp-phase-qc-'+questionPos+'")\' tabindex="-1" style="float:left;"></div>'+
+			'<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+questionPos+',"fp-phase-qc-'+questionPos+'")\' tabindex="-1" style="float:left;"></div>'+
 			'<div style="clear:both;"></div>'+
 		'</div>';
 		
@@ -624,7 +624,7 @@ window.addQuestion = function(questions, key) {
                    '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_questionText" maxlength="80" name="module_settings-question_'+question.orderId+'_questionText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                    '<i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
+                    '<i class="fa fa-trash-o fa-2x" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
                 '</div>'+
             '</div>'+
         '</div>'+
@@ -660,7 +660,7 @@ window.addQuestion = function(questions, key) {
                         '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
                     '</div>'+
                     '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                        '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                        '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                     '</div>'+
                     '</div>'+
                 '</div>';                 
@@ -668,7 +668,7 @@ window.addQuestion = function(questions, key) {
                 if (answer.orderId == question.answers.length){
                     questionKey = questionKey +
                     '<div id="icon-plus-question-'+question.orderId+'" class="span3">'+
-                        '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
+                        '<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
                         '<div style="clear:both;"></div>'+
                     '</div>';
                 }            
@@ -678,7 +678,7 @@ window.addQuestion = function(questions, key) {
 				'</div>';
 
     var questionKey1 = '<div id="icon-plus-poll" class="span3">'+
-            '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>'+
+            '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>'+
             '<div style="clear:both;"></div>'+
         '</div>';
 		
@@ -811,7 +811,7 @@ window.changeType = function(questionType, key, qorderId) {
                                 '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" //>'+
                             '</div>'+
                             '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
-                                '<i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
+                                '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                             '</div>'+
                             '</div>'+
                         '</div>';
@@ -833,7 +833,7 @@ window.changeType = function(questionType, key, qorderId) {
                 
                         if (answer.orderId == question.answers.length){
                             questionKey ='<div id="icon-plus-question-'+question.orderId+'" class="span3">'+
-                                '<div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
+                                '<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
                                 '<div style="clear:both;"></div>'+
                             '</div>';                            
                             var d = document.createElement('div');

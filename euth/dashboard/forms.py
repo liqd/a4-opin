@@ -118,7 +118,6 @@ class ProjectForm(forms.ModelForm):
 
     def send_to_flashpoll(self):
         if 'current_preview' in self.data:    
-            print('save: '+str(self.data))
             if 'save_draft' in self.data and self.data['current_preview']=='True':
                 #Handling unpublish		
                 url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
@@ -202,7 +201,6 @@ class ProjectForm(forms.ModelForm):
                 jsonGenerator['questions'] = questions                     
                                                
                 json_data = json.dumps(jsonGenerator)    
-                print('jsondata: '+json_data)
 
                 url_poll = '{base_url}/poll/{poll_id}/opin'.format(
                     base_url=settings.FLASHPOLL_BACK_URL,
@@ -214,9 +212,6 @@ class ProjectForm(forms.ModelForm):
                 headers = {'Content-type': 'application/json'}
                 response = requests.post(url_poll, data=json_data, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
 
-                print ("code:"+str(response.status_code))
-                print ("headers:"+ str(response.headers))
-                print ("content:"+ str(response.text))
             
 
         
@@ -300,8 +295,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         def fp_context_data(self):
             data = dict(self.data)
             # case submitted
-            if ('save_draft' in data) or ('publish' in data):           
-                print('setting form:'+str(data))                
+            if ('save_draft' in data) or ('publish' in data):                                        
 
                 jsonGenerator = {}
                 
@@ -370,10 +364,8 @@ def get_module_settings_form(settings_instance_or_modelref):
                     question_key = "module_settings-question_"+str(q)+"_questionType"
 
 
-                jsonGenerator['questions'] = questions     
-                #print('poll str(jsonGenerator): '+str(jsonGenerator))                                  
-                poll = jsonGenerator
-                #print('poll submitted: '+str(poll)) 
+                jsonGenerator['questions'] = questions                                                   
+                poll = jsonGenerator                
                 self.data._mutable = True    
                 self.data['module_settings-poll'] = json.dumps(poll)
             
@@ -383,8 +375,7 @@ def get_module_settings_form(settings_instance_or_modelref):
                 if 'key' in self.initial:
                     pollid = self.initial['key']
                     if pollid:
-                        #print('pollid: '+pollid)
-                        
+                    
                         url_poll = '{base_url}/poll/{poll_id}'.format(
                             base_url=settings.FLASHPOLL_BACK_URL,
                             poll_id=pollid
@@ -395,18 +386,14 @@ def get_module_settings_form(settings_instance_or_modelref):
                         response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))        
                         poll = json.loads(response.text)   
                         poll = self.get_ordered_poll(poll)
-                        #print('poll edit: '+str(poll))
                         
                         
                 else:
-                    # case create                                
-                    #print('init self: ' +str(self.data))
+                    # case create                                                    
                     jsonstring = '{\"title\":\"\",\"shortDescription\":\"\",\"longDescription\":\"\",\"concludeMessage\":\"\",\"geofenceLocation\":\"\", \"startTime\":\"\", \"endTime\":\"\", \"descriptionMediaURLs\":[\"\"],\"keywords\":[\"\"],\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'                    
-                    poll = json.loads(jsonstring)
-                    print('poll create: ' +str(poll))
+                    poll = json.loads(jsonstring)                    
                         
-            
-            #print('setting form: '+str(poll))
+                        
             self.fields['poll'] = forms.CharField(widget=forms.Textarea)
             self.initial['poll'] = json.dumps(poll)
                     

@@ -161,12 +161,9 @@ class DashboardProjectCreateView(DashboardBaseMixin,
 
         return context
 
-    def fp_context_data(self, context):
-        #print('fp_context_data createview')
+    def fp_context_data(self, context):        
         pollid = str(uuid.uuid4())
         context['pollid']  = pollid
-        #pollinit = '{\"questions\":[{\"questionText\":\"\",\"orderId\":1,\"questionType\":\"CHECKBOX\",\"mandatory\":true,\"mediaURLs\":[\"\"],\"answers\":[{\"answerText\":\"\",\"orderId\":1,\"mediaURL\":\"\",\"freetextAnswer\":false},{\"answerText\":\"\",\"orderId\":2,\"mediaURL\":\"\",\"freetextAnswer\":false}]}]}'
-        #context['poll'] = json.loads(pollinit)
         context['module_settings'] = self.kwargs['module_settings']
         
         return context
@@ -179,10 +176,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         kwargs = super().get_form_kwargs()
         kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
-        kwargs['creator'] = self.request.user
-
-        print("setting get_form_kwargs create")
-        print("setting self.blueprint.settings_model: "+str(self.blueprint.settings_model))       
+        kwargs['creator'] = self.request.user   
         
         if self.blueprint.settings_model:
             self.kwargs['module_settings'] = self.blueprint.settings_model[0]

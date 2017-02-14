@@ -4,7 +4,6 @@
 </style>
 <style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}</style>
 <!--Description section -->
-<!--{{form.module_settings}}-->
 
 {% with poll=form.module_settings.poll.value|get_poll_from_string %}
 
@@ -130,8 +129,8 @@
                         <span class="help-block">{{ error }}</span>          
                         {% endfor %}
                     </div>
-                    <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
-                        <i class="icon-trash icon-2x ng-scope" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick='removeQuestion({{poll.questions|get_simplejson}},{{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}")' tabindex="-1"></i>
+                    <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">                    
+                        <i class="fa fa-trash-o fa-2x" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick='removeQuestion({{poll.questions|get_simplejson}},{{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}")' tabindex="-1"></i>
                     </div>            
                 </div>                       
             </div>
@@ -212,7 +211,7 @@
                             {% endfor %}
                         </div>
                         <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
-                            <i class="icon-remove-sign icon-2x ng-scope" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='removeChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_answer_orderid}}, {{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}.choice-{{field.name|get_answer_orderid}}")' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled" >	</i>
+                            <i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='removeChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_answer_orderid}}, {{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}.choice-{{field.name|get_answer_orderid}}")' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled" >	</i>
                         </div>          
                     </div>                       
                 </div>
@@ -220,7 +219,7 @@
                 {% if poll.questions|is_lastanswer:field.name %}
                 
                 <div id="icon-plus-question-{{field.name|get_question_orderid}}" class="span3">
-                    <div class="icon-plus-sign icon-2x ng-scope" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_question_orderid}}, "fp-phase-qc-{{field.name|get_question_orderid}}")' tabindex="-1" style="float:left;"></div>
+                    <div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_question_orderid}}, "fp-phase-qc-{{field.name|get_question_orderid}}")' tabindex="-1" style="float:left;"></div>
                     <div style="clear:both;"></div>
                 </div>
             </div>
@@ -229,7 +228,7 @@
             {% if poll.questions|is_lastquestion:field.name %}
              
         <div id="icon-plus-poll" class="span3">
-            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
+            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>
             <div style="clear:both;"></div>
         </div>        
         {% endif %}        

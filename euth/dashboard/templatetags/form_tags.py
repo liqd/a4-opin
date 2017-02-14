@@ -12,8 +12,7 @@ def print_timestamp(timestamp):
         #assume, that timestamp is given in seconds with decimal point
         ts = float(str(timestamp))
     except ValueError:
-        return None
-    print("timestamp: "+str(timestamp)+" date: "+str(datetime.datetime.fromtimestamp(ts)))
+        return None    
     return str(datetime.datetime.fromtimestamp(ts))
 register.filter(print_timestamp)
 
@@ -50,12 +49,9 @@ def get_questions_errors(errors):
     return qerrors
     
 @register.filter(name='get_poll_questions')
-def get_poll_questions(poll):
-    print('here 1')
-    polljson = json.loads(poll)
-    print('here 2')
-    pollout = json.dumps(polljson['questions'])
-    print('here 3')
+def get_poll_questions(poll):    
+    polljson = json.loads(poll)    
+    pollout = json.dumps(polljson['questions'])    
     return pollout
     
 @register.filter(name='get_answersjson')

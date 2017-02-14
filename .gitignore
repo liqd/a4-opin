@@ -19,9 +19,3 @@ venv
 /pyvenv.cfg
 /webpack-stats.json
 /euth_wagtail/settings/local.py
-Makefile
-/Makefile
-euth_wagtail/settings/dev.py
-/euth_wagtail/settings/dev.py
-.gitignore
-/.gitignore
