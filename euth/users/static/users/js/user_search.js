@@ -45,8 +45,8 @@ class UserSearch {
   }
 
   selectHandler (event, context) {
-    if (window.opin && window.opin.userList && window.opin.userList[this.identifier]) {
-      var listeningComponents = window.opin.userList[this.identifier]
+    if (window.adhocracy4 && window.adhocracy4.userList && window.adhocracy4.userList[this.identifier]) {
+      var listeningComponents = window.adhocracy4.userList[this.identifier]
       for (var i = 0; i < listeningComponents.length; i++) {
         let userList = listeningComponents[i]
         userList.add(context).done((data, status) => {

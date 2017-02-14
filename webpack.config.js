@@ -49,7 +49,7 @@ module.exports = {
   devtool: 'eval',
   output: {
     libraryTarget: 'var',
-    library: '[name]',
+    library: 'adhocracy4',
     path: './euth_wagtail/static/',
     publicPath: "/static/",
     filename: '[name].js'
