@@ -1,4 +1,7 @@
-.dropdown-menu > li > a {
+.dropdown-menu > li > a,
+.dropdown-menu > li > button {
+    border-bottom: 2px solid $gray-lighter;
+    width: 100%;
     @include rem(padding, 7px 0);
     @include rem(margin, 0 15px);
     text-align: left;

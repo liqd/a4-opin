@@ -1,6 +1,7 @@
 .custom-dropdown {
     li {
-        a {
+        a,
+        button {
             @include rem(padding, 10px);
             text-align: center;
         }
@@ -17,7 +18,8 @@
     }
 
     li {
-        a {
+        a,
+        button {
             text-transform: uppercase;
             @include rem(font-size, 12px);
             @include rem(letter-spacing, -0.2px);
