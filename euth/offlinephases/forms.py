@@ -32,7 +32,7 @@ class OfflinephaseMultiForm(multiform.MultiModelForm):
         ('offlinephase', OfflinephaseForm),
         ('fileuploads', modelformset_factory(
             offlinephase_models.FileUpload,
-            FileUploadForm, extra=1, max_num=5
+            FileUploadForm, extra=1, max_num=5, can_delete=True
         )),
     ]
 
@@ -49,3 +49,12 @@ class OfflinephaseMultiForm(multiform.MultiModelForm):
             fileupload.offlinephase = offlinephase
             if commit:
                 fileupload.save()
+
+        if commit:
+            cleaned_data = self._combine('cleaned_data', call=False,
+                                         call_kwargs={'commit': commit})
+            fileuploads_cleaned = cleaned_data['fileuploads']
+
+            for fu in fileuploads_cleaned:
+                if 'DELETE' in fu and fu['DELETE']:
+                    fu['id'].delete()

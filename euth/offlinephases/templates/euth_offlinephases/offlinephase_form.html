@@ -38,27 +38,50 @@
             </div>
         {% endfor %}
 
+        <hr />
+        <h3>{% trans 'Attached Documents' %}</h3>
         {% for form in form.fileuploads %}
+            <div class="well">
             {% for field in form.visible_fields %}
+            {% if field.name == 'title' or field.name == 'document' %}
             <div class="row">
-                <div class="col-sm-6">
-                <div class="form-group {% if field.errors %} has-error{% endif %}">
-                    <label>
-                        {{ field.label }}
-                    </label>
-                    {% if field.errors %}
-                        {{ field|add_class:"form-control form-error" }}
-                    {% else %}
-                        {{ field|add_class:"form-control"}}
-                    {% endif %}
-                    {{ field.errors }}
-                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group {% if field.errors %} has-error{% endif %}">
+                        <label>
+                            {{ field.label }}
+                        </label>
+                        {% if field.errors %}
+                            {{ field|add_class:"form-control form-error" }}
+                        {% else %}
+                            {{ field|add_class:"form-control"}}
+                        {% endif %}
+                        {{ field.errors }}
+                    </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
+            {% if form.instance.id %}
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group {% if form.DELETE.errors %} has-error{% endif %}">
+                        <label>
+                            {{ form.DELETE.label }}
+                        </label>
+                        {% if form.DELETE.errors %}
+                            {{ form.DELETE|add_class:"form-control form-error" }}
+                        {% else %}
+                            {{ form.DELETE|add_class:"form-control"}}
+                        {% endif %}
+                        {{ form.DELETE.errors }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
             {% for hidden in form.hidden_fields %}
             {{ hidden }}
             {% endfor %}
+            </div>
         {% endfor %}
 
         {% block post_form %}
