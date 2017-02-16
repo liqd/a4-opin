@@ -6,8 +6,8 @@ window.jQuery(document).ready(function () {
 
   var basemap = baseurl + '{z}/{x}/{y}.png'
   var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
-  var map = new L.Map('map')
+  var baselayer = L.tileLayer(basemap, {maxZoom: 18, attribution: osmAttrib})
+  var map = new L.Map('map', {scrollWheelZoom: false})
   baselayer.addTo(map)
 
   var polygonStyle = {

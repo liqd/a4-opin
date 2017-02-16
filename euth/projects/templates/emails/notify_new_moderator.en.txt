@@ -1,0 +1,5 @@
+Someone added you as moderator to the project "{{ project.name }}" on {{ site.name }}
+
+You were added as moderator to the project "{{ project.name }}". Depending on the project's type now you can moderate comments and ideas, help to create a text for a Text Review or create the documentation for an Offline Event.
+
+Use this link to view the project: {{ email.get_host }}{% url 'project-detail' project.slug %}

@@ -29,6 +29,9 @@ class RSSImport(models.Model):
     rss_title_sv = models.CharField(max_length=255, blank=True)
     rss_title_sl = models.CharField(max_length=255, blank=True)
     rss_title_da = models.CharField(max_length=255, blank=True)
+    rss_title_uk = models.CharField(max_length=255, blank=True)
+    rss_title_el = models.CharField(max_length=255, blank=True)
+    rss_title_ru = models.CharField(max_length=255, blank=True)
 
     translated_rss_title = TranslatedField('rss_title')
 
@@ -36,13 +39,8 @@ class RSSImport(models.Model):
         edit_handlers.FieldPanel('url'),
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('rss_title_en'),
-                edit_handlers.FieldPanel('rss_title_de'),
-                edit_handlers.FieldPanel('rss_title_it'),
-                edit_handlers.FieldPanel('rss_title_fr'),
-                edit_handlers.FieldPanel('rss_title_sv'),
-                edit_handlers.FieldPanel('rss_title_sl'),
-                edit_handlers.FieldPanel('rss_title_da'),
+                edit_handlers.FieldPanel('rss_title_' + lang_code)
+                for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
             classname="collapsible collapsed"
@@ -79,6 +77,9 @@ class MenuItem(LinkFields):
     menu_title_sv = models.CharField(max_length=255, blank=True)
     menu_title_sl = models.CharField(max_length=255, blank=True)
     menu_title_da = models.CharField(max_length=255, blank=True)
+    menu_title_uk = models.CharField(max_length=255, blank=True)
+    menu_title_el = models.CharField(max_length=255, blank=True)
+    menu_title_ru = models.CharField(max_length=255, blank=True)
 
     translated_menu_title = TranslatedField('menu_title')
 
@@ -93,12 +94,8 @@ class MenuItem(LinkFields):
         edit_handlers.FieldPanel('menu_title_en'),
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('menu_title_de'),
-                edit_handlers.FieldPanel('menu_title_it'),
-                edit_handlers.FieldPanel('menu_title_fr'),
-                edit_handlers.FieldPanel('menu_title_sv'),
-                edit_handlers.FieldPanel('menu_title_sl'),
-                edit_handlers.FieldPanel('menu_title_da'),
+                edit_handlers.FieldPanel('menu_title_' + lang_code)
+                for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
             classname="collapsible collapsed"
@@ -132,6 +129,9 @@ class PageCollection(models.Model):
     title_sv = models.CharField(max_length=80, blank=True)
     title_sl = models.CharField(max_length=80, blank=True)
     title_da = models.CharField(max_length=80, blank=True)
+    title_uk = models.CharField(max_length=80, blank=True)
+    title_el = models.CharField(max_length=80, blank=True)
+    title_ru = models.CharField(max_length=80, blank=True)
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -141,11 +141,8 @@ class PageCollection(models.Model):
         related_name='+',
         help_text='The Image that is shown on top of the page'
     )
-    highlighted_page = models.ForeignKey(
-        'wagtailcore.Page',
-        on_delete=models.SET_NULL,
-        null=True,
-    )
+
+    intro_text = models.CharField(max_length=250, blank=True)
 
     args = {
         'on_delete': models.SET_NULL,
@@ -171,7 +168,7 @@ class PageCollection(models.Model):
         ],
             heading="Title",
         ),
-        edit_handlers.PageChooserPanel('highlighted_page'),
+        edit_handlers.FieldPanel('intro_text'),
         edit_handlers.MultiFieldPanel([
             edit_handlers.PageChooserPanel(
                 'page_{}'.format(x)
@@ -390,6 +387,12 @@ class HomePage(Page):
         max_length=255, blank=True, verbose_name="Header Title")
     title_da = models.CharField(
         max_length=255, blank=True, verbose_name="Header Title")
+    title_uk = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_el = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
+    title_ru = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -419,6 +422,9 @@ class HomePage(Page):
     body_sv = StreamField(block_types, null=True, blank=True)
     body_sl = StreamField(block_types, null=True, blank=True)
     body_da = StreamField(block_types, null=True, blank=True)
+    body_uk = StreamField(block_types, null=True, blank=True)
+    body_el = StreamField(block_types, null=True, blank=True)
+    body_ru = StreamField(block_types, null=True, blank=True)
 
     body = TranslatedField('body')
 
@@ -435,64 +441,14 @@ class HomePage(Page):
     ]
 
     content_panels = [
-
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_en'),
-                edit_handlers.StreamFieldPanel('body_en')
+                edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.StreamFieldPanel('body_' + lang_code)
             ],
-            heading="English",
+            heading=lang,
             classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_de'),
-                edit_handlers.StreamFieldPanel('body_de')
-            ],
-            heading="German",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_it'),
-                edit_handlers.StreamFieldPanel('body_it')
-            ],
-            heading="Italien",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_fr'),
-                edit_handlers.StreamFieldPanel('body_fr')
-            ],
-            heading="French",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sv'),
-                edit_handlers.StreamFieldPanel('body_sv')
-            ],
-            heading="Swedish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sl'),
-                edit_handlers.StreamFieldPanel('body_sl')
-            ],
-            heading="Slovene",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_da'),
-                edit_handlers.StreamFieldPanel('body_da')
-            ],
-            heading="Danish",
-            classname="collapsible collapsed"
-        )
-
+        ) for lang_code, lang in LANGUAGES
     ]
 
     edit_handler = edit_handlers.TabbedInterface([
@@ -528,6 +484,12 @@ class SimplePage(Page):
         max_length=255, blank=True, verbose_name="Title")
     title_da = models.CharField(
         max_length=255, blank=True, verbose_name="Title")
+    title_uk = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_el = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
+    title_ru = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
 
     intro_en = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
@@ -542,6 +504,12 @@ class SimplePage(Page):
     intro_sl = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
     intro_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_uk = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_el = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_ru = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
 
     intro_image = models.ForeignKey(
@@ -582,6 +550,12 @@ class SimplePage(Page):
                           blank=True, verbose_name="body")
     body_da = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
+    body_uk = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_el = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_ru = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
 
     translated_title = TranslatedField('title')
 
@@ -598,68 +572,13 @@ class SimplePage(Page):
     content_panels = [
         edit_handlers.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_en'),
-                edit_handlers.FieldPanel('intro_en'),
-                edit_handlers.StreamFieldPanel('body_en')
+                edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.FieldPanel('intro_' + lang_code),
+                edit_handlers.StreamFieldPanel('body_' + lang_code)
             ],
-            heading="English",
+            heading=lang,
             classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_de'),
-                edit_handlers.FieldPanel('intro_de'),
-                edit_handlers.StreamFieldPanel('body_de')
-            ],
-            heading="German",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_it'),
-                edit_handlers.FieldPanel('intro_it'),
-                edit_handlers.StreamFieldPanel('body_it')
-            ],
-            heading="Italien",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_fr'),
-                edit_handlers.FieldPanel('intro_fr'),
-                edit_handlers.StreamFieldPanel('body_fr')
-            ],
-            heading="French",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sv'),
-                edit_handlers.FieldPanel('intro_sv'),
-                edit_handlers.StreamFieldPanel('body_sv')
-            ],
-            heading="Swedish",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_sl'),
-                edit_handlers.FieldPanel('intro_sl'),
-                edit_handlers.StreamFieldPanel('body_sl')
-            ],
-            heading="Slovene",
-            classname="collapsible collapsed"
-        ),
-        edit_handlers.MultiFieldPanel(
-            [
-                edit_handlers.FieldPanel('title_da'),
-                edit_handlers.FieldPanel('intro_da'),
-                edit_handlers.StreamFieldPanel('body_da')
-            ],
-            heading="Danish",
-            classname="collapsible collapsed"
-        )
-
+        ) for lang_code, lang in LANGUAGES
     ]
 
     edit_handler = edit_handlers.TabbedInterface([
@@ -683,6 +602,12 @@ class ManualsIndex(Page):
     title_sl = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
     title_da = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_uk = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_el = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_ru = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
 
     block_types = [
@@ -712,9 +637,15 @@ class ManualsIndex(Page):
                           blank=True, verbose_name="body")
     body_da = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
+    body_uk = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_el = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_ru = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
 
     subpage_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage', 'home.ManualsDetailPage'
     ]
 
     content_panels = [
@@ -759,6 +690,12 @@ class ManualsSectionPage(Page):
         max_length=150, blank=True, verbose_name="Title")
     title_da = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
+    title_uk = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_el = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_ru = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
 
     description = TranslatedField('description')
     description_en = models.CharField(
@@ -774,6 +711,12 @@ class ManualsSectionPage(Page):
     description_sl = models.CharField(
         max_length=260, blank=True, verbose_name="Description")
     description_da = models.CharField(
+        max_length=260, blank=True, verbose_name="Description")
+    description_uk = models.CharField(
+        max_length=260, blank=True, verbose_name="Description")
+    description_el = models.CharField(
+        max_length=260, blank=True, verbose_name="Description")
+    description_ru = models.CharField(
         max_length=260, blank=True, verbose_name="Description")
 
     body = StreamField([
@@ -794,13 +737,13 @@ class ManualsSectionPage(Page):
         related_name='+'
     )
 
-    colors = {
+    colors = (
         ('blue', 'Blue'),
         ('orange', 'Orange'),
         ('turquoise', 'Turquoise'),
         ('pink', 'Pink'),
         ('purple', 'Purple'),
-    }
+    )
 
     color = models.CharField(
         choices=colors,
@@ -845,7 +788,8 @@ class ManualsSectionPage(Page):
 class ManualsDetailPage(Page):
     subpage_types = []
     parent_page_types = [
-        'home.ManualsSectionPage'
+        'home.ManualsSectionPage',
+        'home.ManualsIndex'
     ]
 
     # Title
@@ -863,6 +807,12 @@ class ManualsDetailPage(Page):
     title_sl = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
     title_da = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_uk = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_el = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+    title_ru = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
 
     # Body
@@ -891,6 +841,12 @@ class ManualsDetailPage(Page):
                           blank=True, verbose_name="body")
     body_da = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
+    body_uk = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_el = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_ru = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
 
     content_panels = [
         edit_handlers.MultiFieldPanel([
@@ -910,13 +866,13 @@ class ManualsDetailPage(Page):
         related_name='+'
     )
 
-    colors = {
+    colors = (
         ('blue', 'Blue'),
         ('orange', 'Orange'),
         ('turquoise', 'Turquoise'),
         ('pink', 'Pink'),
         ('purple', 'Purple'),
-    }
+    )
 
     color = models.CharField(
         choices=colors,

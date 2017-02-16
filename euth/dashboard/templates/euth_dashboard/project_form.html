@@ -1,6 +1,7 @@
 {% extends "euth_dashboard/base_organisation.html" %}
 {% load static widget_tweaks i18n %}
 
+
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
 
@@ -26,7 +27,6 @@
         <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
         {% endif %}
 
-        {{ form.media }}
     </form>
 </div>
 
@@ -35,7 +35,13 @@
 
 {% endblock %}
 
+{% block extra_css %}
+{{ block.super }}
+{{ form.media.css }}
+{% endblock %}
+
 {% block extra_js %}
 {{ block.super }}
+{{ form.media.js }}
 <script type="text/javascript" src="{% static 'add_offline_phase/add_offline_phase.js' %}"></script>
 {% endblock %}

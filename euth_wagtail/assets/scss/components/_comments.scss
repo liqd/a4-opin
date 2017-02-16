@@ -60,6 +60,7 @@
         @include rem(line-height, 1.6);
         @include rem(margin-bottom, 10px);
         color: $black;
+        white-space: pre-line;
     }
 
     & .comment-child-list {

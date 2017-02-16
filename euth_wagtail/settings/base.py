@@ -70,9 +70,9 @@ INSTALLED_APPS = [
     'adhocracy4.phases.apps.PhasesConfig',
     'adhocracy4.projects.apps.ProjectsConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
-    'adhocracy4.reports.apps.ReportConfig',
+    'adhocracy4.reports.apps.ReportsConfig',
     'adhocracy4.modules.apps.ModulesConfig',
-    'adhocracy4.comments.apps.CommentConfig',
+    'adhocracy4.comments.apps.CommentsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -231,6 +231,9 @@ LANGUAGES = [
     ('sv', _('Swedish')),
     ('sl', _('Slovene')),
     ('da', _('Danish')),
+    ('uk', _('Ukrainian')),
+    ('el', _('Greek')),
+    ('ru', _('Russian')),
 ]
 
 PARLER_LANGUAGES = {
