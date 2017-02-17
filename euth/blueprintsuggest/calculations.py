@@ -30,9 +30,9 @@ aim_to_blueprints_mapping = (
 class BlueprintSuggester:
     def __init__(self, values):
         self.aim = values['aim']
-        # self.result = values['result']
-        # self.experience = values['experience']
-        # self.dedication = values['dedication']
+        self.result = values['result']
+        self.experience = values['experience']
+        self.dedication = values['dedication']
 
     def get_blueprints(self):
         blueprints = self.blueprints_from_aim()

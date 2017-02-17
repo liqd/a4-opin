@@ -1,6 +1,10 @@
-{{ field.label }}
-<ul>
+<p><strong>{{ field.label }}</strong></p>
+{{ field.errors }}
+<ul class="rangebuttons">
     {% for radio in field %}
-        <li class="rangebuttons-item">{{ radio }}</li>
+        <li class="rangebuttons-item">
+            {{ radio.tag }}
+            <span class="rangebuttons-itemlabel">{{ radio.choice_label }}</span>
+        </li>
     {% endfor %}
 </ul>

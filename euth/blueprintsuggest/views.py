@@ -21,9 +21,7 @@ class SuggestFormView(DashboardBaseMixin,
                        kwargs={'organisation_slug': self.organisation.slug})
 
     def form_valid(self, form):
-        suggester = BlueprintSuggester({
-            'aim': form.cleaned_data['aim']
-        })
+        suggester = BlueprintSuggester(form.cleaned_data)
         context = {
             'blueprints': suggester.get_blueprints(),
             'request': self.request

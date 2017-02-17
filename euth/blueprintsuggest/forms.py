@@ -50,7 +50,7 @@ class GetSuggestionForm(forms.Form):
             (3, _('Weighted arguments')),
         ],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label=_('What is the desired outcome of the project?'),
     )
 
@@ -63,7 +63,7 @@ class GetSuggestionForm(forms.Form):
                   'projects')),
         ],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label=_('How many participative projects have you organised and '
                 'managed in the past?')
     )
@@ -76,7 +76,7 @@ class GetSuggestionForm(forms.Form):
             (4, _('No dedication')),
             (3, _('I don\'t know.')),
         ],
-        required=True,
+        required=False,
         widget=forms.RadioSelect,
         label=_('How dedicated are your participants?')
     )
