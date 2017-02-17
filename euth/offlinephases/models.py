@@ -8,6 +8,8 @@ from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.phases import models as phase_models
 
+from . import validators
+
 
 class Offlinephase(base.TimeStampedModel):
     text = RichTextField(blank=True, config_name='image-editor')
@@ -49,5 +51,7 @@ def document_path(instance, filename):
 
 class FileUpload(base.TimeStampedModel):
     title = models.CharField(max_length=256)
-    document = models.FileField(upload_to=document_path)
+    document = models.FileField(
+        upload_to=document_path,
+        validators=[validators.validate_file_type_and_size])
     offlinephase = models.ForeignKey(Offlinephase)
