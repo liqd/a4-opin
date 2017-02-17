@@ -5,12 +5,30 @@ var $ = require('jquery')
 var LanguageSwitch = React.createClass({
   switchLanguage: function (e) {
     var languageCode = e.target.textContent
-    var $checkbox = $('#' + languageCode + '_language-switch')
-    // language was active
-    if ($checkbox.is(':checked')) {
-      $(this.refs.checkboxList).find(':checked').first().next('a').tab('show')
+    var index = this.state.activeLanguages.indexOf(languageCode)
+    var newActiveLanguages = this.state.activeLanguages.concat([])
+    if (index === -1) {
+      // adding language
+      newActiveLanguages.push(languageCode)
     } else {
-      $checkbox.next('a').tab('show')
+      newActiveLanguages.splice(index, 1)
+    }
+
+    this.setState({
+      activeLanguages: newActiveLanguages
+    }, function () {
+      var $checkbox = $('#' + languageCode + '_language-switch')
+      // language was active
+      if (!$checkbox.is(':checked')) {
+        $(this.refs.checkboxList).find(':checked').first().next('a').tab('show')
+      } else {
+        $checkbox.next('a').tab('show')
+      }
+    })
+  },
+  getInitialState: function () {
+    return {
+      activeLanguages: this.props.activeLanguages
     }
   },
   componentDidMount: function () {
@@ -26,7 +44,7 @@ var LanguageSwitch = React.createClass({
               return (
                 <li key={languageCode} className={i === 0 ? 'active' : ''}>
                   <input type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
-                    defaultChecked={this.props.defaultLanguages.indexOf(languageCode) !== -1} />
+                    checked={this.state.activeLanguages.indexOf(languageCode) !== -1} readOnly />
                   <a href={'#' + languageCode + '_language_panel'} className="language-switch btn"
                     data-toggle="tab">{languageCode}</a>
                 </li>
@@ -42,8 +60,9 @@ var LanguageSwitch = React.createClass({
             {
               this.props.languages.map(languageCode => {
                 return (
-                  <li key={languageCode}><label htmlFor={languageCode + '_language-switch'}
-                    onClick={this.switchLanguage}>{languageCode}</label></li>
+                  <li key={languageCode}>
+                    <button type="button" onClick={this.switchLanguage}>{languageCode}</button>
+                  </li>
                 )
               })
             }
@@ -54,9 +73,13 @@ var LanguageSwitch = React.createClass({
   }
 })
 
-module.exports.renderLanguageSwitch = function (languages, defaultLanguages, target) {
+LanguageSwitch.propTypes = {
+  activeLanguages: React.PropTypes.array
+}
+
+module.exports.renderLanguageSwitch = function (languages, activeLanguages, target) {
   ReactDOM.render(
-    <LanguageSwitch languages={languages} defaultLanguages={defaultLanguages} />,
+    <LanguageSwitch languages={languages} activeLanguages={activeLanguages} />,
     document.getElementById(target)
   )
 }
