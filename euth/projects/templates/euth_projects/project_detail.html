@@ -20,7 +20,7 @@
                          data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
                          id="button-phase-{{ forloop.counter }}"
                          data-content="
-                                <p class='small'>{{ phase.start_date|date:"SHORT_DATE_FORMAT" }} - {{ phase.end_date|date:"SHORT_DATE_FORMAT" }}</p>
+                                <p class='small'>{{ phase.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ phase.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
                                 <h4>{{ phase.name }}</h4>
                             "></div>
                     {% if not forloop.last and phases|length > 1 %}
@@ -77,10 +77,10 @@
                 {% if view.phase and not view.phase.is_over %}
                 <p>
                     <strong>{% trans 'Start Date' %}</strong>
-                    {{ view.phase.start_date.date }}
+                    {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
                     <br />
                     <strong>{% trans 'End Date' %}</strong>
-                    {{ view.phase.end_date.date }}
+                    {{ view.phase.end_date|date:'SHORT_DATETIME_FORMAT' }}
                 </p>
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
