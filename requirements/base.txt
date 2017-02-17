@@ -1,4 +1,4 @@
-git+git://github.com/liqd/adhocracy4.git@ed3e6b7636d9e1b73fba73b62143c4ac3e705b09
+git+git://github.com/liqd/adhocracy4.git@e33aa29a16585b342e22de17f1dd222fe35962a3
 Django>=1.8,<1.9
 wagtail==1.7
 feedparser==5.2.1
