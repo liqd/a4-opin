@@ -1,3 +1,4 @@
+from django.core import validators as django_validators
 from django.utils.translation import ugettext_lazy as _
 from jsonfield.fields import JSONField, JSONFormField
 
@@ -12,6 +13,12 @@ class GeoJSONFormField(JSONFormField):
         kwargs.setdefault(
             'validators', [GeoJSONFormFieldValidator(geom_type, required)])
         super().__init__(*args, **kwargs)
+
+    def to_python(self, value):
+        if value not in django_validators.EMPTY_VALUES:
+            return super().to_python(value)
+        else:
+            return None
 
 
 class GeoJSONField(JSONField):
