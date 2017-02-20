@@ -13,13 +13,7 @@
 </nav>
 <div class="container membership-invite">
     <h2>{% blocktrans with project=invite.project.name %} Do you want to join {{ project }}?{% endblocktrans %}</h2>
-    {% if form.non_field_errors %}
-        <div class="alert alert-danger">
-            <ul class="list-unstyled">
-                {{ form.non_field_errors|unordered_list }}
-            </ul>
-        </div>
-    {% endif %}
+    {{ form.non_field_errors }}
     <div class="container-narrow">
         <p>You were invited by the initiator of the project. If you accept you will be able to participate in the project.
             If you decline the invitation, you can also ask for membership at a later time.</p>
