@@ -13,7 +13,7 @@
 
 {{ object.text | oembed_html }}
 
-{% if object.fileupload_set %}
+{% if object.fileupload_set.count > 0 %}
 <hr />
 <h4>{% trans 'Attached Documents' %}</h4>
 <ul>
