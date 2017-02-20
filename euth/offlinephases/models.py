@@ -1,4 +1,4 @@
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.utils import functional
@@ -12,7 +12,7 @@ from . import validators
 
 
 class Offlinephase(base.TimeStampedModel):
-    text = RichTextField(blank=True, config_name='image-editor')
+    text = RichTextUploadingField(blank=True, config_name='image-editor',)
     phase = models.OneToOneField(
         phase_models.Phase,
         on_delete=models.CASCADE,

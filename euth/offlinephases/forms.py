@@ -1,4 +1,3 @@
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from django.forms import modelformset_factory
 
@@ -12,11 +11,6 @@ class OfflinephaseForm(forms.ModelForm):
     class Meta:
         model = offlinephase_models.Offlinephase
         fields = ['text']
-
-    widgets = {
-        'text': CKEditorUploadingWidget(
-            config_name='image-editor')
-    }
 
 
 class FileUploadForm(forms.ModelForm):
