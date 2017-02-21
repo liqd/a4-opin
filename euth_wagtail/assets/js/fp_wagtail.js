@@ -551,7 +551,7 @@ window.addChoice = function(choices,questionPos, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                    '<input class="form-control choice" id="id_module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" maxlength="80" name="module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" type="text" value="" />'+
+                    '<input class="form-control choice" id="id_module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" maxlength="800" name="module_settings-question_'+questionPos+'_choice_'+choice.orderId+'_answerText" type="text" value="" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                     '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(choices)+','+choice.orderId+','+questionPos+',"form-group-question-'+questionPos+'.choice-'+choice.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
@@ -621,7 +621,7 @@ window.addQuestion = function(questions, key) {
             '</label>'+
             '<div style="position:relative;">'+
                 '<div style="margin-right: 44px;">'+
-                   '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_questionText" maxlength="80" name="module_settings-question_'+question.orderId+'_questionText" type="text" value="" />'+
+                   '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_questionText" name="module_settings-question_'+question.orderId+'_questionText" type="text" value="" maxlength="800" />'+
                 '</div>'+
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                     '<i class="fa fa-trash-o fa-2x" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion('+JSON.stringify(questions)+','+question.orderId+', "form-group-question-'+question.orderId+'")\' tabindex="-1"></i>'+
@@ -657,7 +657,7 @@ window.addQuestion = function(questions, key) {
                 '</label>'+
                 '<div style="position:relative;">'+
                     '<div style="margin-right: 44px;">'+
-                        '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
+                        '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="800" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
                     '</div>'+
                     '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                         '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
@@ -808,7 +808,7 @@ window.changeType = function(questionType, key, qorderId) {
                         '</label>'+
                         '<div style="position:relative;">'+
                             '<div style="margin-right: 44px;">'+
-                                '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="80" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" //>'+
+                                '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="800" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
                             '</div>'+
                             '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                                 '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+

@@ -177,7 +177,7 @@
                 </div>            
             {% if poll.questions|is_lastquestion:field.name %}              
         <div id="icon-plus-poll" class="span3">
-            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="icon-plus"></i>&nbsp;Add a question</div>
+            <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>
             <div style="clear:both;"></div>
         </div>        
         {% endif %}        

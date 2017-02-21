@@ -364,13 +364,13 @@ def get_module_settings_form(settings_instance_or_modelref):
             self.fields['poll'] = forms.CharField(widget=forms.Textarea)
             self.initial['poll'] = json.dumps(poll)
             # description
-            self.fields['title'] = forms.CharField(label='Title')
+            self.fields['title'] = forms.CharField(label='Title', max_length=800)
             self.initial['title'] = poll['title']
             self.fields['shortDescription'] = forms.CharField(widget=forms.Textarea, label='Subtitle')
             self.initial['shortDescription'] = poll['shortDescription']
             self.fields['longDescription'] = forms.CharField(widget=forms.Textarea, label='Long description', required=False)
             self.initial['longDescription'] = poll['longDescription']
-            self.fields['concludeMessage'] = forms.CharField(label='Conclude message', required=False)
+            self.fields['concludeMessage'] = forms.CharField(label='Conclude message', required=False, max_length=300)
             self.initial['concludeMessage'] = poll['concludeMessage']
             self.fields['startTime'] = forms.CharField(label='Start time', required=True)
             self.initial['startTime'] = poll['startTime']
@@ -382,7 +382,7 @@ def get_module_settings_form(settings_instance_or_modelref):
             # questions
             for question in poll['questions']:
                 q = question['orderId']
-                self.fields['question_'+str(q)+'_questionText'] = forms.CharField(label='Question '+str(q))
+                self.fields['question_'+str(q)+'_questionText'] = forms.CharField(label='Question '+str(q), max_length=800)
                 self.initial['question_'+str(q)+'_questionText'] = question['questionText']
                 self.fields['question_'+str(q)+'_questionType'] = forms.ChoiceField(label='Type', widget=forms.Select(), choices=([('CHECKBOX', 'MULTIPLE'), ('RADIO', 'SINGLE'), ('FREETEXT', 'OPEN'), ('ORDER', 'RANKING'), ]), initial='3', required=True)
                 self.initial['question_'+str(q)+'_questionType'] = question['questionType']
@@ -391,7 +391,7 @@ def get_module_settings_form(settings_instance_or_modelref):
 
                 for answer in question['answers']:
                     a = answer['orderId']
-                    self.fields['question_'+str(q)+'_choice_'+str(a)+'_answerText'] = forms.CharField(label='Choice '+str(a))
+                    self.fields['question_'+str(q)+'_choice_'+str(a)+'_answerText'] = forms.CharField(label='Choice '+str(a), max_length=800)
                     self.initial['question_'+str(q)+'_choice_'+str(a)+'_answerText'] = answer['answerText']
 
         def get_ordered_poll(self, poll):
