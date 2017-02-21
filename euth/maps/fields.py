@@ -8,14 +8,12 @@ from .validators import GeoJSONFormFieldValidator
 class GeoJSONFormField(JSONFormField):
 
     def __init__(self, *args, **kwargs):
-        geom_type = kwargs.pop('geom_type')
-        required = kwargs.pop('required')
-        kwargs.setdefault(
-            'validators', [GeoJSONFormFieldValidator(geom_type, required)])
         super().__init__(*args, **kwargs)
 
     def to_python(self, value):
-        if value not in django_validators.EMPTY_VALUES:
+        empty_featureset = '{"type":"FeatureCollection","features":[]}'
+        if (value not in django_validators.EMPTY_VALUES and not
+                value == empty_featureset):
             return super().to_python(value)
         else:
             return None
@@ -27,17 +25,7 @@ class GeoJSONField(JSONField):
     dim = 2
     geom_type = 'GEOMETRY'
 
-    '''
-    def __init__(self, *args, **kwargs):
-        required = kwargs.pop('required', True)
-        kwargs.setdefault(
-            'validators', [GeoJSONFormFieldValidator(
-                self.geom_type, required)])
-        super().__init__(*args, **kwargs)
-    '''
-
     def formfield(self, **kwargs):
-        kwargs.setdefault('geom_type', self.geom_type)
         return super(GeoJSONField, self).formfield(**kwargs)
 
 
