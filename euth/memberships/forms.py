@@ -12,17 +12,10 @@ class InviteForm(forms.ModelForm):
         model = models.Invite
         fields = ['accept', 'reject']
 
-    def __init__(self, user=None, **kwargs):
-        super().__init__(**kwargs)
-        self.user = user
-
     def clean(self):
         data = self.data
         if 'accept' not in data and 'reject' not in data:
             raise ValidationError('Reject or accept')
-        if 'accept' in data and not self.user.email == self.instance.email:
-            raise ValidationError('This user has another email address than '
-                                  'the one that received the invitation.')
         return data
 
     def is_accepted(self):
