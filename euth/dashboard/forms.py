@@ -1,6 +1,7 @@
 import collections
 import re
 
+import parler
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -410,18 +411,19 @@ class OrganisationForm(forms.ModelForm):
     Special form that allows editing of all translated fields.
     """
 
-    translated_fields = [('title', forms.CharField(
-        help_text=_(
-            'The title of '
-            'your organisation'))),
-        ('description_why', forms.CharField(
-            widget=forms.Textarea)),
-        ('description_how', forms.CharField(
-            widget=forms.Textarea)),
-        ('description', forms.CharField(
-            widget=forms.Textarea, help_text=_(
+    translated_fields = [
+        ('title', forms.CharField, {
+            'help_text': _('The title of your organisation')
+        }),
+        ('description_why', forms.CharField, {'widget': forms.Textarea}),
+        ('description_how', forms.CharField, {'widget': forms.Textarea}),
+        ('description', forms.CharField, {
+            'widget': forms.Textarea,
+            'help_text': _(
                 'More info about the organisation / '
-                'Short text for organisation overview')))]
+                'Short text for organisation overview')
+        })
+    ]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
 
     class Meta:
@@ -439,16 +441,23 @@ class OrganisationForm(forms.ModelForm):
 
         # inject additional form fields for translated model fields
         for lang_code in self.languages:
-            for name, translated_field in self.translated_fields:
+            for name, field_cls, kwargs in self.translated_fields:
                 self.instance.set_current_language(lang_code)
+                translated_field = field_cls(**kwargs)
                 label = name.replace('_', ' ').capitalize()
                 identifier = self._get_identifier(
                     lang_code, name)
-                initial = self.instance.safe_translation_getter(
-                    name)
+
                 field = translated_field
                 field.label = label
                 field.required = False
+
+                try:
+                    translation = self.instance.get_translation(lang_code)
+                    initial = getattr(translation, name)
+                except parler.models.TranslationDoesNotExist:
+                    initial = ''
+
                 field.initial = initial
                 self.fields[identifier] = field
 
@@ -489,11 +498,13 @@ class OrganisationForm(forms.ModelForm):
             for lang_code in self.languages:
                 if lang_code in self.data:
                     instance.set_current_language(lang_code)
-                    for fieldname in self.translated_fields:
-                        identifier = '{}__{}'.format(lang_code, fieldname[0])
-                        setattr(instance, fieldname[0],
+                    for fieldname, _cls, _kwargs in self.translated_fields:
+                        identifier = '{}__{}'.format(lang_code, fieldname)
+                        setattr(instance, fieldname,
                                 self.cleaned_data.get(identifier))
                     instance.save()
+                elif instance.has_translation(lang_code):
+                    instance.delete_translation(lang_code)
         return instance
 
     def clean(self):

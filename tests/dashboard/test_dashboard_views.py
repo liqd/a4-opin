@@ -345,6 +345,11 @@ def test_dashboard_update_organisation(client, organisation):
         'twitter_handle': 'a thandle',
         'place': 'Berlin',
         'country': 'DE',
+        'en': 'en',
+        'en__title': 'title.en',
+        'en__description': 'desc.en',
+        'en__description_why': 'desc why.en',
+        'en__description_how': 'desc how.en',
         'de': 'de',
         'de__title': 'title.de',
         'de__description': 'desc.de',
@@ -354,11 +359,53 @@ def test_dashboard_update_organisation(client, organisation):
     response.status_code == 200
 
     organisation.refresh_from_db()
+    organisation.get_translation('en').refresh_from_db()
     assert organisation.place == 'Berlin'
     assert organisation.twitter_handle == 'a thandle'
+    assert organisation.description == 'desc.en'
 
     with switch_language(organisation, 'de'):
         assert organisation.description == 'desc.de'
+
+
+@pytest.mark.django_db
+def test_dashboard_organisation_delete_language(client, organisation):
+    url = reverse('dashboard-organisation-edit', kwargs={
+        'organisation_slug': organisation.slug,
+    })
+
+    initiator = organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
+
+    with switch_language(organisation, 'de'):
+        organisation.description = 'desc.de'
+        organisation.description_why = 'desc why.de'
+        organisation.description_how = 'desc how.de'
+        organisation.save()
+
+    response = client.post(url, {
+        'twitter_handle': 'a thandle',
+        'place': 'Berlin',
+        'country': 'DE',
+        'en': 'en',
+        'en__title': 'title.en',
+        'en__description': 'desc.en',
+        'en__description_why': 'desc why.en',
+        'en__description_how': 'desc how.en',
+        'de__title': 'title.de',
+        'de__description': 'desc.de',
+        'de__description_why': 'desc why.de',
+        'de__description_how': 'desc how.de',
+    })
+    response.status_code == 200
+
+    organisation.refresh_from_db()
+    organisation.get_translation('en').refresh_from_db()
+    with switch_language(organisation, 'de'):
+        organisation.description = 'desc.en'
+        organisation.description_why = 'desc why.en'
+        organisation.description_how = 'desc how.en'
+        organisation.save()
 
 
 @pytest.mark.django_db
