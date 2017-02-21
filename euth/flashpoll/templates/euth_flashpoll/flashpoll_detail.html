@@ -1,5 +1,7 @@
 {% extends 'euth_projects/project_detail.html' %}
 {% load i18n %}
 {% block phase_content %}
-    <iframe src="{{ url }}" frameborder="0" style="width: 100%; height: 500px;"></iframe>
+{% if not view.phase.is_over %}
+<iframe src="{{ url }}" frameborder="0" style="width: 100%; height: 500px;"></iframe>
+{% endif %}
 {% endblock %}

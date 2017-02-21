@@ -121,6 +121,10 @@
 
     & .action-bar {
         @include rem(margin-bottom, 10px);
+
+        & .rating {
+            float: left;
+        }
     }
 }
 

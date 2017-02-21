@@ -7,10 +7,11 @@ class OrganisationDetailView(generic.DetailView):
     model = models.Organisation
 
     def visible_projects(self):
+        projects = self.object.project_set.order_by('-created')
         if self.request.user in self.object.initiators.all():
-            return self.object.project_set.all()
+            return projects.all()
         else:
-            return self.object.project_set.filter(is_draft=False)
+            return projects.filter(is_draft=False)
 
 
 class OrganisationListView(generic.ListView):
