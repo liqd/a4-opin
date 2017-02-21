@@ -50,7 +50,7 @@ class MapIdeaListView(idea_views.IdeaListView):
 class MapIdeaCreateView(idea_views.IdeaCreateView):
     model = MapIdea
     form_class = forms.MapIdeaForm
-    permission_required = 'euth_maps.propose_idea'
+    permission_required = 'euth_maps.propose_mapidea'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -60,6 +60,7 @@ class MapIdeaCreateView(idea_views.IdeaCreateView):
 
 class MapIdeaUpdateView(idea_views.IdeaUpdateView):
     model = MapIdea
+    permission_required = 'euth_maps.modify_mapidea'
     form_class = forms.MapIdeaForm
 
     def get_form_kwargs(self):
@@ -70,10 +71,12 @@ class MapIdeaUpdateView(idea_views.IdeaUpdateView):
 
 class MapIdeaDeleteView(idea_views.IdeaDeleteView):
     model = MapIdea
+    permission_required = 'euth_maps.modify_mapidea'
 
 
 class MapIdeaDetailView(idea_views.IdeaDetailView):
     model = MapIdea
+    permission_required = 'euth_maps.view_mapidea'
     queryset = MapIdea.objects.annotate_positive_rating_count()\
         .annotate_negative_rating_count()
 
