@@ -48,7 +48,7 @@ window.jQuery(document).ready(function () {
     iconAnchor: [15, 45],
     shadowSize: [40, 54],
     shadowAnchor: [20, 54],
-    popupAnchor: [0, -45]
+    popupAnchor: [0, 5]
   })
 
   L.geoJson(point, {
