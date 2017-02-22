@@ -23,7 +23,7 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
-    opin: [
+    adhocracy4: [
       './euth_wagtail/assets/scss/all.scss',
       './euth/contrib/static/js/app.js'
     ],
@@ -49,7 +49,7 @@ module.exports = {
   devtool: 'eval',
   output: {
     libraryTarget: 'var',
-    library: 'adhocracy4',
+    library: '[name]',
     path: './euth_wagtail/static/',
     publicPath: "/static/",
     filename: '[name].js'
