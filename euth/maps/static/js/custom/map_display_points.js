@@ -4,12 +4,27 @@ window.jQuery(document).ready(function () {
   var polygon = window.polygon
   var point = window.point
   var baseurl = window.baseurl
+  var initial = 0
 
   var basemap = baseurl + '{z}/{x}/{y}.png'
   var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
+  var baselayer = L.tileLayer(basemap, { attribution: osmAttrib })
   var map = new L.Map('map', { scrollWheelZoom: false, zoomControl: false })
   baselayer.addTo(map)
+
+  map.on('zoomend', function () {
+    var currentZoom = map.getZoom()
+    var minZoom = map.getMinZoom()
+
+    if (currentZoom > minZoom) {
+      if (initial === 1) {
+        $('#zoom-out').removeClass('leaflet-disabled')
+      }
+    }
+    if (currentZoom === minZoom) {
+      $('#zoom-out').addClass('leaflet-disabled')
+    }
+  })
 
   var polygonStyle = {
     'color': '#0076ae',
@@ -17,12 +32,6 @@ window.jQuery(document).ready(function () {
     'opacity': 1,
     'fillOpacity': 0.2
   }
-
-  var customOptions =
-    {
-      'className': 'maps-popups',
-      closeButton: false
-    }
 
   var basePolygon = L.geoJson(polygon, {style: polygonStyle}).addTo(map)
   basePolygon.on('dblclick', function (event) {
@@ -33,6 +42,14 @@ window.jQuery(document).ready(function () {
   })
 
   map.fitBounds(basePolygon)
+  map.options.minZoom = map.getZoom()
+  initial = 1
+
+  var customOptions =
+    {
+      'className': 'maps-popups',
+      closeButton: false
+    }
 
   function getImage (feature) {
     if (feature.properties.image) {
