@@ -422,14 +422,15 @@ def get_module_settings_form(settings_instance_or_modelref):
 
         def clean(self):
             data = dict(self.data)
-            if data['module_settings-startTime'] != [''] and data['module_settings-endTime'] != ['']:
-                startTime = time.mktime(datetime.datetime.strptime(data['module_settings-startTime'][0], "%d/%m/%Y %H:%M").timetuple())
-                endTime = time.mktime(datetime.datetime.strptime(data['module_settings-endTime'][0], "%d/%m/%Y %H:%M").timetuple())
-                if endTime and startTime:
-                    if endTime < startTime:
-                        raise ValidationError({
-                            'endTime': _('End time can not be smaller than the start time.')
-                        })
+            if 'module_settings-startTime' in data and 'module_settings-endTime' in data:
+                if data['module_settings-startTime'] != [''] and data['module_settings-endTime'] != ['']:
+                    startTime = time.mktime(datetime.datetime.strptime(data['module_settings-startTime'][0], "%d/%m/%Y %H:%M").timetuple())
+                    endTime = time.mktime(datetime.datetime.strptime(data['module_settings-endTime'][0], "%d/%m/%Y %H:%M").timetuple())
+                    if endTime and startTime:
+                        if endTime < startTime:
+                            raise ValidationError({
+                                'endTime': _('End time can not be smaller than the start time.')
+                            })
 
             super().clean()
     return ModuleSettings
