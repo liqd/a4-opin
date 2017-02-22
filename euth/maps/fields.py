@@ -8,7 +8,7 @@ class GeoJSONFormField(JSONFormField):
     def __init__(self, *args, **kwargs):
         required_message = kwargs.pop('required_message')
         super().__init__(*args, **kwargs)
-        self.default_error_messages['required'] = required_message
+        self.error_messages['required'] = required_message
 
     def to_python(self, value):
         empty_featureset = '{"type":"FeatureCollection","features":[]}'
