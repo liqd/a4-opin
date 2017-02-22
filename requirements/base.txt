@@ -1,4 +1,4 @@
-git+git://github.com/liqd/adhocracy4.git@ed3e6b7636d9e1b73fba73b62143c4ac3e705b09
+git+git://github.com/liqd/adhocracy4.git@e33aa29a16585b342e22de17f1dd222fe35962a3
 Django>=1.8,<1.9
 wagtail==1.7
 feedparser==5.2.1
@@ -10,7 +10,7 @@ django-webpack-loader==0.3.2
 django-filter==0.15.3
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.3
-django-parler==1.6.4
+django-parler==1.7
 django-autoslug==1.9.3
 djangorestframework==3.5.1
 python-magic==0.4.12

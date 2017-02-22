@@ -33,7 +33,7 @@
         color: #fff;
     }
 
-    &.is-read-only {
+    &:disabled {
         background: transparent;
         border: none;
         color: $brand-success;
@@ -60,7 +60,7 @@
         color: #fff;
     }
 
-    &.is-read-only {
+    &:disabled {
         background: transparent;
         border: none;
         color: $brand-danger;
@@ -71,7 +71,7 @@
     }
 }
 
-.idea-ratings .rating-bar {
+.idea-ratings .rating {
     position: absolute;
     right: 0;
     top: 0;

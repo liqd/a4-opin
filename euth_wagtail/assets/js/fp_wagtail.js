@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
   {
     var js_file = document.createElement('script');
     js_file.type = 'text/javascript';
-    js_file.src = 'http://maps.googleapis.com/maps/api/js?callback=initialize&v=3&sensor=true&libraries=drawing';
+    js_file.src = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc&callback=initialize&v=3&sensor=true&libraries=drawing';
     document.getElementsByTagName('head')[0].appendChild(js_file);   
   }
 });
