@@ -33,19 +33,19 @@
      drawingManager.setOptions({
        drawingControl: true
      });
-     
+
     // Editing geolocation field
     var elem = document.getElementById("geofenceLocation");
     elem.parentNode.removeChild(elem);
 
     var geofenceKey = '<input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value=""/>';
-    document.getElementById("field-hide").innerHTML += geofenceKey;      
+    document.getElementById("field-hide").innerHTML += geofenceKey;
   }
 
   function restoreShape() {
     if (selectedShape) {
       selectedShape.setMap(null);
-    }        
+    }
     selectedShape.setMap(null);
     drawLocation(initialGeofenceLocation);
 
@@ -54,15 +54,15 @@
     elem.parentNode.removeChild(elem);
 
     var geofenceKey = '<input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value="'+initialGeofenceLocation+'""/>';
-    document.getElementById("field-hide").innerHTML += geofenceKey;    
-  
-    
+    document.getElementById("field-hide").innerHTML += geofenceKey;
+
+
     // To show:
      drawingManager.setOptions({
        drawingControl: true
      });
-  }  
-  
+  }
+
   function selectColor(color) {
     selectedColor = color;
     for (var i = 0; i < colors.length; ++i) {
@@ -125,8 +125,8 @@
 /* create a location with the supplied infomation and do clean after receiving the request response
 */
 function create_location (){
-    
-    var wktFormat = trans_to_wkt(selectedShape.getPath().b);        
+
+    var wktFormat = trans_to_wkt(selectedShape.getPath().b);
     selectedShape.setMap(null);
     drawLocation(wktFormat);
 
@@ -142,20 +142,20 @@ function create_location (){
 /* draw a location at the map and center the map by its geographic coordinates
  * param (location : object) : the location object
 */
-function drawLocation(location) {	
+function drawLocation(location) {
     var center = drawPolygon(location)[0];
 
     //if(center.lat() && center.lng()) {
-    if(center) {        
+    if(center) {
         map.setCenter(center);
-        if (map.getZoom() < 5) map.setZoom(7); 
-    }else {			
+        if (map.getZoom() < 5) map.setZoom(7);
+    }else {
         map.setCenter(defaultLatLng);
     }
 }
 
 
-function drawPolygon(wktFormat) {    
+function drawPolygon(wktFormat) {
     var polygon = trans_to_array(wktFormat);
 
     selectedShape = new google.maps.Polygon({
@@ -203,7 +203,7 @@ function trans_to_array(wkt){
     return res;
 }
 
-window.initialize = function(){    
+window.initialize = function(){
     defaultLatLng = new google.maps.LatLng(52.520, 13.404);
     map = new google.maps.Map(document.getElementById('map'), {
       //zoom: 10,
@@ -215,10 +215,10 @@ window.initialize = function(){
     });
 
     $('.tabs a[href="#participation"]').click(function(){
-       $(this).tab('show');           
+       $(this).tab('show');
        initialize();
-    });        
-    
+    });
+
     var polyOptions = {
       strokeWeight: 0,
       fillOpacity: 0.45,
@@ -271,9 +271,9 @@ window.initialize = function(){
       }
     });
 
-    var key = "geofenceLocation"    
-    var geofenceLocation = document.getElementById(key).value;    
-    
+    var key = "geofenceLocation"
+    var geofenceLocation = document.getElementById(key).value;
+
     if(!geofenceLocation){
         map.setCenter(defaultLatLng);
     }else{
@@ -296,7 +296,7 @@ window.initialize = function(){
   //google.maps.event.addDomListener(window, 'load', initialize);
 
 
-  
+
   /*------------------------------------*
  *      Build the on-ready callback
  *------------------------------------*/
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var js_file = document.createElement('script');
     js_file.type = 'text/javascript';
     js_file.src = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc&callback=initialize&v=3&sensor=true&libraries=drawing';
-    document.getElementsByTagName('head')[0].appendChild(js_file);   
+    document.getElementsByTagName('head')[0].appendChild(js_file);
   }
 });
 
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * Flashpoll functions
  * -----------------------*/
 
-     
+
 /* Remove a choice from collection
  * param (choices array) : choice collection of question
  * param (choice object) : choice object to be removed from collection
@@ -326,46 +326,46 @@ window.removeChoice = function(choices, qcorderIdIn, qorderId, key){
 //function removeChoice(choices, qcorderIdIn, qorderId, key) {
 	if(choices.length>1) {
         var index,ind;
-        for(var i=0;i<choices.length;i++){			
+        for(var i=0;i<choices.length;i++){
             if(choices[i].orderId == qcorderIdIn){
                 index = i;
                 break;
             }
 
         }
-			choices.splice(index,1);        
+			choices.splice(index,1);
 
 		// update the position value of choice by starting at "index"
 		for(ind=index;ind<choices.length;ind++)
-			choices[ind].position=ind+1;	
-    
+			choices[ind].position=ind+1;
+
     var elem = document.getElementById(key);
     var parent = elem.parentNode;
     elem.parentNode.removeChild(elem);
-        
+
     // update the Dom elements
     var qcorderId = 1;
-    $(parent).children().each(function(){        		
-		if($(this).children()[1] && $(this).children()[1].children[0] )	{				
-			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   								
-			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    			
-			
+    $(parent).children().each(function(){
+		if($(this).children()[1] && $(this).children()[1].children[0] )	{
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);
+			$(this).children()[0].innerHTML = 'Choice '+qcorderId;
+
 			$(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
 			$(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
-					
-			
+
+
 			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
 			$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(choices, qcorderId, qorderId, formkey); };
-						
+
 			qcorderId++;
 		}
 	});
 
-	
+
 	var remvkey = "icon-plus-question-"+qorderId;
     var elem = document.getElementById(remvkey);
-	elem.parentNode.removeChild(elem);	
-		
+	elem.parentNode.removeChild(elem);
+
 	var pluskey= '<div id="icon-plus-question-'+qorderId+'" class="span3">'+
 		'<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+qorderId+',"fp-phase-qc-'+qorderId+'")\' tabindex="-1" style="float:left;"></div>'+
 		'<div style="clear:both;"></div>'+
@@ -373,11 +373,11 @@ window.removeChoice = function(choices, qcorderIdIn, qorderId, key){
 
 	var d = document.createElement('div');
 	d.innerHTML = pluskey;
-	
-	parent.appendChild(d.firstChild);		
-	
+
+	parent.appendChild(d.firstChild);
+
 }
-	
+
     return false;
 
 };
@@ -406,26 +406,26 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
 			questions[ind].position=ind+1;
 	}
 
-    var elem = document.getElementById(key);    
+    var elem = document.getElementById(key);
     var parent = elem.parentNode;
-    elem.parentNode.removeChild(elem);	
+    elem.parentNode.removeChild(elem);
 
     // update the Dom elements
     var qorderId = 1;
-    $(parent).children().each(function(){  		
-		if($(this).children()[1] && $(this).children()[1].children[0])	{				
-			$(this).attr('id','form-group-question-'+qorderId);   		
-			
-			// Titre - $(this).children()[0]			
-			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    
-								
+    $(parent).children().each(function(){
+		if($(this).children()[1] && $(this).children()[1].children[0])	{
+			$(this).attr('id','form-group-question-'+qorderId);
+
+			// Titre - $(this).children()[0]
+			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;
+
 			$(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_questionText';
 			$(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_questionText';
 
 			var formkey ='form-group-question-'+qorderId;
 			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
-			
-			// Type - $(this).children()[1]					
+
+			// Type - $(this).children()[1]
 			//$(this).children()[1].children[1].id = 'id_module_settings-question_'+qorderId+'_questionType';
 			//$(this).children()[1].children[1].name = 'module_settings-question_'+qorderId+'_questionType';
             var value;
@@ -435,13 +435,13 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
             var selectKey =            '<label>'+
                 'Type'+
                 '<br>'+
-            '</label>'+            
+            '</label>'+
             '<select class="form-control select" id="id_module_settings-question_'+qorderId+'_questionType" name="module_settings-question_'+qorderId+'_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+qorderId+'", '+qorderId+')\' >';
                 if(value =='CHECKBOX')
                     selectKey = selectKey +'<option value="CHECKBOX"  selected>MULTIPLE</option>';
                 else
                     selectKey = selectKey +'<option value="CHECKBOX">MULTIPLE</option>';
-                
+
                 if(value =='RADIO')
                     selectKey = selectKey +'<option value="RADIO" selected>SINGLE</option>';
                 else
@@ -451,71 +451,71 @@ window.removeQuestion = function(questions,qorderIdIn,key) {
                     selectKey = selectKey +'<option value="FREETEXT"  selected>OPEN</option>';
                 else
                     selectKey = selectKey +'<option value="FREETEXT"  >OPEN</option>';
-                
+
                 if(value =='ORDER')
                     selectKey = selectKey +'<option value="ORDER"  selected>RANKING</option>';
                 else
-                    selectKey = selectKey +'<option value="ORDER"  >RANKING</option>';                
-                                          
-            selectKey = selectKey +'</select>';            
-                                   
-            $(this).children()[1].innerHTML = selectKey;  
-            
-						
-			// Mandatory - $(this).children()[2]					
+                    selectKey = selectKey +'<option value="ORDER"  >RANKING</option>';
+
+            selectKey = selectKey +'</select>';
+
+            $(this).children()[1].innerHTML = selectKey;
+
+
+			// Mandatory - $(this).children()[2]
 			$(this).children()[2].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_mandatory';
 			$(this).children()[2].children[0].children[0].name = 'module_settings-question_'+qorderId+'_mandatory';
-						
+
             if($(this).children()[3]){
-                // Choices - $(this).children()[3]									
+                // Choices - $(this).children()[3]
                 $(this).children()[3].id = 'fp-phase-qc-'+qorderId;
-                var node = $(this).children()[3];			
+                var node = $(this).children()[3];
                 // update the Dom elements
                 var qcorderId = 1;
                 var answers = questions[qorderId-1].answers;
-                $(node).children().each(function(){						      
-                    if($(this).children()[1] && $(this).children()[1].children[0])	{							
-                        $(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   							
-                        $(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-                                           
+                $(node).children().each(function(){
+                    if($(this).children()[1] && $(this).children()[1].children[0])	{
+                        $(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);
+                        $(this).children()[0].innerHTML = 'Choice '+qcorderId;
+
                         $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
-                        $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';							
-                        
-                        var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;					
+                        $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+
+                        var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
                         var orderId = qcorderId;
                         var orderIdQ = qorderId;
                         $(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
-                        
+
                         qcorderId++;
                     }else{
-                        $(this).attr('id','icon-plus-question-'+qorderId); 		
+                        $(this).attr('id','icon-plus-question-'+qorderId);
                         var formkey ='fp-phase-qc-'+qorderId;
                         var orderId = qorderId;
-                        $(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };									
+                        $(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };
                     }
                 });
             }
-			
+
 			qorderId++;
 		}
 	});
 
-	
-	
+
+
 	var remvkey = "icon-plus-poll";
     var elem = document.getElementById(remvkey);
 	elem.parentNode.removeChild(elem);
-	
+
     var pluskey = '<div id="icon-plus-poll" class="span3">'+
             '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>'+
             '<div style="clear:both;"></div>'+
         '</div>';
-		
-	
+
+
 	var d = document.createElement('div');
 	d.innerHTML = pluskey;
-	
-	parent.appendChild(d.firstChild);		
+
+	parent.appendChild(d.firstChild);
 
     return false;
 };
@@ -542,8 +542,8 @@ window.addChoice = function(choices,questionPos, key) {
     var remvkey = "icon-plus-question-"+questionPos;
     var elem = document.getElementById(remvkey);
 	var parent = elem.parentNode;
-    parent.removeChild(elem);               
-    
+    parent.removeChild(elem);
+
     var choiceKey = '<div id="form-group-question-'+questionPos+'.choice-'+choice.orderId+'" class="form-group">'+
             '<label>'+
                 'Choice '+choice.orderId+
@@ -563,31 +563,31 @@ window.addChoice = function(choices,questionPos, key) {
 			'<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(choices)+','+questionPos+',"fp-phase-qc-'+questionPos+'")\' tabindex="-1" style="float:left;"></div>'+
 			'<div style="clear:both;"></div>'+
 		'</div>';
-		
+
 	var d = document.createElement('div');
 	d.innerHTML = choiceKey;
-	
+
 	var d2 = document.createElement('div');
 	d2.innerHTML = choiceKey2;
-	
+
 	document.getElementById(key).appendChild(d.firstChild);
-	document.getElementById(key).appendChild(d2.firstChild);	
+	document.getElementById(key).appendChild(d2.firstChild);
 	// Reorder
     // update the Dom elements
     var qcorderId = 1;
 	var qorderId = questionPos;
-    $(parent).children().each(function(){        		
-		if($(this).children()[1] && $(this).children()[1].children[0])	{	
-			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   					
-			$(this).children()[0].innerHTML = 'Choice '+qcorderId;    
-					
+    $(parent).children().each(function(){
+		if($(this).children()[1] && $(this).children()[1].children[0])	{
+			$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);
+			$(this).children()[0].innerHTML = 'Choice '+qcorderId;
+
 			$(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
-			$(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';            
-					
-			
+			$(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
+
+
 			var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
 			$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(choices, qcorderId, qorderId, formkey); };
-						
+
 			qcorderId++;
 		}
 	});
@@ -611,8 +611,8 @@ window.addQuestion = function(questions, key) {
     var remvkey = "icon-plus-poll";
     var elem = document.getElementById(remvkey);
 	var parent = elem.parentNode;
-    parent.removeChild(elem);	
-            
+    parent.removeChild(elem);
+
 	var questionKey ='<div id="form-group-question-'+question.orderId+'">'+
         '<div class="form-group">'+
             '<label>'+
@@ -663,7 +663,7 @@ window.addQuestion = function(questions, key) {
                         '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
                     '</div>'+
                     '</div>'+
-                '</div>';                 
+                '</div>';
 
                 if (answer.orderId == question.answers.length){
                     questionKey = questionKey +
@@ -671,7 +671,7 @@ window.addQuestion = function(questions, key) {
                         '<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
                         '<div style="clear:both;"></div>'+
                     '</div>';
-                }            
+                }
         }
 
     questionKey = questionKey +'</div>'+
@@ -681,41 +681,41 @@ window.addQuestion = function(questions, key) {
             '<div class="btn btn-success ng-binding" onclick=\'addQuestion('+JSON.stringify(questions)+',"fp-phase-2")\' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>'+
             '<div style="clear:both;"></div>'+
         '</div>';
-		
+
 	var d = document.createElement('div');
 	d.innerHTML = questionKey;
 
 	var d1 = document.createElement('div');
 	d1.innerHTML = questionKey1;
-	
+
 	document.getElementById(key).appendChild(d.firstChild);
-	document.getElementById(key).appendChild(d1.firstChild);	
-	
+	document.getElementById(key).appendChild(d1.firstChild);
+
 	var parent = document.getElementById(key);
-	
+
     // update the Dom elements
-    var qorderId = 1;	
-    $(parent).children().each(function(){  		
-		if($(this).children()[1] && $(this).children()[1].children[0])	{				
-			$(this).attr('id','form-group-question-'+qorderId);   		
-			
-			// Titre - $(this).children()[0]			
-			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;    					
+    var qorderId = 1;
+    $(parent).children().each(function(){
+		if($(this).children()[1] && $(this).children()[1].children[0])	{
+			$(this).attr('id','form-group-question-'+qorderId);
+
+			// Titre - $(this).children()[0]
+			$(this).children()[0].children[0].innerHTML = 'Question '+qorderId;
 			$(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_questionText';
 			$(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_questionText';
-			
+
 			var formkey ='form-group-question-'+qorderId;
 			$(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey); };
-			
-			// Type - $(this).children()[1]					
+
+			// Type - $(this).children()[1]
 			//$(this).children()[1].children[1].id = 'id_module_settings-question_'+qorderId+'_questionType';
 			//$(this).children()[1].children[1].name = 'module_settings-question_'+qorderId+'_questionType';
-			
+
             var value;
             if($(this).children()[1].children[1]){
                 value = $(this).children()[1].children[1].value
-            }            
-            
+            }
+
             var selectKey ='<label>'+
                 'Type'+
                 '<br>'+
@@ -725,7 +725,7 @@ window.addQuestion = function(questions, key) {
                     selectKey = selectKey +'<option value="CHECKBOX"  selected>MULTIPLE</option>';
                 else
                     selectKey = selectKey +'<option value="CHECKBOX">MULTIPLE</option>';
-                
+
                 if(value =='RADIO')
                     selectKey = selectKey +'<option value="RADIO" selected>SINGLE</option>';
                 else
@@ -735,67 +735,67 @@ window.addQuestion = function(questions, key) {
                     selectKey = selectKey +'<option value="FREETEXT"  selected>OPEN</option>';
                 else
                     selectKey = selectKey +'<option value="FREETEXT"  >OPEN</option>';
-                
+
                 if(value =='ORDER')
                     selectKey = selectKey +'<option value="ORDER"  selected>RANKING</option>';
                 else
-                    selectKey = selectKey +'<option value="ORDER"  >RANKING</option>';                
-                                          
-            selectKey = selectKey +'</select>';            
-                                   
-            $(this).children()[1].innerHTML = selectKey;  						
-                        
-			// Mandatory - $(this).children()[2]					
+                    selectKey = selectKey +'<option value="ORDER"  >RANKING</option>';
+
+            selectKey = selectKey +'</select>';
+
+            $(this).children()[1].innerHTML = selectKey;
+
+			// Mandatory - $(this).children()[2]
 			$(this).children()[2].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_mandatory';
 			$(this).children()[2].children[0].children[0].name = 'module_settings-question_'+qorderId+'_mandatory';
 
-                        
+
             if($(this).children()[3]){
-			// Choices - $(this).children()[3]									
+			// Choices - $(this).children()[3]
 			$(this).children()[3].id = 'fp-phase-qc-'+qorderId;
-			var node = $(this).children()[3];			
+			var node = $(this).children()[3];
 			// update the Dom elements
 			var qcorderId = 1;
 			var answers = questions[qorderId-1].answers;
-			$(node).children().each(function(){		      	
-				if($(this).children()[1] && $(this).children()[1].children[0])	{		
-					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);   		
-					$(this).children()[0].innerHTML = 'Choice '+qcorderId;                        
+			$(node).children().each(function(){
+				if($(this).children()[1] && $(this).children()[1].children[0])	{
+					$(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId);
+					$(this).children()[0].innerHTML = 'Choice '+qcorderId;
                     $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
                     $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText';
-                    
-					
+
+
 					var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId;
-					var orderId = qcorderId; 	
-					var orderIdQ = qorderId;					
+					var orderId = qcorderId;
+					var orderIdQ = qorderId;
 					$(this).children()[1].children[1].children[0].onclick = function(){ removeChoice(answers, orderId, orderIdQ, formkey); };
-					
+
 					qcorderId++;
 				}else{
-					$(this).attr('id','icon-plus-question-'+qorderId); 		
+					$(this).attr('id','icon-plus-question-'+qorderId);
 					var formkey ='fp-phase-qc-'+qorderId;
 					var orderId = qorderId;
-					$(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };								
+					$(this).children()[0].onclick = function(){ addChoice(answers, orderId, formkey); };
 				}
 			});
         }
 			qorderId++;
 		}
 	});
-	
+
 
 };
 
 /* Update the appearance of question when the question type is changed
 */
-window.changeType = function(questionType, key, qorderId) { 
-//function changeType(questionType, key, qorderId) { 
-    var elem = document.getElementById(key);	    
+window.changeType = function(questionType, key, qorderId) {
+//function changeType(questionType, key, qorderId) {
+    var elem = document.getElementById(key);
 	if(questionType === 'FREETEXT') {
-			$(elem).children().each(function(){		
-                elem.removeChild(this);                
-			});                      
-	}else {        
+			$(elem).children().each(function(){
+                elem.removeChild(this);
+			});
+	}else {
 		if($(elem).children().length == 0){
             var question = {"questionText":"","orderId":qorderId,"questionType":"CHECKBOX","mandatory":true,"mediaURLs":[""],"answers":[{"answerText":"","orderId":1,"mediaURL":"","freetextAnswer":false},{"answerText":"","orderId":2,"mediaURL":"","freetextAnswer":false}]};
             var questionKey="";
@@ -815,33 +815,33 @@ window.changeType = function(questionType, key, qorderId) {
                             '</div>'+
                             '</div>'+
                         '</div>';
-                    
+
                         if(document.getElementById(key)==null){
                             var upkey ='form-group-question-'+ qorderId;
-                            questionKey ='<div id="fp-phase-qc-'+qorderId+'">' + 
-                                          questionKey + 
-                                         '</div>';              
-                                         
+                            questionKey ='<div id="fp-phase-qc-'+qorderId+'">' +
+                                          questionKey +
+                                         '</div>';
+
                             var d = document.createElement('div');
                             d.innerHTML = questionKey;
-                            document.getElementById(upkey).appendChild(d.firstChild);                                           
+                            document.getElementById(upkey).appendChild(d.firstChild);
                         }else{
                             var d = document.createElement('div');
                             d.innerHTML = questionKey;
-                            document.getElementById(key).appendChild(d.firstChild);                          
+                            document.getElementById(key).appendChild(d.firstChild);
                         }
-                
+
                         if (answer.orderId == question.answers.length){
                             questionKey ='<div id="icon-plus-question-'+question.orderId+'" class="span3">'+
                                 '<div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'addChoice('+JSON.stringify(question.answers)+','+question.orderId+', "fp-phase-qc-'+question.orderId+'")\' tabindex="-1" style="float:left;"></div>'+
                                 '<div style="clear:both;"></div>'+
-                            '</div>';                            
+                            '</div>';
                             var d = document.createElement('div');
                             d.innerHTML = questionKey;
-                            document.getElementById(key).appendChild(d.firstChild);  
-                
-                        }            
-                }                 
-        }       
+                            document.getElementById(key).appendChild(d.firstChild);
+
+                        }
+                }
+        }
     }
 }
