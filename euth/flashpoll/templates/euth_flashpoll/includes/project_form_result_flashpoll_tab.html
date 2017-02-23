@@ -1,6 +1,7 @@
-{% load i18n form_tags flashpoll_form_tags widget_tweaks %}
+{% load static i18n form_tags flashpoll_form_tags widget_tweaks %}
 
-<script src="http://code.highcharts.com/js/highcharts.js"></script>
+<link rel="stylesheet" href="{% static 'highcharts.css' %}">
+<script src="{% static 'highcharts.js' %}"></script>
 <script type="text/javascript">
 
 var pollresult = {{pollresult|get_simplejson|safe}};
