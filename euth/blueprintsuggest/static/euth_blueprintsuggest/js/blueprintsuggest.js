@@ -1,9 +1,10 @@
 /* global jQuery django */
 (function ($) {
   var blueprintsuggest = {
-    init: function () {
+    init: function (nonFinetuningAims) {
       this.$aim = $('[name="aim"]')
       this.$form = $('.blueprintsuggest')
+      this.$nonFinetuningAims = nonFinetuningAims || []
 
       $('.js-continue').on('click', this.clickContinueHandler.bind(this))
       $('.js-back').on('click', this.clickBackHandler)
@@ -24,7 +25,7 @@
       }
 
       var val = $checked.val()
-      if (val >= 4) {
+      if (this.$nonFinetuningAims.indexOf(val) > -1) {
         e.preventDefault()
         this.$form.submit()
       } else {
@@ -44,6 +45,6 @@
   }
 
   $(function () {
-    blueprintsuggest.init()
+    blueprintsuggest.init(['run_competition', 'work_document'])
   })
 }(jQuery))

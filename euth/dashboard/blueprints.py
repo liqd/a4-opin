@@ -9,7 +9,7 @@ from euth.maps import phases as map_phases
 
 ProjectBlueprint = namedtuple(
     'ProjectBlueprint', [
-        'title', 'description', 'content', 'image', 'settings_model'
+        'title', 'description', 'content', 'image', 'settings_model',
     ]
 )
 

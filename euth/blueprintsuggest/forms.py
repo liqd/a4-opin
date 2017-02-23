@@ -1,36 +1,37 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
 
 
 class GetSuggestionForm(forms.Form):
     aim_choices = [
         {
-            'value': 0,
+            'value': 'collect_ideas',
             'label': _('create and gather new ideas or visions.'),
             'example': [_('(Urban) planning processes'),
                         _('Develop concepts or guiding principles')]
         }, {
-            'value': 1,
+            'value': 'discuss_topic',
             'label': _('gather feedback on a topic and discuss it in '
                        'greater detail.'),
             'example': [_('Discuss existing concepts or plans'),
                         _('Develop solutions for existing problems')]
         }, {
-            'value': 2,
+            'value': 'design_place',
             'label': _('design a place.'),
             'example': [_('(Urban) planning processes'),
                         _('Set the agenda of an event')]
         }, {
-            'value': 3,
+            'value': 'run_survey',
             'label': _('learn about what people like most.'),
             'example': [_('Majority votes'), _('Opinion polls')]
         }, {
-            'value': 4,
+            'value': 'run_competition',
             'label': _('run a competition.'),
             'example': [_('All sorts of competitions, '
                           'like idea contests etc.')]
         }, {
-            'value': 5,
+            'value': 'work_document',
             'label': _('work collaboratively on a text document.'),
             'example': [_('Draft or revise statutes, articles, or charters'),
                         _('Involve different authors in writing a shared '
@@ -82,4 +83,15 @@ class GetSuggestionForm(forms.Form):
     )
 
     def clean_aim(self, *args, **kwargs):
-        return int(self.cleaned_data['aim'])
+        available_aims = [
+            'collect_ideas',
+            'discuss_topic',
+            'design_place',
+            'run_survey',
+            'run_competition',
+        ]
+
+        if self.cleaned_data['aim'] not in available_aims:
+            raise ValidationError(_('Invalid aim selected'))
+
+        return self.cleaned_data['aim']

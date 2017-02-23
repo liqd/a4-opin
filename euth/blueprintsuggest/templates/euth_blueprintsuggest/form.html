@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="container">
-        <form method="post" class="blueprintsuggest">
+       <form method="post" class="blueprintsuggest">
             {% csrf_token %}
 
             <!-- Tab panes -->
@@ -66,7 +66,7 @@
                         <li class="active">{% trans 'Fine tuning' %}</li>
                         <li>{% trans 'Result' %}</li>
                     </ul>
-                    <button type="submit">{% trans 'Proceed' %}</button>
+                    <button class="btn btn-primary pull-right" type="submit">{% trans 'Proceed' %}</button>
                 </div>
             </div>
         </form>
