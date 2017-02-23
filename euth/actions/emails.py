@@ -19,9 +19,7 @@ def notify_users_on_create_action(action, users):
         'url': url,
     }
 
-    for user in users:
-        emails.send_email_with_template(
-            [user], 'notify_creator', context)
+    emails.send_email_with_template(users, 'notify_creator', context)
 
 
 def notify_followers_on_almost_finished(project):
@@ -38,6 +36,4 @@ def notify_followers_on_almost_finished(project):
         'url': project.get_absolute_url()
     }
 
-    for recipient in recipients:
-        emails.send_email_with_template(
-            [recipient], 'notify_followers', context)
+    emails.send_email_with_template(recipients, 'notify_followers', context)

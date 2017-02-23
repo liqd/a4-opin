@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.sites import models as site_models
 from django.contrib.staticfiles import finders
 from django.core.mail.message import EmailMultiAlternatives
+from django.template import Context
 from django.template.loader import select_template
 from django.utils.translation import get_language
 
@@ -32,11 +33,11 @@ class Email():
 
     def get_context(self):
         object_context_key = self.object.__class__.__name__.lower()
-        return {
+        return Context({
             'email': self,
             'site': self.get_site(),
             object_context_key: self.object
-        }
+        })
 
     def get_receivers(self):
         []
@@ -69,21 +70,32 @@ class Email():
         html = select_template([
             'emails/{}.{}.html'.format(template, lang) for lang in languages
         ])
-        mail = EmailMultiAlternatives(
-            subject=subject.render(context).strip(),
-            body=plaintext.render(context),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=receivers,
-        )
-        if len(attachments) > 0:
-            mail.mixed_subtype = 'related'
 
-            for attachment in attachments:
-                mail.attach(attachment)
+        mails = []
+        for receiver in receivers:
+            context.update({'receiver': receiver})
+            raw_subject = subject.render(context).strip()
+            raw_body = plaintext.render(context)
+            raw_html = html.render(context)
+            context.pop()
 
-        mail.attach_alternative(html.render(context), 'text/html')
-        mail.send()
-        return mail
+            mail = EmailMultiAlternatives(
+                subject=raw_subject,
+                body=raw_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[receiver],
+            )
+
+            if len(attachments) > 0:
+                mail.mixed_subtype = 'related'
+
+                for attachment in attachments:
+                    mail.attach(attachment)
+
+            mail.attach_alternative(raw_html, 'text/html')
+            mail.send()
+            mails.append(mail)
+        return mails
 
 
 class ExternalNotification(Email):
@@ -103,11 +115,6 @@ class UserNotification(Email):
 
     def get_receivers(self):
         return [getattr(self.object, self.user_attr_name)]
-
-    def get_context(self):
-        context = super().get_context()
-        context['receiver'] = getattr(self.object, self.user_attr_name)
-        return context
 
 
 class ModeratorNotification(Email):
