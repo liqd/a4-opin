@@ -13,11 +13,13 @@ from rules.contrib import views as rules_views
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from euth.flashpoll import services
+from euth.blueprintsuggest import mixins as blueprint_mixins
+from euth.blueprintsuggest import blueprints
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 
-from . import blueprints, emails, forms
+from . import emails, forms
 
 
 def dashboard(request):
@@ -137,7 +139,7 @@ class DashboardBlueprintListView(DashboardBaseMixin,
 class DashboardProjectCreateView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
-                                 blueprints.BlueprintMixin,
+                                 blueprint_mixins.BlueprintMixin,
                                  generic.CreateView):
     model = project_models.Project
     form_class = forms.ProjectCreateForm

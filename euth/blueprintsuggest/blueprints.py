@@ -7,15 +7,15 @@ from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
 
-ProjectBlueprint = namedtuple(
-    'ProjectBlueprint', [
-        'title', 'description', 'content', 'image', 'settings_model',
-    ]
-)
+Blueprint = namedtuple(
+    'Blueprint', [
+        'title', 'description', 'content', 'image', 'settings_model'
+    ])
+
 
 blueprints = [
     ('ideas-collection-1',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Brainstorming'),
          description=_('Collect ideas, questions and input concerning '
                        'a problem or a question from a wide array of people.'),
@@ -26,7 +26,7 @@ blueprints = [
          settings_model=None,
      )),
     ('MapIdeas',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Spatial Brainstorming'),
          description=_('Collect ideas, questions and input concerning a '
                        'problem or a question from a wide array of people.'),
@@ -37,7 +37,7 @@ blueprints = [
          settings_model=('euth_maps', 'AreaSettings'),
      )),
     ('ideas-collection-2',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Idea Challenge'),
          description=_('Run a challenge and find the best ideas to solve '
                        'a particular problem.'),
@@ -49,7 +49,7 @@ blueprints = [
          settings_model=None,
      )),
     ('map-ideas-challenge',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Spatial Idea Challenge'),
          description=_('Run a challenge concerning a certain area or space in '
                        'your community and find the best ideas to solve a '
@@ -62,7 +62,7 @@ blueprints = [
          settings_model=('euth_maps', 'AreaSettings'),
      )),
     ('agenda-setting',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Agenda Setting'),
          description=_('You can involve everyone in planning a meeting. '
                        'Collect ideas for an upcoming event and let your '
@@ -75,7 +75,7 @@ blueprints = [
          settings_model=None,
      )),
     ('commenting-text',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Text Review'),
          description=_('Let participants discuss individual paragraphs of a '
                        'text. This is ideal for discussing position papers or '
@@ -88,7 +88,7 @@ blueprints = [
          settings_model=None,
      )),
     ('flashpoll',
-     ProjectBlueprint(
+     Blueprint(
          title=_('Poll'),
          description=_('Run customizable, multi-step polls on OPIN to get '
                        'detailed opinions on topics from the public or your '
@@ -101,9 +101,3 @@ blueprints = [
          settings_model=('euth_flashpoll', 'Flashpoll'),
      )),
 ]
-
-
-class BlueprintMixin():
-    @property
-    def blueprint(self):
-        return dict(blueprints)[self.kwargs['blueprint_slug']]
