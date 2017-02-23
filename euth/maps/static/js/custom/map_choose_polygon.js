@@ -2,7 +2,7 @@ function createMap (L, baseurl, name) {
   var basemap = baseurl + '{z}/{x}/{y}.png'
   var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   var baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
-  var map = new L.Map('map_' + name, {scrollWheelZoom: false, zoomControl: false})
+  var map = new L.Map('map_' + name, {scrollWheelZoom: false, zoomControl: true, minZoom: 2})
   baselayer.addTo(map)
   return map
 }
@@ -49,10 +49,6 @@ window.jQuery(document).ready(function () {
     drawnItems = L.featureGroup()
     map.fitBounds(getBasePolygon(L, polygon, bbox))
   }
-  map.options.minZoom = map.getZoom()
-  L.control.zoom({
-    position: 'topleft'
-  }).addTo(map)
   drawnItems.addTo(map)
 
   map.addControl(new L.Control.Draw({
