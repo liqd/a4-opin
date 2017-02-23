@@ -1,4 +1,4 @@
-{% load i18n form_tags widget_tweaks staticfiles %}
+{% load i18n form_tags flashpoll_form_tags widget_tweaks staticfiles %}
 
 <style type="text/css">@charset "UTF-8";.ng-hide{display:none !important;}ng\:form{display:block;}
 </style>
@@ -24,9 +24,9 @@
     <div class="single-phase collapse" id="phase-{{ forloop.counter }}">
     {% for field in form.module_settings.visible_fields %}
         {% if field != form.module_settings.start_date and field != form.module_settings.end_date %}
-        
-            <!-- module_settings-title, module_settings-shortDescription, module_settings-longDescription, module_settings-concludeMessage -->        
-            {% if field.name|get_field_endswith:"title" or field.name|get_field_endswith:"shortDescription" or field.name|get_field_endswith:"longDescription" or field.name|get_field_endswith:"concludeMessage"  %}      
+
+            <!-- module_settings-title, module_settings-shortDescription, module_settings-longDescription, module_settings-concludeMessage -->
+            {% if field.name|get_field_endswith:"title" or field.name|get_field_endswith:"shortDescription" or field.name|get_field_endswith:"longDescription" or field.name|get_field_endswith:"concludeMessage"  %}
             <div class="form-group {% if field.errors %} has-error{% endif %}">
                 <label>
                     {{ field.label }}:
@@ -44,9 +44,9 @@
                 {% endfor %}
             </div>
             {% endif %}
-        {% endif %}        
+        {% endif %}
 
-    {% endfor %}     
+    {% endfor %}
 
         <div class="row">
             <div class="col-lg-6">
@@ -61,8 +61,8 @@
                         {% if form.module_settings.startTime.help_text %}
                         <i>{{ form.module_settings.startTime.help_text }}</i><br />
                         {% endif %}
-                    </label>                    
-                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.startTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-startTime" name="module_settings-startTime" type="text" value="" readonly="readonly">                                                            
+                    </label>
+                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.startTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-startTime" name="module_settings-startTime" type="text" value="" readonly="readonly">
                     {% for error in form.module_settings.startTime.errors %}
                     <span class="help-block">{{ error }}</span>
                     {% endfor %}
@@ -80,37 +80,37 @@
                         {% if form.module_settings.endTime.help_text %}
                         <i>{{ form.module_settings.endTime.help_text }}</i><br />
                         {% endif %}
-                    </label>                    
-                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.endTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-endTime" name="module_settings-endTime" type="text" value="" readonly="readonly">                    
+                    </label>
+                    <input class="form-control flatpickr flatpickr-input" data-date-format="d/m/Y H:i" data-default-date="{{ poll.endTime|print_timestamp }}" data-enable-time="true" data-language="en" data-time_24hr="true" id="id_module_settings-endTime" name="module_settings-endTime" type="text" value="" readonly="readonly">
                     {% for error in form.module_settings.endTime.errors %}
                     <span class="help-block">{{ error }}</span>
                     {% endfor %}
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
 
 <div class="phase-form">
     <h5>
         <a href="#fp-phase-2" class="collapse collapsed" data-toggle="collapse" aria-expanded="false">
-            Poll: Questions            
+            Poll: Questions
             {% if form.module_settings.errors|get_questions_errors != 0 %}<span class="info-number">{{ form.module_settings.errors|get_questions_errors }}</span>{% endif %}
-            <i class="fa fa-chevron-up pull-right"></i>            
-            
+            <i class="fa fa-chevron-up pull-right"></i>
+
         </a>
     </h5>
 
     <div class="single-phase collapse" id="fp-phase-2" aria-expanded="false" style="height: 0px;">
     {% for field in form.module_settings.visible_fields %}
-    
+
         <!-- question_1_questionText -->
         {% if field.name|get_field_endswith:"questionText" %}
-                
-        
+
+
         <div id="form-group-question-{{field.name|get_question_orderid}}">
-        
-        
+
+
             <div class="form-group {% if field.errors %} has-error{% endif %}">
                 <label>
                     {{ field.label }}:
@@ -123,20 +123,20 @@
                     {% endif %}
                 </label>
                 <div style="position:relative;">
-                    <div style="margin-right: 64px;">            
+                    <div style="margin-right: 64px;">
                         {% render_field field class="form-control" %}
                         {% for error in field.errors %}
-                        <span class="help-block">{{ error }}</span>          
+                        <span class="help-block">{{ error }}</span>
                         {% endfor %}
                     </div>
-                    <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">                    
+                    <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
                         <i class="fa fa-trash-o fa-2x" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick='removeQuestion({{poll.questions|get_simplejson}},{{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}")' tabindex="-1"></i>
-                    </div>            
-                </div>                       
+                    </div>
+                </div>
             </div>
             {% endif %}
-            
-            <!-- question_1_questionType -->        
+
+            <!-- question_1_questionType -->
             {% if field.name|get_field_endswith:"questionType" %}
             <div class="form-group {% if field.errors %} has-error{% endif %}">
                 <label>
@@ -148,50 +148,50 @@
                     {% if field.help_text %}
                     <p><i>{{ field.help_text }}</i></p>
                     {% endif %}
-                </label>                              
-                                                 
+                </label>
+
                 <select class="form-control select" id="id_module_settings-question_{{field.name|get_question_orderid}}_questionType" name="module_settings-question_{{field.name|get_question_orderid}}_questionType" onchange='changeType(this.options[this.selectedIndex].value, "fp-phase-qc-{{field.name|get_question_orderid}}", {{field.name|get_question_orderid}})' >
                     <option value="CHECKBOX"  {% if field.value == 'CHECKBOX' %}selected{% endif %}>MULTIPLE</option>
                     <option value="RADIO"  {% if field.value == 'RADIO' %}selected{% endif %}>SINGLE</option>
                     <option value="FREETEXT"  {% if field.value == 'FREETEXT' %}selected{% endif %}>OPEN</option>
                     <option value="ORDER"  {% if field.value == 'ORDER' %}selected{% endif %}>RANKING</option>
-                </select>                        
-                
+                </select>
+
                 {% for error in field.errors %}
-                <span class="help-block">{{ error }}</span>          
-                {% endfor %}                                                  
+                <span class="help-block">{{ error }}</span>
+                {% endfor %}
             </div>
             {% endif %}
-            
-            <!-- question_1_mandatory -->                
-            {% if field.name|get_field_endswith:"mandatory" %}        
+
+            <!-- question_1_mandatory -->
+            {% if field.name|get_field_endswith:"mandatory" %}
             <div class="form-group ">
-                <label>                            
+                <label>
                     {% render_field field %}
                     Mandatory
                     <br>
                 </label>
-            </div>  
-                        
-                {% if poll.questions|is_openquestion:field.name %}         
-                </div>            
-            {% if poll.questions|is_lastquestion:field.name %}              
+            </div>
+
+                {% if poll.questions|is_openquestion:field.name %}
+                </div>
+            {% if poll.questions|is_lastquestion:field.name %}
         <div id="icon-plus-poll" class="span3">
             <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>
             <div style="clear:both;"></div>
-        </div>        
-        {% endif %}        
-        {% endif %}  
-        
-            {% endif %}      
-            
-            <!-- module_settings-question_1_choice_1_answerText -->        
+        </div>
+        {% endif %}
+        {% endif %}
+
+            {% endif %}
+
+            <!-- module_settings-question_1_choice_1_answerText -->
             {% if field.name|get_field_endswith:"answerText" %}
-                        
+
             {% if field.name|is_firstanswer %}
             <div id="fp-phase-qc-{{field.name|get_question_orderid}}">
-            {% endif %}        
-                    
+            {% endif %}
+
                 <div id="form-group-question-{{field.name|get_question_orderid}}.choice-{{field.name|get_answer_orderid}}" class="form-group {% if field.errors %} has-error{% endif %}">
                     <label>
                         {{ field.label }}:
@@ -204,42 +204,42 @@
                         {% endif %}
                     </label>
                     <div style="position:relative;">
-                        <div style="margin-right: 64px;">            
+                        <div style="margin-right: 64px;">
                             {% render_field field class="form-control" %}
                             {% for error in field.errors %}
-                            <span class="help-block">{{ error }}</span>          
+                            <span class="help-block">{{ error }}</span>
                             {% endfor %}
                         </div>
                         <div style="width: 39px;position:absolute;right:0;height:100%;top:0;">
                             <i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='removeChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_answer_orderid}}, {{field.name|get_question_orderid}}, "form-group-question-{{field.name|get_question_orderid}}.choice-{{field.name|get_answer_orderid}}")' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled" >	</i>
-                        </div>          
-                    </div>                       
+                        </div>
+                    </div>
                 </div>
-                
+
                 {% if poll.questions|is_lastanswer:field.name %}
-                
+
                 <div id="icon-plus-question-{{field.name|get_question_orderid}}" class="span3">
                     <div class="fa fa-plus fa-2x" tooltip="Ajouter un choix" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick='addChoice({{poll.questions|get_answersjson:field.name}},{{field.name|get_question_orderid}}, "fp-phase-qc-{{field.name|get_question_orderid}}")' tabindex="-1" style="float:left;"></div>
                     <div style="clear:both;"></div>
                 </div>
             </div>
-            
-            </div> 
+
+            </div>
             {% if poll.questions|is_lastquestion:field.name %}
-             
+
         <div id="icon-plus-poll" class="span3">
             <div class="btn btn-success ng-binding" onclick='addQuestion({{poll.questions|get_simplejson}},"fp-phase-2")' tabindex="-1"><i class="fa fa-plus"></i>&nbsp;Add a question</div>
             <div style="clear:both;"></div>
-        </div>        
-        {% endif %}        
-        {% endif %}        
-        
-        {% endif %}            
-        
-    {% endfor %}    
-    
-    
-	</div>        
+        </div>
+        {% endif %}
+        {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+
+	</div>
 </div>
 
 
@@ -249,9 +249,9 @@
     <h5>
         <a href="#fp-phase-3" class="collapse collapsed" data-toggle="collapse">
             Poll: Location
-            
+
             {% if form.module_settings.geofenceLocation.errors %}<span class="info-number">{{ form.module_settings.geofenceLocation.errors|length }}</span>{% endif %}
-            <i class="fa fa-chevron-up pull-right"></i>                        
+            <i class="fa fa-chevron-up pull-right"></i>
         </a>
     </h5>
 
