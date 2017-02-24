@@ -164,7 +164,8 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         return context
 
     def fp_context_data(self, context):
-        pollid = str(uuid.uuid4())
+        # pollid = str(uuid.uuid4())
+        pollid = '66aef8f284ae0fb80fcba9d2'        
         context['pollid'] = pollid
         context['module_settings'] = self.kwargs['module_settings']
 
@@ -216,7 +217,16 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     def fp_context_data(self, context):
         context['pollid'] = self.kwargs['pollid']
         context['module_settings'] = self.kwargs['module_settings']
-
+        
+        url_poll = '{base_url}/poll/{poll_id}'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=context['pollid']
+        )
+        
+        headers = {'Content-type': 'application/json'}
+        response = requests.get(url_poll, headers=headers, auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER, settings.FLASHPOLL_BACK_PASSWORD))
+        context['poll'] = json.loads(response.text)        
+        
         url_poll = '{base_url}/poll/{poll_id}/result'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
             poll_id=context['pollid']
