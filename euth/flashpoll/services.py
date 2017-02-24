@@ -1,6 +1,7 @@
 import datetime
 import json
 import time
+import uuid
 
 import requests
 from django import forms
@@ -113,6 +114,34 @@ def send_to_flashpoll(data):
                           headers=headers,
                           auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
                                              settings.FLASHPOLL_BACK_PASSWORD))
+
+
+def fp_context_data_for_create_view(context, view):
+    pollid = str(uuid.uuid4())
+    context['pollid'] = pollid
+    context['module_settings'] = view.kwargs['module_settings']
+
+    return context
+
+
+def fp_context_data_for_update_view(context, view):
+    context['pollid'] = view.kwargs['pollid']
+    context['module_settings'] = view.kwargs['module_settings']
+
+    url_poll = '{base_url}/poll/{poll_id}/result'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['pollresult'] = json.loads(res.text)
+
+    return context
 
 
 def fp_context_data(module_settings):

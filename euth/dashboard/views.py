@@ -1,11 +1,5 @@
-import json
-import uuid
-import requests
-
-
 from allauth.account import views as account_views
 from allauth.socialaccount import views as socialaccount_views
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
@@ -13,12 +7,12 @@ from django.shortcuts import get_object_or_404, redirect
 from django.utils import functional
 from django.utils.translation import ugettext as _
 from django.views import generic
-from requests.auth import HTTPBasicAuth
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
+from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.users import models as user_models
@@ -159,14 +153,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
 
         # initiating flashpoll data
         if context['module_settings'] == 'euth_flashpoll':
-            context = self.fp_context_data(context)
-
-        return context
-
-    def fp_context_data(self, context):
-        pollid = str(uuid.uuid4())
-        context['pollid'] = pollid
-        context['module_settings'] = self.kwargs['module_settings']
+            context = services.fp_context_data_for_create_view(context, self)
 
         return context
 
@@ -209,26 +196,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         context['heading'] = _("Update project: " + self.object.name)
         # initiating flashpoll data
         if 'pollid' in self.kwargs:
-            context = self.fp_context_data(context)
-
-        return context
-
-    def fp_context_data(self, context):
-        context['pollid'] = self.kwargs['pollid']
-        context['module_settings'] = self.kwargs['module_settings']
-
-        url_poll = '{base_url}/poll/{poll_id}/result'.format(
-            base_url=settings.FLASHPOLL_BACK_URL,
-            poll_id=context['pollid']
-        )
-
-        headers = {'Content-type': 'application/json'}
-        res = requests.get(url_poll,
-                           headers=headers,
-                           auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
-                                              settings.FLASHPOLL_BACK_PASSWORD
-                                              ))
-        context['pollresult'] = json.loads(res.text)
+            context = services.fp_context_data_for_update_view(context, self)
 
         return context
 
