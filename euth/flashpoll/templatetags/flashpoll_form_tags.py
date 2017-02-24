@@ -1,6 +1,7 @@
 import datetime
 import json
 from django import template
+from django.conf import settings
 
 
 register = template.Library()
@@ -116,3 +117,11 @@ def get_answer_orderid(field_name):
     # question_9_choice_5_answerText
     orderid = field_name.split("_")[3]
     return orderid
+
+
+@register.simple_tag
+def api_key():
+    try:
+        return settings.GOOGLE_API_KEY
+    except AttributeError:
+        return ''

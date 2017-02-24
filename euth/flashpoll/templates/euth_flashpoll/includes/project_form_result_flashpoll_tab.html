@@ -4,6 +4,7 @@
 <script src="{% static 'highcharts.js' %}"></script>
 <script type="text/javascript">
 
+var apiKey = '{% api_key %}';
 var pollresult = {{pollresult|get_simplejson|safe}};
 var poll = {{poll|get_simplejson|safe}};
 

@@ -34,7 +34,6 @@
     "typeahead.js": "^0.11.1",
     "webpack": "1.13.1",
     "webpack-bundle-tracker": "0.0.93",
-    "google-maps": "3.2.1",
     "highcharts": "5.0.7"
   },
   "devDependencies": {
