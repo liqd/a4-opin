@@ -128,6 +128,19 @@ def fp_context_data_for_update_view(context, view):
     context['pollid'] = view.kwargs['pollid']
     context['module_settings'] = view.kwargs['module_settings']
 
+    url_poll = '{base_url}/poll/{poll_id}'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['poll'] = json.loads(res.text)
+
     url_poll = '{base_url}/poll/{poll_id}/result'.format(
         base_url=settings.FLASHPOLL_BACK_URL,
         poll_id=context['pollid']
