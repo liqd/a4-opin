@@ -295,7 +295,7 @@
     if (document.querySelectorAll('#map').length > 0) {
       var jsFile = document.createElement('script')
       jsFile.type = 'text/javascript'
-      jsFile.src = 'http://maps.googleapis.com/maps/api/js?key=' + apiKey + '&callback=initialize&v=3&sensor=true&libraries=drawing'
+      jsFile.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&callback=initialize&v=3&sensor=true&libraries=drawing'
       document.getElementsByTagName('head')[0].appendChild(jsFile)
     }
   })
