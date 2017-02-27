@@ -160,7 +160,20 @@ def test_initiator_create_flashpoll_project(client, organisation):
         'project-information': 'Project info',
         'save_draft': '',
         'module_settings-key': '32a34235ba14df2de',
+        'module_settings-title': 'title',
+        'module_settings-shortDescription': 'shortDescription',
+        'module_settings-longDescription': 'longDescription',
+        'module_settings-concludeMessage': 'concludeMessage',
+        'module_settings-startTime': '30/01/2017 12:00',
+        'module_settings-endTime': '01/02/2017 12:00',
+        'module_settings-geofenceLocation': 'POLYGON' +
+        '((12.721618618816137 52.71100659513395,' +
+        '12.765563931316137 52.05384170239608,' +
+        '14.039977993816137 52.38699960050584' +
+        ',13.073181118816137 52.707678513988185' +
+        ',12.721618618816137 52.71100659513395))',
     })
+
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
     project = organisation.project_set.first()

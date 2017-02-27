@@ -1,5 +1,7 @@
 import collections
+import datetime
 import re
+import time
 
 import parler
 from django import forms
@@ -15,6 +17,7 @@ from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
+from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.offlinephases.models import Offlinephase
 from euth.organisations import models as org_models
@@ -111,6 +114,9 @@ class ProjectForm(forms.ModelForm):
                   'result']
 
     def save(self, commit=True):
+        # calling flashpoll service
+        if 'module_settings-key' in self.data:
+            services.send_to_flashpoll(self.data)
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
@@ -171,6 +177,33 @@ def get_module_settings_form(settings_instance_or_modelref):
             model = settings_model
             exclude = ['module']
             widgets = settings_model().widgets()
+
+        def __init__(self, *args, **kwargs):
+            super(ModuleSettings, self).__init__(*args, **kwargs)
+            # setting flashpoll fields
+            if 'key' in self.fields:
+                services.fp_context_data(self)
+
+        def clean(self):
+            data = dict(self.data)
+            if ('module_settings-startTime' in data
+                    and 'module_settings-endTime' in data):
+                if (data['module_settings-startTime'] != ['']
+                        and data['module_settings-endTime'] != ['']):
+                    startTime = time.mktime(datetime.datetime.strptime(
+                        data['module_settings-startTime'][0],
+                        "%d/%m/%Y %H:%M").timetuple())
+                    endTime = time.mktime(datetime.datetime.strptime(
+                        data['module_settings-endTime'][0],
+                        "%d/%m/%Y %H:%M").timetuple())
+                    if endTime and startTime:
+                        if endTime < startTime:
+                            raise ValidationError({
+                                'endTime': _('End time can not be '
+                                             'smaller than the start time.')
+                            })
+
+            super().clean()
 
     return ModuleSettings
 
@@ -516,4 +549,5 @@ class OrganisationForm(forms.ModelForm):
                     if identifier not in data or not data[identifier]:
                         msg = 'This field is required'
                         raise ValidationError((identifier, msg))
+
         return self.cleaned_data

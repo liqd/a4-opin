@@ -1,7 +1,5 @@
 {% extends "euth_dashboard/base_organisation.html" %}
-{% load static widget_tweaks i18n %}
-
-
+{% load static widget_tweaks i18n form_tags flashpoll_form_tags %}
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
 
@@ -13,9 +11,13 @@
 
         {% include 'euth_dashboard/includes/project_form_information_tab.html' with form=form view=view %}
 
-        {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form view=view %}
-
-        {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
+        {% if module_settings == "euth_flashpoll" %}
+            {% include 'euth_flashpoll/includes/project_form_participation_flashpoll_tab.html' with form=form view=view %}
+            {% include 'euth_flashpoll/includes/project_form_result_flashpoll_tab.html' with form=form view=view %}
+        {% else %}
+            {% include 'euth_dashboard/includes/project_form_participation_tab.html' with form=form view=view %}
+            {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
+        {% endif %}
 
         {% if not project or project.is_draft %}
         <button type="submit" name="save_draft" class="btn btn-sm btn-primary">{% trans 'save draft' %}</button>
@@ -23,8 +25,16 @@
         <button type="submit" name="save_draft" class="btn btn-sm btn-default">{% trans 'unpublish' %}</button>
         {% endif %}
         <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save and publish' %}</button>
-        {% if project.pk != None %}
-        <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+        {% if module_settings == "euth_flashpoll" %}
+            {% with poll=form.module_settings.poll.value|get_poll_from_string %}
+            {% if project.pk != None and poll.preview == False %}
+            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+            {% endif %}
+            {% endwith %}
+        {% else %}
+            {% if project.pk != None %}
+            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
+            {% endif %}
         {% endif %}
 
     </form>

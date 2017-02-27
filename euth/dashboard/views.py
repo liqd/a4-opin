@@ -12,6 +12,7 @@ from rules.contrib import views as rules_views
 
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
+from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
 from euth.users import models as user_models
@@ -148,6 +149,12 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("New project based on")
+        context['module_settings'] = self.kwargs['module_settings']
+
+        # initiating flashpoll data
+        if context['module_settings'] == 'euth_flashpoll':
+            context = services.fp_context_data_for_create_view(context, self)
+
         return context
 
     def get_permission_object(self):
@@ -158,6 +165,12 @@ class DashboardProjectCreateView(DashboardBaseMixin,
         kwargs['blueprint'] = self.blueprint
         kwargs['organisation'] = self.organisation
         kwargs['creator'] = self.request.user
+
+        if self.blueprint.settings_model:
+            self.kwargs['module_settings'] = self.blueprint.settings_model[0]
+        else:
+            self.kwargs['module_settings'] = 'default'
+
         return kwargs
 
     def get_success_url(self):
@@ -181,6 +194,10 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("Update project: " + self.object.name)
+        # initiating flashpoll data
+        if 'pollid' in self.kwargs:
+            context = services.fp_context_data_for_update_view(context, self)
+
         return context
 
     def get_permission_object(self):
@@ -197,9 +214,13 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
 
-        if qs.first().module.settings_instance:
+        if qs.first().type.startswith('euth_flashpoll'):
             settings_instance = qs.first().module.settings_instance
             kwargs['module_settings__instance'] = settings_instance
+            self.kwargs['module_settings'] = 'euth_flashpoll'
+            self.kwargs['pollid'] = settings_instance.key
+        else:
+            self.kwargs['module_settings'] = 'default'
 
         return kwargs
 

@@ -1,5 +1,4 @@
 from django import template
-
 from adhocracy4 import phases
 
 register = template.Library()
