@@ -9,6 +9,7 @@
 </script>
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/custom/map_display_points.js' %}"></script>
+{{ block.super }}
 {% endblock %}
 
 {% block extra_css %}
@@ -31,7 +32,7 @@
             <div class="idea-map-buttons-zoom">
                 <div class="leaflet-control-zoom leaflet-bar leaflet-control">
                     <a class="leaflet-control-zoom-in" id="zoom-in" href="#" title="Zoom in">+</a>
-                    <a class="leaflet-control-zoom-out" id="zoom-out" href="#" title="Zoom out">-</a>
+                    <a class="leaflet-control-zoom-out leaflet-disabled" id="zoom-out" href="#" title="Zoom out">-</a>
                 </div>
             </div>
         </div>
