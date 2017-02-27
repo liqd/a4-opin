@@ -244,7 +244,22 @@ PARLER_LANGUAGES = {
 # fixtures
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
-
+FILE_ALIASES  = {
+    '*': {
+        'fileformats': (
+            ('.png', 'image/png'),
+            ('.jpeg', 'image/jpeg'),
+            ('.pdf', 'application/pdf'),
+            ('.doc', 'application/msword'),
+            ('.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'),
+            ('.txt', 'text/plain'),
+            ('.md', 'text/markdown'),
+            ('.xls', 'application/msexcel'),
+            ('.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
+            ('.ppt', 'application/mspowerpoint')
+        )
+    }
+}
 IMAGE_ALIASES = {
     '*': {
         'max_size': 5*10**6,
