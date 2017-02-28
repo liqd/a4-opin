@@ -50,7 +50,7 @@ def test_initiator_create_and_update_project(client, organisation):
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-create', kwargs={
         'organisation_slug': organisation.slug,
-        'blueprint_slug': 'ideas-collection-1'
+        'blueprint_slug': 'map-brainstorming'
     })
     response = client.get(url)
     assert response.status_code == 200
@@ -423,7 +423,7 @@ def test_dashboard_organisation_delete_language(client, organisation):
 
 @pytest.mark.django_db
 def test_dashboard_blueprint(client, organisation):
-    from euth.dashboard.blueprints import blueprints
+    from euth.blueprintsuggest.blueprints import blueprints
     url = reverse('dashboard-blueprint-list', kwargs={
         'organisation_slug': organisation.slug
     })
