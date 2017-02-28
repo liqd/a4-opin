@@ -18,7 +18,7 @@ def filter_blueprints(aim, result, experience, motivation):
         requirements = blueprint.requirements
 
         if result and experience and motivation:
-            if requirements.result.value > result.value:
+            if result not in requirements.results:
                 continue
             if requirements.experience.value > experience.value:
                 continue

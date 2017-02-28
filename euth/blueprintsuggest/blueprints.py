@@ -242,7 +242,7 @@ blueprints = [
 ]
 
 
-def get_fallback_blueprints(aim):
+def get_fallback_blueprint(aim):
     fallbacks = {
         Aim.collect_ideas: 'brainstorming',
         Aim.discuss_topic: 'brainstorming',
