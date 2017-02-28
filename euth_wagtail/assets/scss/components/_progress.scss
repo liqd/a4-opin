@@ -1,0 +1,42 @@
+.progress {
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden;
+
+    > li {
+        @include rem(padding, 4px 10px);
+        @include rem(margin-left, 10px);
+        border-radius: 100px;
+        border: solid 1px $brand-brand1;
+        float: left;
+        font-size: $font-size-small;
+        font-weight: 600;
+        color: $brand-brand1;
+        position: relative;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:first-child:before {
+            content: none;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            background-color: $brand-brand1;
+            @include rem(width, 11px);
+            right: 100%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+
+    > .active {
+        background-color: $brand-brand1;
+        color: #fff;
+    }
+}

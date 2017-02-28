@@ -17,11 +17,21 @@
 </div>
 
 <div class="blueprint-list">
+   <div class="col-md-4">
+        <div class="blueprint-tile">
+            <img src="{% static 'images/placeholder.png' %}" alt="Decision support tool">
+            <h2 class="sans-serif h4">{% trans 'Not sure which template?' %}</h2>
+                <a href="{% url 'blueprintsuggest-form' organisation_slug=view.organisation.slug %}"
+                   class="btn btn-primary">
+                    {% trans 'Decision support tool'%}
+                </a>
+        </div>
+   </div>
     {% for blueprint_slug, blueprint in view.blueprints %}
     <div class="col-md-4">
         <div class="blueprint-tile">
+            <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
             <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
-            <img style="width: 100%" src="{% static blueprint.image %}">
             <div class="blueprint-description">
                 {{ blueprint.description | linebreaks }}
             </div>
@@ -34,9 +44,8 @@
                 </ul>
             </div>
             <div class="blueprint-footer">
-                <a
-                     href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
-                     class="btn btn-primary" role="button">
+                <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
+                   class="btn btn-primary">
                     {% trans 'Use this template'%}
                 </a>
             </div>

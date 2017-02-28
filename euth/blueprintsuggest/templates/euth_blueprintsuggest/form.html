@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans 'Find the right project template' %}{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script type="text/javascript"  src="{% static 'euth_blueprintsuggest/js/blueprintsuggest.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+       <form method="post" class="blueprintsuggest">
+            {% csrf_token %}
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="aim">
+                    <a href="{% url 'dashboard-blueprint-list' view.kwargs.organisation_slug %}">
+                        <i class="fa fa-chevron-left"></i> Cancel
+                    </a>
+                    <h2 class="h3">{% trans 'What is your aim for the project?' %}</h2>
+                    {% for radio in form.aim_choices %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="aim" id="aim_{{ forloop.counter }}" value="{{ radio.value }}">
+                                            {{ radio.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    {% for example in radio.example %}
+                                        <li>{{ example }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <ul class="progress">
+                        <li class="active">{% trans 'Aim' %}</li>
+                        <li>{% trans 'Fine tuning' %}</li>
+                        <li>{% trans 'Result' %}</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary pull-right js-continue">{% trans 'Proceed' %}</button>
+                </div>
+                <div class="tab-pane" id="finetuning">
+                    <button type="button" class="btn btn-primary js-back">{% trans 'Back' %}</button>
+                    <div class="row">
+                        <div class="col-md-4">
+                            {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.result %}
+                        </div>
+                        <div class="col-md-4">
+                            {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.experience %}
+                        </div>
+                        <div class="col-md-4">
+                            {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.motivation %}
+                        </div>
+                    </div>
+                    <ul class="progress">
+                        <li>{% trans 'Aim' %}</li>
+                        <li class="active">{% trans 'Fine tuning' %}</li>
+                        <li>{% trans 'Result' %}</li>
+                    </ul>
+                    <button class="btn btn-primary pull-right" type="submit">{% trans 'Proceed' %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

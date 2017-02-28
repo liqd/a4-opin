@@ -15,6 +15,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
+from euth.blueprintsuggest import urls as blueprintsuggest_urls
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
@@ -63,6 +64,7 @@ urlpatterns += i18n_patterns(
     url(r'^maps/', include(maps_urls)),
     url(r'^memberships/', include(memberships_urls)),
     url(r'^offlinephases/', include(offlinephase_urls)),
+    url(r'^blueprintsuggest/', include(blueprintsuggest_urls)),
     url(r'^adhocracy/',
         TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^jsi18n/$', javascript_catalog,

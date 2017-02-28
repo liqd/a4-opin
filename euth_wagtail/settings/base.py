@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.offlinephases.apps.OfflinephaseConfig',
+    'euth.blueprintsuggest.apps.BlueprintSuggestConfig',
     'euth.contrib',
 ]
 
