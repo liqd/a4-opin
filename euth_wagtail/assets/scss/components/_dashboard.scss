@@ -81,3 +81,35 @@ h1.dashboard-title {
     text-align: center;
     padding: 1em;
 }
+
+.dst-tile {
+    @extend .blueprint-tile;
+    color: #fff;
+
+    > img {
+        @include rem(height, 173px);
+    }
+
+    > h2 {
+        @include rem(padding, 0 15px);
+    }
+}
+
+.dst-description {
+    > h3 {
+        margin: 0;
+    }
+
+    @include rem(padding, 15px);
+    flex-grow: 1;
+}
+
+.dst-footer {
+    text-align: center;
+    padding: 1em;
+}
+
+blueprintsuggest {
+
+
+}

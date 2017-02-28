@@ -18,13 +18,20 @@
 
 <div class="blueprint-list">
    <div class="col-md-4">
-        <div class="blueprint-tile">
-            <img src="{% static 'images/placeholder.png' %}" alt="Decision support tool">
+        <div class="dst-tile">
+            <img src="{% static 'images/placeholder_transparent.png' %}" alt="Decision support tool">
             <h2 class="sans-serif h4">{% trans 'Not sure which template?' %}</h2>
+            <div class="dst-description">
+                <h3 class="h5">{% trans "Try the Decision Support Tool (DST)!" %}</h3>
+                {% trans "In just three minutes you'll find out which process suits your needs. It's easy." %}
+            </div>
+
+            <div class="dst-footer">
                 <a href="{% url 'blueprintsuggest-form' organisation_slug=view.organisation.slug %}"
                    class="btn btn-primary">
-                    {% trans 'Decision support tool'%}
+                    {% trans 'Choose template'%}
                 </a>
+            </div>
         </div>
    </div>
     {% for blueprint_slug, blueprint in view.blueprints %}
