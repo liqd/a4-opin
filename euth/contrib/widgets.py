@@ -18,8 +18,9 @@ class DateInput(widgets.DateInput):
 
     # becomes a public value in Django 1.10
     def _format_value(self, value):
+        format = formats.get_format(self.format_key)[self.format_index]
         if isinstance(value, str):
-            date = datetime.strptime(value, '%d.%m.%Y %H:%M')
+            date = datetime.strptime(value, format)
             return date.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
         else:
             return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
