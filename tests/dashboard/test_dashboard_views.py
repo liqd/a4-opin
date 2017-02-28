@@ -50,7 +50,7 @@ def test_initiator_create_and_update_project(client, organisation):
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-create', kwargs={
         'organisation_slug': organisation.slug,
-        'blueprint_slug': 'map-brainstorming'
+        'blueprint_slug': 'brainstorming'
     })
     response = client.get(url)
     assert response.status_code == 200
@@ -71,7 +71,7 @@ def test_initiator_create_and_update_project(client, organisation):
         'phases-1-end_date': '2016-10-01 16:15',
         'phases-1-name': 'Name 1',
         'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-type': 'euth_ideas:020:collect',
         'phases-1-weight': '1',
         'phases-1-delete': '0',
         'project-description': 'Project description',
