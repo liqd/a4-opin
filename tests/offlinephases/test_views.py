@@ -10,7 +10,7 @@ def test_initiator_can_edit_offlinephase(client, organisation):
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-create', kwargs={
         'organisation_slug': organisation.slug,
-        'blueprint_slug': 'ideas-collection-1'
+        'blueprint_slug': 'map-brainstorming'
     })
     response = client.get(url)
 

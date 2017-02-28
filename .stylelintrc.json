@@ -59,5 +59,8 @@
     "max-empty-lines": 2,
     "max-nesting-depth": 2,
     "no-extra-semicolons": true
-  }
+  },
+  "ignoreFiles": [
+    "**/_flashpoll.scss"
+  ]
 }
