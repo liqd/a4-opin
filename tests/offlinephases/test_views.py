@@ -1,53 +1,85 @@
+import io
+
 import pytest
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
 
 from euth.offlinephases import models as offlinephase_models
 
 
+@pytest.fixture
+def pdf_file():
+    bytes = io.BytesIO(
+        b'%PDF-1.1\n'
+        b'%\xc2\xa5\xc2\xb1\xc3\xab\n'
+        b'\n'
+        b'1 0 obj\n'
+        b'  << /Type /Catalog\n'
+        b'     /Pages 2 0 R\n'
+        b'  >>\n'
+        b'endobj\n'
+        b'\n'
+        b'2 0 obj\n'
+        b'  << /Type /Pages\n'
+        b'     /Kids [3 0 R]\n'
+        b'     /Count 1\n'
+        b'     /MediaBox [0 0 300 144]\n'
+        b'  >>\n'
+        b'endobj\n'
+        b'\n'
+        b'3 0 obj\n'
+        b'  <<  /Type /Page\n'
+        b'      /Parent 2 0 R\n'
+        b'      /Resources\n'
+        b'       << /Font\n'
+        b'           << /F1\n'
+        b'               << /Type /Font\n'
+        b'                  /Subtype /Type1\n'
+        b'                  /BaseFont /Times-Roman\n'
+        b'               >>\n'
+        b'           >>\n'
+        b'       >>\n'
+        b'      /Contents 4 0 R\n'
+        b'  >>\n'
+        b'endobj\n'
+        b'\n'
+        b'4 0 obj\n'
+        b'  << /Length 55 >>\n'
+        b'stream\n'
+        b'  BT\n'
+        b'    /F1 18 Tf\n'
+        b'    0 0 Td\n'
+        b'    (Hello World) Tj\n'
+        b'  ET\n'
+        b'endstream\n'
+        b'endobj\n'
+        b'\n'
+        b'xref\n'
+        b'0 5\n'
+        b'0000000000 65535 f \n'
+        b'0000000018 00000 n \n'
+        b'0000000077 00000 n \n'
+        b'0000000178 00000 n \n'
+        b'0000000457 00000 n \n'
+        b'trailer\n'
+        b'  <<  /Root 1 0 R\n'
+        b'      /Size 5\n'
+        b'  >>\n'
+        b'startxref\n'
+        b'565\n'
+        b'%%EOF\n'
+    )
+    return InMemoryUploadedFile(
+        bytes, None, 'minimal.pdf', 'application/pdf', None, None
+    )
+
+
 @pytest.mark.django_db
-def test_initiator_can_edit_offlinephase(client, organisation):
-    user = organisation.initiators.first()
+def test_initiator_can_edit_offlinephase(client, offlinephase, pdf_file):
+    op_documentation = offlinephase
+
+    user = offlinephase.phase.module.project.moderators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-create', kwargs={
-        'organisation_slug': organisation.slug,
-        'blueprint_slug': 'map-brainstorming'
-    })
-    response = client.get(url)
-
-    response = client.post(url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': '',
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:000:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': '',
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:020:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'save_draft': ''
-    })
-
-    project = organisation.project_set.first()
-    assert project.module_set.first().phase_set.count() == 2
-    offlinephase = project.module_set.first().phase_set.first()
-    assert offlinephase.type == 'euth_offlinephases:000:offline'
-    assert offlinephase_models.Offlinephase.objects.filter(
-        phase=offlinephase).exists()
-    assert offlinephase_models.Offlinephase.objects.filter(
-        phase=offlinephase).count() == 1
-    op_documentation = offlinephase.offlinephase
 
     url = reverse('offlinephase-edit', kwargs={'pk': op_documentation.pk})
     response = client.get(url)
@@ -58,7 +90,13 @@ def test_initiator_can_edit_offlinephase(client, organisation):
         'fileuploads-INITIAL_FORMS': '0',
         'fileuploads-MIN_NUM_FORMS': '0',
         'fileuploads-MAX_NUM_FORMS': '5',
+        'fileuploads-0-title': 'title',
+        'fileuploads-0-document': pdf_file,
         'offlinephase-text': 'Lorem ipsum'
     })
-
     assert response.status_code == 302
+
+    fileupload = offlinephase_models.FileUpload.objects.get(
+        offlinephase=op_documentation
+    )
+    assert fileupload.title == 'title'
