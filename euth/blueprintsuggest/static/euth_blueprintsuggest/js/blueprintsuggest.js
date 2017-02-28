@@ -20,7 +20,7 @@
 
       if (!$checked.length) {
         // there's no radio button checked, not valid, so add new errorlist
-        $tab.find('.progress').before(this.getErrorElement())
+        $tab.find('.dst-lightbox-progress').before(this.getErrorElement())
         return true
       }
 
@@ -35,7 +35,7 @@
 
     getErrorElement: function () {
       var text = django.gettext('Please pick an aim for your project.')
-      return '<ul class="errorlist"><li>' + text + '</li></ul>'
+      return '<div class="row"><ul class="errorlist"><li>' + text + '</li></ul></div>'
     },
 
     clickBackHandler: function () {
