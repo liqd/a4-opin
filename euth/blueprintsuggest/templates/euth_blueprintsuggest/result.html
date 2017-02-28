@@ -4,7 +4,7 @@
     <div class="container">
         <a href="javascript:window.history.back();" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Back</a>
         <div class="blueprint-list">
-            {% for blueprint in blueprints %}
+            {% for blueprint_slug, blueprint in blueprints %}
                 <div class="col-md-4">
                     <div class="blueprint-tile">
                         <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
@@ -23,7 +23,7 @@
                             </ul>
                         </div>
                         <div class="blueprint-footer">
-                            <a href="" class="btn btn-primary">
+                            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
                             {% trans 'Use this template' %}
                             </a>
                         </div>
