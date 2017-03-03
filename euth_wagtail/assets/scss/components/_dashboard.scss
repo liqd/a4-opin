@@ -50,6 +50,13 @@ h1.dashboard-title {
     }
 }
 
+
+.blueprint-list-centered {
+    @extend .blueprint-list;
+
+    justify-content: center;
+}
+
 .blueprint-tile {
     @include rem(padding-top, 30px);
     border: solid 1px $gray-light;
@@ -109,7 +116,65 @@ h1.dashboard-title {
     padding: 1em;
 }
 
-blueprintsuggest {
+.dst-lightbox {
+    margin-top: 80px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    padding-bottom: 24px;
 
+    h2 {
+        text-align: center;
+        margin-bottom: 43px;
+        margin-top: 24px;
+    }
 
+    .dst-lightbox-progress {
+        position: relative;
+        min-height: 40px;
+
+        .progress {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
+
+.dst-lightbox-header {
+    height: 52px;
+    line-height: 52px;
+    vertical-align: middle;
+    border-bottom: 1px solid $gray-light;
+    font-weight: bold;
+    color: $gray-darker;
+
+    .dst-lightbox-button {
+        color: $gray-darker;
+        cursor: pointer;
+    }
+
+    .dst-lightbox-info {
+        text-transform: uppercase;
+    }
+}
+
+.dst-lightbox-entry {
+    border-bottom: 1px solid $gray-light;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    ul {
+        margin-top: 10px;
+        color: $gray;
+    }
+}
+
+.dst-lightbox-lastentry {
+    border-bottom: none;
+}
+
+h2.dst-lightbox-banner {
+    @include rem(padding, 24px 0);
+    margin: 0 -15px; /* work arround boostrap grid */
+    background-color: $brand-brand3;
+    color: #fff;
 }

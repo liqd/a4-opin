@@ -2,8 +2,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.utils import functional
-from adhocracy4 import transforms
 
+from adhocracy4 import transforms
 from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.phases import models as phase_models
