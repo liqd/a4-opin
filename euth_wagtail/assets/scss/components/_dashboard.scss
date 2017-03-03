@@ -50,6 +50,13 @@ h1.dashboard-title {
     }
 }
 
+
+.blueprint-list-centered {
+    @extend .blueprint-list;
+
+    justify-content: center;
+}
+
 .blueprint-tile {
     @include rem(padding-top, 30px);
     border: solid 1px $gray-light;
@@ -140,7 +147,7 @@ h1.dashboard-title {
     font-weight: bold;
     color: $gray-darker;
 
-    .dst-lighbox-button {
+    .dst-lightbox-button {
         color: $gray-darker;
         cursor: pointer;
     }
@@ -165,3 +172,9 @@ h1.dashboard-title {
     border-bottom: none;
 }
 
+h2.dst-lightbox-banner {
+    @include rem(padding, 24px 0);
+    margin: 0 -15px; /* work arround boostrap grid */
+    background-color: $brand-brand3;
+    color: #fff;
+}
