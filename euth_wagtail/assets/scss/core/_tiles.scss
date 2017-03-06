@@ -23,7 +23,6 @@
     @include rem(font-size, $font-size-small);
     @include rem(margin, 25px 0 0);
     font-weight: normal;
-    line-height: 30px;
 
     img.project-tile-org-avatar {
         @include rem(margin-right, 9px);

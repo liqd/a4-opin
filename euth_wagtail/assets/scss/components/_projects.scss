@@ -73,6 +73,19 @@
     flex-direction: column;
     height: 100%;
     flex: 1 1 auto;
+
+    .row {
+        margin: 0;
+    }
+}
+
+.project-tile-org-image {
+    padding: 0;
+}
+
+.project-tile-org-name {
+    padding: 0;
+    margin-top: 5px;
 }
 
 .project-tile-type {
