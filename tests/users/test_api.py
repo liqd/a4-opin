@@ -39,12 +39,12 @@ def test_cant_access_user_list_with_empty_search_param(apiclient, user):
 
 
 @pytest.mark.django_db
-def test_can_access_user_list(apiclient, user):
-    UserFactory(username='Cersei')
+def test_can_access_user_list(apiclient):
+    user1 = UserFactory(username='Cersei')
     user2 = UserFactory(username='Arya')
     url = reverse('users-list')
     url += '?search=A'
-    apiclient.force_authenticate(user=user)
+    apiclient.force_authenticate(user=user1)
     response = apiclient.get(url)
     assert response.status_code == status.HTTP_200_OK
     user_data = response.data[0]
