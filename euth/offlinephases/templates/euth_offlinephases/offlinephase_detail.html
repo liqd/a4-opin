@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n rules idea_tags micawber_tags rules %}
+{% load i18n rules idea_tags micawber_tags %}
 
 {% block phase_content %}
 <div class="container-narrow offline-phase">
@@ -11,7 +11,7 @@
 </a>
 {% endif %}
 
-{{ object.text | oembed_html }}
+{{ object.text |oembed_html }}
 
 {% if object.fileupload_set.count > 0 %}
 <hr />
@@ -23,6 +23,10 @@
 </li>
 {% endfor %}
 </ul>
+{% endif %}
+
+{% if object.text == '' and object.fileupload_set.count == 0 %}
+    <p>{% trans 'No documentation has been provided yet' %}</p>
 {% endif %}
 
 </div>
