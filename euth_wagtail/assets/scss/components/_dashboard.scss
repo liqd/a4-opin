@@ -42,18 +42,18 @@ h1.dashboard-title {
 .blueprint-list {
     display: flex;
     flex-wrap: wrap;
+    //justify-content: space-between;
     @include rem(margin, 0 -15px);
 
     > div {
-        margin: 1em 0;
-        display: flex;
+        //margin: 1em 0;
+        //display: flex;
     }
 }
 
 
 .blueprint-list-centered {
     @extend .blueprint-list;
-
     justify-content: center;
 }
 
@@ -62,6 +62,8 @@ h1.dashboard-title {
     border: solid 1px $gray-light;
     background-color: $brand-brand5;
     display: flex;
+    margin: 1.5%;
+    flex-basis: 30%;
     flex-direction: column;
 
     > h2 {
@@ -69,6 +71,10 @@ h1.dashboard-title {
         @include rem(padding, 15px 0);
         margin: 0 0 0 0;
         color: #fff;
+    }
+    > img {
+        @include rem(height, 173px);
+        @include rem(width, 260px);
     }
 }
 
@@ -95,6 +101,7 @@ h1.dashboard-title {
 
     > img {
         @include rem(height, 173px);
+        @include rem(width, 260px);
     }
 
     > h2 {
