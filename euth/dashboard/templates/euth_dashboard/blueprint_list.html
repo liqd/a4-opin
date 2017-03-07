@@ -3,21 +3,21 @@
 
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{% trans 'Create new project from one of the templates' %}</h1>
-<div class="action-bar">
-    <nav class="navbar navbar-default navbar-static">
-        <ul class="nav navbar-nav">
-            <li>
-                <a href="{% url 'dashboard-project-list' view.organisation.slug %}">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    {% trans 'back to project list' %}</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    <h1 class="black-divider dashboard-title">{% trans 'Create new project from one of the templates' %}</h1>
+    <div class="action-bar">
+        <nav class="navbar navbar-default navbar-static">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{% url 'dashboard-project-list' view.organisation.slug %}">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        {% trans 'back to project list' %}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-<div class="blueprint-list">
-   <div class="col-md-4">
+    <div class="blueprint-list">
+
         <div class="dst-tile">
             <img src="{% static 'images/placeholder_transparent.png' %}" alt="Decision support tool">
             <h2 class="sans-serif h4">{% trans 'Not sure which template?' %}</h2>
@@ -33,9 +33,9 @@
                 </a>
             </div>
         </div>
-   </div>
-    {% for blueprint_slug, blueprint in view.blueprints %}
-    <div class="col-md-4">
+
+        {% for blueprint_slug, blueprint in view.blueprints %}
+
         <div class="blueprint-tile">
             <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
             <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
@@ -53,12 +53,11 @@
             <div class="blueprint-footer">
                 <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
                    class="btn btn-primary">
-                    {% trans 'use this template'%}
+                    {% trans 'use this template' %}
                 </a>
             </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
 </div>
 
 {% endblock %}
