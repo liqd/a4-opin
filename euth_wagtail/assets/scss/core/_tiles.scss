@@ -6,7 +6,7 @@
 }
 
 %tile-title {
-    @include rem(font-size, $font-size-large);
+    @include rem(font-size, $font-size-medium);
     @include rem(margin, 0 0 10px);
     line-height: 1.2;
     text-align: left;
