@@ -33,14 +33,12 @@
 .btn {
     @include rem(padding, 10px 20px);
     border: 0;
-    text-transform: uppercase;
     font-weight: bold;
     transition: color 0.2s, background 0.2s;
 }
 
 .btn-sm {
     @include rem(padding, 7px 15px);
-    text-transform: capitalize;
 }
 
 .btn-hover-primary {
@@ -89,7 +87,6 @@ span.btn-dark:focus {
 
 .btn-ghost {
     border: 1px solid currentColor;
-    text-transform: uppercase;
     background: transparent;
     @include rem(padding, 10px);
 
@@ -150,7 +147,6 @@ span.btn-dark:focus {
 
 .base-button {
     border-radius: 0;
-    text-transform: uppercase;
     @include rem(padding, 14px 57px 14px 57px);
     @include rem(font-size, 12px);
     @include rem(letter-spacing, -0.2px);
