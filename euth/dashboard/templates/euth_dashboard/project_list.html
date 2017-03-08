@@ -6,7 +6,7 @@
 
 
 <div class="projects-list">
-    <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary">Create project</a>
+    <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary">create project</a>
 
     {% if project_list|length == 0 %}
         {% trans 'No projects created' %}
@@ -42,7 +42,7 @@
                                title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
                                     <i class="fa fa-user"></i>
                             </a>
-                            <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'View project' %}">
+                            <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'view project' %}">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </span>
