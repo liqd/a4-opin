@@ -42,7 +42,7 @@ class Invite(base.TimeStampedModel):
 
     def get_absolute_url(self):
         url_kwargs = {'invite_token': self.token}
-        return reverse('membership-invite-accept', kwargs=url_kwargs)
+        return reverse('membership-invite-detail', kwargs=url_kwargs)
 
     def accept(self, user):
         self.project.participants.add(user)

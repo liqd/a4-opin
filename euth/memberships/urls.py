@@ -8,9 +8,15 @@ urlpatterns = [
         views.RequestView.as_view(),
         name='memberships-request'
     ),
+
+    url(
+        r'^invites/(?P<invite_token>[-\w_]+)/$',
+        views.InviteDetailView.as_view(),
+        name='membership-invite-detail'
+    ),
     url(
         r'^invites/(?P<invite_token>[-\w_]+)/accept/$',
-        views.InviteView.as_view(),
-        name='membership-invite-accept'
+        views.InviteUpdateView.as_view(),
+        name='membership-invite-update'
     ),
  ]

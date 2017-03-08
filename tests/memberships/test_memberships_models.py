@@ -43,7 +43,7 @@ def test_invite_email(project, user):
     message = mail.outbox[0]
     assert message.subject == subject.format(name=project.name)
     assert message.to == [email]
-    invite_url = 'https://example.com/en/memberships/invites/{}/accept'
+    invite_url = 'https://example.com/en/memberships/invites/{}'
     assert invite_url.format(invite.token) in message.body
 
 

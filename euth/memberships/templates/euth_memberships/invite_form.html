@@ -1,28 +1,9 @@
-{% extends "base.html" %}
+{% extends "euth_memberships/invite_base.html" %}
 {% load i18n %}
-
-{% block title %}{% blocktrans with project=invite.project.name %} Private project: {{ project }}{% endblocktrans %}{% endblock %}
-{% block content %}
-{% include 'euth_projects/includes/project_hero_unit.html' with project=invite.project %}
-<nav class="tabs">
-    <div class="container">
-        <ul>
-            <li class="col-md-4 col-md-offset-4 active"><a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container membership-invite">
-    <h2>{% blocktrans with project=invite.project.name %} Do you want to join {{ project }}?{% endblocktrans %}</h2>
-    {{ form.non_field_errors }}
-    <div class="container-narrow">
-        <p>You were invited by the initiator of the project. If you accept you will be able to participate in the project.
-            If you decline the invitation, you can also ask for membership at a later time.</p>
-    </div>
-    <form method='POST'>
-        {% csrf_token %}
-        <button type="submit" name="accept" class="btn btn-primary">{% trans 'Accept' %}</button>
-        <button type="submit" name="reject" class="btn btn-danger">{% trans 'Decline' %}</button>
-    </form>
-</div>
-
+{% block invite_action %}
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" name="accept" class="btn btn-primary">{% trans 'Accept' %}</button>
+    <button type="submit" name="reject" class="btn btn-danger">{% trans 'Decline' %}</button>
+</form>
 {% endblock %}
