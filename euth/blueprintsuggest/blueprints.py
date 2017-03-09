@@ -13,36 +13,36 @@ from euth.maps import phases as map_phases
 class Aim(Enum):
     collect_ideas = (
         'collect_ideas',
-        _('create and gather new ideas or visions.'),
+        _('Create and gather new ideas or visions.'),
         [_('(Urban) planning processes'),
          _('Develop concepts or guiding principles')]
     )
     discuss_topic = (
         'discuss_topic',
-        _('gather feedback on a topic and discuss it in greater detail.'),
+        _('Gather feedback on a topic and discuss it in greater detail.'),
         [_('Discuss existing concepts or plans'),
          _('Develop solutions for existing problems')]
     )
     design_place = (
         'design_place',
-        _('design a place.'),
+        _('Design a place.'),
         [_('(Urban) planning processes'),
          _('Set the agenda of an event')]
     )
     run_survey = (
         'run_survey',
-        _('learn about what people like most.'),
+        _('Learn about what people like most.'),
         [_('Majority votes'), _('Opinion polls')]
     )
     run_competition = (
         'run_competition',
-        _('run a competition.'),
+        _('Run a competition.'),
         [_('All sorts of competitions, '
            'like idea contests etc.')]
     )
     work_document = (
         'work_document',
-        _('work collaboratively on a text document.'),
+        _('Work collaboratively on a text document.'),
         [_('Draft or revise statutes, articles, or charters'),
          _('Involve different authors in writing a shared text')]
     )

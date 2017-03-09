@@ -23,7 +23,11 @@
                             </a>
                             <div class="dst-lightbox-info pull-right">{% trans 'Decision support tool' %}</div>
                         </div>
-                        <h2 class="h3">{% trans 'What is your aim for the project?' %}</h2>
+                        <h2 class="h3">{% trans 'What is the aim of your participation project?' %}</h2>
+                        <div class="row dst-lightbox-entry">
+                            <div class="col-sm-6"><b>{% trans 'Aim' %}</b></div>
+                            <div class="col-sm-6"><b>{% trans 'Examples' %}</b></div>
+                        </div>
                         {% for radio in form.aim_choices %}
                             <div class="row dst-lightbox-entry {% if forloop.last %} dst-lightbox-lastentry {% endif %}">
                                 <div class="col-sm-6">
