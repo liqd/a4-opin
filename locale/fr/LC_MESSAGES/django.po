@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,20 +10,41 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-25 12:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Nadine Karbach <nadine.karbach@liqd.de>, 2017\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: actions/models.py:57
+#, python-format
+msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
+msgstr ""
+
+#: actions/models.py:60
+#, python-format
+msgid "%(actor)s %(verb)s %(target)s"
+msgstr ""
+
+#: actions/models.py:63
+#, python-format
+msgid "%(actor)s %(verb)s %(action_object)s"
+msgstr ""
+
+#: actions/models.py:65
+#, python-format
+msgid "%(actor)s %(verb)s"
+msgstr ""
 
 #: comments/models.py:35
 msgid "Comment"
-msgstr ""
+msgstr "Réaction"
 
 #: comments/models.py:36 ideas/views.py:47
 msgid "Comments"
-msgstr ""
+msgstr "Réactions"
 
 #: comments/serializers.py:24
 msgid "unknown user"
@@ -35,14 +56,6 @@ msgstr ""
 
 #: contrib/templates/euth_contrib/image_upload_widget.html:12
 msgid "Upload a picture"
-msgstr ""
-
-#: contrib/templates/euth_contrib/image_upload_widget.html:19
-msgid ""
-"\n"
-"            Your image will be uploaded/removed once you save your changes\n"
-"            at the end of this page.\n"
-"            "
 msgstr ""
 
 #: contrib/widgets.py:28
@@ -61,10 +74,6 @@ msgstr ""
 msgid "Idea collection 2"
 msgstr ""
 
-#: dashboard/blueprints.py:40
-msgid "Commenting text"
-msgstr ""
-
 #: dashboard/blueprints.py:41
 msgid "Add comments to an existing text"
 msgstr ""
@@ -81,10 +90,6 @@ msgstr ""
 msgid "Accessible to all registered users of OPIN.me"
 msgstr ""
 
-#: dashboard/forms.py:98
-msgid "Project settings"
-msgstr ""
-
 #: dashboard/forms.py:104
 msgid "Information for your participants"
 msgstr ""
@@ -94,7 +99,8 @@ msgid "The title of your organisation"
 msgstr ""
 
 #: dashboard/forms.py:311
-msgid "More info about the organisation / Short text for organisation overview"
+msgid ""
+"More info about the organisation / Short text for organisation overview"
 msgstr ""
 
 #: dashboard/forms.py:326
@@ -111,7 +117,8 @@ msgstr ""
 #: dashboard/forms.py:332
 #, python-format
 msgid ""
-"Your logo should be at least 200px wide and square. Supported formats are %s."
+"Your logo should be at least 200px wide and square. Supported formats are "
+"%s."
 msgstr ""
 
 #: dashboard/templates/euth_dashboard/base_dashboard.html:17
@@ -142,7 +149,7 @@ msgstr ""
 #: dashboard/templates/euth_dashboard/base_organisation.html:27
 #: dashboard/templates/euth_dashboard/project_list.html:5
 msgid "Projects"
-msgstr ""
+msgstr "Projet"
 
 #: dashboard/templates/euth_dashboard/blueprint_list.html:6
 msgid "Create new project from one of the templates"
@@ -151,19 +158,6 @@ msgstr ""
 #: dashboard/templates/euth_dashboard/blueprint_list.html:13
 msgid "back to project list"
 msgstr ""
-
-#: dashboard/templates/euth_dashboard/blueprint_list.html:30
-#, python-format
-msgid ""
-"\n"
-"                The resulting project will have one phase:\n"
-"                "
-msgid_plural ""
-"\n"
-"                The resulting project will have %(count)s phases:\n"
-"                "
-msgstr[0] ""
-msgstr[1] ""
 
 #: dashboard/templates/euth_dashboard/blueprint_list.html:45
 msgid "Use this template"
@@ -180,10 +174,6 @@ msgstr ""
 
 #: dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html:73
 msgid "of Phase: "
-msgstr ""
-
-#: dashboard/templates/euth_dashboard/includes/project_form_result_tab.html:6
-msgid "Result "
 msgstr ""
 
 #: dashboard/templates/euth_dashboard/includes/project_form_tabs.html:5
@@ -293,10 +283,6 @@ msgstr ""
 msgid "Update project: "
 msgstr ""
 
-#: dashboard/views.py:214
-msgid "Your project has been deleted."
-msgstr ""
-
 #: dashboard/views.py:244
 msgid "Invitations successfully sent."
 msgstr ""
@@ -309,28 +295,12 @@ msgstr ""
 msgid "Document for that module already exists"
 msgstr ""
 
-#: documents/phases.py:18
-msgid "Create document phase"
-msgstr ""
-
 #: documents/phases.py:19 documents/phases.py:38
 msgid "commenting text"
 msgstr ""
 
-#: documents/phases.py:20
-msgid "Create text for the project."
-msgstr ""
-
-#: documents/phases.py:37
-msgid "Comment phase"
-msgstr ""
-
 #: documents/phases.py:39
 msgid "Collect comments for the text."
-msgstr ""
-
-#: documents/templates/euth_documents/document_detail.html:20
-msgid "Add your comment"
 msgstr ""
 
 #: documents/templates/euth_documents/document_form.html:10
@@ -341,10 +311,6 @@ msgstr ""
 #: ideas/templates/euth_ideas/idea_detail.html:14
 #: ideas/templates/euth_ideas/idea_form.html:11
 msgid "back to project"
-msgstr ""
-
-#: flashpoll/models.py:8
-msgid "Flashpoll ID"
 msgstr ""
 
 #: flashpoll/phases.py:14
@@ -437,11 +403,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ideas/templates/euth_ideas/idea_form.html:74
-#: ideas/templates/euth_ideas/idea_form.html:76
-msgid "cancel"
-msgstr ""
-
 #: ideas/templates/euth_ideas/idea_list.html:10
 msgid "Create Proposal"
 msgstr ""
@@ -494,8 +455,7 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"            This is a private project. You have applied for a membership on "
-"%(date)s. Your request is awaiting moderation.\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
 
@@ -541,10 +501,6 @@ msgstr ""
 msgid "End date can not be smallerthan the start date."
 msgstr ""
 
-#: projects/models.py:27
-msgid "Title of your project"
-msgstr ""
-
 #: projects/models.py:28
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
@@ -568,19 +524,15 @@ msgstr ""
 #: projects/models.py:45
 msgid ""
 "This description should tell participants what the goal of the project is, "
-"how the project’s participation will look like. It will be always visible in "
-"the „Info“ tab on your project’s page."
+"how the project’s participation will look like. It will be always visible in"
+" the „Info“ tab on your project’s page."
 msgstr ""
 
 #: projects/models.py:53
 msgid ""
-"Here you should explain what the expected outcome of the project will be and "
-"how you are planning to use the results. If the project is finished you "
+"Here you should explain what the expected outcome of the project will be and"
+" how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
-msgstr ""
-
-#: projects/models.py:60
-msgid "Access to the project"
 msgstr ""
 
 #: projects/models.py:61
@@ -590,15 +542,11 @@ msgid ""
 "visible to everyone"
 msgstr ""
 
-#: projects/models.py:67
-msgid "Header image"
-msgstr ""
-
 #: projects/models.py:68
 msgid ""
 "The image will be shown as a decorative background image. It must be min. "
-"1300px wide and 600px tall. Allowed file formats are .jpg and .png. The file "
-"size should be max. 2 MB."
+"1300px wide and 600px tall. Allowed file formats are .jpg and .png. The file"
+" size should be max. 2 MB."
 msgstr ""
 
 #: projects/templates/euth_projects/includes/project_hero_unit.html:13
@@ -617,10 +565,6 @@ msgstr ""
 
 #: projects/templates/euth_projects/project_detail.html:16
 msgid "Phase"
-msgstr ""
-
-#: projects/templates/euth_projects/project_detail.html:18
-msgid "Active phase"
 msgstr ""
 
 #: projects/templates/euth_projects/project_detail.html:56
@@ -666,13 +610,6 @@ msgstr ""
 msgid "other projects from this organisation"
 msgstr ""
 
-#: projects/templatetags/project_tags.py:12
-#, python-format
-msgid "%(number)d day left"
-msgid_plural "%(number)d days left"
-msgstr[0] ""
-msgstr[1] ""
-
 #: projects/templatetags/project_tags.py:19
 msgid "a few hours left"
 msgstr ""
@@ -697,7 +634,8 @@ msgstr ""
 
 #: users/models.py:16
 msgid ""
-"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
 msgstr ""
 
 #: users/models.py:22
@@ -752,10 +690,6 @@ msgstr ""
 msgid "Write a little bit about yourself. (max. 250 characters)"
 msgstr ""
 
-#: users/models.py:73
-msgid "Twitter name"
-msgstr ""
-
 #: users/models.py:79
 msgid "Facebook name"
 msgstr ""
@@ -804,10 +738,6 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: users/templates/euth_users/indicator_menu.html:19
-msgid "Account Settings"
-msgstr ""
-
 #: users/templates/euth_users/indicator_menu.html:31
 msgid "logout"
 msgstr ""
@@ -824,6 +754,23 @@ msgstr ""
 msgid "register"
 msgstr ""
 
-#: users/templates/euth_users/user_detail.html:52
-msgid "Participations of"
-msgstr ""
+#~ msgid "Edit project"
+#~ msgstr ""
+
+#~ msgid "There are no results yet. Please check back later."
+#~ msgstr ""
+
+#~ msgid "Dashboard"
+#~ msgstr ""
+
+#~ msgid "Please login to comment"
+#~ msgstr ""
+
+#~ msgid "Answer"
+#~ msgstr ""
+
+#~ msgid "Post"
+#~ msgstr ""
+
+#~ msgid "Report"
+#~ msgstr ""
