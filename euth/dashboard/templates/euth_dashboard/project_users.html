@@ -24,7 +24,7 @@
             <h2 class="sans-serif">Members</h2>
             <p>
                 <a href="{% url 'dashboard-project-invite' organisation_slug=view.organisation.slug slug=project.slug %}"
-                   class="btn btn-primary pull-right">{% trans 'Invite users' %}</a>
+                   class="btn btn-primary pull-right">{% trans 'invite users' %}</a>
             </p>
             {% if form.requests.forms or form.invites.forms or form.users.forms %}
                 {% csrf_token %}
@@ -106,7 +106,7 @@
                     </tbody>
                 </table>
                 <input type="submit" class="btn btn-primary"
-                       value="{% trans 'Submit' %}">
+                       value="{% trans 'submit' %}">
             {% else %}
                 <p>There are no invites, requests or users in this project
                     yet.</p>
