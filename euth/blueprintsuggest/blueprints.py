@@ -72,7 +72,7 @@ class Result(Enum):
 class Experience(Enum):
     five_projects = 4, _('More than 5 participative projects')
     two_projects = 3, _('More than 2 participative projects')
-    one_project = 2, ('1-2 partcipative projects')
+    one_project = 2, ('1-2 participative projects')
     no_projects = 1, ('I have no experiences in organising participative '
                       ' projects')
 
