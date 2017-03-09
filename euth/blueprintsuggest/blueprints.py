@@ -57,9 +57,9 @@ class Aim(Enum):
 
 @unique
 class Result(Enum):
-    collect_ideas = 3, _('Collection of ideas or arguments')
+    collect_ideas = 3, _('Collection of commented ideas')
     majority_vote = 2, _('Majority vote')
-    weighted_arguments = 1, _('Weighted arguments')
+    both = 1, _('Both')
 
     def __new__(cls, value, label):
         obj = object.__new__(cls)
