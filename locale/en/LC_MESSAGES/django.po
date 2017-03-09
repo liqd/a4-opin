@@ -5,16 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-25 12:47+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-03-09 16:01+0100\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: comments/models.py:35
 msgid "Comment"
@@ -46,6 +48,7 @@ msgid ""
 "            at the end of this page.\n"
 "            "
 msgstr ""
+"\n"
 "You’re image will be uploaded/removed once you save your changes at the end "
 "of this page."
 
@@ -68,7 +71,7 @@ msgstr "Idea collection 2"
 #: dashboard/blueprints.py:40
 #| msgid "Comment"
 msgid "Commenting text"
-msgstr "Comment"
+msgstr "Commenting text"
 
 #: dashboard/blueprints.py:41
 msgid "Add comments to an existing text"
@@ -89,7 +92,7 @@ msgstr "Accessible to all registered users of OPIN.me"
 #: dashboard/forms.py:98
 #| msgid "Personal settings"
 msgid "Project settings"
-msgstr "Personal settings"
+msgstr "Project settings"
 
 #: dashboard/forms.py:104
 msgid "Information for your participants"
@@ -372,7 +375,7 @@ msgstr "back to project"
 #: flashpoll/models.py:8
 #| msgid "Flashpoll Phase"
 msgid "Flashpoll ID"
-msgstr "Flashpoll Phase"
+msgstr "Flashpoll ID"
 
 #: flashpoll/phases.py:14
 msgid "Flashpoll Phase"
@@ -576,7 +579,7 @@ msgstr "End date can not be smallerthan the start date."
 #: projects/models.py:27
 #| msgid "The title of your organisation"
 msgid "Title of your project"
-msgstr "The title of your organisation"
+msgstr "Title of your project"
 
 #: projects/models.py:28
 msgid ""
@@ -625,7 +628,7 @@ msgstr ""
 #: projects/models.py:60
 #| msgid "back to project"
 msgid "Access to the project"
-msgstr "back to project"
+msgstr "Access to the project"
 
 #: projects/models.py:61
 msgid ""
@@ -673,7 +676,7 @@ msgstr "Phase"
 #: projects/templates/euth_projects/project_detail.html:18
 #| msgid "Rating phase"
 msgid "Active phase"
-msgstr "Rating phase"
+msgstr "Active phase"
 
 #: projects/templates/euth_projects/project_detail.html:56
 msgid "Welcome!"
@@ -730,8 +733,8 @@ msgstr "other projects from this organisation"
 #| msgid_plural "%(days)s days left"
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
-msgstr[0] "%(days)s day left"
-msgstr[1] "%(days)s days left"
+msgstr[0] "%(number)d day left"
+msgstr[1] "%(number)d days left"
 
 #: projects/templatetags/project_tags.py:19
 msgid "a few hours left"
@@ -822,7 +825,7 @@ msgstr "Write a little bit about yourself. (max. 250 characters)"
 #: users/models.py:73
 #| msgid "username"
 msgid "Twitter name"
-msgstr "username"
+msgstr "Twitter name"
 
 #: users/models.py:79
 msgid "Facebook name"
@@ -875,7 +878,7 @@ msgstr "Admin"
 #: users/templates/euth_users/indicator_menu.html:19
 #| msgid "Account Connections"
 msgid "Account Settings"
-msgstr "Account Connections"
+msgstr "Account Settings"
 
 #: users/templates/euth_users/indicator_menu.html:31
 msgid "logout"
