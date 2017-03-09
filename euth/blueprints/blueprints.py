@@ -243,15 +243,11 @@ blueprints = [
 ]
 
 
-def get_fallback_blueprint(aim):
-    fallbacks = {
-        Aim.collect_ideas: 'brainstorming',
-        Aim.discuss_topic: 'brainstorming',
-        Aim.design_place: 'map-brainstorming',
-        Aim.run_survey: 'flashpoll',
-        Aim.run_competition: 'agenda-setting',
-        Aim.work_document: 'commenting-text'
-    }
-
-    name = fallbacks[aim]
-    return name, dict(blueprints)[name]
+fallbacks = {
+    Aim.collect_ideas: 'brainstorming',
+    Aim.discuss_topic: 'brainstorming',
+    Aim.design_place: 'map-brainstorming',
+    Aim.run_survey: 'flashpoll',
+    Aim.run_competition: 'agenda-setting',
+    Aim.work_document: 'commenting-text'
+}

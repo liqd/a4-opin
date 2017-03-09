@@ -8,7 +8,8 @@ from . import blueprints, forms
 
 
 def filter_blueprints(aim, result, experience, motivation,
-                      options=blueprints.blueprints):
+                      options=blueprints.blueprints,
+                      fallbacks=blueprints.fallbacks):
     candidates = []
 
     for name, blueprint in options:
@@ -27,7 +28,8 @@ def filter_blueprints(aim, result, experience, motivation,
         candidates.append((name, blueprint))
 
     if not candidates:
-        candidates.append(blueprints.get_fallback_blueprint(aim))
+        name = fallbacks[aim]
+        candidates.append((name, dict(options)[name]))
 
     return candidates
 
