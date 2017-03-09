@@ -423,7 +423,7 @@ def test_dashboard_organisation_delete_language(client, organisation):
 
 @pytest.mark.django_db
 def test_dashboard_blueprint(client, organisation):
-    from euth.blueprintsuggest.blueprints import blueprints
+    from euth.blueprints.blueprints import blueprints
     url = reverse('dashboard-blueprint-list', kwargs={
         'organisation_slug': organisation.slug
     })

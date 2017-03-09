@@ -12,8 +12,8 @@ from rules.contrib import views as rules_views
 
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
-from euth.blueprintsuggest import mixins as blueprint_mixins
-from euth.blueprintsuggest import blueprints
+from euth.blueprints import mixins as blueprint_mixins
+from euth.blueprints import blueprints
 from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models

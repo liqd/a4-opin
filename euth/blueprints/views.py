@@ -35,12 +35,12 @@ def filter_blueprints(aim, result, experience, motivation):
 class SuggestFormView(DashboardBaseMixin,
                       rules_views.PermissionRequiredMixin,
                       generic.FormView):
-    template_name = 'euth_blueprintsuggest/form.html'
+    template_name = 'euth_blueprints/form.html'
     form_class = forms.GetSuggestionForm
     permission_required = 'euth_organisations.initiate_project'
 
     def get_success_url(self):
-        return reverse('blueprintsuggest-results',
+        return reverse('blueprints-results',
                        kwargs={'organisation_slug': self.organisation.slug})
 
     def form_valid(self, form):
@@ -53,7 +53,7 @@ class SuggestFormView(DashboardBaseMixin,
         context = Context(context)
         return self.response_class(
             request=self.request,
-            template='euth_blueprintsuggest/result.html',
+            template='euth_blueprints/result.html',
             context=context
         )
 
