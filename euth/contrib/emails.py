@@ -40,7 +40,7 @@ class Email():
         })
 
     def get_receivers(self):
-        []
+        return []
 
     def get_receiver_emails(self):
         return [receiver.email for receiver in self.get_receivers()]
@@ -52,15 +52,8 @@ class Email():
     def send(cls, object, *args, **kwargs):
         return cls().dispatch(object, *args, **kwargs)
 
-    def dispatch(self, object, *args, **kwargs):
-        self.object = object
+    def render(self, template, context):
         languages = [get_language(), self.fallback_language]
-        receivers = self.get_receiver_emails()
-        context = self.get_context()
-        context.update(kwargs)
-        attachments = self.get_attachments()
-        template = self.template_name
-
         subject = select_template([
             'emails/{}.{}.subject'.format(template, lang) for lang in languages
         ])
@@ -71,19 +64,37 @@ class Email():
             'emails/{}.{}.html'.format(template, lang) for lang in languages
         ])
 
+        return (
+            subject.render(context),
+            plaintext.render(context),
+            html.render(context)
+        )
+
+    def dispatch(self, object, *args, **kwargs):
+        self.object = object
+        self.kwargs = kwargs
+        receivers = self.get_receivers()
+        context = self.get_context()
+        context.update(kwargs)
+        attachments = self.get_attachments()
+        template = self.template_name
+
         mails = []
         for receiver in receivers:
             context.update({'receiver': receiver})
-            raw_subject = subject.render(context).strip()
-            raw_body = plaintext.render(context)
-            raw_html = html.render(context)
+            (subject, text, html) = self.render(template, context)
             context.pop()
 
+            if hasattr(receiver, 'email'):
+                to_address = receiver.email
+            else:
+                to_address = receiver
+
             mail = EmailMultiAlternatives(
-                subject=raw_subject,
-                body=raw_body,
+                subject=subject.strip(),
+                body=text,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[receiver],
+                to=[to_address],
             )
 
             if len(attachments) > 0:
@@ -92,7 +103,7 @@ class Email():
                 for attachment in attachments:
                     mail.attach(attachment)
 
-            mail.attach_alternative(raw_html, 'text/html')
+            mail.attach_alternative(html, 'text/html')
             mail.send()
             mails.append(mail)
         return mails
@@ -101,13 +112,8 @@ class Email():
 class ExternalNotification(Email):
     email_attr_name = 'email'
 
-    def get_receiver_emails(self):
+    def get_receivers(self):
         return [getattr(self.object, self.email_attr_name)]
-
-    def get_context(self):
-        context = super().get_context()
-        context['receiver'] = getattr(self.object, self.email_attr_name)
-        return context
 
 
 class UserNotification(Email):
@@ -142,7 +148,7 @@ def send_email_with_template(receivers, template, additional_context):
     class EmailWithTemplate(OpinEmail):
         template_name = template
 
-        def get_receiver_emails(self):
+        def get_receivers(self):
             return receivers
 
         def get_context(self):
