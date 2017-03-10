@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="container">
-        <form method="post" class="blueprintsuggest">
+        <form method="post" class="blueprintsuggest general-form">
             {% csrf_token %}
 
             <!-- Tab panes -->
@@ -73,13 +73,13 @@
                         <h2 class="h3">{% trans 'Fine tuning' %}</h2>
                         <div class="row">
                             <div class="col-md-4">
-                                {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.result %}
+                                {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.result %}
                             </div>
                             <div class="col-md-4">
-                                {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.experience %}
+                                {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.experience %}
                             </div>
                             <div class="col-md-4">
-                                {% include 'euth_blueprintsuggest/includes/rangebuttons.html' with field=form.motivation %}
+                                {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.motivation %}
                             </div>
                         </div>
                         <div class="row">
