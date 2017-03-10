@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Magdalena Noffke <magdalena.noffke@googlemail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 13:15+0000\n"
-"PO-Revision-Date: 2017-03-09 17:31+0100\n"
-"Last-Translator: Nadine Karbach <nadine.karbach@liqd.de>, 2017\n"
+"POT-Creation-Date: 2017-03-10 15:16+0000\n"
+"PO-Revision-Date: 2017-03-10 14:27+0100\n"
+"Last-Translator: Magdalena Noffke <magdalena.noffke@googlemail.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +25,7 @@ msgid "Comment"
 msgstr "Réaction"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/comments/models.py:36
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/views.py:47
+#: euth/ideas/views.py:47
 msgid "Comments"
 msgstr "Réactions"
 
@@ -56,7 +58,7 @@ msgid ""
 msgstr ""
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:19
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/validators.py:20
+#: euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr ""
 
@@ -138,7 +140,7 @@ msgid ""
 msgstr ""
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:69
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/models.py:33
+#: euth/organisations/models.py:33
 msgid "Header image"
 msgstr ""
 
@@ -157,248 +159,248 @@ msgstr[1] ""
 msgid "a few hours left"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:16
+#: euth/blueprintsuggest/blueprints.py:16
 msgid "Create and gather new ideas or visions."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:17
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:29
+#: euth/blueprintsuggest/blueprints.py:17
+#: euth/blueprintsuggest/blueprints.py:29
 msgid "(Urban) planning processes"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:18
+#: euth/blueprintsuggest/blueprints.py:18
 msgid "Develop concepts or guiding principles"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:22
+#: euth/blueprintsuggest/blueprints.py:22
 msgid "Gather feedback on a topic and discuss it in greater detail."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:23
+#: euth/blueprintsuggest/blueprints.py:23
 msgid "Discuss existing concepts or plans"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:24
+#: euth/blueprintsuggest/blueprints.py:24
 msgid "Develop solutions for existing problems"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:28
+#: euth/blueprintsuggest/blueprints.py:28
 msgid "Design a place."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:30
+#: euth/blueprintsuggest/blueprints.py:30
 msgid "Set the agenda of an event"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:34
+#: euth/blueprintsuggest/blueprints.py:34
 msgid "Learn about what people like most."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:35
+#: euth/blueprintsuggest/blueprints.py:35
 msgid "Majority votes"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:35
+#: euth/blueprintsuggest/blueprints.py:35
 msgid "Opinion polls"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:39
+#: euth/blueprintsuggest/blueprints.py:39
 msgid "Run a competition."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:40
+#: euth/blueprintsuggest/blueprints.py:40
 msgid "All sorts of competitions, like idea contests etc."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:45
+#: euth/blueprintsuggest/blueprints.py:45
 msgid "Work collaboratively on a text document."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:46
+#: euth/blueprintsuggest/blueprints.py:46
 msgid "Draft or revise statutes, articles, or charters"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:47
+#: euth/blueprintsuggest/blueprints.py:47
 msgid "Involve different authors in writing a shared text"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:60
+#: euth/blueprintsuggest/blueprints.py:60
 msgid "Collection of ideas or arguments"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:61
+#: euth/blueprintsuggest/blueprints.py:61
 msgid "Majority vote"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:62
+#: euth/blueprintsuggest/blueprints.py:62
 msgid "Weighted arguments"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:73
+#: euth/blueprintsuggest/blueprints.py:73
 msgid "More than 5 participative projects"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:74
+#: euth/blueprintsuggest/blueprints.py:74
 msgid "More than 2 participative projects"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:87
+#: euth/blueprintsuggest/blueprints.py:87
 msgid "High motivation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:88
+#: euth/blueprintsuggest/blueprints.py:88
 msgid "Medium motivation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:89
+#: euth/blueprintsuggest/blueprints.py:89
 msgid "Low motivation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:90
+#: euth/blueprintsuggest/blueprints.py:90
 msgid "No motivation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:91
+#: euth/blueprintsuggest/blueprints.py:91
 msgid "I don't know."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:116
+#: euth/blueprintsuggest/blueprints.py:116
 msgid "Brainstorming"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:117
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:134
+#: euth/blueprintsuggest/blueprints.py:117
+#: euth/blueprintsuggest/blueprints.py:134
 msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:133
+#: euth/blueprintsuggest/blueprints.py:133
 msgid "Spatial Brainstorming"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:150
+#: euth/blueprintsuggest/blueprints.py:150
 msgid "Idea Challenge"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:151
+#: euth/blueprintsuggest/blueprints.py:151
 msgid "Run a challenge and find the best ideas to solve a particular problem."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:168
+#: euth/blueprintsuggest/blueprints.py:168
 msgid "Spatial Idea Challenge"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:169
+#: euth/blueprintsuggest/blueprints.py:169
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:187
+#: euth/blueprintsuggest/blueprints.py:187
 msgid "Agenda Setting"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:188
+#: euth/blueprintsuggest/blueprints.py:188
 msgid ""
 "You can involve everyone in planning a meeting. Collect ideas for an "
 "upcoming event and let your participants vote on the topics you want to "
 "tackle."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:206
+#: euth/blueprintsuggest/blueprints.py:206
 msgid "Text Review"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:207
+#: euth/blueprintsuggest/blueprints.py:207
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:225
+#: euth/blueprintsuggest/blueprints.py:225
 msgid "Poll"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:226
+#: euth/blueprintsuggest/blueprints.py:226
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members. Via the OPIN polling app for iOS and "
 "Android these polls are also accessible on smartphones."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:23
+#: euth/blueprintsuggest/forms.py:23
 msgid "What is the desired outcome of the project?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:30
+#: euth/blueprintsuggest/forms.py:30
 msgid ""
 "How many participative projects have you organised and managed in the past?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:38
+#: euth/blueprintsuggest/forms.py:38
 msgid "How dedicated are your participants?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:45
+#: euth/blueprintsuggest/forms.py:45
 msgid "Invalid aim selected"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:55
+#: euth/blueprintsuggest/forms.py:55
 msgid "Invalid selection"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:4
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:4
 msgid "Find the right project template"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:24
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:71
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:8
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:24
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:71
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:8
 msgid "Decision support tool"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:26
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:26
 msgid "What is the aim of your participation project?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:28
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:56
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:88
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:47
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:28
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:56
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:88
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:47
 msgid "Aim"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:29
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:29
 msgid "Examples"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:57
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:73
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:89
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:48
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:57
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:73
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:89
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:48
 msgid "Fine tuning"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:58
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:90
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:49
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_result_tab.html.py:6
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:13
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:41
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:58
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:90
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:49
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_result_tab.html.py:6
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:13
+#: euth/projects/templates/euth_projects/project_detail.html.py:41
 msgid "Result"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:63
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:94
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:63
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:94
 msgid "Proceed"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:70
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:70
 msgid "Back"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:11
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:11
 msgid ""
 "\n"
 "            This template matches your criterias!\n"
@@ -410,548 +412,553 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:37
+#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:37
 msgid "Use this template"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:43
+#: euth/dashboard/forms.py:43
 msgid "Basic Info"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:47
+#: euth/dashboard/forms.py:47
 msgid "Personal Info"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:54
+#: euth/dashboard/forms.py:54
 msgid "Ways to connect with you"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:60
+#: euth/dashboard/forms.py:60
 msgid "Notifications"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:70
+#: euth/dashboard/forms.py:70
 msgid "E-mail addresses of invited users"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:71
+#: euth/dashboard/forms.py:71
 msgid ""
 "Enter the e-mail addresses of users who you want to invite, separated by "
 "commas. Invited users will get an email to confirm their membership in the "
 "project."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:81
+#: euth/dashboard/forms.py:81
 msgid "Please enter correct e-mail addresses, separated by commas."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:125
+#: euth/dashboard/forms.py:125
 msgid "Accessible to all registered users of OPIN.me"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:136
+#: euth/dashboard/forms.py:136
 msgid "Project settings"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:142
+#: euth/dashboard/forms.py:142
 msgid "Information for your participants"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:202
+#: euth/dashboard/forms.py:202
 msgid "End time can not be smaller than the start time."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:449
+#: euth/dashboard/forms.py:449
 msgid "The title of your organisation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:456
+#: euth/dashboard/forms.py:456
 msgid "More info about the organisation / Short text for organisation overview"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:17
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:17
 msgid "Edit profile"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:22
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:22
+#: euth_wagtail/templates/account/password_change.html.py:6
+#: euth_wagtail/templates/account/password_change.html.py:45
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:52
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:5
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:10
 msgid "Change Password"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:28
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:28
+#: euth_wagtail/templates/account/email.html.py:6
+#: euth_wagtail/templates/account/email.html.py:9
 msgid "E-mail Addresses"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:34
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:34
+#: euth_wagtail/templates/socialaccount/connections.html.py:6
+#: euth_wagtail/templates/socialaccount/connections.html.py:9
 msgid "Account Connections"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_organisation.html.py:13
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:13
 msgid "Organisation settings"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_organisation.html.py:20
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:20
 msgid "Organisation information"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/base_organisation.html.py:27
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_list.html.py:5
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:27
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:5
 msgid "Projects"
 msgstr "Projet"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:6
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:6
 msgid "Create new project from one of the templates"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:13
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:13
 msgid "back to project list"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:23
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:23
 msgid "Not sure which template?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:25
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:25
 msgid "Try the Decision Support Tool (DST)!"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:26
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:26
 msgid ""
 "In just three minutes you'll find out which process suits your needs. It's "
 "easy."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:32
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:32
 msgid "Choose template"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:56
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:56
 msgid "use this template"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:26
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:115
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:26
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:115
 msgid "add offline phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:61
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:78
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:92
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:41
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:81
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:61
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:78
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:92
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:41
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:81
 msgid "of Phase "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
 msgid "edit documentation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:5
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:10
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:10
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:39
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:5
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:10
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:10
+#: euth/projects/templates/euth_projects/project_detail.html.py:39
 msgid "Information"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:9
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:40
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:9
+#: euth/projects/templates/euth_projects/project_detail.html.py:40
 msgid "Participation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/organisation_form.html.py:5
+#: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:5
 msgid "Edit your organisation information"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/organisation_form.html.py:61
+#: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:61
 msgid "save changes"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/profile_detail.html.py:4
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:4
 msgid "Your user profile"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/profile_detail.html.py:6
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:6
 msgid "Your profile"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/profile_detail.html.py:10
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:10
 msgid ""
 "The information you give in your profile will be shown to all users of OPIN."
 "me."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/profile_detail.html.py:43
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:98
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:43
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:98
 msgid "Save changes"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_form.html.py:23
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:23
 msgid "save draft"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_form.html.py:25
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:25
 msgid "unpublish"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_form.html.py:27
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:27
 msgid "save and publish"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
+#: euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
 msgid "Invite users to project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_invites.html.py:14
+#: euth/dashboard/templates/euth_dashboard/project_invites.html.py:14
 msgid "send invitations"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_list.html.py:12
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:12
 msgid "No projects created"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_list.html.py:26
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_list_item.html.py:19
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:16
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:26
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:19
+#: euth/projects/templates/euth_projects/project_detail.html.py:16
 msgid "Phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_list.html.py:42
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:138
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:42
+#: euth/users/models.py:138
 msgid "Users"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_list.html.py:45
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:45
 msgid "view project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:12
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:12
 msgid "Manage user of "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:27
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:27
 msgid "invite users"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:46
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:46
 msgid "Request"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:68
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:68
 msgid "Pending"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:109
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:109
 msgid "submit"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:73
+#: euth/dashboard/views.py:73
 msgid "Your profile was successfully updated."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:99
+#: euth/dashboard/views.py:99
 msgid "Organisation successfully updated."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:147
+#: euth/dashboard/views.py:147
 msgid "Project succesfully created."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:153
+#: euth/dashboard/views.py:153
 msgid "New project based on"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:192
+#: euth/dashboard/views.py:192
 msgid "Project successfully updated."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:198
+#: euth/dashboard/views.py:198
 msgid "Update project: "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:237
+#: euth/dashboard/views.py:237
 msgid "Your project has been deleted."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:267
+#: euth/dashboard/views.py:267
 msgid "Invitations successfully sent."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/views.py:308
+#: euth/dashboard/views.py:308
 msgid "User request successfully updated."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/models.py:28
+#: euth/documents/models.py:28
 msgid "Document for that module already exists"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:18
+#: euth/documents/phases.py:18
 msgid "Create document phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:19
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:38
+#: euth/documents/phases.py:19 euth/documents/phases.py:38
 msgid "commenting text"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:20
+#: euth/documents/phases.py:20
 msgid "Create text for the project."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:37
+#: euth/documents/phases.py:37
 msgid "Comment phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:39
+#: euth/documents/phases.py:39
 msgid "Collect comments for the text."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/templates/euth_documents/document_detail.html.py:20
+#: euth/documents/templates/euth_documents/document_detail.html.py:20
 msgid "Add your comment"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/templates/euth_documents/document_form.html.py:10
+#: euth/documents/templates/euth_documents/document_form.html.py:10
 msgid "Moderators are currently creating a document."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/templates/euth_documents/paragraph_detail.html.py:10
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_detail.html.py:14
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:11
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_detail.html.py:28
+#: euth/documents/templates/euth_documents/paragraph_detail.html.py:10
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:14
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:11
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:28
 msgid "back to project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/models.py:8
+#: euth/flashpoll/models.py:8
 msgid "Flashpoll ID"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/phases.py:14
+#: euth/flashpoll/phases.py:14
 msgid "Flashpoll Phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/phases.py:15
+#: euth/flashpoll/phases.py:15
 msgid "Initiate a Mobile polling process."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/phases.py:16
+#: euth/flashpoll/phases.py:16
 msgid "mobile polling"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:21
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:21
 msgid "Phase "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:62
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:62
 msgid "of Phase: "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:56
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:56
 msgid "Result "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:14
+#: euth/ideas/phases.py:14
 msgid "Issue phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:15
+#: euth/ideas/phases.py:15
 msgid "Add new ideas."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:16
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:32
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:49
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:67
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:83
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:16
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:33
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:50
+#: euth/ideas/phases.py:16 euth/ideas/phases.py:32 euth/ideas/phases.py:49
+#: euth/ideas/phases.py:67 euth/ideas/phases.py:83 euth/maps/phases.py:16
+#: euth/maps/phases.py:33 euth/maps/phases.py:50
 msgid "ideas collection"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:30
+#: euth/ideas/phases.py:30
 msgid "Collect phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:31
+#: euth/ideas/phases.py:31
 msgid "Add new ideas and comment them."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:48
+#: euth/ideas/phases.py:48
 msgid "Rating phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:50
+#: euth/ideas/phases.py:50
 msgid "Get quantative feeback by rating the collected ideas."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:64
+#: euth/ideas/phases.py:64
 msgid "Feedback phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:65
+#: euth/ideas/phases.py:65
 msgid "Get feedback for collected ideas through rates and comments."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:82
+#: euth/ideas/phases.py:82
 msgid "Universal phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/phases.py:84
+#: euth/ideas/phases.py:84
 msgid "Use all features of the idea collection."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_detail.html.py:27
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_detail.html.py:41
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:41
 msgid "Edit"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_detail.html.py:31
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_detail.html.py:45
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:31
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:45
+#: euth_wagtail/templates/includes/delete_modal.html.py:19
 msgid "Delete"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_detail.html.py:52
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_detail.html.py:67
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:52
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:67
 msgid "Moderator"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:4
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:4
 msgid "Create a new proposal"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:19
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:19
 msgid "create new proposal for this project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:23
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:23
 msgid "update idea"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:41
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:41
 msgid "Title of the proposal"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:50
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:50
 msgid "Description"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:72
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_form.html.py:19
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:72
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:19
 msgid "post"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:76
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_form.html.py:78
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_form.html.py:23
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_form.html.py:25
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:76
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:78
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:23
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:25
 msgid "cancel"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_list.html.py:11
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_list.html.py:25
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:11
+#: euth/maps/templates/euth_maps/mapidea_list.html.py:25
 msgid "Create Proposal"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/includes/modal.html.py:2
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:2
+#: euth_wagtail/templates/includes/delete_modal.html.py:2
 msgid "Are you sure you want to delete"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/includes/modal.html.py:20
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
 msgid "delete"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/includes/modal.html.py:23
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:23
 msgid "abort"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
 msgid "Sort by"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/views.py:45
+#: euth/ideas/views.py:45
 msgid "Most recent"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/views.py:46
+#: euth/ideas/views.py:46
 msgid "Popularity"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/views.py:123
+#: euth/ideas/views.py:123
 msgid "Your Idea has been deleted"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:18
+#: euth/maps/fields.py:18
 msgid "Geometry as GeoJSON"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:36
+#: euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:41
+#: euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/forms.py:16
+#: euth/maps/forms.py:16
 msgid "Please locate your proposal on the map."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/models.py:21
+#: euth/maps/models.py:21
 msgid "Where can your idea be located on a map?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/models.py:22
+#: euth/maps/models.py:22
 msgid ""
 "Click inside marked area to set a marker. Drag and drop marker to change "
 "place."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:14
+#: euth/maps/phases.py:14
 msgid "Issue Phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:15
+#: euth/maps/phases.py:15
 msgid "Add, comment and rate new ideas on a map."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:31
+#: euth/maps/phases.py:31
 msgid "Collect Phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:32
+#: euth/maps/phases.py:32
 msgid "Add and comment new ideas on a map."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:47
+#: euth/maps/phases.py:47
 msgid "Rating Phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:48
+#: euth/maps/phases.py:48
 msgid "Get quantative feeback by rating the collected ideas on a map."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_list.html.py:31
+#: euth/maps/templates/euth_maps/mapidea_list.html.py:31
 msgid "view on list"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:4
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:4
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:4
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:4
 #, python-format
 msgid " Private project: %(project)s"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:15
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:15
 #, python-format
 msgid " Do you want to join %(project)s?"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:23
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:23
 msgid "Accept"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:24
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:24
 msgid "Decline"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:17
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:17
 #, python-format
 msgid ""
 "\n"
@@ -960,363 +967,673 @@ msgid ""
 "            "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:24
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:41
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:24
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:41
 msgid "request membership"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:45
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:45
+#: euth_wagtail/templates/includes/delete_modal.html.py:23
 msgid "Abort"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:14
+#: euth/offlinephases/phases.py:14
 msgid "Offlinephase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:15
+#: euth/offlinephases/phases.py:15
 msgid "Add documentation for Offlineevents."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:16
+#: euth/offlinephases/phases.py:16
 msgid "offlinephase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:7
+#: euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:7
 msgid "Remove the file"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:11
+#: euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:11
 msgid "Upload a file"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:10
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:10
 msgid "Edit documentation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:18
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:44
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:18
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:44
 msgid "Downloads"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:29
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:29
 msgid "No documentation has been provided yet"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:4
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:4
 msgid "Edit offlinephase content"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:10
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:10
 msgid "update offlinephase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:46
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:46
 #, python-format
 msgid ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
 "are %(allowed_file_types)s. "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:86
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:86
 msgid "You can add additional files after saving the current file."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/validators.py:26
+#: euth/offlinephases/validators.py:26
 msgid "File should be at most {} MB"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/widgets.py:15
+#: euth/offlinephases/widgets.py:15
 msgid "Select a file from your local folder."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/models.py:35
+#: euth/organisations/models.py:35
 msgid "The image sets the atmosphere for your organisation page."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/models.py:43
+#: euth/organisations/models.py:43
 msgid "The official logo of your organisation."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_detail.html.py:4
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:4
 msgid "on Opin.me"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_detail.html.py:43
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:43
 msgid "More info about"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_detail.html.py:50
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:50
 msgid "Why are we part of OPIN"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_detail.html.py:55
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:55
 msgid "How will we use OPIN"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_detail.html.py:59
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:59
 msgid "More info about the organisation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_list.html.py:4
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:4
 msgid "Organisations on Opin.me"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/organisations/templates/euth_organisations/organisation_list.html.py:8
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
 msgid "Organisations"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:13
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_list_item.html.py:9
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_tile.html.py:10
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:13
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:9
+#: euth/projects/templates/euth_projects/includes/project_tile.html.py:10
 msgid "private"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:16
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_list_item.html.py:12
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_tile.html.py:12
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:16
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:12
+#: euth/projects/templates/euth_projects/includes/project_tile.html.py:12
 msgid "finished"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:24
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:24
 msgid "by"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:34
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:34
 msgid "edit"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:18
+#: euth/projects/templates/euth_projects/project_detail.html.py:18
 msgid "Active phase"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:48
+#: euth/projects/templates/euth_projects/project_detail.html.py:48
 msgid "info"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:58
+#: euth/projects/templates/euth_projects/project_detail.html.py:58
 msgid "Welcome!"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:59
+#: euth/projects/templates/euth_projects/project_detail.html.py:59
 msgid "This project has not started yet!"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:64
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:69
+#: euth/projects/templates/euth_projects/project_detail.html.py:64
+#: euth/projects/templates/euth_projects/project_detail.html.py:69
 msgid "Thanks for participating!"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:65
+#: euth/projects/templates/euth_projects/project_detail.html.py:65
 msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:70
+#: euth/projects/templates/euth_projects/project_detail.html.py:70
 msgid ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:79
+#: euth/projects/templates/euth_projects/project_detail.html.py:79
 msgid "Start Date"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:82
+#: euth/projects/templates/euth_projects/project_detail.html.py:82
 msgid "End Date"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:97
+#: euth/projects/templates/euth_projects/project_detail.html.py:97
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:110
+#: euth/projects/templates/euth_projects/project_detail.html.py:110
 msgid "other projects from this organisation"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/admin.py:10
+#: euth/users/admin.py:10
 msgid "Permissions"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/admin.py:11
+#: euth/users/admin.py:11
 msgid "Important dates"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:14
+#: euth/users/models.py:14
 msgid ""
 "Enter a valid username. This value may contain only letters, digits, spaces "
 "and @/./+/-/_ characters. It must start with a digit or a letter."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:18
+#: euth/users/models.py:18
 msgid "A user with that username already exists."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:19
+#: euth/users/models.py:19
 msgid ""
 "Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:25
+#: euth/users/models.py:25
 msgid "A user with that email address already exists."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:27
+#: euth/users/models.py:27
 msgid "Designates whether the user can log into this admin site."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:28
+#: euth/users/models.py:28
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:30
+#: euth/users/models.py:30
 msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:36
+#: euth/users/models.py:36
 msgid "username"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:44
+#: euth/users/models.py:44
 msgid "email address"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:48
+#: euth/users/models.py:48
 msgid "staff status"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:50
+#: euth/users/models.py:50
 msgid "active"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:55
+#: euth/users/models.py:55
 msgid "Send me email notifications"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:62
+#: euth/users/models.py:62
 msgid "Avatar picture"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:68
+#: euth/users/models.py:68
 msgid "Short description about yourself"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:69
+#: euth/users/models.py:69
 msgid "Write a little bit about yourself. (max. 250 characters)"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:76
+#: euth/users/models.py:76
 msgid "Twitter name"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:82
+#: euth/users/models.py:82
 msgid "Facebook name"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:88
+#: euth/users/models.py:88
 msgid "Instagram name"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:93
+#: euth/users/models.py:93
 msgid "Country of residence"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:99
+#: euth/users/models.py:99
 msgid "City of residence"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:105
+#: euth/users/models.py:105
 msgid "Date of birth"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:110
+#: euth/users/models.py:110
 msgid "Gender"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:113
+#: euth/users/models.py:113
 msgid "Male"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:114
+#: euth/users/models.py:114
 msgid "Female"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:115
+#: euth/users/models.py:115
 msgid "Transgender"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:116
+#: euth/users/models.py:116
 msgid "Transgender Female"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:117
+#: euth/users/models.py:117
 msgid "Transgender Male"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:118
+#: euth/users/models.py:118
 msgid "Intersex"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:119
+#: euth/users/models.py:119
 msgid "Gender Fluid"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:120
+#: euth/users/models.py:120
 msgid "Other"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:126
+#: euth/users/models.py:126
 msgid "Languages"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:128
+#: euth/users/models.py:128
 msgid "Enter the languages you’re speaking."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:137
+#: euth/users/models.py:137
 msgid "User"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:17
+#: euth/users/templates/euth_users/indicator_menu.html.py:17
 msgid "Admin"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:21
+#: euth/users/templates/euth_users/indicator_menu.html.py:21
 msgid "Account Settings"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:33
+#: euth/users/templates/euth_users/indicator_menu.html.py:33
 msgid "logout"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:39
+#: euth/users/templates/euth_users/indicator_menu.html.py:39
 msgid "Login / Register"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:43
+#: euth/users/templates/euth_users/indicator_menu.html.py:43
+#: euth_wagtail/templates/account/login.html.py:16
+#: euth_wagtail/templates/account/login.html.py:58
+#: euth_wagtail/templates/account/signup.html.py:12
 msgid "login"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/indicator_menu.html.py:46
+#: euth/users/templates/euth_users/indicator_menu.html.py:46
+#: euth_wagtail/templates/account/login.html.py:17
+#: euth_wagtail/templates/account/signup.html.py:13
+#: euth_wagtail/templates/account/signup.html.py:92
 msgid "register"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:41
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:70
+#: euth/users/templates/euth_users/user_detail.html.py:41
+#: euth/users/templates/euth_users/user_detail.html.py:70
 msgid "years old"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:48
+#: euth/users/templates/euth_users/user_detail.html.py:48
 msgid "Bio"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:85
+#: euth/users/templates/euth_users/user_detail.html.py:85
 #, python-format
 msgid "%(username)s follows no projects at the moment."
+msgstr ""
+
+#: euth_wagtail/settings/base.py:228
+msgid "English"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:229
+msgid "German"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:230
+msgid "Italien"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:231
+msgid "French"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:232
+msgid "Swedish"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:233
+msgid "Slovene"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:234
+msgid "Danish"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:235
+msgid "Ukrainian"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:236
+msgid "Greek"
+msgstr ""
+
+#: euth_wagtail/settings/base.py:237
+msgid "Russian"
+msgstr ""
+
+#: euth_wagtail/templates/403.html.py:6
+msgid "You are not allowed to access this page."
+msgstr ""
+
+#: euth_wagtail/templates/404.html.py:6
+msgid "This page couldn’t be found."
+msgstr ""
+
+#: euth_wagtail/templates/500.html.py:21
+#: euth_wagtail/templates/base_errors.html.py:13
+msgid "Error"
+msgstr ""
+
+#: euth_wagtail/templates/500.html.py:27
+#: euth_wagtail/templates/base_errors.html.py:19
+msgid "Sorry, something went wrong."
+msgstr ""
+
+#: euth_wagtail/templates/500.html.py:28
+msgid "Internal server error."
+msgstr ""
+
+#: euth_wagtail/templates/500.html.py:29
+#: euth_wagtail/templates/base_errors.html.py:21
+msgid "Get back to OPIN.ME"
+msgstr ""
+
+#: euth_wagtail/templates/account/account_inactive.html.py:5
+#: euth_wagtail/templates/account/account_inactive.html.py:10
+msgid "Account Inactive"
+msgstr ""
+
+#: euth_wagtail/templates/account/account_inactive.html.py:11
+msgid "This account is inactive."
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:21
+msgid "Primary"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:24
+msgid "Verified"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:26
+msgid "Unverified"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:31
+msgid "Make Primary"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:32
+msgid "Re-send Verification"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:33
+#: euth_wagtail/templates/socialaccount/connections.html.py:31
+msgid "Remove"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:47
+msgid "Add another Email"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:51
+msgid "Add Email"
+msgstr ""
+
+#: euth_wagtail/templates/account/email.html.py:59
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: euth_wagtail/templates/account/email_confirm.html.py:6
+msgid "Activate your account"
+msgstr ""
+
+#: euth_wagtail/templates/account/email_confirm.html.py:16
+#: euth_wagtail/templates/account/email_confirm.html.py:29
+msgid "Welcome to Opin!"
+msgstr ""
+
+#: euth_wagtail/templates/account/email_confirm.html.py:17
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: euth_wagtail/templates/account/email_confirm.html.py:25
+msgid "Activate account"
+msgstr ""
+
+#: euth_wagtail/templates/account/email_confirm.html.py:31
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:8
+msgid "Login"
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:36
+#: euth_wagtail/templates/account/password_reset.html.py:26
+msgid "Email"
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:45
+#: euth_wagtail/templates/account/password_change.html.py:27
+#: euth_wagtail/templates/account/password_change.html.py:34
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:37
+#: euth_wagtail/templates/account/password_set.html.py:25
+msgid "Password"
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:55
+msgid "reset password"
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:63
+#: euth_wagtail/templates/account/signup.html.py:99
+msgid "Login with social account"
+msgstr ""
+
+#: euth_wagtail/templates/account/login.html.py:74
+#, python-format
+msgid "You are already logged in as %(user_display)s."
+msgstr ""
+
+#: euth_wagtail/templates/account/password_change.html.py:9
+msgid "Change your password"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_change.html.py:41
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:43
+#: euth_wagtail/templates/account/password_set.html.py:31
+msgid "Repeat password"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset.html.py:7
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:6
+msgid "Reset your password"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset.html.py:14
+msgid ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset your password."
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset.html.py:30
+msgid "Reset"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_done.html.py:6
+#: euth_wagtail/templates/account/password_reset_done.html.py:11
+msgid "Password Reset"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_done.html.py:12
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:12
+msgid "Bad Token"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:15
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:48
+msgid "Reset password"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:53
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:11
+msgid "Your password is now changed."
+msgstr ""
+
+#: euth_wagtail/templates/account/password_set.html.py:6
+msgid "Set Password"
+msgstr ""
+
+#: euth_wagtail/templates/account/password_set.html.py:36
+msgid "Set password"
+msgstr ""
+
+#: euth_wagtail/templates/account/signup.html.py:5
+msgid "Register an account"
+msgstr ""
+
+#: euth_wagtail/templates/account/signup.html.py:85
+#, python-format
+msgid ""
+"\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
+"\">terms of use</a>.\n"
+"                "
+msgstr ""
+
+#: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
+msgid "Note"
+msgstr ""
+
+#: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr ""
+
+#: euth_wagtail/templates/account/verification_sent.html.py:5
+#: euth_wagtail/templates/account/verification_sent.html.py:10
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: euth_wagtail/templates/account/verification_sent.html.py:11
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: euth_wagtail/templates/includes/top_menu.html.py:36
+msgid "Organisations "
+msgstr ""
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:12
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:36
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:39
+msgid "Add a 3rd Party Account"
+msgstr ""
+
+#: euth_wagtail/templates/socialaccount/signup.html.py:10
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s but the connected emailaddress of this account is already in "
+"use on this platform. You can either login with this emailaddress and "
+"connect your account to %(provider_name)s or fill in the form underneath. "
+msgstr ""
+
+#: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
+#: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
+msgid "Login with "
 msgstr ""
