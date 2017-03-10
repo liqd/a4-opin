@@ -42,13 +42,7 @@ h1.dashboard-title {
 .blueprint-list {
     display: flex;
     flex-wrap: wrap;
-    //justify-content: space-between;
     @include rem(margin, 0 -15px);
-
-    > div {
-        //margin: 1em 0;
-        //display: flex;
-    }
 }
 
 
@@ -72,6 +66,7 @@ h1.dashboard-title {
         margin: 0 0 0 0;
         color: #fff;
     }
+
     > img {
         @include rem(height, 173px);
         @include rem(width, 260px);
