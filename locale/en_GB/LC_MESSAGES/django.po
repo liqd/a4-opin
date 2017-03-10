@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-10 13:15+0000\n"
-"PO-Revision-Date: 2017-03-10 14:14+0100\n"
+"PO-Revision-Date: 2017-03-10 14:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -38,6 +38,9 @@ msgid ""
 "{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
 "The file size should be max. {max_size_mb} MB."
 msgstr ""
+"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
+"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
+"The file size should be max. {max_size_mb} MB."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 msgid "Remove the picture"
@@ -54,31 +57,35 @@ msgid ""
 "            at the end of this page.\n"
 "            "
 msgstr ""
+"\n"
+"            Your image will be uploaded/removed once you save your changes\n"
+"            at the end of this page.\n"
+"            "
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:19
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
-msgstr ""
+msgstr "Unsupported file format. Supported formats are {}."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:25
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
-msgstr ""
+msgstr "Image should be at most {max_size} MB"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:28
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
-msgstr ""
+msgstr "Image must be at least {min_width} pixels wide"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:31
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
-msgstr ""
+msgstr "Image must be at least {min_height} pixels high"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:41
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
-msgstr ""
+msgstr "Image aspect ratio should be {aspect_width}:{aspect_height}"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/widgets.py:27
 msgid "Select a picture from your local folder."
@@ -157,14 +164,14 @@ msgstr "Header image"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:71
 msgid "The image will be shown as a decorative background image."
-msgstr ""
+msgstr "The image will be shown as a decorative background image."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/templatetags/project_tags.py:12
 #, python-format
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(number)d day left"
+msgstr[1] "%(number)d days left"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
@@ -172,112 +179,112 @@ msgstr "a few hours left"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:16
 msgid "Create and gather new ideas or visions."
-msgstr ""
+msgstr "Create and gather new ideas or visions."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:17
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:29
 msgid "(Urban) planning processes"
-msgstr ""
+msgstr "(Urban) planning processes"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:18
 msgid "Develop concepts or guiding principles"
-msgstr ""
+msgstr "Develop concepts or guiding principles"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:22
 msgid "Gather feedback on a topic and discuss it in greater detail."
-msgstr ""
+msgstr "Gather feedback on a topic and discuss it in greater detail."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:23
 msgid "Discuss existing concepts or plans"
-msgstr ""
+msgstr "Discuss existing concepts or plans"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:24
 msgid "Develop solutions for existing problems"
-msgstr ""
+msgstr "Develop solutions for existing problems"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:28
 msgid "Design a place."
-msgstr ""
+msgstr "Design a place."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:30
 msgid "Set the agenda of an event"
-msgstr ""
+msgstr "Set the agenda of an event"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:34
 msgid "Learn about what people like most."
-msgstr ""
+msgstr "Learn about what people like most."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:35
 msgid "Majority votes"
-msgstr ""
+msgstr "Majority votes"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:35
 msgid "Opinion polls"
-msgstr ""
+msgstr "Opinion polls"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:39
 msgid "Run a competition."
-msgstr ""
+msgstr "Run a competition."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:40
 msgid "All sorts of competitions, like idea contests etc."
-msgstr ""
+msgstr "All sorts of competitions, like idea contests etc."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:45
 msgid "Work collaboratively on a text document."
-msgstr ""
+msgstr "Work collaboratively on a text document."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:46
 msgid "Draft or revise statutes, articles, or charters"
-msgstr ""
+msgstr "Draft or revise statutes, articles, or charters"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:47
 msgid "Involve different authors in writing a shared text"
-msgstr ""
+msgstr "Involve different authors in writing a shared text"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:60
 msgid "Collection of ideas or arguments"
-msgstr ""
+msgstr "Collection of ideas or arguments"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:61
 msgid "Majority vote"
-msgstr ""
+msgstr "Majority vote"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:62
 msgid "Weighted arguments"
-msgstr ""
+msgstr "Weighted arguments"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:73
 msgid "More than 5 participative projects"
-msgstr ""
+msgstr "More than 5 participative projects"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:74
 msgid "More than 2 participative projects"
-msgstr ""
+msgstr "More than 2 participative projects"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:87
 msgid "High motivation"
-msgstr ""
+msgstr "High motivation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:88
 msgid "Medium motivation"
-msgstr ""
+msgstr "Medium motivation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:89
 msgid "Low motivation"
-msgstr ""
+msgstr "Low motivation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:90
 msgid "No motivation"
-msgstr ""
+msgstr "No motivation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:91
 msgid "I don't know."
-msgstr ""
+msgstr "I don't know."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:116
 msgid "Brainstorming"
-msgstr ""
+msgstr "Brainstorming"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:117
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:134
@@ -285,32 +292,36 @@ msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
 msgstr ""
+"Collect ideas, questions and input concerning a problem or a question from a "
+"wide array of people."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:133
 msgid "Spatial Brainstorming"
-msgstr ""
+msgstr "Spatial Brainstorming"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:150
 msgid "Idea Challenge"
-msgstr ""
+msgstr "Idea Challenge"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:151
 msgid "Run a challenge and find the best ideas to solve a particular problem."
-msgstr ""
+msgstr "Run a challenge and find the best ideas to solve a particular problem."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:168
 msgid "Spatial Idea Challenge"
-msgstr ""
+msgstr "Spatial Idea Challenge"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:169
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
 msgstr ""
+"Run a challenge concerning a certain area or space in your community and "
+"find the best ideas to solve a particular problem."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:187
 msgid "Agenda Setting"
-msgstr ""
+msgstr "Agenda Setting"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:188
 msgid ""
@@ -318,20 +329,25 @@ msgid ""
 "upcoming event and let your participants vote on the topics you want to "
 "tackle."
 msgstr ""
+"You can involve everyone in planning a meeting. Collect ideas for an "
+"upcoming event and let your participants vote on the topics you want to "
+"tackle."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:206
 msgid "Text Review"
-msgstr ""
+msgstr "Text Review"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:207
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
 msgstr ""
+"Let participants discuss individual paragraphs of a text. This is ideal for "
+"discussing position papers or a mission statements with many people."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:225
 msgid "Poll"
-msgstr ""
+msgstr "Poll"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/blueprints.py:226
 msgid ""
@@ -339,15 +355,19 @@ msgid ""
 "topics from the public or your members. Via the OPIN polling app for iOS and "
 "Android these polls are also accessible on smartphones."
 msgstr ""
+"Run customizable, multi-step polls on OPIN to get detailed opinions on "
+"topics from the public or your members. Via the OPIN polling app for iOS and "
+"Android these polls are also accessible on smartphones."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:23
 msgid "What is the desired outcome of the project?"
-msgstr ""
+msgstr "What is the desired outcome of the project?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:30
 msgid ""
 "How many participative projects have you organised and managed in the past?"
 msgstr ""
+"How many participative projects have you organised and managed in the past?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:38
 msgid "How dedicated are your participants?"
@@ -355,7 +375,7 @@ msgstr "How dedicated are your participants?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:45
 msgid "Invalid aim selected"
-msgstr ""
+msgstr "Invalid aim selected"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/forms.py:55
 msgid "Invalid selection"
@@ -363,35 +383,35 @@ msgstr "Invalid selection"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:4
 msgid "Find the right project template"
-msgstr ""
+msgstr "Find the right project template"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:24
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:71
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:8
 msgid "Decision support tool"
-msgstr ""
+msgstr "Decision support tool"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:26
 msgid "What is the aim of your participation project?"
-msgstr ""
+msgstr "What is the aim of your participation project?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:28
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:56
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:88
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:47
 msgid "Aim"
-msgstr ""
+msgstr "Aim"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:29
 msgid "Examples"
-msgstr ""
+msgstr "Examples"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:57
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:73
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:89
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:48
 msgid "Fine tuning"
-msgstr ""
+msgstr "Fine tuning"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:58
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:90
@@ -405,11 +425,11 @@ msgstr "Result"
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:63
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:94
 msgid "Proceed"
-msgstr ""
+msgstr "Proceed"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:70
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:11
 msgid ""
@@ -421,7 +441,13 @@ msgid_plural ""
 "            These templates match your criterias!\n"
 "            "
 msgstr[0] ""
+"\n"
+"            This template matches your criterias!\n"
+"            "
 msgstr[1] ""
+"\n"
+"            These templates match your criterias!\n"
+"            "
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:37
 msgid "Use this template"
@@ -433,11 +459,11 @@ msgstr "Basic Info"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:47
 msgid "Personal Info"
-msgstr ""
+msgstr "Personal Info"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:54
 msgid "Ways to connect with you"
-msgstr ""
+msgstr "Ways to connect with you"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:60
 msgid "Notifications"
@@ -453,10 +479,13 @@ msgid ""
 "commas. Invited users will get an email to confirm their membership in the "
 "project."
 msgstr ""
+"Enter the e-mail addresses of users who you want to invite, separated by "
+"commas. Invited users will get an email to confirm their membership in the "
+"project."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:81
 msgid "Please enter correct e-mail addresses, separated by commas."
-msgstr ""
+msgstr "Please enter correct e-mail addresses, separated by commas."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/forms.py:125
 msgid "Accessible to all registered users of OPIN.me"
@@ -526,13 +555,15 @@ msgstr "Not sure which template?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:25
 msgid "Try the Decision Support Tool (DST)!"
-msgstr ""
+msgstr "Try the Decision Support Tool (DST)!"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:26
 msgid ""
 "In just three minutes you'll find out which process suits your needs. It's "
 "easy."
 msgstr ""
+"In just three minutes you'll find out which process suits your needs. It's "
+"easy."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:32
 msgid "Choose template"
@@ -557,7 +588,7 @@ msgstr "of Phase "
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
 msgid "edit documentation"
-msgstr ""
+msgstr "edit documentation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:5
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:10
@@ -592,6 +623,8 @@ msgid ""
 "The information you give in your profile will be shown to all users of OPIN."
 "me."
 msgstr ""
+"The information you give in your profile will be shown to all users of OPIN."
+"me."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/profile_detail.html.py:43
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:98
@@ -647,11 +680,11 @@ msgstr "invite users"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:46
 msgid "Request"
-msgstr ""
+msgstr "Request"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:68
 msgid "Pending"
-msgstr ""
+msgstr "Pending"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/dashboard/templates/euth_dashboard/project_users.html.py:109
 msgid "submit"
@@ -699,7 +732,7 @@ msgstr "Document for that module already exists"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:18
 msgid "Create document phase"
-msgstr ""
+msgstr "Create document phase"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:19
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/phases.py:38
@@ -720,7 +753,7 @@ msgstr "Collect comments for the text."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/templates/euth_documents/document_detail.html.py:20
 msgid "Add your comment"
-msgstr ""
+msgstr "Add your comment"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/documents/templates/euth_documents/document_form.html.py:10
 msgid "Moderators are currently creating a document."
@@ -857,7 +890,7 @@ msgstr "post"
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_form.html.py:23
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_form.html.py:25
 msgid "cancel"
-msgstr ""
+msgstr "cancel"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/ideas/templates/euth_ideas/idea_list.html.py:11
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_list.html.py:25
@@ -894,29 +927,31 @@ msgstr "Your Idea has been deleted"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:18
 msgid "Geometry as GeoJSON"
-msgstr ""
+msgstr "Geometry as GeoJSON"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
-msgstr ""
+msgstr "Please add a Marker on the map"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
-msgstr ""
+msgstr "Please draw a Polygon on the map"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/forms.py:16
 msgid "Please locate your proposal on the map."
-msgstr ""
+msgstr "Please locate your proposal on the map."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/models.py:21
 msgid "Where can your idea be located on a map?"
-msgstr ""
+msgstr "Where can your idea be located on a map?"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/models.py:22
 msgid ""
 "Click inside marked area to set a marker. Drag and drop marker to change "
 "place."
 msgstr ""
+"Click inside marked area to set a marker. Drag and drop marker to change "
+"place."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:14
 msgid "Issue Phase"
@@ -924,7 +959,7 @@ msgstr "Issue Phase"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:15
 msgid "Add, comment and rate new ideas on a map."
-msgstr ""
+msgstr "Add, comment and rate new ideas on a map."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:31
 msgid "Collect Phase"
@@ -932,7 +967,7 @@ msgstr "Collect Phase"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:32
 msgid "Add and comment new ideas on a map."
-msgstr ""
+msgstr "Add and comment new ideas on a map."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/phases.py:47
 msgid "Rating Phase"
@@ -944,7 +979,7 @@ msgstr "Get quantative feeback by rating the collected ideas on a map."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/maps/templates/euth_maps/mapidea_list.html.py:31
 msgid "view on list"
-msgstr ""
+msgstr "view on list"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:4
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:4
@@ -963,7 +998,7 @@ msgstr "Accept"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/invite_form.html.py:24
 msgid "Decline"
-msgstr ""
+msgstr "Decline"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/memberships/templates/euth_memberships/request_detail.html.py:17
 #, python-format
@@ -989,11 +1024,11 @@ msgstr "Abort"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:14
 msgid "Offlinephase"
-msgstr ""
+msgstr "Offlinephase"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:15
 msgid "Add documentation for Offlineevents."
-msgstr ""
+msgstr "Add documentation for Offlineevents."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/phases.py:16
 msgid "offlinephase"
@@ -1009,20 +1044,20 @@ msgstr "Upload a file"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:10
 msgid "Edit documentation"
-msgstr ""
+msgstr "Edit documentation"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:18
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:44
 msgid "Downloads"
-msgstr ""
+msgstr "Downloads"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:29
 msgid "No documentation has been provided yet"
-msgstr ""
+msgstr "No documentation has been provided yet"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:4
 msgid "Edit offlinephase content"
-msgstr ""
+msgstr "Edit offlinephase content"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:10
 msgid "update offlinephase"
@@ -1034,14 +1069,16 @@ msgid ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
 "are %(allowed_file_types)s. "
 msgstr ""
+" You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
+"are %(allowed_file_types)s. "
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:86
 msgid "You can add additional files after saving the current file."
-msgstr ""
+msgstr "You can add additional files after saving the current file."
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/validators.py:26
 msgid "File should be at most {} MB"
-msgstr ""
+msgstr "File should be at most {} MB"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/offlinephases/widgets.py:15
 msgid "Select a file from your local folder."
@@ -1101,7 +1138,7 @@ msgstr "by"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:34
 msgid "edit"
-msgstr ""
+msgstr "edit"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/projects/templates/euth_projects/project_detail.html.py:18
 msgid "Active phase"
@@ -1264,7 +1301,7 @@ msgstr "City of residence"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:105
 msgid "Date of birth"
-msgstr ""
+msgstr "Date of birth"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:110
 msgid "Gender"
@@ -1280,19 +1317,19 @@ msgstr "Female"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:115
 msgid "Transgender"
-msgstr ""
+msgstr "Transgender"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:116
 msgid "Transgender Female"
-msgstr ""
+msgstr "Transgender Female"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:117
 msgid "Transgender Male"
-msgstr ""
+msgstr "Transgender Male"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:118
 msgid "Intersex"
-msgstr ""
+msgstr "Intersex"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:119
 msgid "Gender Fluid"
@@ -1300,7 +1337,7 @@ msgstr "Gender Fluid"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:120
 msgid "Other"
-msgstr ""
+msgstr "Other"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/models.py:126
 msgid "Languages"
@@ -1341,16 +1378,16 @@ msgstr "register"
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:41
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:70
 msgid "years old"
-msgstr ""
+msgstr "years old"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:48
 msgid "Bio"
-msgstr ""
+msgstr "Bio"
 
 #: /Users/magdalenanoffke/Documents/dev/euth_wagtail/euth_wagtail/euth/users/templates/euth_users/user_detail.html.py:85
 #, python-format
 msgid "%(username)s follows no projects at the moment."
-msgstr ""
+msgstr "%(username)s follows no projects at the moment."
 
 #~ msgid "English"
 #~ msgstr "English"
