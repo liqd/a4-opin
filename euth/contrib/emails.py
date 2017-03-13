@@ -109,6 +109,23 @@ class Email():
         return mails
 
 
+class SingleTemplateMixin():
+    def render(self, template_name, context):
+        languages = [get_language(), self.fallback_language]
+        template = select_template([
+            'emails/{}.{}.email'.format(template_name, lang)
+            for lang in languages
+        ])
+
+        parts = []
+        for part_type in ('subject', 'txt', 'html'):
+            context.update({'part_type': part_type})
+            parts.append(template.render(context))
+            context.pop()
+
+        return tuple(parts)
+
+
 class ExternalNotification(Email):
     email_attr_name = 'email'
 
