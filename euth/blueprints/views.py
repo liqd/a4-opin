@@ -1,4 +1,3 @@
-from django.core.urlresolvers import reverse
 from django.template import Context
 from django.views import generic
 from rules.contrib import views as rules_views
@@ -8,10 +7,12 @@ from euth.dashboard.views import DashboardBaseMixin
 from . import blueprints, forms
 
 
-def filter_blueprints(aim, result, experience, motivation):
+def filter_blueprints(aim, result, experience, motivation,
+                      options=blueprints.blueprints,
+                      fallbacks=blueprints.fallbacks):
     candidates = []
 
-    for name, blueprint in blueprints.blueprints:
+    for name, blueprint in options:
         if aim not in blueprint.requirements.aims:
             continue
 
@@ -27,7 +28,8 @@ def filter_blueprints(aim, result, experience, motivation):
         candidates.append((name, blueprint))
 
     if not candidates:
-        candidates.append(blueprints.get_fallback_blueprint(aim))
+        name = fallbacks[aim]
+        candidates.append((name, dict(options)[name]))
 
     return candidates
 
@@ -35,13 +37,9 @@ def filter_blueprints(aim, result, experience, motivation):
 class SuggestFormView(DashboardBaseMixin,
                       rules_views.PermissionRequiredMixin,
                       generic.FormView):
-    template_name = 'euth_blueprintsuggest/form.html'
+    template_name = 'euth_blueprints/form.html'
     form_class = forms.GetSuggestionForm
     permission_required = 'euth_organisations.initiate_project'
-
-    def get_success_url(self):
-        return reverse('blueprintsuggest-results',
-                       kwargs={'organisation_slug': self.organisation.slug})
 
     def form_valid(self, form):
         context = {
@@ -53,7 +51,7 @@ class SuggestFormView(DashboardBaseMixin,
         context = Context(context)
         return self.response_class(
             request=self.request,
-            template='euth_blueprintsuggest/result.html',
+            template='euth_blueprints/result.html',
             context=context
         )
 

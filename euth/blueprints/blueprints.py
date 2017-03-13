@@ -57,9 +57,9 @@ class Aim(Enum):
 
 @unique
 class Result(Enum):
-    collect_ideas = 3, _('Collection of ideas or arguments')
+    collect_ideas = 3, _('Collection of commented ideas')
     majority_vote = 2, _('Majority vote')
-    weighted_arguments = 1, _('Weighted arguments')
+    both = 1, _('Both')
 
     def __new__(cls, value, label):
         obj = object.__new__(cls)
@@ -72,7 +72,7 @@ class Result(Enum):
 class Experience(Enum):
     five_projects = 4, _('More than 5 participative projects')
     two_projects = 3, _('More than 2 participative projects')
-    one_project = 2, ('1-2 partcipative projects')
+    one_project = 2, ('1-2 participative projects')
     no_projects = 1, ('I have no experiences in organising participative '
                       ' projects')
 
@@ -83,12 +83,13 @@ class Experience(Enum):
         return obj
 
 
+@unique
 class Motivation(Enum):
-    high = 4, _('High motivation')
-    medium = 3, _('Medium motivation')
+    high = 5, _('High motivation')
+    medium = 4, _('Medium motivation')
     low = 2, _('Low motivation')
     not_found = 1, _('No motivation')
-    unkown = 2, _('I don\'t know.')
+    unkown = 3, _('I don\'t know.')
 
     def __new__(cls, value, label):
         obj = object.__new__(cls)
@@ -242,15 +243,11 @@ blueprints = [
 ]
 
 
-def get_fallback_blueprint(aim):
-    fallbacks = {
-        Aim.collect_ideas: 'brainstorming',
-        Aim.discuss_topic: 'brainstorming',
-        Aim.design_place: 'map-brainstorming',
-        Aim.run_survey: 'flashpoll',
-        Aim.run_competition: 'agenda-setting',
-        Aim.work_document: 'commenting-text'
-    }
-
-    name = fallbacks[aim]
-    return name, dict(blueprints)[name]
+fallbacks = {
+    Aim.collect_ideas: 'brainstorming',
+    Aim.discuss_topic: 'brainstorming',
+    Aim.design_place: 'map-brainstorming',
+    Aim.run_survey: 'flashpoll',
+    Aim.run_competition: 'agenda-setting',
+    Aim.work_document: 'commenting-text'
+}

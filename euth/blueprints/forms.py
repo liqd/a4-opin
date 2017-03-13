@@ -35,7 +35,8 @@ class GetSuggestionForm(forms.Form):
         choices=[(m.value, m.label) for m in blueprints.Motivation],
         required=False,
         widget=forms.RadioSelect,
-        label=_('How dedicated are your participants?')
+        label=_('How motivated are your participants to take part in a '
+                ' participative process?')
     )
 
     def clean_aim(self, *args, **kwargs):
