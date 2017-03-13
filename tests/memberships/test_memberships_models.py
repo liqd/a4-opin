@@ -9,8 +9,11 @@ def test_request_membership(project, user):
     request = models.Request.objects.request_membership(project, user)
     assert bool(models.Request.objects.filter(pk=request.pk))
     assert len(mail.outbox) == 1
-    subject = 'Access requested to {name} on example.com'
-    assert mail.outbox[0].subject == subject.format(name=project.name)
+    subject = (
+        'A user requested memberhip to your private project on '
+        'example.com'
+    )
+    assert mail.outbox[0].subject == subject
     assert mail.outbox[0].to == [project.moderators.first().email]
 
 
@@ -30,7 +33,7 @@ def test_request_accept(membership_request):
     assert not bool(models.Request.objects.filter(pk=request.pk))
     assert request.creator in project.participants.all()
     assert len(mail.outbox) == 1
-    subject = 'Your membership request to {name} accepted'
+    subject = 'Your membership request on example.com was accepted'
     assert mail.outbox[0].subject == subject.format(name=project.name)
 
 

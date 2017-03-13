@@ -2,8 +2,17 @@ import re
 
 from allauth.account.adapter import DefaultAccountAdapter
 
-from euth.contrib.emails import send_email_with_template
+from euth.contrib.emails import OpinEmail, UserNotification
 from euth.users import USERNAME_REGEX
+
+
+class EuthAccountEmail(OpinEmail, UserNotification):
+    def get_receivers(self):
+        return [self.object]
+
+    @property
+    def template_name(self):
+        return self.kwargs['template_name']
 
 
 class EuthAccountAdapter(DefaultAccountAdapter):
@@ -17,7 +26,12 @@ class EuthAccountAdapter(DefaultAccountAdapter):
             return url
 
     def send_mail(self, template_prefix, email, context):
-        return send_email_with_template([email], template_prefix, context)
+        user = context['user']
+        return EuthAccountEmail.send(
+            user,
+            template_name=template_prefix,
+            **context
+        )
 
     def get_email_confirmation_redirect_url(self, request):
         if 'next' in request.GET:

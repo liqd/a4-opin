@@ -76,8 +76,9 @@ def test_register(client, signup_url):
     assert len(mail.outbox) == 1
     confirmation_url = re.search(
         r'(http://testserver/.*/)',
-        str(mail.outbox[0].message())
+        str(mail.outbox[0].body)
     ).group(0)
+
     confirm_email_response = client.get(confirmation_url)
     assert confirm_email_response.status_code == 200
     assert EmailAddress.objects.filter(
@@ -111,7 +112,7 @@ def test_register_with_next(client, signup_url):
     assert len(mail.outbox) == 1
     confirmation_url = re.search(
         r'(http://testserver/.*/?next=/en/projects/pppp/)',
-        str(mail.outbox[0].message())
+        str(mail.outbox[0].body)
     ).group(0)
     confirm_email_response = client.get(confirmation_url)
     assert confirm_email_response.status_code == 200
@@ -171,7 +172,7 @@ def test_reset(client, user):
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [user.email]
     reset_url = re.search(
-        r'(http://testserver/.*/)', str(mail.outbox[0].message())
+        r'(http://testserver/.*/)', str(mail.outbox[0].body)
     ).group(0)
     response = client.get(reset_url)
     assert response.status_code == 200

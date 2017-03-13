@@ -38,7 +38,7 @@ def notify_creator(action):
     if hasattr(action.target, 'creator'):
         creator = action.target.creator
         if creator.get_notifications and not creator == action.actor:
-            emails.notify_users_on_create_action(action, [creator.email])
+            emails.notify_users_on_create_action(action, [creator])
 
 
 def notify_moderators(action):

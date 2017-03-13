@@ -1,8 +1,0 @@
-Dear {{ receiver.username }},
-
-
-Your membership request was approved, you are now participant of
-{{ request.project.name }}. Visit the project page using the link below:
-
-
-{{ email.get_host }}{{ request.project.get_absolute_url }}

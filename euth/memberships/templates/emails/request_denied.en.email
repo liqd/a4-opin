@@ -1,0 +1,19 @@
+{% extends 'email_base.'|add:part_type %}
+
+{% block subject %}
+Your membership request on {{ site.name }} was denied.
+{% endblock %}
+
+{% block headline %}
+Your request to become a member of "{{ request.project.name }}" was denied.
+{% endblock  %}
+
+{% block content %}
+Your membership has been declined by a moderator of the project "{{ request.project.name }}". You are free to create a new request on the projects page if you still want to participate.
+{% endblock %}
+
+{% block cta %}{% endblock %}
+
+{% block reason %}
+This	email	was	sent	to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
+{% endblock %}

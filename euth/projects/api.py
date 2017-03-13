@@ -3,8 +3,9 @@ from rest_framework import permissions, viewsets
 from adhocracy4.projects.models import Project
 
 from euth.contrib.api.permissions import IsInitiatorOrSuperUser
-from euth.contrib.emails import send_email_with_template
 from euth.users.models import User
+
+from . import emails
 from .serializers import ProjectSerializer
 
 
@@ -23,13 +24,9 @@ class ProjectViewSet(viewsets.mixins.UpdateModelMixin,
         new_moderator = post_moderators - moderators
         if len(new_moderator) == 1:
             new_moderator = User.objects.get(id__exact=new_moderator.pop())
-
-            send_email_with_template(
-                [new_moderator.email],
-                'notify_new_moderator',
-                {
-                    'project': serializer.instance,
-                }
+            emails.ModeratorAddedEmail.send(
+                serializer.instance,
+                user=new_moderator
             )
 
         serializer.save()

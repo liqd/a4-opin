@@ -150,7 +150,7 @@ class InitiatorNotification(Email):
         return self.object.organisation.initiators.all()
 
 
-class OpinEmail(Email):
+class OpinEmail(SingleTemplateMixin, Email):
     def get_attachments(self):
         attachments = super().get_attachments()
         filename = finders.find('images/logo.png')

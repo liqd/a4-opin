@@ -1,0 +1,20 @@
+{% extends 'email_base.'|add:part_type %}
+
+{% block subject %}
+Your membership request on {{ site.name }} was accepted
+{% endblock %}
+
+{% block headline %}
+Your membership request to "{{ request.project.name }}" has been accepted
+{% endblock  %}
+
+{% block content %}
+Your membership request was approved by a moderator. You can now start your participation on the project. In this private projects your contributions will only be visible to other members of the project and the moderators.
+{% endblock %}
+
+{% block cta_url %}{{ email.get_host }}{{ request.project.get_absolute_url }}{% endblock %}
+{% block cta_label %}Go to project{% endblock %}
+
+{% block reason %}
+This	email	was	sent	to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
+{% endblock %}
