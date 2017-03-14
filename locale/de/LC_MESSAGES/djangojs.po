@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-19 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Philipp <vellerphilipp@googlemail.com>, 2016\n"
+"Last-Translator: Moritz Ritter <moritz.ritter@liqd.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,70 +27,70 @@ msgstr[1] "Kommentare"
 #: comments/static/comments/react_comments.js:102
 #: comments/static/comments/react_comments.js:496
 msgid "Your comment here"
-msgstr ""
+msgstr "Schreibe hier deinen Kommentar"
 
 #: comments/static/comments/react_comments.js:200
 #, javascript-format
 msgid "view %s reply"
 msgid_plural "view %s replies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Zeige %s Antworten"
+msgstr[1] "Zeige %s Antworten"
 
 #: comments/static/comments/react_comments.js:212
 msgid "Are you sure you want to report this item?"
-msgstr ""
+msgstr "Bist du sicher, dass du diesen Inhalt melden willst?"
 
 #: comments/static/comments/react_comments.js:220
 msgid "Do you really want to delete this comment?"
-msgstr ""
+msgstr "Willst du diesen Kommentar wirklich löschen?"
 
 #: comments/static/comments/react_comments.js:224
 #: comments/static/comments/react_comments.js:300
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: comments/static/comments/react_comments.js:225
 #: reports/static/reports/react_reports.js:99
 msgid "Abort"
-msgstr ""
+msgstr "Abbrechen"
 
 #: comments/static/comments/react_comments.js:256
 msgid "Latest edit"
-msgstr ""
+msgstr "Zuletzt bearbeitet am"
 
 #: comments/static/comments/react_comments.js:290
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: comments/static/comments/react_comments.js:309
 msgid "Report"
-msgstr ""
+msgstr "Melden"
 
 #: comments/static/comments/react_comments.js:338
 msgid "Answer"
-msgstr ""
+msgstr "Antwort verfassen"
 
 #: comments/static/comments/react_comments.js:359
 msgid "Your reply here"
-msgstr ""
+msgstr "Verfasse deine Antwort hier"
 
 #: comments/static/comments/react_comments.js:455
 #: comments/static/comments/react_comments.js:505
 msgid "post"
-msgstr ""
+msgstr "Speichern"
 
 #: comments/static/comments/react_comments.js:462
 msgid "Please login to comment"
-msgstr ""
+msgstr "Bitte melde dich an, um zu kommentieren"
 
 #: comments/static/comments/react_comments.js:509
 msgid "cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: reports/static/reports/react_reports.js:78
 msgid "Your message here"
-msgstr ""
+msgstr "Verfasse deine Nachricht hier"
 
 #: reports/static/reports/react_reports.js:93
 msgid "Send Report"
-msgstr ""
+msgstr "Absenden"

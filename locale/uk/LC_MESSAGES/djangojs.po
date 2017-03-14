@@ -10,18 +10,19 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-19 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
+"Language-Team: Ukrainian (https://www.transifex.com/liqd/teams/68346/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: comments/static/comments/react_comments.js:96
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: comments/static/comments/react_comments.js:102
 #: comments/static/comments/react_comments.js:496
@@ -34,6 +35,7 @@ msgid "view %s reply"
 msgid_plural "view %s replies"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: comments/static/comments/react_comments.js:212
 msgid "Are you sure you want to report this item?"
