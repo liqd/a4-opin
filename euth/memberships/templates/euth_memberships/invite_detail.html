@@ -1,0 +1,5 @@
+{% extends "euth_memberships/invite_base.html" %}
+{% load i18n %}
+{% block invite_action %}
+<a class="btn btn-primary" href="{% url 'account_login' %}?next={% url 'membership-invite-detail' invite_token=invite.token %}">{% trans "Proceed to login" %}</a>
+{% endblock %}

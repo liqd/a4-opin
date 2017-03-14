@@ -37,7 +37,22 @@ class RequestsProjectDetailView(prj_views.ProjectDetailView):
                             project_slug=self.project.slug)
 
 
-class InviteView(mixin.LoginRequiredMixin, generic.UpdateView):
+class InviteDetailView(generic.DetailView):
+    model = models.Invite
+    slug_field = 'token'
+    slug_url_kwarg = 'invite_token'
+
+    def dispatch(self, request, invite_token, *args, **kwargs):
+        if request.user.is_authenticated():
+            return redirect(
+                'membership-invite-update',
+                invite_token=invite_token
+            )
+        else:
+            return super().dispatch(request, *args, **kwargs)
+
+
+class InviteUpdateView(mixin.LoginRequiredMixin, generic.UpdateView):
     model = models.Invite
     form_class = forms.InviteForm
     slug_field = 'token'

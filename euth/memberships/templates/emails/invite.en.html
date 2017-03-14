@@ -7,7 +7,7 @@ Your have been invited to {{ invite.project.name }}
 <p>Dear {{ receiver }},</p>
 
 <p>
-    <a href="{{ invite.project.organisation.get_absolute_url }}">{{ invite.project.organisation }}</a>
+    <a href="{{ email.get_host }}{{ invite.project.organisation.get_absolute_url }}">{{ invite.project.organisation }}</a>
     has invited you to join {{ invite.project.name }}.
 </p>
 

@@ -82,8 +82,25 @@ def test_create_request(client, project, user):
 
 
 @pytest.mark.django_db
+def test_view_invite(client, invite, user):
+    url = reverse('membership-invite-detail',
+                  kwargs={'invite_token': invite.token})
+    response = client.get(url)
+    assert response.status_code == 200
+    assert (
+        'euth_projects/includes/project_hero_unit.html'
+        in templates_used(response)
+    )
+    assert 'euth_memberships/invite_detail.html' in templates_used(response)
+
+    client.login(username=user.email, password='password')
+    response = client.get(url)
+    assert redirect_target(response) == 'membership-invite-update'
+
+
+@pytest.mark.django_db
 def test_accept_invite(client, invite, user):
-    url = reverse('membership-invite-accept',
+    url = reverse('membership-invite-update',
                   kwargs={'invite_token': invite.token})
     response = client.get(url)
     assert redirect_target(response) == 'account_login'
