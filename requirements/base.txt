@@ -15,7 +15,7 @@ django-autoslug==1.9.3
 djangorestframework==3.5.1
 python-magic==0.4.12
 html5lib==0.999999999
-bleach==1.4.3
+bleach==2.0.0
 django-autofixture==0.12.1
 rules==1.1.1
 jsonfield==1.0.3
