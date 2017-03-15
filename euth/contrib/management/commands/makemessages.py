@@ -1,8 +1,11 @@
-from os.path import relpath
+from os import path
+from django.conf import settings
 from django.core.management.commands import makemessages
-import adhocracy4
-import euth
-import euth_wagtail
+
+
+def get_module_dir(name):
+    module = __import__(name)
+    return path.dirname(module.__file__)
 
 
 class Command(makemessages.Command):
@@ -10,10 +13,20 @@ class Command(makemessages.Command):
         makemessages.Command.msgmerge_options + ['--no-fuzzy-matching']
     )
 
+    def handle(self, *args, **options):
+        if options['domain'] == 'djangojs':
+            if options['extensions'] is None:
+                options['extensions'] = ['js', 'jsx']
+        return super().handle(*args, **options)
+
     def find_files(self, root):
-        a4_path = super().find_files(adhocracy4.__path__[0])
-        euth_path = super().find_files(relpath(euth.__path__[0]))
-        euth_wagtail_path = super().find_files(
-            relpath(euth_wagtail.__path__[0])
+        a4js_paths = super().find_files(
+            path.join(settings.BASE_DIR, 'node_modules', 'adhocracy4')
         )
-        return a4_path + euth_path + euth_wagtail_path
+        a4_paths = super().find_files(get_module_dir('adhocracy4'))
+        euth_paths = super().find_files(path.relpath(get_module_dir('euth')))
+        euth_wagtail_paths = super().find_files(
+            path.relpath(get_module_dir('euth_wagtail'))
+        )
+
+        return a4js_paths + a4_paths + euth_paths + euth_wagtail_paths
