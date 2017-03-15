@@ -11,9 +11,20 @@
 ### Extracting strings from source code
 
   - required if msg_ids were added or changed
-  - pull translated strings from transifex `tx pull -a`
-  - run make messages for python/html `python manage.py makemessages -d django`
-    and javascript `python makemessages -d djangojs`
+  - pull translated strings from transifex
+
+        tx pull -a
+
+  - run make messages for python/html (domain django)
+    and javascript (domain djangojs)
+
+        python makemessages -d djangojs
+        python manage.py makemessages -d django
+
+  - replace absolute paths for a4 strings with relatives
+
+       sed -i 's%#: .*/adhocracy4%#: adhocracy4%' locale/*/LC_MESSAGES/django*.po
+
   - for en_GB sync msg_ids with msg_strs
 
         msgen locale/en_GB/LC_MESSAGES/django.po -o locale/en_GB/LC_MESSAGES/django.po
@@ -21,27 +32,44 @@
 
   - after chaning msg_ids, check if translations (except en_GB) need manual merge
   - commit changes
-  - always push en_GB to transifex `tx push -s`
-  - after manuall merge push other languages `tx push -t`
+  - always push en_GB to transifex
+
+        tx push -s
+
+  - after manuall merge push other languages
+
+        tx push -t
 
 
 ### Pulling new translations
 
   - required if translators worked on transifex
-  - update all languages except en_GB `tx pull -a`
+  - update all languages except en_GB
+
+        tx pull -a
 
 ### Compiling local translations
 
    - required to see translations on local server
-   - run `python manage.py compilemessages`
+
+         python manage.py compilemessages
+
    - do not commit those files
    - for dev, stage and prod a build server must do this
 
 ### Shortcuts
 
-   - pulling and compiling `make locales-build`
-   - extracting and update for en_GB `make locales-collect`
-   - extracting and compiling 'make locales`
+   - pulling and compiling
+
+         make locales-build
+
+   - extracting and update for en_GB
+
+         make locales-collect
+
+   - extracting and compiling
+
+         make locales
 
 ## Caveats
 
