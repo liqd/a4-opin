@@ -1,5 +1,4 @@
 .dropdown-menu > li > a {
-    border-bottom: 2px solid $gray-lighter;
     @include rem(padding, 7px 0);
     @include rem(margin, 0 15px);
     text-align: left;
@@ -7,4 +6,5 @@
 
 .dropdown-menu > :last-child > a {
     border-bottom: 0;
+    padding-bottom: 15px;
 }
