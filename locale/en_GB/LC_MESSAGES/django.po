@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 15:16+0000\n"
+"POT-Creation-Date: 2017-03-15 08:51+0000\n"
 "PO-Revision-Date: 2017-03-10 16:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,30 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.11\n"
-
-#: adhocracy4/comments/models.py:35
-msgid "Comment"
-msgstr "Comment"
-
-#: adhocracy4/comments/models.py:36
-#: euth/ideas/views.py:47
-msgid "Comments"
-msgstr "Comments"
-
-#: adhocracy4/comments/serializers.py:24
-msgid "unknown user"
-msgstr "unknown user"
-
-#: adhocracy4/images/fields.py:60
-#, python-brace-format
-msgid ""
-"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
-"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
-"The file size should be max. {max_size_mb} MB."
-msgstr ""
-"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
-"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
-"The file size should be max. {max_size_mb} MB."
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 msgid "Remove the picture"
@@ -62,8 +38,30 @@ msgstr ""
 "            at the end of this page.\n"
 "            "
 
-#: adhocracy4/images/validators.py:19
-#: euth/offlinephases/validators.py:20
+#: adhocracy4/comments/models.py:35
+msgid "Comment"
+msgstr "Comment"
+
+#: adhocracy4/comments/models.py:36 euth/ideas/views.py:47
+msgid "Comments"
+msgstr "Comments"
+
+#: adhocracy4/comments/serializers.py:24
+msgid "unknown user"
+msgstr "unknown user"
+
+#: adhocracy4/images/fields.py:60
+#, python-brace-format
+msgid ""
+"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
+"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
+"The file size should be max. {max_size_mb} MB."
+msgstr ""
+"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
+"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
+"The file size should be max. {max_size_mb} MB."
+
+#: adhocracy4/images/validators.py:19 euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Unsupported file format. Supported formats are {}."
 
@@ -157,8 +155,7 @@ msgstr ""
 "for your project including title and short description will always be "
 "visible to everyone"
 
-#: adhocracy4/projects/models.py:69
-#: euth/organisations/models.py:33
+#: adhocracy4/projects/models.py:69 euth/organisations/models.py:33
 msgid "Header image"
 msgstr "Header image"
 
@@ -177,117 +174,115 @@ msgstr[1] "%(number)d days left"
 msgid "a few hours left"
 msgstr "a few hours left"
 
-#: euth/blueprintsuggest/blueprints.py:16
+#: euth/blueprints/blueprints.py:16
 msgid "Create and gather new ideas or visions."
 msgstr "Create and gather new ideas or visions."
 
-#: euth/blueprintsuggest/blueprints.py:17
-#: euth/blueprintsuggest/blueprints.py:29
+#: euth/blueprints/blueprints.py:17 euth/blueprints/blueprints.py:29
 msgid "(Urban) planning processes"
 msgstr "(Urban) planning processes"
 
-#: euth/blueprintsuggest/blueprints.py:18
+#: euth/blueprints/blueprints.py:18
 msgid "Develop concepts or guiding principles"
 msgstr "Develop concepts or guiding principles"
 
-#: euth/blueprintsuggest/blueprints.py:22
+#: euth/blueprints/blueprints.py:22
 msgid "Gather feedback on a topic and discuss it in greater detail."
 msgstr "Gather feedback on a topic and discuss it in greater detail."
 
-#: euth/blueprintsuggest/blueprints.py:23
+#: euth/blueprints/blueprints.py:23
 msgid "Discuss existing concepts or plans"
 msgstr "Discuss existing concepts or plans"
 
-#: euth/blueprintsuggest/blueprints.py:24
+#: euth/blueprints/blueprints.py:24
 msgid "Develop solutions for existing problems"
 msgstr "Develop solutions for existing problems"
 
-#: euth/blueprintsuggest/blueprints.py:28
+#: euth/blueprints/blueprints.py:28
 msgid "Design a place."
 msgstr "Design a place."
 
-#: euth/blueprintsuggest/blueprints.py:30
+#: euth/blueprints/blueprints.py:30
 msgid "Set the agenda of an event"
 msgstr "Set the agenda of an event"
 
-#: euth/blueprintsuggest/blueprints.py:34
+#: euth/blueprints/blueprints.py:34
 msgid "Learn about what people like most."
 msgstr "Learn about what people like most."
 
-#: euth/blueprintsuggest/blueprints.py:35
+#: euth/blueprints/blueprints.py:35
 msgid "Majority votes"
 msgstr "Majority votes"
 
-#: euth/blueprintsuggest/blueprints.py:35
+#: euth/blueprints/blueprints.py:35
 msgid "Opinion polls"
 msgstr "Opinion polls"
 
-#: euth/blueprintsuggest/blueprints.py:39
+#: euth/blueprints/blueprints.py:39
 msgid "Run a competition."
 msgstr "Run a competition."
 
-#: euth/blueprintsuggest/blueprints.py:40
+#: euth/blueprints/blueprints.py:40
 msgid "All sorts of competitions, like idea contests etc."
 msgstr "All sorts of competitions, like idea contests etc."
 
-#: euth/blueprintsuggest/blueprints.py:45
+#: euth/blueprints/blueprints.py:45
 msgid "Work collaboratively on a text document."
 msgstr "Work collaboratively on a text document."
 
-#: euth/blueprintsuggest/blueprints.py:46
+#: euth/blueprints/blueprints.py:46
 msgid "Draft or revise statutes, articles, or charters"
 msgstr "Draft or revise statutes, articles, or charters"
 
-#: euth/blueprintsuggest/blueprints.py:47
+#: euth/blueprints/blueprints.py:47
 msgid "Involve different authors in writing a shared text"
 msgstr "Involve different authors in writing a shared text"
 
-#: euth/blueprintsuggest/blueprints.py:60
-msgid "Collection of ideas or arguments"
-msgstr "Collection of ideas or arguments"
+#: euth/blueprints/blueprints.py:60
+msgid "Collection of commented ideas"
+msgstr "Collection of commented ideas"
 
-#: euth/blueprintsuggest/blueprints.py:61
+#: euth/blueprints/blueprints.py:61
 msgid "Majority vote"
 msgstr "Majority vote"
 
-#: euth/blueprintsuggest/blueprints.py:62
-msgid "Weighted arguments"
-msgstr "Weighted arguments"
+#: euth/blueprints/blueprints.py:62
+msgid "Both"
+msgstr "Both"
 
-#: euth/blueprintsuggest/blueprints.py:73
+#: euth/blueprints/blueprints.py:73
 msgid "More than 5 participative projects"
 msgstr "More than 5 participative projects"
 
-#: euth/blueprintsuggest/blueprints.py:74
+#: euth/blueprints/blueprints.py:74
 msgid "More than 2 participative projects"
 msgstr "More than 2 participative projects"
 
-#: euth/blueprintsuggest/blueprints.py:87
+#: euth/blueprints/blueprints.py:88
 msgid "High motivation"
 msgstr "High motivation"
 
-#: euth/blueprintsuggest/blueprints.py:88
+#: euth/blueprints/blueprints.py:89
 msgid "Medium motivation"
 msgstr "Medium motivation"
 
-#: euth/blueprintsuggest/blueprints.py:89
+#: euth/blueprints/blueprints.py:90
 msgid "Low motivation"
 msgstr "Low motivation"
 
-#: euth/blueprintsuggest/blueprints.py:90
+#: euth/blueprints/blueprints.py:91
 msgid "No motivation"
 msgstr "No motivation"
 
-#: euth/blueprintsuggest/blueprints.py:91
+#: euth/blueprints/blueprints.py:92
 msgid "I don't know."
 msgstr "I don't know."
 
-#: euth/blueprintsuggest/blueprints.py:116
+#: euth/blueprints/blueprints.py:117
 msgid "Brainstorming"
 msgstr "Brainstorming"
 
-#: euth/blueprintsuggest/blueprints.py:117
-#: euth/blueprintsuggest/blueprints.py:134
+#: euth/blueprints/blueprints.py:118 euth/blueprints/blueprints.py:135
 msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
@@ -295,23 +290,23 @@ msgstr ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
 
-#: euth/blueprintsuggest/blueprints.py:133
+#: euth/blueprints/blueprints.py:134
 msgid "Spatial Brainstorming"
 msgstr "Spatial Brainstorming"
 
-#: euth/blueprintsuggest/blueprints.py:150
+#: euth/blueprints/blueprints.py:151
 msgid "Idea Challenge"
 msgstr "Idea Challenge"
 
-#: euth/blueprintsuggest/blueprints.py:151
+#: euth/blueprints/blueprints.py:152
 msgid "Run a challenge and find the best ideas to solve a particular problem."
 msgstr "Run a challenge and find the best ideas to solve a particular problem."
 
-#: euth/blueprintsuggest/blueprints.py:168
+#: euth/blueprints/blueprints.py:169
 msgid "Spatial Idea Challenge"
 msgstr "Spatial Idea Challenge"
 
-#: euth/blueprintsuggest/blueprints.py:169
+#: euth/blueprints/blueprints.py:170
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
@@ -319,11 +314,11 @@ msgstr ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
 
-#: euth/blueprintsuggest/blueprints.py:187
+#: euth/blueprints/blueprints.py:188
 msgid "Agenda Setting"
 msgstr "Agenda Setting"
 
-#: euth/blueprintsuggest/blueprints.py:188
+#: euth/blueprints/blueprints.py:189
 msgid ""
 "You can involve everyone in planning a meeting. Collect ideas for an "
 "upcoming event and let your participants vote on the topics you want to "
@@ -333,11 +328,11 @@ msgstr ""
 "upcoming event and let your participants vote on the topics you want to "
 "tackle."
 
-#: euth/blueprintsuggest/blueprints.py:206
+#: euth/blueprints/blueprints.py:207
 msgid "Text Review"
 msgstr "Text Review"
 
-#: euth/blueprintsuggest/blueprints.py:207
+#: euth/blueprints/blueprints.py:208
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
@@ -345,11 +340,11 @@ msgstr ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
 
-#: euth/blueprintsuggest/blueprints.py:225
+#: euth/blueprints/blueprints.py:226
 msgid "Poll"
 msgstr "Poll"
 
-#: euth/blueprintsuggest/blueprints.py:226
+#: euth/blueprints/blueprints.py:227
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members. Via the OPIN polling app for iOS and "
@@ -359,79 +354,81 @@ msgstr ""
 "topics from the public or your members. Via the OPIN polling app for iOS and "
 "Android these polls are also accessible on smartphones."
 
-#: euth/blueprintsuggest/forms.py:23
+#: euth/blueprints/forms.py:23
 msgid "What is the desired outcome of the project?"
 msgstr "What is the desired outcome of the project?"
 
-#: euth/blueprintsuggest/forms.py:30
+#: euth/blueprints/forms.py:30
 msgid ""
 "How many participative projects have you organised and managed in the past?"
 msgstr ""
 "How many participative projects have you organised and managed in the past?"
 
-#: euth/blueprintsuggest/forms.py:38
-msgid "How dedicated are your participants?"
-msgstr "How dedicated are your participants?"
+#: euth/blueprints/forms.py:38
+msgid ""
+"How motivated are your participants to take part in a  participative process?"
+msgstr ""
+"How motivated are your participants to take part in a  participative process?"
 
-#: euth/blueprintsuggest/forms.py:45
+#: euth/blueprints/forms.py:46
 msgid "Invalid aim selected"
 msgstr "Invalid aim selected"
 
-#: euth/blueprintsuggest/forms.py:55
+#: euth/blueprints/forms.py:56
 msgid "Invalid selection"
 msgstr "Invalid selection"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:4
+#: euth/blueprints/templates/euth_blueprints/form.html.py:4
 msgid "Find the right project template"
 msgstr "Find the right project template"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:24
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:71
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:8
+#: euth/blueprints/templates/euth_blueprints/form.html.py:24
+#: euth/blueprints/templates/euth_blueprints/form.html.py:71
+#: euth/blueprints/templates/euth_blueprints/result.html.py:8
 msgid "Decision support tool"
 msgstr "Decision support tool"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:26
+#: euth/blueprints/templates/euth_blueprints/form.html.py:26
 msgid "What is the aim of your participation project?"
 msgstr "What is the aim of your participation project?"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:28
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:56
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:88
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:47
+#: euth/blueprints/templates/euth_blueprints/form.html.py:28
+#: euth/blueprints/templates/euth_blueprints/form.html.py:56
+#: euth/blueprints/templates/euth_blueprints/form.html.py:88
+#: euth/blueprints/templates/euth_blueprints/result.html.py:47
 msgid "Aim"
 msgstr "Aim"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:29
+#: euth/blueprints/templates/euth_blueprints/form.html.py:29
 msgid "Examples"
 msgstr "Examples"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:57
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:73
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:89
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:48
+#: euth/blueprints/templates/euth_blueprints/form.html.py:57
+#: euth/blueprints/templates/euth_blueprints/form.html.py:73
+#: euth/blueprints/templates/euth_blueprints/form.html.py:89
+#: euth/blueprints/templates/euth_blueprints/result.html.py:48
 msgid "Fine tuning"
 msgstr "Fine tuning"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:58
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:90
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:49
+#: euth/blueprints/templates/euth_blueprints/form.html.py:58
+#: euth/blueprints/templates/euth_blueprints/form.html.py:90
+#: euth/blueprints/templates/euth_blueprints/result.html.py:49
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_result_tab.html.py:6
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:13
 #: euth/projects/templates/euth_projects/project_detail.html.py:41
 msgid "Result"
 msgstr "Result"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:63
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:94
+#: euth/blueprints/templates/euth_blueprints/form.html.py:63
+#: euth/blueprints/templates/euth_blueprints/form.html.py:94
 msgid "Proceed"
 msgstr "Proceed"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/form.html.py:70
+#: euth/blueprints/templates/euth_blueprints/form.html.py:70
 msgid "Back"
 msgstr "Back"
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:11
+#: euth/blueprints/templates/euth_blueprints/result.html.py:11
 msgid ""
 "\n"
 "            This template matches your criterias!\n"
@@ -449,7 +446,7 @@ msgstr[1] ""
 "            These templates match your criterias!\n"
 "            "
 
-#: euth/blueprintsuggest/templates/euth_blueprintsuggest/result.html.py:37
+#: euth/blueprints/templates/euth_blueprints/result.html.py:37
 msgid "Use this template"
 msgstr "Use this template"
 
@@ -507,7 +504,23 @@ msgstr "End time can not be smaller than the start time."
 msgid "The title of your organisation"
 msgstr "The title of your organisation"
 
-#: euth/dashboard/forms.py:456
+#: euth/dashboard/forms.py:450
+msgid "title"
+msgstr "title"
+
+#: euth/dashboard/forms.py:453
+msgid "description why"
+msgstr "description why"
+
+#: euth/dashboard/forms.py:458
+msgid "description how"
+msgstr "description how"
+
+#: euth/dashboard/forms.py:461
+msgid "description"
+msgstr "description"
+
+#: euth/dashboard/forms.py:463
 msgid "More info about the organisation / Short text for organisation overview"
 msgstr ""
 "More info about the organisation / Short text for organisation overview"
@@ -600,7 +613,7 @@ msgid "edit documentation"
 msgstr "edit documentation"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:5
-#: euth/memberships/templates/euth_memberships/invite_form.html.py:10
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:10
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:10
 #: euth/projects/templates/euth_projects/project_detail.html.py:39
 msgid "Information"
@@ -986,22 +999,36 @@ msgstr "Get quantative feeback by rating the collected ideas on a map."
 msgid "view on list"
 msgstr "view on list"
 
-#: euth/memberships/templates/euth_memberships/invite_form.html.py:4
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:4
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:4
 #, python-format
 msgid " Private project: %(project)s"
 msgstr " Private project: %(project)s"
 
-#: euth/memberships/templates/euth_memberships/invite_form.html.py:15
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:15
 #, python-format
 msgid " Do you want to join %(project)s?"
 msgstr " Do you want to join %(project)s?"
 
-#: euth/memberships/templates/euth_memberships/invite_form.html.py:23
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:19
+msgid ""
+"You were invited by the initiator of the project. If you accept you will be "
+"able to participate in the project. If you decline the invitation, you can "
+"also ask for membership at a later time."
+msgstr ""
+"You were invited by the initiator of the project. If you accept you will be "
+"able to participate in the project. If you decline the invitation, you can "
+"also ask for membership at a later time."
+
+#: euth/memberships/templates/euth_memberships/invite_detail.html.py:4
+msgid "Proceed to login"
+msgstr "Proceed to login"
+
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:6
 msgid "Accept"
 msgstr "Accept"
 
-#: euth/memberships/templates/euth_memberships/invite_form.html.py:24
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:7
 msgid "Decline"
 msgstr "Decline"
 
@@ -1728,6 +1755,15 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
 msgstr "Login with"
+
+#~ msgid "Collection of ideas or arguments"
+#~ msgstr "Collection of ideas or arguments"
+
+#~ msgid "Weighted arguments"
+#~ msgstr "Weighted arguments"
+
+#~ msgid "How dedicated are your participants?"
+#~ msgstr "How dedicated are your participants?"
 
 #~ msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
 #~ msgstr "%(actor)s %(verb)s %(action_object)s on %(target)s"
