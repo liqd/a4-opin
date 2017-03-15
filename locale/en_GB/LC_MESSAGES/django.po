@@ -1407,66 +1407,66 @@ msgstr "English"
 
 #: euth_wagtail/settings/base.py:229
 msgid "German"
-msgstr ""
+msgstr "German"
 
 #: euth_wagtail/settings/base.py:230
 msgid "Italien"
-msgstr ""
+msgstr "Italien"
 
 #: euth_wagtail/settings/base.py:231
 msgid "French"
-msgstr ""
+msgstr "French"
 
 #: euth_wagtail/settings/base.py:232
 msgid "Swedish"
-msgstr ""
+msgstr "Swedish"
 
 #: euth_wagtail/settings/base.py:233
 msgid "Slovene"
-msgstr ""
+msgstr "Slovene"
 
 #: euth_wagtail/settings/base.py:234
 msgid "Danish"
-msgstr ""
+msgstr "Danish"
 
 #: euth_wagtail/settings/base.py:235
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainian"
 
 #: euth_wagtail/settings/base.py:236
 msgid "Greek"
-msgstr ""
+msgstr "Greek"
 
 #: euth_wagtail/settings/base.py:237
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: euth_wagtail/templates/403.html.py:6
 msgid "You are not allowed to access this page."
-msgstr ""
+msgstr "You are not allowed to access this page."
 
 #: euth_wagtail/templates/404.html.py:6
 msgid "This page couldn’t be found."
-msgstr ""
+msgstr "This page couldn’t be found."
 
 #: euth_wagtail/templates/500.html.py:21
 #: euth_wagtail/templates/base_errors.html.py:13
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: euth_wagtail/templates/500.html.py:27
 #: euth_wagtail/templates/base_errors.html.py:19
 msgid "Sorry, something went wrong."
-msgstr ""
+msgstr "Sorry, something went wrong."
 
 #: euth_wagtail/templates/500.html.py:28
 msgid "Internal server error."
-msgstr ""
+msgstr "Internal server error."
 
 #: euth_wagtail/templates/500.html.py:29
 #: euth_wagtail/templates/base_errors.html.py:21
 msgid "Get back to OPIN.ME"
-msgstr ""
+msgstr "Get back to OPIN.ME"
 
 #: euth_wagtail/templates/account/account_inactive.html.py:5
 #: euth_wagtail/templates/account/account_inactive.html.py:10
@@ -1479,19 +1479,19 @@ msgstr "This account is inactive."
 
 #: euth_wagtail/templates/account/email.html.py:21
 msgid "Primary"
-msgstr ""
+msgstr "Primary"
 
 #: euth_wagtail/templates/account/email.html.py:24
 msgid "Verified"
-msgstr ""
+msgstr "Verified"
 
 #: euth_wagtail/templates/account/email.html.py:26
 msgid "Unverified"
-msgstr ""
+msgstr "Unverified"
 
 #: euth_wagtail/templates/account/email.html.py:31
 msgid "Make Primary"
-msgstr ""
+msgstr "Make Primary"
 
 #: euth_wagtail/templates/account/email.html.py:32
 msgid "Re-send Verification"
@@ -1500,23 +1500,23 @@ msgstr "Re-send Verification"
 #: euth_wagtail/templates/account/email.html.py:33
 #: euth_wagtail/templates/socialaccount/connections.html.py:31
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 #: euth_wagtail/templates/account/email.html.py:47
 msgid "Add another Email"
-msgstr ""
+msgstr "Add another Email"
 
 #: euth_wagtail/templates/account/email.html.py:51
 msgid "Add Email"
-msgstr ""
+msgstr "Add Email"
 
 #: euth_wagtail/templates/account/email.html.py:59
 msgid "Do you really want to remove the selected e-mail address?"
-msgstr ""
+msgstr "Do you really want to remove the selected e-mail address?"
 
 #: euth_wagtail/templates/account/email_confirm.html.py:6
 msgid "Activate your account"
-msgstr ""
+msgstr "Activate your account"
 
 #: euth_wagtail/templates/account/email_confirm.html.py:16
 #: euth_wagtail/templates/account/email_confirm.html.py:29
@@ -1529,10 +1529,12 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
 
 #: euth_wagtail/templates/account/email_confirm.html.py:25
 msgid "Activate account"
-msgstr ""
+msgstr "Activate account"
 
 #: euth_wagtail/templates/account/email_confirm.html.py:31
 #, python-format
@@ -1540,6 +1542,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 
 #: euth_wagtail/templates/account/login.html.py:8
 msgid "Login"
@@ -1548,7 +1552,7 @@ msgstr "Login"
 #: euth_wagtail/templates/account/login.html.py:36
 #: euth_wagtail/templates/account/password_reset.html.py:26
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: euth_wagtail/templates/account/login.html.py:45
 #: euth_wagtail/templates/account/password_change.html.py:27
@@ -1565,12 +1569,12 @@ msgstr "reset Password"
 #: euth_wagtail/templates/account/login.html.py:63
 #: euth_wagtail/templates/account/signup.html.py:99
 msgid "Login with social account"
-msgstr ""
+msgstr "Login with social account"
 
 #: euth_wagtail/templates/account/login.html.py:74
 #, python-format
 msgid "You are already logged in as %(user_display)s."
-msgstr ""
+msgstr "You are already logged in as %(user_display)s."
 
 #: euth_wagtail/templates/account/password_change.html.py:9
 msgid "Change your password"
@@ -1592,10 +1596,12 @@ msgid ""
 "Enter your e-mail address below, and we'll send you an e-mail allowing you "
 "to reset your password."
 msgstr ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset your password."
 
 #: euth_wagtail/templates/account/password_reset.html.py:30
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: euth_wagtail/templates/account/password_reset_done.html.py:6
 #: euth_wagtail/templates/account/password_reset_done.html.py:11
@@ -1607,10 +1613,12 @@ msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
 
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:12
 msgid "Bad Token"
-msgstr ""
+msgstr "Bad Token"
 
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:15
 #, python-format
@@ -1619,6 +1627,9 @@ msgid ""
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
 "a>."
 msgstr ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
 
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:48
 msgid "Reset password"
@@ -1627,7 +1638,7 @@ msgstr "Reset password"
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:53
 #: euth_wagtail/templates/account/password_reset_from_key_done.html.py:11
 msgid "Your password is now changed."
-msgstr ""
+msgstr "Your password is now changed."
 
 #: euth_wagtail/templates/account/password_set.html.py:6
 msgid "Set Password"
@@ -1639,7 +1650,7 @@ msgstr "Set password"
 
 #: euth_wagtail/templates/account/signup.html.py:5
 msgid "Register an account"
-msgstr ""
+msgstr "Register an account"
 
 #: euth_wagtail/templates/account/signup.html.py:85
 #, python-format
@@ -1649,15 +1660,19 @@ msgid ""
 "\">terms of use</a>.\n"
 "                "
 msgstr ""
+"\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
+"\">terms of use</a>.\n"
+"                "
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
 msgid "Note"
-msgstr ""
+msgstr "Note"
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
 #, python-format
 msgid "you are already logged in as %(user_display)s."
-msgstr ""
+msgstr "you are already logged in as %(user_display)s."
 
 #: euth_wagtail/templates/account/verification_sent.html.py:5
 #: euth_wagtail/templates/account/verification_sent.html.py:10
@@ -1670,6 +1685,9 @@ msgid ""
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
 
 #: euth_wagtail/templates/includes/top_menu.html.py:36
 msgid "Organisations "
@@ -1680,15 +1698,18 @@ msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
 msgstr ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
 
 #: euth_wagtail/templates/socialaccount/connections.html.py:36
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr ""
+"You currently have no social network accounts connected to this account."
 
 #: euth_wagtail/templates/socialaccount/connections.html.py:39
 msgid "Add a 3rd Party Account"
-msgstr ""
+msgstr "Add a 3rd Party Account"
 
 #: euth_wagtail/templates/socialaccount/signup.html.py:10
 #, python-format
@@ -1698,6 +1719,10 @@ msgid ""
 "use on this platform. You can either login with this emailaddress and "
 "connect your account to %(provider_name)s or fill in the form underneath. "
 msgstr ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s but the connected emailaddress of this account is already in "
+"use on this platform. You can either login with this emailaddress and "
+"connect your account to %(provider_name)s or fill in the form underneath. "
 
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
