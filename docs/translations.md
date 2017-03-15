@@ -3,7 +3,7 @@
 ## Languages
 
   - source code uses en_GB (arguments to ugettext == msg_id )
-     - lower case except for titles
+     - lower case (except for first word of title or sentence)
   - support many languages with transifex (en, de, it, fr,
     sv, sl, da, uk, el, ru as of 03/2017)
 
@@ -37,7 +37,7 @@
 
         tx push -s
 
-  - after manuall merge push other languages
+  - always push other languages (make sure not to override translated strings)
 
         tx push -t
 
@@ -48,6 +48,8 @@
   - update all languages except en_GB
 
         tx pull -a
+
+  - extract strings afterwards (again) to fix formatting differences
 
 ### Compiling local translations
 
