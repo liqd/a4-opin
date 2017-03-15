@@ -1,18 +1,13 @@
-Documentation for developers
-============================
-
-This is a collection of small helpers, that describe how the developer can
-solve a particular task.
-
-Perform a release
------------------
+# Release workflows for euth_wagtail
 
 The versions numbers follow semantic versioning. The master branch contains
 the development version of the project. For each release a new release branch
 is created. Those will be named: `release<major>.<minor>`. Individual patch
 levels should than be a tag named: `r<major>.<minor>.<patch>`.
 
-Creating a release 1.6:
+Below are examples for releasing version 1.6
+
+## Creating a release
 
 ```
 git checkout master
@@ -31,8 +26,7 @@ git pull
 git merge release1.6
 ```
 
-Fixing production bugs
-----------------------
+## fixing production bugs
 
 If a bug in a released version is discovered it should be fixed on the release
 branch. To fix it also for future releases, the release branch should than be
