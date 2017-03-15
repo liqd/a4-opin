@@ -446,15 +446,23 @@ class OrganisationForm(forms.ModelForm):
 
     translated_fields = [
         ('title', forms.CharField, {
-            'help_text': _('The title of your organisation')
+            'help_text': _('The title of your organisation'),
+            'label': _('title')
         }),
-        ('description_why', forms.CharField, {'widget': forms.Textarea}),
-        ('description_how', forms.CharField, {'widget': forms.Textarea}),
-        ('description', forms.CharField, {
+        ('description_why', forms.CharField, {
+            'label': _('description why'),
             'widget': forms.Textarea,
+        }),
+        ('description_how', forms.CharField, {
+            'widget': forms.Textarea,
+            'label': _('description how')
+        }),
+        ('description', forms.CharField, {
+            'label': _('description'),
             'help_text': _(
                 'More info about the organisation / '
-                'Short text for organisation overview')
+                'Short text for organisation overview'),
+            'widget': forms.Textarea,
         })
     ]
     languages = [lang_code for lang_code, lang in settings.LANGUAGES]
@@ -476,13 +484,9 @@ class OrganisationForm(forms.ModelForm):
         for lang_code in self.languages:
             for name, field_cls, kwargs in self.translated_fields:
                 self.instance.set_current_language(lang_code)
-                translated_field = field_cls(**kwargs)
-                label = name.replace('_', ' ').capitalize()
+                field = field_cls(**kwargs)
                 identifier = self._get_identifier(
                     lang_code, name)
-
-                field = translated_field
-                field.label = label
                 field.required = False
 
                 try:
