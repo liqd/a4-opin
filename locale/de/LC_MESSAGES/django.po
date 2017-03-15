@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 08:51+0000\n"
-"PO-Revision-Date: 2017-03-10 16:00+0100\n"
+"POT-Creation-Date: 2017-03-15 09:52+0000\n"
+"PO-Revision-Date: 2017-03-10 16:15+0100\n"
 "Last-Translator: Magdalena Noffke <magdalena.noffke@googlemail.com>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "Language: de\n"
@@ -1672,7 +1672,7 @@ msgstr ""
 
 #: euth_wagtail/templates/includes/top_menu.html.py:36
 msgid "Organisations "
-msgstr "Organisationen"
+msgstr ""
 
 #: euth_wagtail/templates/socialaccount/connections.html.py:12
 msgid ""

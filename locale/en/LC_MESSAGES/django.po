@@ -3,12 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Yves Müller <yves.mueller@liqd.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 08:51+0000\n"
-"PO-Revision-Date: 2017-03-10 14:27+0100\n"
+"POT-Creation-Date: 2017-03-15 09:52+0000\n"
+"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -472,11 +475,11 @@ msgstr ""
 
 #: euth/dashboard/forms.py:453
 msgid "description why"
-msgstr ""
+msgstr "Description why are we part of OPIN"
 
 #: euth/dashboard/forms.py:458
 msgid "description how"
-msgstr ""
+msgstr "Description how we will use OPIN"
 
 #: euth/dashboard/forms.py:461
 msgid "description"
