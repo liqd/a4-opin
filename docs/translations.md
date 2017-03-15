@@ -3,6 +3,7 @@
 ## Languages
 
   - source code uses en_GB (arguments to ugettext == msg_id )
+     - lower case except for titles
   - support many languages with transifex (en, de, it, fr,
     sv, sl, da, uk, el, ru as of 03/2017)
 
