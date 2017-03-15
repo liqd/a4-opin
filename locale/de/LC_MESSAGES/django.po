@@ -22,20 +22,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.11\n"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/comments/models.py:35
+#: adhocracy4/comments/models.py:35
 msgid "Comment"
 msgstr "Kommentar"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/comments/models.py:36
+#: adhocracy4/comments/models.py:36
 #: euth/ideas/views.py:47
 msgid "Comments"
 msgstr "Kommentare"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/comments/serializers.py:24
+#: adhocracy4/comments/serializers.py:24
 msgid "unknown user"
 msgstr "unbekannte*r Nutzer*in"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/fields.py:60
+#: adhocracy4/images/fields.py:60
 #, python-brace-format
 msgid ""
 "{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
@@ -43,15 +43,15 @@ msgid ""
 "The file size should be max. {max_size_mb} MB."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 msgid "Remove the picture"
 msgstr "Bild entfernen"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
 msgid "Upload a picture"
 msgstr "Lade ein Bild hoch"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
 msgid ""
 "\n"
 "            Your image will be uploaded/removed once you save your changes\n"
@@ -59,44 +59,44 @@ msgid ""
 "            "
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:19
+#: adhocracy4/images/validators.py:19
 #: euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:25
+#: adhocracy4/images/validators.py:25
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:28
+#: adhocracy4/images/validators.py:28
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:31
+#: adhocracy4/images/validators.py:31
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/validators.py:41
+#: adhocracy4/images/validators.py:41
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/images/widgets.py:27
+#: adhocracy4/images/widgets.py:27
 msgid "Select a picture from your local folder."
 msgstr "Wähle ein Bild aus deinen Dateien"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/phases/models.py:56
+#: adhocracy4/phases/models.py:56
 msgid "End date can not be smallerthan the start date."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:27
+#: adhocracy4/projects/models.py:27
 msgid "Title of your project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:28
+#: adhocracy4/projects/models.py:28
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -104,11 +104,11 @@ msgstr ""
 "Dieser Titel erscheint auf der Projektkachel und oben auf der "
 "Projektdetailseite. Er sollte maximal 120 Zeichen lang sein."
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:37
+#: adhocracy4/projects/models.py:37
 msgid "Short description of your project"
 msgstr "Kurzbeschreibung deines Projekts"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:38
+#: adhocracy4/projects/models.py:38
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -117,11 +117,11 @@ msgstr ""
 "Projektkachel. Die Beschreibung sollte in max. 250 Zeichen kurz das Ziel des "
 "Projekts zusammenfassen."
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:45
+#: adhocracy4/projects/models.py:45
 msgid "Description of your project"
 msgstr "Beschreibung deines Projekts"
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:46
+#: adhocracy4/projects/models.py:46
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -131,7 +131,7 @@ msgstr ""
 "Projekt verfolgt und wie die Beteiligung aussehen sollte. Diese Beschreibung "
 "ist ständig sichtbar im „Info“-Reiter auf der Projektseite."
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:54
+#: adhocracy4/projects/models.py:54
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -141,11 +141,11 @@ msgstr ""
 "du das Ergebnis verwerten willst. Wenn das Projekt vorbei ist, solltest du "
 "hier eine Zusammenfassung der Ergebnisse bereitstellen."
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:61
+#: adhocracy4/projects/models.py:61
 msgid "Access to the project"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:62
+#: adhocracy4/projects/models.py:62
 msgid ""
 "Please indicate who should be able to participate in your project. Teasers "
 "for your project including title and short description will always be "
@@ -155,23 +155,23 @@ msgstr ""
 "inklusive des Titels und der Kurzbeschreibung ist immer für alle "
 "Nutzer*innen sichtbar."
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:69
+#: adhocracy4/projects/models.py:69
 #: euth/organisations/models.py:33
 msgid "Header image"
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/models.py:71
+#: adhocracy4/projects/models.py:71
 msgid "The image will be shown as a decorative background image."
 msgstr ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/templatetags/project_tags.py:12
+#: adhocracy4/projects/templatetags/project_tags.py:12
 #, python-format
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] ""
 msgstr[1] ""
 
-#: /Users/magdalenanoffke/Documents/dev/euth_wagtail/venv/lib/python3.5/site-packages/adhocracy4/projects/templatetags/project_tags.py:19
+#: adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
 msgstr "Nur noch wenige Stunden übrig"
 
