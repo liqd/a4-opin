@@ -6,6 +6,10 @@ import euth_wagtail
 
 
 class Command(makemessages.Command):
+    msgmerge_options = (
+        makemessages.Command.msgmerge_options + ['--no-fuzzy-matching']
+    )
+
     def find_files(self, root):
         a4_path = super().find_files(adhocracy4.__path__[0])
         euth_path = super().find_files(relpath(euth.__path__[0]))
