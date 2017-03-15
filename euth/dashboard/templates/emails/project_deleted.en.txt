@@ -1,7 +1,0 @@
-Dear organisation owner,
-
-{{action_user.username}} deleted your project {{project.name}} on {{site.name}}.
-
-Your
-
-{{site.name}} team

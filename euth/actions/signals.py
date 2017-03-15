@@ -38,15 +38,14 @@ def notify_creator(action):
     if hasattr(action.target, 'creator'):
         creator = action.target.creator
         if creator.get_notifications and not creator == action.actor:
-            emails.notify_users_on_create_action(action, [creator.email])
+            emails.notify_users_on_create_action(action, [creator])
 
 
 def notify_moderators(action):
     if action.target_content_type.model_class() is Project:
         recipients = action.project.moderators \
                                    .exclude(id=action.actor.id) \
-                                   .filter(get_notifications=True) \
-                                   .values_list('email', flat=True)
+                                   .filter(get_notifications=True)
 
         emails.notify_users_on_create_action(action, recipients)
 

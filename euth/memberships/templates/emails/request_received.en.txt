@@ -1,8 +1,0 @@
-We have received a membership request for your project on {{ site.name }}:
-
-{{ request.creator.username }} ({{ request.creator.email }})
-
-Please visit {{ site.name }}[1] to accept or decline.
-
-
-[1]{{ email.get_host }}{% url 'dashboard-project-users' request.project.organisation.slug request.project.slug %}

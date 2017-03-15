@@ -1,0 +1,15 @@
+{% extends 'email_base.'|add:part_type %}
+
+{% block subject %}The project {{ project.name }} was deleted{% endblock %}
+
+{% block headline %}The project {{ project.name }} was deleted{% endblock %}
+
+{% block content %}
+The project {{ project.name }} on <i>{{ site.name }}</i> was deleted by user {{ action_user.username }}.
+{% endblock %}
+
+{% block cta %}{% endblock %}
+
+{% block reason %}
+This email was sent to {{ receiver.email }}. You are receiving this email because you are an owner of {{ project.organisation.name }}, which the project belonged to.
+{% endblock %}
