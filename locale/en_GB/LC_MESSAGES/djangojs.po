@@ -2,95 +2,164 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-19 13:42+0000\n"
+"POT-Creation-Date: 2017-03-15 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: comments/static/comments/react_comments.js:96
+#: adhocracy4/comments/static/comments/Comment.jsx:91
+msgid "Do you really want to delete this comment?"
+msgstr "Do you really want to delete this comment?"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:93
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:17
+msgid "Delete"
+msgstr "Delete"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:94
+#: adhocracy4/static/Modal.jsx:51 euth/contrib/static/js/Modal.jsx:41
+msgid "Abort"
+msgstr "Abort"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:107
+msgid "Latest edit on"
+msgstr "Latest edit on"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:112
+msgid "Moderator"
+msgstr "Moderator"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:119
+msgid "Are you sure you want to report this item?"
+msgstr "Are you sure you want to report this item?"
+
+#: adhocracy4/comments/static/comments/Comment.jsx:161
+msgid "Your reply here"
+msgstr "Your reply here"
+
+#: adhocracy4/comments/static/comments/CommentBox.jsx:80
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "comment"
 msgstr[1] "comments"
 
-#: comments/static/comments/react_comments.js:102
-#: comments/static/comments/react_comments.js:496
+#: adhocracy4/comments/static/comments/CommentBox.jsx:83
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:26
+#: adhocracy4/comments/static/comments/CommentForm.jsx:32
 msgid "Your comment here"
 msgstr "Your comment here"
 
-#: comments/static/comments/react_comments.js:200
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:29
+#: adhocracy4/comments/static/comments/CommentForm.jsx:35
+msgid "post"
+msgstr "post"
+
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
+msgid "cancel"
+msgstr "cancel"
+
+#: adhocracy4/comments/static/comments/CommentForm.jsx:41
+msgid "Please login to comment"
+msgstr "Please login to comment"
+
+#: adhocracy4/comments/static/comments/CommentForm.jsx:47
+msgid "The currently active phase doesn't allow to comment."
+msgstr "The currently active phase doesn't allow to comment."
+
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:13
+msgid "Edit"
+msgstr "Edit"
+
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:21
+msgid "Report"
+msgstr "Report"
+
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:5
 #, javascript-format
 msgid "view %s reply"
 msgid_plural "view %s replies"
 msgstr[0] "view %s reply"
 msgstr[1] "view %s replies"
 
-#: comments/static/comments/react_comments.js:212
-msgid "Are you sure you want to report this item?"
-msgstr "Are you sure you want to report this item?"
-
-#: comments/static/comments/react_comments.js:220
-msgid "Do you really want to delete this comment?"
-msgstr "Do you really want to delete this comment?"
-
-#: comments/static/comments/react_comments.js:224
-#: comments/static/comments/react_comments.js:300
-msgid "Delete"
-msgstr "Delete"
-
-#: comments/static/comments/react_comments.js:225
-#: reports/static/reports/react_reports.js:99
-msgid "Abort"
-msgstr "Abort"
-
-#: comments/static/comments/react_comments.js:256
-msgid "Latest edit"
-msgstr "Latest edit"
-
-#: comments/static/comments/react_comments.js:290
-msgid "Edit"
-msgstr "Edit"
-
-#: comments/static/comments/react_comments.js:309
-msgid "Report"
-msgstr "Report"
-
-#: comments/static/comments/react_comments.js:338
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:28
 msgid "Answer"
 msgstr "Answer"
 
-#: comments/static/comments/react_comments.js:359
-msgid "Your reply here"
-msgstr "Your reply here"
-
-#: comments/static/comments/react_comments.js:455
-#: comments/static/comments/react_comments.js:505
-msgid "post"
-msgstr "post"
-
-#: comments/static/comments/react_comments.js:462
-msgid "Please login to comment"
-msgstr "Please login to comment"
-
-#: comments/static/comments/react_comments.js:509
-msgid "cancel"
-msgstr "cancel"
-
-#: reports/static/reports/react_reports.js:78
+#: adhocracy4/reports/static/reports/react_reports.jsx:63
 msgid "Your message here"
 msgstr "Your message here"
 
-#: reports/static/reports/react_reports.js:93
+#: adhocracy4/reports/static/reports/react_reports.jsx:75
 msgid "Send Report"
 msgstr "Send Report"
+
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:27
+msgid "Please pick an aim for your project."
+msgstr "Please pick an aim for your project."
+
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:55
+msgid "Please set all values for your project."
+msgstr "Please set all values for your project."
+
+#: euth/dashboard/static/add_offline_phase/add_offline_phase.js:7
+msgid "Offline Phase"
+msgstr "Offline Phase"
+
+#: euth/dashboard/static/add_offline_phase/add_offline_phase.js:92
+msgid "add offline phase"
+msgstr "add offline phase"
+
+#: euth/dashboard/static/user_list/react_user_list.jsx:77
+msgid "Remove"
+msgstr "Remove"
+
+#: euth/documents/static/documents/Paragraph.jsx:57
+#: euth/documents/static/documents/ParagraphBox.jsx:203
+msgid "add a new paragraph"
+msgstr "add a new paragraph"
+
+#: euth/documents/static/documents/Paragraph.jsx:68
+msgid "Headline:"
+msgstr "Headline:"
+
+#: euth/documents/static/documents/Paragraph.jsx:82
+msgid "Paragraph:"
+msgstr "Paragraph:"
+
+#: euth/documents/static/documents/ParagraphBox.jsx:110
+msgid "Your document has been updated."
+msgstr "Your document has been updated."
+
+#: euth/documents/static/documents/ParagraphBox.jsx:138
+msgid "Your document has been saved."
+msgstr "Your document has been saved."
+
+#: euth/documents/static/documents/ParagraphBox.jsx:166
+msgid "Title:"
+msgstr "Title:"
+
+#: euth/documents/static/documents/ParagraphBox.jsx:220
+msgid "save"
+msgstr "save"
+
+#: euth/follows/static/follows/FollowButton.jsx:41
+msgid "Unfollow"
+msgstr "Unfollow"
+
+#: euth/follows/static/follows/FollowButton.jsx:41
+msgid "Follow"
+msgstr "Follow"
+
+#~ msgid "Latest edit"
+#~ msgstr "Latest edit"

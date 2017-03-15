@@ -66,6 +66,17 @@ lint:
 	npm run lint --silent ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
+locales-collect:
+	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d djangojs
+	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d django
+	sed -i 's%#: .*/adhocracy4%#: adhocracy4%' locale/*/LC_MESSAGES/django*.po
+	msgen locale/en_GB/LC_MESSAGES/django.po -o locale/en_GB/LC_MESSAGES/django.po
+	msgen locale/en_GB/LC_MESSAGES/djangojs.po -o locale/en_GB/LC_MESSAGES/djangojs.po
+
+locales-build:
+	$(VIRTUAL_ENV)/bin/tx pull -a
+	$(VIRTUAL_ENV)/bin/python manage.py compilemessages
+
 locales:
 	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d djangojs
 	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d django
