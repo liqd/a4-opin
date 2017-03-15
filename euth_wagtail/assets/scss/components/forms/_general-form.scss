@@ -39,6 +39,20 @@
             content: "\f071";
         }
     }
+
+    .errorbar {
+        @include rem(padding, 0.5em);
+
+        color: $brand-danger;
+        background-color: #fff;
+        border: solid 2px $brand-danger;
+
+        &:before {
+            display: inline;
+            font-family: "FontAwesome";
+            content: "\f071 ";
+        }
+    }
 }
 
 .form-help-text {
