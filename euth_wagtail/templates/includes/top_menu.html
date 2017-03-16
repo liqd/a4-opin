@@ -33,7 +33,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="{% url 'organisation-list' %}">{% trans 'Organisations '%}</a>
+                    <a href="{% url 'organisation-list' %}">{% trans 'Organisations' %}</a>
                 </li>
                 {% for menuitem in top_menu_items %}
                 <li><a href="{{ menuitem.url }}"{% if request.path == menuitem.url %} class="is-active"{% endif %}>{{ menuitem.translated_menu_title }}</a></li>
