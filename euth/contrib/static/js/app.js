@@ -1,3 +1,4 @@
+var moment = require('moment')
 var ReactComments = require('adhocracy4').comments
 var ReactParagraphs = require('../../../documents/static/documents/ParagraphBox.jsx')
 var ReactRatings = require('adhocracy4').ratings
@@ -7,7 +8,12 @@ var ReactUserList = require('../../../dashboard/static/user_list/react_user_list
 
 require('../../../../euth_wagtail/assets/js/euth_wagtail')
 
+var configureLocale = function (locale) {
+  moment.locale(locale)
+}
+
 module.exports = {
+  'configureLocale': configureLocale,
   'renderComment': ReactComments.renderComment,
   'renderRatings': ReactRatings.renderRatings,
   'renderLanguageSwitch': ReactLanguageSwitch.renderLanguageSwitch,

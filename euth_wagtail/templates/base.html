@@ -36,6 +36,9 @@
 
         {% render_bundle 'vendor' 'js' %}
         {% render_bundle 'adhocracy4' 'js' %}
+        <script>
+            window.adhocracy4.configureLocale('{{ request.LANGUAGE_CODE }}');
+        </script>
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
