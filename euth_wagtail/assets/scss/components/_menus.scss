@@ -85,10 +85,6 @@ body {
         @include rem(padding-left, 30px);
     }
 
-    .language-selector a {
-        color: $gray-darker;
-    }
-
     .logout-button-form {
         background-color: $gray-lighter;
     }
