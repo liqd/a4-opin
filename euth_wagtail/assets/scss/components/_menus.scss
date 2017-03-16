@@ -91,6 +91,10 @@ body {
         text-align: left;
         @include rem(padding, 7px 0 7px 15px);
         background-color: transparent;
+
+        &:hover {
+            color: $brand-brand1;
+        }
     }
 
     @media screen and (max-width: $screen-sm-max) {
