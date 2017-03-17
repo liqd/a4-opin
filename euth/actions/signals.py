@@ -1,5 +1,6 @@
 from django.apps import apps
 from django.conf import settings
+from django.contrib import auth
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -44,17 +45,36 @@ def notify_creator(action):
 def notify_moderators(action):
     if action.target_content_type.model_class() is Project:
         recipients = action.project.moderators \
-                                   .exclude(id=action.actor.id) \
-                                   .filter(get_notifications=True)
+            .exclude(id=action.actor.id) \
+            .filter(get_notifications=True)
 
         emails.notify_users_on_create_action(action, recipients)
 
 
+def notify_followers(action):
+    if action.target_content_type.model_class() is Project:
+        moderators = action.project.moderators.all().values_list(
+            'pk', flat=True)
+
+        user = auth.get_user_model()
+
+        recipients = user.objects.filter(
+            follow__project=action.project,
+            follow__enabled=True,
+            get_notifications=True
+        ).exclude(
+            id=action.actor.id
+        ).exclude(
+            pk__in=moderators
+        )
+        emails.notify_followers_on_create_action(action, recipients)
+
+
 @receiver(post_save, sender=Action)
 def send_notification(sender, instance, created, **kwargs):
-
     if instance.verb == verbs.CREATE:
         notify_creator(instance)
         notify_moderators(instance)
+        notify_followers(instance)
     if instance.verb == verbs.COMPLETE:
         emails.notify_followers_on_almost_finished(instance.project)

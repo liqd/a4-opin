@@ -1,0 +1,21 @@
+{% extends 'email_base.'|add:part_type %}
+{% load verbose_name %}
+
+{% block subject %}
+A {{ action.action_object | verbose_name }} was added to {{ action.target | verbose_name }}, which you follow
+{% endblock %}
+
+{% block headline %}
+{{ action.actor.username }} created a {{ action.action_object | verbose_name }} on {{ action.target | verbose_name }}, which you follow
+{% endblock  %}
+
+{% block content %}
+On {{ action.target | verbose_name }} {% if action.target.title %}<i>{{ action.target.title }}</i>{% endif %} a {{ action.action_object | verbose_name }} was added by {{ action.actor.username }}. Checkout what happened by {% if action.target.get_absolute_url %} {{ action.target | verbose_name }}{% else %} the project <i>{{ action.project.name }}</i>{% endif %} on {{ site.name }} by clicking the {% if part_type == 'txt' %}link{% else %}button{% endif %} below.
+{% endblock %}
+
+{% block cta_url %}{% if action.target.get_absolute_url %}{{ email.get_host }}{{ action.target.get_absolute_url }}{% else %}{{ email.get_host }}{{ action.project.get_absolute_url }}{% endif %}{% endblock %}
+{% block cta_label %}{% if action.target.get_absolute_url %}Check {{ action.target | verbose_name }}{% else %}Visit the project{% endif %}{% endblock %}
+
+{% block reason %}
+This email was sent to {{ receiver.email }}. This email was sent to you created content in a project. If you don’t want to receive these notifications anymore, you can unfollow the project on the project page or disable notifications completely in your account settings.
+{% endblock %}
