@@ -1,29 +1,38 @@
 from django.contrib import auth
-from django.utils import translation
 
-from euth.contrib import emails
-
-
-def notify_users_on_create_action(action, users):
-    context = {
-        'action': action,
-    }
-
-    emails.send_email_with_template(users, 'notify_creator', context)
+from adhocracy4 import emails
 
 
-def notify_followers_on_almost_finished(project):
-    translation.activate('en')
-    User = auth.get_user_model()
-    recipients = User.objects.filter(
-        follow__project=project,
-        follow__enabled=True,
-        get_notifications=True
-    )
+User = auth.get_user_model()
 
-    context = {
-        'project': project,
-        'url': project.get_absolute_url()
-    }
 
-    emails.send_email_with_template(recipients, 'notify_followers', context)
+class NotifyCreatorEmail(emails.UserNotification):
+    template_name = 'notify_creator'
+    user_attr_name = 'actor'
+
+    def get_receivers(self):
+        action = self.object
+        if hasattr(action.target, 'creator'):
+            creator = action.target.creator
+            if creator.get_notifications and not creator == action.actor:
+                return [creator]
+        return []
+
+
+class NotifyModeratorsEmail(emails.ModeratorNotification):
+    template_name = 'notify_creator'
+
+    def get_receivers(self):
+        return [r for r in super().get_receivers()
+                if r.get_notifications and r != self.object.actor]
+
+
+class NotifyFollowersEmail(emails.Email):
+    template_name = 'notify_followers'
+
+    def get_receivers(self):
+        return User.objects.filter(
+            follow__project=self.object.project,
+            follow__enabled=True,
+            get_notifications=True
+        )

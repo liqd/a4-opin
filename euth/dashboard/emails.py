@@ -1,6 +1,5 @@
-from euth.contrib import emails
+from adhocracy4 import emails
 
 
-class ProjectDeletedEmail(emails.OpinEmail,
-                          emails.InitiatorNotification):
+class ProjectDeletedEmail(emails.InitiatorNotification):
     template_name = 'project_deleted'

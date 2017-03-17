@@ -1,7 +1,7 @@
-from euth.contrib.emails import OpinEmail
+from adhocracy4 import emails
 
 
-class ModeratorAddedEmail(OpinEmail):
+class ModeratorAddedEmail(emails.Email):
     template_name = 'notify_new_moderator'
 
     def get_recipients(self):
