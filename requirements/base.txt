@@ -13,7 +13,7 @@ easy-thumbnails==2.3
 django-parler==1.7
 django-autoslug==1.9.3
 djangorestframework==3.6.2
-python-magic==0.4.12
+python-magic==0.4.13
 html5lib==0.999999999
 bleach==2.0.0
 django-autofixture==0.12.1
