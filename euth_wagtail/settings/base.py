@@ -398,3 +398,5 @@ A4_REPORTABLES = (
     ('euth_ideas', 'ideas'),
     ('a4comments', 'comment'),
 )
+
+A4_EMAIL_BASE_MIXIN = 'euth.contrib.emails.OpinEmail'
