@@ -7,7 +7,7 @@ User = auth.get_user_model()
 
 
 class NotifyCreatorEmail(emails.UserNotification):
-    template_name = 'notify_creator'
+    template_name = 'euth_actions/emails/notify_creator'
     user_attr_name = 'actor'
 
     def get_receivers(self):
@@ -20,7 +20,7 @@ class NotifyCreatorEmail(emails.UserNotification):
 
 
 class NotifyModeratorsEmail(emails.ModeratorNotification):
-    template_name = 'notify_creator'
+    template_name = 'euth_actions/emails/notify_creator'
 
     def get_receivers(self):
         return [r for r in super().get_receivers()
@@ -28,7 +28,7 @@ class NotifyModeratorsEmail(emails.ModeratorNotification):
 
 
 class NotifyFollowersEmail(emails.Email):
-    template_name = 'notify_followers'
+    template_name = 'euth_actions/emails/notify_followers'
 
     def get_receivers(self):
         return User.objects.filter(
