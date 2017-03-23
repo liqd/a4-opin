@@ -1,7 +1,7 @@
 import pytest
+from django.core import mail
 from django.core.urlresolvers import reverse
 from rest_framework import status
-from django.core import mail
 
 from tests.factories import UserFactory
 
@@ -14,7 +14,8 @@ def test_anonymous_user_cannot_get_project_detail(apiclient, project):
 
 
 @pytest.mark.django_db
-def test_authenticated_user_cannot_get_project_detail(apiclient, project, user):
+def test_authenticated_user_cannot_get_project_detail(apiclient,
+                                                      project, user):
     apiclient.force_authenticate(user=user)
     url = reverse('projects-detail', kwargs={'pk': project.pk})
     response = apiclient.get(url)
@@ -41,8 +42,7 @@ def test_initiator_can_add_moderator_to_project(apiclient, project, user):
     }
     response = apiclient.patch(url, data, format='json')
     assert len(mail.outbox) == 1
-    assert 'You were added as a moderator to a project' in mail.outbox[0].subject
+    message = 'You were added as a moderator to a project'
+    assert message in mail.outbox[0].subject
     assert mail.outbox[0].to[0] == user1.email
     assert response.status_code == status.HTTP_200_OK
-
-
