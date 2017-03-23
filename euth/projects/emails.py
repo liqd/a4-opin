@@ -4,5 +4,5 @@ from euth.contrib.emails import OpinEmail
 class ModeratorAddedEmail(OpinEmail):
     template_name = 'notify_new_moderator'
 
-    def get_recipients(self):
-        self.kwargs['user']
+    def get_receivers(self):
+        return [self.kwargs['user']]
