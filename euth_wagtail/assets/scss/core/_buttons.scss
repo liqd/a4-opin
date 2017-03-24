@@ -1,7 +1,7 @@
 .button {
     @include rem(border-radius, 25px);
     @include rem(font-size, $font-size-medium);
-    @include rem(padding, 10px 30px);
+    @include rem(padding, 10px 20px);
     background: $brand-brand2;
     color: $gray-darker;
     display: inline-block;
@@ -160,7 +160,7 @@ span.btn-dark:focus {
     @extend .btn-primary;
     @extend .base-button;
     background-color: $brand-brand1;
-    padding: 10px 30px
+    padding: 10px 20px
 }
 
 .cancel-button {

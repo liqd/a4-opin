@@ -14,10 +14,17 @@
 
     .name {
         font-family: $font-family-sans-serif;
-        font-weight: bold;
+        font-weight: 600;
+        color: $gray-darker;
+        margin-left: 5px;
 
         @media screen and (min-width: $screen-sm-min) {
             line-height: 31px;
+        }
+
+        &:hover,
+        &:focus {
+            color: $brand-brand1;
         }
     }
 }

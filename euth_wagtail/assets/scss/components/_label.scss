@@ -47,6 +47,7 @@
     background-color: $gray-lighter;
     color: $gray-darker;
     @include rem(font-size, 10px);
+    @include rem(padding, 2px 4px);
     font-weight: 600;
     font-style: normal;
 }
