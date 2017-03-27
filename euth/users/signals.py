@@ -20,4 +20,4 @@ def delete_old_image(sender, instance, **kwargs):
 
 @receiver(signals.post_delete, sender=models.User)
 def delete_images_for_User(sender, instance, **kwargs):
-    services.delete_images([instance.avatar])
+    services.delete_images([instance._avatar])
