@@ -6,7 +6,7 @@ python-dateutil==2.6.0
 django-allauth==0.31.0
 django-ckeditor==5.2.1
 django-countries==4.2
-django-webpack-loader==0.3.2
+django-webpack-loader==0.4.1
 django-filter==0.15.3
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.3
