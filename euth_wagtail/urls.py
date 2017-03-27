@@ -5,7 +5,6 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
-from django.views.generic import TemplateView
 from django.views.i18n import javascript_catalog
 from rest_framework import routers
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
@@ -65,8 +64,6 @@ urlpatterns += i18n_patterns(
     url(r'^memberships/', include(memberships_urls)),
     url(r'^offlinephases/', include(offlinephase_urls)),
     url(r'^blueprints/', include(blueprints_urls)),
-    url(r'^adhocracy/',
-        TemplateView.as_view(template_name="activate.html"), name="adhocracy"),
     url(r'^jsi18n/$', javascript_catalog,
         js_info_dict, name='javascript-catalog'),
     url(r'', include(wagtail_urls)),
