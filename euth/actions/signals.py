@@ -34,27 +34,15 @@ for app, model in settings.ACTIONABLE:
     post_save.connect(add_action, apps.get_model(app, model))
 
 
-def notify_creator(action):
-    if hasattr(action.target, 'creator'):
-        creator = action.target.creator
-        if creator.get_notifications and not creator == action.actor:
-            emails.notify_users_on_create_action(action, [creator])
-
-
-def notify_moderators(action):
-    if action.target_content_type.model_class() is Project:
-        recipients = action.project.moderators \
-                                   .exclude(id=action.actor.id) \
-                                   .filter(get_notifications=True)
-
-        emails.notify_users_on_create_action(action, recipients)
-
-
 @receiver(post_save, sender=Action)
 def send_notification(sender, instance, created, **kwargs):
+    action = instance
 
     if instance.verb == verbs.CREATE:
-        notify_creator(instance)
-        notify_moderators(instance)
+        emails.NotifyCreatorEmail.send(action)
+
+        if action.target_content_type.model_class() is Project:
+            emails.NotifyModeratorsEmail.send(action)
+
     if instance.verb == verbs.COMPLETE:
-        emails.notify_followers_on_almost_finished(instance.project)
+        emails.NotifyFollowersEmail.send(action)

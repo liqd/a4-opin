@@ -2,7 +2,7 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "adhocracy4": "git+https://github.com/liqd/adhocracy4#e33aa29a16585b342e22de17f1dd222fe35962a3",
+    "adhocracy4": "git+https://github.com/liqd/adhocracy4#0537d3bd5a3a001bbe75a190242cb90f122b6da8",
     "autoprefixer": "^6.5.2",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
