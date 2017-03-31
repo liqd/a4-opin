@@ -72,9 +72,14 @@ def notify_followers(action):
 
 @receiver(post_save, sender=Action)
 def send_notification(sender, instance, created, **kwargs):
+    action = instance
+
     if instance.verb == verbs.CREATE:
-        notify_creator(instance)
-        notify_moderators(instance)
-        notify_followers(instance)
+        emails.NotifyCreatorEmail.send(action)
+
+        if action.target_content_type.model_class() is Project:
+            emails.NotifyModeratorsEmail.send(action)
+            emails.NotifyFollowersOnNewIdeaCreated.send(action)
+
     if instance.verb == verbs.COMPLETE:
-        emails.notify_followers_on_almost_finished(instance.project)
+        emails.NotifyFollowersOnPhaseIsOverSoonEmail.send(action)

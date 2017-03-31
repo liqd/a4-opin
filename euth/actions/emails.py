@@ -1,39 +1,48 @@
 from django.contrib import auth
-from django.utils import translation
 
-from euth.contrib import emails
+from adhocracy4 import emails
 
-
-def notify_users_on_create_action(action, users):
-    context = {
-        'action': action,
-    }
-
-    emails.send_email_with_template(users, 'notify_creator', context)
+User = auth.get_user_model()
 
 
-def notify_followers_on_create_action(action, users):
-    context = {
-        'action': action,
-    }
+class NotifyCreatorEmail(emails.UserNotification):
+    template_name = 'euth_actions/emails/notify_creator'
+    user_attr_name = 'actor'
 
-    emails.send_email_with_template(users,
-                                    'notify_followers_on_create', context)
+    def get_receivers(self):
+        action = self.object
+        if hasattr(action.target, 'creator'):
+            creator = action.target.creator
+            if creator.get_notifications and not creator == action.actor:
+                return [creator]
+        return []
 
 
-def notify_followers_on_almost_finished(project):
-    translation.activate('en')
-    User = auth.get_user_model()
-    recipients = User.objects.filter(
-        follow__project=project,
-        follow__enabled=True,
-        get_notifications=True
-    )
+class NotifyModeratorsEmail(emails.ModeratorNotification):
+    template_name = 'euth_actions/emails/notify_creator'
 
-    context = {
-        'project': project,
-        'url': project.get_absolute_url()
-    }
+    def get_receivers(self):
+        return [r for r in super().get_receivers()
+                if r.get_notifications and r != self.object.actor]
 
-    emails.send_email_with_template(recipients,
-                                    'notify_followers_over_soon', context)
+
+class NotifyFollowersOnPhaseIsOverSoonEmail(emails.Email):
+    template_name = 'euth_actions/emails/notify_followers_over_soon'
+
+    def get_receivers(self):
+        return User.objects.filter(
+            follow__project=self.object.project,
+            follow__enabled=True,
+            get_notifications=True
+        )
+
+
+class NotifyFollowersOnNewIdeaCreated(emails.Email):
+    template_name = 'euth_actions/emails/notify_followers_new_idea'
+
+    def get_receivers(self):
+        return User.objects.filter(
+            follow__project=self.object.project,
+            follow__enabled=True,
+            get_notifications=True
+        )

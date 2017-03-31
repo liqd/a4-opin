@@ -1,21 +1,17 @@
-from euth.contrib import emails
+from adhocracy4 import emails
 
 
-class InviteEmail(emails.OpinEmail,
-                  emails.ExternalNotification):
-    template_name = 'invite'
+class InviteEmail(emails.ExternalNotification):
+    template_name = 'euth_memberships/emails/invite'
 
 
-class RequestReceivedEmail(emails.OpinEmail,
-                           emails.ModeratorNotification):
-    template_name = 'request_received'
+class RequestReceivedEmail(emails.ModeratorNotification):
+    template_name = 'euth_memberships/emails/request_received'
 
 
-class RequestAcceptedEmail(emails.OpinEmail,
-                           emails.UserNotification):
-    template_name = 'request_accepted'
+class RequestAcceptedEmail(emails.UserNotification):
+    template_name = 'euth_memberships/emails/request_accepted'
 
 
-class RequestDeniedEmail(emails.OpinEmail,
-                         emails.UserNotification):
-    template_name = 'request_denied'
+class RequestDeniedEmail(emails.UserNotification):
+    template_name = 'euth_memberships/emails/request_denied'

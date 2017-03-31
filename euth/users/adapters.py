@@ -2,11 +2,11 @@ import re
 
 from allauth.account.adapter import DefaultAccountAdapter
 
-from euth.contrib.emails import OpinEmail, UserNotification
+from adhocracy4.emails import Email
 from euth.users import USERNAME_REGEX
 
 
-class EuthAccountEmail(OpinEmail, UserNotification):
+class EuthAccountEmail(Email):
     def get_receivers(self):
         return [self.object]
 

@@ -16,7 +16,7 @@
                     <div class="col-md-10">
                         {% for field in form %}
                             {% if field.name in fields %}
-                                <div class="form-group">
+                                <div class="form-group {% if field.errors %} has-error{% endif %}">
                                     {% if field|widget_type == 'checkboxinput' %}
                                         {% if field.help_text %}
                                             <p class='form-help-text'>{{ field.help_text }}</p>
@@ -31,6 +31,13 @@
                                             <p class='form-help-text'>{{ field.help_text }}</p>
                                         {% endif %}
                                         {% render_field field class="form-control" %}
+                                    {% endif %}
+                                    {% if field.errors %}
+                                    <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                        <li> {{ error }} </li>
+                                    {% endfor %}
+                                    </ul>
                                     {% endif %}
                                 </div>
                             {% endif %}

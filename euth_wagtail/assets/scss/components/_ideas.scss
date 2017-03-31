@@ -1,15 +1,14 @@
 .idea-image {
     width: 100%;
-    @include rem(margin-bottom, 36px);
+    @include rem(margin-bottom, 20px);
 }
 
 .idea-title {
     h1 {
         font-family: $font-family-sans-serif;
         font-weight: bold;
-        color: $brand-brand1;
-        @include rem(font-size, 28px);
-        line-height: 1.2;
+        @include rem(font-size, 24px);
+        line-height: 1.3;
         @include rem(margin, 0 0 10px 0);
         max-width: 70%;
 
@@ -87,7 +86,7 @@
 
 .idea-tile-body {
     @include rem(margin-left, $tile-list-thumbnail-size);
-    @include rem(padding, 24px 43px 24px 28px);
+    @include rem(padding, 20px 40px 20px 20px);
     border: none;
 
     @media (max-width: $screen-sm-min) {
@@ -96,10 +95,10 @@
     }
 
     h3 {
-        @include rem(font-size, 28px);
+        @include rem(font-size, 18px);
         margin: 0;
         padding: 0;
-        line-height: 1.17;
+        line-height: 1.3;
 
         @media (max-width: $screen-sm-min) {
             @include rem(font-size, $font-size-medium);
@@ -157,6 +156,7 @@
 .idea-date {
     font-weight: normal;
     white-space: nowrap;
+    margin-left: 5px;
 }
 
 .idea-list-button {

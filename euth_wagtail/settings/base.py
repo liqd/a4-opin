@@ -359,25 +359,6 @@ REST_FRAMEWORK = {
     )
 }
 
-# Euth settings
-
-A4_COMMENTABLES = (
-    ('euth_ideas', 'idea'),
-    ('euth_documents', 'paragraph'),
-    ('euth_documents', 'document'),
-    ('a4comments', 'comment'),
-)
-
-A4_RATEABLES = (
-    ('euth_ideas', 'idea'),
-    ('a4comments', 'comment'),
-)
-
-A4_REPORTABLES = (
-    ('euth_ideas', 'ideas'),
-    ('a4comments', 'comment'),
-)
-
 ACTIONABLE = [
     ('euth_ideas', 'Idea'),
     ('a4comments', 'Comment')
@@ -400,3 +381,20 @@ MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
 # Adhocracy4
 
 A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
+
+A4_COMMENTABLES = (
+    ('euth_ideas', 'idea'),
+    ('euth_documents', 'paragraph'),
+    ('euth_documents', 'document'),
+    ('a4comments', 'comment'),
+)
+
+A4_RATEABLES = (
+    ('euth_ideas', 'idea'),
+    ('a4comments', 'comment'),
+)
+
+A4_REPORTABLES = (
+    ('euth_ideas', 'ideas'),
+    ('a4comments', 'comment'),
+)
