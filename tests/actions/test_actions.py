@@ -12,7 +12,6 @@ from euth.actions.models import Action
 @pytest.mark.django_db
 def test_no_notification_if_flag_is_not_set(
         user_factory, idea_factory, comment_factory):
-
     user = user_factory(get_notifications=False)
     user2 = user_factory()
     idea = idea_factory(creator=user)
@@ -30,7 +29,6 @@ def test_no_notification_if_flag_is_not_set(
 @pytest.mark.django_db
 def test_idea_creator_gets_email_after_comment(
         user_factory, idea_factory, comment_factory):
-
     user = user_factory()
     user2 = user_factory()
     idea = idea_factory(creator=user)
@@ -46,7 +44,6 @@ def test_idea_creator_gets_email_after_comment(
 @pytest.mark.django_db
 def test_document_creator_gets_email_after_comment(
         user_factory, document_factory, comment_factory):
-
     user = user_factory()
     user2 = user_factory()
     document = document_factory(creator=user)
@@ -62,7 +59,6 @@ def test_document_creator_gets_email_after_comment(
 @pytest.mark.django_db
 def test_document_creator_gets_email_after_comment_on_paragraph(
         user_factory, document_factory, paragraph_factory, comment_factory):
-
     user = user_factory()
     user2 = user_factory()
     document = document_factory(creator=user)
@@ -79,7 +75,6 @@ def test_document_creator_gets_email_after_comment_on_paragraph(
 @pytest.mark.django_db
 def test_comment_creator_gets_email_after_comment(
         user_factory, idea_factory, comment_factory):
-
     user = user_factory()
     user2 = user_factory()
     idea = idea_factory(creator=user)
@@ -99,7 +94,6 @@ def test_comment_creator_gets_email_after_comment(
 @pytest.mark.django_db
 def test_comment_creator_gets_no_email_after_comment_on_own_resource(
         user_factory, idea_factory, comment_factory):
-
     user = user_factory()
     idea = idea_factory(creator=user)
 
@@ -134,7 +128,6 @@ def test_moderator_notification(project, user, module, idea_factory):
 @pytest.mark.django_db
 def test_24_hour_script(
         phase_factory, user_factory, follow_factory):
-
     user = user_factory()
     user2 = user_factory()
     user3 = user_factory()
@@ -170,9 +163,8 @@ def test_24_hour_script(
 
 
 @pytest.mark.django_db
-def test_24_hour_script_adds_action_for_next_pahse(
+def test_24_hour_script_adds_action_for_next_phase(
         phase_factory, user_factory, follow_factory):
-
     user = user_factory()
 
     phase1 = phase_factory(
@@ -230,3 +222,17 @@ def test_24_hour_script_adds_action_for_next_pahse(
         assert action_count == 3
         assert len(mail.outbox) == 3
         assert mail.outbox[0].recipients() == [user.email]
+
+
+@pytest.mark.django_db
+def test_notify_followers_after_idea_was_added(
+        user_factory, idea_factory, follow_factory, module):
+    user1 = user_factory()
+    user2 = user_factory()
+    project = module.project
+    moderators = project.moderators
+    follow_factory(project=module.project, creator=user1)
+    idea_factory(module=module, creator=user2)
+    assert len(mail.outbox) == moderators.count() + 1
+    text = 'An idea in a project you follow was added'
+    assert text in mail.outbox[-1].subject

@@ -43,6 +43,7 @@ def send_notification(sender, instance, created, **kwargs):
 
         if action.target_content_type.model_class() is Project:
             emails.NotifyModeratorsEmail.send(action)
+            emails.NotifyFollowersOnNewIdeaCreated.send(action)
 
     if instance.verb == verbs.COMPLETE:
-        emails.NotifyFollowersEmail.send(action)
+        emails.NotifyFollowersOnPhaseIsOverSoonEmail.send(action)
