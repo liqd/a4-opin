@@ -9,7 +9,8 @@ fake = Factory.create()
 class UserAutoFixture(AutoFixture):
 
     field_values = {
-        'username': generators.CallableGenerator(fake.name)
+        'username': generators.CallableGenerator(fake.name),
+        '_avatar': None
     }
 
 register(User, UserAutoFixture)
