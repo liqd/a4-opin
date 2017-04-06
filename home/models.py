@@ -394,6 +394,43 @@ class HomePage(Page):
     title_ru = models.CharField(
         max_length=255, blank=True, verbose_name="Header Title")
 
+    default_subtitle = (
+        "Ever wondered how to get young people involved in politics online?"
+        "OPIN, a European toolbox for youth eParticipation projects, shows "
+        "you how."
+    )
+
+    intro_en = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_de = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_it = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_fr = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_sv = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_sl = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_da = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_uk = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_el = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+    intro_ru = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
+
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -429,6 +466,7 @@ class HomePage(Page):
     body = TranslatedField('body')
 
     translated_title = TranslatedField('title')
+    translated_intro = TranslatedField('intro')
 
     class Meta:
         verbose_name = "Homepage"
@@ -444,6 +482,7 @@ class HomePage(Page):
         edit_handlers.MultiFieldPanel(
             [
                 edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.FieldPanel('intro_' + lang_code),
                 edit_handlers.StreamFieldPanel('body_' + lang_code)
             ],
             heading=lang,
