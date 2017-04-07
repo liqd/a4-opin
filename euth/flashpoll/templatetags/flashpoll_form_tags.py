@@ -7,6 +7,7 @@ from django.conf import settings
 register = template.Library()
 
 
+@register.filter
 def print_timestamp(timestamp):
     try:
         # assume, that timestamp is given in seconds with decimal point
@@ -14,12 +15,11 @@ def print_timestamp(timestamp):
     except ValueError:
         return None
     return str(datetime.datetime.fromtimestamp(ts))
-register.filter(print_timestamp)
 
 
+@register.filter
 def get_simplejson(modelobject):
     return json.dumps(modelobject)
-register.filter(get_simplejson)
 
 
 @register.filter(name='get_poll_from_string')

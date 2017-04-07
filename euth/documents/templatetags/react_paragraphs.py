@@ -4,6 +4,7 @@ from rest_framework.renderers import JSONRenderer
 
 from euth.documents.serializers import DocumentSerializer
 
+
 register = template.Library()
 
 

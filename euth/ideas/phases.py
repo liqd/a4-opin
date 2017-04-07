@@ -18,7 +18,6 @@ class IssuePhase(phases.PhaseContent):
     features = {
         'crud': (models.Idea,),
     }
-phases.content.register(IssuePhase())
 
 
 class CollectPhase(phases.PhaseContent):
@@ -36,8 +35,6 @@ class CollectPhase(phases.PhaseContent):
         'comment': (models.Idea,),
     }
 
-phases.content.register(CollectPhase())
-
 
 class RatingPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
@@ -52,7 +49,6 @@ class RatingPhase(phases.PhaseContent):
     features = {
         'rate': (models.Idea,)
     }
-phases.content.register(RatingPhase())
 
 
 class FeedbackPhase(phases.PhaseContent):
@@ -70,7 +66,6 @@ class FeedbackPhase(phases.PhaseContent):
         'rate': (models.Idea,),
         'comment': (models.Idea,)
     }
-phases.content.register(FeedbackPhase())
 
 
 class UniversalPhase(phases.PhaseContent):
@@ -88,4 +83,10 @@ class UniversalPhase(phases.PhaseContent):
         'comment': (models.Idea,),
         'rate':  (models.Idea,),
     }
+
+
+phases.content.register(IssuePhase())
+phases.content.register(CollectPhase())
+phases.content.register(RatingPhase())
+phases.content.register(FeedbackPhase())
 phases.content.register(UniversalPhase())

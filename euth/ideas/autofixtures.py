@@ -18,4 +18,5 @@ class IdeaAutoFixture(AutoFixture):
 
     follow_pk = True
 
+
 register(Idea, IdeaAutoFixture)
