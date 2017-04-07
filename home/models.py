@@ -188,6 +188,7 @@ class PageCollection(models.Model):
         return [self.page_1, self.page_2, self.page_3, self.page_4,
                 self.page_5, self.page_6, self.page_7, self.page_8]
 
+
 register_snippet(NavigationMenu)
 register_snippet(RSSImport)
 register_snippet(PageCollection)

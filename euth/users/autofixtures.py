@@ -13,4 +13,5 @@ class UserAutoFixture(AutoFixture):
         '_avatar': None
     }
 
+
 register(User, UserAutoFixture)
