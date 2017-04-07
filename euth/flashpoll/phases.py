@@ -19,4 +19,5 @@ class FlashpollPhase(phases.PhaseContent):
         'crud': (models.Flashpoll,),
     }
 
+
 phases.content.register(FlashpollPhase())
