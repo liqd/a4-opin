@@ -5,8 +5,8 @@
 <script type="text/javascript">
 
 var apiKey = '{% api_key %}';
-var pollresult = {{pollresult|get_simplejson|safe}};
-var poll = {{poll|get_simplejson|safe}};
+var pollresult = JSON.parse('{{ pollresult|get_simplejson|escapejs }}');
+var poll = JSON.parse('{{ poll|get_simplejson|escapejs }}');
 
 $(function () {
         if(pollresult.noOfReceivedResults && pollresult.noOfReceivedResults != 0){
