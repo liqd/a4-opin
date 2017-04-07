@@ -1,9 +1,15 @@
-/* global projectId */
 var React = require('react')
 var ReactDOM = require('react-dom')
 var $ = require('jquery')
 var django = require('django')
 var UserListItem = require('./UserListItem.jsx')
+var cookie = require('js-cookie')
+
+$(function () {
+  $.ajaxSetup({
+    headers: { 'X-CSRFToken': cookie.get('csrftoken') }
+  })
+})
 
 var UserList = React.createClass({
   selectedUsers: [],
@@ -18,14 +24,11 @@ var UserList = React.createClass({
   add (user) {
     // create new array with only user IDs and add the new one
     let users = this.state.users.concat([user])
-    if (!projectId) {
-      console.error(`projectId is ${projectId}.`)
-    }
 
-    return this.updateUsers(users)
+    return this.updateUsers(users, this.props.project)
   },
 
-  updateUsers (users) {
+  updateUsers (users, projectId) {
     users = users.map(user => user.id)
 
     return $.ajax({
@@ -85,19 +88,24 @@ UserList.propTypes = {
   users: React.PropTypes.array,
   listenTo: React.PropTypes.string
 }
+
 UserList.defaultProps = {
   users: []
 }
 
-module.exports.renderUserList = function (target, userArray, listenTo) {
+module.exports.renderUserList = function (el) {
+  let users = JSON.parse(el.getAttribute('data-users'))
+  let listenTo = el.getAttribute('data-listen-to')
+  let project = el.getAttribute('data-project')
+
   // check if userList object exists, otherwise create an empty one
   window.adhocracy4.userList = window.adhocracy4.userList || {}
   window.adhocracy4.userList[listenTo] = window.adhocracy4.userList[listenTo] || []
   // add just created React component to the object
   window.adhocracy4.userList[listenTo].push(
     ReactDOM.render(
-      <UserList users={userArray} listenTo={listenTo} />,
-      document.getElementById(target)
+      <UserList users={users} listenTo={listenTo} project={project} />,
+      el
     )
   )
 }

@@ -36,3 +36,4 @@ var initilizeWidget = function (project, name, initializer) {
 
 initilizeWidget('document', ReactParagraphs.renderParagraphs)
 initilizeWidget('follows', ReactFollow.renderFollow)
+initilizeWidget('userlist', ReactUserList.renderUserList)
