@@ -1,6 +1,7 @@
+import json
+
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import template
-from rest_framework.renderers import JSONRenderer
 
 from euth.documents.serializers import DocumentSerializer
 
@@ -13,15 +14,15 @@ register = template.Library()
 def react_paragraphs(context, doc, module):
 
     serializer = DocumentSerializer(doc)
-    document = JSONRenderer().render(serializer.data)
+    document = serializer.data
     widget = CKEditorUploadingWidget(config_name='image-editor')
     widget._set_config()
     config = widget.config
 
     context = {
-        'document': document,
+        'document': json.dumps(document),
         'module': module.pk,
-        'config': config
+        'config': json.dumps(config),
     }
 
     return context

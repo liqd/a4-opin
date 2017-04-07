@@ -15,3 +15,23 @@ module.exports = {
   'renderFollow': ReactFollow.renderFollow,
   'renderUserList': ReactUserList.renderUserList
 }
+
+var initilizeWidget = function (project, name, initializer) {
+  if (!initializer) {
+    initializer = name
+    name = project
+    project = 'euth'
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var els = document.querySelectorAll('[data-' + project + '-widget=\'' + name + '\']')
+
+    for (var i in els) {
+      if (els.hasOwnProperty(i)) {
+        initializer(els[i])
+      }
+    }
+  })
+}
+
+initilizeWidget('document', ReactParagraphs.renderParagraphs)
