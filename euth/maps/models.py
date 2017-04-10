@@ -1,3 +1,4 @@
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.modules import models as module_models
@@ -7,7 +8,10 @@ from .fields import MultiPolygonField, PointField
 from .widgets import MapChoosePolygonWidget
 
 
-class AreaSettings(module_models.AbstractSettings):
+class AreaSettings(models.Model):
+    module = models.OneToOneField(module_models.Module,
+                                  on_delete=models.CASCADE,
+                                  related_name='%(class)s_settings_legacy')
     polygon = MultiPolygonField()
 
     def widgets(self):
