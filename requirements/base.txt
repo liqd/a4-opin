@@ -9,7 +9,7 @@ django-countries==4.3
 django-webpack-loader==0.4.1
 django-filter==1.0.2
 django-widget-tweaks==1.4.1
-easy-thumbnails==2.3
+easy-thumbnails==2.4.1
 django-parler==1.7
 django-autoslug==1.9.3
 djangorestframework==3.6.2
