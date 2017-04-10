@@ -16,9 +16,9 @@ module.exports = {
   'renderUserList': ReactUserList.renderUserList
 }
 
-var initilizeWidget = function (project, name, initializer) {
-  if (!initializer) {
-    initializer = name
+var initialiseWidget = function (project, name, initialiser) {
+  if (!initialiser) {
+    initialiser = name
     name = project
     project = 'euth'
   }
@@ -28,12 +28,13 @@ var initilizeWidget = function (project, name, initializer) {
 
     for (var i in els) {
       if (els.hasOwnProperty(i)) {
-        initializer(els[i])
+        initialiser(els[i])
       }
     }
   })
 }
 
-initilizeWidget('document', ReactParagraphs.renderParagraphs)
-initilizeWidget('follows', ReactFollow.renderFollow)
-initilizeWidget('userlist', ReactUserList.renderUserList)
+initialiseWidget('document', ReactParagraphs.renderParagraphs)
+initialiseWidget('follows', ReactFollow.renderFollow)
+initialiseWidget('userlist', ReactUserList.renderUserList)
+initialiseWidget('language-switch', ReactLanguageSwitch.renderLanguageSwitch)

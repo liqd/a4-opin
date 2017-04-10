@@ -23,23 +23,12 @@
             {% endfor %}
         </div>
         {% endfor %}
-        <div class="language-switch-list" id="language-switch-list"></div>
-
-        <script>
-            window.adhocracy4.renderLanguageSwitch(
-                [
-                    {% for lang_code in form.languages %}
-                        '{{ lang_code }}',
-                    {% endfor %}
-                ],
-                [
-                    {% for lang_code in form.prefiled_languages %}
-                        '{{ lang_code }}',
-                    {% endfor %}
-                ],
-                'language-switch-list'
-            )
-        </script>
+        <div class="language-switch-list"
+             id="language-switch-list"
+             data-euth-widget="language-switch"
+             data-languages="{{ form.languages|join:' ' }}"
+             data-active-languages="{{ form.prefiled_languages|join:' ' }}"
+        ></div>
 
         {% for lang_code, fields in form.translated %}
         <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">

@@ -77,9 +77,12 @@ LanguageSwitch.propTypes = {
   activeLanguages: React.PropTypes.array
 }
 
-module.exports.renderLanguageSwitch = function (languages, activeLanguages, target) {
+module.exports.renderLanguageSwitch = function (el) {
+  let languages = el.getAttribute('data-languages').split(' ')
+  let activeLanguages = el.getAttribute('data-active-languages').split(' ')
+
   ReactDOM.render(
     <LanguageSwitch languages={languages} activeLanguages={activeLanguages} />,
-    document.getElementById(target)
+    el
   )
 }
