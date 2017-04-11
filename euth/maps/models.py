@@ -1,27 +1,11 @@
-from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from adhocracy4.modules import models as module_models
+from adhocracy4.maps import fields as map_fields
 from euth.ideas import models as idea_models
-
-from .fields import MultiPolygonField, PointField
-from .widgets import MapChoosePolygonWidget
-
-
-class AreaSettings(models.Model):
-    module = models.OneToOneField(module_models.Module,
-                                  on_delete=models.CASCADE,
-                                  related_name='%(class)s_settings_legacy')
-    polygon = MultiPolygonField()
-
-    def widgets(self):
-        return {
-            'polygon': MapChoosePolygonWidget
-        }
 
 
 class MapIdea(idea_models.Idea):
-    point = PointField(
+    point = map_fields.PointField(
         verbose_name=_('Where can your idea be located on a map?'),
         help_text=_('Click inside marked area to set a marker. '
                     'Drag and drop marker to change place.'))
