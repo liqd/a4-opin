@@ -193,6 +193,9 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     permission_required = 'euth_organisations.initiate_project'
     menu_item = 'project'
 
+    def get_queryset(self):
+        return super().get_queryset().filter(organisation=self.organisation)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['heading'] = _("Update project: " + self.object.name)
@@ -237,6 +240,9 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
+
+    def get_queryset(self):
+        return super().get_queryset().filter(organisation=self.organisation)
 
     def delete(self, *args, **kwargs):
         response = super().delete(*args, **kwargs)

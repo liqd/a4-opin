@@ -448,7 +448,7 @@ def test_other_initiator_can_change(client, project, other_organisation):
 
     assert client.login(username=other_user.email, password='password')
     response = client.get(hacky_url)
-    assert response.status_code == 403
+    assert response.status_code == 404
 
 
 @pytest.mark.django_db
@@ -461,6 +461,6 @@ def test_project_delete(client, project, other_organisation):
         'slug': project.slug
     })
     response = client.post(url, {})
-    assert response.status_code == 403
+    assert response.status_code == 404
     project.refresh_from_db()
     assert project.id != None
