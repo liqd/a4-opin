@@ -435,3 +435,32 @@ def test_dashboard_blueprint(client, organisation):
     response = client.get(url)
     assert response.status_code == 200
     assert response.context_data['view'].blueprints == blueprints
+
+
+@pytest.mark.django_db
+def test_other_initiator_can_change(client, project, other_organisation):
+    other_user = other_organisation.initiators.first()
+
+    hacky_url = reverse('dashboard-project-edit', kwargs={
+        'organisation_slug': other_organisation.slug,
+        'slug': project.slug
+    })
+
+    assert client.login(username=other_user.email, password='password')
+    response = client.get(hacky_url)
+    assert response.status_code == 403
+
+
+@pytest.mark.django_db
+def test_project_delete(client, project, other_organisation):
+    other_user = other_organisation.initiators.first()
+
+    assert client.login(username=other_user.email, password='password')
+    url = reverse('dashboard-project-delete', kwargs={
+        'organisation_slug': other_organisation.slug,
+        'slug': project.slug
+    })
+    response = client.post(url, {})
+    assert response.status_code == 403
+    project.refresh_from_db()
+    assert project.id != None

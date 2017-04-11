@@ -202,9 +202,6 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
         return context
 
-    def get_permission_object(self):
-        return self.organisation
-
     def get_success_url(self):
         return reverse('dashboard-project-list',
                        kwargs={
