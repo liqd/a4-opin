@@ -11,7 +11,7 @@ class OrganisationDetailView(generic.DetailView):
         if self.request.user in self.object.initiators.all():
             return projects.all()
         else:
-            return projects.filter(is_draft=False)
+            return projects.filter(is_draft=False, is_archived=False)
 
 
 class OrganisationListView(generic.ListView):
