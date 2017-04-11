@@ -1,5 +1,6 @@
 from pytest_factoryboy import register
 
-from tests.maps import factories as map_factories
+from adhocracy4.test import factories
 
-register(map_factories.AreaSettingsFactory)
+
+register(factories.AreaSettingsFactory)
