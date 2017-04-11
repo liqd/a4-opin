@@ -214,6 +214,8 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
+        project = kwargs['instance']
+
         module = qs.first().module
         self.base_forms = [
             ('project', ProjectForm),
@@ -227,6 +229,14 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 'module_settings',
                 get_module_settings_form(module.settings_instance),
             ))
+
+        no_phase_left = True
+        for phase in qs:
+            if (phase.end_date.replace(tzinfo=None)
+                > datetime.datetime.utcnow()):
+                no_phase_left = False
+
+        project.is_archivable = (not project.is_archived) and no_phase_left
 
         super().__init__(*args, **kwargs)
 
