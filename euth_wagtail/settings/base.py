@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'adhocracy4.reports.apps.ReportsConfig',
     'adhocracy4.modules.apps.ModulesConfig',
     'adhocracy4.comments.apps.CommentsConfig',
+    'adhocracy4.maps.apps.MapsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -372,11 +373,13 @@ GOOGLE_API_KEY = "AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc"
 
 BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
 
-MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
-            '[71.35706654962706,-28.388671875],'
-            '[71.35706654962706,50.88867187499999],'
-            '[34.95799531086792,50.88867187499999],'
-            '[34.95799531086792,-28.388671875]]]')
+MAP_BOUNDING_BOX = [
+    [[34.95799531086792,-28.388671875],
+     [71.35706654962706,-28.388671875],
+     [71.35706654962706,50.88867187499999],
+     [34.95799531086792,50.88867187499999],
+     [34.95799531086792,-28.388671875]]
+]
 
 # Adhocracy4
 
