@@ -16,7 +16,7 @@
             <li class="tile-list project-tile-list">
                 <div class="row">
                     <div class="col-sm-9">
-                        <a href="{% url 'dashboard-project-edit' organisation_slug=view.organisation.slug slug=project.slug %}">
+                        <a href="{% url 'dashboard-project-edit' project.slug %}">
                         <i class="fa fa-edit" aria-hidden="true"></i>
                         <strong>
                             {{ project.name }}
@@ -38,7 +38,7 @@
                     <div class="col-sm-3">
                         <span class="pull-right">
                             <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
-                            <a href="{% url 'dashboard-project-users' organisation_slug=view.organisation.slug slug=project.slug %}"
+                            <a href="{% url 'dashboard-project-users' project.slug %}"
                                title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
                                     <i class="fa fa-user"></i>
                             </a>

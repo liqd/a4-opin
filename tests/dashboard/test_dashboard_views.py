@@ -88,8 +88,7 @@ def test_initiator_create_and_update_project(client, organisation):
     assert len(project.module_set.first().phase_set.all()) == 2
 
     update_url = reverse('dashboard-project-edit', kwargs={
-        'organisation_slug': organisation.slug,
-        'slug': project.slug
+        'project_slug': project.slug
     })
 
     module = project.module_set.first()
@@ -188,8 +187,7 @@ def test_initiator_edit_project(client, phase):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-edit', kwargs={
-        'organisation_slug': project.organisation.slug,
-        'slug': project.slug,
+        'project_slug': project.slug,
     })
     response = client.get(url)
     assert response.context_data['form']['project'].instance == project
@@ -201,8 +199,7 @@ def test_project_delete(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
     url = reverse('dashboard-project-delete', kwargs={
-        'organisation_slug': project.organisation.slug,
-        'slug': project.slug
+        'project_slug': project.slug
     })
     response = client.post(url, {})
     assert response.status_code == 302
@@ -214,8 +211,7 @@ def test_project_delete(client, project):
 def test_dashboard_project_users(client, project, user_factory,
                                  request_factory, invite_factory):
     url = reverse('dashboard-project-users', kwargs={
-        'organisation_slug': project.organisation.slug,
-        'slug': project.slug,
+        'project_slug': project.slug,
     })
     request0 = request_factory(project=project)
     request1 = request_factory(project=project)
@@ -284,8 +280,7 @@ def test_dashboard_project_users(client, project, user_factory,
 @pytest.mark.django_db
 def test_dashboard_project_invite(client, project):
     url = reverse('dashboard-project-invite', kwargs={
-        'organisation_slug': project.organisation.slug,
-        'slug': project.slug,
+        'project_slug': project.slug,
     })
 
     response = client.get(url)
@@ -316,8 +311,7 @@ def test_dashboard_project_invite(client, project):
 @pytest.mark.django_db
 def test_dashboard_project_invalid(client, project):
     url = reverse('dashboard-project-invite', kwargs={
-        'organisation_slug': project.organisation.slug,
-        'slug': project.slug,
+        'project_slug': project.slug,
     })
 
     initiator = project.organisation.initiators.first()
@@ -438,29 +432,27 @@ def test_dashboard_blueprint(client, organisation):
 
 
 @pytest.mark.django_db
-def test_other_initiator_can_change(client, project, other_organisation):
+def test_other_initiator_project_update(client, project, other_organisation):
     other_user = other_organisation.initiators.first()
 
-    hacky_url = reverse('dashboard-project-edit', kwargs={
-        'organisation_slug': other_organisation.slug,
-        'slug': project.slug
+    url = reverse('dashboard-project-edit', kwargs={
+        'project_slug': project.slug
     })
 
     assert client.login(username=other_user.email, password='password')
-    response = client.get(hacky_url)
-    assert response.status_code == 404
+    response = client.get(url)
+    assert response.status_code == 403
 
 
 @pytest.mark.django_db
-def test_project_delete(client, project, other_organisation):
+def test_other_initiator_project_delete(client, project, other_organisation):
     other_user = other_organisation.initiators.first()
 
     assert client.login(username=other_user.email, password='password')
     url = reverse('dashboard-project-delete', kwargs={
-        'organisation_slug': other_organisation.slug,
-        'slug': project.slug
+        'project_slug': project.slug
     })
     response = client.post(url, {})
-    assert response.status_code == 404
+    assert response.status_code == 403
     project.refresh_from_db()
-    assert project.id != None
+    assert project.id is not None

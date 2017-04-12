@@ -22,7 +22,7 @@ from euth.users import models as user_models
 from . import emails, forms
 
 
-def dashboard(request):
+def dashboard_default(request):
     return redirect('dashboard-profile')
 
 
@@ -38,6 +38,10 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
         if 'organisation_slug' in self.kwargs:
             slug = self.kwargs['organisation_slug']
             return get_object_or_404(org_models.Organisation, slug=slug)
+        if 'slug' in self.kwargs:
+            slug = self.kwargs['project_slug']
+            project = get_object_or_404(project_models.Project, slug=slug)
+            return project.organisation
         else:
             return self.request.user.organisation_set.first()
 
@@ -191,10 +195,8 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
     permission_required = 'euth_organisations.initiate_project'
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
-
-    def get_queryset(self):
-        return super().get_queryset().filter(organisation=self.organisation)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -235,14 +237,12 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
     form_class = forms.ProjectUpdateForm
     permission_required = 'euth_organisations.initiate_project'
     success_message = _('Your project has been deleted.')
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
-
-    def get_queryset(self):
-        return super().get_queryset().filter(organisation=self.organisation)
 
     def delete(self, *args, **kwargs):
         response = super().delete(*args, **kwargs)

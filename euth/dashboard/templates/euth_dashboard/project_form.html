@@ -47,7 +47,7 @@
     </form>
 </div>
 
-{% url 'dashboard-project-delete' view.organisation.slug project.slug as delete_view_url %}
+{% url 'dashboard-project-delete' project.slug as delete_view_url %}
 {% include 'includes/delete_modal.html' with name=project.name delete_action=delete_view_url %}
 
 {% endblock %}
