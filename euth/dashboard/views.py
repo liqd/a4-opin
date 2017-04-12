@@ -264,31 +264,29 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
 class DashboardProjectInviteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
+                                 generic.detail.SingleObjectMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
     permission_required = 'euth_organisations.initiate_project'
+    model = project_models.Project
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
-    def get_permission_object(self):
-        return self.organisation
-
-    @functional.cached_property
-    def project(self):
-        return project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs['project'] = self.project
+        kwargs['project'] = self.object
         return kwargs
 
     def form_valid(self, form):
         emails = form.cleaned_data['emails']
         user = self.request.user
-        project = self.project
+        project = self.object
         for email in emails:
             member_models.Invite.objects.invite(user, project, email)
         return super().form_valid(form)
@@ -296,37 +294,40 @@ class DashboardProjectInviteView(DashboardBaseMixin,
     def get_success_url(self):
         return reverse('dashboard-project-users',
                        kwargs={
-                           'organisation_slug': self.organisation.slug,
-                           'slug': self.project.slug
+                           'project_slug': self.object.slug
                        })
 
 
 class DashboardProjectUserView(DashboardBaseMixin,
                                rules_views.PermissionRequiredMixin,
                                SuccessMessageMixin,
+                               generic.detail.SingleObjectMixin,
                                generic.FormView):
 
     form_class = forms.ProjectUserForm
     template_name = 'euth_dashboard/project_users.html'
     success_message = _("User request successfully updated.")
     permission_required = 'euth_organisations.initiate_project'
+    model = project_models.Project
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
-    def get_permission_object(self):
-        return self.organisation
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         qs = member_models.Request.objects.order_by('created').filter(
-            project__slug=self.kwargs['slug']
+            project__slug=self.kwargs['project_slug']
         )
         kwargs['requests__queryset'] = qs
         qs = member_models.Invite.objects.order_by('created').filter(
-            project__slug=self.kwargs['slug']
+            project__slug=self.kwargs['project_slug']
         )
         kwargs['invites__queryset'] = qs
         qs = user_models.User.objects.order_by('email').filter(
-            project_participant__slug=self.kwargs['slug']
+            project_participant__slug=self.kwargs['project_slug']
         )
         kwargs['users__queryset'] = qs
         kwargs['moderators__instance'] = self.project
@@ -335,14 +336,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
 
     @functional.cached_property
     def project(self):
-        return project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['project'] = self.project
-        return context
+        return self.object
 
     def get_success_url(self):
         return self.request.path
