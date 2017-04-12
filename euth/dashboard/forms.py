@@ -334,6 +334,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         project = objects['project']
         project.organisation = self.organisation
+        project.is_archived = False
         if commit:
             project.save()
             project.moderators.add(self.creator)
