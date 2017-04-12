@@ -639,3 +639,87 @@ def test_initiator_archive_project_success(client, organisation):
     assert response.status_code == 302
     assert project.is_archived == True
     assert len(project.module_set.first().phase_set.all()) == 1
+
+@pytest.mark.django_db
+def test_initiator_archive_project_broken(client, organisation):
+    user = organisation.initiators.first()
+    client.login(username=user.email, password='password')
+    url = reverse('dashboard-project-create', kwargs={
+        'organisation_slug': organisation.slug,
+        'blueprint_slug': 'brainstorming'
+    })
+    response = client.get(url)
+    assert response.status_code == 200
+
+    # Archiving a not yet created project must fail. The
+    # project is created but not archived.
+    response = client.post(url, {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': '',
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
+        'phases-1-id': '',
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_ideas:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'archive': ''
+    })
+    assert response.status_code == 302
+    assert redirect_target(response) == 'dashboard-project-list'
+    project = organisation.project_set.first()
+    assert project.is_archived == False
+    assert project.name == 'Project name'
+    assert list(project.moderators.all()) == [user]
+    assert len(project.module_set.first().phase_set.all()) == 2
+
+    update_url = reverse('dashboard-project-edit', kwargs={
+        'organisation_slug': organisation.slug,
+        'slug': project.slug
+    })
+
+    module = project.module_set.first()
+
+    phase_1 = module.phase_set.first().pk
+    phase_2 = module.phase_set.all()[1].pk
+
+    # Archiving a project with endless phase is archivable
+    response = client.post(update_url, {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': str(phase_1),
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '1',
+        'phases-1-id': str(phase_2),
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'archive': ''
+    })
+    project = organisation.project_set.first()
+    assert response.status_code == 302
+    assert project.is_archived == True
+    assert len(project.module_set.first().phase_set.all()) == 1
