@@ -232,7 +232,7 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         no_phase_left = True
         for phase in qs:
-            if (phase.end_date.replace(tzinfo=None)
+            if (phase.end_date and phase.end_date.replace(tzinfo=None)
                 > datetime.datetime.utcnow()):
                 no_phase_left = False
 
@@ -282,8 +282,9 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 if not delete:
                     self._create_phase(phase, commit, module)
 
-            if (phase['end_date'].replace(tzinfo=None)
-                > datetime.datetime.utcnow()):
+            if (phase['end_date'] and
+                phase['end_date'].replace(tzinfo=None) >
+                datetime.datetime.utcnow()):
                 no_phase_left = False
 
         project.is_archived = project.is_archived and no_phase_left
