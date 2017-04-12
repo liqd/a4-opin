@@ -511,7 +511,7 @@ def test_initiator_archive_project(client, organisation):
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
     project = organisation.project_set.first()
-    assert project.is_archived == False
+    assert not project.is_archived
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
     assert len(project.module_set.first().phase_set.all()) == 2
@@ -552,7 +552,7 @@ def test_initiator_archive_project(client, organisation):
     })
     project = organisation.project_set.first()
     assert response.status_code == 302
-    assert project.is_archived == False
+    assert not project.is_archived
     assert len(project.module_set.first().phase_set.all()) == 1
 
 
@@ -637,8 +637,9 @@ def test_initiator_archive_project_success(client, organisation):
     })
     project = organisation.project_set.first()
     assert response.status_code == 302
-    assert project.is_archived == True
+    assert project.is_archived
     assert len(project.module_set.first().phase_set.all()) == 1
+
 
 @pytest.mark.django_db
 def test_initiator_archive_project_broken(client, organisation):
@@ -680,7 +681,7 @@ def test_initiator_archive_project_broken(client, organisation):
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
     project = organisation.project_set.first()
-    assert project.is_archived == False
+    assert not project.is_archived
     assert project.name == 'Project name'
     assert list(project.moderators.all()) == [user]
     assert len(project.module_set.first().phase_set.all()) == 2
@@ -721,5 +722,5 @@ def test_initiator_archive_project_broken(client, organisation):
     })
     project = organisation.project_set.first()
     assert response.status_code == 302
-    assert project.is_archived == True
+    assert project.is_archived
     assert len(project.module_set.first().phase_set.all()) == 1
