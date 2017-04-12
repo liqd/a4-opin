@@ -456,3 +456,16 @@ def test_other_initiator_project_delete(client, project, other_organisation):
     assert response.status_code == 403
     project.refresh_from_db()
     assert project.id is not None
+
+
+@pytest.mark.django_db
+def test_other_initiator_project_invite(client, project, other_organisation):
+    other_user = other_organisation.initiators.first()
+
+    url = reverse('dashboard-project-invite', kwargs={
+        'project_slug': project.slug,
+    })
+
+    assert client.login(username=other_user.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 403
