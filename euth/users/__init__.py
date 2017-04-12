@@ -8,7 +8,7 @@ def _get_account_url_names():
     return tuple([url.name for url in urls.urlpatterns])
 
 
-def sanatize_next(request):
+def sanitize_next(request):
     """
     Get appropriate next value for the given request
     """
