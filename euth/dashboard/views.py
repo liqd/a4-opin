@@ -216,12 +216,13 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         qs = phase_models.Phase.objects.filter(module__project=self.object)
         kwargs['phases__queryset'] = qs
 
-        settings_instance = qs.first().module.settings_instance
+        module = qs.first().module
+        settings_instance = module.settings_instance
         if settings_instance:
             kwargs['module_settings__instance'] = settings_instance
             if qs.first().type.startswith('euth_flashpoll'):
                 self.kwargs['module_settings'] = 'euth_flashpoll'
-                self.kwargs['pollid'] = settings_instance.key
+                self.kwargs['pollid'] = module.flashpoll_settings.key
             else:
                 self.kwargs['module_settings'] = 'default'
 
