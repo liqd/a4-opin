@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.utils.html import escape
 from easy_thumbnails.files import get_thumbnailer
 
 from euth.ideas import views as idea_views
@@ -24,13 +25,13 @@ class MapIdeaListView(idea_views.IdeaListView):
                 url = image.url
 
             properties = {
-                'name': item.name,
-                'slug': item.slug,
-                'image':  url,
+                'name': escape(item.name),
+                'slug': escape(item.slug),
+                'image': escape(url),
                 'comments_count': item.comment_count,
                 'positive_rating_count': item.positive_rating_count,
                 'negative_rating_count': item.negative_rating_count,
-                'url': item.get_absolute_url()
+                'url': escape(item.get_absolute_url())
             }
             point_dict = item.point
             point_dict['properties'] = properties
