@@ -8,6 +8,23 @@
     }
   },
   {
+    "model": "home.menuitem",
+    "pk": 1,
+    "fields": {
+      "menu_title_en": "Organisations",
+      "menu_title_de": "Organisationen",
+      "menu_title_it": "Organizzazioni",
+      "menu_title_fr": "Organisations",
+      "menu_title_sv": "Organisationer",
+      "menu_title_sl": "Organizacije",
+      "menu_title_da": "Organisationer",
+      "menu_title_el": "Oργανισμούς",
+      "menu_title_ru": "Oрганизации",
+      "menu_title_uk": "Oрганізації",
+      "link_view": "organisation-list"
+    }
+  },
+  {
     "model": "euth_users.user",
     "pk": 1,
     "fields": {
@@ -19,7 +36,7 @@
       "is_superuser": true
     }
   },
-    {
+  {
     "model": "euth_users.user",
     "pk": 2,
     "fields": {
