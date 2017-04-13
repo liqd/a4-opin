@@ -1,5 +1,5 @@
 /* eslint-disable */
-/* global google $ apiKey */
+/* global google $ */
 
 /* ------------------------------*
  *      Googe maps functions
@@ -294,6 +294,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelectorAll('#map').length > 0) {
       var jsFile = document.createElement('script')
+      var apiKey = document.getElementById('map').getAttribute('data-api-key')
       jsFile.type = 'text/javascript'
       jsFile.src = 'https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&callback=initialize&v=3&sensor=true&libraries=drawing'
       document.getElementsByTagName('head')[0].appendChild(jsFile)
