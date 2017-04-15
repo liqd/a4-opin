@@ -14,7 +14,6 @@ def sanitize_next(request):
     Get appropriate next value for the given request
     """
     try:
-        import pdb;pdb.set_trace()
         url_name = resolve(request.path).url_name
     except Resolver404:
         url_name = '__invalid_url_name__'
