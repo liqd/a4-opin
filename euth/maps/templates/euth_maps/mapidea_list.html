@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load static i18n rules idea_tags %}
+{% load static i18n rules idea_tags maps_tags %}
 
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
@@ -32,11 +32,7 @@
             </div>
         </div>
 
-        <div class="map"
-             data-map="display_points"
-             data-polygon="{{ polygon }}"
-             data-point="{{ mapitems_json }}"
-             data-baseurl="{{ map_url }}"></div>
+        {% map_display_points view.get_queryset view.module.areasettings_settings.polygon %}
     </div>
 
     <div id="idea-list">

@@ -1,11 +1,10 @@
-from adhocracy4.maps import mixins
 from euth.ideas import views as idea_views
 
 from . import forms
 from .models import MapIdea
 
 
-class MapIdeaListView(mixins.MapItemListMixin, idea_views.IdeaListView):
+class MapIdeaListView(idea_views.IdeaListView):
     model = MapIdea
 
 
@@ -36,7 +35,7 @@ class MapIdeaDeleteView(idea_views.IdeaDeleteView):
     permission_required = 'euth_maps.modify_mapidea'
 
 
-class MapIdeaDetailView(mixins.MapItemDetailMixin, idea_views.IdeaDetailView):
+class MapIdeaDetailView(idea_views.IdeaDetailView):
     model = MapIdea
     permission_required = 'euth_maps.view_mapidea'
     queryset = MapIdea.objects\
