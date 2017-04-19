@@ -1,13 +1,6 @@
 {% extends "euth_dashboard/base_organisation.html" %}
 {% load widget_tweaks i18n react_user_list avatar %}
 
-{% block extra_js %}
-    {{ block.super }}
-    <script>
-        var projectId = {{ project.pk }};
-    </script>
-{% endblock %}
-
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{% trans 'Manage user of ' %}{{ project.name }}</h1>
 
@@ -124,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            {% react_user_list project.moderators.all 'moderators' %}
+            {% react_user_list project.moderators.all project 'moderators' %}
             {{ form.moderators.media }}
 {% if not project.is_public %}
         </div>

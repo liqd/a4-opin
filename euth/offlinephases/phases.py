@@ -19,4 +19,5 @@ class OfflinePhase(phases.PhaseContent):
         'crud': (models.Offlinephase,),
     }
 
+
 phases.content.register(OfflinePhase())

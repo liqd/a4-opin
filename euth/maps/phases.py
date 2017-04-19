@@ -53,6 +53,7 @@ class RatingPhase(phases.PhaseContent):
         'rate': (models.MapIdea,),
     }
 
+
 phases.content.register(IssuePhase())
 phases.content.register(CollectPhase())
 phases.content.register(RatingPhase())

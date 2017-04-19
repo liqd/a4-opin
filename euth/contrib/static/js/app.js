@@ -15,3 +15,26 @@ module.exports = {
   'renderFollow': ReactFollow.renderFollow,
   'renderUserList': ReactUserList.renderUserList
 }
+
+var initialiseWidget = function (project, name, initialiser) {
+  if (!initialiser) {
+    initialiser = name
+    name = project
+    project = 'euth'
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var els = document.querySelectorAll('[data-' + project + '-widget=\'' + name + '\']')
+
+    for (var i in els) {
+      if (els.hasOwnProperty(i)) {
+        initialiser(els[i])
+      }
+    }
+  })
+}
+
+initialiseWidget('document', ReactParagraphs.renderParagraphs)
+initialiseWidget('follows', ReactFollow.renderFollow)
+initialiseWidget('userlist', ReactUserList.renderUserList)
+initialiseWidget('language-switch', ReactLanguageSwitch.renderLanguageSwitch)

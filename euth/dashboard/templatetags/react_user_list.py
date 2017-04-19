@@ -2,7 +2,7 @@ import json
 
 from django import template
 from django.db.models.functions import Lower
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 from rest_framework.serializers import ListSerializer
 
 from euth.users.serializers import UserWithMailSerializer
@@ -11,23 +11,22 @@ register = template.Library()
 
 
 @register.simple_tag()
-def react_user_list(users, identifier=None):
+def react_user_list(users, project, identifier):
     users = users.order_by(Lower('username'))
     user_list = ListSerializer(users, child=UserWithMailSerializer()).data
 
-    mountpoint = 'users_{}'.format(id(users))
-
     format_strings = {
         'users': json.dumps(user_list),
-        'mountpoint': mountpoint,
-        'listen_to': '',
+        'project': project.pk,
+        'listen_to': identifier,
     }
 
-    if identifier:
-        format_strings['listen_to'] = ', "{}"'.format(identifier)
-
-    return mark_safe((
-        '<span id="{mountpoint}"></span><script>window.adhocracy4'
-        '.renderUserList("{mountpoint}", {users}{listen_to})</script>')
-        .format(**format_strings)
+    return format_html(
+        (
+            '<span data-euth-widget="userlist"'
+            ' data-users="{users}"'
+            ' data-project="{project}"'
+            ' data-listen-to="{listen_to}"></span>'
+        ),
+        **format_strings
     )

@@ -13,4 +13,5 @@ class BlogPhase(phases.PhaseContent):
         'comment': (models.Post, )
     }
 
+
 phases.content.register(BlogPhase())
