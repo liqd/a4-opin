@@ -1,6 +1,7 @@
 import re
 
 from allauth.account.adapter import DefaultAccountAdapter
+from django.utils.http import is_safe_url
 
 from adhocracy4.emails import Email
 from euth.users import USERNAME_REGEX
@@ -20,7 +21,7 @@ class EuthAccountAdapter(DefaultAccountAdapter):
 
     def get_email_confirmation_url(self, request, emailconfirmation):
         url = super().get_email_confirmation_url(request, emailconfirmation)
-        if 'next' in request.POST:
+        if 'next' in request.POST and is_safe_url(request.POST['next']):
             return '{}?next={}'.format(url, request.POST['next'])
         else:
             return url
@@ -34,7 +35,7 @@ class EuthAccountAdapter(DefaultAccountAdapter):
         )
 
     def get_email_confirmation_redirect_url(self, request):
-        if 'next' in request.GET:
+        if 'next' in request.GET and is_safe_url(request.GET['next']):
             return request.GET['next']
         else:
             return super().get_email_confirmation_redirect_url(request)
