@@ -12,18 +12,14 @@ def test_paragraph_save(paragraph):
 
 
 @pytest.mark.django_db
-def test_document_clean(module, document_factory, user):
+def test_document_clean(document):
+    another_document = Document(
+        module=document.module,
+        creator=document.creator
+    )
 
-    document_factory(module=module)
-
-    document2 = Document()
-    document2.module = module
-    document2.creator = user
-
-    with pytest.raises(Exception) as e:
-        document2.clean()
-
-    assert e.type == ValidationError
+    with pytest.raises(ValidationError):
+        another_document.clean()
 
 
 @pytest.mark.django_db

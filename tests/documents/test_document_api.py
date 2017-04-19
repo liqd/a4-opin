@@ -51,6 +51,22 @@ def test_moderator_can_create_document(apiclient, module):
 
 
 @pytest.mark.django_db
+def test_moderator_can_not_create_two_documents(apiclient, document):
+    project = document.module.project
+    moderator = project.moderators.first()
+    apiclient.force_authenticate(user=moderator)
+
+    url = reverse('documents-list')
+    data = {
+        'name': 'This is a text',
+        'module': document.module.pk,
+        'paragraphs': []
+    }
+    response = apiclient.post(url, data, format='json')
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.django_db
 def test_paragraphs_are_correctly_sorted(apiclient, module):
     project = module.project
     moderator = project.moderators.first()

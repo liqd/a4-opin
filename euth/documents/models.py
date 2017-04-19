@@ -1,14 +1,14 @@
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db import models
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4 import transforms
 from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.modules import models as module_models
+
+from . import validators
 
 
 class Document(module_models.Item):
@@ -21,13 +21,7 @@ class Document(module_models.Item):
         return "{}_document_{}".format(str(self.module), self.pk)
 
     def clean(self, *args, **kwargs):
-        if not self.pk:
-            try:
-                Document.objects.get(module=self.module)
-                raise ValidationError(
-                    _('Document for that module already exists'))
-            except ObjectDoesNotExist:
-                super().clean(*args, **kwargs)
+        validators.single_document_per_module(self.module, self.pk)
         super().clean(*args, **kwargs)
 
     def get_absolute_url(self):
