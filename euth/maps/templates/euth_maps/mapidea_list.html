@@ -1,14 +1,9 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load static i18n rules idea_tags %}
+{% load static i18n rules idea_tags maps_tags %}
 
 {% block extra_js %}
-<script type="text/javascript">
-    var baseurl = "{{ map_url }}"
-    var point = {{ mapideas_json | safe }}
-    var polygon = {{ polygon | safe }}
-</script>
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/custom/map_display_points.js' %}"></script>
+<script type="text/javascript" src="{% static 'a4maps/map_display_points.js' %}"></script>
 {{ block.super }}
 {% endblock %}
 
@@ -36,7 +31,8 @@
                 </div>
             </div>
         </div>
-        <div id="map" class="map"></div>
+
+        {% map_display_points view.get_queryset view.module.areasettings_settings.polygon %}
     </div>
 
     <div id="idea-list">

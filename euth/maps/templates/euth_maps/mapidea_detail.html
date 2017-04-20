@@ -1,14 +1,9 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail rules avatar static %}
+{% load i18n react_comments react_ratings thumbnail rules avatar static maps_tags %}
 
 {% block extra_js %}
-<script type="text/javascript">
-    var baseurl = "{{ map_url }}"
-    var point = {{ object.point | safe }}
-    var polygon = {{ object.module.settings_instance.polygon | safe }}
-</script>
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/custom/map_display_point.js' %}"></script>
+<script type="text/javascript" src="{% static 'a4maps/map_display_point.js' %}"></script>
 {% endblock %}
 
 {% block extra_css %}
@@ -71,9 +66,7 @@
                 <p>{{ object.description |safe }}</p>
             </div>
 
-            {% if object.point %}
-            <div id="map" style="height: 300px;"></div>
-            {% endif %}
+            {% map_display_point object.point object.module.areasettings_settings.polygon %}
 
             <div class="idea-ratings">
                 {% react_ratings object %}

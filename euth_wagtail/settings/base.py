@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'adhocracy4.reports.apps.ReportsConfig',
     'adhocracy4.modules.apps.ModulesConfig',
     'adhocracy4.comments.apps.CommentsConfig',
+    'adhocracy4.maps.apps.MapsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -370,13 +371,15 @@ FLASHPOLL_BACK_USER = "fp_management"
 FLASHPOLL_BACK_PASSWORD = "53c4100e8ab143fe59fcb2e743cf4aba662ad25lacab0eb37fb9c69d8f27363fa19f0531bd681"
 GOOGLE_API_KEY = "AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc"
 
-BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
-
-MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
-            '[71.35706654962706,-28.388671875],'
-            '[71.35706654962706,50.88867187499999],'
-            '[34.95799531086792,50.88867187499999],'
-            '[34.95799531086792,-28.388671875]]]')
+A4_MAP_ATTRIBUTION = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+A4_MAP_BASEURL = 'https://{s}.tile.openstreetmap.org/'
+A4_MAP_BOUNDING_BOX = [
+    [[34.95799531086792,-28.388671875],
+     [71.35706654962706,-28.388671875],
+     [71.35706654962706,50.88867187499999],
+     [34.95799531086792,50.88867187499999],
+     [34.95799531086792,-28.388671875]]
+]
 
 # Adhocracy4
 

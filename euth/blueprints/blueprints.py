@@ -138,7 +138,7 @@ blueprints = [
              map_phases.CollectPhase(),
          ],
          image='images/spatial_brainstorming.png',
-         settings_model=('euth_maps', 'AreaSettings'),
+         settings_model=('a4maps', 'AreaSettings'),
          requirements=Requirements(
              aims=[Aim.design_place],
              results=[Result.collect_ideas],
@@ -175,7 +175,7 @@ blueprints = [
              map_phases.RatingPhase(),
          ],
          image='images/spatial_challenge.png',
-         settings_model=('euth_maps', 'AreaSettings'),
+         settings_model=('a4maps', 'AreaSettings'),
          requirements=Requirements(
              aims=[Aim.design_place],
              results=list(Result),
