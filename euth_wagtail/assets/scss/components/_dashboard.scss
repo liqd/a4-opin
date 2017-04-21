@@ -39,6 +39,32 @@ h1.dashboard-title {
     }
 }
 
+
+.dashboard-projects-list {
+    ul {
+        @include rem(margin, 20px 0);
+        padding-left: 0;
+    }
+}
+
+.dashboard-project-controls {
+    position: relative;
+    margin-top: -15px;
+
+    @include clearfix;
+
+    .dashboard-project-filter {
+        float: right;
+        padding-bottom: 0;
+    }
+
+    .dashboard-project-create {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+
 .email_list {
     .checkbox label {
         font-weight: 400;

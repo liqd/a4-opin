@@ -67,9 +67,16 @@
 </div>
 
 <div class="container org-page">
+<div class="filter-bar">
+    {% for field in view.filter.form %}
+        {% if field.name != 'ordering' %}
+            {{ field }}
+        {% endif %}
+    {% endfor %}
+</div>
     <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
         <div id="project-tile-grid" class="organisation-tiles" data-columns>
-        {% for project in view.visible_projects %}
+        {% for project in project_list %}
         {% include "euth_projects/includes/project_tile.html" with project=project %}
         {% endfor %}
         </div>

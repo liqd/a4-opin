@@ -1,0 +1,19 @@
+<div class="filter-group">
+    <label for="{{ id }}">
+        {{ label }}:
+    </label>
+    <div class="dropdown" {{ attrs }}>
+        <button
+            type="button"
+            class="dropdown-toggle btn"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            id="{{ id }}"
+        >
+            {{ value_label }}
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </button>
+        {{ options }}
+    </div>
+</div>

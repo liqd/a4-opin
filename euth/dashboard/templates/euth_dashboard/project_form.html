@@ -43,6 +43,9 @@
             <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
             {% endif %}
         {% endif %}
+        {% if project.is_archivable %}
+          <button type="submit" name="archive" class="btn btn-sm btn-primary">{% trans 'archive' %}</button>
+        {% endif %}
 
     </form>
 </div>

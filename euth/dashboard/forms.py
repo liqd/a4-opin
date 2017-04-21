@@ -111,13 +111,15 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
-                  'result']
+                  'result', 'is_archived']
 
     def save(self, commit=True):
         # calling flashpoll service
         if 'module_settings-key' in self.data:
             services.send_to_flashpoll(self.data)
+
         self.instance.is_draft = 'save_draft' in self.data
+        self.instance.is_archived = 'archive' in self.data
         return super().save(commit)
 
     def get_checkbox_label(self, name):
@@ -212,6 +214,8 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
+        project = kwargs['instance']
+
         module = qs.first().module
         self.base_forms = [
             ('project', ProjectForm),
@@ -225,6 +229,14 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 'module_settings',
                 get_module_settings_form(module.settings_instance),
             ))
+
+        no_phase_left = True
+        for phase in qs:
+            if (phase.end_date and phase.end_date.replace(tzinfo=None)
+                    > datetime.datetime.utcnow()):
+                no_phase_left = False
+
+        project.is_archivable = (not project.is_archived) and no_phase_left
 
         super().__init__(*args, **kwargs)
 
@@ -254,18 +266,13 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         objects = super().save(commit=False)
         project = objects['project']
-
-        if commit:
-            project.save()
-            if 'module_settings' in objects:
-                objects['module_settings'].save()
-
         module = project.module_set.first()
 
         cleaned_data = self._combine('cleaned_data', call=False,
                                      call_kwargs={'commit': commit})
         phases = cleaned_data['phases']
 
+        no_phase_left = True
         for phase in phases:
             delete = phase['delete']
             del phase['delete']
@@ -274,6 +281,18 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             else:
                 if not delete:
                     self._create_phase(phase, commit, module)
+
+            if (phase['end_date'] and
+                    phase['end_date'].replace(tzinfo=None) >
+                    datetime.datetime.utcnow()):
+                no_phase_left = False
+
+        project.is_archived = project.is_archived and no_phase_left
+
+        if commit:
+            project.save()
+            if 'module_settings' in objects:
+                objects['module_settings'].save()
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
@@ -314,6 +333,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         project = objects['project']
         project.organisation = self.organisation
+        project.is_archived = False
         if commit:
             project.save()
             project.moderators.add(self.creator)

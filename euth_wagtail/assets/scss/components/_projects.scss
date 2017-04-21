@@ -30,32 +30,36 @@
         margin: 0;
     }
 
-    &.finished .project-tile-image-link {
+    &-finished &-image-link {
         border: solid 5px $brand-brand2;
     }
 
-    &.public .project-tile-image-link {
+    &-public &-image-link {
         border: solid 5px $brand-brand3;
     }
 
-    &.running-out .project-tile-image-link {
+    &-running-out &-image-link {
         border: solid 5px $brand-danger;
     }
 
-    &.private .project-tile-image-link {
+    &-private &-image-link {
         border: solid 5px $brand-brand1;
     }
 
-    &.no-image .project-tile-image-link {
+    &-archived &-image-link {
+        border: solid 5px $gray;
+    }
+
+    &-no-image &-image-link {
         background-position: 50% 50%;
     }
 
-    &.no-image .project-tile-image-link img {
+    &-no-image &-image-link img {
         display: block;
         margin: 0 auto;
     }
 
-    .project-tile-org-avatar {
+    &-org-avatar {
         border-radius: 50%;
     }
 
@@ -141,15 +145,6 @@
         & .black-divider-text {
             text-align: center;
         }
-    }
-}
-
-.projects-list {
-    @include rem(margin-top, 20px);
-
-    ul {
-        @include rem(margin, 20px 0);
-        padding-left: 0;
     }
 }
 
