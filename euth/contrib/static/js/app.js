@@ -8,12 +8,7 @@ var ReactUserList = require('../../../dashboard/static/user_list/react_user_list
 
 require('../../../../euth_wagtail/assets/js/euth_wagtail')
 
-var configureLocale = function (locale) {
-  moment.locale(locale)
-}
-
 module.exports = {
-  'configureLocale': configureLocale,
   'renderComment': ReactComments.renderComment,
   'renderRatings': ReactRatings.renderRatings,
   'renderLanguageSwitch': ReactLanguageSwitch.renderLanguageSwitch,
@@ -21,6 +16,8 @@ module.exports = {
   'renderFollow': ReactFollow.renderFollow,
   'renderUserList': ReactUserList.renderUserList
 }
+
+moment.locale(document.documentElement.lang)
 
 var initialiseWidget = function (project, name, initialiser) {
   if (!initialiser) {
