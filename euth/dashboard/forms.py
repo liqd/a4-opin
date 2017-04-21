@@ -176,7 +176,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         class Meta:
             model = settings_model
             exclude = ['module']
-            widgets = settings_model().widgets()
+            widgets = settings_model.widgets()
 
         def __init__(self, *args, **kwargs):
             super(ModuleSettings, self).__init__(*args, **kwargs)
