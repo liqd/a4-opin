@@ -35,6 +35,15 @@ module.exports = {
       'react-addons-update',
       'classnames',
       'moment',
+      'moment/locale/de',
+      'moment/locale/fr',
+      'moment/locale/it',
+      'moment/locale/sv',
+      'moment/locale/sl',
+      'moment/locale/da',
+      'moment/locale/el',
+      'moment/locale/uk',
+      'moment/locale/ru',
       'font-awesome/scss/font-awesome.scss',
       './euth_wagtail/assets/js/jquery-fix.js',
       'bootstrap-sass',
@@ -95,6 +104,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new BundleTracker({filename: './webpack-stats.json'}),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.js"),
     new ExtractTextPlugin('[name].css'),
