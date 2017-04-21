@@ -10,10 +10,12 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
+from adhocracy4.filters import views as filter_views
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from euth.blueprints import mixins as blueprint_mixins
 from euth.blueprints import blueprints
+from euth.contrib import filters
 from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
@@ -110,14 +112,15 @@ class DashboardOrganisationUpdateView(DashboardBaseMixin,
 
 class DashboardProjectListView(DashboardBaseMixin,
                                rules_views.PermissionRequiredMixin,
-                               generic.ListView):
+                               filter_views.FilteredListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
     permission_required = 'euth_organisations.modify_organisation'
     menu_item = 'project'
+    filter_set = filters.ArchivedFilter
 
     def get_queryset(self):
-        return self.model.objects.filter(
+        return super().get_queryset().filter(
             organisation=self.organisation
         )
 
