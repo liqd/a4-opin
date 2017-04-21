@@ -16,6 +16,7 @@ register(factories.AdminFactory, 'admin')
 register(factories.ContentTypeFactory)
 
 register(org_factories.OrganisationFactory)
+register(org_factories.OrganisationFactory, 'other_organisation')
 register(a4_factories.ProjectFactory)
 register(a4_factories.ModuleFactory)
 register(factories.PhaseFactory)
