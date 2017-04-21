@@ -22,10 +22,6 @@
     }
 }
 
-.comment-list {
-    @include rem('padding-top', 79px);
-}
-
 .comment {
     @include rem(margin-bottom, 50px);
     @include clearfix;
@@ -106,11 +102,13 @@
 
         & .dropdown li a,
         & .dropdown li button {
-            padding: 2px 14px 2px 0;
+            @include rem(padding, 10px);
+            margin: 0;
+
             font-family: $font-family-sans-serif;
             @include rem(font-size, 14px);
             line-height: 1.6;
-            text-align: justify;
+            text-align: center;
             font-weight: bold;
         }
 
