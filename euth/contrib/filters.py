@@ -1,6 +1,6 @@
 import django_filters
 from django.http import QueryDict
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.projects import models
 
@@ -8,12 +8,13 @@ from . import widgets
 
 
 class ArchivedFilterWidget(widgets.DropdownLinkWidget):
-    label = _("Archived")
+    label = _('status')
 
     def __init__(self, attrs=None):
         choices = (
-            ('false', _('No')),
-            ('true', _('Yes'))
+            ('false', _('active')),
+            ('true', _('archived')),
+            ('all', _('all'))
         )
         super().__init__(attrs, choices)
 
@@ -34,7 +35,7 @@ class ArchivedFilter(DefaultsFilterSet):
     }
 
     is_archived = django_filters.BooleanFilter(
-                    name='archived',
+                    name='is_archived',
                     widget=ArchivedFilterWidget
                 )
 
