@@ -29,10 +29,17 @@
                         {% get_days project.days_left as days %}
                         <div class="project-tile-badges">
                             <span class="label label-type">{{ project.module_set.first.phase_set.first.content.module_name }}</span>
-                            {% if not project.is_public %}<span class="label label-private">private</span>{% endif %}
-                            {% if project.has_finished %}<span class="label label-finished">Finished</span>{% endif %}
-                            {% if project.is_archived %}<span class="label label-finished">Archived</span>{% endif %}
-                            {% if days %}<span class="label label-runningout">{{ days }}</span>{% endif %}
+                            {% if not project.is_public %}
+                            <span class="label label-private">{% trans 'private' %}</span>
+                            {% endif %}
+                            {% if project.is_archived %}
+                            <span class="label label-archived">{% trans 'archived' %}</span>
+                            {% elif project.has_finished %}
+                            <span class="label label-finished">{% trans 'finished' %}</span>
+                            {% endif %}
+                            {% if days %}
+                            <span class="label label-runningout">{{ days }}</span>
+                            {% endif %}
                         </div>
                     </div>
 

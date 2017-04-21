@@ -12,7 +12,9 @@
                     {% if not project.is_public %}
                     <span class="label label-private">{% trans 'private' %}</span>
                     {% endif %}
-                    {% if project.has_finished %}
+                    {% if project.is_archived %}a
+                    <span class="label label-archived">{% trans 'archived' %}</span>
+                    {% elif project.has_finished %}
                     <span class="label label-finished">{% trans 'finished' %}</span>
                     {% elif days %}
                     <span class="label label-runningout">{{ days }}</span>
