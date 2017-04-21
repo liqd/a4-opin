@@ -8,7 +8,7 @@
         border: solid 1px $gray-light;
     }
 
-    .dropdown {
+    .filter-group {
         display: inline-block;
     }
 
@@ -17,7 +17,7 @@
     }
 
     @media (max-width: 50em) {
-        .dropdown {
+        .filter-group {
             display: block;
         }
 
@@ -25,6 +25,5 @@
             width: 100%;
             max-width: none;
         }
-
     }
 }
