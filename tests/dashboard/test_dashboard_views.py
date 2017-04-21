@@ -600,8 +600,7 @@ def test_initiator_archive_project_success(client, organisation):
     assert len(project.module_set.first().phase_set.all()) == 2
 
     update_url = reverse('dashboard-project-edit', kwargs={
-        'organisation_slug': organisation.slug,
-        'slug': project.slug
+        'project_slug': project.slug
     })
 
     module = project.module_set.first()
@@ -687,8 +686,7 @@ def test_initiator_archive_project_broken(client, organisation):
     assert len(project.module_set.first().phase_set.all()) == 2
 
     update_url = reverse('dashboard-project-edit', kwargs={
-        'organisation_slug': organisation.slug,
-        'slug': project.slug
+        'project_slug': project.slug
     })
 
     module = project.module_set.first()
