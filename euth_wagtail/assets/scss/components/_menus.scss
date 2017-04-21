@@ -96,10 +96,4 @@ body {
             color: $brand-brand1;
         }
     }
-
-    @media screen and (max-width: $screen-sm-max) {
-        .dropdown .dropdown-menu li a {
-            @include rem(padding, 5px 0);
-        }
-    }
 }
