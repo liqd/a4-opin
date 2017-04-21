@@ -1,30 +1,32 @@
+from django.shortcuts import get_object_or_404
 from django.views import generic
 
+from adhocracy4.filters import views as filter_views
+from adhocracy4.projects import models as project_models
 from euth.contrib import filters
 
 from . import models
 
 
+class OrganisationMixin():
+    def dispatch(self, request, *args, **kwargs):
+        slug = kwargs['slug']
+        self.organisation = get_object_or_404(models.Organisation, slug=slug)
+        return super().dispatch(request, *args, **kwargs)
 
-class OrganisationDetailView(generic.DetailView):
-    model = models.Organisation
-    filter = filters.ArchivedFilter
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['organisation'] = self.organisation
+        return context
 
-    def visible_projects(self):
-        projects = self.object.project_set.order_by('-created')
-        if self.request.user in self.object.initiators.all():
-            return projects.all()
-        else:
-            if 'is_archived' in self.request.GET and \
-                    self.request.GET['is_archived'] == 'true':
-                filter_archived = True
-            else:
-                filter_archived = False
+    def get_queryset(self):
+        return super().get_queryset().filter(organisation=self.organisation)
 
-            return projects.filter(
-                        is_draft=False,
-                        is_archived=filter_archived
-                    )
+
+class OrganisationDetailView(OrganisationMixin, filter_views.FilteredListView):
+    model = project_models.Project
+    filter_set = filters.ArchivedFilter
+    template_name = 'euth_organisations/organisation_detail.html'
 
 
 class OrganisationListView(generic.ListView):
