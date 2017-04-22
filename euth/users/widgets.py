@@ -8,7 +8,7 @@ class UserSearchInput(TextInput):
     class Media:
         js = (
             staticfiles_storage.url('typeahead.jquery.min.js'),
-            staticfiles_storage.url('user_search.js'),
+            staticfiles_storage.url('users/js/user_search.js'),
         )
 
     def __init__(self, identifier=None, *args, **kwargs):
