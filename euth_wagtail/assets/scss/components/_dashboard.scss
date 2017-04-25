@@ -61,6 +61,10 @@ h1.dashboard-title {
     .dashboard-project-create {
         position: absolute;
         bottom: 0;
+
+        &:last-child {
+            position: static;
+        }
     }
 }
 
