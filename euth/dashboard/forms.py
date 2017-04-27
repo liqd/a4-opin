@@ -270,7 +270,7 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 Offlinephase.objects.get_or_create(phase=new_phase)
 
     def save(self, commit=True):
-
+        self.clean()
         objects = super().save(commit=False)
         project = objects['project']
         module = project.module_set.first()
@@ -292,6 +292,13 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             project.save()
             if 'module_settings' in objects:
                 objects['module_settings'].save()
+
+    def clean(self):
+        objects = super().save(commit=False)
+        project = objects['project']
+        if project.is_archived:
+            raise ValidationError(_('Archived projects are read-only.'))
+        return self.cleaned_data
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
