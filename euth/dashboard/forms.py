@@ -111,7 +111,7 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
-                  'result', 'is_archived']
+                  'result']
 
     def save(self, commit=True):
         # calling flashpoll service
@@ -119,7 +119,6 @@ class ProjectForm(forms.ModelForm):
             services.send_to_flashpoll(self.data)
 
         self.instance.is_draft = 'save_draft' in self.data
-        self.instance.is_archived = 'archive' in self.data
         return super().save(commit)
 
     def get_checkbox_label(self, name):
@@ -279,7 +278,6 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                                      call_kwargs={'commit': commit})
         phases = cleaned_data['phases']
 
-        no_phase_left = True
         for phase in phases:
             delete = phase['delete']
             del phase['delete']
@@ -288,13 +286,6 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             else:
                 if not delete:
                     self._create_phase(phase, commit, module)
-
-            if (phase['end_date'] and
-                    phase['end_date'].replace(tzinfo=None) >
-                    datetime.datetime.utcnow()):
-                no_phase_left = False
-
-        project.is_archived = project.is_archived and no_phase_left
 
         if commit:
             project.save()
