@@ -149,6 +149,13 @@ class ProjectForm(forms.ModelForm):
         return formsections
 
 
+class ProjectArchiveForm(forms.ModelForm):
+
+    class Meta:
+        model = project_models.Project
+        fields = ['is_archived']
+
+
 class PhaseForm(forms.ModelForm):
     delete = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
