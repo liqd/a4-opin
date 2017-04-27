@@ -53,6 +53,21 @@
             content: "\f071 ";
         }
     }
+
+    .infobar {
+        @include rem(padding, 0.5em);
+
+        color: $gray;
+        background-color: #fff;
+        border: solid 2px $gray;
+
+        &:before {
+            display: inline;
+            font-family: "FontAwesome";
+            content: "\f05A ";
+        }
+    }
+
 }
 
 .form-help-text {
