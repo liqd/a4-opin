@@ -1,11 +1,11 @@
 git+git://github.com/liqd/adhocracy4.git@3449dd97a24c5fe4e3d54d77bee4eee3892c9af0
 Django>=1.8,<1.9 # pyup: >=1.8,<1.9
-wagtail==1.9
+wagtail==1.9.1
 feedparser==5.2.1
 python-dateutil==2.6.0
 django-allauth==0.31.0
-django-ckeditor==5.2.1
-django-countries==4.3
+django-ckeditor==5.2.2
+django-countries==4.5
 django-webpack-loader==0.4.1
 django-filter==1.0.2
 django-widget-tweaks==1.4.1
