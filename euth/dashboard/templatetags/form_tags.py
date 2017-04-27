@@ -34,3 +34,8 @@ def getPhaseName(type):
 def getAllowedFileTypes():
     fileformats = settings.FILE_ALIASES['*']['fileformats']
     return ', '.join([name for name, mimetype in fileformats])
+
+
+@register.assignment_tag
+def get_disabled(project):
+    return 'disabled' if project.is_archived else ''

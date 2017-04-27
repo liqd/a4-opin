@@ -238,7 +238,14 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
         super().__init__(*args, **kwargs)
 
+        if project.is_archived:
+            # disable information fields
+            for name, field in self.forms['project'].fields.items():
+                field.widget.attrs.update({"disabled": True})
 
+            # disable phase fields
+            for name, field in self.forms['phases'].form.base_fields.items():
+                field.widget.attrs.update({"disabled": True})
 
     def _update_or_delete_phase(self, phase, delete, commit):
         phase_object = phase['id']

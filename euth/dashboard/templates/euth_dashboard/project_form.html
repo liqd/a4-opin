@@ -1,6 +1,7 @@
 {% extends "euth_dashboard/base_organisation.html" %}
 {% load static widget_tweaks i18n form_tags flashpoll_form_tags %}
 {% block dashboard_content %}
+{% get_disabled project as disabled %}
 <h1 class="black-divider dashboard-title dashboard-title-no-margin">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
 
 <div class="general-form dashboard-tabbed-form">
@@ -27,11 +28,11 @@
         {% endif %}
 
         {% if not project or project.is_draft %}
-        <button type="submit" name="save_draft" class="btn btn-sm btn-primary">{% trans 'save draft' %}</button>
+        <button type="submit" name="save_draft" class="btn btn-sm btn-primary" {{ disabled }}>{% trans 'save draft' %}</button>
         {% else %}
-        <button type="submit" name="save_draft" class="btn btn-sm btn-default">{% trans 'unpublish' %}</button>
+        <button type="submit" name="save_draft" class="btn btn-sm btn-default" {{ disabled }}>{% trans 'unpublish' %}</button>
         {% endif %}
-        <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save and publish' %}</button>
+        <button type="submit" name="publish" class="btn btn-sm btn-primary" {{ disabled }}>{% trans 'save and publish' %}</button>
         {% if module_settings == "euth_flashpoll" %}
             {% with poll=form.module_settings.poll.value|get_poll_from_string %}
             {% if project.pk != None and poll.preview == False %}
