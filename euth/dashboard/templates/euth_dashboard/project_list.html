@@ -63,6 +63,21 @@
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'view project' %}">
                                 <i class="fa fa-eye"></i>
                             </a>
+                            {% if project.is_archivable %}
+                            <form action="{% url 'dashboard-project-archive' project.slug %}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'archive project' %}">
+                                <i class="fa fa-folder"></i>
+                              </button>
+                            </form>
+                            {% elif project.is_archived %}
+                            <form action="{% url 'dashboard-project-unarchive' project.slug %}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'unarchive project' %}">
+                                <i class="fa fa-folder-open"></i>
+                              </button>
+                            </form>
+                            {% endif %}
                         </span>
                     </div>
                 </div>
