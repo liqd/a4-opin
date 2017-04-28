@@ -39,7 +39,7 @@ class SuggestFormView(DashboardBaseMixin,
                       generic.FormView):
     template_name = 'euth_blueprints/form.html'
     form_class = forms.GetSuggestionForm
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
 
     def form_valid(self, form):
         context = {
