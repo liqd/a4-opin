@@ -297,7 +297,9 @@ class ProjectUpdateForm(multiform.MultiModelForm):
         objects = super().save(commit=False)
         project = objects['project']
         if project.is_archived:
-            raise ValidationError(_('Archived projects are read-only.'))
+            raise ValidationError(
+                    _('Archived projects are read-only.'),
+                    code='read-only')
         return self.cleaned_data
 
 
