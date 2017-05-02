@@ -11,7 +11,7 @@
         <div class="errorbar">
             {% trans 'Unable to submit form. Please fix the errors.' %}
         </div>
-        {% elif project.is_archived %}
+        {% elif project and project.is_archived %}
         <div class="infobar">
             {% trans 'This project is archived.' %}
         </div>

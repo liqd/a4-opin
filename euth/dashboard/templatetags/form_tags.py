@@ -38,4 +38,4 @@ def getAllowedFileTypes():
 
 @register.assignment_tag
 def get_disabled(project):
-    return 'disabled' if project.is_archived else ''
+    return 'disabled' if project and project.is_archived else ''
