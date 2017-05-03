@@ -25,7 +25,7 @@
         {% for project in project_list %}
             <li class="tile-list project-tile-list">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <a href="{% url 'dashboard-project-edit' project.slug %}">
                         <i class="fa fa-edit" aria-hidden="true"></i>
                         <strong>
@@ -53,8 +53,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <span class="pull-right">
+                    <div class="col-sm-4">
+                        <div class="pull-right">
                             <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
                             <a href="{% url 'dashboard-project-users' project.slug %}"
                                title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
@@ -67,18 +67,18 @@
                             <form action="{% url 'dashboard-project-archive' project.slug %}" method="post">
                               {% csrf_token %}
                               <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'archive project' %}">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-archive"></i>
                               </button>
                             </form>
                             {% elif project.is_archived %}
                             <form action="{% url 'dashboard-project-unarchive' project.slug %}" method="post">
                               {% csrf_token %}
                               <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'unarchive project' %}">
-                                <i class="fa fa-folder-open"></i>
+                                <i class="fa fa-archive"></i>
                               </button>
                             </form>
                             {% endif %}
-                        </span>
+                        </div>
                     </div>
                 </div>
             </li>

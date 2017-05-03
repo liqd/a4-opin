@@ -45,6 +45,11 @@ h1.dashboard-title {
         @include rem(margin, 20px 0);
         padding-left: 0;
     }
+
+    & form {
+        display: inline-block;
+    }
+
 }
 
 .dashboard-project-controls {
