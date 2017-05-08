@@ -236,6 +236,7 @@ LANGUAGES = [
     ('uk', _('Ukrainian')),
     ('el', _('Greek')),
     ('ru', _('Russian')),
+    ('ka', _('Georgian')),
 ]
 
 PARLER_LANGUAGES = {
