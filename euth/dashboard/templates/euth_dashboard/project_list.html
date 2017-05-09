@@ -58,23 +58,23 @@
                             <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
                             <a href="{% url 'dashboard-project-users' project.slug %}"
                                title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'view project' %}">
-                                <i class="fa fa-eye"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
                             {% if project.is_archivable %}
                             <form action="{% url 'dashboard-project-archive' project.slug %}" method="post">
                               {% csrf_token %}
                               <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'archive project' %}">
-                                <i class="fa fa-archive"></i>
+                                <i class="fa fa-archive" aria-hidden="true"></i>
                               </button>
                             </form>
                             {% elif project.is_archived %}
                             <form action="{% url 'dashboard-project-unarchive' project.slug %}" method="post">
                               {% csrf_token %}
                               <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'unarchive project' %}">
-                                <i class="fa fa-archive"></i>
+                                <i class="fa fa-archive" aria-hidden="true"></i>
                               </button>
                             </form>
                             {% endif %}
