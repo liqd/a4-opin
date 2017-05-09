@@ -294,6 +294,7 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 objects['module_settings'].save()
 
     def clean(self):
+        super().clean()
         objects = super().save(commit=False)
         project = objects['project']
         if project.is_archived:
