@@ -120,15 +120,9 @@ class DashboardProjectListView(DashboardBaseMixin,
     filter_set = filters.ArchivedFilter
 
     def get_queryset(self):
-        qs = super().get_queryset().filter(
+        return super().get_queryset().filter(
             organisation=self.organisation
         )
-
-        for project in qs:
-            project.is_archivable = (not project.is_archived) \
-                                     and project.has_finished
-
-        return qs
 
     def get_permission_object(self):
         return self.organisation
