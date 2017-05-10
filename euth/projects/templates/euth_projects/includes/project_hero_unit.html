@@ -30,8 +30,8 @@
                 </p>
                 <p class="herounit-description">{{ project.description | truncatechars:200 }}</p>
 
-                {% has_perm 'a4projects.edit_project' user project as can_edit_project %}
-                {% if can_edit_project %}
+                {% has_perm 'a4projects.change_project' user project as can_change_project %}
+                {% if can_change_project %}
                     <a href="{% url 'dashboard-project-edit' project.slug %}" class="btn btn-dark btn-primary btn-sm">
                         <i class="fa fa-edit"></i> {% trans 'edit' %}
                     </a>
