@@ -234,6 +234,34 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return kwargs
 
 
+class DashboardProjectArchiveView(DashboardBaseMixin,
+                                  rules_views.PermissionRequiredMixin,
+                                  generic.UpdateView):
+    model = project_models.Project
+    form_class = forms.ProjectArchiveForm
+    success_message = _('Project has been archived.')
+    permission_required = 'a4projects.add_project'
+    slug_url_kwarg = 'project_slug'
+    menu_item = 'project'
+    archiving = False
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                       })
+
+    def form_valid(self, form):
+        project = form.instance
+        project.is_archived = self.archiving and project.has_finished
+        form.save()
+        return super().form_valid(form)
+
+
 class DashboardProjectDeleteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  generic.DeleteView):
