@@ -10,8 +10,6 @@ from requests.auth import HTTPBasicAuth
 
 
 def send_to_flashpoll(data):
-
-    print("send_to_flashpoll:"+ json.dumps(data))
     if 'current_preview' in data:
         if 'save_draft' in data and data['current_preview'] == 'True':
             # Handling unpublish
@@ -39,7 +37,7 @@ def send_to_flashpoll(data):
                 'phases-0-description']
             jsonGenerator['longDescription'] = ""
             jsonGenerator['concludeMessage'] = ""
-            jsonGenerator['descriptionMediaURLs'] = [""]                
+            jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['keywords'] = []
             jsonGenerator['resultVisibility'] = 0
@@ -109,8 +107,6 @@ def send_to_flashpoll(data):
                 poll_id=data['module_settings-key']
             )
 
-            print("jsonGenerator:"+ json.dumps(jsonGenerator))
-            print("url_poll:"+ str(url_poll))
             # Handle post
             headers = {'Content-type': 'application/json'}
             requests.post(url_poll,
@@ -157,6 +153,19 @@ def fp_context_data_for_update_view(context, view):
                                           settings.FLASHPOLL_BACK_PASSWORD
                                           ))
     context['pollresult'] = json.loads(res.text)
+
+    url_poll = '{base_url}/poll/{poll_id}/results'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['pollresults'] = json.loads(res.text)
 
     return context
 
