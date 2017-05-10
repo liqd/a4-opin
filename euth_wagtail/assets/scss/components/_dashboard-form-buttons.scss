@@ -1,0 +1,63 @@
+#dashboard-form-buttons {
+    list-style: none;
+
+    .dropdown-menu {
+        padding-bottom: 1px;
+
+        button {
+          color: $gray-darker !important;
+          width: 100%;
+          border: 0;
+          text-align: left;
+          @include rem(padding, 7px 0 7px 15px);
+          background-color: transparent;
+
+          &.btn-hover-primary :hover, :focus {
+            color: $brand-primary;
+          }
+
+          &.btn-hover-danger :hover, :focus {
+            color: $brand-danger;
+          }
+        }
+
+        li {
+          position: relative;
+
+          i, img {
+            position: absolute;
+            width: 20px;
+            text-align: center;
+          }
+        }
+
+      .dropdown-text {
+          @include rem(padding-left, 30px);
+      }
+
+    }
+
+
+    .btngroup {
+      display: block;
+
+      a, button {
+          color: white;
+          display: inline-block;
+          @include rem(padding, 7px 15px);
+
+          &.userindicator-profile {
+            background-color: $brand-brand1;
+            margin-right: -1px;
+            border-right: 1px solid black;
+          }
+
+          &.dropdown-toggle {
+            background-color: $brand-brand1;
+          }
+
+        }
+
+    }
+
+}
