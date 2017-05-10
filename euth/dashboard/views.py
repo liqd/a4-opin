@@ -240,7 +240,7 @@ class DashboardProjectArchiveView(DashboardBaseMixin,
     model = project_models.Project
     form_class = forms.ProjectArchiveForm
     success_message = _('Project has been archived.')
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
     slug_url_kwarg = 'project_slug'
     menu_item = 'project'
     archiving = False
