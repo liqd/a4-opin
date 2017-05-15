@@ -6,7 +6,6 @@
 
 <div class="dashboard-project-controls">
     <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="dashboard-project-create btn btn-primary">{% trans 'create project' %}</a>
-    {% if project_list|length > 0 %}
     <div class="dashboard-project-filter filter-bar">
         {% for field in view.filter.form %}
         {% if field.name != 'ordering' %}
@@ -14,7 +13,6 @@
         {% endif %}
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 
 <div class="dashboard-projects-list">
