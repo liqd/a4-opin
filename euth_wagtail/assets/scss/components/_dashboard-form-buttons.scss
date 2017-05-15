@@ -21,25 +21,14 @@
           }
         }
 
-        li {
-          position: relative;
-
-          i, img {
-            position: absolute;
-            width: 20px;
-            text-align: center;
-          }
-        }
-
       .dropdown-text {
-          @include rem(padding-left, 30px);
+          @include rem(padding-left, 10px);
       }
 
     }
 
 
-    .btngroup {
-      display: block;
+    .btn-group {
 
       a, button {
           color: white;
@@ -48,7 +37,7 @@
 
           &.userindicator-profile {
             background-color: $brand-brand1;
-            margin-right: -1px;
+            margin-right: -4px;
             border-right: 1px solid black;
           }
 
