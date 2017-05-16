@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n static tz %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -81,6 +81,10 @@
                     <br />
                     <strong>{% trans 'End Date' %}</strong>
                     {{ view.phase.end_date|date:'SHORT_DATETIME_FORMAT' }}
+                    <br />
+                    <strong>{% trans 'Your Timezone' %}</strong>
+                    {% get_current_timezone as TIME_ZONE %}
+                    {{ TIME_ZONE }}
                 </p>
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
