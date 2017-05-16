@@ -46,15 +46,15 @@
                </a>
 
                 <ul class="dropdown-menu">
-                  <li><button type="submit" name="publish" class="btn btn-sm btn-hover-primary" {{ disabled }}><i class="fa fa-flag" aria-hidden="true"></i><span class="dropdown-text">{% trans 'save and publish' %}</span></button></li>
+                  <li><button type="submit" name="publish" class="btn btn-sm btn-hover-primary" {{ disabled }}><i class="fa fa-fw fa-flag" aria-hidden="true"></i><span class="dropdown-text">{% trans 'save and publish' %}</span></button></li>
                   {% if module_settings == "euth_flashpoll" %}
                     {% with poll=form.module_settings.poll.value|get_poll_from_string %}
                       {% if project.pk != None and poll.preview == False %}
-                        <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
+                        <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
                       {% endif %}
                     {% endwith %}
                   {% elif project.pk != None %}
-                    <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
+                    <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
                   {% endif %}
                 </ul>
               </div>
