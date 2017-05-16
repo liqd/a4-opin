@@ -12,11 +12,11 @@
           @include rem(padding, 7px 0 7px 15px);
           background-color: transparent;
 
-          &.btn-hover-primary :hover, :focus {
+          &.btn-hover-primary:hover, :focus {
             color: $brand-primary;
           }
 
-          &.btn-hover-danger :hover, :focus {
+          &.btn-hover-danger:hover, :focus {
             color: $brand-danger;
           }
         }
@@ -27,26 +27,19 @@
 
     }
 
+    .btn {
+      color: white;
+      display: inline-block;
+      @include rem(padding, 7px 15px);
 
-    .btn-group {
+      &.userindicator-profile {
+        background-color: $brand-brand1;
+        margin-right: -4px;
+        border-right: 1px solid black;
+      }
 
-      a, button {
-          color: white;
-          display: inline-block;
-          @include rem(padding, 7px 15px);
-
-          &.userindicator-profile {
-            background-color: $brand-brand1;
-            margin-right: -4px;
-            border-right: 1px solid black;
-          }
-
-          &.dropdown-toggle {
-            background-color: $brand-brand1;
-          }
-
-        }
-
+      &.dropdown-toggle {
+        background-color: $brand-brand1;
+      }
     }
-
 }
