@@ -30,8 +30,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = user_models.User
         fields = ['username', '_avatar', 'description', 'birthdate',
-                  'country', 'city', 'gender', 'languages', 'twitter_handle',
-                  'facebook_handle', 'instagram_handle', 'get_notifications']
+                  'country', 'city', 'timezone', 'gender', 'languages',
+                  'twitter_handle', 'facebook_handle', 'instagram_handle',
+                  'get_notifications']
         widgets = {
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
@@ -49,6 +50,7 @@ class ProfileForm(forms.ModelForm):
                 'birthdate',
                 'country',
                 'city',
+                'timezone',
                 'gender',
             ]),
             (_('Ways to connect with you'), [

@@ -1,7 +1,6 @@
 from rest_framework import permissions, viewsets
 
 from adhocracy4.projects.models import Project
-
 from euth.contrib.api.permissions import IsInitiatorOrSuperUser
 from euth.users.models import User
 

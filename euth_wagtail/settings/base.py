@@ -217,7 +217,7 @@ MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
