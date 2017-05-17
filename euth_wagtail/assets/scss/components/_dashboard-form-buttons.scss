@@ -5,41 +5,42 @@
         padding-bottom: 1px;
 
         button {
-          color: $gray-darker;
-          width: 100%;
-          border: 0;
-          text-align: left;
-          @include rem(padding, 7px 15px);
-          background-color: transparent;
-
-          &.btn-hover-primary:hover, :focus {
-            color: $brand-primary;
-          }
-
-          &.btn-hover-danger:hover, :focus {
-            color: $brand-danger;
-          }
+            color: $gray-darker;
+            width: 100%;
+            border: 0;
+            text-align: left;
+            @include rem(padding, 7px 15px);
+            background-color: transparent;
         }
 
-      .dropdown-text {
-          @include rem(padding-left, 10px);
-      }
+        button.btn-hover-primary:hover,
+        :focus {
+            color: $brand-primary;
+        }
 
+        button.btn-hover-danger:hover,
+        :focus {
+            color: $brand-danger;
+        }
+
+        .dropdown-text {
+            @include rem(padding-left, 10px);
+        }
     }
 
     .btn {
-      color: white;
-      display: inline-block;
-      @include rem(padding, 7px 15px);
+        color: white;
+        display: inline-block;
+        @include rem(padding, 7px 15px);
 
-      &.userindicator-profile {
-        background-color: $brand-brand1;
-        margin-right: -4px;
-        border-right: 1px solid black;
-      }
+        &.userindicator-profile {
+            background-color: $brand-brand1;
+            margin-right: -4px;
+            border-right: 1px solid black;
+        }
 
-      &.dropdown-toggle {
-        background-color: $brand-brand1;
-      }
+        &.dropdown-toggle {
+            background-color: $brand-brand1;
+        }
     }
 }
