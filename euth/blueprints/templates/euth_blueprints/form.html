@@ -51,13 +51,8 @@
                             </div>
                         {% endfor %}
                         <div class="row">
-                            <div class="col-md-6 dst-lightbox-progress">
-                                <ul class="progress">
-                                    <li class="active">{% trans 'Aim' %}</li>
-                                    <li>{% trans 'Fine tuning' %}</li>
-                                    <li>{% trans 'Result' %}</li>
-                                </ul>
-                            </div>
+                            {% include 'euth_blueprints/includes/breadcrumbs.html' with aim=True %}
+
                             <div class="col-md-6">
                                 <button type="button"
                                         class="btn btn-primary pull-right js-continue">{% trans 'Proceed' %}
@@ -83,13 +78,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 dst-lightbox-progress">
-                                <ul class="progress">
-                                    <li>{% trans 'Aim' %}</li>
-                                    <li class="active">{% trans 'Fine tuning' %}</li>
-                                    <li>{% trans 'Result' %}</li>
-                                </ul>
-                            </div>
+                            {% include 'euth_blueprints/includes/breadcrumbs.html' with finetuning=True %}
+
                             <div class="col-md-6">
                                 <button class="btn btn-primary pull-right js-send" type="submit">{% trans 'Proceed' %}</button>
                             </div>

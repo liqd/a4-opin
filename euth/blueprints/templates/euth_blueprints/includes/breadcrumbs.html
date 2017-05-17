@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="col-md-6 dst-lightbox-progress">
+    <ul class="progress">
+        <li class="{{aim|yesno:'active,'}}" >{% trans 'Aim' %}</li>
+        <li class="{{finetuning|yesno:'active,'}}" >{% trans 'Fine tuning' %}</li>
+        <li class="{{finetuning2|yesno:'active,'}}" >{% trans 'Fine tuning 2' %}</li>
+        <li class="{{result|yesno:'active,'}}" >{% trans 'Result' %}</li>
+    </ul>
+</div>
+
+
