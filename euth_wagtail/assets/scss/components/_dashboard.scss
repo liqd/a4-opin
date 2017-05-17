@@ -41,6 +41,11 @@ h1.dashboard-title {
 
 
 .dashboard-projects-list {
+    .infotext {
+        @include rem(margin, 20px 0);
+        padding-left: 0;
+    }
+
     ul {
         @include rem(margin, 20px 0);
         padding-left: 0;

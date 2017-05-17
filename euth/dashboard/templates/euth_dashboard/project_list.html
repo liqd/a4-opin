@@ -17,8 +17,12 @@
 
 <div class="dashboard-projects-list">
     {% if project_list|length == 0 %}
-    {% trans 'No projects created' %}
+    <div class="infotext">
+      {% trans 'No projects found' %}
+    </div>
+
     {% else %}
+
     <ul>
         {% for project in project_list %}
             <li class="tile-list project-tile-list">
