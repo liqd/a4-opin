@@ -41,7 +41,6 @@ h1.dashboard-title {
 
 
 .dashboard-projects-list {
-
     .infotext {
         @include rem(margin, 20px 0);
         padding-left: 0;
@@ -55,7 +54,6 @@ h1.dashboard-title {
     & form {
         display: inline-block;
     }
-
 }
 
 .dashboard-project-controls {
