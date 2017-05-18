@@ -227,3 +227,26 @@ h2.dst-lightbox-banner {
     background-color: $brand-brand3;
     color: #fff;
 }
+
+.dashboard-form-buttons {
+    .dropdown-toggle {
+        border-left: solid 1px #fff;
+    }
+
+    .dropdown-menu {
+        .btn-hover-primary,
+        .btn-hover-danger {
+            background-color: #fff;
+        }
+
+        .btn {
+            width: 100%;
+            border: 0;
+            text-align: left;
+        }
+
+        .dropdown-text {
+            @include rem(padding-left, 10px);
+        }
+    }
+}

@@ -31,36 +31,54 @@
             {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
         {% endif %}
 
-        <ul class="dashboard-form-buttons">
-            <li class="dropdown">
-              <div class="btn-group">
+        <div class="dashboard-form-buttons dropdown">
+            <div class="btn-group">
 
                 {% if not project or project.is_draft %}
-                    <button type="submit" name="save_draft" class="btn userindicator-profile" {{ disabled }}><span class="dropdown-text">{% trans 'save draft' %}</span></button>
+                <button type="submit" name="save_draft" class="btn btn-primary" {{ disabled }}>
+                    <span class="dropdown-text">{% trans 'save draft' %}</span>
+                </button>
                 {% else %}
-                    <button type="submit" name="save_draft" class="btn userindicator-profile" {{ disabled }}><span class="dropdown-text">{% trans 'unpublish' %}</span></button>
+                <button type="submit" name="publish" class="btn btn-primary" {{ disabled }}>
+                    <span class="dropdown-text">{% trans 'save and publish' %}</span>
+                </button>
                 {% endif %}
 
-                <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="caret"></span>
-               </a>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
 
                 <ul class="dropdown-menu">
-                  <li><button type="submit" name="publish" class="btn btn-sm btn-hover-primary" {{ disabled }}><i class="fa fa-fw fa-flag" aria-hidden="true"></i><span class="dropdown-text">{% trans 'save and publish' %}</span></button></li>
-                  {% if module_settings == "euth_flashpoll" %}
+                    <li>
+                        {% if not project or project.is_draft %}
+                        <button type="submit" name="publish" class="btn btn-sm btn-hover-primary" {{ disabled }}>
+                            <i class="fa fa-fw fa-flag" aria-hidden="true"></i>
+                            <span class="dropdown-text">{% trans 'save and publish' %}</span>
+                        </button>
+                        {% else %}
+                        <button type="submit" name="save_draft" class="btn btn-sm btn-hover-primary" {{ disabled }}>
+                            <i class="fa fa-fw fa-pause"> </i>
+                            <span class="dropdown-text">{% trans 'unpublish' %}</span>
+                        </button>
+                        {% endif %}
+                    </li>
+                    {% if module_settings == "euth_flashpoll" %}
                     {% with poll=form.module_settings.poll.value|get_poll_from_string %}
-                      {% if project.pk != None and poll.preview == False %}
-                        <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
-                      {% endif %}
+                    {% if project.pk != None and poll.preview == False %}
+                    <li>
+                        <button type="button" class="btn btn-sm btn-hover-danger" data-toggle="modal" data-target="#deleteModal">
+                            <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>
+                            <span class="dropdown-text">delete</span>
+                        </button>
+                    </li>
+                    {% endif %}
                     {% endwith %}
-                  {% elif project.pk != None %}
+                    {% elif project.pk != None %}
                     <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
-                  {% endif %}
+                    {% endif %}
                 </ul>
-              </div>
-            </li>
-        </ul>
-
+            </div>
+        </div>
 
     </form>
 </div>
