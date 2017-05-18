@@ -1,4 +1,3 @@
-from datetime import datetime
 from itertools import chain
 
 import django_filters
@@ -22,15 +21,6 @@ class DateInput(widgets.DateInput):
     input_type = 'text'
     format_index = 0
     # alt_format_index = 2
-
-    # becomes a public value in Django 1.10
-    def _format_value(self, value):
-        format = formats.get_format(self.format_key)[self.format_index]
-        if isinstance(value, str):
-            date = datetime.strptime(value, format)
-            return date.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
-        else:
-            return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
 
     def render(self, name, value, attrs=None):
         if attrs:
