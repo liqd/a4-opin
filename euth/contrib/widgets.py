@@ -20,21 +20,15 @@ class DateInput(widgets.DateInput):
 
     input_type = 'text'
     format_index = 0
-    # alt_format_index = 2
 
     def render(self, name, value, attrs=None):
         if attrs:
             format = formats.get_format(
                 self.format_key
             )[self.format_index]
-            # alt_format = formats.get_format(
-            #     self.format_key
-            # )[self.alt_format_index]
             attrs.update({
                 'class': attrs.get('class', '') + ' flatpickr',
                 'data-date-format': format.replace('%', '').replace('M', 'i'),
-                # 'data-alt-format': alt_format.replace(
-                # '%', '').replace('M', 'i'),
             })
 
             if hasattr(self, 'additional_attrs'):
@@ -54,11 +48,9 @@ class DateTimeInput(DateInput):
     additional_attrs = {
         'data-time_24hr': 'true',
         'data-enable-time': 'true',
-        # 'data-alt-input': 'true'
     }
 
     format_index = 0
-    # alt_format_index = 2
     format_key = 'DATETIME_INPUT_FORMATS'
 
 
