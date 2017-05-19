@@ -3,8 +3,7 @@ from rules.predicates import is_superuser
 
 from adhocracy4.modules.predicates import (is_context_initiator,
                                            is_context_member,
-                                           is_context_moderator,
-                                           is_owner,
+                                           is_context_moderator, is_owner,
                                            is_public_context)
 from adhocracy4.phases.predicates import (phase_allows_add,
                                           phase_allows_change,
@@ -12,7 +11,6 @@ from adhocracy4.phases.predicates import (phase_allows_add,
                                           phase_allows_rate)
 
 from .models import MapIdea
-
 
 rules.add_perm('euth_maps.rate_mapidea',
                is_superuser | is_context_moderator | is_context_initiator |

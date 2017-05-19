@@ -7,6 +7,7 @@ from django.templatetags.static import static
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
+from pytz import common_timezones
 
 from adhocracy4.images import fields
 from euth.users import USERNAME_REGEX
@@ -108,7 +109,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     gender = models.CharField(
         blank=True,
         verbose_name=_('Gender'),
-        max_length=1,
+        max_length=2,
         choices=[
             ('M', _('Male')),
             ('F', _('Female')),
@@ -127,6 +128,13 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         max_length=150,
         help_text=_('Enter the languages you’re speaking.')
     )
+
+    timezone = models.CharField(
+        blank=True,
+        verbose_name=_('Time zone'),
+        max_length=100,
+        choices=[(t, t) for t in common_timezones]
+        )
 
     objects = auth_models.UserManager()
 
