@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static tz %}
+{% load i18n static tz time_delta_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -76,6 +76,13 @@
                 <h2>{{ view.phase.name }}</h2>
                 {% if view.phase and not view.phase.is_over %}
                 <p>
+                    {% get_time_left view.phase.end_date as time_lef %}
+                    <strong>{% trans 'Time left to participate:' %}</strong>
+                    {% for key, value in time_lef.items %}
+                    {{ value }}
+                    {{ key }}
+                    {% endfor %}
+                    <br />
                     <strong>{% trans 'Start Date' %}</strong>
                     {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
                     <br />
