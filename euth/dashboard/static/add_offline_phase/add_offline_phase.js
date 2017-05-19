@@ -2,8 +2,8 @@
 window.jQuery(document).ready(function () {
   function updateNewElement (element) {
     element.addClass('phaseform-offline-phase')
-    element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
-    element.find('#id_phases-0-delete').val(0)
+    element.find('#id_phases-__prefix__-type').val('euth_offlinephases:000:offline')
+    element.find('#id_phases-__prefix__-delete').val(0)
     element.find('.collapse').eq(0).text(django.gettext('Offline Phase')).append('<i class="fa fa-chevron-up pull-right"></i>')
     element.find(('[type=text][readonly]')).remove()
     element.css('display', 'block')
@@ -24,23 +24,6 @@ window.jQuery(document).ready(function () {
       element.find('.phasefrom-collapse-top').prepend(button)
       return button
     }
-  }
-
-  function setNewElementInputValues (element) {
-    element.find(':input:not([type=button])').each(function () {
-      var currentType = $(this).attr('name').split('-')[2]
-      if (currentType !== 'type' && currentType !== 'delete') {
-        $(this).val('')
-      }
-      if (currentType === 'start_date' || currentType === 'end_date') {
-        $(this).attr('data-default-date', '')
-        $(this).val('')
-        $(this).flatpickr()
-      }
-      if (currentType === 'id') {
-        $(this).removeAttr('value')
-      }
-    })
   }
 
   function setPhaseIds () {
@@ -65,10 +48,12 @@ window.jQuery(document).ready(function () {
   }
 
   function cloneMore (selector, type, target) {
-    var newElement = $(selector).clone()
+    var newElementSource = $('#phase-form-template').html()
+    var newElement = $(newElementSource)
+    newElement.find('.flatpickr').flatpickr()
     var total = $('#id_' + type + '-TOTAL_FORMS').val()
+
     updateNewElement(newElement)
-    setNewElementInputValues(newElement)
 
     $(target).after(newElement)
     $(target).remove()
