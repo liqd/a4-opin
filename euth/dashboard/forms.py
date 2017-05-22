@@ -10,7 +10,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db.models import loading
 from django.forms import modelformset_factory
-from django.utils.translation import ugettext as _
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.modules import models as module_models
 from adhocracy4.phases import models as phase_models
@@ -174,7 +175,18 @@ class PhaseForm(forms.ModelForm):
         help_texts = {
             'name': _('It should be max. 80 characters long.'),
             'description': _('It should be max. 300 characters long.'),
+            'start_date': _('Your timezone: {}'),
+            'end_date': _('Your timezone: {}'),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['start_date'].help_text = \
+            self.fields['start_date'].help_text.format(
+            timezone.get_current_timezone())
+        self.fields['end_date'].help_text = \
+            self.fields['end_date'].help_text.format(
+            timezone.get_current_timezone())
 
 
 def get_module_settings_form(settings_instance_or_modelref):
