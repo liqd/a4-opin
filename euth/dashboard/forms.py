@@ -173,6 +173,8 @@ class PhaseForm(forms.ModelForm):
         }
 
         help_texts = {
+            'name': _('It should be max. 80 characters long.'),
+            'description': _('It should be max. 300 characters long.'),
             'start_date': _('Your timezone: {}'),
             'end_date': _('Your timezone: {}'),
         }

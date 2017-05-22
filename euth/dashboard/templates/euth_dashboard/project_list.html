@@ -6,7 +6,6 @@
 
 <div class="dashboard-project-controls">
     <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="dashboard-project-create btn btn-primary">{% trans 'create project' %}</a>
-    {% if project_list|length > 0 %}
     <div class="dashboard-project-filter filter-bar">
         {% for field in view.filter.form %}
         {% if field.name != 'ordering' %}
@@ -14,13 +13,16 @@
         {% endif %}
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 
 <div class="dashboard-projects-list">
     {% if project_list|length == 0 %}
-    {% trans 'No projects created' %}
+    <div class="infotext">
+      {% trans 'No projects found' %}
+    </div>
+
     {% else %}
+
     <ul>
         {% for project in project_list %}
             <li class="tile-list project-tile-list">
