@@ -7,7 +7,6 @@ from .models import MapIdea
 class MapIdeaListView(idea_views.IdeaListView):
     model = MapIdea
 
-
 class MapIdeaCreateView(idea_views.IdeaCreateView):
     model = MapIdea
     form_class = forms.MapIdeaForm
