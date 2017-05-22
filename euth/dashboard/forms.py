@@ -171,6 +171,11 @@ class PhaseForm(forms.ModelForm):
             'weight': forms.HiddenInput()
         }
 
+        help_texts = {
+            'name': _('It should be max. 80 characters long.'),
+            'description': _('It should be max. 300 characters long.'),
+        }
+
 
 def get_module_settings_form(settings_instance_or_modelref):
     if hasattr(settings_instance_or_modelref, 'module'):
