@@ -77,21 +77,18 @@
                 {% if view.phase and not view.phase.is_over %}
                 <p>
                     {% get_time_left view.phase.end_date as time_left %}
-                    <strong>{% trans 'Time left to participate:' %}</strong>
-                    {% for key, value in time_left.items %}
-                    {{ value }}
-                    {{ key }}
-                    {% endfor %}
+                    <strong>
+                        {% trans 'This phase ends in ' %}
+                        {{ time_left }}
+                    </strong>
                     <br />
-                    <strong>{% trans 'Start Date' %}</strong>
                     {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
-                    <br />
-                    <strong>{% trans 'End Date' %}</strong>
+                    -
                     {{ view.phase.end_date|date:'SHORT_DATETIME_FORMAT' }}
-                    <br />
-                    <strong>{% trans 'Your Timezone' %}</strong>
+                    {% trans '(Your Timezone: ' %}
                     {% get_current_timezone as TIME_ZONE %}
                     {{ TIME_ZONE }}
+                    )
                 </p>
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
