@@ -25,7 +25,7 @@ def get_time_left(time):
 
         return unit_totals
 
-    if isinstance(time, timezone.datetime):
+    if time:
         time_delta = time - timezone.now()
         seconds = time_delta.total_seconds()
         time_delta_dict = seconds_in_units(seconds)

@@ -76,9 +76,9 @@
                 <h2>{{ view.phase.name }}</h2>
                 {% if view.phase and not view.phase.is_over %}
                 <p>
-                    {% get_time_left view.phase.end_date as time_lef %}
+                    {% get_time_left view.phase.end_date as time_left %}
                     <strong>{% trans 'Time left to participate:' %}</strong>
-                    {% for key, value in time_lef.items %}
+                    {% for key, value in time_left.items %}
                     {{ value }}
                     {{ key }}
                     {% endfor %}
