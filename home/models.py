@@ -1,6 +1,12 @@
 from __future__ import unicode_literals
 
+from operator import attrgetter
+
+from django import forms
+from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail.wagtailadmin import edit_handlers
@@ -15,10 +21,11 @@ from wagtail.wagtailsnippets.models import register_snippet
 
 from adhocracy4.projects import models as prj_models
 from contrib.translations.translations import TranslatedField
-# Snippets
+from euth.organisations import urls as org_urls
 from euth_wagtail.settings import LANGUAGES
 
 
+# Snippets
 class RSSImport(models.Model):
     url = models.URLField(null=True, blank=True)
 
@@ -52,19 +59,52 @@ class RSSImport(models.Model):
     def __str__(self):
         return self.rss_title_en
 
-
 class LinkFields(models.Model):
+
     link_page = models.ForeignKey(
         'wagtailcore.Page',
-        related_name='+'
+        related_name='+',
+        blank=True,
+        null=True
     )
+
+    allowed_views = (
+        (org_urls, 'organisation-list', _('List of Organisations')),
+    )
+
+    link_view = models.CharField(
+        max_length=100,
+        blank=True,
+        choices=[
+            (name, title) for urlconfig, name, title in allowed_views
+            if name in map(attrgetter('name'), urlconfig.urlpatterns)
+        ]
+    )
+
+    def clean(self):
+        if self.link_page and self.link_view:
+            msg = _('Can only either link a view or a page.')
+            raise ValidationError({
+                'link_view': msg,
+                'link_page': msg,
+            })
+        if not self.link_page and not self.link_view:
+            msg = _('Specify either a link to a view or a page.')
+            raise ValidationError({
+                'link_view': msg,
+                'link_page': msg,
+            })
 
     @property
     def link(self):
-        return self.link_page.url
+        if self.link_page:
+            return self.link_page.url
+        else:
+            return reverse(self.link_view)
 
     panels = [
-        edit_handlers.PageChooserPanel('link_page')
+        edit_handlers.PageChooserPanel('link_page'),
+        edit_handlers.FieldPanel('link_view'),
     ]
 
     class Meta:
