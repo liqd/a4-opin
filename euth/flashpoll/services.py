@@ -160,7 +160,7 @@ def fp_context_data_for_update_view(context, view):
 def fp_context_data(module_settings):
     data = dict(module_settings.data)
     # case submitted
-    if ('save_draft' in data) or ('publish' in data):
+    if ('save_draft' in data) or ('publish' in data) or ('archive' in data):
         jsonGenerator = {}
         jsonGenerator['title'] = data['module_settings-title']
         jsonGenerator['shortDescription'] = data[
