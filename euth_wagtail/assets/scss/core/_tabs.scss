@@ -79,6 +79,10 @@
         text-transform: uppercase;
     }
 
+    .tab-panel-times {
+        @include rem(font-size, $font-size-small);
+    }
+
     .tab-panel-description {
         @include rem(font-size, $font-size-medium);
         line-height: 1.56;
