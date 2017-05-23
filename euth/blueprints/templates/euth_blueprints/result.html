@@ -30,8 +30,17 @@
                                         <strong>Phase {{ forloop.counter }}</strong>: {{ phase_content.description }}
                                     </li>
                                 {% endfor %}
+
+                                <li>
+                                    <strong>{% trans 'Time and effort' %}</strong>:
+                                    {% blocktrans with time=blueprint.time %}
+                                      Approximately {{time}}h per week.
+                                    {% endblocktrans %}
+                                </li>
+
                             </ul>
                         </div>
+
                         <div class="blueprint-footer">
                             <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
                             {% trans 'Use this template' %}
