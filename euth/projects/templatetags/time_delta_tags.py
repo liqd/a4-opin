@@ -34,7 +34,8 @@ def get_time_left(time):
         time_delta = time - timezone.now()
         seconds = time_delta.total_seconds()
         time_delta_list = seconds_in_units(seconds)
-        time_delta_str = 'and '.join([(str(val[1]) + ' ' + str(val[0]) + ' ')
-                                     for val in time_delta_list[:2]])
+        time_delta_str = (_('and')+(' ')).join([(str(val[1]) + ' ' +
+                                               str(val[0]) + ' ')
+                                               for val in time_delta_list[:2]])
 
         return time_delta_str

@@ -75,21 +75,22 @@
             <div class="container-narrow">
                 <h2>{{ view.phase.name }}</h2>
                 {% if view.phase and not view.phase.is_over %}
-                <p>
+                <div>
                     {% get_time_left view.phase.end_date as time_left %}
                     <strong>
-                        {% trans 'This phase ends in ' %}
+                        {% trans 'This phase ends in' %}
                         {{ time_left }}
                     </strong>
                     <br />
+                    <p class="tab-panel-times">
                     {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
                     -
                     {{ view.phase.end_date|date:'SHORT_DATETIME_FORMAT' }}
                     {% trans '(Your Timezone: ' %}
                     {% get_current_timezone as TIME_ZONE %}
-                    {{ TIME_ZONE }}
-                    )
-                </p>
+                    {{ TIME_ZONE }})
+                    </p>
+                </div>
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
             </div>
