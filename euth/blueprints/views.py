@@ -34,6 +34,52 @@ def filter_blueprints(aim, result, experience, motivation,
     return candidates
 
 
+def compute_complexity(blueprint, participants, duration, scope):
+    return sum((
+        blueprints.complexity.participants[0] +
+        participants.value * blueprints.complexity.participants[1],
+        blueprints.complexity.duration[0] +
+        duration.value * blueprints.complexity.duration[1],
+        blueprints.complexity.scope[0] +
+        scope.value * blueprints.complexity.scope[1],
+    ))
+
+
+def compute_mobilisation(motivation, accessibility):
+    return (motivation.value + accessibility.value)/2
+
+
+def compute_time_needed(
+        blueprint, participants, duration, scope,
+        motivation, accessibility, experience
+):
+
+    complexity = compute_complexity(blueprint, participants, duration, scope)
+    mobilisation = compute_mobilisation(motivation, accessibility)
+
+    inverse_experience = 5 - experience.value
+    value = sum(
+        complexity,
+        mobilisation,
+        inverse_experience
+    )
+
+    if value < 13:
+        return 5
+    elif value < 21:
+        return 10
+    elif value < 28:
+        return 15
+    elif value < 35:
+        return 20
+    elif value < 40:
+        return 25
+    elif value < 50:
+        return 30
+    else:
+        return 35
+
+
 class SuggestFormView(DashboardBaseMixin,
                       rules_views.PermissionRequiredMixin,
                       generic.FormView):
