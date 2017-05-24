@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from operator import attrgetter
 
-from django import forms
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -58,6 +57,7 @@ class RSSImport(models.Model):
 
     def __str__(self):
         return self.rss_title_en
+
 
 class LinkFields(models.Model):
 

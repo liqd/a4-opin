@@ -98,6 +98,89 @@ class Motivation(Enum):
         return obj
 
 
+@unique
+class Participants(Enum):
+    few = 0, '< 25'
+    some = 1, '25-50'
+    many = 2, '50+'
+
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value_ = value
+        obj.label = label
+        return obj
+
+
+@unique
+class Duration(Enum):
+    one_weeks = 0, _('1-2 weeks')
+    two_weeks = 1, _('2-4 weeks')
+    four_weeks = 2, _('more than 4 weeks')
+
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value_ = value
+        obj.label = label
+        return obj
+
+
+@unique
+class Scope(Enum):
+    local = 0, _('Local')
+    regional = 1, _('Regional')
+    national = 2, _('National or international')
+
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value_ = value
+        obj.label = label
+        return obj
+
+
+class Accessibility(Enum):
+    very_easy = 1, _('Very easy to access')
+    easy = 2, _('Easy to access')
+    hard = 3, _('Hard to access')
+    very_hard = 4, _('Very hard to access')
+
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value_ = value
+        obj.label = label
+        return obj
+
+
+ComplexityVector = namedtuple(
+    'ComplexityVector', [
+        'participants', 'duration', 'scope'
+    ]
+)
+
+
+COMPLEXITY_VECTOR_AC = ComplexityVector(
+    participants=(0, 0.5),
+    duration=(0, 1),
+    scope=(0, 0.5)
+)
+
+COMPLEXITY_VECTOR_BD = ComplexityVector(
+    participants=(0, 1),
+    duration=(0, 1),
+    scope=(0, 1)
+)
+
+COMPLEXITY_VECTOR_E = ComplexityVector(
+    participants=(0, 1/3),
+    duration=(0, 0),
+    scope=(0, 1/3)
+)
+
+COMPLEXITY_VECTOR_F = ComplexityVector(
+    participants=(1, 1),
+    duration=(0, 1),
+    scope=(0, 0)
+)
+
 Requirements = namedtuple(
     'Requirements', [
         'aims', 'results', 'experience', 'motivation'
@@ -107,7 +190,7 @@ Requirements = namedtuple(
 Blueprint = namedtuple(
     'Blueprint', [
         'title', 'description', 'content', 'image', 'settings_model',
-        'requirements'
+        'requirements', 'complexity'
     ])
 
 
@@ -128,6 +211,7 @@ blueprints = [
              experience=Experience.no_projects,
              motivation=Motivation.not_found
          ),
+         complexity=COMPLEXITY_VECTOR_AC,
      )),
     ('map-brainstorming',
      Blueprint(
@@ -145,6 +229,7 @@ blueprints = [
              experience=Experience.no_projects,
              motivation=Motivation.not_found
          ),
+         complexity=COMPLEXITY_VECTOR_AC,
      )),
     ('idea-challenge',
      Blueprint(
@@ -163,6 +248,7 @@ blueprints = [
              experience=Experience.one_project,
              motivation=Motivation.low
          ),
+         complexity=COMPLEXITY_VECTOR_BD,
      )),
     ('map-idea-challenge',
      Blueprint(
@@ -182,6 +268,7 @@ blueprints = [
              experience=Experience.one_project,
              motivation=Motivation.low
          ),
+         complexity=COMPLEXITY_VECTOR_BD,
      )),
     ('agenda-setting',
      Blueprint(
@@ -201,6 +288,7 @@ blueprints = [
              experience=Experience.one_project,
              motivation=Motivation.low
          ),
+         complexity=COMPLEXITY_VECTOR_AC,
      )),
     ('commenting-text',
      Blueprint(
@@ -220,6 +308,7 @@ blueprints = [
              experience=None,
              motivation=None
          ),
+         complexity=COMPLEXITY_VECTOR_F,
      )),
     ('flashpoll',
      Blueprint(
@@ -239,6 +328,7 @@ blueprints = [
              experience=Experience.no_projects,
              motivation=Motivation.not_found
          ),
+         complexity=COMPLEXITY_VECTOR_E,
      )),
 ]
 
