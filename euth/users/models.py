@@ -197,6 +197,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         """Update the fields required for sign-up."""
         self.username = username
         self.email = email
-        self.timezone = timezone
+        if timezone in common_timezones:
+            self.timezone = timezone
         if commit:
             self.save()
