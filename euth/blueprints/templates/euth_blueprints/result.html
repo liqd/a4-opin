@@ -15,14 +15,16 @@
             {% endblocktrans %}
         </h2>
         <div class="blueprint-list-centered dst-lightbox-lastentry">
-            {% for blueprint_slug, blueprint in blueprints %}
+            {% for blueprint_slug, blueprint, time in blueprints %}
                 <div class="col-md-4">
                     <div class="blueprint-tile">
                         <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
                         <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
+
                         <div class="blueprint-description">
                             {{ blueprint.description | linebreaks }}
                         </div>
+
                         <div class="blueprint-phases">
                             <ul class="list-unstyled">
                                 {% for phase_content in blueprint.content %}
@@ -33,7 +35,7 @@
 
                                 <li>
                                     <strong>{% trans 'Time and effort' %}</strong>:
-                                    {% blocktrans with time=blueprint.time %}
+                                    {% blocktrans %}
                                       Approximately {{time}}h per week.
                                     {% endblocktrans %}
                                 </li>
