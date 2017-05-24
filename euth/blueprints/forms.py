@@ -67,7 +67,6 @@ class GetSuggestionForm(forms.Form):
         label=_('How easy is it to access the project?')
     )
 
-
     def clean_aim(self, *args, **kwargs):
         try:
             return blueprints.Aim(self.cleaned_data['aim'])
@@ -94,7 +93,8 @@ class GetSuggestionForm(forms.Form):
         return self._clean_optional_enum('motivation', blueprints.Motivation)
 
     def clean_participants(self, *args, **kwargs):
-        return self._clean_optional_enum('participants', blueprints.Participants)
+        return self._clean_optional_enum(
+            'participants', blueprints.Participants)
 
     def clean_scope(self, *args, **kwargs):
         return self._clean_optional_enum('scope', blueprints.Scope)
@@ -103,4 +103,5 @@ class GetSuggestionForm(forms.Form):
         return self._clean_optional_enum('duration', blueprints.Duration)
 
     def clean_accessibility(self, *args, **kwargs):
-        return self._clean_optional_enum('accessibility', blueprints.Accessibility)
+        return self._clean_optional_enum(
+            'accessibility', blueprints.Accessibility)

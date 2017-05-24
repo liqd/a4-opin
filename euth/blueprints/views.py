@@ -27,8 +27,10 @@ def filter_blueprints(aim, result, experience, motivation,
             if requirements.motivation.value > motivation.value:
                 continue
 
-        timeneeded = compute_time_needed(blueprint, participants,
-            duration, scope, motivation, accessibility, experience)
+        timeneeded = compute_time_needed(
+                        blueprint, participants, duration, scope,
+                        motivation, accessibility, experience
+                        )
         candidates.append((name, blueprint, timeneeded))
 
     if not candidates:
@@ -57,7 +59,6 @@ def compute_time_needed(
         blueprint, participants, duration, scope,
         motivation, accessibility, experience
 ):
-
     complexity = compute_complexity(blueprint, participants, duration, scope)
     mobilisation = compute_mobilisation(motivation, accessibility)
 
