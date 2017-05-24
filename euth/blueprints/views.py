@@ -40,12 +40,12 @@ def filter_blueprints(aim, result, experience, motivation,
 
 def compute_complexity(blueprint, participants, duration, scope):
     return sum((
-        blueprints.complexity.participants[0] +
-        participants.value * blueprints.complexity.participants[1],
-        blueprints.complexity.duration[0] +
-        duration.value * blueprints.complexity.duration[1],
-        blueprints.complexity.scope[0] +
-        scope.value * blueprints.complexity.scope[1],
+        blueprint.complexity.participants[0] +
+        participants.value * blueprint.complexity.participants[1],
+        blueprint.complexity.duration[0] +
+        duration.value * blueprint.complexity.duration[1],
+        blueprint.complexity.scope[0] +
+        scope.value * blueprint.complexity.scope[1],
     ))
 
 
