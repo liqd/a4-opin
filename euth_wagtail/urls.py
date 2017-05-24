@@ -38,7 +38,6 @@ js_info_dict = {
 router = routers.DefaultRouter()
 router.register(r'follows', FollowViewSet, base_name='follows')
 router.register(r'reports', ReportViewSet, base_name='reports')
-router.register(r'documents', DocumentViewSet, base_name='documents')
 router.register(r'projects', ProjectViewSet, base_name='projects')
 router.register(r'users', UserViewSet, base_name='users')
 
@@ -46,12 +45,16 @@ ct_router = a4routers.ContentTypeDefaultRouter()
 ct_router.register(r'comments', CommentViewSet, base_name='comments')
 ct_router.register(r'ratings', RatingViewSet, base_name='ratings')
 
+module_router = a4routers.ModuleDefaultRouter()
+module_router.register(r'documents', DocumentViewSet, base_name='documents')
+
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(ct_router.urls)),
+    url(r'^api/', include(module_router.urls)),
     url(r'^upload/',
         login_required(ck_views.upload), name='ckeditor_upload'),
     url(r'^browse/',
