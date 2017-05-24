@@ -58,11 +58,7 @@ def compute_time_needed(
     mobilisation = compute_mobilisation(motivation, accessibility)
 
     inverse_experience = 5 - experience.value
-    value = sum(
-        complexity,
-        mobilisation,
-        inverse_experience
-    )
+    value = (complexity + 1) * (mobilisation + inverse_experience)
 
     if value < 13:
         return 5
