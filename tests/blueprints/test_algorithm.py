@@ -14,6 +14,7 @@ test_blueprints = [
             experience=b.Experience.no_projects,
             motivation=b.Motivation.low
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
     )),
     ('ideacollection', b.Blueprint(
         title='ideacollection',
@@ -27,6 +28,7 @@ test_blueprints = [
             experience=b.Experience.one_project,
             motivation=b.Motivation.medium
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
     )),
     ('fallback', b.Blueprint(
         title='fallback',
@@ -40,6 +42,7 @@ test_blueprints = [
             experience=b.Experience.five_projects,
             motivation=b.Motivation.medium
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
     ))
 ]
 
