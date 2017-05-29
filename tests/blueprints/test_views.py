@@ -32,6 +32,10 @@ def test_form(client, organisation):
         'result': '3',
         'motivation': '5',
         'experience': '4',
+        'participants': '1',
+        'scope': '1',
+        'duration': '1',
+        'accessibility': '2'
     }
     response = client.post(url, data)
 
@@ -52,9 +56,13 @@ def test_form_error(client, organisation):
         'result': 'invalid',
         'motivation': 'invalid',
         'experience': 'invalid',
+        'participants': 'invalid',
+        'scope': 'invalid',
+        'duration': 'invalid',
+        'accessibility': 'invalid'
     }
     response = client.post(url, data)
 
     assert response.status_code == 200
     assert 'euth_blueprints/form.html' in templates_used(response)
-    assert len(response.context_data['form'].errors) == 4
+    assert len(response.context_data['form'].errors) == 8
