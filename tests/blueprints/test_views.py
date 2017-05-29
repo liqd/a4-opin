@@ -30,7 +30,7 @@ def test_form(client, organisation):
     data = {
         'aim': 'collect_ideas',
         'result': '3',
-        'motivation': '5',
+        'motivation': '4',
         'experience': '4',
     }
     response = client.post(url, data)
