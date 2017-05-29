@@ -35,7 +35,12 @@ def filter_blueprints(aim, result, experience, motivation,
 
     if not candidates:
         name = fallbacks[aim]
-        candidates.append((name, dict(options)[name]))
+        blueprint = dict(options)[name]
+        timeneeded = compute_time_needed(
+                        blueprint, participants, duration, scope,
+                        motivation, accessibility, experience
+                        )
+        candidates.append((name, blueprint, timeneeded))
 
     return candidates
 
