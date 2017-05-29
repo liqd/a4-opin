@@ -83,13 +83,12 @@ class Experience(Enum):
         return obj
 
 
-@unique
 class Motivation(Enum):
-    high = 5, _('High motivation')
-    medium = 4, _('Medium motivation')
+    high = 4, _('High motivation')
+    medium = 3, _('Medium motivation')
     low = 2, _('Low motivation')
     not_found = 1, _('No motivation')
-    unkown = 3, _('I don\'t know.')
+    unkown = 2, _('I don\'t know.')
 
     def __new__(cls, value, label):
         obj = object.__new__(cls)
@@ -142,6 +141,7 @@ class Accessibility(Enum):
     easy = 2, _('Easy to access')
     hard = 3, _('Hard to access')
     very_hard = 4, _('Very hard to access')
+    unkown = 3, _('I don\'t know')
 
     def __new__(cls, value, label):
         obj = object.__new__(cls)

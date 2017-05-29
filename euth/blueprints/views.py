@@ -1,3 +1,5 @@
+import math
+
 from django.template import Context
 from django.views import generic
 from rules.contrib import views as rules_views
@@ -5,6 +7,13 @@ from rules.contrib import views as rules_views
 from euth.dashboard.views import DashboardBaseMixin
 
 from . import blueprints, forms
+
+
+def custom_round(x):
+    if x % 1 < 0.5:
+        return math.floor(x)
+    else:
+        return math.ceil(x)
 
 
 def filter_blueprints(aim, result, experience, motivation,
@@ -41,18 +50,20 @@ def filter_blueprints(aim, result, experience, motivation,
 
 
 def compute_complexity(blueprint, participants, duration, scope):
-    return sum((
+
+    return custom_round(sum((
         blueprint.complexity.participants[0] +
         participants.value * blueprint.complexity.participants[1],
         blueprint.complexity.duration[0] +
         duration.value * blueprint.complexity.duration[1],
         blueprint.complexity.scope[0] +
-        scope.value * blueprint.complexity.scope[1],
-    ))
+        scope.value * blueprint.complexity.scope[1]
+    )))
 
 
 def compute_mobilisation(motivation, accessibility):
-    return (motivation.value + accessibility.value)/2
+    # modify to match different coding for motivation
+    return custom_round((5 - motivation.value + accessibility.value)/2)
 
 
 def compute_time_needed(
@@ -61,9 +72,8 @@ def compute_time_needed(
 ):
     complexity = compute_complexity(blueprint, participants, duration, scope)
     mobilisation = compute_mobilisation(motivation, accessibility)
-
-    inverse_experience = 5 - experience.value
-    value = (complexity + 1) * (mobilisation + inverse_experience)
+    # modify to match different coding for experience
+    value = (complexity + 1) * (mobilisation + 5 - experience.value)
 
     if value < 13:
         return 5
