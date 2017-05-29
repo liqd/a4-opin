@@ -17,6 +17,7 @@ def test_form_view(client, organisation):
 
     assert response.status_code == 200
     assert 'euth_blueprints/form.html' in templates_used(response)
+    assert len(response.context_data['form'].errors) == 0
 
 
 @pytest.mark.django_db
@@ -41,6 +42,7 @@ def test_form(client, organisation):
 
     assert response.status_code == 200
     assert 'euth_blueprints/result.html' in templates_used(response)
+    assert 'form' not in response.context_data
 
 
 @pytest.mark.django_db
