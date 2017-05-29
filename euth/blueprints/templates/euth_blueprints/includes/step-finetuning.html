@@ -1,0 +1,27 @@
+{% load i18n static %}
+
+<div class="tab-pane" id="finetuning">
+    <div class="dst-lightbox-header">
+        <a class="dst-lightbox-button js-back"><i class="fa fa-chevron-left"></i> {% trans 'Back' %}</a>
+        <div class="dst-lightbox-info pull-right">{% trans 'Decision support tool' %}</div>
+    </div>
+    <h2 class="h3">{% trans 'Fine tuning' %}</h2>
+    <div class="row">
+        <div class="col-md-4">
+            {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.result %}
+        </div>
+        <div class="col-md-4">
+            {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.experience %}
+        </div>
+        <div class="col-md-4">
+            {% include 'euth_blueprints/includes/rangebuttons.html' with field=form.motivation %}
+        </div>
+    </div>
+    <div class="row">
+        {% include 'euth_blueprints/includes/breadcrumbs.html' with finetuning=True %}
+
+        <div class="col-md-4">
+            <button class="btn btn-primary pull-right js-continue" type="submit">{% trans 'Proceed' %}</button>
+        </div>
+    </div>
+</div>

@@ -58,6 +58,10 @@ def test_blueprintsfilter_allmatch():
         'result': b.Result.collect_ideas,
         'experience': b.Experience.five_projects,
         'motivation': b.Motivation.medium,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'options': test_blueprints,
         'fallbacks': fallbacks
     }
@@ -75,6 +79,10 @@ def test_blueprintsfilter_matchone():
         'result': b.Result.both,
         'experience': b.Experience.one_project,
         'motivation': b.Motivation.medium,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'options': test_blueprints,
         'fallbacks': fallbacks
     }
@@ -90,6 +98,10 @@ def test_blueprintsfilter_none():
         'result': b.Result.collect_ideas,
         'experience': b.Experience.no_projects,
         'motivation': b.Motivation.not_found,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'fallbacks': fallbacks
     }
 

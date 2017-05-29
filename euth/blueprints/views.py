@@ -8,6 +8,7 @@ from . import blueprints, forms
 
 
 def filter_blueprints(aim, result, experience, motivation,
+                      participants, scope, duration, accessibility,
                       options=blueprints.blueprints,
                       fallbacks=blueprints.fallbacks):
     candidates = []
@@ -25,7 +26,12 @@ def filter_blueprints(aim, result, experience, motivation,
                 continue
             if requirements.motivation.value > motivation.value:
                 continue
-        candidates.append((name, blueprint))
+
+        timeneeded = compute_time_needed(
+                        blueprint, participants, duration, scope,
+                        motivation, accessibility, experience
+                        )
+        candidates.append((name, blueprint, timeneeded))
 
     if not candidates:
         name = fallbacks[aim]
@@ -36,12 +42,12 @@ def filter_blueprints(aim, result, experience, motivation,
 
 def compute_complexity(blueprint, participants, duration, scope):
     return sum((
-        blueprints.complexity.participants[0] +
-        participants.value * blueprints.complexity.participants[1],
-        blueprints.complexity.duration[0] +
-        duration.value * blueprints.complexity.duration[1],
-        blueprints.complexity.scope[0] +
-        scope.value * blueprints.complexity.scope[1],
+        blueprint.complexity.participants[0] +
+        participants.value * blueprint.complexity.participants[1],
+        blueprint.complexity.duration[0] +
+        duration.value * blueprint.complexity.duration[1],
+        blueprint.complexity.scope[0] +
+        scope.value * blueprint.complexity.scope[1],
     ))
 
 
@@ -53,7 +59,6 @@ def compute_time_needed(
         blueprint, participants, duration, scope,
         motivation, accessibility, experience
 ):
-
     complexity = compute_complexity(blueprint, participants, duration, scope)
     mobilisation = compute_mobilisation(motivation, accessibility)
 
