@@ -43,6 +43,12 @@ def test_form(client, organisation):
     assert response.status_code == 200
     assert 'euth_blueprints/result.html' in templates_used(response)
     assert 'form' not in response.context_data
+    assert len(response.context_data['blueprints']) > 0
+
+    for b in response.context_data['blueprints']:
+        # verify that for every blueprint a name, the blueprint and a
+        # time is given
+        assert len(b) == 3
 
 
 @pytest.mark.django_db
