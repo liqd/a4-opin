@@ -39,6 +39,34 @@ class GetSuggestionForm(forms.Form):
                 ' participative process?')
     )
 
+    participants = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Participants],
+        required=False,
+        widget=forms.RadioSelect,
+        label=_('How many participants do you expect for the project?')
+    )
+
+    scope = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Scope],
+        required=False,
+        widget=forms.RadioSelect,
+        label=_('What is the scope of the project?')
+    )
+
+    duration = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Duration],
+        required=False,
+        widget=forms.RadioSelect,
+        label=_('How long lasts the project?')
+    )
+
+    accessibility = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Accessibility],
+        required=False,
+        widget=forms.RadioSelect,
+        label=_('How easy is it to access the project?')
+    )
+
     def clean_aim(self, *args, **kwargs):
         try:
             return blueprints.Aim(self.cleaned_data['aim'])
@@ -63,3 +91,17 @@ class GetSuggestionForm(forms.Form):
 
     def clean_motivation(self, *args, **kwargs):
         return self._clean_optional_enum('motivation', blueprints.Motivation)
+
+    def clean_participants(self, *args, **kwargs):
+        return self._clean_optional_enum(
+            'participants', blueprints.Participants)
+
+    def clean_scope(self, *args, **kwargs):
+        return self._clean_optional_enum('scope', blueprints.Scope)
+
+    def clean_duration(self, *args, **kwargs):
+        return self._clean_optional_enum('duration', blueprints.Duration)
+
+    def clean_accessibility(self, *args, **kwargs):
+        return self._clean_optional_enum(
+            'accessibility', blueprints.Accessibility)
