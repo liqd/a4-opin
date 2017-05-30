@@ -193,9 +193,10 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         "Returns the short name for the user."
         return self.username
 
-    def signup(self, username, email, commit=True):
+    def signup(self, username, email, timezone, commit=True):
         """Update the fields required for sign-up."""
         self.username = username
         self.email = email
+        self.timezone = timezone
         if commit:
             self.save()
