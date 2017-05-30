@@ -19,21 +19,21 @@ class GetSuggestionForm(forms.Form):
     result = forms.ChoiceField(
         choices=[(r.value, r.label) for r in blueprints.Result],
         widget=forms.RadioSelect,
-        required=False,
+        required=True,
         label=_('What is the desired outcome of the project?'),
     )
 
     experience = forms.ChoiceField(
         choices=[(e.value, e.label) for e in blueprints.Experience],
         widget=forms.RadioSelect,
-        required=False,
+        required=True,
         label=_('How many participative projects have you organised and '
                 'managed in the past?')
     )
 
     motivation = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Motivation],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('How motivated are your participants to take part in a '
                 ' participative process?')
@@ -41,28 +41,28 @@ class GetSuggestionForm(forms.Form):
 
     participants = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Participants],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('How many participants do you expect for the project?')
     )
 
     scope = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Scope],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('What is the scope of the project?')
     )
 
     duration = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Duration],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('How long lasts the project?')
     )
 
     accessibility = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Accessibility],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('How easy is it to access the project?')
     )
