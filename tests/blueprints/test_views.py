@@ -130,3 +130,26 @@ def test_form_regression_fallback(client, organisation):
     _verify_valid_response(response)
 
 
+@pytest.mark.django_db
+def test_form_regression_check_required_fields(client, organisation):
+    user = organisation.initiators.first()
+    client.login(username=user.email, password='password')
+
+    url = reverse('blueprints-form', kwargs={
+        'organisation_slug': organisation.slug
+    })
+
+    # Sending a request without optional fields should work. In order to
+    # verify this, we go over all form fields and only add data that is
+    # required.
+    fields = forms.GetSuggestionForm.base_fields
+    data = {}
+
+    for fieldname, field in fields.items():
+        if not field.required:
+            continue
+
+        data.update({fieldname: field.choices[0][0]})
+
+    response = client.post(url, data)
+    _verify_valid_response(response)
