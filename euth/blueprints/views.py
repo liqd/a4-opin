@@ -29,11 +29,16 @@ def filter_blueprints(aim, result, experience, motivation,
         requirements = blueprint.requirements
 
         if result and experience and motivation:
-            if result not in requirements.results:
+
+            req_results = requirements.results
+            req_experience = requirements.experience
+            req_motivation = requirements.motivation
+
+            if req_results and result not in req_results:
                 continue
-            if requirements.experience.value > experience.value:
+            if req_experience and req_experience.value > experience.value:
                 continue
-            if requirements.motivation.value > motivation.value:
+            if req_motivation and req_motivation.value > motivation.value:
                 continue
 
         timeneeded = compute_time_needed(
