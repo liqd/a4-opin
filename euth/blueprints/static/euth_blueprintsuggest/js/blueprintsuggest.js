@@ -1,13 +1,16 @@
 /* global jQuery django */
 (function ($) {
   var blueprintsuggest = {
-    init: function (nonFinetuningAims) {
+    init: function () {
       this.$aim = $('input[name="aim"]')
       this.$experience = $('input[name="experience"]')
       this.$result = $('input[name="result"]')
       this.$motivation = $('input[name="motivation"]')
+      this.$scope = $('input[name="scope"]')
+      this.$duration = $('input[name="duration"]')
+      this.$participants = $('input[name="participants"]')
+      this.$accessibility = $('input[name="accessibility"]')
       this.$form = $('.blueprintsuggest')
-      this.$nonFinetuningAims = nonFinetuningAims || []
 
       $('.js-continue').on('click', this.clickContinueHandler.bind(this))
       $('.js-back').on('click', this.clickBackHandler)
@@ -29,13 +32,7 @@
         return true
       }
 
-      var val = $checked.val()
-      if (this.$nonFinetuningAims.indexOf(val) > -1) {
-        e.preventDefault()
-        this.$form.submit()
-      } else {
-        $tab.removeClass('active').next().addClass('active')
-      }
+      $tab.removeClass('active').next().addClass('active')
 
       return false
     },
@@ -46,11 +43,21 @@
       var $checkedExperience = this.$experience.filter(':checked')
       var $checkedResult = this.$result.filter(':checked')
       var $checkedMotivation = this.$motivation.filter(':checked')
+      var $checkedDuration = this.$duration.filter(':checked')
+      var $checkedParticipants = this.$participants.filter(':checked')
+      var $checkedScope = this.$scope.filter(':checked')
+      var $checkedAccessibility = this.$accessibility.filter(':checked')
 
       // remove old errorlist
       $tab.find('.errorlist').remove()
 
-      if (!$checkedExperience.length || !$checkedResult.length || !$checkedMotivation.length) {
+      if (!$checkedExperience.length ||
+          !$checkedResult.length ||
+          !$checkedMotivation.length ||
+          !$checkedDuration.length ||
+          !$checkedScope.length ||
+          !$checkedParticipants.length ||
+          !$checkedAccessibility.length) {
         // there is some radio button not checked, not valid, so add new errorlist
         var text = django.gettext('Please set all values for your project.')
         $tab.find('.dst-lightbox-progress').before(this.getErrorElement(text))
@@ -72,6 +79,6 @@
   }
 
   $(function () {
-    blueprintsuggest.init(['run_competition', 'work_document'])
+    blueprintsuggest.init()
   })
 }(jQuery))
