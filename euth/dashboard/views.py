@@ -239,7 +239,7 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
                                  generic.DeleteView):
     model = project_models.Project
     form_class = forms.ProjectUpdateForm
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
     success_message = _('Your project has been deleted.')
     slug_url_kwarg = 'project_slug'
     menu_item = 'project'
