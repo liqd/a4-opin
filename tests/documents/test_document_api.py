@@ -6,22 +6,25 @@ from euth.documents import models as document_models
 
 
 @pytest.mark.django_db
-def test_anonymous_user_can_not_retrieve_document_list(apiclient):
-    url = reverse('documents-list')
+def test_anonymous_user_can_not_retrieve_document_list(apiclient, module):
+    url = reverse('documents-list', args=[module.pk])
     response = apiclient.get(url, format='json')
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.django_db
 def test_anonymous_user_can_not_retrieve_document_detail(apiclient, document):
-    url = reverse('documents-detail',  kwargs={'pk': document.pk})
+    url = reverse('documents-detail',  kwargs={
+        'module_pk': document.module.pk,
+        'pk': document.pk
+    })
     response = apiclient.get(url, format='json')
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.django_db
 def test_anonymous_user_can_not_create_document(apiclient, module):
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -38,7 +41,7 @@ def test_moderator_can_create_document(apiclient, module):
     project = module.project
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -56,7 +59,7 @@ def test_moderator_can_not_create_two_documents(apiclient, document):
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
 
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[document.module.pk])
     data = {
         'name': 'This is a text',
         'module': document.module.pk,
@@ -71,7 +74,7 @@ def test_paragraphs_are_correctly_sorted(apiclient, module):
     project = module.project
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -106,7 +109,7 @@ def test_moderator_can_delete_paragraph(apiclient, module):
     project = module.project
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -134,7 +137,10 @@ def test_moderator_can_delete_paragraph(apiclient, module):
     assert paragraphs_all_count == 2
 
     document_pk = response.data['id']
-    url = reverse('documents-detail', kwargs={'pk': document_pk})
+    url = reverse('documents-detail', kwargs={
+        'module_pk': module.pk,
+        'pk': document_pk
+    })
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -159,7 +165,7 @@ def test_moderator_can_update_paragraph(apiclient, module):
     project = module.project
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -183,7 +189,10 @@ def test_moderator_can_update_paragraph(apiclient, module):
         pk=paragraph_pk).text
     assert paragraph_text == 'text for paragraph 1'
 
-    url = reverse('documents-detail', kwargs={'pk': document_pk})
+    url = reverse('documents-detail', kwargs={
+        'module_pk': module.pk,
+        'pk': document_pk
+    })
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -212,7 +221,7 @@ def test_moderator_can_update_and_create_paragraph(apiclient, module):
     project = module.project
     moderator = project.moderators.first()
     apiclient.force_authenticate(user=moderator)
-    url = reverse('documents-list')
+    url = reverse('documents-list', args=[module.pk])
     data = {
         'name': 'This is a text',
         'module': module.pk,
@@ -236,7 +245,10 @@ def test_moderator_can_update_and_create_paragraph(apiclient, module):
         pk=paragraph_pk).text
     assert paragraph_text == 'text for paragraph 1'
 
-    url = reverse('documents-detail', kwargs={'pk': document_pk})
+    url = reverse('documents-detail', kwargs={
+        'module_pk': module.pk,
+        'pk': document_pk
+    })
     data = {
         'name': 'This is a text',
         'module': module.pk,
