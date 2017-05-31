@@ -10,6 +10,7 @@ from requests.auth import HTTPBasicAuth
 
 
 def send_to_flashpoll(data):
+    print("send_to_flashpoll:"+ json.dumps(data))
     if 'current_preview' in data:
         if 'save_draft' in data and data['current_preview'] == 'True':
             # Handling unpublish

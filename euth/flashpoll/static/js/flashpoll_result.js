@@ -1,12 +1,6 @@
 /* eslint-disable */
 /* global $ Highcharts */
 
-window.exportResults2 = function (questions, qorderIdIn, key) {
-    console.debug("In target clicked");
-    alert( "Handler for .click() called." );
-    return false
-  }
-  
 $(function () {
         var e = $('#result').get(0)
         var poll = JSON.parse(e.getAttribute('data-poll'))

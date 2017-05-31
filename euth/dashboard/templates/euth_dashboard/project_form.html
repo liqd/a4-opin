@@ -34,7 +34,7 @@
         <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save and publish' %}</button>
         {% if module_settings == "euth_flashpoll" %}
             {% with poll=form.module_settings.poll.value|get_poll_from_string %}
-            {% if project.pk != None and poll.preview == False %}
+            {% if project.pk != None %}
             <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
             {% endif %}
             {% endwith %}
