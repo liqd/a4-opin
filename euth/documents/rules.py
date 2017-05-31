@@ -18,6 +18,9 @@ rules.add_perm('euth_documents.comment_document',
 rules.add_perm('euth_documents.add_document',
                is_superuser | is_context_moderator | is_context_initiator)
 
+rules.add_perm('euth_documents.change_document',
+               is_superuser | is_context_moderator | is_context_initiator)
+
 rules.add_perm('euth_documents.create_document',
                is_superuser | is_context_moderator | is_context_initiator)
 
