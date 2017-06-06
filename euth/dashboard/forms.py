@@ -10,7 +10,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db.models import loading
 from django.forms import modelformset_factory
-from django.utils.translation import ugettext as _
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.modules import models as module_models
 from adhocracy4.phases import models as phase_models
@@ -30,8 +31,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = user_models.User
         fields = ['username', '_avatar', 'description', 'birthdate',
-                  'country', 'city', 'gender', 'languages', 'twitter_handle',
-                  'facebook_handle', 'instagram_handle', 'get_notifications']
+                  'country', 'city', 'timezone', 'gender', 'languages',
+                  'twitter_handle', 'facebook_handle', 'instagram_handle',
+                  'get_notifications']
         widgets = {
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
@@ -49,6 +51,7 @@ class ProfileForm(forms.ModelForm):
                 'birthdate',
                 'country',
                 'city',
+                'timezone',
                 'gender',
             ]),
             (_('Ways to connect with you'), [
@@ -111,7 +114,7 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
-                  'result', 'is_archived']
+                  'result']
 
     def save(self, commit=True):
         # calling flashpoll service
@@ -119,7 +122,6 @@ class ProjectForm(forms.ModelForm):
             services.send_to_flashpoll(self.data)
 
         self.instance.is_draft = 'save_draft' in self.data
-        self.instance.is_archived = 'archive' in self.data
         return super().save(commit)
 
     def get_checkbox_label(self, name):
@@ -149,6 +151,13 @@ class ProjectForm(forms.ModelForm):
         return formsections
 
 
+class ProjectArchiveForm(forms.ModelForm):
+
+    class Meta:
+        model = project_models.Project
+        fields = ['is_archived']
+
+
 class PhaseForm(forms.ModelForm):
     delete = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
@@ -162,6 +171,22 @@ class PhaseForm(forms.ModelForm):
             'type': forms.HiddenInput(),
             'weight': forms.HiddenInput()
         }
+
+        help_texts = {
+            'name': _('It should be max. 80 characters long.'),
+            'description': _('It should be max. 300 characters long.'),
+            'start_date': _('Your timezone: {}'),
+            'end_date': _('Your timezone: {}'),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['start_date'].help_text = \
+            self.fields['start_date'].help_text.format(
+            timezone.get_current_timezone())
+        self.fields['end_date'].help_text = \
+            self.fields['end_date'].help_text.format(
+            timezone.get_current_timezone())
 
 
 def get_module_settings_form(settings_instance_or_modelref):
@@ -230,15 +255,16 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 get_module_settings_form(module.settings_instance),
             ))
 
-        no_phase_left = True
-        for phase in qs:
-            if (phase.end_date and phase.end_date.replace(tzinfo=None)
-                    > datetime.datetime.utcnow()):
-                no_phase_left = False
-
-        project.is_archivable = (not project.is_archived) and no_phase_left
-
         super().__init__(*args, **kwargs)
+
+        if project.is_archived:
+            # disable information fields
+            for name, field in self.forms['project'].fields.items():
+                field.widget.attrs.update({"disabled": True})
+
+            # disable phase fields
+            for name, field in self.forms['phases'].form.base_fields.items():
+                field.widget.attrs.update({"disabled": True})
 
     def _update_or_delete_phase(self, phase, delete, commit):
         phase_object = phase['id']
@@ -263,7 +289,7 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 Offlinephase.objects.get_or_create(phase=new_phase)
 
     def save(self, commit=True):
-
+        self.clean()
         objects = super().save(commit=False)
         project = objects['project']
         module = project.module_set.first()
@@ -272,7 +298,6 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                                      call_kwargs={'commit': commit})
         phases = cleaned_data['phases']
 
-        no_phase_left = True
         for phase in phases:
             delete = phase['delete']
             del phase['delete']
@@ -282,17 +307,20 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 if not delete:
                     self._create_phase(phase, commit, module)
 
-            if (phase['end_date'] and
-                    phase['end_date'].replace(tzinfo=None) >
-                    datetime.datetime.utcnow()):
-                no_phase_left = False
-
-        project.is_archived = project.is_archived and no_phase_left
-
         if commit:
             project.save()
             if 'module_settings' in objects:
                 objects['module_settings'].save()
+
+    def clean(self):
+        super().clean()
+        objects = super().save(commit=False)
+        project = objects['project']
+        if project.is_archived:
+            raise ValidationError(
+                    _('Archived projects are read-only.'),
+                    code='read-only')
+        return self.cleaned_data
 
 
 class ProjectCreateForm(multiform.MultiModelForm):

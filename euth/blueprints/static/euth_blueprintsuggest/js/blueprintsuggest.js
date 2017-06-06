@@ -1,59 +1,70 @@
 /* global jQuery django */
 (function ($) {
   var blueprintsuggest = {
-    init: function (nonFinetuningAims) {
-      this.$aim = $('input[name="aim"]')
-      this.$experience = $('input[name="experience"]')
-      this.$result = $('input[name="result"]')
-      this.$motivation = $('input[name="motivation"]')
-      this.$form = $('.blueprintsuggest')
-      this.$nonFinetuningAims = nonFinetuningAims || []
-
+    init: function () {
       $('.js-continue').on('click', this.clickContinueHandler.bind(this))
       $('.js-back').on('click', this.clickBackHandler)
       $('.js-send').on('click', this.clickSendHandler.bind(this))
     },
 
+    validate: function ($tab) {
+      /*
+       * Ensure that for each group of radio buttons in $tab at least one is checked.
+       */
+      var $radioButtons = $tab.find('input[type=radio]')
+      var radioButtonsByName = {}
+      $radioButtons.map(function () {
+        var $this = $(this)
+        var name = $this.attr('name')
+
+        if (!radioButtonsByName.hasOwnProperty(name)) {
+          radioButtonsByName[name] = $()
+        }
+
+        radioButtonsByName[name] = radioButtonsByName[name].add($this)
+      })
+
+      for (var key in radioButtonsByName) {
+        if (radioButtonsByName.hasOwnProperty(key)) {
+          var $inputs = radioButtonsByName[key]
+          if (!$inputs.filter(':checked').length) {
+            return false
+          }
+        }
+      }
+
+      return true
+    },
+
     clickContinueHandler: function (e) {
       var $this = $(e.target)
       var $tab = $this.parents('.tab-pane')
-      var $checked = this.$aim.filter(':checked')
+      var isValid = this.validate($tab)
 
       // remove old errorlist
       $tab.find('.errorlist').remove()
 
-      if (!$checked.length) {
+      if (!isValid) {
         // there's no radio button checked, not valid, so add new errorlist
-        var text = django.gettext('Please pick an aim for your project.')
-        $tab.find('.dst-lightbox-progress').before(this.getErrorElement(text))
+        $tab.find('.dst-lightbox-progress').before(this.getErrorElement())
         return true
       }
 
-      var val = $checked.val()
-      if (this.$nonFinetuningAims.indexOf(val) > -1) {
-        e.preventDefault()
-        this.$form.submit()
-      } else {
-        $tab.removeClass('active').next().addClass('active')
-      }
-
+      $tab.removeClass('active').next().addClass('active')
       return false
     },
 
     clickSendHandler: function (e) {
       var $this = $(e.target)
       var $tab = $this.parents('.tab-pane')
-      var $checkedExperience = this.$experience.filter(':checked')
-      var $checkedResult = this.$result.filter(':checked')
-      var $checkedMotivation = this.$motivation.filter(':checked')
+      var isValid = this.validate($tab)
 
       // remove old errorlist
       $tab.find('.errorlist').remove()
 
-      if (!$checkedExperience.length || !$checkedResult.length || !$checkedMotivation.length) {
+      if (!isValid) {
         // there is some radio button not checked, not valid, so add new errorlist
-        var text = django.gettext('Please set all values for your project.')
-        $tab.find('.dst-lightbox-progress').before(this.getErrorElement(text))
+        $tab.find('.dst-lightbox-progress').before(this.getErrorElement())
         e.preventDefault()
         return false
       }
@@ -61,7 +72,8 @@
       return true
     },
 
-    getErrorElement: function (text) {
+    getErrorElement: function () {
+      var text = django.gettext('Please set all values for your project.')
       return '<ul class="errorlist"><li>' + text + '</li></ul>'
     },
 
@@ -72,6 +84,6 @@
   }
 
   $(function () {
-    blueprintsuggest.init(['run_competition', 'work_document'])
+    blueprintsuggest.init()
   })
 }(jQuery))

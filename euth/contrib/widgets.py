@@ -1,4 +1,3 @@
-from datetime import datetime
 from itertools import chain
 
 import django_filters
@@ -10,7 +9,6 @@ from django.template.loader import render_to_string
 from django.utils import formats
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
-from django.utils.translation import get_language
 
 
 class DateInput(widgets.DateInput):
@@ -23,15 +21,6 @@ class DateInput(widgets.DateInput):
     input_type = 'text'
     format_index = 0
 
-    # becomes a public value in Django 1.10
-    def _format_value(self, value):
-        format = formats.get_format(self.format_key)[self.format_index]
-        if isinstance(value, str):
-            date = datetime.strptime(value, format)
-            return date.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
-        else:
-            return value.strftime('%Y-%m-%dT%H:%M:%S.%f%zZ')
-
     def render(self, name, value, attrs=None):
         if attrs:
             format = formats.get_format(
@@ -39,8 +28,6 @@ class DateInput(widgets.DateInput):
             )[self.format_index]
             attrs.update({
                 'class': attrs.get('class', '') + ' flatpickr',
-                'data-language': get_language(),
-                'data-alt-format': format.replace('%', '').replace('M', 'i'),
                 'data-date-format': format.replace('%', '').replace('M', 'i'),
             })
 
@@ -61,10 +48,9 @@ class DateTimeInput(DateInput):
     additional_attrs = {
         'data-time_24hr': 'true',
         'data-enable-time': 'true',
-        'data-alt-input': 'true'
     }
 
-    format_index = 2
+    format_index = 0
     format_key = 'DATETIME_INPUT_FORMATS'
 
 

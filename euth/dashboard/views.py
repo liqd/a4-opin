@@ -136,7 +136,7 @@ class DashboardBlueprintListView(DashboardBaseMixin,
                                  generic.TemplateView):
     template_name = 'euth_dashboard/blueprint_list.html'
     blueprints = blueprints.blueprints
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
     menu_item = 'project'
 
     def get_permission_object(self):
@@ -152,7 +152,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
     menu_item = 'project'
 
     def get_context_data(self, **kwargs):
@@ -197,7 +197,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     form_class = forms.ProjectUpdateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
     slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
@@ -232,6 +232,34 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
                 self.kwargs['module_settings'] = 'default'
 
         return kwargs
+
+
+class DashboardProjectArchiveView(DashboardBaseMixin,
+                                  rules_views.PermissionRequiredMixin,
+                                  generic.UpdateView):
+    model = project_models.Project
+    form_class = forms.ProjectArchiveForm
+    success_message = _('Project has been archived.')
+    permission_required = 'a4projects.add_project'
+    slug_url_kwarg = 'project_slug'
+    menu_item = 'project'
+    archiving = False
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                       })
+
+    def form_valid(self, form):
+        project = form.instance
+        project.is_archived = self.archiving and project.has_finished
+        form.save()
+        return super().form_valid(form)
 
 
 class DashboardProjectDeleteView(DashboardBaseMixin,
@@ -273,7 +301,7 @@ class DashboardProjectInviteView(DashboardBaseMixin,
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
     model = project_models.Project
     slug_url_kwarg = 'project_slug'
     menu_item = 'project'
@@ -311,7 +339,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
     form_class = forms.ProjectUserForm
     template_name = 'euth_dashboard/project_users.html'
     success_message = _("User request successfully updated.")
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
     model = project_models.Project
     slug_url_kwarg = 'project_slug'
     menu_item = 'project'

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n static tz time_delta_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -75,13 +75,22 @@
             <div class="container-narrow">
                 <h2>{{ view.phase.name }}</h2>
                 {% if view.phase and not view.phase.is_over %}
-                <p>
-                    <strong>{% trans 'Start Date' %}</strong>
-                    {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
+                <div>
+                    {% get_time_left view.phase.end_date as time_left %}
+                    <strong>
+                        {% trans 'This phase ends in' %}
+                        {{ time_left }}
+                    </strong>
                     <br />
-                    <strong>{% trans 'End Date' %}</strong>
+                    <p class="tab-panel-times">
+                    {{ view.phase.start_date|date:'SHORT_DATETIME_FORMAT' }}
+                    -
                     {{ view.phase.end_date|date:'SHORT_DATETIME_FORMAT' }}
-                </p>
+                    {% trans '(Your Timezone: ' %}
+                    {% get_current_timezone as TIME_ZONE %}
+                    {{ TIME_ZONE }})
+                    </p>
+                </div>
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
             </div>
