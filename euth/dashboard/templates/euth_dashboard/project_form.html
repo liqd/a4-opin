@@ -64,7 +64,7 @@
                     </li>
                     {% if module_settings == "euth_flashpoll" %}
                     {% with poll=form.module_settings.poll.value|get_poll_from_string %}
-                    {% if project.pk != None and poll.preview == False %}
+                    {% if project.pk != None %}
                     <li>
                         <button type="button" class="btn btn-sm btn-hover-danger" data-toggle="modal" data-target="#deleteModal">
                             <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>

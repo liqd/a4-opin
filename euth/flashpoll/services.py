@@ -27,10 +27,10 @@ def send_to_flashpoll(data):
         else:
             startTime = time.mktime(datetime.datetime.strptime(
                 data['phases-0-start_date'],
-                "%Y-%m-%d %H:%M").timetuple())
+                "%Y-%m-%d %H:%M:%S").timetuple())
             endTime = time.mktime(datetime.datetime.strptime(
                 data['phases-0-end_date'],
-                "%Y-%m-%d %H:%M").timetuple())
+                "%Y-%m-%d %H:%M:%S").timetuple())
             jsonGenerator = {}
             jsonGenerator['title'] = data['phases-0-name']
             jsonGenerator['shortDescription'] = data[
