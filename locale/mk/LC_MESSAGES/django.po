@@ -3,31 +3,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Nicolas Bach <bach@nexusinstitut.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-07 12:14+0200\n"
 "PO-Revision-Date: 2017-03-10 16:15+0100\n"
-"Language-Team: Russian (https://www.transifex.com/liqd/teams/68346/ru/)\n"
-"Language: ru\n"
+"Last-Translator: Nicolas Bach <bach@nexusinstitut.de>, 2017\n"
+"Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 "X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 msgid "Remove the picture"
-msgstr ""
+msgstr "Отстрани ја сликата "
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
 msgid "Upload a picture"
-msgstr ""
+msgstr "Прикачи слика"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
@@ -40,16 +41,16 @@ msgstr ""
 
 #: adhocracy4/comments/models.py:35
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: adhocracy4/comments/models.py:36
 #: euth/ideas/views.py:47
 msgid "Comments"
-msgstr ""
+msgstr "Коментари"
 
 #: adhocracy4/comments/serializers.py:25
 msgid "unknown user"
-msgstr ""
+msgstr "Непознат корисник"
 
 #: adhocracy4/images/fields.py:60
 #, python-brace-format
@@ -86,7 +87,7 @@ msgstr ""
 
 #: adhocracy4/images/widgets.py:26
 msgid "Select a picture from your local folder."
-msgstr ""
+msgstr "Одбери слика од твоја папка"
 
 #: adhocracy4/maps/fields.py:16
 #: euth/maps/fields.py:18
@@ -116,20 +117,25 @@ msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
 msgstr ""
+"Овој наслов ќе сe појави на почетната картичка и на почетокот на страницата "
+"со детали за проектот. Не треба да биде подолг од 120 знаци"
 
 #: adhocracy4/projects/models.py:37
 msgid "Short description of your project"
-msgstr ""
+msgstr "Краток опис за вашиот проект"
 
 #: adhocracy4/projects/models.py:38
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
 msgstr ""
+"Краткиот опис ќе се појави на заглавието на проектот и на почетната "
+"картичка. Треба накратко да се прикаже целта на проектот со максимум 250 "
+"знаци."
 
 #: adhocracy4/projects/models.py:45
 msgid "Description of your project"
-msgstr ""
+msgstr "Опис на твојот проект"
 
 #: adhocracy4/projects/models.py:46
 msgid ""
@@ -137,6 +143,9 @@ msgid ""
 "how the project’s participation will look like. It will be always visible in "
 "the „Info“ tab on your project’s page."
 msgstr ""
+"Описот треба да им каже на учесниците која е целта на проектот и како ќе "
+"изгледа учеството во проектот. Ќе биде секогаш видлив во „Инфо“ јазичето на "
+"вашата страна за проектот."
 
 #: adhocracy4/projects/models.py:54
 msgid ""
@@ -144,6 +153,9 @@ msgid ""
 "how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 msgstr ""
+"Овде треба да се објасни она што се очекува од проектот и како планирате да "
+"ги искористите резултатите. Ако проектот е завршен треба да додадете краток "
+"преглед на резултатите."
 
 #: adhocracy4/projects/models.py:61
 msgid "Access to the project"
@@ -155,11 +167,14 @@ msgid ""
 "for your project including title and short description will always be "
 "visible to everyone"
 msgstr ""
+"Ве молиме наведете кој може да учествува во вашиот проект. Почетната "
+"картичка за вашиот проект вклучувајќи го насловот и краткиот опис ќе бидат "
+"постојано видливи за секого"
 
 #: adhocracy4/projects/models.py:69
 #: euth/organisations/models.py:33
 msgid "Header image"
-msgstr ""
+msgstr "Главна слика"
 
 #: adhocracy4/projects/models.py:71
 msgid "The image will be shown as a decorative background image."
@@ -183,16 +198,14 @@ msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
-msgstr ""
+msgstr "останати се уште неколку часови"
 
 #: adhocracy4/reports/templatetags/react_reports.py:30
 msgid "Report"
-msgstr ""
+msgstr "Пријави"
 
 #: euth/blueprints/blueprints.py:16
 msgid "Create and gather new ideas or visions."
@@ -507,8 +520,6 @@ msgid_plural ""
 "            "
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: euth/blueprints/templates/euth_blueprints/result.html.py:37
 msgid "Time and effort"
@@ -532,7 +543,7 @@ msgstr ""
 
 #: euth/contrib/filters.py:15 euth/users/models.py:51
 msgid "active"
-msgstr ""
+msgstr "активно"
 
 #: euth/contrib/filters.py:16
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:48
@@ -551,7 +562,7 @@ msgstr ""
 
 #: euth/dashboard/forms.py:45
 msgid "Basic Info"
-msgstr ""
+msgstr "Основни информации"
 
 #: euth/dashboard/forms.py:49
 msgid "Personal Info"
@@ -582,15 +593,15 @@ msgstr ""
 
 #: euth/dashboard/forms.py:129
 msgid "Accessible to all registered users of OPIN.me"
-msgstr ""
+msgstr "Достапни за сите регистрирани корисници на OPIN.me"
 
 #: euth/dashboard/forms.py:140
 msgid "Project settings"
-msgstr ""
+msgstr "лично"
 
 #: euth/dashboard/forms.py:146
 msgid "Information for your participants"
-msgstr ""
+msgstr "Информации за вашите учесници "
 
 #: euth/dashboard/forms.py:176
 msgid "It should be max. 80 characters long."
@@ -606,7 +617,7 @@ msgstr ""
 
 #: euth/dashboard/forms.py:229
 msgid "End time can not be smaller than the start time."
-msgstr ""
+msgstr "Крајниот датум не може да биде пократок од почетниот датум"
 
 #: euth/dashboard/forms.py:321
 msgid "Archived projects are read-only."
@@ -614,7 +625,7 @@ msgstr ""
 
 #: euth/dashboard/forms.py:497
 msgid "The title of your organisation"
-msgstr ""
+msgstr "Наслов на вашата организација"
 
 #: euth/dashboard/forms.py:498
 msgid "title"
@@ -635,6 +646,8 @@ msgstr ""
 #: euth/dashboard/forms.py:511
 msgid "More info about the organisation / Short text for organisation overview"
 msgstr ""
+"Повеќе информации за организацијата / Краток текст за краток преглед на "
+"организацијата"
 
 #: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:17
 msgid "Edit profile"
@@ -647,40 +660,40 @@ msgstr ""
 #: euth_wagtail/templates/account/password_reset_from_key_done.html.py:5
 #: euth_wagtail/templates/account/password_reset_from_key_done.html.py:10
 msgid "Change Password"
-msgstr ""
+msgstr "Промена на лозинка"
 
 #: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:28
 #: euth_wagtail/templates/account/email.html.py:6
 #: euth_wagtail/templates/account/email.html.py:9
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "Адреси на електронска пошта"
 
 #: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:34
 #: euth_wagtail/templates/socialaccount/connections.html.py:6
 #: euth_wagtail/templates/socialaccount/connections.html.py:9
 msgid "Account Connections"
-msgstr ""
+msgstr "Врски со вашата корисничка сметка"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:13
 msgid "Organisation settings"
-msgstr ""
+msgstr "Организациски подесувања"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:20
 msgid "Organisation information"
-msgstr ""
+msgstr "Информации за организацијата"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:27
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:5
 msgid "Projects"
-msgstr ""
+msgstr "Проекти"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:6
 msgid "Create new project from one of the templates"
-msgstr ""
+msgstr "Креирај нов проект од еден од дадените примероци"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:13
 msgid "back to project list"
-msgstr ""
+msgstr "Назад до листа на проекти"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:23
 msgid "Not sure which template?"
@@ -702,7 +715,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:56
 msgid "use this template"
-msgstr ""
+msgstr "Искористи го овој примерок"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:26
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:115
@@ -715,7 +728,7 @@ msgstr ""
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:41
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:81
 msgid "of Phase "
-msgstr ""
+msgstr "од Фаза"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
 msgid "edit documentation"
@@ -726,28 +739,28 @@ msgstr ""
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:10
 #: euth/projects/templates/euth_projects/project_detail.html.py:39
 msgid "Information"
-msgstr ""
+msgstr "Информации"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:9
 #: euth/projects/templates/euth_projects/project_detail.html.py:40
 msgid "Participation"
-msgstr ""
+msgstr "Учество"
 
 #: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:5
 msgid "Edit your organisation information"
-msgstr ""
+msgstr "Додадете информации за вашата организација"
 
 #: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:50
 msgid "save changes"
-msgstr ""
+msgstr "Зачувајги промените"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:4
 msgid "Your user profile"
-msgstr ""
+msgstr "Твој кориснички профил"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:6
 msgid "Your profile"
-msgstr ""
+msgstr "Твојот профил"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:10
 msgid ""
@@ -758,7 +771,7 @@ msgstr ""
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:50
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:98
 msgid "Save changes"
-msgstr ""
+msgstr "Зачувајги промените"
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:12
 msgid "Unable to submit form. Please fix the errors."
@@ -770,20 +783,20 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:39
 msgid "save draft"
-msgstr ""
+msgstr "Зачувај нацрт"
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:43
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:56
 msgid "save and publish"
-msgstr ""
+msgstr "Зачувај и објави"
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:61
 msgid "unpublish"
-msgstr ""
+msgstr "Не го објавувај"
 
 #: euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
 msgid "Invite users to project"
-msgstr ""
+msgstr "Покани корисници да"
 
 #: euth/dashboard/templates/euth_dashboard/project_invites.html.py:14
 msgid "send invitations"
@@ -802,30 +815,30 @@ msgstr ""
 #: euth/projects/templates/euth_projects/includes/project_list_item.html.py:19
 #: euth/projects/templates/euth_projects/project_detail.html.py:16
 msgid "Phase"
-msgstr ""
+msgstr "Фаза"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:45
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html.py:9
 #: euth/projects/templates/euth_projects/includes/project_tile.html.py:12
 msgid "private"
-msgstr ""
+msgstr "лично"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:50
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:18
 #: euth/projects/templates/euth_projects/includes/project_list_item.html.py:12
 #: euth/projects/templates/euth_projects/includes/project_tile.html.py:14
 msgid "finished"
-msgstr ""
+msgstr "завршено"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:62
 #: euth/users/models.py:146
 msgid "Users"
-msgstr ""
+msgstr "Корисници"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr ""
+msgstr "Види проект"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "archive project"
@@ -837,11 +850,11 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:5
 msgid "Manage user of "
-msgstr ""
+msgstr "Управувај со корисник"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:20
 msgid "invite users"
-msgstr ""
+msgstr "Покани корисници"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:39
 msgid "Request"
@@ -853,31 +866,31 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:102
 msgid "submit"
-msgstr ""
+msgstr "Потврди"
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
-msgstr ""
+msgstr "Твојот профил е успешно надграден."
 
 #: euth/dashboard/views.py:105
 msgid "Organisation successfully updated."
-msgstr ""
+msgstr "Организацијата е успешно надградена."
 
 #: euth/dashboard/views.py:154
 msgid "Project succesfully created."
-msgstr ""
+msgstr "Проектите се успешно создадени."
 
 #: euth/dashboard/views.py:160
 msgid "New project based on"
-msgstr ""
+msgstr "Нов проект основан на"
 
 #: euth/dashboard/views.py:199
 msgid "Project successfully updated."
-msgstr ""
+msgstr "Проектот е успешно надграден."
 
 #: euth/dashboard/views.py:206
 msgid "Update project: "
-msgstr ""
+msgstr "Надгради проект:"
 
 #: euth/dashboard/views.py:242
 msgid "Project has been archived."
@@ -889,11 +902,11 @@ msgstr ""
 
 #: euth/dashboard/views.py:303
 msgid "Invitations successfully sent."
-msgstr ""
+msgstr "Поканите се успешно испратени."
 
 #: euth/dashboard/views.py:341
 msgid "User request successfully updated."
-msgstr ""
+msgstr "Корисничкото барање е успешно испратено."
 
 #: euth/documents/phases.py:18
 msgid "Create document phase"
@@ -901,7 +914,7 @@ msgstr ""
 
 #: euth/documents/phases.py:19 euth/documents/phases.py:38
 msgid "commenting text"
-msgstr ""
+msgstr "Коментирање на текст"
 
 #: euth/documents/phases.py:20
 msgid "Create text for the project."
@@ -913,7 +926,7 @@ msgstr ""
 
 #: euth/documents/phases.py:39
 msgid "Collect comments for the text."
-msgstr ""
+msgstr "Собери коментари за текстот."
 
 #: euth/documents/templates/euth_documents/document_detail.html.py:20
 msgid "Add your comment"
@@ -921,18 +934,18 @@ msgstr ""
 
 #: euth/documents/templates/euth_documents/document_form.html.py:10
 msgid "Moderators are currently creating a document."
-msgstr ""
+msgstr "Модераторите во моментот креираат документ."
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html.py:10
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:14
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:11
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:23
 msgid "back to project"
-msgstr ""
+msgstr "Назад до проектот"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"
-msgstr ""
+msgstr "Документот за тој модул веќе постои."
 
 #: euth/flashpoll/models.py:8
 msgid "Flashpoll ID"
@@ -940,109 +953,111 @@ msgstr ""
 
 #: euth/flashpoll/phases.py:14
 msgid "Flashpoll Phase"
-msgstr ""
+msgstr "Фаза на анкетирање преку мобилен"
 
 #: euth/flashpoll/phases.py:15
 msgid "Initiate a Mobile polling process."
-msgstr ""
+msgstr "Поттикни процес за анкетирање преку мобилен."
 
 #: euth/flashpoll/phases.py:16
 msgid "mobile polling"
-msgstr ""
+msgstr "Анкетирање преку мобилен"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:21
 msgid "Phase "
-msgstr ""
+msgstr "Фаза"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:62
 msgid "of Phase: "
-msgstr ""
+msgstr "од Фаза:"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
 msgid "Result "
-msgstr ""
+msgstr "Резултат "
 
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
-msgstr ""
+msgstr "Фаза на прашања"
 
 #: euth/ideas/phases.py:15
 msgid "Add new ideas."
-msgstr ""
+msgstr "Додади нови идеи."
 
 #: euth/ideas/phases.py:16 euth/ideas/phases.py:31 euth/ideas/phases.py:46
 #: euth/ideas/phases.py:63 euth/ideas/phases.py:78 euth/maps/phases.py:16
 #: euth/maps/phases.py:33 euth/maps/phases.py:50
 msgid "ideas collection"
-msgstr ""
+msgstr "Збир на идеи"
 
 #: euth/ideas/phases.py:29
 msgid "Collect phase"
-msgstr ""
+msgstr "Фаза на собирање"
 
 #: euth/ideas/phases.py:30
 msgid "Add new ideas and comment them."
-msgstr ""
+msgstr "Додади нови идеи и коментирај ги."
 
 #: euth/ideas/phases.py:45
 msgid "Rating phase"
-msgstr ""
+msgstr "Фаза на рангирање"
 
 #: euth/ideas/phases.py:47
 msgid "Get quantative feeback by rating the collected ideas."
 msgstr ""
+"Добиј квантитативни повратни информации преку рангирање на собраните идеи."
 
 #: euth/ideas/phases.py:60
 msgid "Feedback phase"
-msgstr ""
+msgstr "Фаза на повратни информации"
 
 #: euth/ideas/phases.py:61
 msgid "Get feedback for collected ideas through rates and comments."
 msgstr ""
+"Добиј повратни информации за собраните идеи преку рангирање и коментари."
 
 #: euth/ideas/phases.py:77
 msgid "Universal phase"
-msgstr ""
+msgstr "Универзална фаза"
 
 #: euth/ideas/phases.py:79
 msgid "Use all features of the idea collection."
-msgstr ""
+msgstr "Искористи ги сите карактеристики од збирот на идеи."
 
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
 msgid "Edit"
-msgstr ""
+msgstr "Измени"
 
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:31
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:40
 #: euth_wagtail/templates/includes/delete_modal.html.py:19
 msgid "Delete"
-msgstr ""
+msgstr "Избриши"
 
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:52
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:62
 msgid "Moderator"
-msgstr ""
+msgstr "Модератор"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:4
 msgid "Create a new proposal"
-msgstr ""
+msgstr "Креирај нов предлог"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:19
 msgid "create new proposal for this project"
-msgstr ""
+msgstr "Креирај нов предлог за овој проект"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:23
 msgid "update idea"
-msgstr ""
+msgstr "Надгради идеа"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:41
 msgid "Title of the proposal"
-msgstr ""
+msgstr "Наслов на предлогот"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:50
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: euth/ideas/templates/euth_ideas/idea_form.html.py:72
 #: euth/maps/templates/euth_maps/mapidea_form.html.py:19
@@ -1054,41 +1069,41 @@ msgstr ""
 #: euth/maps/templates/euth_maps/mapidea_form.html.py:23
 #: euth/maps/templates/euth_maps/mapidea_form.html.py:25
 msgid "cancel"
-msgstr ""
+msgstr "Откажи"
 
 #: euth/ideas/templates/euth_ideas/idea_list.html.py:11
 #: euth/maps/templates/euth_maps/mapidea_list.html.py:20
 msgid "Create Proposal"
-msgstr ""
+msgstr "Креирај предлог"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html.py:2
 #: euth_wagtail/templates/includes/delete_modal.html.py:2
 msgid "Are you sure you want to delete"
-msgstr ""
+msgstr "Дали сте сигурни дека сакате да избришете"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
 msgid "delete"
-msgstr ""
+msgstr "Избриши"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html.py:23
 msgid "abort"
-msgstr ""
+msgstr "Прекини"
 
 #: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
 msgid "Sort by"
-msgstr ""
+msgstr "Подреди според"
 
 #: euth/ideas/views.py:45
 msgid "Most recent"
-msgstr ""
+msgstr "Најнови"
 
 #: euth/ideas/views.py:46
 msgid "Popularity"
-msgstr ""
+msgstr "Популарност"
 
 #: euth/ideas/views.py:123
 msgid "Your Idea has been deleted"
-msgstr ""
+msgstr "Твојата идеја е избришана"
 
 #: euth/maps/forms.py:17
 msgid "Please locate your proposal on the map."
@@ -1106,7 +1121,7 @@ msgstr ""
 
 #: euth/maps/phases.py:14
 msgid "Issue Phase"
-msgstr ""
+msgstr "Фаза на прашања"
 
 #: euth/maps/phases.py:15
 msgid "Add, comment and rate new ideas on a map."
@@ -1136,7 +1151,7 @@ msgstr ""
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:4
 #, python-format
 msgid " Private project: %(project)s"
-msgstr ""
+msgstr "Личен проект %(project)s"
 
 #: euth/memberships/templates/euth_memberships/invite_base.html.py:15
 #, python-format
@@ -1156,7 +1171,7 @@ msgstr ""
 
 #: euth/memberships/templates/euth_memberships/invite_form.html.py:6
 msgid "Accept"
-msgstr ""
+msgstr "Прифати"
 
 #: euth/memberships/templates/euth_memberships/invite_form.html.py:7
 msgid "Decline"
@@ -1170,16 +1185,19 @@ msgid ""
 "%(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
+"\n"
+"Ова е личен проект. Вие аплициравте за членство на %(date)s. Вашето барање "
+"чека за модерирање."
 
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:24
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:41
 msgid "request membership"
-msgstr ""
+msgstr "Барање за членство"
 
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:45
 #: euth_wagtail/templates/includes/delete_modal.html.py:23
 msgid "Abort"
-msgstr ""
+msgstr "Прекини"
 
 #: euth/offlinephases/phases.py:14
 msgid "Offlinephase"
@@ -1251,39 +1269,39 @@ msgstr ""
 
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:4
 msgid "on Opin.me"
-msgstr ""
+msgstr "на opin.me"
 
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:43
 msgid "More info about"
-msgstr ""
+msgstr "Повеќе информации за"
 
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:50
 msgid "Why are we part of OPIN"
-msgstr ""
+msgstr "Зошто сме ние дел од OPIN"
 
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:55
 msgid "How will we use OPIN"
-msgstr ""
+msgstr "Како ќе го користиме OPIN"
 
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:59
 msgid "More info about the organisation"
-msgstr ""
+msgstr "Повеќе информации за организацијата"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:4
 msgid "Organisations on Opin.me"
-msgstr ""
+msgstr "Организации на Opin.me"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
 msgid "Organisations"
-msgstr ""
+msgstr "Организации"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
 msgid "by"
-msgstr ""
+msgstr "од"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:36
 msgid "edit"
-msgstr ""
+msgstr "Измени"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:18
 msgid "Active phase"
@@ -1291,32 +1309,36 @@ msgstr ""
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:48
 msgid "info"
-msgstr ""
+msgstr "информации"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:58
 msgid "Welcome!"
-msgstr ""
+msgstr "Добредојдовте!"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:59
 msgid "This project has not started yet!"
-msgstr ""
+msgstr "Овој проект не е започнат се’уште!"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:64
 #: euth/projects/templates/euth_projects/project_detail.html.py:69
 msgid "Thanks for participating!"
-msgstr ""
+msgstr "Ви благодариме на учеството!"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:65
 msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
 msgstr ""
+"Оваа фаза е веќе завршена. Ви благодариме на сите што бевте дел од овој "
+"проект! Наредната фаза ќе започне наскоро."
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:70
 msgid ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
 msgstr ""
+"Овој проект е веќе завршен. Ви благодариме на сите што бевте дел од овој "
+"проект!"
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:81
 msgid "This phase ends in"
@@ -1331,10 +1353,12 @@ msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr ""
+"Иницијаторот нема обезбедено информации за очекуваниот исход на проектот "
+"се’уште."
 
 #: euth/projects/templates/euth_projects/project_detail.html.py:119
 msgid "other projects from this organisation"
-msgstr ""
+msgstr "други проекти од оваа организација"
 
 #: euth/projects/templatetags/time_delta_tags.py:15
 msgid "week"
@@ -1382,74 +1406,81 @@ msgstr ""
 
 #: euth/users/admin.py:10
 msgid "Permissions"
-msgstr ""
+msgstr "Дозволи"
 
 #: euth/users/admin.py:11
 msgid "Important dates"
-msgstr ""
+msgstr "Важни датуми"
 
 #: euth/users/models.py:15
 msgid ""
 "Enter a valid username. This value may contain only letters, digits, spaces "
 "and @/./+/-/_ characters. It must start with a digit or a letter."
 msgstr ""
+"Внесете важечко корисничко име. Оваа вредност може да содржи само букви, "
+"бројки, места и @/./+/-/_ знаци. Мора да започнува со бројка или буква."
 
 #: euth/users/models.py:19
 msgid "A user with that username already exists."
-msgstr ""
+msgstr "Корисник со тоа корисничко име веќе постои"
 
 #: euth/users/models.py:20
 msgid ""
 "Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
 msgstr ""
+"Потребни се 60 знаци или помалку. Букви, бројки, места и @/./+/-/_ само."
 
 #: euth/users/models.py:26
 msgid "A user with that email address already exists."
-msgstr ""
+msgstr "Корисник со таа адреса на електронска пошта веќе постои."
 
 #: euth/users/models.py:28
 msgid "Designates whether the user can log into this admin site."
-msgstr ""
+msgstr "Означува дали корисникот може да се пријави како  администратор."
 
 #: euth/users/models.py:29
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
+"Означува дали овој корисник треба да биде третиран како активен. "
+"Одселектирајте наместо да бришете сметки."
 
 #: euth/users/models.py:31
 msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
+"Означете дали сакате да добиете известувања. Одселектирајте ако не сакате да "
+"добиете нотификации."
 
 #: euth/users/models.py:37
 msgid "username"
-msgstr ""
+msgstr "Корисничко име"
 
 #: euth/users/models.py:45
 msgid "email address"
-msgstr ""
+msgstr "Адреси на електронска пошта"
 
 #: euth/users/models.py:49
 msgid "staff status"
-msgstr ""
+msgstr "Статус на вработени"
 
 #: euth/users/models.py:56
 msgid "Send me email notifications"
-msgstr ""
+msgstr "Испратете ми известувања на електронска пошта"
 
 #: euth/users/models.py:63
 msgid "Avatar picture"
-msgstr ""
+msgstr "Аватар"
 
 #: euth/users/models.py:69
 msgid "Short description about yourself"
-msgstr ""
+msgstr "Краток опис за вас лично"
 
 #: euth/users/models.py:70
 msgid "Write a little bit about yourself. (max. 250 characters)"
-msgstr ""
+msgstr "Напиши нешто за себе (максимум 250 знаци)"
 
 #: euth/users/models.py:77
 msgid "Twitter name"
@@ -1457,35 +1488,35 @@ msgstr ""
 
 #: euth/users/models.py:83
 msgid "Facebook name"
-msgstr ""
+msgstr "Фејсбук име"
 
 #: euth/users/models.py:89
 msgid "Instagram name"
-msgstr ""
+msgstr "Инстаграм име"
 
 #: euth/users/models.py:94
 msgid "Country of residence"
-msgstr ""
+msgstr "Земја на престој"
 
 #: euth/users/models.py:100
 msgid "City of residence"
-msgstr ""
+msgstr "Град"
 
 #: euth/users/models.py:106
 msgid "Date of birth"
-msgstr ""
+msgstr "Роденден"
 
 #: euth/users/models.py:111
 msgid "Gender"
-msgstr ""
+msgstr "Пол"
 
 #: euth/users/models.py:114
 msgid "Male"
-msgstr ""
+msgstr "Машко"
 
 #: euth/users/models.py:115
 msgid "Female"
-msgstr ""
+msgstr "Женско"
 
 #: euth/users/models.py:116
 msgid "Transgender"
@@ -1513,11 +1544,11 @@ msgstr ""
 
 #: euth/users/models.py:127
 msgid "Languages"
-msgstr ""
+msgstr "Јазици"
 
 #: euth/users/models.py:129
 msgid "Enter the languages you’re speaking."
-msgstr ""
+msgstr "Внеси ги јазиците кои ги зборуваш"
 
 #: euth/users/models.py:134
 msgid "Time zone"
@@ -1525,11 +1556,11 @@ msgstr ""
 
 #: euth/users/models.py:145
 msgid "User"
-msgstr ""
+msgstr "Корисник"
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:17
 msgid "Admin"
-msgstr ""
+msgstr "Администратор"
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:21
 msgid "Account Settings"
@@ -1537,25 +1568,25 @@ msgstr ""
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:33
 msgid "logout"
-msgstr ""
+msgstr "Одјави се"
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:39
 msgid "Login / Register"
-msgstr ""
+msgstr "Најава / Регистрација"
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:43
 #: euth_wagtail/templates/account/login.html.py:16
 #: euth_wagtail/templates/account/login.html.py:58
 #: euth_wagtail/templates/account/signup.html.py:12
 msgid "login"
-msgstr ""
+msgstr "Најави се"
 
 #: euth/users/templates/euth_users/indicator_menu.html.py:46
 #: euth_wagtail/templates/account/login.html.py:17
 #: euth_wagtail/templates/account/signup.html.py:13
 #: euth_wagtail/templates/account/signup.html.py:94
 msgid "register"
-msgstr ""
+msgstr "Регистар"
 
 #: euth/users/templates/euth_users/user_detail.html.py:41
 #: euth/users/templates/euth_users/user_detail.html.py:70
@@ -1886,3 +1917,84 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
 msgstr ""
+
+#~ msgid "No projects created"
+#~ msgstr "Нема креирано проекти"
+
+#~ msgid "Start Date"
+#~ msgstr "Почетен датум"
+
+#~ msgid "End Date"
+#~ msgstr "Краен датум"
+
+#~ msgid "Idea collection 1"
+#~ msgstr "Збир на идеи 1"
+
+#~ msgid "Collect ideas"
+#~ msgstr "Собирање на идеи"
+
+#~ msgid "Idea collection 2"
+#~ msgstr "Збир на идеи 2"
+
+#~ msgid "Add comments to an existing text"
+#~ msgstr "Додади коментари на постоечки текст"
+
+#~ msgid "Mobile Polling"
+#~ msgstr "Анкетирање преку мобилен"
+
+#~ msgid "Initiate a mobile polling process"
+#~ msgstr "Поттикни процес за анкетирање преку мобилен."
+
+#~ msgid ""
+#~ "Your image should be at least 1300px wide and 600px high. Supported "
+#~ "formats are %s."
+#~ msgstr ""
+#~ "Вашата слика треба да биде најмалку 1300 пиксели широка и 600 пиксели "
+#~ "висока. Подржаните формати се процентуални"
+
+#~ msgid ""
+#~ "Your logo should be at least 200px wide and square. Supported formats are "
+#~ "%s."
+#~ msgstr ""
+#~ "Вашето лого треба да биде најмалку 200 пиксели широко и подредено. "
+#~ "Подржаните формати се процентуални."
+
+#~ msgid "Profile"
+#~ msgstr "Профил"
+
+#~ msgid "Reject"
+#~ msgstr "Одбиј"
+
+#~ msgid ""
+#~ "The image will be shown as a decorative background image. It must be min. "
+#~ "1300px wide and 600px tall. Allowed file formats are .jpg and .png. The "
+#~ "file size should be max. 2 MB."
+#~ msgstr ""
+#~ "Фотографијата ќе биде прикажана како декоративна позадина. Мора да биде "
+#~ "минимум 1300 пиксели широка и 600 пиксели висока. Дозволени формати на "
+#~ "датотеки се .jpg и .png. Големината на датотеката треба да биде максимум "
+#~ "2 МБ."
+
+#~ msgid "Avatar"
+#~ msgstr "Аватар"
+
+#~ msgid "City"
+#~ msgstr "Град"
+
+#~ msgid "Birthdate"
+#~ msgstr "Роденден"
+
+#~ msgid "There are no results yet. Please check back later."
+#~ msgstr "Нема резултати се’ уште. Ве молиме обидете се повторно подоцна."
+
+#~ msgid "Dashboard"
+#~ msgstr "Контролна табла"
+
+#~ msgid "Please login to comment"
+#~ msgstr "Ве молиме пријавете се за да можете да коментирате"
+
+#~ msgid "Answer"
+#~ msgstr "Одговори"
+
+#~ msgid "Post"
+#~ msgstr "Постави"
