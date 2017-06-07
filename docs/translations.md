@@ -74,10 +74,23 @@
 
          make locales
 
+### Adding a new language
 
-## Adding a new language
+  - add language to LANGUAGES in euth_wagtail/settings/base.py
+  - add 15 fields with the desired language code to home/models.py
+    (by searching for an existing language code like '_ka')
+  - make migrations
 
+        python manage.py makemigrations home
 
+  - rename migrations
+  - add new language to transifex
+
+### Adding a language, that is not supported by Django
+
+  - do everything as described above
+  - add a new language field to euth_wagtail/__init__.py
+  - pull translations from transifex and compile (described above)
 
 
 ## Caveats
