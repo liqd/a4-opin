@@ -10,31 +10,32 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-07 12:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
-"Language: it\n"
+"Last-Translator: Nicolas Bach <bach@nexusinstitut.de>, 2017\n"
+"Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:91
 msgid "Do you really want to delete this comment?"
-msgstr ""
+msgstr "Дали навистина сакате да го избришете овој коментар? "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:93
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
-msgstr ""
+msgstr "Избриши"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:94
 #: adhocracy4/static/Modal.jsx:50
 #: euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
-msgstr ""
+msgstr "Прекини"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:107
 msgid "Latest edit on"
-msgstr ""
+msgstr "Последно додадено "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:112
 msgid "Moderator"
@@ -43,23 +44,23 @@ msgstr ""
 #: adhocracy4/comments/static/comments/Comment.jsx:119
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
-msgstr ""
+msgstr "Дали сте сигурни дека сакате да го пријавите овој коментар?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:161
 msgid "Your reply here"
-msgstr ""
+msgstr "Вашиот одговор овде"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:79
 msgid "comment"
 msgid_plural "comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Коментари"
+msgstr[1] "Коментари"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:82
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
 #: adhocracy4/comments/static/comments/CommentForm.jsx:34
 msgid "Your comment here"
-msgstr ""
+msgstr "Твојот коментар овде"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
@@ -68,11 +69,11 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 msgid "cancel"
-msgstr ""
+msgstr "Откажи"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:43
 msgid "Please login to comment"
-msgstr ""
+msgstr "Ве молиме пријавете се за да можете да коментирате"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:49
 msgid "The currently active phase doesn't allow to comment."
@@ -80,11 +81,11 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:15
 msgid "Edit"
-msgstr ""
+msgstr "Измени"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:23
 msgid "Report"
-msgstr ""
+msgstr "Пријави"
 
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:5
 #, javascript-format
@@ -95,7 +96,7 @@ msgstr[1] ""
 
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:25
 msgid "Answer"
-msgstr ""
+msgstr "Одговори"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:42
 #: euth/follows/static/follows/FollowButton.jsx:41
@@ -109,11 +110,11 @@ msgstr ""
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:63
 msgid "Your message here"
-msgstr ""
+msgstr "Твојата порака овде"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:75
 msgid "Send Report"
-msgstr ""
+msgstr "Испрати извештај"
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."

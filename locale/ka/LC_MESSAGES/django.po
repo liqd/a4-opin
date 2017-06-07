@@ -3,31 +3,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Nicolas Bach <bach@nexusinstitut.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-07 12:14+0200\n"
 "PO-Revision-Date: 2017-03-10 16:15+0100\n"
-"Language-Team: Russian (https://www.transifex.com/liqd/teams/68346/ru/)\n"
-"Language: ru\n"
+"Last-Translator: Nicolas Bach <bach@nexusinstitut.de>, 2017\n"
+"Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
 msgid "Remove the picture"
-msgstr ""
+msgstr "სურათის წაშლა"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
 msgid "Upload a picture"
-msgstr ""
+msgstr "სურათის ატვირთვა"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
@@ -40,7 +41,7 @@ msgstr ""
 
 #: adhocracy4/comments/models.py:35
 msgid "Comment"
-msgstr ""
+msgstr "კომენტარი"
 
 #: adhocracy4/comments/models.py:36
 #: euth/ideas/views.py:47
@@ -49,7 +50,7 @@ msgstr ""
 
 #: adhocracy4/comments/serializers.py:25
 msgid "unknown user"
-msgstr ""
+msgstr "უცნობი მომხმარებელი"
 
 #: adhocracy4/images/fields.py:60
 #, python-brace-format
@@ -182,9 +183,6 @@ msgstr ""
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
@@ -506,9 +504,6 @@ msgid_plural ""
 "            These templates match your criterias!\n"
 "            "
 msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: euth/blueprints/templates/euth_blueprints/result.html.py:37
 msgid "Time and effort"
@@ -647,40 +642,40 @@ msgstr ""
 #: euth_wagtail/templates/account/password_reset_from_key_done.html.py:5
 #: euth_wagtail/templates/account/password_reset_from_key_done.html.py:10
 msgid "Change Password"
-msgstr ""
+msgstr "პაროლის შეცვლა"
 
 #: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:28
 #: euth_wagtail/templates/account/email.html.py:6
 #: euth_wagtail/templates/account/email.html.py:9
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "ელფოსტის მისამართი "
 
 #: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:34
 #: euth_wagtail/templates/socialaccount/connections.html.py:6
 #: euth_wagtail/templates/socialaccount/connections.html.py:9
 msgid "Account Connections"
-msgstr ""
+msgstr "ანგარიშის კავშირები"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:13
 msgid "Organisation settings"
-msgstr ""
+msgstr "ორგანიზაციის პარამეტრები"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:20
 msgid "Organisation information"
-msgstr ""
+msgstr "ორგანიზაციის ინფორმაცია"
 
 #: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:27
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:5
 msgid "Projects"
-msgstr ""
+msgstr "პროექტები"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:6
 msgid "Create new project from one of the templates"
-msgstr ""
+msgstr "ახალი პროექტის შექმნა ერთ-ერთი შაბლონით"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:13
 msgid "back to project list"
-msgstr ""
+msgstr "პროექტის სიაში დაბრუნება"
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:23
 msgid "Not sure which template?"
@@ -702,7 +697,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:56
 msgid "use this template"
-msgstr ""
+msgstr "გამოიყენეთ ეს შაბლონი"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:26
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:115
@@ -715,7 +710,7 @@ msgstr ""
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:41
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:81
 msgid "of Phase "
-msgstr ""
+msgstr "ფაზის"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
 msgid "edit documentation"
@@ -726,28 +721,28 @@ msgstr ""
 #: euth/memberships/templates/euth_memberships/request_detail.html.py:10
 #: euth/projects/templates/euth_projects/project_detail.html.py:39
 msgid "Information"
-msgstr ""
+msgstr "ინფორმაცია"
 
 #: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:9
 #: euth/projects/templates/euth_projects/project_detail.html.py:40
 msgid "Participation"
-msgstr ""
+msgstr "მონაწილეობა"
 
 #: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:5
 msgid "Edit your organisation information"
-msgstr ""
+msgstr "რედაქტირება გაუკეთეთ თქვენი ორგანიზაციის ინფორმაციას"
 
 #: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:50
 msgid "save changes"
-msgstr ""
+msgstr "ცვლილებების შენახვა"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:4
 msgid "Your user profile"
-msgstr ""
+msgstr "თქვენი მომხმარებლის პროფილი"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:6
 msgid "Your profile"
-msgstr ""
+msgstr "თქვენი პროფილი"
 
 #: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:10
 msgid ""
@@ -770,7 +765,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:39
 msgid "save draft"
-msgstr ""
+msgstr "შეინახეთ მონახაზი"
 
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:43
 #: euth/dashboard/templates/euth_dashboard/project_form.html.py:56
@@ -802,7 +797,7 @@ msgstr ""
 #: euth/projects/templates/euth_projects/includes/project_list_item.html.py:19
 #: euth/projects/templates/euth_projects/project_detail.html.py:16
 msgid "Phase"
-msgstr ""
+msgstr "ფაზა"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:45
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:13
@@ -821,11 +816,11 @@ msgstr ""
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:62
 #: euth/users/models.py:146
 msgid "Users"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr ""
+msgstr "პროექტის ნახვა"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "archive project"
@@ -837,11 +832,11 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:5
 msgid "Manage user of "
-msgstr ""
+msgstr "მართე მომხმარებელი"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:20
 msgid "invite users"
-msgstr ""
+msgstr "მოიწვიეთ მომხმარებლები"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:39
 msgid "Request"
@@ -853,31 +848,31 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:102
 msgid "submit"
-msgstr ""
+msgstr "გაგზავნა"
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
-msgstr ""
+msgstr "თქვენი პროფილი წარმატებით განახლდა."
 
 #: euth/dashboard/views.py:105
 msgid "Organisation successfully updated."
-msgstr ""
+msgstr "ორგანიზაცია წარმატებით განახლდა."
 
 #: euth/dashboard/views.py:154
 msgid "Project succesfully created."
-msgstr ""
+msgstr "პროექტები წარმატებით შეიქმნა."
 
 #: euth/dashboard/views.py:160
 msgid "New project based on"
-msgstr ""
+msgstr "ახალი პროექტი დაფუძნებულია"
 
 #: euth/dashboard/views.py:199
 msgid "Project successfully updated."
-msgstr ""
+msgstr "პროექტი წარმატებით განახლდა."
 
 #: euth/dashboard/views.py:206
 msgid "Update project: "
-msgstr ""
+msgstr "პროექტის განახლება:"
 
 #: euth/dashboard/views.py:242
 msgid "Project has been archived."
@@ -1886,3 +1881,6 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
 msgstr ""
+
+#~ msgid "No projects created"
+#~ msgstr "პროექტები არ არის შექმნილი"
