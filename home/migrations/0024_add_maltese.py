@@ -92,10 +92,4 @@ class Migration(migrations.Migration):
             name='title_mt',
             field=models.CharField(blank=True, max_length=255, verbose_name='Title'),
         ),
-        migrations.AlterField(
-            model_name='menuitem',
-            name='link_view',
-            field=models.CharField(default='', blank=True, max_length=100, choices=[('organisation-list', 'List of Organisations')]),
-            preserve_default=False,
-        ),
     ]
