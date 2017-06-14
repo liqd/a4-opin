@@ -5,15 +5,19 @@ from rules.compat import access_mixins as mixin
 
 from adhocracy4.projects import models as prj_models
 from adhocracy4.projects import views as prj_views
+from euth.projects import mixins as prj_mixins
 
 from . import forms, models
 
 
-class RequestsProjectDetailView(prj_views.ProjectDetailView):
+class RequestsProjectDetailView(
+    prj_mixins.PhaseDispatchMixin,
+    prj_views.ProjectDetailView
+):
 
     def handle_no_permission(self):
         """
-        Check if user clould join
+        Check if user could join
         """
         user = self.request.user
         is_member = user.is_authenticated() and self.project.has_member(user)
