@@ -6,6 +6,7 @@ from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
+from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
 from . import forms
@@ -37,7 +38,12 @@ class SortMixin():
             return dict(self.sorts)[self.sort]
 
 
-class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
+class IdeaListView(
+    mixins.ProjectMixin,
+    SortMixin,
+    generic.ListView,
+    prj_mixins.ProjectPhaseMixin
+):
     model = idea_models.Idea
     paginate_by = 15
     sort_default = '-created'
