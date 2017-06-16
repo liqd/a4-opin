@@ -5,7 +5,6 @@ from rules.compat import access_mixins as mixin
 from rules.contrib import views as rules_views
 
 from adhocracy4.projects import models as prj_models
-from adhocracy4.projects import views as prj_views
 from euth.projects import mixins as prj_mixins
 
 from . import forms, models
