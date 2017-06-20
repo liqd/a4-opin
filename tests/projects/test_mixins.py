@@ -2,7 +2,7 @@ import pytest
 from dateutil.parser import parse
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from django.views.generic import View
+from django.views.generic import ListView
 from freezegun import freeze_time
 
 from adhocracy4.projects import models
@@ -12,7 +12,7 @@ from tests.apps.fakeprojects.views import FakePhase0View, FakePhase1View
 
 @pytest.fixture
 def project_detail_view():
-    class FakeProjectDetailView(mixins.PhaseDispatchMixin, View):
+    class FakeProjectDetailView(mixins.PhaseDispatchMixin, ListView):
         model = models.Project
 
         def get(self, request, *args, **kwargs):
@@ -21,7 +21,7 @@ def project_detail_view():
 
 
 @pytest.mark.django_db
-def test_phase_dispatch_mixin_phase(
+def test_phase_dispatch_mixin(
     rf,
     project_detail_view,
     module,
@@ -45,9 +45,16 @@ def test_phase_dispatch_mixin_phase(
         weight=1
     )
 
-    # Without any further specification via '?phase=' either the
-    # currently active phase or the last gone phase is returned.
+    # Without any further specification via '?phase=' the last active
+    # phase has to be returned.
     request = rf.get(project_url)
+    response = project_detail_view(request, slug=project.slug)
+    assert FakePhase1View.template_name in response.template_name
+    assert FakePhase0View.template_name not in response.template_name
+
+    # Requesting invalid phase parameter should return the last past
+    # phase.
+    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
     response = project_detail_view(request, slug=project.slug)
     assert FakePhase1View.template_name in response.template_name
     assert FakePhase0View.template_name not in response.template_name
@@ -64,14 +71,7 @@ def test_phase_dispatch_mixin_phase(
     assert FakePhase1View.template_name in response.template_name
     assert FakePhase0View.template_name not in response.template_name
 
-    # Requesting invalid phase parameter should return the last past
-    # phase.
-    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
-    response = project_detail_view(request, slug=project.slug)
-    assert FakePhase1View.template_name in response.template_name
-    assert FakePhase0View.template_name not in response.template_name
-
-    with freeze_time(phase1.start_date):
+    with freeze_time(phase1.end_date):
         # Requesting garbage should return the currently active phase.
         request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
         response = project_detail_view(request, slug=project.slug)
