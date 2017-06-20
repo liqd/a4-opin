@@ -45,5 +45,4 @@ class ProjectPhaseMixin(generic.base.ContextMixin):
         else:
             self.phase = self.project.past_phases[0]
 
-        self.foo = "bar"
         return super(ProjectPhaseMixin, self).dispatch(*args, **kwargs)
