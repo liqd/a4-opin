@@ -1,23 +1,19 @@
 {% load i18n wagtailimages_tags static %}
 <section class="panel-group accordion-block accordion-content block" role="tablist" aria-multiselectable="true">
-<div class="container">
-    <div class="container-narrow">
-        {% for item in self.accordion_items %}
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h3 class="accordion-title">
-                    <a class="accordion-link collapsed" role="button" data-toggle="collapse" data-parent=".accordion-block" href="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                        {{ item.title }}
-                    </a>
-                </h3>
-            </div>
-            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
-                <div class="panel-body">
-                    {{ item.content }}
-                </div>
+    {% for item in self.accordion_items %}
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h3 class="accordion-title">
+                <a class="accordion-link collapsed" role="button" data-toggle="collapse" data-parent=".accordion-block" href="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                    {{ item.title }}
+                </a>
+            </h3>
+        </div>
+        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
+            <div class="panel-body">
+                {{ item.content }}
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
+    {% endfor %}
 </section>
