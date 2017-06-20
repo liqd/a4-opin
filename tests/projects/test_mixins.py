@@ -20,6 +20,14 @@ def project_detail_view():
     return FakeProjectDetailView.as_view()
 
 
+@pytest.fixture
+def dummy_view():
+    class DummyView(mixins.ProjectPhaseMixin, ListView):
+        model = models.Project
+
+    return DummyView.as_view()
+
+
 @pytest.mark.django_db
 def test_phase_dispatch_mixin(
     rf,
@@ -84,3 +92,75 @@ def test_phase_dispatch_mixin(
         response = project_detail_view(request, slug=project.slug)
         assert FakePhase0View.template_name in response.template_name
         assert FakePhase1View.template_name not in response.template_name
+
+
+@pytest.mark.django_db
+def test_project_phase_mixin(
+    rf,
+    dummy_view,
+    module,
+    phase_factory
+):
+    project = module.project
+    project_url = reverse('project-detail', args=[project.slug])
+
+    phase1 = phase_factory(
+        module=module,
+        type='fakeprojects:010:phase',
+        start_date=parse('2013-03-01 18:00:00 UTC'),
+        end_date=parse('2013-03-02 18:00:00 UTC'),
+        weight=0
+    )
+    phase2 = phase_factory(
+        module=module,
+        type='fakeprojects:020:phase',
+        start_date=parse('2013-03-03 18:00:00 UTC'),
+        end_date=parse('2013-03-05 18:00:00 UTC'),
+        weight=1
+    )
+
+    # Without any further specification via '?phase=' the last active
+    # phase has to be returned.
+    request = rf.get(project_url)
+    response = dummy_view(request, slug=project.slug, project=project)
+    view_data = response.context_data['view']
+    assert view_data.project == project
+    assert view_data.phase == phase2
+
+    # Requesting invalid phase parameter should return the last past
+    # phase.
+    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+    response = dummy_view(request, slug=project.slug, project=project)
+    view_data = response.context_data['view']
+    assert view_data.project == project
+    assert view_data.phase == phase2
+
+    # Requesting the phase by passing their weight should return the
+    # corresponding view. This is basically the normal usage.
+    request = rf.get("{0}?phase={1}".format(project_url, 0))
+    response = dummy_view(request, slug=project.slug, project=project)
+    view_data = response.context_data['view']
+    assert view_data.project == project
+    assert view_data.phase == phase1
+
+    request = rf.get("{0}?phase={1}".format(project_url, 1))
+    response = dummy_view(request, slug=project.slug, project=project)
+    view_data = response.context_data['view']
+    assert view_data.project == project
+    assert view_data.phase == phase2
+
+    with freeze_time(phase1.end_date):
+        # Requesting garbage should return the currently active phase.
+        request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+        response = dummy_view(request, slug=project.slug, project=project)
+        view_data = response.context_data['view']
+        assert view_data.project == project
+        assert view_data.phase == phase1
+
+        # Without any further specification via '?phase=' return the
+        # active phase.
+        request = rf.get(project_url)
+        response = dummy_view(request, slug=project.slug, project=project)
+        view_data = response.context_data['view']
+        assert view_data.project == project
+        assert view_data.phase == phase1
