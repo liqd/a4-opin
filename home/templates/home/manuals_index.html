@@ -25,7 +25,10 @@
                         <h2 id="card-title-{{ forloop.counter }}">
                             <a href="{% pageurl subpage %}">{{ subpage.translated_title }}</a>
                         </h2>
-                        <p>{{ subpage.description }}</p>
+                        <p>
+                            {{ subpage.description }}
+                            {{ subpage.subtitle }}
+                        </p>
                     </div>
                 </li>
                 {% endfor %}
