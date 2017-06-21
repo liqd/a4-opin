@@ -970,34 +970,34 @@ class ManualsDetailPage(Page):
     title_mt = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
 
-    # Subtitle
-    subtitle = TranslatedField('subtitle')
-    subtitle_en = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_de = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_it = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_fr = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_sv = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_sl = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_da = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_uk = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_el = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_ru = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_ka = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_mk = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
-    subtitle_mt = models.CharField(
-        max_length=150, blank=True, verbose_name="Subtitle")
+    # Subtitle (Field named description as in ManualsSectionPage)
+    description = TranslatedField('description')
+    description_en = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_de = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_it = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_fr = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_sv = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_sl = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_da = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_uk = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_el = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_ru = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_ka = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_mk = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_mt = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
 
     # Body
     body = TranslatedField('body')
@@ -1041,7 +1041,7 @@ class ManualsDetailPage(Page):
     content_panels = [
         edit_handlers.MultiFieldPanel([
                 edit_handlers.FieldPanel('title_' + lang_code),
-                edit_handlers.FieldPanel('subtitle_' + lang_code),
+                edit_handlers.FieldPanel('description_' + lang_code),
                 edit_handlers.StreamFieldPanel('body_' + lang_code),
             ],
             heading=lang,
