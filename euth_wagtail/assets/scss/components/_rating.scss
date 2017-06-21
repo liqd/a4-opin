@@ -37,11 +37,11 @@
 
     &:disabled {
         background: transparent;
-        border: none;
-        color: $brand-success;
+        border-color: $gray;
+        color: $gray;
 
         i {
-            color: $brand-success;
+            color: $gray;
         }
     }
 }
@@ -65,11 +65,11 @@
 
     &:disabled {
         background: transparent;
-        border: none;
-        color: $brand-danger;
+        border-color: $gray;
+        color: $gray;
 
         i {
-            color: $brand-danger;
+            color: $gray;
         }
     }
 }
