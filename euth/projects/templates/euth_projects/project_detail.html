@@ -58,9 +58,9 @@
         <div class="tab-panel-description">
 
             {% if not view.phase %}
-            {% trans 'Welcome!' as title %}
-            {% trans 'This project has not started yet!' as text %}
-            {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
+              {% trans 'Welcome!' as title %}
+              {% trans 'This project has not started yet!' as text %}
+              {% include 'euth_contrib/includes/info_note.html' with image='images/project_info_note.png' title=title text=text %}
             {% endif %}
 
             {% if view.phase and view.phase.is_over %}
