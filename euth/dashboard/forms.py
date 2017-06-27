@@ -115,6 +115,9 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
+        widgets = {
+          'is_public': forms.RadioSelect
+        }
 
     def save(self, commit=True):
         # calling flashpoll service
