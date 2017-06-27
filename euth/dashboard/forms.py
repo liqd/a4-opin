@@ -24,6 +24,8 @@ from euth.offlinephases.models import Offlinephase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 from euth.users.fields import UserSearchField
+from django.forms import ModelForm, RadioSelect
+RadioSelect
 
 
 class ProfileForm(forms.ModelForm):
@@ -114,10 +116,11 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
-                  'result']
-        widgets = {
-          'is_public': forms.RadioSelect
-        }
+        'result']
+        widgets = {'is_public': RadioSelect(choices=[
+            (True, 'Private'),
+            (False, 'Not Private')
+        ])}
 
     def save(self, commit=True):
         # calling flashpoll service
