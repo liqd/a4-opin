@@ -9,7 +9,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db.models import loading
-from django.forms import modelformset_factory
+from django.forms import RadioSelect, modelformset_factory
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
@@ -24,8 +24,6 @@ from euth.offlinephases.models import Offlinephase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 from euth.users.fields import UserSearchField
-from django.forms import ModelForm, RadioSelect
-RadioSelect
 
 
 class ProfileForm(forms.ModelForm):
@@ -116,11 +114,10 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
-        'result']
+                  'result']
         widgets = {'is_public': RadioSelect(choices=[
-            (True, 'Private'),
-            (False, 'Not Private')
-        ])}
+                (True, _('Private')),
+                (False, _('Not Private'))])}
 
     def save(self, commit=True):
         # calling flashpoll service
