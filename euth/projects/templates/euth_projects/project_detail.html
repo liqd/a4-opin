@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static tz time_delta_tags %}
+{% load i18n static tz time_delta_tags flashpoll_form_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -52,8 +52,7 @@
         </div>
     </article>
     <article id="participation" class="tab-panel active">
-        <div class="tab-panel-description">
-
+        <div class="tab-panel-description">            
             {% if not view.phase %}
             {% trans 'Welcome!' as title %}
             {% trans 'This project has not started yet!' as text %}
@@ -100,14 +99,18 @@
             {% block phase_content %}{% endblock %}
         </div>
     </article>
+    {% if module_settings == "euth_flashpoll" %}        
+        {% include 'euth_flashpoll/includes/project_result_flashpoll_tab.html' with form=form view=view %}        
+    {% else %}
     <article id="result" class="tab-panel">
         <div class="container-narrow">
-            <div class="tab-panel-description project usercontent">
+            <div class="tab-panel-description project usercontent">                               
                 {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
-                {{ view.project.result |default:no_results|safe|linebreaks }}
+                {{ view.project.result |default:no_results|safe|linebreaks }}               
             </div>
         </div>
-    </article>
+    </article>    
+    {% endif %}  
 </div>
 {% if view.project.other_projects %}
 <div class="project-other-projects">

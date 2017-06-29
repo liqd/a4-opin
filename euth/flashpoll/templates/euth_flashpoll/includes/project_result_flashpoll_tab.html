@@ -1,0 +1,38 @@
+{% load static i18n form_tags flashpoll_form_tags widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'highcharts.css' %}">
+<script src="{% static 'highcharts.js' %}"></script>
+<script src="{% static 'js/flashpoll_result.js' %}"></script>
+
+<article id="result" class="tab-panel"         
+            data-api-key="{% api_key %}"
+            data-poll="{{ poll|get_simplejson }}"
+            data-poll-result="{{ pollresult|get_simplejson }}">
+    <div class="container-narrow">
+        <div class="tab-panel-description project usercontent">                               
+            {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
+            {{ view.project.result |default:no_results|safe|linebreaks }}
+            <div style="margin-top:40px;">
+			{% if pollresult.noOfReceivedResults != 0 %}    
+				{% for question in poll.questions %}
+                    {% if question.questionType != 'ORDER' %}
+                        Question type: <b>{{ question.questionType }}</b>     
+                    {% else  %}         
+                        Question type: <b>RANKING</b>
+                    {% endif %}                    
+					{% if question.questionType != 'FREETEXT' %}
+					<div class="form-group">
+						<div id="container-{{question.orderId}}" style="width:100%; height:400px;"></div>
+					</div>
+					{% else  %}
+					<div class="form-group">
+						<label >{{ question.questionText }}</label>
+						<p class='form-help-text'>Visualization not implemented for this type of question</p>
+					</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}                
+            </div>
+        </div>
+    </div>
+</article>
