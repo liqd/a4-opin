@@ -21,11 +21,9 @@
             </label>
             <p class='form-help-text'>{{ field.help_text }}</p>
             {% if field|widget_type == 'radioselect' %}
-            <label>
                 {% render_field field %}
-            </label>
             {% else %}
-            {% render_field field class="form-control" %}
+                {% render_field field class="form-control" %}
             {% endif %}
             {% if field.errors %}
             <ul class="errorlist">
