@@ -127,14 +127,6 @@ class ProjectForm(forms.ModelForm):
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
 
-    def get_checkbox_label(self, name):
-        checkbox_labels = {
-            'is_public': _('Accessible to all registered users of OPIN.me')
-        }
-        if name in checkbox_labels:
-            return checkbox_labels[name]
-        else:
-            return ''
 
     @property
     def formsections(self):
