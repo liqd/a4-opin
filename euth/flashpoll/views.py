@@ -25,7 +25,7 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
             )
         }
         context['pollid'] = self.get_object().key
-        context['module_settings'] = "euth_flashpoll"    
+        context['module_settings'] = "euth_flashpoll"
 
         url_poll = '{base_url}/poll/{poll_id}'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
@@ -34,10 +34,10 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
 
         headers = {'Content-type': 'application/json'}
         res = requests.get(url_poll,
-                        headers=headers,
-                        auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
-                                            settings.FLASHPOLL_BACK_PASSWORD
-                                            ))
+                           headers=headers,
+                           auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                              settings.FLASHPOLL_BACK_PASSWORD
+                                              ))
         context['poll'] = json.loads(res.text)
 
         url_poll = '{base_url}/poll/{poll_id}/result'.format(
@@ -47,10 +47,10 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
 
         headers = {'Content-type': 'application/json'}
         res = requests.get(url_poll,
-                        headers=headers,
-                        auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
-                                            settings.FLASHPOLL_BACK_PASSWORD
-                                            ))
+                           headers=headers,
+                           auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                              settings.FLASHPOLL_BACK_PASSWORD
+                                              ))
         context['pollresult'] = json.loads(res.text)
 
         return super().get_context_data(**context)
