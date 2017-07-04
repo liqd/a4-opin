@@ -44,6 +44,14 @@ def send_to_flashpoll(data):
             jsonGenerator['startTime'] = startTime
             jsonGenerator['endTime'] = endTime
             jsonGenerator['preview'] = 'save_draft' not in data
+            # isPrivate
+            if 'project-is_public' in data:
+                if data['project-is_public'] == "on":
+                    jsonGenerator['isPrivate'] = False
+                else:
+                    jsonGenerator['isPrivate'] = True
+            else:
+                jsonGenerator['isPrivate'] = True
             # context
             jsonGenerator['lab'] = 'opin'
             jsonGenerator['domain'] = 'opin'
