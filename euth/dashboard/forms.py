@@ -115,9 +115,14 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
-        widgets = {'is_public': RadioSelect(choices=[
-                (True, _('Public')),
-                (False, _('Private'))])}
+        widgets = {
+            'is_public': RadioSelect(
+                choices=[
+                    (True, _('All users can participate (public).')),
+                    (False, _('Only invited users can participate (private).'))
+                ]
+            )
+        }
 
     def save(self, commit=True):
         # calling flashpoll service
@@ -126,7 +131,6 @@ class ProjectForm(forms.ModelForm):
 
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
-
 
     @property
     def formsections(self):
