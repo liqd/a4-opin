@@ -4,7 +4,7 @@ wagtail==1.11.1
 feedparser==5.2.1
 python-dateutil==2.6.0
 django-allauth==0.32.0
-django-ckeditor==5.2.2
+django-ckeditor==5.3.0
 django-countries==4.6.1
 django-webpack-loader==0.5.0
 django-filter==1.0.4
