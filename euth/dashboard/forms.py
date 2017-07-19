@@ -13,17 +13,42 @@ from django.forms import RadioSelect, modelformset_factory
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.categories import models as category_models
 from adhocracy4.modules import models as module_models
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
+from euth.contrib.formset import dynamic_modelformset_factory
 from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.offlinephases.models import Offlinephase
 from euth.organisations import models as org_models
 from euth.users import models as user_models
 from euth.users.fields import UserSearchField
+
+
+def _show_categories_form(phases):
+    """Check if any of the phases has a categorizable item.
+
+    TODO: Move this functionality to a4phases.
+    """
+    for phase in phases:
+        for models in phase.features.values():
+            for model in models:
+                if category_models.Categorizable.is_categorizable(model):
+                    return True
+    return False
+
+
+class CategoryForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': _('Category')}
+    ))
+
+    class Meta:
+        model = category_models.Category
+        exclude = ('module', )
 
 
 class ProfileForm(forms.ModelForm):
@@ -250,6 +275,19 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 get_module_settings_form(module.settings_instance),
             ))
 
+        phases = [phase.content() for phase in qs]
+        self.show_categories_form = _show_categories_form(phases)
+
+        if self.show_categories_form:
+            self.base_forms.append(
+                ('categories', dynamic_modelformset_factory(
+                    category_models.Category, CategoryForm,
+                    can_delete=True,
+                ))
+            )
+        elif hasattr(kwargs, 'categories__queryset'):
+            del kwargs['categories__queryset']
+
         super().__init__(*args, **kwargs)
 
         if project.is_archived:
@@ -312,6 +350,15 @@ class ProjectUpdateForm(multiform.MultiModelForm):
              if p.type.startswith('euth_flashpoll')]):
                 services.send_to_flashpoll(self.data, objects)
 
+        if self.show_categories_form:
+            categories = objects['categories']
+            for category in categories:
+                category.module = module
+                if commit:
+                    category.save()
+            for category in self.forms['categories'].deleted_objects:
+                category.delete()
+
     def clean(self):
         super().clean()
         objects = super().save(commit=False)
@@ -354,6 +401,19 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 get_module_settings_form(module_settings),
             ))
 
+        self.show_categories_form = \
+            _show_categories_form(self.blueprint.content)
+        if self.show_categories_form:
+            # no initial categories in are shown in create view
+            kwargs['categories__queryset'] = \
+                category_models.Category.objects.none()
+            self.base_forms.append((
+                    'categories',
+                    dynamic_modelformset_factory(
+                        category_models.Category, CategoryForm,
+                        can_delete=True,)
+            ))
+
         return super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
@@ -394,6 +454,13 @@ class ProjectCreateForm(multiform.MultiModelForm):
         if ([p for p in objects['phases']
              if p.type.startswith('euth_flashpoll')]):
                 services.send_to_flashpoll(self.data, objects)
+
+        if self.show_categories_form:
+            categories = objects['categories']
+            for category in categories:
+                category.module = module
+                if commit:
+                    category.save()
 
         return objects
 

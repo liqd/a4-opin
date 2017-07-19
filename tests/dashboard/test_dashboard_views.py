@@ -45,6 +45,14 @@ def new_project(organisation, client):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': '',
+        'categories-0-id': '',
+        'categories-1-name': '',
+        'categories-1-id': '',
     })
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
@@ -91,6 +99,14 @@ def running_project(organisation, client):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': '',
+        'categories-1-name': 'bar',
+        'categories-1-id': '',
     })
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
@@ -170,6 +186,14 @@ def test_initiator_create_and_update_project(client, organisation):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': '',
+        'categories-1-name': 'bar',
+        'categories-1-id': '',
         'save_draft': ''
     })
     assert response.status_code == 302
@@ -188,6 +212,9 @@ def test_initiator_create_and_update_project(client, organisation):
 
     phase_1 = module.phase_set.first().pk
     phase_2 = module.phase_set.all()[1].pk
+
+    cat_0 = module.category_set.first().pk
+    cat_1 = module.category_set.all()[1].pk
 
     response = client.post(update_url, {
         'phases-TOTAL_FORMS': '2',
@@ -211,6 +238,14 @@ def test_initiator_create_and_update_project(client, organisation):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '2',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': str(cat_0),
+        'categories-1-name': 'bar',
+        'categories-1-id': str(cat_1),
         'save_draft': ''
     })
     assert response.status_code == 302
@@ -659,6 +694,14 @@ def test_edit_archived_project(client, organisation, new_project):
             'project-description': 'Project description',
             'project-name': 'new project name',
             'project-information': 'Project info',
+            'categories-TOTAL_FORMS': '2',
+            'categories-INITIAL_FORMS': '0',
+            'categories-MIN_NUM_FORMS': '0',
+            'categories-MAX_NUM_FORMS': '1000',
+            'categories-0-name': '',
+            'categories-0-id': '',
+            'categories-1-name': '',
+            'categories-1-id': '',
         })
 
     assert 'read-only' in str(ve)
@@ -692,6 +735,14 @@ def test_edit_archived_project(client, organisation, new_project):
             'project-description': 'Project description',
             'project-name': oldname,
             'project-information': 'Project info',
+            'categories-TOTAL_FORMS': '2',
+            'categories-INITIAL_FORMS': '0',
+            'categories-MIN_NUM_FORMS': '0',
+            'categories-MAX_NUM_FORMS': '1000',
+            'categories-0-name': '',
+            'categories-0-id': '',
+            'categories-1-name': '',
+            'categories-1-id': '',
         })
 
     assert 'read-only' in str(ve)
