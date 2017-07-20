@@ -2,7 +2,6 @@ import datetime
 import json
 import time
 import uuid
-
 import requests
 from django import forms
 from django.conf import settings
