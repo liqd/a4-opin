@@ -4,9 +4,11 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
+from adhocracy4.filters import views as filter_views
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
 from euth.contrib import exports
+from euth.contrib import filters
 from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
@@ -39,15 +41,25 @@ class SortMixin():
             return dict(self.sorts)[self.sort]
 
 
+class IdeaFilterSet(filters.DefaultsFilterSet):
+    defaults = {}
+    category = filters.CategoryFilter()
+
+    class Meta:
+        model = idea_models.Idea
+        fields = ['category']
+
+
 class IdeaListView(
     mixins.ProjectMixin,
     SortMixin,
-    generic.ListView,
-    prj_mixins.ProjectPhaseMixin
+    prj_mixins.ProjectPhaseMixin,
+    filter_views.FilteredListView
 ):
     model = idea_models.Idea
     paginate_by = 15
     sort_default = '-created'
+    filter_set = IdeaFilterSet
     sorts = [
         ('-created', _('Most recent')),
         ('-positive_rating_count', _('Popularity')),
