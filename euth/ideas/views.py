@@ -1,5 +1,8 @@
+import xlsxwriter
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
+from django.utils import timezone
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
@@ -54,16 +57,16 @@ class IdeaListView(
     ]
 
     def get_queryset(self):
-        return super().get_queryset().filter(module=self.module)\
-                                     .annotate_positive_rating_count()\
-                                     .annotate_negative_rating_count()\
-                                     .annotate_comment_count()
+        return super().get_queryset().filter(module=self.module) \
+            .annotate_positive_rating_count() \
+            .annotate_negative_rating_count() \
+            .annotate_comment_count()
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
     model = idea_models.Idea
-    queryset = idea_models.Idea.objects.annotate_positive_rating_count()\
-                                       .annotate_negative_rating_count()
+    queryset = idea_models.Idea.objects.annotate_positive_rating_count() \
+        .annotate_negative_rating_count()
     permission_required = 'euth_ideas.view_idea'
 
     @property
@@ -72,7 +75,7 @@ class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['author_is_moderator'] = self.object.creator in self.object.\
+        context['author_is_moderator'] = self.object.creator in self.object. \
             project.moderators.all()
         return context
 
@@ -140,3 +143,84 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse('project-detail',
                        kwargs={'slug': self.object.project.slug})
+
+
+class IdeaDownloadView(PermissionRequiredMixin, generic.ListView):
+    permission_required = "euth_ideas.export_ideas"
+    model = idea_models.Idea
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def dispatch(self, *args, **kwargs):
+        mod_slug = kwargs.get('slug')
+        self.module = Module.objects.get(slug=mod_slug)
+        self.project = self.module.project
+        return super().dispatch(*args, **kwargs)
+
+    def get_queryset(self):
+        return super().get_queryset().filter(module=self.module) \
+            .annotate_positive_rating_count() \
+            .annotate_negative_rating_count() \
+            .annotate_comment_count()
+
+    def get_filename(self):
+        project = self.module.project
+        filename = '%s_%s.xlsx' % (project.slug,
+                                   timezone.now().strftime('%Y%m%dT%H%M%S'))
+        return filename
+
+    def _write_comments_to_string(self, idea):
+        result = ""
+        for comment in idea.comments.all():
+            result = result + "\n----\n" + comment.comment
+
+        return result
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(
+            content_type='application/vnd.openxmlformats-officedocument'
+                         '.spreadsheetml.sheet')
+        response['Content-Disposition'] = \
+            'attachment; filename="%s"' % self.get_filename()
+
+        workbook = xlsxwriter.Workbook(
+            response, {'in_memory': True, 'remove_timezone': True})
+        worksheet = workbook.add_worksheet()
+
+        idea_fields = idea_models.Idea._meta.concrete_fields
+        excludes = ['creator_id', 'item_ptr_id', 'module_id',
+                    'item_ptr', 'slug', 'module']
+
+        final_fields = [field.name for field in idea_fields if
+                        field.name not in excludes]
+        final_fields.append('comments')
+        final_fields.append('positive_rates')
+        final_fields.append('negative_rates')
+
+        col = 0
+
+        for field in final_fields:
+            worksheet.write(0, col, field)
+            col += 1
+        row = 1
+        col = 0
+
+        for idea in self.get_queryset():
+            for field in final_fields:
+                if field == "comments":
+                    worksheet.write(row, col,
+                                    self._write_comments_to_string(idea))
+                elif field == "positive_rates":
+                    worksheet.write(row, col, idea.positive_rating_count)
+                elif field == "negative_rates":
+                    worksheet.write(row, col, idea.negative_rating_count)
+                else:
+                    worksheet.write(row, col, str(getattr(idea, field)))
+                col += 1
+            col = 0
+            row += 1
+
+        workbook.close()
+        return response
