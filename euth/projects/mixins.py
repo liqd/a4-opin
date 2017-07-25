@@ -14,7 +14,7 @@ class PhaseDispatchMixin(generic.DetailView):
 
         try:
             weight = self.request.GET.get('phase')
-            phase = project.past_phases.filter(weight=weight).first()
+            phase = project.phases.filter(weight=weight).first()
         except ValueError:
             phase = None
 
@@ -34,7 +34,7 @@ class ProjectPhaseMixin(generic.base.ContextMixin):
 
         try:
             weight = self.request.GET.get('phase')
-            phase = self.project.past_phases.filter(weight=weight).first()
+            phase = self.project.phases.filter(weight=weight).first()
         except ValueError:
             phase = None
 
