@@ -35,3 +35,6 @@ rules.add_perm('euth_ideas.propose_idea',
 rules.add_perm('euth_ideas.view_idea',
                is_superuser | is_context_moderator | is_context_initiator |
                is_context_member | is_public_context)
+
+rules.add_perm('euth_ideas.export_ideas',
+               is_superuser | is_context_moderator | is_context_initiator)
