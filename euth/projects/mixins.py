@@ -1,5 +1,7 @@
 from django.views import generic
 
+from adhocracy4.modules.models import Module
+
 
 class PhaseDispatchMixin(generic.DetailView):
     def dispatch(self, request, *args, **kwargs):
@@ -46,3 +48,12 @@ class ProjectPhaseMixin(generic.base.ContextMixin):
             self.phase = self.project.past_phases[0]
 
         return super(ProjectPhaseMixin, self).dispatch(*args, **kwargs)
+
+
+class ModuleMixin(generic.base.ContextMixin):
+
+    def dispatch(self, *args, **kwargs):
+        mod_slug = kwargs.get('slug')
+        self.module = Module.objects.get(slug=mod_slug)
+        self.project = self.module.project
+        return super().dispatch(*args, **kwargs)
