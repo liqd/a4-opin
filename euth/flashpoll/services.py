@@ -1,10 +1,12 @@
 import json
 import time
 import uuid
+
 import requests
 from django import forms
 from django.conf import settings
 from requests.auth import HTTPBasicAuth
+
 
 def send_to_flashpoll(data, objects):
     if 'current_preview' in data:

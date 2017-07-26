@@ -6,6 +6,14 @@ DEBUG = True
 for template_engine in TEMPLATES:
     template_engine['OPTIONS']['debug'] = True
 
+    ALLOWED_HOSTS = [
+    'localhost',
+    '192.168.1.56',
+    '192.168.1.98',
+    '192.168.0.37',
+    '192.168.2.115'
+]
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'b*1ljsb!x7@d_o$sohx-&q-7n*#r=lwhy542zxk(e=fj%ey3xp'
 
