@@ -20,14 +20,10 @@
                 {{ field.label }} {% if field.field.required %}*{% endif %}
             </label>
             <p class='form-help-text'>{{ field.help_text }}</p>
-            {% if field|widget_type == 'checkboxinput' %}
-            <label>
-                {% get_checkbox_label form.project field.name as checkboxlabel %}
+            {% if field|widget_type == 'radioselect' %}
                 {% render_field field %}
-                {{ checkboxlabel }}
-            </label>
             {% else %}
-            {% render_field field class="form-control" %}
+                {% render_field field class="form-control" %}
             {% endif %}
             {% if field.errors %}
             <ul class="errorlist">

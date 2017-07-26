@@ -21,7 +21,7 @@
                 <span class="help-block">{{ error }}</span>
             </div>
             {% if poll %}
-                <div style="width: 39px; margin-bottom: 40px">
+                <div class="download-button">
                     <i class="fa fa-download fa-2x" tooltip="Download" tooltip-popup-delay="1000" tooltip-trigger="Download" tooltip-placement="left" onclick="exportResults({{pollresults|get_simplejson}}, {{poll.title|get_simplejson}})" tabindex="-1"></i>
                 </div>
             {% endif %}
@@ -35,7 +35,7 @@
                     {% endif %}
 					{% if question.questionType != 'FREETEXT' %}
 					<div class="form-group">
-						<div id="container-{{question.orderId}}" style="width:100%; height:400px;"></div>
+						<div id="container-{{question.orderId}}" class="question-result"></div>
 					</div>
 					{% else  %}
 					<div class="form-group">

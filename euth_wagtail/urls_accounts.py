@@ -1,4 +1,5 @@
 from importlib import import_module
+
 from allauth.socialaccount import providers
 
 urlpatterns = []

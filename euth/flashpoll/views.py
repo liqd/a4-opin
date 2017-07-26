@@ -1,11 +1,11 @@
 import json
+
 import requests
+from adhocracy4.projects import mixins
 from django.conf import settings
 from django.utils.translation import get_language
 from django.views import generic
 from requests.auth import HTTPBasicAuth
-
-from adhocracy4.projects import mixins
 
 from . import models
 
@@ -18,10 +18,11 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'url': '{base_url}/{language}/poll/{poll_id}'.format(
+            'url': '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
                 base_url=settings.FLASHPOLL_URL,
                 language=get_language(),
-                poll_id=self.get_object().key
+                poll_id=self.get_object().key,
+                mail=self.request.user.email
             )
         }
         context['pollid'] = self.get_object().key

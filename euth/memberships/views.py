@@ -2,18 +2,36 @@ from django.http import Http404
 from django.shortcuts import redirect
 from django.views import generic
 from rules.compat import access_mixins as mixin
+from rules.contrib import views as rules_views
 
 from adhocracy4.projects import models as prj_models
-from adhocracy4.projects import views as prj_views
+from euth.projects import mixins as prj_mixins
 
 from . import forms, models
 
 
-class RequestsProjectDetailView(prj_views.ProjectDetailView):
+class RequestsProjectDetailView(
+    rules_views.PermissionRequiredMixin,
+    prj_mixins.PhaseDispatchMixin,
+    generic.DetailView
+):
+    model = prj_models.Project
+    permission_required = 'a4projects.view_project'
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    @property
+    def project(self):
+        """
+        Emulate ProjectMixin interface for template sharing.
+        """
+        return self.get_object()
 
     def handle_no_permission(self):
         """
-        Check if user clould join
+        Check if user could join
         """
         user = self.request.user
         is_member = user.is_authenticated() and self.project.has_member(user)
