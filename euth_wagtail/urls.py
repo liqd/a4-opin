@@ -31,6 +31,7 @@ from euth.users import urls as user_urls
 from euth.users.api import UserViewSet
 
 from . import urls_accounts
+
 js_info_dict = {
     'packages': ('adhocracy4.comments',),
 }

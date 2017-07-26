@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 09:52+0000\n"
+"POT-Creation-Date: 2017-06-07 12:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Moritz Ritter <moritz.ritter@liqd.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
@@ -23,12 +23,12 @@ msgid "Do you really want to delete this comment?"
 msgstr "Willst du diesen Kommentar wirklich löschen?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:93
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:17
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
 msgstr "Löschen"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:94
-#: adhocracy4/static/Modal.jsx:51
+#: adhocracy4/static/Modal.jsx:50
 #: euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
 msgstr "Abbrechen"
@@ -42,6 +42,7 @@ msgid "Moderator"
 msgstr ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:119
+#: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
 msgstr "Bist du sicher, dass du diesen Inhalt melden willst?"
 
@@ -49,40 +50,40 @@ msgstr "Bist du sicher, dass du diesen Inhalt melden willst?"
 msgid "Your reply here"
 msgstr "Verfasse deine Antwort hier"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:80
+#: adhocracy4/comments/static/comments/CommentBox.jsx:79
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Kommentar"
 msgstr[1] "Kommentare"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:83
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:26
-#: adhocracy4/comments/static/comments/CommentForm.jsx:32
+#: adhocracy4/comments/static/comments/CommentBox.jsx:82
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
+#: adhocracy4/comments/static/comments/CommentForm.jsx:34
 msgid "Your comment here"
 msgstr "Schreibe hier deinen Kommentar"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:29
-#: adhocracy4/comments/static/comments/CommentForm.jsx:35
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
 msgid "post"
 msgstr "Speichern"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 msgid "cancel"
 msgstr "Abbrechen"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:41
+#: adhocracy4/comments/static/comments/CommentForm.jsx:43
 msgid "Please login to comment"
 msgstr "Bitte melde dich an, um zu kommentieren"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:47
+#: adhocracy4/comments/static/comments/CommentForm.jsx:49
 msgid "The currently active phase doesn't allow to comment."
 msgstr ""
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:13
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:15
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:21
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:23
 msgid "Report"
 msgstr "Melden"
 
@@ -93,23 +94,29 @@ msgid_plural "view %s replies"
 msgstr[0] "Zeige %s Antworten"
 msgstr[1] "Zeige %s Antworten"
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:28
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:25
 msgid "Answer"
 msgstr "Antwort verfassen"
 
-#: adhocracy4/reports/static/reports/react_reports.jsx:63
+#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: euth/follows/static/follows/FollowButton.jsx:41
+msgid "Unfollow"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: euth/follows/static/follows/FollowButton.jsx:41
+msgid "Follow"
+msgstr ""
+
+#: adhocracy4/reports/static/reports/ReportModal.jsx:63
 msgid "Your message here"
 msgstr "Verfasse deine Nachricht hier"
 
-#: adhocracy4/reports/static/reports/react_reports.jsx:75
+#: adhocracy4/reports/static/reports/ReportModal.jsx:75
 msgid "Send Report"
 msgstr "Absenden"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:27
-msgid "Please pick an aim for your project."
-msgstr ""
-
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:55
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
 msgstr ""
 
@@ -117,16 +124,16 @@ msgstr ""
 msgid "Offline Phase"
 msgstr ""
 
-#: euth/dashboard/static/add_offline_phase/add_offline_phase.js:92
+#: euth/dashboard/static/add_offline_phase/add_offline_phase.js:91
 msgid "add offline phase"
 msgstr ""
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:77
+#: euth/dashboard/static/user_list/react_user_list.jsx:80
 msgid "Remove"
 msgstr ""
 
 #: euth/documents/static/documents/Paragraph.jsx:57
-#: euth/documents/static/documents/ParagraphBox.jsx:203
+#: euth/documents/static/documents/ParagraphBox.jsx:205
 msgid "add a new paragraph"
 msgstr ""
 
@@ -138,28 +145,20 @@ msgstr ""
 msgid "Paragraph:"
 msgstr ""
 
-#: euth/documents/static/documents/ParagraphBox.jsx:110
+#: euth/documents/static/documents/ParagraphBox.jsx:111
 msgid "Your document has been updated."
 msgstr ""
 
-#: euth/documents/static/documents/ParagraphBox.jsx:138
+#: euth/documents/static/documents/ParagraphBox.jsx:140
 msgid "Your document has been saved."
 msgstr ""
 
-#: euth/documents/static/documents/ParagraphBox.jsx:166
+#: euth/documents/static/documents/ParagraphBox.jsx:168
 msgid "Title:"
 msgstr ""
 
-#: euth/documents/static/documents/ParagraphBox.jsx:220
+#: euth/documents/static/documents/ParagraphBox.jsx:222
 msgid "save"
-msgstr ""
-
-#: euth/follows/static/follows/FollowButton.jsx:41
-msgid "Unfollow"
-msgstr ""
-
-#: euth/follows/static/follows/FollowButton.jsx:41
-msgid "Follow"
 msgstr ""
 
 #~ msgid "Latest edit"

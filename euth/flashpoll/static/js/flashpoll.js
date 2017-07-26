@@ -502,7 +502,7 @@
 
   
 window.exportResults = function (pollresults, title) {        
-    var data = JSON.flatten(pollresults)          
+    var data = flatten(pollresults)          
     JSONToCSVConvertor(JSON.stringify(data), title);
     return false
   }
@@ -828,7 +828,7 @@ window.changeType = function(questionType, key, qorderId) {
 }
 
 // from the example at http://jsfiddle.net/hybrid13i/JXrwM/
-function JSONToCSVConvertor(JSONData, ReportTitle) {
+var JSONToCSVConvertor = function (JSONData, ReportTitle) {
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
     
     var CSV = '';    
@@ -890,7 +890,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle) {
     document.body.removeChild(link);
 }
 
-JSON.flatten = function(data) {    
+var flatten = function(data) {    
     var list_result = [];
     function recurse (cur, prop) {
         if (Object(cur) !== cur) {
@@ -921,7 +921,8 @@ JSON.flatten = function(data) {
     return list_result;
 }
 
-function contains(a, obj) {
+
+var contains = function(a, obj) {
     var i = a.length;
     while (i--) {
        if (a[i] === obj) {
