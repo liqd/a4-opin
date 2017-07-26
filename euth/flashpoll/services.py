@@ -16,6 +16,7 @@ def send_to_flashpoll(data, objects):
                 base_url=settings.FLASHPOLL_BACK_URL,
                 poll_id=data['module_settings-key']
             )
+
             # Handle delete
             headers = {'Content-type': 'application/json'}
             requests.delete(url_poll,
@@ -26,9 +27,10 @@ def send_to_flashpoll(data, objects):
         else:
             poll_phase = [p for p in objects['phases']
                           if p.type == 'euth_flashpoll:010:poll'][0]
-
+            # dates
             startTime = time.mktime(poll_phase.start_date.timetuple())
             endTime = time.mktime(poll_phase.end_date.timetuple())
+
             jsonGenerator = {}
             jsonGenerator['title'] = poll_phase.name
             jsonGenerator['shortDescription'] = poll_phase.description
@@ -41,14 +43,10 @@ def send_to_flashpoll(data, objects):
             jsonGenerator['startTime'] = startTime
             jsonGenerator['endTime'] = endTime
             jsonGenerator['preview'] = 'save_draft' not in data
+
             # isPrivate
-            if 'project-is_public' in data:
-                if data['project-is_public'] == "on":
-                    jsonGenerator['isPrivate'] = False
-                else:
-                    jsonGenerator['isPrivate'] = True
-            else:
-                jsonGenerator['isPrivate'] = True
+            jsonGenerator['isPrivate'] = not objects['project'].is_public
+
             # context
             jsonGenerator['lab'] = 'opin'
             jsonGenerator['domain'] = 'opin'
