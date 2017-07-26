@@ -1,15 +1,12 @@
-import datetime
 import json
 import time
 import uuid
-
 import requests
 from django import forms
 from django.conf import settings
 from requests.auth import HTTPBasicAuth
 
-
-def send_to_flashpoll(data):
+def send_to_flashpoll(data, objects):
     if 'current_preview' in data:
         if 'save_draft' in data and data['current_preview'] == 'True':
             # Handling unpublish
@@ -25,16 +22,14 @@ def send_to_flashpoll(data):
                                 settings.FLASHPOLL_BACK_USER,
                                 settings.FLASHPOLL_BACK_PASSWORD))
         else:
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['phases-0-start_date'],
-                "%Y-%m-%d %H:%M:%S").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['phases-0-end_date'],
-                "%Y-%m-%d %H:%M:%S").timetuple())
+            poll_phase = [p for p in objects['phases']
+                          if p.type == 'euth_flashpoll:010:poll'][0]
+
+            startTime = time.mktime(poll_phase.start_date.timetuple())
+            endTime = time.mktime(poll_phase.end_date.timetuple())
             jsonGenerator = {}
-            jsonGenerator['title'] = data['phases-0-name']
-            jsonGenerator['shortDescription'] = data[
-                'phases-0-description']
+            jsonGenerator['title'] = poll_phase.name
+            jsonGenerator['shortDescription'] = poll_phase.description
             jsonGenerator['longDescription'] = ""
             jsonGenerator['concludeMessage'] = ""
             jsonGenerator['descriptionMediaURLs'] = [""]

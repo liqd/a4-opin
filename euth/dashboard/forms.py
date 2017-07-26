@@ -9,7 +9,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db.models import loading
-from django.forms import modelformset_factory
+from django.forms import RadioSelect, modelformset_factory
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
@@ -115,23 +115,18 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
+        widgets = {
+            'is_public': RadioSelect(
+                choices=[
+                    (True, _('All users can participate (public).')),
+                    (False, _('Only invited users can participate (private).'))
+                ]
+            )
+        }
 
     def save(self, commit=True):
-        # calling flashpoll service
-        if 'module_settings-key' in self.data:
-            services.send_to_flashpoll(self.data)
-
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
-
-    def get_checkbox_label(self, name):
-        checkbox_labels = {
-            'is_public': _('Accessible to all registered users of OPIN.me')
-        }
-        if name in checkbox_labels:
-            return checkbox_labels[name]
-        else:
-            return ''
 
     @property
     def formsections(self):
@@ -312,6 +307,11 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             if 'module_settings' in objects:
                 objects['module_settings'].save()
 
+        # calling flashpoll service
+        if ([p for p in objects['phases']
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, objects)
+
     def clean(self):
         super().clean()
         objects = super().save(commit=False)
@@ -389,6 +389,11 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 phase.save()
                 if phase.type.startswith('euth_offlinephases'):
                     Offlinephase.objects.create(phase=phase)
+
+        # calling flashpoll service
+        if ([p for p in objects['phases']
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, objects)
 
         return objects
 
