@@ -165,7 +165,7 @@ class IdeaDownloadView(PermissionRequiredMixin,
 
     def get_filename(self):
         project = self.module.project
-        filename = '%s_%s.xlsx' % (project.slug,
+        filename = '%s_%s_%s.xlsx' % (project.slug, self.module.slug,
                                    timezone.now().strftime('%Y%m%dT%H%M%S'))
         return filename
 
