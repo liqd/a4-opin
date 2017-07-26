@@ -1,11 +1,11 @@
 import json
+
 import requests
+from adhocracy4.projects import mixins
 from django.conf import settings
 from django.utils.translation import get_language
 from django.views import generic
 from requests.auth import HTTPBasicAuth
-
-from adhocracy4.projects import mixins
 
 from . import models
 
