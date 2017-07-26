@@ -17,6 +17,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     username = factory.Faker('name')
     password = make_password('password')
     email = factory.Faker('email')
+    timezone = factory.Faker('timezone')
 
 
 class AdminFactory(factory.django.DjangoModelFactory):

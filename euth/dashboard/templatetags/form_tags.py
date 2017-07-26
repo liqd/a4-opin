@@ -7,11 +7,6 @@ register = template.Library()
 
 
 @register.assignment_tag
-def get_checkbox_label(form, fieldname):
-    return form.get_checkbox_label(fieldname)
-
-
-@register.assignment_tag
 def add(number1, number2):
     return number1 + number2
 
@@ -34,3 +29,8 @@ def getPhaseName(type):
 def getAllowedFileTypes():
     fileformats = settings.FILE_ALIASES['*']['fileformats']
     return ', '.join([name for name, mimetype in fileformats])
+
+
+@register.assignment_tag
+def get_disabled(project):
+    return 'disabled' if project and project.is_archived else ''

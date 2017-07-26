@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load widget_tweaks socialaccount i18n%}
+{% load static widget_tweaks socialaccount i18n%}
 
 {% block title %}{% trans 'Register an account' %}{% endblock %}
 
@@ -89,6 +89,8 @@
             {{ form.terms_of_use.errors }}
         </div>
 
+        <input type="hidden" id="{{ form.timezone.id_for_label }}" name="timezone" value="" />
+
         <button type="submit" value="Register" class="btn btn-primary">{% trans "register" %}</button>
     </form>
 
@@ -107,4 +109,7 @@
     {% endblock %}
 </div>
 </div>
+{% block extra_js %}
+    <script type="text/javascript" src="{% static "users/js/user_timezone.js" %}"></script>
+{% endblock %}
 {% endblock %}

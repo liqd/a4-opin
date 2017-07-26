@@ -5,7 +5,7 @@
   - source code uses en_GB (arguments to ugettext == msg_id )
      - lower case (except for first word of title or sentence)
   - support many languages with transifex (en, de, it, fr,
-    sv, sl, da, uk, el, ru as of 03/2017)
+    sv, sl, da, uk, el, ru, ka, mk, mt as of 06/2017)
 
 ## Workflow
 
@@ -19,7 +19,7 @@
   - run make messages for python/html (domain django)
     and javascript (domain djangojs)
 
-        python makemessages -d djangojs
+        python manage.py makemessages -d djangojs
         python manage.py makemessages -d django
 
   - replace absolute paths for a4 strings with relatives
@@ -31,7 +31,7 @@
         msgen locale/en_GB/LC_MESSAGES/django.po -o locale/en_GB/LC_MESSAGES/django.po
  	      msgen locale/en_GB/LC_MESSAGES/djangojs.po -o locale/en_GB/LC_MESSAGES/djangojs.po
 
-  - after chaning msg_ids, check if translations (except en_GB) need manual merge
+  - after chaining msg_ids, check if translations (except en_GB) need manual merge
   - commit changes
   - always push en_GB to transifex
 
@@ -73,6 +73,25 @@
    - extracting and compiling
 
          make locales
+
+### Adding a new language
+
+  - add language to LANGUAGES in euth_wagtail/settings/base.py
+  - add 15 fields with the desired language code to home/models.py
+    (by searching for an existing language code like '_ka')
+  - make migrations
+
+        python manage.py makemigrations home
+
+  - rename migrations
+  - add new language to transifex
+
+### Adding a language, that is not supported by Django
+
+  - do everything as described above
+  - add a new language field to euth_wagtail/__init__.py
+  - pull translations from transifex and compile (described above)
+
 
 ## Caveats
 

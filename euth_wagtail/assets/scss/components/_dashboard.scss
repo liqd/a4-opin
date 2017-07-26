@@ -39,11 +39,25 @@ h1.dashboard-title {
     }
 }
 
+.dashboard-tabbed-form ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 
 .dashboard-projects-list {
+    .infotext {
+        @include rem(margin, 20px 0);
+        padding-left: 0;
+    }
+
     ul {
         @include rem(margin, 20px 0);
         padding-left: 0;
+    }
+
+    & form {
+        display: inline-block;
     }
 }
 
@@ -217,4 +231,27 @@ h2.dst-lightbox-banner {
     margin: 0 -15px; /* work arround boostrap grid */
     background-color: $brand-brand3;
     color: #fff;
+}
+
+.dashboard-form-buttons {
+    .dropdown-toggle {
+        border-left: solid 1px #fff;
+    }
+
+    .dropdown-menu {
+        .btn-hover-primary,
+        .btn-hover-danger {
+            background-color: #fff;
+        }
+
+        .btn {
+            width: 100%;
+            border: 0;
+            text-align: left;
+        }
+
+        .dropdown-text {
+            @include rem(padding-left, 10px);
+        }
+    }
 }

@@ -98,6 +98,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'euth.contrib.middleware.TimezoneMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -217,7 +218,7 @@ MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -236,6 +237,9 @@ LANGUAGES = [
     ('uk', _('Ukrainian')),
     ('el', _('Greek')),
     ('ru', _('Russian')),
+    ('ka', _('Georgian')),
+    ('mk', _('Macedonian')),
+    ('mt', _('Maltese')),
 ]
 
 PARLER_LANGUAGES = {

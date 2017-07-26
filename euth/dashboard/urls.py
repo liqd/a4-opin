@@ -47,6 +47,16 @@ urlpatterns = [
         name='dashboard-project-edit'
     ),
     url(
+        r'^projects/(?P<project_slug>[-\w_]+)/archive/$',
+        views.DashboardProjectArchiveView.as_view(archiving=True),
+        name='dashboard-project-archive'
+    ),
+    url(
+        r'^projects/(?P<project_slug>[-\w_]+)/unarchive/$',
+        views.DashboardProjectArchiveView.as_view(archiving=False),
+        name='dashboard-project-unarchive',
+    ),
+    url(
         r'^projects/(?P<project_slug>[-\w_]+)/delete$',
         views.DashboardProjectDeleteView.as_view(),
         name='dashboard-project-delete'

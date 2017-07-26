@@ -6,7 +6,6 @@
 
 <div class="dashboard-project-controls">
     <a href="{% url 'dashboard-blueprint-list' organisation_slug=view.organisation.slug %}" class="dashboard-project-create btn btn-primary">{% trans 'create project' %}</a>
-    {% if project_list|length > 0 %}
     <div class="dashboard-project-filter filter-bar">
         {% for field in view.filter.form %}
         {% if field.name != 'ordering' %}
@@ -14,18 +13,21 @@
         {% endif %}
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 
 <div class="dashboard-projects-list">
     {% if project_list|length == 0 %}
-    {% trans 'No projects created' %}
+    <div class="infotext">
+      {% trans 'No projects found' %}
+    </div>
+
     {% else %}
+
     <ul>
         {% for project in project_list %}
             <li class="tile-list project-tile-list">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <a href="{% url 'dashboard-project-edit' project.slug %}">
                         <i class="fa fa-edit" aria-hidden="true"></i>
                         <strong>
@@ -53,17 +55,32 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <span class="pull-right">
+                    <div class="col-sm-4">
+                        <div class="pull-right">
                             <i class="fa fa-star"></i> {{ project.follow_set.all.count }}
                             <a href="{% url 'dashboard-project-users' project.slug %}"
                                title="{% trans 'Users' %}" class="btn btn-hover-primary btn-sm">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
                             </a>
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'view project' %}">
-                                <i class="fa fa-eye"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
-                        </span>
+                            {% if project.is_archivable %}
+                            <form action="{% url 'dashboard-project-archive' project.slug %}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'archive project' %}">
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                              </button>
+                            </form>
+                            {% elif project.is_archived %}
+                            <form action="{% url 'dashboard-project-unarchive' project.slug %}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-sm btn-hover-primary" title="{% trans 'unarchive project' %}">
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                              </button>
+                            </form>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </li>

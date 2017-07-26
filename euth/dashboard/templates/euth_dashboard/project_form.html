@@ -1,6 +1,7 @@
 {% extends "euth_dashboard/base_organisation.html" %}
 {% load static widget_tweaks i18n form_tags flashpoll_form_tags %}
 {% block dashboard_content %}
+{% get_disabled project as disabled %}
 <h1 class="black-divider dashboard-title dashboard-title-no-margin">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
 
 <div class="general-form dashboard-tabbed-form">
@@ -9,6 +10,10 @@
         {% if form.is_bound and not form.is_valid %}
         <div class="errorbar">
             {% trans 'Unable to submit form. Please fix the errors.' %}
+        </div>
+        {% elif project and project.is_archived %}
+        <div class="infobar">
+            {% trans 'This project is archived.' %}
         </div>
         {% endif %}
 
@@ -26,26 +31,54 @@
             {% include 'euth_dashboard/includes/project_form_result_tab.html' with form=form view=view %}
         {% endif %}
 
-        {% if not project or project.is_draft %}
-        <button type="submit" name="save_draft" class="btn btn-sm btn-primary">{% trans 'save draft' %}</button>
-        {% else %}
-        <button type="submit" name="save_draft" class="btn btn-sm btn-default">{% trans 'unpublish' %}</button>
-        {% endif %}
-        <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save and publish' %}</button>
-        {% if module_settings == "euth_flashpoll" %}
-            {% with poll=form.module_settings.poll.value|get_poll_from_string %}
-            {% if project.pk != None and poll.preview == False %}
-            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
-            {% endif %}
-            {% endwith %}
-        {% else %}
-            {% if project.pk != None %}
-            <button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#deleteModal">delete</button>
-            {% endif %}
-        {% endif %}
-        {% if project.is_archivable %}
-          <button type="submit" name="archive" class="btn btn-sm btn-primary">{% trans 'archive' %}</button>
-        {% endif %}
+        <div class="dashboard-form-buttons dropdown">
+            <div class="btn-group">
+
+                {% if not project or project.is_draft %}
+                <button type="submit" name="save_draft" class="btn btn-primary" {{ disabled }}>
+                    <span class="dropdown-text">{% trans 'save draft' %}</span>
+                </button>
+                {% else %}
+                <button type="submit" name="publish" class="btn btn-primary" {{ disabled }}>
+                    <span class="dropdown-text">{% trans 'save and publish' %}</span>
+                </button>
+                {% endif %}
+
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        {% if not project or project.is_draft %}
+                        <button type="submit" name="publish" class="btn btn-sm btn-hover-primary" {{ disabled }}>
+                            <i class="fa fa-fw fa-flag" aria-hidden="true"></i>
+                            <span class="dropdown-text">{% trans 'save and publish' %}</span>
+                        </button>
+                        {% else %}
+                        <button type="submit" name="save_draft" class="btn btn-sm btn-hover-primary" {{ disabled }}>
+                            <i class="fa fa-fw fa-pause"> </i>
+                            <span class="dropdown-text">{% trans 'unpublish' %}</span>
+                        </button>
+                        {% endif %}
+                    </li>
+                    {% if module_settings == "euth_flashpoll" %}
+                    {% with poll=form.module_settings.poll.value|get_poll_from_string %}
+                    {% if project.pk != None and poll.preview == False %}
+                    <li>
+                        <button type="button" class="btn btn-sm btn-hover-danger" data-toggle="modal" data-target="#deleteModal">
+                            <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>
+                            <span class="dropdown-text">delete</span>
+                        </button>
+                    </li>
+                    {% endif %}
+                    {% endwith %}
+                    {% elif project.pk != None %}
+                    <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
 
     </form>
 </div>

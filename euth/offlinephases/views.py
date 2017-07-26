@@ -3,12 +3,17 @@ from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.projects import mixins
+from euth.projects import mixins as prj_mixins
 
 from . import models as offlinephase_models
 from .forms import OfflinephaseMultiForm
 
 
-class OfflinephaseView(generic.DetailView, mixins.ProjectMixin):
+class OfflinephaseView(
+    generic.DetailView,
+    mixins.ProjectMixin,
+    prj_mixins.ProjectPhaseMixin
+):
     model = offlinephase_models.Offlinephase
 
     def get_object(self):

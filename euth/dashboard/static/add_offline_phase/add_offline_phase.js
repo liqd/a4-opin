@@ -5,7 +5,6 @@ window.jQuery(document).ready(function () {
     element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
     element.find('#id_phases-0-delete').val(0)
     element.find('.collapse').eq(0).text(django.gettext('Offline Phase')).append('<i class="fa fa-chevron-up pull-right"></i>')
-    element.find(('[type=text][readonly]')).remove()
     element.css('display', 'block')
 
     var button = getButton(element)

@@ -75,11 +75,15 @@
     {% endfor %}
 </div>
     <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
-        <div id="project-tile-grid" class="organisation-tiles" data-columns>
-        {% for project in project_list %}
-        {% include "euth_projects/includes/project_tile.html" with project=project %}
-        {% endfor %}
-        </div>
+        {% if project_list|length == 0 %}
+          {% trans 'No projects found' %}
+        {% else %}
+          <div id="project-tile-grid" class="organisation-tiles" data-columns>
+              {% for project in project_list %}
+                {% include "euth_projects/includes/project_tile.html" with project=project %}
+              {% endfor %}
+          </div>
+        {% endif %}
     </section>
 </div>
 {% endblock %}
