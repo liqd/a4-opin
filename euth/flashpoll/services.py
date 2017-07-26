@@ -26,25 +26,32 @@ def send_to_flashpoll(data):
                                 settings.FLASHPOLL_BACK_PASSWORD))
         else:
             startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'],
-                "%d/%m/%Y %H:%M").timetuple())
+                data['phases-0-start_date'],
+                "%Y-%m-%d %H:%M:%S").timetuple())
             endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'],
-                "%d/%m/%Y %H:%M").timetuple())
+                data['phases-0-end_date'],
+                "%Y-%m-%d %H:%M:%S").timetuple())
             jsonGenerator = {}
-            jsonGenerator['title'] = data['module_settings-title']
+            jsonGenerator['title'] = data['phases-0-name']
             jsonGenerator['shortDescription'] = data[
-                'module_settings-shortDescription']
-            jsonGenerator['longDescription'] = data[
-                'module_settings-longDescription']
-            jsonGenerator['concludeMessage'] = data[
-                'module_settings-concludeMessage']
+                'phases-0-description']
+            jsonGenerator['longDescription'] = ""
+            jsonGenerator['concludeMessage'] = ""
+            jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['keywords'] = []
             jsonGenerator['resultVisibility'] = 0
             jsonGenerator['startTime'] = startTime
             jsonGenerator['endTime'] = endTime
             jsonGenerator['preview'] = 'save_draft' not in data
+            # isPrivate
+            if 'project-is_public' in data:
+                if data['project-is_public'] == "on":
+                    jsonGenerator['isPrivate'] = False
+                else:
+                    jsonGenerator['isPrivate'] = True
+            else:
+                jsonGenerator['isPrivate'] = True
             # context
             jsonGenerator['lab'] = 'opin'
             jsonGenerator['domain'] = 'opin'
@@ -107,6 +114,7 @@ def send_to_flashpoll(data):
                 base_url=settings.FLASHPOLL_BACK_URL,
                 poll_id=data['module_settings-key']
             )
+
             # Handle post
             headers = {'Content-type': 'application/json'}
             requests.post(url_poll,
@@ -154,6 +162,19 @@ def fp_context_data_for_update_view(context, view):
                                           ))
     context['pollresult'] = json.loads(res.text)
 
+    url_poll = '{base_url}/poll/{poll_id}/results'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['pollresults'] = json.loads(res.text)
+
     return context
 
 
@@ -162,30 +183,9 @@ def fp_context_data(module_settings):
     # case submitted
     if ('save_draft' in data) or ('publish' in data):
         jsonGenerator = {}
-        jsonGenerator['title'] = data['module_settings-title']
-        jsonGenerator['shortDescription'] = data[
-            'module_settings-shortDescription']
-        jsonGenerator['longDescription'] = data[
-            'module_settings-longDescription']
-        jsonGenerator['concludeMessage'] = data[
-            'module_settings-concludeMessage']
         jsonGenerator['descriptionMediaURLs'] = [""]
         jsonGenerator['keywords'] = []
         jsonGenerator['resultVisibility'] = 0
-        if (data['module_settings-startTime'] != ['']
-                and data['module_settings-endTime'] != ['']):
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            jsonGenerator['startTime'] = startTime
-            jsonGenerator['endTime'] = endTime
-        else:
-            jsonGenerator['startTime'] = data['module_settings-startTime']
-            jsonGenerator['endTime'] = data['module_settings-endTime']
-
         # location
         jsonGenerator['geofenceLocation'] = data[
             'module_settings-geofenceLocation']
@@ -303,26 +303,8 @@ def fp_context_data(module_settings):
     module_settings.fields['poll'] = forms.CharField(
         widget=forms.Textarea)
     module_settings.initial['poll'] = json.dumps(poll)
-    # description
-    module_settings.fields['title'] = forms.CharField(
-        label='Title', max_length=800)
-    module_settings.initial['title'] = poll['title']
-    module_settings.fields['shortDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Subtitle')
-    module_settings.initial['shortDescription'] = poll['shortDescription']
-    module_settings.fields['longDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Long description', required=False)
-    module_settings.initial['longDescription'] = poll['longDescription']
-    module_settings.fields['concludeMessage'] = forms.CharField(
-        label='Conclude message', required=False, max_length=300)
-    module_settings.initial['concludeMessage'] = poll['concludeMessage']
-    module_settings.fields['startTime'] = forms.CharField(
-        label='Start time', required=True)
-    module_settings.initial['startTime'] = poll['startTime']
-    module_settings.fields['endTime'] = forms.CharField(
-        label='End time', required=True)
-    module_settings.initial['endTime'] = poll['endTime']
 
+    # geofenceLocation
     module_settings.fields['geofenceLocation'] = forms.CharField(
         widget=forms.Textarea, label='Location', required=True)
     module_settings.initial['geofenceLocation'] = poll['geofenceLocation']

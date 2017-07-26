@@ -500,6 +500,13 @@
     return false
   }
 
+  
+window.exportResults = function (pollresults, title) {        
+    var data = JSON.flatten(pollresults)          
+    JSONToCSVConvertor(JSON.stringify(data), title);
+    return false
+  }
+  
 /* Add a choice to collection
  * param (choices array) : choice collection of question
  * param (int questionPos) : position of the question
@@ -819,3 +826,108 @@ window.changeType = function(questionType, key, qorderId) {
     }
   }
 }
+
+// from the example at http://jsfiddle.net/hybrid13i/JXrwM/
+function JSONToCSVConvertor(JSONData, ReportTitle) {
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    
+    var CSV = '';    
+    var row = "";
+    
+    // Fields to skip
+    var fieldsToSkip = ["userAgent", "userLocation"];
+    var timestampField = "timestamp";
+    
+    //This loop will extract the label from 1st index of on array
+    for (var index in arrData[0]) {
+        if(!contains(fieldsToSkip, index)){
+                //Now convert each value to string and comma-seprated
+                row += index + ',';
+        }        
+    }
+
+    row = row.slice(0, -1);
+    
+    //append Label row with line break
+    CSV += row + '\r\n';
+    
+    //1st loop is to extract each row
+    for (var i = 0; i < arrData.length; i++) {
+        var row = "";
+        
+        //2nd loop will extract each column and convert it in string comma-seprated
+        for (var index in arrData[i]) {
+            if(!contains(fieldsToSkip, index)){                
+                if(index == timestampField){
+                    row += '"' + (new Date(arrData[i][index]*1000)).toString() + '",';
+                }else{
+                    row += '"' + arrData[i][index] + '",';
+                }                
+            }
+        }
+
+        row.slice(0, row.length - 1);
+        
+        //add a line break after each row
+        CSV += row + '\r\n';
+    }
+
+    //Generate a file name
+    var fileName = "pollResults_";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName += ReportTitle.replace(/ /g,"_");       
+
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);    
+    //generate a temp <a /> tag
+    var link = document.createElement("a");    
+    link.href = uri;
+    
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+        
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+JSON.flatten = function(data) {    
+    var list_result = [];
+    function recurse (cur, prop) {
+        if (Object(cur) !== cur) {
+            result[prop] = cur;
+        } else if (Array.isArray(cur)) {
+             for(var i=0, l=cur.length; i<l; i++)
+                 recurse(cur[i], prop + "[" + i + "]");
+            if (l == 0)
+                result[prop] = [];
+        } else {
+            var isEmpty = true;
+            for (var p in cur) {
+                isEmpty = false;
+                recurse(cur[p], prop ? prop+"."+p : p);
+            }
+            if (isEmpty && prop)
+                result[prop] = {};
+        }        
+    }
+    
+    if (data.length > 0) {
+      for (var i = 0; i < data.length; i++) {
+          var result = {};
+          recurse(data[i], "");
+          list_result[i] = result;
+      }        
+    }
+    return list_result;
+}
+
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+       if (a[i] === obj) {
+           return true;
+       }
+    }
+    return false;
+}
+

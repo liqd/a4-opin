@@ -20,16 +20,27 @@
                 {% render_field form.project.result class="form-control" %}
                 <span class="help-block">{{ error }}</span>
             </div>
+            {% if poll %}
+                <div style="width: 39px; margin-bottom: 40px">
+                    <i class="fa fa-download fa-2x" tooltip="Download" tooltip-popup-delay="1000" tooltip-trigger="Download" tooltip-placement="left" onclick="exportResults({{pollresults|get_simplejson}}, {{poll.title|get_simplejson}})" tabindex="-1"></i>
+                </div>
+            {% endif %}
+ 
 			{% if pollresult.noOfReceivedResults != 0 %}
 				{% for question in poll.questions %}
-					{% if question.questionType == 'CHECKBOX' or question.questionType == 'RADIO' %}
+                    {% if question.questionType != 'ORDER' %}
+                        Question type: <b>{{ question.questionType }}</b>
+                    {% else  %}
+                        Question type: <b>RANKING</b>
+                    {% endif %}
+					{% if question.questionType != 'FREETEXT' %}
 					<div class="form-group">
 						<div id="container-{{question.orderId}}" style="width:100%; height:400px;"></div>
 					</div>
 					{% else  %}
 					<div class="form-group">
 						<label >{{ question.questionText }}</label>
-						<p class='form-help-text'>Visualization not implemented of this question type of question</p>
+						<p class='form-help-text'>Visualization not implemented for this type of question</p>
 					</div>
 					{% endif %}
 				{% endfor %}
