@@ -6,7 +6,7 @@ $(function () {
         var poll = JSON.parse(e.getAttribute('data-poll'))
         var pollresult = JSON.parse(e.getAttribute('data-poll-result'))
 
-        if(pollresult.noOfReceivedResults && pollresult.noOfReceivedResults != 0){            
+        if(pollresult.noOfReceivedResults && pollresult.noOfReceivedResults != 0){
             for(ind=0;ind<poll.questions.length;ind++){
                 var question = questionAtIndex(poll, ind);      
                 var questionResult = questionResultAtIndex(pollresult, ind);      
