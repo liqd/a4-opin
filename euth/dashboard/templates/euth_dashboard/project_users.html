@@ -2,7 +2,11 @@
 {% load widget_tweaks i18n react_user_list avatar %}
 
 {% block dashboard_content %}
+{% if not project.is_public %}
 <h1 class="black-divider dashboard-title">{% trans 'Manage user of ' %}{{ project.name }}</h1>
+{% else %}
+<h1 class="black-divider dashboard-title">{% trans 'Manage moderators of ' %}{{ project.name }}</h1>
+{% endif %}
 
 <form method="POST">
 {% csrf_token %}

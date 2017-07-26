@@ -40,6 +40,7 @@ class RSSImport(models.Model):
     rss_title_ru = models.CharField(max_length=255, blank=True)
     rss_title_ka = models.CharField(max_length=255, blank=True)
     rss_title_mk = models.CharField(max_length=255, blank=True)
+    rss_title_mt = models.CharField(max_length=255, blank=True)
 
     translated_rss_title = TranslatedField('rss_title')
 
@@ -124,6 +125,7 @@ class MenuItem(LinkFields):
     menu_title_ru = models.CharField(max_length=255, blank=True)
     menu_title_ka = models.CharField(max_length=255, blank=True)
     menu_title_mk = models.CharField(max_length=255, blank=True)
+    menu_title_mt = models.CharField(max_length=255, blank=True)
 
     translated_menu_title = TranslatedField('menu_title')
 
@@ -178,6 +180,7 @@ class PageCollection(models.Model):
     title_ru = models.CharField(max_length=80, blank=True)
     title_ka = models.CharField(max_length=80, blank=True)
     title_mk = models.CharField(max_length=80, blank=True)
+    title_mt = models.CharField(max_length=80, blank=True)
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -444,6 +447,8 @@ class HomePage(Page):
         max_length=255, blank=True, verbose_name="Header Title")
     title_mk = models.CharField(
         max_length=255, blank=True, verbose_name="Header Title")
+    title_mt = models.CharField(
+        max_length=255, blank=True, verbose_name="Header Title")
 
     default_subtitle = (
         "Ever wondered how to get young people involved in politics online?"
@@ -487,6 +492,9 @@ class HomePage(Page):
     intro_mk = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle",
         default=default_subtitle)
+    intro_mt = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle",
+        default=default_subtitle)
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -521,6 +529,7 @@ class HomePage(Page):
     body_ru = StreamField(block_types, null=True, blank=True)
     body_ka = StreamField(block_types, null=True, blank=True)
     body_mk = StreamField(block_types, null=True, blank=True)
+    body_mt = StreamField(block_types, null=True, blank=True)
 
     body = TranslatedField('body')
 
@@ -592,6 +601,8 @@ class SimplePage(Page):
         max_length=255, blank=True, verbose_name="Title")
     title_mk = models.CharField(
         max_length=255, blank=True, verbose_name="Title")
+    title_mt = models.CharField(
+        max_length=255, blank=True, verbose_name="Title")
 
     intro_en = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
@@ -616,6 +627,8 @@ class SimplePage(Page):
     intro_ka = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
     intro_mk = models.CharField(
+        max_length=255, blank=True, verbose_name="Subtitle")
+    intro_mt = models.CharField(
         max_length=255, blank=True, verbose_name="Subtitle")
 
     intro_image = models.ForeignKey(
@@ -665,6 +678,8 @@ class SimplePage(Page):
     body_ka = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
     body_mk = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_mt = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
 
     translated_title = TranslatedField('title')
@@ -723,6 +738,8 @@ class ManualsIndex(Page):
         max_length=150, blank=True, verbose_name="Title")
     title_mk = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
+    title_mt = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
 
     block_types = [
         ('heading', core_blocks.CharBlock(classname="full title",
@@ -760,6 +777,8 @@ class ManualsIndex(Page):
     body_ka = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
     body_mk = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
+    body_mt = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
 
     subpage_types = [
@@ -818,6 +837,8 @@ class ManualsSectionPage(Page):
         max_length=150, blank=True, verbose_name="Title")
     title_mk = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
+    title_mt = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
 
     description = TranslatedField('description')
     description_en = models.CharField(
@@ -843,6 +864,8 @@ class ManualsSectionPage(Page):
     description_ka = models.CharField(
         max_length=260, blank=True, verbose_name="Description")
     description_mk = models.CharField(
+        max_length=260, blank=True, verbose_name="Description")
+    description_mt = models.CharField(
         max_length=260, blank=True, verbose_name="Description")
 
     body = StreamField([
@@ -944,6 +967,37 @@ class ManualsDetailPage(Page):
         max_length=150, blank=True, verbose_name="Title")
     title_mk = models.CharField(
         max_length=150, blank=True, verbose_name="Title")
+    title_mt = models.CharField(
+        max_length=150, blank=True, verbose_name="Title")
+
+    # Subtitle (Field named description as in ManualsSectionPage)
+    description = TranslatedField('description')
+    description_en = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_de = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_it = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_fr = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_sv = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_sl = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_da = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_uk = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_el = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_ru = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_ka = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_mk = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
+    description_mt = models.CharField(
+        max_length=260, blank=True, verbose_name="Subtitle")
 
     # Body
     body = TranslatedField('body')
@@ -981,10 +1035,13 @@ class ManualsDetailPage(Page):
                           blank=True, verbose_name="body")
     body_mk = StreamField(block_types, null=True,
                           blank=True, verbose_name="body")
+    body_mt = StreamField(block_types, null=True,
+                          blank=True, verbose_name="body")
 
     content_panels = [
         edit_handlers.MultiFieldPanel([
                 edit_handlers.FieldPanel('title_' + lang_code),
+                edit_handlers.FieldPanel('description_' + lang_code),
                 edit_handlers.StreamFieldPanel('body_' + lang_code),
             ],
             heading=lang,

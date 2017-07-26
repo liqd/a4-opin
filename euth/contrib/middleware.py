@@ -1,5 +1,4 @@
 import pytz
-
 from django.utils import timezone
 
 
