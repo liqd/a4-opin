@@ -10,6 +10,7 @@ from rules.contrib.views import PermissionRequiredMixin
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
 from euth.projects import mixins as prj_mixins
+from euth.contrib.exports import CommentsExportMixin
 
 from . import models as idea_models
 from . import forms
@@ -145,7 +146,7 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
                        kwargs={'slug': self.object.project.slug})
 
 
-class IdeaDownloadView(PermissionRequiredMixin, generic.ListView):
+class IdeaDownloadView(PermissionRequiredMixin, generic.ListView, CommentsExportMixin):
     permission_required = "euth_ideas.export_ideas"
     model = idea_models.Idea
 
@@ -170,13 +171,6 @@ class IdeaDownloadView(PermissionRequiredMixin, generic.ListView):
         filename = '%s_%s.xlsx' % (project.slug,
                                    timezone.now().strftime('%Y%m%dT%H%M%S'))
         return filename
-
-    def _write_comments_to_string(self, idea):
-        result = ""
-        for comment in idea.comments.all():
-            result = result + "\n----\n" + comment.comment
-
-        return result
 
     def get(self, request, *args, **kwargs):
         response = HttpResponse(
@@ -211,7 +205,7 @@ class IdeaDownloadView(PermissionRequiredMixin, generic.ListView):
             for field in final_fields:
                 if field == "comments":
                     worksheet.write(row, col,
-                                    self._write_comments_to_string(idea))
+                                    self.get_comments_data(idea.comments))
                 elif field == "positive_rates":
                     worksheet.write(row, col, idea.positive_rating_count)
                 elif field == "negative_rates":
