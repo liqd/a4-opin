@@ -1,15 +1,14 @@
-import datetime
 import json
 import time
 import uuid
-
 import requests
 from django import forms
 from django.conf import settings
 from requests.auth import HTTPBasicAuth
 
 
-def send_to_flashpoll(data):
+def send_to_flashpoll(data, objects):
+
     if 'current_preview' in data:
         if 'save_draft' in data and data['current_preview'] == 'True':
             # Handling unpublish
@@ -25,20 +24,17 @@ def send_to_flashpoll(data):
                                 settings.FLASHPOLL_BACK_USER,
                                 settings.FLASHPOLL_BACK_PASSWORD))
         else:
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'],
-                "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'],
-                "%d/%m/%Y %H:%M").timetuple())
+            poll_phase = [p for p in objects['phases']
+                          if p.type == 'euth_flashpoll:010:poll'][0]
+
+            startTime = time.mktime(poll_phase.start_date.timetuple())
+            endTime = time.mktime(poll_phase.end_date.timetuple())
             jsonGenerator = {}
-            jsonGenerator['title'] = data['module_settings-title']
-            jsonGenerator['shortDescription'] = data[
-                'module_settings-shortDescription']
-            jsonGenerator['longDescription'] = data[
-                'module_settings-longDescription']
-            jsonGenerator['concludeMessage'] = data[
-                'module_settings-concludeMessage']
+            jsonGenerator['title'] = poll_phase.name
+            jsonGenerator['shortDescription'] = poll_phase.description
+            jsonGenerator['longDescription'] = ""
+            jsonGenerator['concludeMessage'] = ""
+            jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['descriptionMediaURLs'] = [""]
             jsonGenerator['keywords'] = []
             jsonGenerator['resultVisibility'] = 0
@@ -162,30 +158,9 @@ def fp_context_data(module_settings):
     # case submitted
     if ('save_draft' in data) or ('publish' in data):
         jsonGenerator = {}
-        jsonGenerator['title'] = data['module_settings-title']
-        jsonGenerator['shortDescription'] = data[
-            'module_settings-shortDescription']
-        jsonGenerator['longDescription'] = data[
-            'module_settings-longDescription']
-        jsonGenerator['concludeMessage'] = data[
-            'module_settings-concludeMessage']
         jsonGenerator['descriptionMediaURLs'] = [""]
         jsonGenerator['keywords'] = []
         jsonGenerator['resultVisibility'] = 0
-        if (data['module_settings-startTime'] != ['']
-                and data['module_settings-endTime'] != ['']):
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            jsonGenerator['startTime'] = startTime
-            jsonGenerator['endTime'] = endTime
-        else:
-            jsonGenerator['startTime'] = data['module_settings-startTime']
-            jsonGenerator['endTime'] = data['module_settings-endTime']
-
         # location
         jsonGenerator['geofenceLocation'] = data[
             'module_settings-geofenceLocation']
@@ -303,26 +278,8 @@ def fp_context_data(module_settings):
     module_settings.fields['poll'] = forms.CharField(
         widget=forms.Textarea)
     module_settings.initial['poll'] = json.dumps(poll)
-    # description
-    module_settings.fields['title'] = forms.CharField(
-        label='Title', max_length=800)
-    module_settings.initial['title'] = poll['title']
-    module_settings.fields['shortDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Subtitle')
-    module_settings.initial['shortDescription'] = poll['shortDescription']
-    module_settings.fields['longDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Long description', required=False)
-    module_settings.initial['longDescription'] = poll['longDescription']
-    module_settings.fields['concludeMessage'] = forms.CharField(
-        label='Conclude message', required=False, max_length=300)
-    module_settings.initial['concludeMessage'] = poll['concludeMessage']
-    module_settings.fields['startTime'] = forms.CharField(
-        label='Start time', required=True)
-    module_settings.initial['startTime'] = poll['startTime']
-    module_settings.fields['endTime'] = forms.CharField(
-        label='End time', required=True)
-    module_settings.initial['endTime'] = poll['endTime']
 
+    # geofenceLocation
     module_settings.fields['geofenceLocation'] = forms.CharField(
         widget=forms.Textarea, label='Location', required=True)
     module_settings.initial['geofenceLocation'] = poll['geofenceLocation']
