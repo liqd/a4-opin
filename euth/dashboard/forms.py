@@ -114,10 +114,6 @@ class ProjectForm(forms.ModelForm):
                   'result', 'is_archived']
 
     def save(self, commit=True):
-        # calling flashpoll service
-        if 'module_settings-key' in self.data:
-            services.send_to_flashpoll(self.data)
-
         self.instance.is_draft = 'save_draft' in self.data
         self.instance.is_archived = 'archive' in self.data
         return super().save(commit)
@@ -294,6 +290,11 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             if 'module_settings' in objects:
                 objects['module_settings'].save()
 
+        # calling flashpoll service
+        if ([p for p in objects['phases']
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, objects)
+
 
 class ProjectCreateForm(multiform.MultiModelForm):
 
@@ -361,6 +362,11 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 phase.save()
                 if phase.type.startswith('euth_offlinephases'):
                     Offlinephase.objects.create(phase=phase)
+
+        # calling flashpoll service
+        if ([p for p in objects['phases']
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, objects)
 
         return objects
 
