@@ -144,9 +144,10 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
                        kwargs={'slug': self.object.project.slug})
 
 
-class IdeaDownloadView(PermissionRequiredMixin,
+class IdeaDownloadView(prj_mixins.ModuleMixin,
+                       PermissionRequiredMixin,
                        XlsExporterMixin,
-                       prj_mixins.ModuleMixin):
+                       ):
 
     permission_required = "euth_ideas.export_ideas"
     model = idea_models.Idea
@@ -176,3 +177,6 @@ class IdeaDownloadView(PermissionRequiredMixin,
         final_fields = [field.name for field in idea_fields if
                         field.name not in excludes]
         return final_fields
+
+    def get_permission_object(self, *args, **kwargs):
+        return self.module
