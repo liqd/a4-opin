@@ -1,6 +1,7 @@
 import json
 import time
 import uuid
+
 import requests
 from django import forms
 from django.conf import settings
@@ -8,7 +9,6 @@ from requests.auth import HTTPBasicAuth
 
 
 def send_to_flashpoll(data, objects):
-
     if 'current_preview' in data:
         if 'save_draft' in data and data['current_preview'] == 'True':
             # Handling unpublish
@@ -16,6 +16,7 @@ def send_to_flashpoll(data, objects):
                 base_url=settings.FLASHPOLL_BACK_URL,
                 poll_id=data['module_settings-key']
             )
+
             # Handle delete
             headers = {'Content-type': 'application/json'}
             requests.delete(url_poll,
@@ -26,9 +27,10 @@ def send_to_flashpoll(data, objects):
         else:
             poll_phase = [p for p in objects['phases']
                           if p.type == 'euth_flashpoll:010:poll'][0]
-
+            # dates
             startTime = time.mktime(poll_phase.start_date.timetuple())
             endTime = time.mktime(poll_phase.end_date.timetuple())
+
             jsonGenerator = {}
             jsonGenerator['title'] = poll_phase.name
             jsonGenerator['shortDescription'] = poll_phase.description
@@ -41,6 +43,10 @@ def send_to_flashpoll(data, objects):
             jsonGenerator['startTime'] = startTime
             jsonGenerator['endTime'] = endTime
             jsonGenerator['preview'] = 'save_draft' not in data
+
+            # isPrivate
+            jsonGenerator['isPrivate'] = not objects['project'].is_public
+
             # context
             jsonGenerator['lab'] = 'opin'
             jsonGenerator['domain'] = 'opin'
@@ -103,6 +109,7 @@ def send_to_flashpoll(data, objects):
                 base_url=settings.FLASHPOLL_BACK_URL,
                 poll_id=data['module_settings-key']
             )
+
             # Handle post
             headers = {'Content-type': 'application/json'}
             requests.post(url_poll,
@@ -149,6 +156,19 @@ def fp_context_data_for_update_view(context, view):
                                           settings.FLASHPOLL_BACK_PASSWORD
                                           ))
     context['pollresult'] = json.loads(res.text)
+
+    url_poll = '{base_url}/poll/{poll_id}/results'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['pollresults'] = json.loads(res.text)
 
     return context
 
