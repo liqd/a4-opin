@@ -165,3 +165,29 @@ def test_sort_mixin(rf):
     response = view(rf.get('/', {'sort': 'created'}))
     assert response.context_data['view'].sort == 'created'
     assert list(response.context_data['post_list']) == [post1, post2]
+
+
+@pytest.mark.django_db
+def test_ideas_download(client, idea_factory, user):
+
+    idea1 = idea_factory()
+    module = idea1.module
+    idea_factory(module=module)
+    idea_factory(module=module)
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    response = client.get(url)
+    assert response.status_code == 302
+    client.login(username=user.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 403
+    module.project.moderators.add(user)
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+
+
+
+
+
+
