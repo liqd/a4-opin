@@ -1,13 +1,12 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from django.utils import timezone
 from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
-from euth.contrib.exports import XlsExporterMixin
+from euth.contrib import exports
 from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
@@ -146,37 +145,26 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
 
 class IdeaDownloadView(prj_mixins.ModuleMixin,
                        PermissionRequiredMixin,
-                       XlsExporterMixin,
+                       exports.ItemExportView,
+                       exports.ItemExportWithRatesMixin,
+                       exports.ItemExportWithCommentCountMixin,
+                       exports.ItemExportWithCommentsMixin,
                        ):
 
-    permission_required = "euth_ideas.export_ideas"
     model = idea_models.Idea
-    export_comments = True
-    export_ratings = True
+    permission_required = "euth_ideas.export_ideas"
+    fields = ['name', 'description', 'creator', 'created']
 
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
 
     def get_queryset(self):
-        return super().get_queryset().filter(module=self.module) \
-            .annotate_positive_rating_count() \
-            .annotate_negative_rating_count() \
-            .annotate_comment_count()
-
-    def get_filename(self):
-        project = self.module.project
-        filename = '%s_%s_%s.xlsx' % (project.slug, self.module.slug,
-                                   timezone.now().strftime('%Y%m%dT%H%M%S'))
-        return filename
-
-    def get_fields(self):
-        idea_fields = idea_models.Idea._meta.concrete_fields
-        excludes = ['creator_id', 'item_ptr_id', 'module_id',
-                    'item_ptr', 'slug', 'module']
-        final_fields = [field.name for field in idea_fields if
-                        field.name not in excludes]
-        return final_fields
+        return super().get_queryset() \
+            .filter(module=self.module)\
+            .annotate_comment_count()\
+            .annotate_positive_rating_count()\
+            .annotate_negative_rating_count()
 
     def get_permission_object(self, *args, **kwargs):
         return self.module
