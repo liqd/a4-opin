@@ -308,9 +308,9 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 objects['module_settings'].save()
 
         # calling flashpoll service
-        if ([p for p in objects['phases']
+        if ([p for p in project.phases
              if p.type.startswith('euth_flashpoll')]):
-                services.send_to_flashpoll(self.data, objects)
+                services.send_to_flashpoll(self.data, project)
 
     def clean(self):
         super().clean()
@@ -390,10 +390,10 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 if phase.type.startswith('euth_offlinephases'):
                     Offlinephase.objects.create(phase=phase)
 
-        # calling flashpoll service
-        if ([p for p in objects['phases']
+        # calling flashpoll service create form
+        if ([p for p in project.phases
              if p.type.startswith('euth_flashpoll')]):
-                services.send_to_flashpoll(self.data, objects)
+                services.send_to_flashpoll(self.data, project)
 
         return objects
 
