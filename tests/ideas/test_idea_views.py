@@ -231,16 +231,19 @@ def test_ideas_download_contains_right_data(rf, idea_factory, admin):
     idea_factory(module=module)
     idea_factory(module=module)
 
-    request = rf.get('/ideas/download/module/{}'.format(module.slug))
-    request.user = admin
-    response = views.IdeaDownloadView.as_view()(request, slug=module.slug)
-    assert response.status_code == 200
-    assert (response._headers['content-type'] ==
-            ('Content-Type', 'application/vnd.openxmlformats-officedocument'
-            '.spreadsheetml.sheet'))
-    assert (response._headers['content-disposition'] ==
-            ('Content-Disposition',
-             'attachment; filename="{}_{}.xlsx"'
-             .format(
-                 module.project.slug,
-                 timezone.now().strftime('%Y%m%dT%H%M%S'))))
+    now = timezone.now()
+    with freeze_time(now):
+        request = rf.get('/ideas/download/module/{}'.format(module.slug))
+        request.user = admin
+        response = views.IdeaDownloadView.as_view()(request, slug=module.slug)
+        assert response.status_code == 200
+        assert (response._headers['content-type'] ==
+                ('Content-Type',
+                'application/vnd.openxmlformats-officedocument'
+                    '.spreadsheetml.sheet'))
+        assert (response._headers['content-disposition'] ==
+                ('Content-Disposition',
+                 'attachment; filename="{}_{}.xlsx"'
+                 .format(
+                     module.project.slug,
+                     now.strftime('%Y%m%dT%H%M%S'))))
