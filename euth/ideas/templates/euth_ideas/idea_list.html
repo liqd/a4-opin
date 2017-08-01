@@ -24,13 +24,21 @@
         {% include "euth_ideas/includes/sort.html" %}
         {% endif %}
 
-        {% for idea in idea_list %}
-        {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
-        {% endfor %}
+        {% if idea_list|length > 0 %}
+          {% for idea in idea_list %}
+          {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
+          {% endfor %}
 
-        {% if is_paginated %}
-        {% include "euth_ideas/includes/pagination.html"%}
+
+          {% if is_paginated %}
+          {% include "euth_ideas/includes/pagination.html"%}
+          {% endif %}
+        {% else %}
+          <div class="infotext">
+            {% trans 'No proposals found' %}
+          </div>
         {% endif %}
+
         </div>
 
     </div>
