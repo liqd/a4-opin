@@ -1,5 +1,5 @@
 {% extends "euth_dashboard/base_organisation.html" %}
-{% load project_tags widget_tweaks i18n %}
+{% load project_tags idea_tags widget_tweaks i18n %}
 
 {% block dashboard_content %}
 <h1 class="black-divider dashboard-title">{% trans 'Projects' %}</h1>
@@ -65,6 +65,14 @@
                             <a href="{% url 'project-detail' project.slug %}" class="btn btn-hover-primary btn-sm" title="{% trans 'view project' %}">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
+                            {% for module in project.module_set.all %}
+                            {% is_idea_list module as has_ideas  %}
+                            {% if has_ideas %}
+                            <a href={% url 'idea-download' module.slug %} class="btn btn-hover-primary btn-sm" title="{% trans 'download module' %}">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
                             {% if project.is_archivable %}
                             <form action="{% url 'dashboard-project-archive' project.slug %}" method="post">
                               {% csrf_token %}
