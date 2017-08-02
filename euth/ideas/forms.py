@@ -1,9 +1,9 @@
-from django import forms
+from adhocracy4.categories import forms as category_forms
 
 from . import models
 
 
-class IdeaForm(forms.ModelForm):
+class IdeaForm(category_forms.CategorizableForm):
     class Meta:
         model = models.Idea
         fields = ['name', 'description', 'image', 'category']
