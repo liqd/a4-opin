@@ -104,6 +104,11 @@ class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
         context['mode'] = 'update'
         return context
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['module'] = kwargs.get('instance').module
+        return kwargs
+
 
 class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
     model = idea_models.Idea
@@ -134,6 +139,11 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
         form.instance.creator = self.request.user
         form.instance.module = self.module
         return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['module'] = self.module
+        return kwargs
 
 
 class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
