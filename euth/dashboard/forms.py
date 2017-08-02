@@ -279,6 +279,10 @@ class ProjectUpdateForm(multiform.MultiModelForm):
         self.show_categories_form = _show_categories_form(phases)
 
         if self.show_categories_form:
+            query = {'module__project': project}
+            kwargs['categories__queryset'] = \
+                category_models.Category.objects.filter(**query)
+
             self.base_forms.append(
                 ('categories', dynamic_modelformset_factory(
                     category_models.Category, CategoryForm,
