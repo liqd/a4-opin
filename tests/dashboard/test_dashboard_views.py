@@ -3,6 +3,7 @@ from django.contrib import auth
 from django.core import mail
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
+from faker import Faker
 from parler.utils.context import switch_language
 
 from tests.helpers import redirect_target
@@ -45,6 +46,14 @@ def new_project(organisation, client):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': '',
+        'categories-0-id': '',
+        'categories-1-name': '',
+        'categories-1-id': '',
     })
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
@@ -91,6 +100,14 @@ def running_project(organisation, client):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': '',
+        'categories-1-name': 'bar',
+        'categories-1-id': '',
     })
     assert response.status_code == 302
     assert redirect_target(response) == 'dashboard-project-list'
@@ -170,6 +187,14 @@ def test_initiator_create_and_update_project(client, organisation):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': '',
+        'categories-1-name': 'bar',
+        'categories-1-id': '',
         'save_draft': ''
     })
     assert response.status_code == 302
@@ -188,6 +213,9 @@ def test_initiator_create_and_update_project(client, organisation):
 
     phase_1 = module.phase_set.first().pk
     phase_2 = module.phase_set.all()[1].pk
+
+    cat_0 = module.category_set.first().pk
+    cat_1 = module.category_set.all()[1].pk
 
     response = client.post(update_url, {
         'phases-TOTAL_FORMS': '2',
@@ -211,6 +239,14 @@ def test_initiator_create_and_update_project(client, organisation):
         'project-description': 'Project description',
         'project-name': 'Project name',
         'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '2',
+        'categories-INITIAL_FORMS': '2',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '1000',
+        'categories-0-name': 'foo',
+        'categories-0-id': str(cat_0),
+        'categories-1-name': 'bar',
+        'categories-1-id': str(cat_1),
         'save_draft': ''
     })
     assert response.status_code == 302
@@ -647,7 +683,7 @@ def test_edit_archived_project(client, organisation, new_project):
             'phases-0-description': 'Description 0',
             'phases-0-type': 'euth_offlinephases:000:offline',
             'phases-0-weight': '0',
-            'phases-0-delete': '1',
+            'phases-0-delete': '0',
             'phases-1-id': str(phase_2),
             'phases-1-start_date': '2016-10-01 16:14',
             'phases-1-end_date': '2016-10-01 16:15',
@@ -659,6 +695,14 @@ def test_edit_archived_project(client, organisation, new_project):
             'project-description': 'Project description',
             'project-name': 'new project name',
             'project-information': 'Project info',
+            'categories-TOTAL_FORMS': '2',
+            'categories-INITIAL_FORMS': '0',
+            'categories-MIN_NUM_FORMS': '0',
+            'categories-MAX_NUM_FORMS': '1000',
+            'categories-0-name': '',
+            'categories-0-id': '',
+            'categories-1-name': '',
+            'categories-1-id': '',
         })
 
     assert 'read-only' in str(ve)
@@ -680,7 +724,7 @@ def test_edit_archived_project(client, organisation, new_project):
             'phases-0-description': 'Description 0',
             'phases-0-type': 'euth_offlinephases:000:offline',
             'phases-0-weight': '0',
-            'phases-0-delete': '1',
+            'phases-0-delete': '0',
             'phases-1-id': str(phase_2),
             'phases-1-start_date': '2016-10-01 16:14',
             'phases-1-end_date': '2016-10-01 16:15',
@@ -692,6 +736,14 @@ def test_edit_archived_project(client, organisation, new_project):
             'project-description': 'Project description',
             'project-name': oldname,
             'project-information': 'Project info',
+            'categories-TOTAL_FORMS': '2',
+            'categories-INITIAL_FORMS': '0',
+            'categories-MIN_NUM_FORMS': '0',
+            'categories-MAX_NUM_FORMS': '1000',
+            'categories-0-name': '',
+            'categories-0-id': '',
+            'categories-1-name': '',
+            'categories-1-id': '',
         })
 
     assert 'read-only' in str(ve)
@@ -700,3 +752,139 @@ def test_edit_archived_project(client, organisation, new_project):
     assert phases[0].name == phaseoldname
     assert response.status_code == 302
     assert project.is_archived
+
+
+@pytest.mark.django_db
+def test_adding_categories_to_project(client, new_project):
+    CATEGORIES = 100
+    fake = Faker()
+
+    update_url = reverse('dashboard-project-edit', kwargs={
+        'project_slug': new_project.slug
+    })
+
+    module = new_project.module_set.first()
+    phase_1 = module.phase_set.first().pk
+    phase_2 = module.phase_set.all()[1].pk
+
+    request = {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': str(phase_1),
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'New Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
+        'phases-1-id': str(phase_2),
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'categories-TOTAL_FORMS': str(CATEGORIES),
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '100',
+    }
+
+    for i in range(CATEGORIES):
+        request.update({
+            'categories-{}-id'.format(i): '',
+            'categories-{}-name'.format(i): fake.text(max_nb_chars=20)
+        })
+
+    response = client.post(update_url, request)
+    assert response.status_code == 302, str(request)
+    assert len(module.category_set.all()) == CATEGORIES, str(request)
+
+
+@pytest.mark.django_db
+def test_deleting_categories_from_project(client, new_project):
+    update_url = reverse('dashboard-project-edit', kwargs={
+        'project_slug': new_project.slug
+    })
+
+    module = new_project.module_set.first()
+    phase_1 = module.phase_set.first().pk
+    phase_2 = module.phase_set.all()[1].pk
+
+    request = {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': str(phase_1),
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'New Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
+        'phases-1-id': str(phase_2),
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '1',
+        'categories-INITIAL_FORMS': '0',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '100',
+        'categories-0-id': '',
+        'categories-0-name': 'foo'
+    }
+
+    # adding category first
+    response = client.post(update_url, request)
+    assert response.status_code == 302, str(request)
+    assert len(module.category_set.all()) == 1, str(request)
+
+    cat_0 = module.category_set.first().pk
+
+    request = {
+        'phases-TOTAL_FORMS': '2',
+        'phases-INITIAL_FORMS': '0',
+        'phases-0-id': str(phase_1),
+        'phases-0-start_date': '2016-10-01 16:12',
+        'phases-0-end_date': '2016-10-01 16:13',
+        'phases-0-name': 'New Name 0',
+        'phases-0-description': 'Description 0',
+        'phases-0-type': 'euth_offlinephases:000:offline',
+        'phases-0-weight': '0',
+        'phases-0-delete': '0',
+        'phases-1-id': str(phase_2),
+        'phases-1-start_date': '2016-10-01 16:14',
+        'phases-1-end_date': '2016-10-01 16:15',
+        'phases-1-name': 'Name 1',
+        'phases-1-description': 'Description 1',
+        'phases-1-type': 'euth_maps:020:collect',
+        'phases-1-weight': '1',
+        'phases-1-delete': '0',
+        'project-description': 'Project description',
+        'project-name': 'Project name',
+        'project-information': 'Project info',
+        'categories-TOTAL_FORMS': '1',
+        'categories-INITIAL_FORMS': '1',
+        'categories-MIN_NUM_FORMS': '0',
+        'categories-MAX_NUM_FORMS': '100',
+        'categories-0-DELETE': 'on',
+        'categories-0-id': str(cat_0),
+        'categories-0-name': 'foo'
+    }
+
+    # deleting freshly added category
+    response = client.post(update_url, request)
+    assert response.status_code == 302, str(request)
+    assert len(module.category_set.all()) == 0, str(request)

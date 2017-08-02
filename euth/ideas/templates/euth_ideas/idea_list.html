@@ -3,6 +3,7 @@
 
 {% block phase_content %}
 <div class="container-medium">
+
     <div class="idea-list">
         {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
         {% if add_button_enabled %}
@@ -12,18 +13,32 @@
         </a>
         {% endif %}
 
+        <div class="filter-bar">
+        {% for field in view.filter.form %}
+          {{ field }}
+        {% endfor %}
+        </div>
+
         <div id="idea-list">
         {% if view.sorts and idea_list.count > 1 %}
         {% include "euth_ideas/includes/sort.html" %}
         {% endif %}
 
-        {% for idea in idea_list %}
-        {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
-        {% endfor %}
+        {% if idea_list|length > 0 %}
+          {% for idea in idea_list %}
+          {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
+          {% endfor %}
 
-        {% if is_paginated %}
-        {% include "euth_ideas/includes/pagination.html"%}
+
+          {% if is_paginated %}
+          {% include "euth_ideas/includes/pagination.html"%}
+          {% endif %}
+        {% else %}
+          <div class="infotext">
+            {% trans 'No proposals found' %}
+          </div>
         {% endif %}
+
         </div>
 
     </div>

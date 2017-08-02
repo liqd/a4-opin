@@ -117,6 +117,47 @@
             {% endif %}
             {% endfor %}
             {% endwith %}
+
+        </div>
+
+    </div>
+
+    {% if form.show_categories_form %}
+    <div class="form-section">
+        <h3 class="form-section-heading">{% trans 'Categories' %}</h3>
+
+        <div class="form-section-fields">
+            <div class="form-group {% if field.errors %} has-error{% endif %}">
+                {% render_field field class="form-control" %}
+
+                {% for error in field.errors %}
+                <span class="help-block">{{ error }}</span>
+                {% endfor %}
+
+                <div class="js-formset formset"
+                     data-prefix="{{ form.categories.prefix }}"
+                     data-initial-id="{{ form.categories.initial_form_count }}">
+                    {{ form.categories.management_form }}
+
+                    <div class="categories-form">
+                        {% for category_form in form.categories %}
+                            {% include 'euth_dashboard/includes/inline_form.html' with form=category_form can_delete=form.categories.can_delete %}
+                        {% endfor %}
+
+                        <div class="js-form-template formset__template">
+                            {% include 'euth_dashboard/includes/inline_form.html' with form=form.categories.empty_form can_delete=form.categories.can_delete %}
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="btn btn-gray btn-primary btn-sm js-add-form">
+                        <i class="fa fa-plus"></i> {% trans 'add category'%}
+                    </button>
+
+                </div>
+            </div>
         </div>
     </div>
+   {% endif %}
+
 </article>
