@@ -14,7 +14,7 @@
         {% endif %}
 
         <div id="idea-list">
-
+        {% if idea_list.count > 1 %}
           <div class="idea-list-controls">
             <div class="idea-list-filter filter-bar">
             {% for field in view.filter.form %}
@@ -22,10 +22,11 @@
             {% endfor %}
             </div>
 
-            {% if view.sorts and idea_list.count > 1 %}
+            {% if view.sorts %}
             {% include "euth_ideas/includes/sort.html" %}
             {% endif %}
           </div>
+        {% endif %}
 
         {% if idea_list|length > 0 %}
           {% for idea in idea_list %}
