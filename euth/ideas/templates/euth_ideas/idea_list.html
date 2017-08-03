@@ -13,16 +13,19 @@
         </a>
         {% endif %}
 
-        <div class="filter-bar">
-        {% for field in view.filter.form %}
-          {{ field }}
-        {% endfor %}
-        </div>
-
         <div id="idea-list">
-        {% if view.sorts and idea_list.count > 1 %}
-        {% include "euth_ideas/includes/sort.html" %}
-        {% endif %}
+
+          <div class="idea-list-controls">
+            <div class="idea-list-filter filter-bar">
+            {% for field in view.filter.form %}
+              {{ field }}
+            {% endfor %}
+            </div>
+
+            {% if view.sorts and idea_list.count > 1 %}
+            {% include "euth_ideas/includes/sort.html" %}
+            {% endif %}
+          </div>
 
         {% if idea_list|length > 0 %}
           {% for idea in idea_list %}
