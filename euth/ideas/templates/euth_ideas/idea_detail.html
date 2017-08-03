@@ -52,12 +52,9 @@
                 {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
 
-            <div class="item-detail__labels">
-                {% if idea.category %}
-                <span class="label label-secondary label-xs">{{ idea.category }}</span>
-                {% endif %}
-            </div>
-
+            {% if idea.category %}
+            <span class="label label-secondary label-xs">{{ idea.category }}</span>
+            {% endif %}
 
             <div class="idea-description">
                 <p>{{ idea.description |safe }}</p>
