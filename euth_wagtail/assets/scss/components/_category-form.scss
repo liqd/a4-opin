@@ -17,9 +17,7 @@
     }
 
     .category__delete {
-        visibility: collapse;
-        width: 100%;
-        left: 0;
+        @extend .sr-only;
 
         &:checked ~ input[type="text"] {
             text-decoration: line-through;
