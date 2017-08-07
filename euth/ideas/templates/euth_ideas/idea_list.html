@@ -14,19 +14,19 @@
         {% endif %}
 
         <div id="idea-list">
-          <div class="idea-list-controls">
-            <div class="idea-list-filter filter-bar">
-            {% for field in view.filter.form %}
-              {{ field }}
-            {% endfor %}
-            </div>
+            <div class="idea-list-controls">
+                <div class="idea-list-filter filter-bar">
+                {% for field in view.filter.form %}
+                {{ field }}
+                {% endfor %}
+                </div>
 
-            {% if view.sorts %}
-            {% include "euth_ideas/includes/sort.html" %}
-            {% endif %}
+                {% if view.sorts %}
+                {% include "euth_ideas/includes/sort.html" %}
+                {% endif %}
           </div>
 
-        {% if idea_list|length > 0 %}
+          {% if idea_list|length > 0 %}
           {% for idea in idea_list %}
           {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
           {% endfor %}
@@ -35,14 +35,12 @@
           {% if is_paginated %}
           {% include "euth_ideas/includes/pagination.html"%}
           {% endif %}
-        {% else %}
+          {% else %}
           <div class="infotext">
-            {% trans 'No proposals found' %}
+              {% trans 'No proposals found' %}
           </div>
-        {% endif %}
-
+          {% endif %}
         </div>
-
     </div>
 </div>
 {% endblock %}
