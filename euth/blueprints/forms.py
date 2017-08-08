@@ -27,8 +27,8 @@ class GetSuggestionForm(forms.Form):
         choices=[(e.value, e.label) for e in blueprints.Experience],
         widget=forms.RadioSelect,
         required=True,
-        label=_('How many participative projects have you organised and '
-                'managed in the past?')
+        label=_('How many on- and offline participative projects '
+                'have you organised and managed in the past?')
     )
 
     motivation = forms.ChoiceField(
@@ -43,7 +43,7 @@ class GetSuggestionForm(forms.Form):
         choices=[(m.value, m.label) for m in blueprints.Participants],
         required=True,
         widget=forms.RadioSelect,
-        label=_('How many participants do you expect for the project?')
+        label=_('How many participants might take part in the project?')
     )
 
     scope = forms.ChoiceField(
@@ -57,14 +57,14 @@ class GetSuggestionForm(forms.Form):
         choices=[(m.value, m.label) for m in blueprints.Duration],
         required=True,
         widget=forms.RadioSelect,
-        label=_('How long lasts the project?')
+        label=_('How long do you want your project to be?')
     )
 
     accessibility = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Accessibility],
         required=True,
         widget=forms.RadioSelect,
-        label=_('How easy is it to access the project?')
+        label=_('How easy can you access your participants?')
     )
 
     def clean_aim(self, *args, **kwargs):

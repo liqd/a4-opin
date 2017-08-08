@@ -13,7 +13,7 @@ from euth.maps import phases as map_phases
 class Aim(Enum):
     collect_ideas = (
         'collect_ideas',
-        _('Create and gather new ideas or visions.'),
+        _('Create and collect new ideas or visions.'),
         [_('(Urban) planning processes'),
          _('Develop concepts or guiding principles')]
     )
@@ -23,16 +23,21 @@ class Aim(Enum):
         [_('Discuss existing concepts or plans'),
          _('Develop solutions for existing problems')]
     )
+    agenda_setting = (
+        'agenda_setting',
+        _('Agenda Setting'),
+        ['Set the agenda of an event, a process, a project etc.']
+    )
     design_place = (
         'design_place',
         _('Design a place.'),
         [_('(Urban) planning processes'),
-         _('Set the agenda of an event')]
+         _('Small scale design projects, e.g. renew your premises')]
     )
     run_survey = (
-        'run_survey',
-        _('Learn about what people like most.'),
-        [_('Majority votes'), _('Opinion polls')]
+        'agenda-setting',
+        _('Set the agenda of an event, a process, a project etc.'),
+        [_('Opinion polls, majority votes etc.')]
     )
     run_competition = (
         'run_competition',
@@ -42,8 +47,8 @@ class Aim(Enum):
     )
     work_document = (
         'work_document',
-        _('Work collaboratively on a text document.'),
-        [_('Draft or revise statutes, articles, or charters'),
+        _('Work together with other people on a text document.'),
+        [_('Draft or revise statutes, articles, charters etc.'),
          _('Involve different authors in writing a shared text')]
     )
 
@@ -283,7 +288,7 @@ blueprints = [
          image='images/agenda_setting.png',
          settings_model=None,
          requirements=Requirements(
-             aims=[Aim.collect_ideas, Aim.discuss_topic, Aim.run_survey],
+             aims=[Aim.collect_ideas, Aim.discuss_topic, Aim.run_survey, Aim.agenda_setting],
              results=list(Result),
              experience=Experience.one_project,
              motivation=Motivation.low
