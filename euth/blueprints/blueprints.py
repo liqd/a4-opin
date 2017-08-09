@@ -35,7 +35,7 @@ class Aim(Enum):
          _('Small scale design projects, e.g. renew your premises')]
     )
     run_survey = (
-        'agenda-setting',
+        'run_survey',
         _('Set the agenda of an event, a process, a project etc.'),
         [_('Opinion polls, majority votes etc.')]
     )
@@ -341,6 +341,7 @@ blueprints = [
 fallbacks = {
     Aim.collect_ideas: 'brainstorming',
     Aim.discuss_topic: 'brainstorming',
+    Aim.agenda_setting: 'agenda-setting',
     Aim.design_place: 'map-brainstorming',
     Aim.run_survey: 'flashpoll',
     Aim.run_competition: 'agenda-setting',
