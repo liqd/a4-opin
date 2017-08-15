@@ -1,0 +1,80 @@
+{% load static i18n %}
+
+<div class="modal fade dst-modal-infopage" id="dst-infopage-{{ blueprint_slug }}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+        <div class="blueprint-tile">
+            <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
+            <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
+        </div>
+
+        <div class="blueprint-description border-bottom">
+            {{ blueprint.description | linebreaks }}
+            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+            {% trans 'Use this template' %}
+            </a>
+        </div>
+
+        <div class="blueprint-phases border-bottom">
+            <h4>{% trans 'Project Phases' %}</h4>
+
+            <ul class="list-unstyled">
+                {% for phase_content in blueprint.content %}
+                    <li>
+                          <div class="icon">
+                            <span class="circled"><i class="fa fa-{{ phase_content.icon }} fa-fw" aria-hidden="true"></i>
+                          </div>
+                          <div class="description">
+                            <strong>Phase {{ forloop.counter }}</strong><p>{{ phase_content.description }}</p>
+                          </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="border-bottom">
+          <h4>{% trans 'Check out the example project' %}</h4>
+        </div>
+
+        {% if time %}
+        <div class="blueprint-effort border-bottom">
+          <h4>{% trans 'Estimated effort' %}</h4>
+
+          {% blocktrans %}
+          <div class="box">
+            <span>{{time}} hours</span>
+          </div>
+          <span>per week</span>
+          {% endblocktrans %}
+
+        </div>
+        {% endif %}
+
+        <div class="blueprint-guidelines border-bottom">
+          <h4>{% trans 'Guidelines for a successful project' %}</h4>
+
+          <div class="inspirations">
+            <strong>{% trans 'Get inspiration and tips for' %}</strong>
+            <ul>
+              <li>{% trans 'Setting up your participation project' %}</li>
+              <li>{% trans 'Activation and motivation of participants' %}</li>
+              <li>{% trans 'moderation of discussions' %}</li>
+              <li>{% trans 'and more' %}</li>
+            </ul>
+
+            <a href="/help/ok">{% trans 'Check out the guidelines!' %}</a>
+          </div>
+
+        </div>
+
+        <div class="blueprint-footer">
+            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+            {% trans 'Use this template' %}
+            </a>
+        </div>
+
+
+    </div>
+  </div>
+</div>

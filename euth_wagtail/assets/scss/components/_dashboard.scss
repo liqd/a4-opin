@@ -139,6 +139,103 @@ h1.dashboard-title {
     background-color: #fff;
     text-align: center;
     padding: 1em;
+
+    button {
+        @include rem(padding-top, 11px);
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid $gray-light;
+    @include rem(padding, 20px 0);
+}
+
+.dst-modal-infopage {
+    h4 {
+        @include rem(margin-bottom, 20px);
+    }
+
+    .modal-content {
+        @include rem(width, 570px);
+    }
+
+    .blueprint-tile {
+        border: 0;
+        margin: 0;
+
+        > img {
+            @include rem(height, 173px);
+            @include rem(width, 260px);
+            display: block;
+            margin: auto;
+        }
+    }
+
+    .blueprint-description > p {
+        @include rem(margin-bottom, 20px);
+        @include rem(margin-left, 35px);
+        @include rem(margin-right, 35px);
+    }
+
+    .blueprint-phases {
+        ul {
+            display: inline-block;
+        }
+
+        li {
+            overflow: hidden;
+            @include rem(padding-bottom, 10px);
+        }
+
+        .icon {
+            float: left;
+            @include rem(padding-bottom, 4px);
+            @include rem(padding-right, 10px);
+        }
+
+        .description {
+            text-align: left;
+        }
+
+        .circled {
+            background-color: $brand-brand5;
+            color: $brand-brand6;
+            @include rem(font-size, 24px);
+            font-weight: bold;
+            @include rem(padding-top, 4px);
+        }
+    }
+
+    .blueprint-effort {
+        > span {
+            display: block;
+        }
+
+        .box {
+            background-color: $brand-brand5;
+            border-radius: 5px;
+            @include rem(height, 69px);
+            @include rem(width, 185px);
+            display: block;
+            margin: auto;
+            color: $brand-brand6;
+            @include rem(font-size, 36px);
+            font-weight: bold;
+            @include rem(padding-top, 8px);
+            @include rem(margin-bottom, 10px);
+        }
+    }
+
+    .blueprint-guidelines {
+        .inspirations {
+            @include rem(padding-left, 160px);
+            text-align: left;
+        }
+
+        .inspirations > a {
+            text-decoration: underline;
+        }
+    }
 }
 
 .dst-tile {
