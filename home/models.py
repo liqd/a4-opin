@@ -8,6 +8,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.wagtailadmin import edit_handlers
 from wagtail.wagtailcore import blocks as core_blocks
 from wagtail.wagtailcore.fields import StreamField
@@ -1094,3 +1095,17 @@ class ManualsDetailPage(Page):
     @property
     def parent_page(self):
         return self.get_ancestors().live().specific().last()
+
+
+@register_setting
+class HelpPages(BaseSetting):
+    guidelines_page = models.ForeignKey(
+        'wagtailcore.Page',
+        on_delete=models.SET_NULL,
+        null=True,
+        help_text="Please add a link to the guideline page."
+    )
+
+    panels = [
+        edit_handlers.PageChooserPanel('guidelines_page')
+    ]
