@@ -170,6 +170,7 @@ class IdeaDownloadView(prj_mixins.ModuleMixin,
                        exports.ItemExportWithRatesMixin,
                        exports.ItemExportWithCommentCountMixin,
                        exports.ItemExportWithCommentsMixin,
+                       exports.ItemExportWithCategoriesMixin
                        ):
 
     model = idea_models.Idea
