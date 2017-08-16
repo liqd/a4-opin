@@ -1,4 +1,5 @@
-{% load static i18n %}
+{% load static i18n infopage wagtailsettings_tags %}
+{% get_settings %}
 
 <div class="modal fade dst-modal-infopage" id="dst-infopage-{{ blueprint_slug }}" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -33,9 +34,14 @@
             </ul>
         </div>
 
-        <div class="border-bottom">
+        {% get_project settings.home.HelpPages blueprint as p %}
+        {% if p %}
+        <div class="blueprint-project border-bottom">
           <h4>{% trans 'Check out the example project' %}</h4>
+
+           {% include 'euth_projects/includes/project_tile.html' with project=p %}
         </div>
+        {% endif %}
 
         {% if time %}
         <div class="blueprint-effort border-bottom">

@@ -206,6 +206,13 @@ h1.dashboard-title {
         }
     }
 
+    .blueprint-project {
+        .project-tile {
+            @include rem(width, 285px);
+            @include rem(margin-left, 143px);
+        }
+    }
+
     .blueprint-effort {
         > span {
             display: block;
