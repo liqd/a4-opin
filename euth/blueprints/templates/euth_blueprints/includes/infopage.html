@@ -57,7 +57,8 @@
         </div>
         {% endif %}
 
-        {% if settings.home.HelpPages.guidelines_page and settings.home.HelpPages.guidelines_page.live %}
+        {% with settings.home.HelpPages.guidelines_page as guidelines %}
+        {% if guidelines and guidelines.live %}
         <div class="blueprint-guidelines border-bottom">
           <h4>{% trans 'Guidelines for a successful project' %}</h4>
 
@@ -70,11 +71,12 @@
               <li>{% trans 'and more' %}</li>
             </ul>
 
-            <a href="{{ settings.home.HelpPages.guidelines_page.url }}" target="_blank" >{% trans 'Check out the guidelines!' %}</a>
+            <a href="{{ guidelines.url }}" target="_blank" >{% trans 'Check out the guidelines!' %}</a>
           </div>
 
         </div>
         {% endif %}
+        {% endwith %}
 
         <div class="blueprint-footer">
             <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
