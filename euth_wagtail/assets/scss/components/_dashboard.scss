@@ -142,6 +142,8 @@ h1.dashboard-title {
 
     button {
         @include rem(padding-top, 11px);
+        color: $brand-brand1;
+        font-weight: bold;
     }
 }
 
