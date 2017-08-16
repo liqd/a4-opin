@@ -144,6 +144,8 @@ h1.dashboard-title {
         @include rem(padding-top, 11px);
         color: $brand-brand1;
         font-weight: bold;
+        display: block;
+        margin: auto;
     }
 }
 
