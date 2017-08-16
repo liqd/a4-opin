@@ -8,6 +8,8 @@ from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
 
+from .names import BlueprintNames
+
 
 @unique
 class Aim(Enum):
@@ -195,12 +197,12 @@ Requirements = namedtuple(
 Blueprint = namedtuple(
     'Blueprint', [
         'title', 'description', 'content', 'image', 'settings_model',
-        'requirements', 'complexity'
+        'requirements', 'complexity', 'type'
     ])
 
 
 blueprints = [
-    ('brainstorming',
+    (BlueprintNames.brainstorming.value,
      Blueprint(
          title=_('Brainstorming'),
          description=_('Collect ideas, questions and input concerning '
@@ -217,8 +219,9 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.brainstorming.name
      )),
-    ('map-brainstorming',
+    (BlueprintNames.map_brainstorming.value,
      Blueprint(
          title=_('Spatial Brainstorming'),
          description=_('Collect ideas, questions and input concerning a '
@@ -235,8 +238,9 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.map_brainstorming.name
      )),
-    ('idea-challenge',
+    (BlueprintNames.idea_challenge.value,
      Blueprint(
          title=_('Idea Challenge'),
          description=_('Run a challenge and find the best ideas to solve '
@@ -254,8 +258,9 @@ blueprints = [
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_BD,
+         type=BlueprintNames.idea_challenge.name
      )),
-    ('map-idea-challenge',
+    (BlueprintNames.map_idea_challenge.value,
      Blueprint(
          title=_('Spatial Idea Challenge'),
          description=_('Run a challenge concerning a certain area or space in '
@@ -274,8 +279,9 @@ blueprints = [
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_BD,
+         type=BlueprintNames.map_idea_challenge.name
      )),
-    ('agenda-setting',
+    (BlueprintNames.agenda_setting.value,
      Blueprint(
          title=_('Agenda Setting'),
          description=_('You can involve everyone in planning a meeting. '
@@ -288,14 +294,16 @@ blueprints = [
          image='images/agenda_setting.png',
          settings_model=None,
          requirements=Requirements(
-             aims=[Aim.collect_ideas, Aim.discuss_topic, Aim.run_survey, Aim.agenda_setting],
+             aims=[Aim.collect_ideas, Aim.discuss_topic,
+                   Aim.run_survey, Aim.agenda_setting],
              results=list(Result),
              experience=Experience.one_project,
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.agenda_setting.name
      )),
-    ('commenting-text',
+    (BlueprintNames.commenting_text.value,
      Blueprint(
          title=_('Text Review'),
          description=_('Let participants discuss individual paragraphs of a '
@@ -314,8 +322,9 @@ blueprints = [
              motivation=None
          ),
          complexity=COMPLEXITY_VECTOR_F,
+         type=BlueprintNames.commenting_text.name
      )),
-    ('flashpoll',
+    (BlueprintNames.flashpoll.value,
      Blueprint(
          title=_('Poll'),
          description=_('Run customizable, multi-step polls on OPIN to get '
@@ -334,16 +343,17 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_E,
+         type=BlueprintNames.flashpoll.name
      )),
 ]
 
 
 fallbacks = {
-    Aim.collect_ideas: 'brainstorming',
-    Aim.discuss_topic: 'brainstorming',
-    Aim.agenda_setting: 'agenda-setting',
-    Aim.design_place: 'map-brainstorming',
-    Aim.run_survey: 'flashpoll',
-    Aim.run_competition: 'agenda-setting',
-    Aim.work_document: 'commenting-text'
+    Aim.collect_ideas: BlueprintNames.brainstorming.value,
+    Aim.discuss_topic: BlueprintNames.brainstorming.value,
+    Aim.agenda_setting: BlueprintNames.agenda_setting.value,
+    Aim.design_place: BlueprintNames.map_brainstorming.value,
+    Aim.run_survey: BlueprintNames.flashpoll.value,
+    Aim.run_competition: BlueprintNames.agenda_setting.value,
+    Aim.work_document: BlueprintNames.commenting_text.value
 }

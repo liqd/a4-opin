@@ -21,6 +21,7 @@ from wagtail.wagtailsnippets.models import register_snippet
 
 from adhocracy4.projects import models as prj_models
 from contrib.translations.translations import TranslatedField
+from euth.blueprints.names import BlueprintNames
 from euth.organisations import urls as org_urls
 from euth_wagtail.settings import LANGUAGES
 
@@ -1107,5 +1108,17 @@ class HelpPages(BaseSetting):
     )
 
     panels = [
-        edit_handlers.PageChooserPanel('guidelines_page')
+        edit_handlers.PageChooserPanel('guidelines_page'),
     ]
+
+    for member in BlueprintNames:
+        locals()[member.name] = models.ForeignKey(
+            'a4projects.Project',
+            on_delete=models.SET_NULL,
+            null=True,
+            related_name='example_project_{}'.format(member.name),
+            help_text="Please select an exemplary {} project.".format(
+                        member.value),
+            blank=True
+        )
+        panels += [edit_handlers.FieldPanel(member.name)]
