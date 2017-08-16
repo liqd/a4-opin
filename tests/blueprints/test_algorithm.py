@@ -18,6 +18,7 @@ test_blueprints = [
             motivation=b.Motivation.low
         ),
         complexity=b.COMPLEXITY_VECTOR_AC,
+        type='brainstorming'
     )),
     ('ideacollection', b.Blueprint(
         title='ideacollection',
@@ -32,6 +33,7 @@ test_blueprints = [
             motivation=b.Motivation.medium
         ),
         complexity=b.COMPLEXITY_VECTOR_AC,
+        type='ideacollection'
     )),
     ('fallback', b.Blueprint(
         title='fallback',
@@ -46,6 +48,7 @@ test_blueprints = [
             motivation=b.Motivation.medium
         ),
         complexity=b.COMPLEXITY_VECTOR_AC,
+        type='fallback'
     ))
 ]
 
@@ -127,6 +130,7 @@ def test_time_needed():
             motivation=b.Motivation.low
         ),
         complexity=None,
+        type='brainstorming'
     )
 
     test_blueprints = [
