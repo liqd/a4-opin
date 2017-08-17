@@ -14,7 +14,7 @@ class IssuePhase(phases.PhaseContent):
     name = _('Issue phase')
     description = _('Add new ideas.')
     module_name = _('ideas collection')
-    icon = 'map-o'
+    icon = 'lightbulb-o'
 
     features = {
         'crud': (models.Idea,),
@@ -30,7 +30,7 @@ class CollectPhase(phases.PhaseContent):
     name = _('Collect phase')
     description = _('Add new ideas and comment them.')
     module_name = _('ideas collection')
-    icon = 'map-o'
+    icon = 'lightbulb-o'
 
     features = {
         'crud': (models.Idea,),

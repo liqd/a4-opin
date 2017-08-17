@@ -139,14 +139,6 @@ h1.dashboard-title {
     background-color: #fff;
     text-align: center;
     padding: 1em;
-
-    button {
-        @include rem(padding-top, 11px);
-        color: $brand-brand1;
-        font-weight: bold;
-        display: block;
-        margin: auto;
-    }
 }
 
 .border-bottom {
@@ -182,31 +174,9 @@ h1.dashboard-title {
     }
 
     .blueprint-phases {
-        ul {
-            display: inline-block;
-        }
-
-        li {
-            overflow: hidden;
-            @include rem(padding-bottom, 10px);
-        }
-
-        .icon {
-            float: left;
-            @include rem(padding-bottom, 4px);
-            @include rem(padding-right, 10px);
-        }
-
-        .description {
-            text-align: left;
-        }
-
-        .circled {
-            background-color: $brand-brand5;
-            color: $brand-brand6;
-            @include rem(font-size, 24px);
-            font-weight: bold;
-            @include rem(padding-top, 4px);
+        &-item {
+            max-width: 30%;
+            vertical-align: top;
         }
     }
 
