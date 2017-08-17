@@ -1098,8 +1098,32 @@ class ManualsDetailPage(Page):
         return self.get_ancestors().live().specific().last()
 
 
+class BlueprintSettingsMeta(models.base.ModelBase):
+    """
+    Metaclass for adding a project foreign keys for each blueprint.
+    """
+
+    def __new__(cls, name, bases, namespace):
+        panels = namespace['panels']
+        blueprint_names = namespace['blueprint_names']
+
+        for member in blueprint_names:
+            namespace[member.name] = models.ForeignKey(
+                'a4projects.Project',
+                on_delete=models.SET_NULL,
+                null=True,
+                blank=True,
+                related_name='example_project_{}'.format(member.name),
+                help_text='Please select an exemplary {} project.'.format(
+                    member.value
+                ),
+            )
+            panels += [edit_handlers.FieldPanel(member.name)]
+        return super().__new__(cls, name, bases, namespace)
+
+
 @register_setting
-class HelpPages(BaseSetting):
+class HelpPages(BaseSetting, metaclass=BlueprintSettingsMeta):
     guidelines_page = models.ForeignKey(
         'wagtailcore.Page',
         on_delete=models.SET_NULL,
@@ -1111,14 +1135,4 @@ class HelpPages(BaseSetting):
         edit_handlers.PageChooserPanel('guidelines_page'),
     ]
 
-    for member in BlueprintNames:
-        locals()[member.name] = models.ForeignKey(
-            'a4projects.Project',
-            on_delete=models.SET_NULL,
-            null=True,
-            related_name='example_project_{}'.format(member.name),
-            help_text="Please select an exemplary {} project.".format(
-                        member.value),
-            blank=True
-        )
-        panels += [edit_handlers.FieldPanel(member.name)]
+    blueprint_names = BlueprintNames
