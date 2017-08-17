@@ -18,6 +18,7 @@ class CreateDocumentPhase(phases.PhaseContent):
     name = _('Create document phase')
     module_name = _('commenting text')
     description = _('Create text for the project.')
+    icon = 'plus'
 
     features = {}
 
@@ -37,6 +38,7 @@ class CommentPhase(phases.PhaseContent):
     name = _('Comment phase')
     module_name = _('commenting text')
     description = _('Collect comments for the text.')
+    icon = 'comment'
 
     features = {
         'comment': (models.Paragraph, models.Document),
