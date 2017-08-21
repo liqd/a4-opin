@@ -50,7 +50,7 @@ class RatingPhase(phases.PhaseContent):
     description = _('Get quantative feeback by rating the collected '
                     'ideas on a map.')
     module_name = _('ideas collection')
-    icon = 'angle-up'
+    icon = 'chevron-up'
 
     features = {
         'rate': (models.MapIdea,),
