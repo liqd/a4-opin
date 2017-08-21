@@ -20,31 +20,17 @@
         <div class="blueprint-phases border-bottom">
             <h4>{% trans 'Project Phases' %}</h4>
 
-            <ul class="list-inline">
+            <ul class="list-unstyled">
                 {% for phase_content in blueprint.content %}
-                    <li class="blueprint-phases-item">
-                        <span class="fa-stack fa-4x" aria-hidden="true">
-                            <i class="fa fa-circle fa-stack-2x text-brand5"></i>
-                            <i class="fa fa-{{ phase_content.icon }} fa-stack-1x text-brand6"></i>
-                        </span>
-                        <p>
-                            <strong>
-                                {{ forloop.counter }}. {{ phase_content.description }}</p>
-                            </strong>
-                        </p>
+                    <li>
+                          <div class="icon">
+                            <span class="circled"><i class="fa fa-{{ phase_content.icon }} fa-fw" aria-hidden="true"></i>
+                          </div>
+                          <div class="description">
+                            <strong>Phase {{ forloop.counter }}</strong><p>{{ phase_content.description }}</p>
+                          </div>
                     </li>
                 {% endfor %}
-                <li class="blueprint-phases-item">
-                    <span class="fa-stack fa-4x" aria-hidden="true">
-                        <i class="fa fa-circle fa-stack-2x text-brand6"></i>
-                        <i class="fa fa-table fa-stack-1x text-brand5"></i>
-                    </span>
-                    <p>
-                        <strong>
-                            {% trans 'Optionally add offline phases.' %}
-                        </strong>
-                    </p>
-                </li>
             </ul>
         </div>
 
