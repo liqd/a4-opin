@@ -204,9 +204,14 @@ h1.dashboard-title {
         .circled {
             background-color: $brand-brand5;
             color: $brand-brand6;
-            @include rem(font-size, 24px);
+            @include rem(font-size, 37px);
             font-weight: bold;
-            @include rem(padding-top, 4px);
+            @include rem(width, 70px);
+            @include rem(height, 70px);
+        }
+
+        .circled .fa {
+            @include rem(margin-top, 17px);
         }
     }
 
