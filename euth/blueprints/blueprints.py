@@ -38,7 +38,7 @@ class Aim(Enum):
     )
     run_survey = (
         'run_survey',
-        _('Set the agenda of an event, a process, a project etc.'),
+        _('Learn about what people like most.'),
         [_('Opinion polls, majority votes etc.')]
     )
     run_competition = (
