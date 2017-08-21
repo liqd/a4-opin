@@ -19,7 +19,5 @@ class FlashpollPhase(phases.PhaseContent):
         'crud': (models.Flashpoll,),
     }
 
-    icon = 'eject'
-
 
 phases.content.register(FlashpollPhase())
