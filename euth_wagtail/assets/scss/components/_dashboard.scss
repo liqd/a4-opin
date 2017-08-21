@@ -139,6 +139,14 @@ h1.dashboard-title {
     background-color: #fff;
     text-align: center;
     padding: 1em;
+
+    > button {
+        display: block;
+        margin: auto;
+        @include rem(padding, 10px 0);
+        color: $brand-brand1;
+        font-weight: bold;
+    }
 }
 
 .border-bottom {
@@ -254,8 +262,6 @@ h1.dashboard-title {
 
     h2 {
         text-align: center;
-        margin-bottom: 43px;
-        margin-top: 24px;
     }
 
     .dst-lightbox-progress {
@@ -266,6 +272,18 @@ h1.dashboard-title {
             margin-bottom: 0;
             position: absolute;
             bottom: 0;
+        }
+    }
+
+    .blueprint-tile {
+        padding: 0;
+
+        > img {
+            @include rem(margin-left, 20px);
+        }
+
+        > .blueprint-phases {
+            @include rem(padding-top, 10px);
         }
     }
 }
