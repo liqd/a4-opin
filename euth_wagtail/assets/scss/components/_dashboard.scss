@@ -140,11 +140,10 @@ h1.dashboard-title {
     text-align: center;
     padding: 1em;
 
-    > button {
+    .btn-link {
         display: block;
         margin: auto;
         @include rem(padding, 10px 0);
-        color: $brand-brand1;
         font-weight: bold;
     }
 }
