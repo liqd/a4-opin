@@ -3,7 +3,7 @@
 
 <div class="project-tile project-tile-{{ class }} {% if not project.image %} project-tile-no-image {% endif %}">
     <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
-       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');" {% if example %}target="_blank"{% endif %}>
+       style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}');" {% if open_in_new_tab %}target="_blank"{% endif %}>
         <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}/static/images/placeholder.png{% endif %}" class="project-tile-image img-responsive">
 
         {% get_days project.days_left as days %}
@@ -18,13 +18,13 @@
         {% endif %}
     </a>
     <div class="project-tile-body">
-        <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}" {% if example %}target="_blank"{% endif %}>{{ project }}</a></h2>
+        <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}" {% if open_in_new_tab %}target="_blank"{% endif %}>{{ project }}</a></h2>
         <p class="project-tile-teaser">{{ project.description|truncatechars:200 }}</p>
         <div class="row project-tile-org">
             <div class="col-md-2 col-sm-2 col-xs-2 project-tile-org-image">
                 <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium' }}" class="project-tile-org-avatar" height="30" width="30" />
             </div>
-            <a href="{% url 'organisation-detail' project.organisation.slug %}" class="col-md-10 col-sm-10 col-xs-10 project-tile-org-name" {% if example %}target="_blank"{% endif %}>{{ project.organisation.title }}</a>
+            <a href="{% url 'organisation-detail' project.organisation.slug %}" class="col-md-10 col-sm-10 col-xs-10 project-tile-org-name" {% if open_in_new_tab %}target="_blank"{% endif %}>{{ project.organisation.title }}</a>
         </div>
     </div>
 </div>
