@@ -180,12 +180,10 @@ h1.dashboard-title {
         @include rem(margin-right, 35px);
     }
 
-    .blueprint-phases {
-        ul {
-            display: inline-block;
-        }
+    .blueprint-phases .list-unstyled {
+        display: inline-block;
 
-        li {
+        .phase-description {
             @include rem(padding-bottom, 10px);
             @include rem(width, 300px);
         }
