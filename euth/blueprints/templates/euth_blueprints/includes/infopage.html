@@ -33,12 +33,13 @@
                     </li>
                 {% endfor %}
                     <li>
+                          {% get_offlinephase as phase %}
                           <span class="icon fa-stack fa-2x">
                             <i class="fa fa-circle fa-stack-2x offlinephase"></i>
-                            <i class="fa fa-calendar fa-fw fa-stack-1x offlinephase" aria-hidden="true"></i>
+                            <i class="fa fa-{{ phase.icon }} fa-fw fa-stack-1x offlinephase" aria-hidden="true"></i>
                           </span>
                           <div class="description">
-                            <strong>Optional</strong><p>{% trans 'Add offline phases to your online participation.' %}</p>
+                            <strong>Optional</strong><p>{{ phase.description }}</p>
                           </div>
                     </li>
 
