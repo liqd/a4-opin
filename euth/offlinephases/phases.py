@@ -14,6 +14,7 @@ class OfflinePhase(phases.PhaseContent):
     name = _('Offlinephase')
     description = _('Add documentation for Offlineevents.')
     module_name = _('offlinephase')
+    icon = 'calendar'
 
     features = {
         'crud': (models.Offlinephase,),
