@@ -196,12 +196,20 @@ h1.dashboard-title {
             @include rem(margin-right, 10px);
         }
 
-        .icon .fa-stack-1x {
+        .icon .fa-stack-1x.onlinephase {
             color: $brand-brand6;
         }
 
-        .icon .fa-stack-2x {
+        .icon .fa-stack-2x.onlinephase {
             color: $brand-brand5;
+        }
+
+        .icon .fa-stack-1x.offlinephase {
+            color: $gray;
+        }
+
+        .icon .fa-stack-2x.offlinephase {
+            color: $gray-lighter;
         }
 
         .description {
