@@ -194,25 +194,19 @@ h1.dashboard-title {
 
         .icon {
             float: left;
-            @include rem(padding-bottom, 4px);
-            @include rem(padding-right, 10px);
+            @include rem(margin-right, 10px);
+        }
+
+        .icon .fa-stack-1x {
+            color: $brand-brand6;
+        }
+
+        .icon .fa-stack-2x {
+            color: $brand-brand5;
         }
 
         .description {
             text-align: left;
-        }
-
-        .circled {
-            background-color: $brand-brand5;
-            color: $brand-brand6;
-            @include rem(font-size, 37px);
-            font-weight: bold;
-            @include rem(width, 70px);
-            @include rem(height, 70px);
-        }
-
-        .circled .fa {
-            @include rem(margin-top, 17px);
         }
     }
 
