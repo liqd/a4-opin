@@ -11,6 +11,22 @@ from euth.maps import phases as map_phases
 from .names import BlueprintNames
 
 
+class BlueprintEnum(Enum):
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value = value
+        obj.label = label
+        return obj
+
+    @property
+    def value(self):
+        return self._value
+
+    @classmethod
+    def get(cls, value):
+        return next(m for m in cls if m._value == value)
+
+
 @unique
 class Aim(Enum):
     collect_ideas = (
@@ -63,98 +79,56 @@ class Aim(Enum):
 
 
 @unique
-class Result(Enum):
+class Result(BlueprintEnum):
     collect_ideas = 3, _('Collection of commented ideas')
     majority_vote = 2, _('Majority vote')
     both = 1, _('Both')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Experience(Enum):
+class Experience(BlueprintEnum):
     five_projects = 4, _('More than 5 participative projects')
     two_projects = 3, _('More than 2 participative projects')
     one_project = 2, ('1-2 participative projects')
     no_projects = 1, ('I have no experiences in organising participative '
                       ' projects')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
-
-class Motivation(Enum):
+class Motivation(BlueprintEnum):
     high = 4, _('High motivation')
     medium = 3, _('Medium motivation')
     low = 2, _('Low motivation')
     not_found = 1, _('No motivation')
     unkown = 2, _('I don\'t know.')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Participants(Enum):
+class Participants(BlueprintEnum):
     few = 0, '< 25'
     some = 1, '25-50'
     many = 2, '50+'
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Duration(Enum):
+class Duration(BlueprintEnum):
     one_weeks = 0, _('1-2 weeks')
     two_weeks = 1, _('2-4 weeks')
     four_weeks = 2, _('more than 4 weeks')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Scope(Enum):
+class Scope(BlueprintEnum):
     local = 0, _('Local')
     regional = 1, _('Regional')
     national = 2, _('National or international')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
-
-class Accessibility(Enum):
+class Accessibility(BlueprintEnum):
     very_easy = 1, _('Very easy to access')
     easy = 2, _('Easy to access')
     hard = 3, _('Hard to access')
     very_hard = 4, _('Very hard to access')
     unkown = 3, _('I don\'t know')
-
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
 
 ComplexityVector = namedtuple(
