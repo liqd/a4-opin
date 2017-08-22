@@ -118,7 +118,7 @@ h1.dashboard-title {
         color: #fff;
     }
 
-    > img {
+    > .blueprint-image {
         @include rem(height, 173px);
         @include rem(width, 260px);
     }
@@ -166,7 +166,7 @@ h1.dashboard-title {
         border: 0;
         margin: 0;
 
-        > img {
+        > .blueprint-image {
             @include rem(height, 173px);
             @include rem(width, 260px);
             display: block;
@@ -306,7 +306,7 @@ h1.dashboard-title {
     .blueprint-tile {
         padding: 0;
 
-        > img {
+        .blueprint-image {
             @include rem(margin-left, 20px);
         }
 
