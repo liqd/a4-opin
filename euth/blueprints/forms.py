@@ -75,7 +75,7 @@ class GetSuggestionForm(forms.Form):
 
     def _clean_enum(self, name, enum):
         try:
-            return enum(int(self.cleaned_data[name]))
+            return enum.get(int(self.cleaned_data[name]))
         except (KeyError, ValueError):
             raise ValidationError(_('Invalid selection'))
 
