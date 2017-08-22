@@ -187,7 +187,6 @@ h1.dashboard-title {
         }
 
         li {
-            overflow: hidden;
             @include rem(padding-bottom, 10px);
             @include rem(width, 300px);
         }
