@@ -997,7 +997,7 @@ msgstr "Eingabephase"
 
 #: euth/ideas/phases.py:30
 msgid "Add new ideas and comment them."
-msgstr "neue Ideen hinzufügen und kommentieren"
+msgstr "Neue Ideen hinzufügen und kommentieren"
 
 #: euth/ideas/phases.py:45
 msgid "Rating phase"
