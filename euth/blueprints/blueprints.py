@@ -288,7 +288,10 @@ blueprints = [
          image='images/agenda_setting.png',
          settings_model=None,
          requirements=Requirements(
-             aims=[Aim.collect_ideas, Aim.discuss_topic, Aim.run_survey, Aim.agenda_setting],
+             aims=[
+                 Aim.collect_ideas, Aim.discuss_topic,
+                 Aim.run_survey, Aim.agenda_setting
+             ],
              results=list(Result),
              experience=Experience.one_project,
              motivation=Motivation.low
