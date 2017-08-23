@@ -118,7 +118,7 @@ h1.dashboard-title {
         color: #fff;
     }
 
-    > img {
+    > .blueprint-image {
         @include rem(height, 173px);
         @include rem(width, 260px);
     }
@@ -139,6 +139,118 @@ h1.dashboard-title {
     background-color: #fff;
     text-align: center;
     padding: 1em;
+
+    .btn-link {
+        display: block;
+        margin: auto;
+        @include rem(padding, 10px 0);
+        font-weight: bold;
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid $gray-light;
+    @include rem(padding, 20px 0);
+}
+
+.dst-modal-infopage {
+    h4 {
+        @include rem(margin-bottom, 20px);
+    }
+
+    .modal-content {
+        @include rem(width, 570px);
+    }
+
+    .blueprint-tile {
+        border: 0;
+        margin: 0;
+
+        > .blueprint-image {
+            @include rem(height, 173px);
+            @include rem(width, 260px);
+            display: block;
+            margin: auto;
+        }
+    }
+
+    .blueprint-description > p {
+        @include rem(margin-bottom, 20px);
+        @include rem(margin-left, 35px);
+        @include rem(margin-right, 35px);
+    }
+
+    .blueprint-phases .list-unstyled {
+        display: inline-block;
+
+        .phase-description {
+            @include rem(padding-bottom, 10px);
+            @include rem(width, 300px);
+        }
+
+        .icon {
+            float: left;
+            @include rem(margin-right, 10px);
+        }
+
+        .icon .fa-stack-1x.onlinephase {
+            color: $brand-brand6;
+        }
+
+        .icon .fa-stack-2x.onlinephase {
+            color: $brand-brand5;
+        }
+
+        .icon .fa-stack-1x.offlinephase {
+            color: $gray;
+        }
+
+        .icon .fa-stack-2x.offlinephase {
+            color: $gray-lighter;
+        }
+
+        .description {
+            text-align: left;
+        }
+    }
+
+    .blueprint-project {
+        .project-tile {
+            @include rem(width, 285px);
+            @include rem(margin-left, 143px);
+        }
+    }
+
+    .blueprint-effort {
+        > span {
+            display: block;
+        }
+
+        .box {
+            background-color: $brand-brand5;
+            border-radius: 5px;
+            @include rem(height, 69px);
+            @include rem(width, 185px);
+            display: block;
+            margin: auto;
+            color: $brand-brand6;
+            @include rem(font-size, 36px);
+            font-weight: bold;
+            @include rem(padding-top, 8px);
+            @include rem(margin-bottom, 10px);
+        }
+    }
+
+    .blueprint-guidelines {
+        .inspirations {
+            @include rem(padding-left, 160px);
+            text-align: left;
+        }
+
+        .inspirations > a {
+            text-decoration: underline;
+        }
+    }
 }
 
 .dst-tile {
@@ -176,8 +288,6 @@ h1.dashboard-title {
 
     h2 {
         text-align: center;
-        margin-bottom: 43px;
-        margin-top: 24px;
     }
 
     .dst-lightbox-progress {
@@ -188,6 +298,18 @@ h1.dashboard-title {
             margin-bottom: 0;
             position: absolute;
             bottom: 0;
+        }
+    }
+
+    .blueprint-tile {
+        padding: 0;
+
+        .blueprint-image {
+            @include rem(margin-left, 20px);
+        }
+
+        > .blueprint-phases {
+            @include rem(padding-top, 10px);
         }
     }
 }

@@ -37,7 +37,7 @@
         {% for blueprint_slug, blueprint in view.blueprints %}
 
         <div class="blueprint-tile">
-            <img src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
+            <img class="blueprint-image" src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
             <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
             <div class="blueprint-description">
                 {{ blueprint.description | linebreaks }}
@@ -55,7 +55,12 @@
                    class="btn btn-primary">
                     {% trans 'use this template' %}
                 </a>
+
+                <button class="btn-link" type="button" data-toggle="modal" data-target="#dst-infopage-{{ blueprint_slug }}">{% trans 'Learn More' %}</button>
             </div>
+
+            {% include 'euth_blueprints/includes/infopage.html'%}
+
         </div>
         {% endfor %}
 </div>

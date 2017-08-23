@@ -14,6 +14,7 @@ class FlashpollPhase(phases.PhaseContent):
     name = _('Flashpoll Phase')
     description = _('Initiate a Mobile polling process.')
     module_name = _('mobile polling')
+    icon = 'times-circle-o'
 
     features = {
         'crud': (models.Flashpoll,),

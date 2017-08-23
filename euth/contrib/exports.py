@@ -228,6 +228,19 @@ class ItemExportWithCommentsMixin(VirtualFieldMixin):
                 )
 
 
+class ItemExportWithCategoriesMixin(VirtualFieldMixin):
+
+    def get_virtual_fields(self, virtual):
+        if 'category' not in virtual:
+            virtual['category'] = _('Category')
+        return super().get_virtual_fields(virtual)
+
+    def get_category_data(self, item):
+        if hasattr(item, 'category') and item.category:
+            return item.category.name
+        return ''
+
+
 class ItemExportWithLocationMixin(VirtualFieldMixin):
     def get_virtual_fields(self, virtual):
         if 'location' not in virtual:

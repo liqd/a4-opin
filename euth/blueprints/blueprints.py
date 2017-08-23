@@ -8,6 +8,25 @@ from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
 
+from .names import BlueprintNames
+
+
+class BlueprintEnum(Enum):
+    def __new__(cls, value, label):
+        obj = object.__new__(cls)
+        obj._value_ = len(cls.__members__) + 1
+        obj._value = value
+        obj.label = label
+        return obj
+
+    @property
+    def value(self):
+        return self._value
+
+    @classmethod
+    def get(cls, value):
+        return next(m for m in cls if m._value == value)
+
 
 @unique
 class Aim(Enum):
@@ -36,7 +55,7 @@ class Aim(Enum):
     )
     run_survey = (
         'run_survey',
-        _('Set the agenda of an event, a process, a project etc.'),
+        _('Learn about what people like most.'),
         [_('Opinion polls, majority votes etc.')]
     )
     run_competition = (
@@ -61,98 +80,56 @@ class Aim(Enum):
 
 
 @unique
-class Result(Enum):
+class Result(BlueprintEnum):
     collect_ideas = 3, _('Collection of commented ideas')
     majority_vote = 2, _('Majority vote')
     both = 1, _('Both')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Experience(Enum):
+class Experience(BlueprintEnum):
     five_projects = 4, _('More than 5 participative projects')
     two_projects = 3, _('More than 2 participative projects')
     one_project = 2, ('1-2 participative projects')
     no_projects = 1, ('I have no experiences in organising participative '
                       ' projects')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
-
-class Motivation(Enum):
+class Motivation(BlueprintEnum):
     high = 4, _('High motivation')
     medium = 3, _('Medium motivation')
     low = 2, _('Low motivation')
     not_found = 1, _('No motivation')
     unkown = 2, _('I don\'t know.')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Participants(Enum):
+class Participants(BlueprintEnum):
     few = 0, '< 25'
     some = 1, '25-50'
     many = 2, '50+'
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Duration(Enum):
+class Duration(BlueprintEnum):
     one_weeks = 0, _('1-2 weeks')
     two_weeks = 1, _('2-4 weeks')
     four_weeks = 2, _('more than 4 weeks')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
-
 
 @unique
-class Scope(Enum):
+class Scope(BlueprintEnum):
     local = 0, _('Local')
     regional = 1, _('Regional')
     national = 2, _('National or international')
 
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
-
-class Accessibility(Enum):
+class Accessibility(BlueprintEnum):
     very_easy = 1, _('Very easy to access')
     easy = 2, _('Easy to access')
     hard = 3, _('Hard to access')
     very_hard = 4, _('Very hard to access')
     unkown = 3, _('I don\'t know')
-
-    def __new__(cls, value, label):
-        obj = object.__new__(cls)
-        obj._value_ = value
-        obj.label = label
-        return obj
 
 
 ComplexityVector = namedtuple(
@@ -195,12 +172,12 @@ Requirements = namedtuple(
 Blueprint = namedtuple(
     'Blueprint', [
         'title', 'description', 'content', 'image', 'settings_model',
-        'requirements', 'complexity'
+        'requirements', 'complexity', 'type'
     ])
 
 
 blueprints = [
-    ('brainstorming',
+    (BlueprintNames.brainstorming.value,
      Blueprint(
          title=_('Brainstorming'),
          description=_('Collect ideas, questions and input concerning '
@@ -217,8 +194,9 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.brainstorming.name
      )),
-    ('map-brainstorming',
+    (BlueprintNames.map_brainstorming.value,
      Blueprint(
          title=_('Spatial Brainstorming'),
          description=_('Collect ideas, questions and input concerning a '
@@ -235,8 +213,9 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.map_brainstorming.name
      )),
-    ('idea-challenge',
+    (BlueprintNames.idea_challenge.value,
      Blueprint(
          title=_('Idea Challenge'),
          description=_('Run a challenge and find the best ideas to solve '
@@ -254,8 +233,9 @@ blueprints = [
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_BD,
+         type=BlueprintNames.idea_challenge.name
      )),
-    ('map-idea-challenge',
+    (BlueprintNames.map_idea_challenge.value,
      Blueprint(
          title=_('Spatial Idea Challenge'),
          description=_('Run a challenge concerning a certain area or space in '
@@ -274,8 +254,9 @@ blueprints = [
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_BD,
+         type=BlueprintNames.map_idea_challenge.name
      )),
-    ('agenda-setting',
+    (BlueprintNames.agenda_setting.value,
      Blueprint(
          title=_('Agenda Setting'),
          description=_('You can involve everyone in planning a meeting. '
@@ -288,17 +269,16 @@ blueprints = [
          image='images/agenda_setting.png',
          settings_model=None,
          requirements=Requirements(
-             aims=[
-                 Aim.collect_ideas, Aim.discuss_topic,
-                 Aim.run_survey, Aim.agenda_setting
-             ],
+             aims=[Aim.collect_ideas, Aim.discuss_topic,
+                   Aim.run_survey, Aim.agenda_setting],
              results=list(Result),
              experience=Experience.one_project,
              motivation=Motivation.low
          ),
          complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.agenda_setting.name
      )),
-    ('commenting-text',
+    (BlueprintNames.commenting_text.value,
      Blueprint(
          title=_('Text Review'),
          description=_('Let participants discuss individual paragraphs of a '
@@ -317,8 +297,9 @@ blueprints = [
              motivation=None
          ),
          complexity=COMPLEXITY_VECTOR_F,
+         type=BlueprintNames.commenting_text.name
      )),
-    ('flashpoll',
+    (BlueprintNames.flashpoll.value,
      Blueprint(
          title=_('Poll'),
          description=_('Run customizable, multi-step polls on OPIN to get '
@@ -337,16 +318,17 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_E,
+         type=BlueprintNames.flashpoll.name
      )),
 ]
 
 
 fallbacks = {
-    Aim.collect_ideas: 'brainstorming',
-    Aim.discuss_topic: 'brainstorming',
-    Aim.agenda_setting: 'agenda-setting',
-    Aim.design_place: 'map-brainstorming',
-    Aim.run_survey: 'flashpoll',
-    Aim.run_competition: 'agenda-setting',
-    Aim.work_document: 'commenting-text'
+    Aim.collect_ideas: BlueprintNames.brainstorming.value,
+    Aim.discuss_topic: BlueprintNames.brainstorming.value,
+    Aim.agenda_setting: BlueprintNames.agenda_setting.value,
+    Aim.design_place: BlueprintNames.map_brainstorming.value,
+    Aim.run_survey: BlueprintNames.flashpoll.value,
+    Aim.run_competition: BlueprintNames.agenda_setting.value,
+    Aim.work_document: BlueprintNames.commenting_text.value
 }
