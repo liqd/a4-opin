@@ -184,13 +184,14 @@ h1.dashboard-title {
         display: inline-block;
 
         .phase-description {
-            @include rem(padding-bottom, 10px);
-            @include rem(width, 300px);
+            @include rem(width, 400px);
+            display: flex;
         }
 
         .icon {
-            float: left;
+            flex: 0 0 auto;
             @include rem(margin-right, 10px);
+            align-self: center;
         }
 
         .icon .fa-stack-1x.onlinephase {
@@ -211,6 +212,7 @@ h1.dashboard-title {
 
         .description {
             text-align: left;
+            align-self: center;
         }
     }
 
