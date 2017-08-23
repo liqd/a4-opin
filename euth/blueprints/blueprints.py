@@ -14,6 +14,7 @@ from .names import BlueprintNames
 class BlueprintEnum(Enum):
     def __new__(cls, value, label):
         obj = object.__new__(cls)
+        obj._value_ = len(cls.__members__) + 1
         obj._value = value
         obj.label = label
         return obj
