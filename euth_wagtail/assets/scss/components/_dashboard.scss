@@ -305,7 +305,7 @@ h1.dashboard-title {
         padding: 0;
 
         .blueprint-image {
-            @include rem(margin-left, 20px);
+            margin: auto;
         }
 
         > .blueprint-phases {
