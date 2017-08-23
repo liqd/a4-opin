@@ -12,7 +12,7 @@
 
         <div class="blueprint-description border-bottom">
             {{ blueprint.description | linebreaks }}
-            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary" target="_blank">
+            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
             {% trans 'Use this template' %}
             </a>
         </div>
@@ -91,7 +91,7 @@
         {% endwith %}
 
         <div class="blueprint-footer">
-            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary" target="_blank">
+            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
             {% trans 'Use this template' %}
             </a>
         </div>
