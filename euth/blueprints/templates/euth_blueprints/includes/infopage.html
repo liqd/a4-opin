@@ -23,7 +23,7 @@
             <ul class="list-unstyled">
                 {% for phase_content in blueprint.content %}
                     <li class="phase-description">
-                          <span class="icon fa-stack fa-2x">
+                          <span class="icon fa-stack fa-3x">
                             <i class="fa fa-circle fa-stack-2x onlinephase"></i>
                             <i class="fa fa-{{ phase_content.icon }} fa-fw fa-stack-1x onlinephase" aria-hidden="true"></i>
                           </span>
@@ -34,7 +34,7 @@
                 {% endfor %}
                     <li>
                           {% get_offlinephase as phase %}
-                          <span class="icon fa-stack fa-2x">
+                          <span class="icon fa-stack fa-3x">
                             <i class="fa fa-circle fa-stack-2x offlinephase"></i>
                             <i class="fa fa-{{ phase.icon }} fa-fw fa-stack-1x offlinephase" aria-hidden="true"></i>
                           </span>
