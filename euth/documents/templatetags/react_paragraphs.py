@@ -5,7 +5,6 @@ from django import template
 
 from euth.documents.serializers import DocumentSerializer
 
-
 register = template.Library()
 
 

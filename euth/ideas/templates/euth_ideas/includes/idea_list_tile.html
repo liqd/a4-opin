@@ -20,6 +20,11 @@
                     {{ idea.name }}
                     </a>
                 </h3>
+
+                {% if idea.category %}
+                <span class="label label-secondary label-xs">{{ idea.category }}</span>
+                {% endif %}
+
                 <div class="avatar-small">
                     <span class="circled circled-xs" style="background-image: url({% get_avatar idea.creator 'avatar_small' %})"></span>
                     <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>

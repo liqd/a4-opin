@@ -4,6 +4,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 
 from adhocracy4 import transforms
+from adhocracy4.categories import models as category_model
 from adhocracy4.comments import models as comment_models
 from adhocracy4.images import fields
 from adhocracy4.models import query
@@ -15,7 +16,7 @@ class IdeaQuerySet(query.RateableQuerySet, query.CommentableQuerySet):
     pass
 
 
-class Idea(module_models.Item):
+class Idea(module_models.Item, category_model.Categorizable):
     slug = AutoSlugField(populate_from='name', unique=True)
     name = models.CharField(max_length=120)
     description = RichTextField()

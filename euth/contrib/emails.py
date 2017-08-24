@@ -1,6 +1,7 @@
 from email.mime.image import MIMEImage
 
 from django.contrib.staticfiles import finders
+
 from adhocracy4.emails.mixins import SingleTemplateMixin
 
 

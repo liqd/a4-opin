@@ -1,3 +1,5 @@
+import math
+
 from django.template import Context
 from django.views import generic
 from rules.contrib import views as rules_views
@@ -7,7 +9,15 @@ from euth.dashboard.views import DashboardBaseMixin
 from . import blueprints, forms
 
 
+def custom_round(x):
+    if x % 1 < 0.5:
+        return math.floor(x)
+    else:
+        return math.ceil(x)
+
+
 def filter_blueprints(aim, result, experience, motivation,
+                      participants, scope, duration, accessibility,
                       options=blueprints.blueprints,
                       fallbacks=blueprints.fallbacks):
     candidates = []
@@ -19,19 +29,76 @@ def filter_blueprints(aim, result, experience, motivation,
         requirements = blueprint.requirements
 
         if result and experience and motivation:
-            if result not in requirements.results:
+
+            req_results = requirements.results
+            req_experience = requirements.experience
+            req_motivation = requirements.motivation
+
+            if req_results and result not in req_results:
                 continue
-            if requirements.experience.value > experience.value:
+            if req_experience and req_experience.value > experience.value:
                 continue
-            if requirements.motivation.value > motivation.value:
+            if req_motivation and req_motivation.value > motivation.value:
                 continue
-        candidates.append((name, blueprint))
+
+        timeneeded = compute_time_needed(
+                        blueprint, participants, duration, scope,
+                        motivation, accessibility, experience
+                        )
+        candidates.append((name, blueprint, timeneeded))
 
     if not candidates:
         name = fallbacks[aim]
-        candidates.append((name, dict(options)[name]))
+        blueprint = dict(options)[name]
+        timeneeded = compute_time_needed(
+                        blueprint, participants, duration, scope,
+                        motivation, accessibility, experience
+                        )
+        candidates.append((name, blueprint, timeneeded))
 
     return candidates
+
+
+def compute_complexity(blueprint, participants, duration, scope):
+
+    return custom_round(sum((
+        blueprint.complexity.participants[0] +
+        participants.value * blueprint.complexity.participants[1],
+        blueprint.complexity.duration[0] +
+        duration.value * blueprint.complexity.duration[1],
+        blueprint.complexity.scope[0] +
+        scope.value * blueprint.complexity.scope[1]
+    )))
+
+
+def compute_mobilisation(motivation, accessibility):
+    # modify to match different coding for motivation
+    return custom_round((5 - motivation.value + accessibility.value)/2)
+
+
+def compute_time_needed(
+        blueprint, participants, duration, scope,
+        motivation, accessibility, experience
+):
+    complexity = compute_complexity(blueprint, participants, duration, scope)
+    mobilisation = compute_mobilisation(motivation, accessibility)
+    # modify to match different coding for experience
+    value = (complexity + 1) * (mobilisation + 5 - experience.value)
+
+    if value < 13:
+        return 5
+    elif value < 21:
+        return 10
+    elif value < 28:
+        return 15
+    elif value < 35:
+        return 20
+    elif value < 40:
+        return 25
+    elif value < 50:
+        return 30
+    else:
+        return 35
 
 
 class SuggestFormView(DashboardBaseMixin,
@@ -39,7 +106,7 @@ class SuggestFormView(DashboardBaseMixin,
                       generic.FormView):
     template_name = 'euth_blueprints/form.html'
     form_class = forms.GetSuggestionForm
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
 
     def form_valid(self, form):
         context = {

@@ -2,11 +2,16 @@ from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.projects import mixins
+from euth.projects import mixins as prj_mixins
 
 from . import models
 
 
-class DocumentCreateView(mixins.ProjectMixin, generic.TemplateView):
+class DocumentCreateView(
+    mixins.ProjectMixin,
+    generic.TemplateView,
+    prj_mixins.ProjectPhaseMixin
+):
     template_name = 'euth_documents/document_form.html'
 
     @property

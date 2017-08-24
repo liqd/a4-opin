@@ -10,10 +10,12 @@ from django.views import generic
 from rules.compat import access_mixins as mixins
 from rules.contrib import views as rules_views
 
+from adhocracy4.filters import views as filter_views
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from euth.blueprints import mixins as blueprint_mixins
 from euth.blueprints import blueprints
+from euth.contrib import filters
 from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.organisations import models as org_models
@@ -22,7 +24,7 @@ from euth.users import models as user_models
 from . import emails, forms
 
 
-def dashboard(request):
+def dashboard_default(request):
     return redirect('dashboard-profile')
 
 
@@ -38,6 +40,10 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
         if 'organisation_slug' in self.kwargs:
             slug = self.kwargs['organisation_slug']
             return get_object_or_404(org_models.Organisation, slug=slug)
+        if 'project_slug' in self.kwargs:
+            slug = self.kwargs['project_slug']
+            project = get_object_or_404(project_models.Project, slug=slug)
+            return project.organisation
         else:
             return self.request.user.organisation_set.first()
 
@@ -106,14 +112,15 @@ class DashboardOrganisationUpdateView(DashboardBaseMixin,
 
 class DashboardProjectListView(DashboardBaseMixin,
                                rules_views.PermissionRequiredMixin,
-                               generic.ListView):
+                               filter_views.FilteredListView):
     model = project_models.Project
     template_name = 'euth_dashboard/project_list.html'
     permission_required = 'euth_organisations.modify_organisation'
     menu_item = 'project'
+    filter_set = filters.ArchivedFilter
 
     def get_queryset(self):
-        return self.model.objects.filter(
+        return super().get_queryset().filter(
             organisation=self.organisation
         )
 
@@ -129,7 +136,7 @@ class DashboardBlueprintListView(DashboardBaseMixin,
                                  generic.TemplateView):
     template_name = 'euth_dashboard/blueprint_list.html'
     blueprints = blueprints.blueprints
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
     menu_item = 'project'
 
     def get_permission_object(self):
@@ -145,7 +152,7 @@ class DashboardProjectCreateView(DashboardBaseMixin,
     form_class = forms.ProjectCreateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project succesfully created.')
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.add_project'
     menu_item = 'project'
 
     def get_context_data(self, **kwargs):
@@ -190,7 +197,8 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
     form_class = forms.ProjectUpdateForm
     template_name = 'euth_dashboard/project_form.html'
     success_message = _('Project successfully updated.')
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
     def get_context_data(self, **kwargs):
@@ -201,9 +209,6 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
             context = services.fp_context_data_for_update_view(context, self)
 
         return context
-
-    def get_permission_object(self):
-        return self.organisation
 
     def get_success_url(self):
         return reverse('dashboard-project-list',
@@ -229,13 +234,42 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
         return kwargs
 
 
+class DashboardProjectArchiveView(DashboardBaseMixin,
+                                  rules_views.PermissionRequiredMixin,
+                                  generic.UpdateView):
+    model = project_models.Project
+    form_class = forms.ProjectArchiveForm
+    success_message = _('Project has been archived.')
+    permission_required = 'a4projects.add_project'
+    slug_url_kwarg = 'project_slug'
+    menu_item = 'project'
+    archiving = False
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def get_success_url(self):
+        return reverse('dashboard-project-list',
+                       kwargs={
+                           'organisation_slug': self.organisation.slug,
+                       })
+
+    def form_valid(self, form):
+        project = form.instance
+        project.is_archived = self.archiving and project.has_finished
+        form.save()
+        return super().form_valid(form)
+
+
 class DashboardProjectDeleteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  generic.DeleteView):
     model = project_models.Project
     form_class = forms.ProjectUpdateForm
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
     success_message = _('Your project has been deleted.')
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
     @property
@@ -262,31 +296,29 @@ class DashboardProjectDeleteView(DashboardBaseMixin,
 class DashboardProjectInviteView(DashboardBaseMixin,
                                  rules_views.PermissionRequiredMixin,
                                  SuccessMessageMixin,
+                                 generic.detail.SingleObjectMixin,
                                  generic.FormView):
     form_class = forms.ProjectInviteForm
     template_name = 'euth_dashboard/project_invites.html'
     success_message = _("Invitations successfully sent.")
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
+    model = project_models.Project
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
-    def get_permission_object(self):
-        return self.organisation
-
-    @functional.cached_property
-    def project(self):
-        return project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs['project'] = self.project
+        kwargs['project'] = self.object
         return kwargs
 
     def form_valid(self, form):
         emails = form.cleaned_data['emails']
         user = self.request.user
-        project = self.project
+        project = self.object
         for email in emails:
             member_models.Invite.objects.invite(user, project, email)
         return super().form_valid(form)
@@ -294,37 +326,40 @@ class DashboardProjectInviteView(DashboardBaseMixin,
     def get_success_url(self):
         return reverse('dashboard-project-users',
                        kwargs={
-                           'organisation_slug': self.organisation.slug,
-                           'slug': self.project.slug
+                           'project_slug': self.object.slug
                        })
 
 
 class DashboardProjectUserView(DashboardBaseMixin,
                                rules_views.PermissionRequiredMixin,
                                SuccessMessageMixin,
+                               generic.detail.SingleObjectMixin,
                                generic.FormView):
 
     form_class = forms.ProjectUserForm
     template_name = 'euth_dashboard/project_users.html'
     success_message = _("User request successfully updated.")
-    permission_required = 'euth_organisations.initiate_project'
+    permission_required = 'a4projects.change_project'
+    model = project_models.Project
+    slug_url_kwarg = 'project_slug'
     menu_item = 'project'
 
-    def get_permission_object(self):
-        return self.organisation
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(request, *args, **kwargs)
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         qs = member_models.Request.objects.order_by('created').filter(
-            project__slug=self.kwargs['slug']
+            project__slug=self.kwargs['project_slug']
         )
         kwargs['requests__queryset'] = qs
         qs = member_models.Invite.objects.order_by('created').filter(
-            project__slug=self.kwargs['slug']
+            project__slug=self.kwargs['project_slug']
         )
         kwargs['invites__queryset'] = qs
         qs = user_models.User.objects.order_by('email').filter(
-            project_participant__slug=self.kwargs['slug']
+            project_participant__slug=self.kwargs['project_slug']
         )
         kwargs['users__queryset'] = qs
         kwargs['moderators__instance'] = self.project
@@ -333,14 +368,7 @@ class DashboardProjectUserView(DashboardBaseMixin,
 
     @functional.cached_property
     def project(self):
-        return project_models.Project.objects.get(
-            slug=self.kwargs['slug']
-        )
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['project'] = self.project
-        return context
+        return self.object
 
     def get_success_url(self):
         return self.request.path

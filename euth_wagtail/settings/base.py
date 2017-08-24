@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
     'wagtail.contrib.wagtailstyleguide',
+    'wagtail.contrib.settings',
 
     'modelcluster',
     'taggit',
@@ -72,7 +73,9 @@ INSTALLED_APPS = [
     'adhocracy4.ratings.apps.RatingsConfig',
     'adhocracy4.reports.apps.ReportsConfig',
     'adhocracy4.modules.apps.ModulesConfig',
+    'adhocracy4.categories.apps.CategoriesConfig',
     'adhocracy4.comments.apps.CommentsConfig',
+    'adhocracy4.maps.apps.MapsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -97,6 +100,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'euth.contrib.middleware.TimezoneMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -123,6 +127,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'wagtail.contrib.settings.context_processors.settings',
             ],
         },
     },
@@ -157,7 +162,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_RESTRICT_BY_USER = 'username'
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 CKEDITOR_CONFIGS = {
@@ -216,7 +221,7 @@ MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -235,6 +240,9 @@ LANGUAGES = [
     ('uk', _('Ukrainian')),
     ('el', _('Greek')),
     ('ru', _('Russian')),
+    ('ka', _('Georgian')),
+    ('mk', _('Macedonian')),
+    ('mt', _('Maltese')),
 ]
 
 PARLER_LANGUAGES = {
@@ -370,13 +378,15 @@ FLASHPOLL_BACK_USER = "fp_management"
 FLASHPOLL_BACK_PASSWORD = "53c4100e8ab143fe59fcb2e743cf4aba662ad25lacab0eb37fb9c69d8f27363fa19f0531bd681"
 GOOGLE_API_KEY = "AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc"
 
-BASE_MAP = 'https://{s}.tile.openstreetmap.org/'
-
-MAP_BOUNDING_BOX = ('[[[34.95799531086792,-28.388671875],'
-            '[71.35706654962706,-28.388671875],'
-            '[71.35706654962706,50.88867187499999],'
-            '[34.95799531086792,50.88867187499999],'
-            '[34.95799531086792,-28.388671875]]]')
+A4_MAP_ATTRIBUTION = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+A4_MAP_BASEURL = 'https://{s}.tile.openstreetmap.org/'
+A4_MAP_BOUNDING_BOX = [
+    [[34.95799531086792,-28.388671875],
+     [71.35706654962706,-28.388671875],
+     [71.35706654962706,50.88867187499999],
+     [34.95799531086792,50.88867187499999],
+     [34.95799531086792,-28.388671875]]
+]
 
 # Adhocracy4
 
@@ -384,6 +394,7 @@ A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
 
 A4_COMMENTABLES = (
     ('euth_ideas', 'idea'),
+    ('euth_maps', 'mapidea'),
     ('euth_documents', 'paragraph'),
     ('euth_documents', 'document'),
     ('a4comments', 'comment'),
@@ -391,10 +402,12 @@ A4_COMMENTABLES = (
 
 A4_RATEABLES = (
     ('euth_ideas', 'idea'),
+    ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
 
 A4_REPORTABLES = (
     ('euth_ideas', 'ideas'),
+    ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )

@@ -1,5 +1,8 @@
+import itertools
+
 from euth.blueprints import blueprints as b
-from euth.blueprints.views import filter_blueprints
+from euth.blueprints.views import compute_time_needed, filter_blueprints
+from tests.blueprints import testdata
 
 test_blueprints = [
     ('brainstorming', b.Blueprint(
@@ -14,6 +17,8 @@ test_blueprints = [
             experience=b.Experience.no_projects,
             motivation=b.Motivation.low
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
+        type='brainstorming'
     )),
     ('ideacollection', b.Blueprint(
         title='ideacollection',
@@ -27,6 +32,8 @@ test_blueprints = [
             experience=b.Experience.one_project,
             motivation=b.Motivation.medium
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
+        type='ideacollection'
     )),
     ('fallback', b.Blueprint(
         title='fallback',
@@ -40,6 +47,8 @@ test_blueprints = [
             experience=b.Experience.five_projects,
             motivation=b.Motivation.medium
         ),
+        complexity=b.COMPLEXITY_VECTOR_AC,
+        type='fallback'
     ))
 ]
 
@@ -55,6 +64,10 @@ def test_blueprintsfilter_allmatch():
         'result': b.Result.collect_ideas,
         'experience': b.Experience.five_projects,
         'motivation': b.Motivation.medium,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'options': test_blueprints,
         'fallbacks': fallbacks
     }
@@ -72,6 +85,10 @@ def test_blueprintsfilter_matchone():
         'result': b.Result.both,
         'experience': b.Experience.one_project,
         'motivation': b.Motivation.medium,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'options': test_blueprints,
         'fallbacks': fallbacks
     }
@@ -87,9 +104,69 @@ def test_blueprintsfilter_none():
         'result': b.Result.collect_ideas,
         'experience': b.Experience.no_projects,
         'motivation': b.Motivation.not_found,
+        'participants': b.Participants.some,
+        'scope': b.Scope.local,
+        'duration': b.Duration.one_weeks,
+        'accessibility': b.Accessibility.hard,
         'fallbacks': fallbacks
     }
 
     result = filter_blueprints(options=test_blueprints, **data)
     assert len(result) == 1
     assert result[0][0] == 'fallback'
+
+
+def test_time_needed():
+    blueprint = b.Blueprint(
+        title='brainstorming',
+        description='desc',
+        content=[],
+        image='',
+        settings_model=None,
+        requirements=b.Requirements(
+            aims=[b.Aim.collect_ideas],
+            results=[b.Result.collect_ideas],
+            experience=b.Experience.no_projects,
+            motivation=b.Motivation.low
+        ),
+        complexity=None,
+        type='brainstorming'
+    )
+
+    test_blueprints = [
+        (
+            'AC', blueprint._replace(
+                complexity=b.COMPLEXITY_VECTOR_AC
+            )
+        ),
+        (
+            'BD', blueprint._replace(
+                complexity=b.COMPLEXITY_VECTOR_BD
+            ),
+        ),
+        (
+            'E', blueprint._replace(
+                complexity=b.COMPLEXITY_VECTOR_E
+            ),
+        ),
+        (
+            'F', blueprint._replace(
+                complexity=b.COMPLEXITY_VECTOR_F
+            )
+        )
+    ]
+
+    speciemens = list(itertools.product(
+        b.Participants,
+        b.Duration,
+        b.Scope,
+        b.Motivation,
+        b.Accessibility,
+        b.Experience
+    ))
+
+    for (bid, blueprint) in test_blueprints:
+        for args in speciemens:
+            computed = compute_time_needed(blueprint, *args)
+            raw_args = [arg.value for arg in args]
+            assert computed == testdata.time_needed_oracle(bid, *raw_args)

@@ -22,12 +22,9 @@
     }
 }
 
-.comment-list {
-    @include rem('padding-top', 79px);
-}
-
 .comment {
     @include rem(margin-bottom, 50px);
+    @include clearfix;
 
     .comment-author {
         color: $black;
@@ -67,6 +64,14 @@
         margin: 0 40px 0 40px;
     }
 
+    & .comment-reply-button {
+        font-weight: bold;
+
+        i {
+            @include rem(margin-right, .5em);
+        }
+    }
+
     & .general-form {
         @include rem(margin-bottom, 88px);
     }
@@ -76,6 +81,10 @@
         margin-right: .5em;
         font: normal normal normal 14px/1 "FontAwesome";
         font-size: inherit;
+    }
+
+    & .navbar-right {
+        margin-right: 0;
     }
 
     & .navbar-default {
@@ -91,12 +100,15 @@
     & .nav {
         padding: 0;
 
-        & li a {
-            padding: 2px 14px 2px 0;
+        & .dropdown li a,
+        & .dropdown li button {
+            @include rem(padding, 10px);
+            margin: 0;
+
             font-family: $font-family-sans-serif;
             @include rem(font-size, 14px);
             line-height: 1.6;
-            text-align: justify;
+            text-align: center;
             font-weight: bold;
         }
 
@@ -117,6 +129,10 @@
         & .rating {
             float: left;
         }
+    }
+
+    & .rating {
+        float: left;
     }
 }
 

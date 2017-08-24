@@ -65,6 +65,19 @@
                 </div>
                 {{ form.image.errors }}
             </div>
+
+            {% if form.show_categories %}
+            <div class="form-group">
+                <label class="control-label" for="{{ form.category.id_for_label }}">{% trans 'Category'%}</label>
+                {% if form.category.errors %}
+                    {{ form.category|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.category|add_class:"form-control"}}
+                {% endif %}
+                {{ form.category.errors }}
+            </div>
+            {% endif %}
+
             {% block additional_fields %}{% endblock %}
             {% block post_form %}
             <div class="row button-row">

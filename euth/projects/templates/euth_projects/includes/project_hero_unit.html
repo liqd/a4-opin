@@ -12,7 +12,9 @@
                     {% if not project.is_public %}
                     <span class="label label-private">{% trans 'private' %}</span>
                     {% endif %}
-                    {% if project.has_finished %}
+                    {% if project.is_archived %}a
+                    <span class="label label-archived">{% trans 'archived' %}</span>
+                    {% elif project.has_finished %}
                     <span class="label label-finished">{% trans 'finished' %}</span>
                     {% elif days %}
                     <span class="label label-runningout">{{ days }}</span>
@@ -28,9 +30,9 @@
                 </p>
                 <p class="herounit-description">{{ project.description | truncatechars:200 }}</p>
 
-                {% has_perm 'a4projects.edit_project' user project as can_edit_project %}
-                {% if can_edit_project %}
-                    <a href="{% url 'dashboard-project-edit' project.organisation.slug project.slug %}" class="btn btn-dark btn-primary btn-sm">
+                {% has_perm 'a4projects.change_project' user project as can_change_project %}
+                {% if can_change_project %}
+                    <a href="{% url 'dashboard-project-edit' project.slug %}" class="btn btn-dark btn-primary btn-sm">
                         <i class="fa fa-edit"></i> {% trans 'edit' %}
                     </a>
                 {% endif %}

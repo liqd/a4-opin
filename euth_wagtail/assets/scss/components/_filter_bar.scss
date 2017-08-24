@@ -1,0 +1,29 @@
+.filter-bar {
+    @include clearfix;
+    font-size: $font-size-small;
+    padding-bottom: 10px;
+
+    .btn {
+        background-color: white;
+        border: solid 1px $gray-light;
+    }
+
+    .filter-group {
+        display: inline-block;
+    }
+
+    .open .btn {
+        background-color: $gray-light;
+    }
+
+    @media (max-width: 50em) {
+        .filter-group {
+            display: block;
+        }
+
+        .dropdown-toggle {
+            width: 100%;
+            max-width: none;
+        }
+    }
+}

@@ -1,4 +1,3 @@
-import datetime
 import json
 import time
 import uuid
@@ -9,111 +8,114 @@ from django.conf import settings
 from requests.auth import HTTPBasicAuth
 
 
-def send_to_flashpoll(data):
-    if 'current_preview' in data:
-        if 'save_draft' in data and data['current_preview'] == 'True':
-            # Handling unpublish
-            url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
-                base_url=settings.FLASHPOLL_BACK_URL,
-                poll_id=data['module_settings-key']
-            )
-            # Handle delete
-            headers = {'Content-type': 'application/json'}
-            requests.delete(url_poll,
-                            headers=headers,
-                            auth=HTTPBasicAuth(
-                                settings.FLASHPOLL_BACK_USER,
-                                settings.FLASHPOLL_BACK_PASSWORD))
-        else:
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'],
-                "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'],
-                "%d/%m/%Y %H:%M").timetuple())
-            jsonGenerator = {}
-            jsonGenerator['title'] = data['module_settings-title']
-            jsonGenerator['shortDescription'] = data[
-                'module_settings-shortDescription']
-            jsonGenerator['longDescription'] = data[
-                'module_settings-longDescription']
-            jsonGenerator['concludeMessage'] = data[
-                'module_settings-concludeMessage']
-            jsonGenerator['descriptionMediaURLs'] = [""]
-            jsonGenerator['keywords'] = []
-            jsonGenerator['resultVisibility'] = 0
-            jsonGenerator['startTime'] = startTime
-            jsonGenerator['endTime'] = endTime
-            jsonGenerator['preview'] = 'save_draft' not in data
-            # context
-            jsonGenerator['lab'] = 'opin'
-            jsonGenerator['domain'] = 'opin'
-            jsonGenerator['campaign'] = 'default'
-            # location
-            jsonGenerator['geofenceLocation'] = data[
-                'module_settings-geofenceLocation']
-            jsonGenerator['geofenceRadius'] = 0
-            jsonGenerator['geofenceId'] = ''
-            # questions
-            q = 1
-            questions = []
-            question_key = "module_settings-question_"+str(q)+"_questionType"
-            while question_key in data:
-                question = {}
-                question['questionText'] = data[
-                    "module_settings-question_"+str(q)+"_questionText"]
-                question['orderId'] = q
-                question['questionType'] = data[
-                    "module_settings-question_"+str(q)+"_questionType"]
-                if "module_settings-question_"+str(q)+"_mandatory" in data:
-                    question['mandatory'] = True
+def send_to_flashpoll(data, project):
+    if 'save_draft' in data and data['current_preview'] == 'True':
+        # Handling unpublish
+        url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=data['module_settings-key']
+        )
+
+        # Handle delete
+        headers = {'Content-type': 'application/json'}
+        requests.delete(url_poll,
+                        headers=headers,
+                        auth=HTTPBasicAuth(
+                            settings.FLASHPOLL_BACK_USER,
+                            settings.FLASHPOLL_BACK_PASSWORD))
+    else:
+        phase = [p for p in project.phases
+                 if p.type == 'euth_flashpoll:010:poll'][0]
+        # dates
+        startTime = time.mktime(phase.start_date.timetuple())
+        endTime = time.mktime(phase.end_date.timetuple())
+
+        jsonGenerator = {}
+        jsonGenerator['title'] = phase.name
+        jsonGenerator['shortDescription'] = phase.description
+        jsonGenerator['longDescription'] = ""
+        jsonGenerator['concludeMessage'] = ""
+        jsonGenerator['descriptionMediaURLs'] = [""]
+        jsonGenerator['descriptionMediaURLs'] = [""]
+        jsonGenerator['keywords'] = []
+        jsonGenerator['resultVisibility'] = 0
+        jsonGenerator['startTime'] = startTime
+        jsonGenerator['endTime'] = endTime
+        jsonGenerator['preview'] = 'save_draft' not in data
+
+        # isPrivate
+        jsonGenerator['isPrivate'] = not project.is_public
+
+        # context
+        jsonGenerator['lab'] = 'opin'
+        jsonGenerator['domain'] = 'opin'
+        jsonGenerator['campaign'] = 'default'
+        # location
+        jsonGenerator['geofenceLocation'] = data[
+            'module_settings-geofenceLocation']
+        jsonGenerator['geofenceRadius'] = 0
+        jsonGenerator['geofenceId'] = ''
+        # questions
+        q = 1
+        questions = []
+        question_key = "module_settings-question_"+str(q)+"_questionType"
+        while question_key in data:
+            question = {}
+            question['questionText'] = data[
+                "module_settings-question_"+str(q)+"_questionText"]
+            question['orderId'] = q
+            question['questionType'] = data[
+                "module_settings-question_"+str(q)+"_questionType"]
+            if "module_settings-question_"+str(q)+"_mandatory" in data:
+                question['mandatory'] = True
+            else:
+                question['mandatory'] = False
+            question['mediaURLs'] = [""]
+            # answers
+            a = 1
+            answers = []
+            answer_key = "module_settings-question_" + \
+                str(q)+"_choice_"+str(a)+"_answerText"
+            while answer_key in data:
+                answer = {}
+                answer['answerText'] = data[
+                    "module_settings-question_"
+                    + str(q)
+                    + "_choice_"+str(a)
+                    + "_answerText"
+                ]
+                answer['orderId'] = a
+                answer['mediaURL'] = ''
+                if (data["module_settings-question_"
+                         + str(q)
+                         +
+                         "_questionType"] == "FREETEXT"):
+                    answer['freetextAnswer'] = True
                 else:
-                    question['mandatory'] = False
-                question['mediaURLs'] = [""]
-                # answers
-                a = 1
-                answers = []
+                    answer['freetextAnswer'] = False
+                answers.append(answer)
+                a = a + 1
                 answer_key = "module_settings-question_" + \
                     str(q)+"_choice_"+str(a)+"_answerText"
-                while answer_key in data:
-                    answer = {}
-                    answer['answerText'] = data[
-                        "module_settings-question_"
-                        + str(q)
-                        + "_choice_"+str(a)
-                        + "_answerText"
-                    ]
-                    answer['orderId'] = a
-                    answer['mediaURL'] = ''
-                    if (data["module_settings-question_"
-                             + str(q)
-                             +
-                             "_questionType"] == "FREETEXT"):
-                        answer['freetextAnswer'] = True
-                    else:
-                        answer['freetextAnswer'] = False
-                    answers.append(answer)
-                    a = a + 1
-                    answer_key = "module_settings-question_" + \
-                        str(q)+"_choice_"+str(a)+"_answerText"
-                question['answers'] = answers
-                questions.append(question)
-                q = q + 1
-                question_key = "module_settings-question_" + \
-                    str(q)+"_questionType"
-            jsonGenerator['questions'] = questions
-            json_data = json.dumps(jsonGenerator)
-            url_poll = '{base_url}/poll/{poll_id}/opin'.format(
-                base_url=settings.FLASHPOLL_BACK_URL,
-                poll_id=data['module_settings-key']
-            )
-            # Handle post
-            headers = {'Content-type': 'application/json'}
-            requests.post(url_poll,
-                          data=json_data,
-                          headers=headers,
-                          auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
-                                             settings.FLASHPOLL_BACK_PASSWORD))
+            question['answers'] = answers
+            questions.append(question)
+            q = q + 1
+            question_key = "module_settings-question_" + \
+                str(q)+"_questionType"
+        jsonGenerator['questions'] = questions
+        json_data = json.dumps(jsonGenerator)
+        url_poll = '{base_url}/poll/{poll_id}/opin'.format(
+            base_url=settings.FLASHPOLL_BACK_URL,
+            poll_id=data['module_settings-key']
+        )
+
+        # Handle post
+        headers = {'Content-type': 'application/json'}
+        requests.post(url_poll,
+                      data=json_data,
+                      headers=headers,
+                      auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                         settings.FLASHPOLL_BACK_PASSWORD))
 
 
 def fp_context_data_for_create_view(context, view):
@@ -154,6 +156,19 @@ def fp_context_data_for_update_view(context, view):
                                           ))
     context['pollresult'] = json.loads(res.text)
 
+    url_poll = '{base_url}/poll/{poll_id}/results'.format(
+        base_url=settings.FLASHPOLL_BACK_URL,
+        poll_id=context['pollid']
+    )
+
+    headers = {'Content-type': 'application/json'}
+    res = requests.get(url_poll,
+                       headers=headers,
+                       auth=HTTPBasicAuth(settings.FLASHPOLL_BACK_USER,
+                                          settings.FLASHPOLL_BACK_PASSWORD
+                                          ))
+    context['pollresults'] = json.loads(res.text)
+
     return context
 
 
@@ -162,30 +177,9 @@ def fp_context_data(module_settings):
     # case submitted
     if ('save_draft' in data) or ('publish' in data):
         jsonGenerator = {}
-        jsonGenerator['title'] = data['module_settings-title']
-        jsonGenerator['shortDescription'] = data[
-            'module_settings-shortDescription']
-        jsonGenerator['longDescription'] = data[
-            'module_settings-longDescription']
-        jsonGenerator['concludeMessage'] = data[
-            'module_settings-concludeMessage']
         jsonGenerator['descriptionMediaURLs'] = [""]
         jsonGenerator['keywords'] = []
         jsonGenerator['resultVisibility'] = 0
-        if (data['module_settings-startTime'] != ['']
-                and data['module_settings-endTime'] != ['']):
-            startTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-startTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            endTime = time.mktime(datetime.datetime.strptime(
-                data['module_settings-endTime'][0],
-                "%d/%m/%Y %H:%M").timetuple())
-            jsonGenerator['startTime'] = startTime
-            jsonGenerator['endTime'] = endTime
-        else:
-            jsonGenerator['startTime'] = data['module_settings-startTime']
-            jsonGenerator['endTime'] = data['module_settings-endTime']
-
         # location
         jsonGenerator['geofenceLocation'] = data[
             'module_settings-geofenceLocation']
@@ -303,26 +297,8 @@ def fp_context_data(module_settings):
     module_settings.fields['poll'] = forms.CharField(
         widget=forms.Textarea)
     module_settings.initial['poll'] = json.dumps(poll)
-    # description
-    module_settings.fields['title'] = forms.CharField(
-        label='Title', max_length=800)
-    module_settings.initial['title'] = poll['title']
-    module_settings.fields['shortDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Subtitle')
-    module_settings.initial['shortDescription'] = poll['shortDescription']
-    module_settings.fields['longDescription'] = forms.CharField(
-        widget=forms.Textarea, label='Long description', required=False)
-    module_settings.initial['longDescription'] = poll['longDescription']
-    module_settings.fields['concludeMessage'] = forms.CharField(
-        label='Conclude message', required=False, max_length=300)
-    module_settings.initial['concludeMessage'] = poll['concludeMessage']
-    module_settings.fields['startTime'] = forms.CharField(
-        label='Start time', required=True)
-    module_settings.initial['startTime'] = poll['startTime']
-    module_settings.fields['endTime'] = forms.CharField(
-        label='End time', required=True)
-    module_settings.initial['endTime'] = poll['endTime']
 
+    # geofenceLocation
     module_settings.fields['geofenceLocation'] = forms.CharField(
         widget=forms.Textarea, label='Location', required=True)
     module_settings.initial['geofenceLocation'] = poll['geofenceLocation']

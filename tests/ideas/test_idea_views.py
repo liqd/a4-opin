@@ -1,5 +1,6 @@
 import pytest
 from django.core.urlresolvers import reverse
+from django.utils import timezone
 from freezegun import freeze_time
 
 from euth.ideas import models, phases, views
@@ -165,3 +166,84 @@ def test_sort_mixin(rf):
     response = view(rf.get('/', {'sort': 'created'}))
     assert response.context_data['view'].sort == 'created'
     assert list(response.context_data['post_list']) == [post1, post2]
+
+
+@pytest.mark.django_db
+def test_ideas_download_by_anonymous_forbidden(client, idea_factory, user):
+
+    idea = idea_factory()
+    module = idea.module
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    response = client.get(url)
+    assert response.status_code == 302
+
+
+@pytest.mark.django_db
+def test_ideas_download_by_authenticated_user_forbidden(
+        client, idea_factory, user):
+    idea1 = idea_factory()
+    module = idea1.module
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    client.login(username=user.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 403
+    module.project.moderators.add(user)
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_ideas_download_by_moderator_is_allowed(client, idea_factory, user):
+    idea1 = idea_factory()
+    module = idea1.module
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    client.login(username=user.email, password='password')
+    module.project.moderators.add(user)
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_ideas_download_by_initiator_is_allowed(client, idea_factory, user):
+    idea1 = idea_factory()
+    module = idea1.module
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    client.login(username=user.email, password='password')
+    module.project.organisation.initiators.add(user)
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_ideas_download_by_admin_is_allowed(client, idea_factory, admin):
+    idea1 = idea_factory()
+    module = idea1.module
+    url = reverse('idea-download', kwargs={'slug': module.slug})
+    client.login(username=admin.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_ideas_download_contains_right_data(rf, idea_factory, admin):
+    idea = idea_factory()
+    module = idea.module
+    idea_factory(module=module)
+    idea_factory(module=module)
+
+    now = timezone.now()
+    with freeze_time(now):
+        request = rf.get('/ideas/download/module/{}'.format(module.slug))
+        request.user = admin
+        response = views.IdeaDownloadView.as_view()(request, slug=module.slug)
+        assert response.status_code == 200
+        assert (response._headers['content-type'] ==
+                ('Content-Type',
+                'application/vnd.openxmlformats-officedocument'
+                    '.spreadsheetml.sheet'))
+        assert (response._headers['content-disposition'] ==
+                ('Content-Disposition',
+                 'attachment; filename="{}_{}.xlsx"'
+                 .format(
+                     module.project.slug,
+                     now.strftime('%Y%m%dT%H%M%S'))))

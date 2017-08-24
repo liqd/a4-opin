@@ -19,24 +19,52 @@ class GetSuggestionForm(forms.Form):
     result = forms.ChoiceField(
         choices=[(r.value, r.label) for r in blueprints.Result],
         widget=forms.RadioSelect,
-        required=False,
+        required=True,
         label=_('What is the desired outcome of the project?'),
     )
 
     experience = forms.ChoiceField(
         choices=[(e.value, e.label) for e in blueprints.Experience],
         widget=forms.RadioSelect,
-        required=False,
-        label=_('How many participative projects have you organised and '
-                'managed in the past?')
+        required=True,
+        label=_('How many on- and offline participative projects '
+                'have you organised and managed in the past?')
     )
 
     motivation = forms.ChoiceField(
         choices=[(m.value, m.label) for m in blueprints.Motivation],
-        required=False,
+        required=True,
         widget=forms.RadioSelect,
         label=_('How motivated are your participants to take part in a '
                 ' participative process?')
+    )
+
+    participants = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Participants],
+        required=True,
+        widget=forms.RadioSelect,
+        label=_('How many participants might take part in the project?')
+    )
+
+    scope = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Scope],
+        required=True,
+        widget=forms.RadioSelect,
+        label=_('What is the scope of the project?')
+    )
+
+    duration = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Duration],
+        required=True,
+        widget=forms.RadioSelect,
+        label=_('How long do you want your project to be?')
+    )
+
+    accessibility = forms.ChoiceField(
+        choices=[(m.value, m.label) for m in blueprints.Accessibility],
+        required=True,
+        widget=forms.RadioSelect,
+        label=_('How easy can you access your participants?')
     )
 
     def clean_aim(self, *args, **kwargs):
@@ -45,21 +73,31 @@ class GetSuggestionForm(forms.Form):
         except KeyError:
             raise ValidationError(_('Invalid aim selected'))
 
-    def _clean_optional_enum(self, name, enum):
+    def _clean_enum(self, name, enum):
         try:
-            str_value = self.cleaned_data[name]
-            if str_value:
-                return enum(int(str_value))
-            else:
-                return None
+            return enum.get(int(self.cleaned_data[name]))
         except (KeyError, ValueError):
             raise ValidationError(_('Invalid selection'))
 
     def clean_result(self, *args, **kwargs):
-        return self._clean_optional_enum('result', blueprints.Result)
+        return self._clean_enum('result', blueprints.Result)
 
     def clean_experience(self, *args, **kwargs):
-        return self._clean_optional_enum('experience', blueprints.Experience)
+        return self._clean_enum('experience', blueprints.Experience)
 
     def clean_motivation(self, *args, **kwargs):
-        return self._clean_optional_enum('motivation', blueprints.Motivation)
+        return self._clean_enum('motivation', blueprints.Motivation)
+
+    def clean_participants(self, *args, **kwargs):
+        return self._clean_enum(
+            'participants', blueprints.Participants)
+
+    def clean_scope(self, *args, **kwargs):
+        return self._clean_enum('scope', blueprints.Scope)
+
+    def clean_duration(self, *args, **kwargs):
+        return self._clean_enum('duration', blueprints.Duration)
+
+    def clean_accessibility(self, *args, **kwargs):
+        return self._clean_enum(
+            'accessibility', blueprints.Accessibility)

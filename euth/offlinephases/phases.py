@@ -12,8 +12,9 @@ class OfflinePhase(phases.PhaseContent):
     view = views.OfflinephaseView
 
     name = _('Offlinephase')
-    description = _('Add documentation for Offlineevents.')
+    description = _('Add offline phases to your online participation.')
     module_name = _('offlinephase')
+    icon = 'calendar'
 
     features = {
         'crud': (models.Offlinephase,),

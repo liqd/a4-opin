@@ -62,6 +62,18 @@
     @extend .tile-list;
 }
 
+.idea-list-controls {
+    position: relative;
+    @include rem(margin-top, 10px);
+
+    @include clearfix;
+
+    .idea-list-filter {
+        float: left;
+        padding-bottom: 0;
+    }
+}
+
 .idea-tile-image-link {
     @extend .tile-image-link;
     background-color: $brand-brand1;

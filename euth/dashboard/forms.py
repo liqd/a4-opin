@@ -9,14 +9,17 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db.models import loading
-from django.forms import modelformset_factory
-from django.utils.translation import ugettext as _
+from django.forms import RadioSelect, modelformset_factory
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.categories import models as category_models
 from adhocracy4.modules import models as module_models
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
 from contrib.multiforms import multiform
 from euth.contrib import widgets
+from euth.contrib.formset import dynamic_modelformset_factory
 from euth.flashpoll import services
 from euth.memberships import models as member_models
 from euth.offlinephases.models import Offlinephase
@@ -25,13 +28,37 @@ from euth.users import models as user_models
 from euth.users.fields import UserSearchField
 
 
+def _show_categories_form(phases):
+    """Check if any of the phases has a categorizable item.
+
+    TODO: Move this functionality to a4phases.
+    """
+    for phase in phases:
+        for models in phase.features.values():
+            for model in models:
+                if category_models.Categorizable.is_categorizable(model):
+                    return True
+    return False
+
+
+class CategoryForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': _('Category')}
+    ))
+
+    class Meta:
+        model = category_models.Category
+        exclude = ('module', )
+
+
 class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = user_models.User
         fields = ['username', '_avatar', 'description', 'birthdate',
-                  'country', 'city', 'gender', 'languages', 'twitter_handle',
-                  'facebook_handle', 'instagram_handle', 'get_notifications']
+                  'country', 'city', 'timezone', 'gender', 'languages',
+                  'twitter_handle', 'facebook_handle', 'instagram_handle',
+                  'get_notifications']
         widgets = {
             'description': forms.Textarea(),
             'birthdate': widgets.DateInput(),
@@ -49,6 +76,7 @@ class ProfileForm(forms.ModelForm):
                 'birthdate',
                 'country',
                 'city',
+                'timezone',
                 'gender',
             ]),
             (_('Ways to connect with you'), [
@@ -112,22 +140,18 @@ class ProjectForm(forms.ModelForm):
         model = project_models.Project
         fields = ['name', 'description', 'image', 'information', 'is_public',
                   'result']
+        widgets = {
+            'is_public': RadioSelect(
+                choices=[
+                    (True, _('All users can participate (public).')),
+                    (False, _('Only invited users can participate (private).'))
+                ]
+            )
+        }
 
     def save(self, commit=True):
-        # calling flashpoll service
-        if 'module_settings-key' in self.data:
-            services.send_to_flashpoll(self.data)
         self.instance.is_draft = 'save_draft' in self.data
         return super().save(commit)
-
-    def get_checkbox_label(self, name):
-        checkbox_labels = {
-            'is_public': _('Accessible to all registered users of OPIN.me')
-        }
-        if name in checkbox_labels:
-            return checkbox_labels[name]
-        else:
-            return ''
 
     @property
     def formsections(self):
@@ -147,6 +171,13 @@ class ProjectForm(forms.ModelForm):
         return formsections
 
 
+class ProjectArchiveForm(forms.ModelForm):
+
+    class Meta:
+        model = project_models.Project
+        fields = ['is_archived']
+
+
 class PhaseForm(forms.ModelForm):
     delete = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
@@ -160,6 +191,22 @@ class PhaseForm(forms.ModelForm):
             'type': forms.HiddenInput(),
             'weight': forms.HiddenInput()
         }
+
+        help_texts = {
+            'name': _('It should be max. 80 characters long.'),
+            'description': _('It should be max. 300 characters long.'),
+            'start_date': _('Your timezone: {}'),
+            'end_date': _('Your timezone: {}'),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['start_date'].help_text = \
+            self.fields['start_date'].help_text.format(
+            timezone.get_current_timezone())
+        self.fields['end_date'].help_text = \
+            self.fields['end_date'].help_text.format(
+            timezone.get_current_timezone())
 
 
 def get_module_settings_form(settings_instance_or_modelref):
@@ -176,7 +223,7 @@ def get_module_settings_form(settings_instance_or_modelref):
         class Meta:
             model = settings_model
             exclude = ['module']
-            widgets = settings_model().widgets()
+            widgets = settings_model.widgets()
 
         def __init__(self, *args, **kwargs):
             super(ModuleSettings, self).__init__(*args, **kwargs)
@@ -212,6 +259,8 @@ class ProjectUpdateForm(multiform.MultiModelForm):
 
     def __init__(self, *args, **kwargs):
         qs = kwargs['phases__queryset']
+        project = kwargs['instance']
+
         module = qs.first().module
         self.base_forms = [
             ('project', ProjectForm),
@@ -226,7 +275,33 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 get_module_settings_form(module.settings_instance),
             ))
 
+        phases = [phase.content() for phase in qs]
+        self.show_categories_form = _show_categories_form(phases)
+
+        if self.show_categories_form:
+            query = {'module__project': project}
+            kwargs['categories__queryset'] = \
+                category_models.Category.objects.filter(**query)
+
+            self.base_forms.append(
+                ('categories', dynamic_modelformset_factory(
+                    category_models.Category, CategoryForm,
+                    can_delete=True,
+                ))
+            )
+        elif hasattr(kwargs, 'categories__queryset'):
+            del kwargs['categories__queryset']
+
         super().__init__(*args, **kwargs)
+
+        if project.is_archived:
+            # disable information fields
+            for name, field in self.forms['project'].fields.items():
+                field.widget.attrs.update({"disabled": True})
+
+            # disable phase fields
+            for name, field in self.forms['phases'].form.base_fields.items():
+                field.widget.attrs.update({"disabled": True})
 
     def _update_or_delete_phase(self, phase, delete, commit):
         phase_object = phase['id']
@@ -251,15 +326,9 @@ class ProjectUpdateForm(multiform.MultiModelForm):
                 Offlinephase.objects.get_or_create(phase=new_phase)
 
     def save(self, commit=True):
-
+        self.clean()
         objects = super().save(commit=False)
         project = objects['project']
-
-        if commit:
-            project.save()
-            if 'module_settings' in objects:
-                objects['module_settings'].save()
-
         module = project.module_set.first()
 
         cleaned_data = self._combine('cleaned_data', call=False,
@@ -274,6 +343,35 @@ class ProjectUpdateForm(multiform.MultiModelForm):
             else:
                 if not delete:
                     self._create_phase(phase, commit, module)
+
+        if commit:
+            project.save()
+            if 'module_settings' in objects:
+                objects['module_settings'].save()
+
+        # calling flashpoll service
+        if ([p for p in project.phases
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, project)
+
+        if self.show_categories_form:
+            categories = objects['categories']
+            for category in categories:
+                category.module = module
+                if commit:
+                    category.save()
+            for category in self.forms['categories'].deleted_objects:
+                category.delete()
+
+    def clean(self):
+        super().clean()
+        objects = super().save(commit=False)
+        project = objects['project']
+        if project.is_archived:
+            raise ValidationError(
+                    _('Archived projects are read-only.'),
+                    code='read-only')
+        return self.cleaned_data
 
 
 class ProjectCreateForm(multiform.MultiModelForm):
@@ -307,6 +405,19 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 get_module_settings_form(module_settings),
             ))
 
+        self.show_categories_form = \
+            _show_categories_form(self.blueprint.content)
+        if self.show_categories_form:
+            # no initial categories in are shown in create view
+            kwargs['categories__queryset'] = \
+                category_models.Category.objects.none()
+            self.base_forms.append((
+                    'categories',
+                    dynamic_modelformset_factory(
+                        category_models.Category, CategoryForm,
+                        can_delete=True,)
+            ))
+
         return super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
@@ -314,6 +425,7 @@ class ProjectCreateForm(multiform.MultiModelForm):
 
         project = objects['project']
         project.organisation = self.organisation
+        project.is_archived = False
         if commit:
             project.save()
             project.moderators.add(self.creator)
@@ -341,6 +453,18 @@ class ProjectCreateForm(multiform.MultiModelForm):
                 phase.save()
                 if phase.type.startswith('euth_offlinephases'):
                     Offlinephase.objects.create(phase=phase)
+
+        # calling flashpoll service create form
+        if ([p for p in project.phases
+             if p.type.startswith('euth_flashpoll')]):
+                services.send_to_flashpoll(self.data, project)
+
+        if self.show_categories_form:
+            categories = objects['categories']
+            for category in categories:
+                category.module = module
+                if commit:
+                    category.save()
 
         return objects
 

@@ -4,8 +4,11 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
+from adhocracy4.filters import views as filter_views
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
+from euth.contrib import exports, filters
+from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
 from . import forms
@@ -37,10 +40,25 @@ class SortMixin():
             return dict(self.sorts)[self.sort]
 
 
-class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
+class IdeaFilterSet(filters.DefaultsFilterSet):
+    defaults = {}
+    category = filters.CategoryFilter()
+
+    class Meta:
+        model = idea_models.Idea
+        fields = ['category']
+
+
+class IdeaListView(
+    mixins.ProjectMixin,
+    SortMixin,
+    prj_mixins.ProjectPhaseMixin,
+    filter_views.FilteredListView
+):
     model = idea_models.Idea
     paginate_by = 15
     sort_default = '-created'
+    filter_set = IdeaFilterSet
     sorts = [
         ('-created', _('Most recent')),
         ('-positive_rating_count', _('Popularity')),
@@ -48,16 +66,16 @@ class IdeaListView(mixins.ProjectMixin, SortMixin, generic.ListView):
     ]
 
     def get_queryset(self):
-        return super().get_queryset().filter(module=self.module)\
-                                     .annotate_positive_rating_count()\
-                                     .annotate_negative_rating_count()\
-                                     .annotate_comment_count()
+        return super().get_queryset().filter(module=self.module) \
+            .annotate_positive_rating_count() \
+            .annotate_negative_rating_count() \
+            .annotate_comment_count()
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
     model = idea_models.Idea
-    queryset = idea_models.Idea.objects.annotate_positive_rating_count()\
-                                       .annotate_negative_rating_count()
+    queryset = idea_models.Idea.objects.annotate_positive_rating_count() \
+        .annotate_negative_rating_count()
     permission_required = 'euth_ideas.view_idea'
 
     @property
@@ -66,7 +84,7 @@ class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['author_is_moderator'] = self.object.creator in self.object.\
+        context['author_is_moderator'] = self.object.creator in self.object. \
             project.moderators.all()
         return context
 
@@ -85,6 +103,11 @@ class IdeaUpdateView(PermissionRequiredMixin, generic.UpdateView):
         context['project'] = self.object.project
         context['mode'] = 'update'
         return context
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['module'] = kwargs.get('instance').module
+        return kwargs
 
 
 class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
@@ -117,6 +140,11 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
         form.instance.module = self.module
         return super().form_valid(form)
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['module'] = self.module
+        return kwargs
+
 
 class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = idea_models.Idea
@@ -134,3 +162,31 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse('project-detail',
                        kwargs={'slug': self.object.project.slug})
+
+
+class IdeaDownloadView(prj_mixins.ModuleMixin,
+                       PermissionRequiredMixin,
+                       exports.ItemExportView,
+                       exports.ItemExportWithRatesMixin,
+                       exports.ItemExportWithCommentCountMixin,
+                       exports.ItemExportWithCommentsMixin,
+                       exports.ItemExportWithCategoriesMixin
+                       ):
+
+    model = idea_models.Idea
+    permission_required = "euth_ideas.export_ideas"
+    fields = ['name', 'description', 'creator', 'created']
+
+    @property
+    def raise_exception(self):
+        return self.request.user.is_authenticated()
+
+    def get_queryset(self):
+        return super().get_queryset() \
+            .filter(module=self.module)\
+            .annotate_comment_count()\
+            .annotate_positive_rating_count()\
+            .annotate_negative_rating_count()
+
+    def get_permission_object(self, *args, **kwargs):
+        return self.module
