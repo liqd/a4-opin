@@ -873,8 +873,8 @@ msgid "unarchive project"
 msgstr "unarchive project"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:5
-msgid "Manage user of "
-msgstr "Manage user of "
+msgid "Manage users of"
+msgstr "Manage users of"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:20
 msgid "invite users"
