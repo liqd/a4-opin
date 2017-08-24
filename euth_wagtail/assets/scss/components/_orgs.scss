@@ -113,3 +113,13 @@
     @include rem(font-size, 20px);
     margin: 0;
 }
+
+.org-projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .org-project-tile {
+        flex-basis: 25%;
+    }
+}
