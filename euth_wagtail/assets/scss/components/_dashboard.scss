@@ -94,11 +94,14 @@ h1.dashboard-title {
     display: flex;
     flex-wrap: wrap;
     @include rem(margin, 0 -15px);
+
+    .blueprint-tile {
+        flex-basis: 42%;
+        align-items: stretch;
+    }
 }
 
-
 .blueprint-list-centered {
-    @extend .blueprint-list;
     justify-content: center;
 }
 
@@ -108,7 +111,6 @@ h1.dashboard-title {
     background-color: $brand-brand5;
     display: flex;
     margin: 1.5%;
-    flex-basis: 30%;
     flex-direction: column;
 
     > h2 {
@@ -118,7 +120,7 @@ h1.dashboard-title {
         color: #fff;
     }
 
-    > .blueprint-image {
+    .blueprint-image {
         @include rem(height, 173px);
         @include rem(width, 260px);
     }

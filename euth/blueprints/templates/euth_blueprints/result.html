@@ -14,36 +14,34 @@
             These templates match your criterias!
             {% endblocktrans %}
         </h2>
-        <div class="blueprint-list-centered dst-lightbox-lastentry">
+        <div class="blueprint-list blueprint-list-centered dst-lightbox-lastentry">
             {% for blueprint_slug, blueprint, time in blueprints %}
-                <div class="col-md-6">
-                    <div class="blueprint-tile">
-                        <img class="blueprint-image" src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
-                        <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
+                <div class="  blueprint-tile">
+                    <img class="blueprint-image" src="{% static blueprint.image %}" alt="{{ blueprint.title }}">
+                    <h2 class="sans-serif h4">{{ blueprint.title }}</h2>
 
-                        <div class="blueprint-phases">
-                            <ul class="list-unstyled">
-                                {% for phase_content in blueprint.content %}
-                                    <li>
-                                        <strong>Phase {{ forloop.counter }}</strong>: {{ phase_content.description }}
-                                    </li>
-                                {% endfor %}
+                    <div class="blueprint-phases">
+                        <ul class="list-unstyled">
+                            {% for phase_content in blueprint.content %}
+                                <li>
+                                    <strong>Phase {{ forloop.counter }}</strong>: {{ phase_content.description }}
+                                </li>
+                            {% endfor %}
 
-                            </ul>
-                        </div>
-
-                        <div class="blueprint-footer">
-                            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
-                            {% trans 'Use this template' %}
-                            </a>
-                            <button class="btn-link" type="button" data-toggle="modal" data-target="#dst-infopage-{{ blueprint_slug }}">{% trans 'Learn More' %}</button>
-                        </div>
-
-                        {% include 'euth_blueprints/includes/infopage.html'%}
-
+                        </ul>
                     </div>
+
+                    <div class="blueprint-footer">
+                        <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+                            {% trans 'Use this template' %}
+                        </a>
+                        <button class="btn-link" type="button" data-toggle="modal" data-target="#dst-infopage-{{ blueprint_slug }}">{% trans 'Learn More' %}</button>
+                    </div>
+
+                    {% include 'euth_blueprints/includes/infopage.html'%}
+
                 </div>
-                {% endfor %}
+            {% endfor %}
         </div>
 
         <div class="row">
