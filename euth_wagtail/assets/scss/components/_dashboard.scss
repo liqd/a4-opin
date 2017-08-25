@@ -96,13 +96,17 @@ h1.dashboard-title {
     @include rem(margin, 0 -15px);
 
     .blueprint-tile {
-        flex-basis: 42%;
-        align-items: stretch;
+        flex-basis: 30%;
     }
 }
 
 .blueprint-list-centered {
     justify-content: center;
+
+    .blueprint-tile {
+        flex-basis: 42%;
+        align-items: stretch;
+    }
 }
 
 .blueprint-tile {
