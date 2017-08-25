@@ -203,7 +203,7 @@ class DashboardProjectUpdateView(DashboardBaseMixin,
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = _("Update project: " + self.object.name)
+        context['heading'] = _('Change settings for')
         # initiating flashpoll data
         if 'pollid' in self.kwargs:
             context = services.fp_context_data_for_update_view(context, self)

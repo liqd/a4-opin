@@ -2,7 +2,7 @@
 {% load static widget_tweaks i18n form_tags flashpoll_form_tags %}
 {% block dashboard_content %}
 {% get_disabled project as disabled %}
-<h1 class="black-divider dashboard-title dashboard-title-no-margin">{{ heading }} {% if view.blueprint %}{{ view.blueprint.title }}{% endif %}</h1>
+    <h1 class="black-divider dashboard-title dashboard-title-no-margin">{{ heading }} <em>{% if view.blueprint %}{{ view.blueprint.title }}{% else %}{{ project.name }}{% endif %}</em></h1>
 
 <div class="general-form dashboard-tabbed-form">
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">

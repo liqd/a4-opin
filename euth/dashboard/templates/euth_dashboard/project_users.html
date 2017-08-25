@@ -2,11 +2,15 @@
 {% load widget_tweaks i18n react_user_list avatar %}
 
 {% block dashboard_content %}
-{% if not project.is_public %}
-<h1 class="black-divider dashboard-title">{% trans 'Manage user of ' %}{{ project.name }}</h1>
-{% else %}
-<h1 class="black-divider dashboard-title">{% trans 'Manage moderators of ' %}{{ project.name }}</h1>
-{% endif %}
+
+    <h1 class="black-divider dashboard-title">
+        {% if project.is_private %}
+            {% trans 'Manage users of' %}
+        {% else %}
+            {% trans 'Manage moderators of' %}
+        {% endif %}
+        <em>{{ project.name }}</em>
+    </h1>
 
 <form method="POST">
 {% csrf_token %}
@@ -18,7 +22,7 @@
 
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="members">
-            <h2 class="sans-serif">Members</h2>
+                <h2 class="sans-serif">Members</h2>
             <p>
                 <a href="{% url 'dashboard-project-invite' project.slug %}"
                    class="btn btn-primary pull-right">{% trans 'invite users' %}</a>

@@ -2,7 +2,7 @@
 {% load widget_tweaks i18n %}
 
 {% block dashboard_content %}
-<h1 class="black-divider dashboard-title">{% trans 'Invite users to project' %} "{{ view.project }}"</h1>
+<h1 class="black-divider dashboard-title">{% trans 'Invite users to project' %} <em>{{ project }}</em></h1>
 <form method="POST" class="general-form">
     {% csrf_token %}
     <div class="form-group">
