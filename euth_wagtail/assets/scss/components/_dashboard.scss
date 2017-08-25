@@ -114,7 +114,7 @@ h1.dashboard-title {
     border: solid 1px $gray-light;
     background-color: $brand-brand5;
     display: flex;
-    @include rem(margin, 1.5% 13px);
+    @include rem(margin, 13px 1.5%);
     flex-direction: column;
 
     > h2 {
