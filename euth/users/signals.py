@@ -8,7 +8,8 @@ from . import models
 
 @receiver(signals.post_init, sender=models.User)
 def backup_image_path(sender, instance, **kwargs):
-    instance._current_image_file = instance.avatar
+    if instance.avatar:
+        instance._current_image_file = instance.avatar
 
 
 @receiver(signals.post_save, sender=models.User)
