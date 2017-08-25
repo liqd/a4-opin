@@ -114,7 +114,7 @@ h1.dashboard-title {
     border: solid 1px $gray-light;
     background-color: $brand-brand5;
     display: flex;
-    margin: 1.5%;
+    @include rem(margin, 1.5% 13px);
     flex-direction: column;
 
     > h2 {
@@ -383,5 +383,11 @@ h2.dst-lightbox-banner {
         .dropdown-text {
             @include rem(padding-left, 10px);
         }
+    }
+}
+
+.dst-result-layout {
+    .blueprint-list {
+        @include rem(margin, 20px 0);
     }
 }
