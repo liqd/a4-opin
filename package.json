@@ -21,7 +21,7 @@
     "leaflet": "^0.7.7",
     "leaflet-draw": "^0.4.2",
     "moment": "^2.14.1",
-    "node-sass": "3.10.1",
+    "node-sass": "4.5.3",
     "postcss-loader": "^1.1.0",
     "react": "15.1.0",
     "react-addons-update": "~15.1.0",
