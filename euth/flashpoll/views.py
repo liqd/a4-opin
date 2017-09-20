@@ -1,4 +1,5 @@
 import json
+import uuid
 
 import requests
 from django.conf import settings
@@ -18,12 +19,16 @@ class FlashpollDetailView(mixins.ProjectMixin, generic.DetailView):
         return models.Flashpoll.objects.filter(module=self.module).first()
 
     def get_context_data(self, **kwargs):
+        useremail = str(uuid.uuid4())
+        if not self.request.user.is_anonymous():
+            useremail = self.request.user.email
+
         context = {
             'url': '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
                 base_url=settings.FLASHPOLL_URL,
                 language=get_language(),
                 poll_id=self.get_object().key,
-                mail=self.request.user.email
+                mail=useremail
             )
         }
         context['pollid'] = self.get_object().key
