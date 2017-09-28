@@ -4,10 +4,12 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
+from adhocracy4.categories import filters as cat_filters
 from adhocracy4.filters import views as filter_views
+from adhocracy4.filters import filters
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
-from euth.contrib import exports, filters
+from euth.contrib import exports
 from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
@@ -42,7 +44,7 @@ class SortMixin():
 
 class IdeaFilterSet(filters.DefaultsFilterSet):
     defaults = {}
-    category = filters.CategoryFilter()
+    category = cat_filters.CategoryFilter()
 
     class Meta:
         model = idea_models.Idea
