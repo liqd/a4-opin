@@ -23,8 +23,9 @@ def test_document_clean(document):
 
 
 @pytest.mark.django_db
-def test_paragraph_knows_project(paragraph):
+def test_paragraph_knows_project_and_module(paragraph):
     assert paragraph.project == paragraph.document.project
+    assert paragraph.module == paragraph.document.module
 
 
 @pytest.mark.django_db
