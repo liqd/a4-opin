@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'parler',
     'ckeditor',
     'ckeditor_uploader',
+    'background_task',
 
     'django.contrib.sites',
     'django.contrib.admin',
@@ -76,6 +77,7 @@ INSTALLED_APPS = [
     'adhocracy4.categories.apps.CategoriesConfig',
     'adhocracy4.comments.apps.CommentsConfig',
     'adhocracy4.maps.apps.MapsConfig',
+    'adhocracy4.filters.apps.FiltersConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -277,6 +279,7 @@ IMAGE_ALIASES = {
     'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
     'avatar': {'min_resolution': (200, 200)},
     'idea_image': {'min_resolution': (800, 200)},
+    'tileimage': {},
 }
 
 THUMBNAIL_ALIASES = {

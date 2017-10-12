@@ -2,10 +2,10 @@ from email.mime.image import MIMEImage
 
 from django.contrib.staticfiles import finders
 
-from adhocracy4.emails.mixins import SingleTemplateMixin
+from adhocracy4.emails.mixins import SyncEmailMixin
 
 
-class OpinEmail(SingleTemplateMixin):
+class OpinEmail(SyncEmailMixin):
     def get_attachments(self):
         attachments = super().get_attachments()
         filename = finders.find('images/logo.png')

@@ -181,6 +181,7 @@ def test_project_phase_mixin_return_last_phase(
     view_data = response.context_data['view']
     assert view_data.project == project
     assert view_data.phase == phase2
+    assert view_data.module == phase2.module
 
     # Requesting invalid phase parameter should return the last past
     # phase.

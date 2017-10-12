@@ -6,11 +6,19 @@ from adhocracy4.modules.models import Module
 class PhaseDispatchMixin(generic.DetailView):
     def dispatch(self, request, *args, **kwargs):
         kwargs['project'] = self.get_object()
-        return self._view_by_phase()(request, *args, **kwargs)
+        phase = self._get_relevant_phase()
 
-    def _view_by_phase(self):
+        if phase:
+            kwargs['module'] = phase.module
+            view = phase.view.as_view()
+        else:
+            view = super().dispatch
+
+        return view(request, *args, **kwargs)
+
+    def _get_relevant_phase(self):
         """
-        Choose the appropriate view for the current active phase.
+        Choose the relevant phase with in the project.
         """
         project = self.get_object()
 
@@ -21,13 +29,9 @@ class PhaseDispatchMixin(generic.DetailView):
             phase = None
 
         if phase:
-            return phase.view.as_view()
-        if project.active_phase:
-            return project.active_phase.view.as_view()
-        elif project.past_phases:
-            return project.past_phases[0].view.as_view()
-        else:
-            return super().dispatch
+            return phase
+        elif project.last_active_phase:
+            return project.last_active_phase
 
 
 class ProjectPhaseMixin(generic.base.ContextMixin):
@@ -42,11 +46,10 @@ class ProjectPhaseMixin(generic.base.ContextMixin):
 
         if phase:
             self.phase = phase
-        elif self.project.active_phase:
-            self.phase = self.project.active_phase
         else:
-            self.phase = self.project.past_phases[0]
+            self.phase = self.project.last_active_phase
 
+        self.module = self.phase.module
         return super(ProjectPhaseMixin, self).dispatch(*args, **kwargs)
 
 

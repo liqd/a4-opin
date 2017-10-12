@@ -4,10 +4,11 @@ from allauth.account.adapter import DefaultAccountAdapter
 from django.utils.http import is_safe_url
 
 from adhocracy4.emails import Email
+from adhocracy4.emails.mixins import SyncEmailMixin
 from euth.users import USERNAME_REGEX
 
 
-class EuthAccountEmail(Email):
+class EuthAccountEmail(Email, SyncEmailMixin):
     def get_receivers(self):
         return [self.object]
 

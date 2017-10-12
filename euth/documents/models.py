@@ -60,5 +60,9 @@ class Paragraph(base.TimeStampedModel):
         return self.document.creator
 
     @cached_property
+    def module(self):
+        return self.document.module
+
+    @cached_property
     def project(self):
         return self.document.project
