@@ -13,6 +13,7 @@ from django.forms import RadioSelect, modelformset_factory
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.categories import fields as category_fields
 from adhocracy4.categories import models as category_models
 from adhocracy4.modules import models as module_models
 from adhocracy4.phases import models as phase_models
@@ -36,8 +37,9 @@ def _show_categories_form(phases):
     for phase in phases:
         for models in phase.features.values():
             for model in models:
-                if category_models.Categorizable.is_categorizable(model):
-                    return True
+                for field in model._meta.get_fields():
+                    if isinstance(field, category_fields.CategoryField):
+                        return True
     return False
 
 
