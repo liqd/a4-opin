@@ -5,6 +5,7 @@ from pytest_factoryboy import register
 from rest_framework.test import APIClient
 
 from adhocracy4.test import factories as a4_factories
+from adhocracy4.test import helpers
 from tests.memberships import factories as member_factories
 from tests.organisations import factories as org_factories
 
@@ -22,6 +23,11 @@ register(a4_factories.ModuleFactory)
 register(factories.PhaseFactory)
 register(member_factories.RequestFactory, 'membership_request')
 register(member_factories.InviteFactory)
+
+
+def pytest_configure(config):
+    # Patch email background_task decorators for all tests
+    helpers.patch_background_task_decorator('adhocracy4.emails.tasks')
 
 
 @pytest.fixture

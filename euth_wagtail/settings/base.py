@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'parler',
     'ckeditor',
     'ckeditor_uploader',
+    'background_task',
 
     'django.contrib.sites',
     'django.contrib.admin',
