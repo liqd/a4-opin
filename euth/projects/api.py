@@ -1,11 +1,13 @@
+from django.contrib.auth import get_user_model
 from rest_framework import permissions, viewsets
 
 from adhocracy4.projects.models import Project
 from euth.contrib.api.permissions import IsInitiatorOrSuperUser
-from euth.users.models import User
 
 from . import emails
 from .serializers import ProjectSerializer
+
+User = get_user_model()
 
 
 class ProjectViewSet(viewsets.mixins.UpdateModelMixin,
@@ -25,7 +27,7 @@ class ProjectViewSet(viewsets.mixins.UpdateModelMixin,
             new_moderator = User.objects.get(id__exact=new_moderator.pop())
             emails.ModeratorAddedEmail.send(
                 serializer.instance,
-                user=new_moderator
+                user_id=new_moderator.id
             )
 
         serializer.save()
