@@ -175,8 +175,11 @@ def test_reset(client, user):
         r'(http://testserver/.*/)', str(mail.outbox[0].body)
     ).group(0)
     response = client.get(reset_url)
+    assert response.status_code == 302
+    reset_form_url = response.url
+    response = client.get(reset_form_url)
     assert response.status_code == 200
-    response = client.post(reset_url, {
+    response = client.post(reset_form_url, {
         'password1': 'password1',
         'password2': 'password1',
     })
