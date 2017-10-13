@@ -33,7 +33,7 @@ class RSSImport(translations.TranslatedModel):
     translated_rss_title = translations.TranslatedField(
         'rss_title',
         models.CharField(max_length=255, blank=True),
-        overwrite_en_blank=False,
+        overwrite_fallback={'blank': False},
     )
 
     panels = [
@@ -108,7 +108,7 @@ class MenuItem(LinkFields, metaclass=translations.TranslatedModelMetaclass):
     translated_menu_title = translations.TranslatedField(
         'menu_title',
         models.CharField(max_length=255, blank=True),
-        overwrite_en_blank=False,
+        overwrite_fallback={'blank': False},
     )
 
     @property
@@ -152,7 +152,7 @@ class PageCollection(translations.TranslatedModel):
     title = translations.TranslatedField(
         'title',
         models.CharField(max_length=80, blank=True),
-        overwrite_en_blank=False,
+        overwrite_fallback={'blank': False},
     )
 
     image = models.ForeignKey(
@@ -444,7 +444,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
     body = translations.TranslatedField(
         'body',
         StreamField(block_types, null=True, blank=True),
-        overwrite_en_blank=False,
+        overwrite_fallback={'blank': False},
     )
 
     class Meta:
