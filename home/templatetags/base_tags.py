@@ -4,7 +4,7 @@ from dateutil import parser
 from django import template
 from django.conf import settings
 
-from home.models import NavigationMenu
+from home.models.snippets import NavigationMenu
 
 register = template.Library()
 
