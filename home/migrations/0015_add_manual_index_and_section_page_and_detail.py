@@ -88,7 +88,7 @@ class Migration(migrations.Migration):
                 ('description_sv', models.CharField(verbose_name='Description', max_length=260, blank=True)),
                 ('description_sl', models.CharField(verbose_name='Description', max_length=260, blank=True)),
                 ('description_da', models.CharField(verbose_name='Description', max_length=260, blank=True)),
-                ('body', wagtail.wagtailcore.fields.StreamField((('snippet', wagtail.wagtailsnippets.blocks.SnippetChooserBlock(template='home/blocks/page_collection_block.html', target_model=home.models.PageCollection, required=False)),))),
+                ('body', wagtail.wagtailcore.fields.StreamField((('snippet', wagtail.wagtailsnippets.blocks.SnippetChooserBlock(template='home/blocks/page_collection_block.html', target_model=home.models.snippets.PageCollection, required=False)),))),
                 ('color', models.CharField(choices=[('orange', 'Orange'), ('purple', 'Purple'), ('blue', 'Blue'), ('pink', 'Pink'), ('turquoise', 'Turquoise')], max_length=9, default='blue')),
                 ('image', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, null=True, related_name='+', to='wagtailimages.Image', blank=True)),
             ],
