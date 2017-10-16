@@ -113,3 +113,31 @@
     @include rem(font-size, 20px);
     margin: 0;
 }
+
+.org-projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .org-project-tile {
+        flex-basis: 100%;
+    }
+
+    @media screen and (min-width: $screen-sm-min) {
+        .org-project-tile {
+            flex-basis: 50%;
+        }
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+        .org-project-tile {
+            flex-basis: 33%;
+        }
+    }
+
+    @media screen and (min-width: $screen-lg-min) {
+        .org-project-tile {
+            flex-basis: 25%;
+        }
+    }
+}

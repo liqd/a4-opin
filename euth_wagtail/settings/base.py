@@ -240,12 +240,9 @@ LANGUAGES = [
     ('sv', _('Swedish')),
     ('sl', _('Slovene')),
     ('da', _('Danish')),
-    ('uk', _('Ukrainian')),
     ('el', _('Greek')),
-    ('ru', _('Russian')),
     ('ka', _('Georgian')),
     ('mk', _('Macedonian')),
-    ('mt', _('Maltese')),
 ]
 
 PARLER_LANGUAGES = {
@@ -318,7 +315,6 @@ WEBPACK_LOADER = {
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'node_modules/salvattore/dist'),
     os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
     os.path.join(BASE_DIR, 'node_modules/leaflet/dist'),
     os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
