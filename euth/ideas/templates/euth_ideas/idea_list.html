@@ -6,15 +6,9 @@
 
     <div class="idea-list">
         {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
-        {% if add_button_enabled %}
-        <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
-            <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
-            {% trans 'Create Proposal' %}
-        </a>
-        {% endif %}
         {% would_perm 'euth_ideas.propose_idea' view.module as would_add_button_enabled %}
-        {% if would_add_button_enabled %}
-        <a href="{% url 'account_login' %}?next={% url 'idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
+        {% if add_button_enabled or would_add_button_enabled %}
+        <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
             <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
             {% trans 'Create Proposal' %}
         </a>
