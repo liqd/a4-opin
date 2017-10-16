@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'adhocracy4.comments.apps.CommentsConfig',
     'adhocracy4.maps.apps.MapsConfig',
     'adhocracy4.filters.apps.FiltersConfig',
+    'adhocracy4.rules.apps.RulesConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
