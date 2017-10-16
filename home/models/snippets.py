@@ -165,6 +165,14 @@ class PageCollection(translations.TranslatedModel):
     page_6 = models.ForeignKey('wagtailcore.Page', **args)
     page_7 = models.ForeignKey('wagtailcore.Page', **args)
     page_8 = models.ForeignKey('wagtailcore.Page', **args)
+    page_9 = models.ForeignKey('wagtailcore.Page', **args)
+    page_10 = models.ForeignKey('wagtailcore.Page', **args)
+    page_11 = models.ForeignKey('wagtailcore.Page', **args)
+    page_12 = models.ForeignKey('wagtailcore.Page', **args)
+    page_13 = models.ForeignKey('wagtailcore.Page', **args)
+    page_14 = models.ForeignKey('wagtailcore.Page', **args)
+    page_15 = models.ForeignKey('wagtailcore.Page', **args)
+    page_count = 15
 
     panels = [
         edit_handlers.MultiFieldPanel([
@@ -178,7 +186,7 @@ class PageCollection(translations.TranslatedModel):
         edit_handlers.MultiFieldPanel([
             edit_handlers.PageChooserPanel(
                 'page_{}'.format(x)
-            ) for x in range(1, 8)
+            ) for x in range(1, page_count + 1)
         ],
             classname="collapsible collapsed",
             heading="Pages",
@@ -191,8 +199,10 @@ class PageCollection(translations.TranslatedModel):
 
     @property
     def pages(self):
-        return [self.page_1, self.page_2, self.page_3, self.page_4,
-                self.page_5, self.page_6, self.page_7, self.page_8]
+        return [
+            getattr(self, 'page_{}'.format(count))
+            for count in range(1, self.page_count + 1)
+        ]
 
 
 register_snippet(NavigationMenu)
