@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-17 09:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Moritz Ritter <moritz.ritter@liqd.de>, 2017\n"
+"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,15 +99,15 @@ msgstr "Antwort verfassen"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 msgid "Not following"
-msgstr ""
+msgstr "Nicht Folgen"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 msgid "Never be notified."
-msgstr ""
+msgstr "Nie benachrichtigen"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 msgid "Receive email notifications about this project."
-msgstr ""
+msgstr "Emailbenachrichtigungen über dieses Projekt erhalten"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
