@@ -2,55 +2,54 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 12:14+0200\n"
+"POT-Creation-Date: 2017-10-17 09:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Anita Molka <anita.molka@razvoj.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
-"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:91
+#: adhocracy4/comments/static/comments/Comment.jsx:97
 msgid "Do you really want to delete this comment?"
-msgstr ""
+msgstr "Ali res želite izbrisati ta komentar?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:93
+#: adhocracy4/comments/static/comments/Comment.jsx:99
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
-msgstr ""
+msgstr "Izbriši"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:94
-#: adhocracy4/static/Modal.jsx:50
-#: euth/contrib/static/js/Modal.jsx:41
+#: adhocracy4/comments/static/comments/Comment.jsx:100
+#: adhocracy4/static/Modal.jsx:49 euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
-msgstr ""
+msgstr "Prekini"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:107
+#: adhocracy4/comments/static/comments/Comment.jsx:113
 msgid "Latest edit on"
 msgstr ""
 
-#: adhocracy4/comments/static/comments/Comment.jsx:112
+#: adhocracy4/comments/static/comments/Comment.jsx:118
 msgid "Moderator"
-msgstr ""
+msgstr "Moderator"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:119
+#: adhocracy4/comments/static/comments/Comment.jsx:125
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite prijaviti to vsebino?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:161
+#: adhocracy4/comments/static/comments/Comment.jsx:167
 msgid "Your reply here"
-msgstr ""
+msgstr "Odgovorite tukaj"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:79
+#: adhocracy4/comments/static/comments/CommentBox.jsx:82
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] ""
@@ -58,38 +57,38 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:82
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
-#: adhocracy4/comments/static/comments/CommentForm.jsx:34
-msgid "Your comment here"
-msgstr ""
-
+#: adhocracy4/comments/static/comments/CommentBox.jsx:85
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
+msgid "Your comment here"
+msgstr "Vaš komentar"
+
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
 msgid "post"
-msgstr ""
+msgstr "objava"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
 msgid "cancel"
-msgstr ""
+msgstr "prekliči"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:43
+#: adhocracy4/comments/static/comments/CommentForm.jsx:46
 msgid "Please login to comment"
-msgstr ""
+msgstr "Prosimo, prijavite se za komentar"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:49
+#: adhocracy4/comments/static/comments/CommentForm.jsx:52
 msgid "The currently active phase doesn't allow to comment."
-msgstr ""
+msgstr "Trenutno aktivna faza ne dopušča komentiranja."
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:15
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:23
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
-msgstr ""
+msgstr "Poročilo"
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:5
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #, javascript-format
 msgid "view %s reply"
 msgid_plural "view %s replies"
@@ -98,69 +97,87 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:25
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
 msgid "Answer"
+msgstr "Odgovori"
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
+msgid "Not following"
 msgstr ""
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
+msgid "Never be notified."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
+msgid "Receive email notifications about this project."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Unfollow"
-msgstr ""
+msgstr "Prenehati slediti"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Follow"
-msgstr ""
+msgstr "Sledi"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:63
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message here"
-msgstr ""
+msgstr "Vpišite vaše sporočilo"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:75
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
-msgstr ""
+msgstr "Pošlji poročilo"
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
-msgstr ""
+msgstr "Prosimo, nastavite vse vrednosti za svoj projekt."
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:7
 msgid "Offline Phase"
-msgstr ""
+msgstr "Offline faza"
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:91
 msgid "add offline phase"
-msgstr ""
+msgstr "dodaj offline fazo"
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:80
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
 
 #: euth/documents/static/documents/Paragraph.jsx:57
 #: euth/documents/static/documents/ParagraphBox.jsx:205
 msgid "add a new paragraph"
-msgstr ""
+msgstr "dodaj nov odstavek"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 msgid "Headline:"
-msgstr ""
+msgstr "Naslov:"
 
 #: euth/documents/static/documents/Paragraph.jsx:82
 msgid "Paragraph:"
-msgstr ""
+msgstr "Odstavek:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:111
 msgid "Your document has been updated."
-msgstr ""
+msgstr "Vaš dokument je posodobljen."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:140
 msgid "Your document has been saved."
-msgstr ""
+msgstr "Vaš dokument je shranjen."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:168
 msgid "Title:"
-msgstr ""
+msgstr "Naslov:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:222
 msgid "save"
-msgstr ""
+msgstr "shrani"
+
+#~ msgid "Please pick an aim for your project."
+#~ msgstr "Prosimo, določite namen svojega projekta."
+
+#~ msgid "Latest edit"
+#~ msgstr "Zadnja sprememba"
