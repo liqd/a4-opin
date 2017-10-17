@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Nicolas Bach <bach@nexusinstitut.de>, 2017
@@ -87,8 +87,8 @@ msgid ""
 "{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
 "The file size should be max. {max_size_mb} MB."
 msgstr ""
-"Elle/il doit faire minimum XXXXX pixel de large et XXXXXX pixel de haut. Les"
-" formats acceptés sont XXXXXX. La taille maximal du fichier est de XXXXX MB"
+"{help_prefix} Elle/il doit faire minimum {min_resolution[0]} pixel de large et {min_resolution[1]} pixel de haut. Les"
+" formats acceptés sont {fileformats_str}. La taille maximal du fichier est de {max_size_mb} MB"
 
 #: adhocracy4/images/fields.py:90
 #, python-brace-format
@@ -112,12 +112,12 @@ msgstr "La taille maximale de l'image doit être de  {max_size}  MB"
 #: adhocracy4/images/validators.py:30
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
-msgstr "La largeur minimale de l'image doit être de {max_size}  pixels "
+msgstr "La largeur minimale de l'image doit être de {min_width}  pixels "
 
 #: adhocracy4/images/validators.py:33
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
-msgstr "La hauteur minimale de l'image doit être de {max_size} pixels "
+msgstr "La hauteur minimale de l'image doit être de {min_height} pixels "
 
 #: adhocracy4/images/validators.py:43
 #, python-brace-format
