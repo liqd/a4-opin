@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 12:14+0200\n"
+"POT-Creation-Date: 2017-08-24 12:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Moritz Ritter <moritz.ritter@liqd.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:91
@@ -28,18 +28,17 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:94
-#: adhocracy4/static/Modal.jsx:50
-#: euth/contrib/static/js/Modal.jsx:41
+#: adhocracy4/static/Modal.jsx:50 euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
 msgstr "Abbrechen"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:107
 msgid "Latest edit on"
-msgstr ""
+msgstr "Zuletzt bearbeitet: "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:112
 msgid "Moderator"
-msgstr ""
+msgstr "Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:119
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
@@ -77,7 +76,7 @@ msgstr "Bitte melde dich an, um zu kommentieren"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:49
 msgid "The currently active phase doesn't allow to comment."
-msgstr ""
+msgstr "Die derzeit aktive Phase erlaubt keine Kommentierung."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:15
 msgid "Edit"
@@ -101,12 +100,12 @@ msgstr "Antwort verfassen"
 #: adhocracy4/follows/static/follows/FollowButton.jsx:42
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Unfollow"
-msgstr ""
+msgstr "Entfolgen"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:42
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Follow"
-msgstr ""
+msgstr "Folgen"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:63
 msgid "Your message here"
@@ -118,48 +117,51 @@ msgstr "Absenden"
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
-msgstr ""
+msgstr "Bitte fülle alle Werte für dein Projekt aus."
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:7
 msgid "Offline Phase"
-msgstr ""
+msgstr "Phase: Vor-Ort-Beteiligung"
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:91
 msgid "add offline phase"
-msgstr ""
+msgstr "Phase für Vor-Ort-Beteiligung hinzufügen"
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:80
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: euth/documents/static/documents/Paragraph.jsx:57
 #: euth/documents/static/documents/ParagraphBox.jsx:205
 msgid "add a new paragraph"
-msgstr ""
+msgstr "Neuen Absatz hinzufügen"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 msgid "Headline:"
-msgstr ""
+msgstr "Überschrift"
 
 #: euth/documents/static/documents/Paragraph.jsx:82
 msgid "Paragraph:"
-msgstr ""
+msgstr "Absatz"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:111
 msgid "Your document has been updated."
-msgstr ""
+msgstr "Dein Dokument wurde aktualisiert."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:140
 msgid "Your document has been saved."
-msgstr ""
+msgstr "Dein Dokument wurde gespeichert."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:168
 msgid "Title:"
-msgstr ""
+msgstr "Titel:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:222
 msgid "save"
-msgstr ""
+msgstr "speichern"
+
+#~ msgid "Please pick an aim for your project."
+#~ msgstr "Bitte wähle das Ziel deines Projekts aus."
 
 #~ msgid "Latest edit"
 #~ msgstr "Zuletzt bearbeitet am"
