@@ -12,7 +12,8 @@ django-widget-tweaks==1.4.1
 easy-thumbnails==2.4.2
 django-parler==1.8
 django-autoslug==1.9.3
-djangorestframework==3.7.1 # pyup: >=3.6,<3.7   removes support for Django 1.8
+# django restframework 3.7 dropped support for Django 1.8
+djangorestframework==3.6.3 # pyup: >=3.6,<3.7
 python-magic==0.4.13
 html5lib==0.999999999
 bleach==2.1.1
