@@ -63,6 +63,11 @@
     background-color: darken($brand-brand5, 10);
 }
 
+.user-indicator .dropdown-menu {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
 @media screen and (max-width: $screen-xs-max) {
     .user-indicator .btngroup {
         display: flex;
