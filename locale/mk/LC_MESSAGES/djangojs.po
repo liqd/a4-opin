@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 12:46+0200\n"
+"POT-Creation-Date: 2017-10-17 09:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
@@ -18,100 +18,112 @@ msgstr ""
 "Language: mk\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:91
+#: adhocracy4/comments/static/comments/Comment.jsx:97
 msgid "Do you really want to delete this comment?"
 msgstr "Дали навистина сакате да го избришете овој коментар? "
 
-#: adhocracy4/comments/static/comments/Comment.jsx:93
+#: adhocracy4/comments/static/comments/Comment.jsx:99
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
 msgstr "Избриши"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:94
-#: adhocracy4/static/Modal.jsx:50 euth/contrib/static/js/Modal.jsx:41
+#: adhocracy4/comments/static/comments/Comment.jsx:100
+#: adhocracy4/static/Modal.jsx:49 euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
 msgstr "Прекини"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:107
+#: adhocracy4/comments/static/comments/Comment.jsx:113
 msgid "Latest edit on"
 msgstr "Последно додадено "
 
-#: adhocracy4/comments/static/comments/Comment.jsx:112
+#: adhocracy4/comments/static/comments/Comment.jsx:118
 msgid "Moderator"
 msgstr ""
 
-#: adhocracy4/comments/static/comments/Comment.jsx:119
+#: adhocracy4/comments/static/comments/Comment.jsx:125
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
 msgstr "Дали сте сигурни дека сакате да го пријавите овој коментар?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:161
+#: adhocracy4/comments/static/comments/Comment.jsx:167
 msgid "Your reply here"
 msgstr "Вашиот одговор овде"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:79
+#: adhocracy4/comments/static/comments/CommentBox.jsx:82
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Коментари"
 msgstr[1] "Коментари"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:82
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:30
-#: adhocracy4/comments/static/comments/CommentForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentBox.jsx:85
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
 msgid "Your comment here"
 msgstr "Твојот коментар овде"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
-#: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
 msgid "post"
 msgstr ""
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
 msgid "cancel"
 msgstr "Откажи"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:43
+#: adhocracy4/comments/static/comments/CommentForm.jsx:46
 msgid "Please login to comment"
 msgstr "Ве молиме пријавете се за да можете да коментирате"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:49
+#: adhocracy4/comments/static/comments/CommentForm.jsx:52
 msgid "The currently active phase doesn't allow to comment."
 msgstr ""
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:15
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
 msgstr "Измени"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:23
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
 msgstr "Пријави"
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:5
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #, javascript-format
 msgid "view %s reply"
 msgid_plural "view %s replies"
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:25
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
 msgid "Answer"
 msgstr "Одговори"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
+msgid "Not following"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
+msgid "Never be notified."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
+msgid "Receive email notifications about this project."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Unfollow"
 msgstr ""
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:42
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Follow"
 msgstr ""
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:63
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message here"
 msgstr "Твојата порака овде"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:75
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
 msgstr "Испрати извештај"
 
