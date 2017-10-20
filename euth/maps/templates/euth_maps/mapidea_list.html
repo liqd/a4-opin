@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load static i18n rules idea_tags maps_tags %}
+{% load static i18n discovery_tags idea_tags maps_tags %}
 
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'leaflet.js' %}"></script>
@@ -13,7 +13,7 @@
 
 {% block phase_content %}
 <div class="idea-list">
-    {% has_perm 'euth_maps.propose_mapidea' request.user view.module as add_button_enabled %}
+    {% has_or_would_have_perm 'euth_maps.propose_mapidea' request.user view.module as add_button_enabled %}
     {% if add_button_enabled %}
     <a href="{% url 'map-idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
         <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>

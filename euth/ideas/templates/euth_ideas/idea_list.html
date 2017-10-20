@@ -1,11 +1,11 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n rules idea_tags %}
+{% load i18n discovery_tags idea_tags %}
 
 {% block phase_content %}
 <div class="container-medium">
 
     <div class="idea-list">
-        {% has_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
+        {% has_or_would_have_perm 'euth_ideas.propose_idea' request.user view.module as add_button_enabled %}
         {% if add_button_enabled %}
         <a href="{% url 'idea-create' slug=view.module.slug %}" class="idea-list-button" id="idea-create">
             <i class="fa fa-plus idea-list-button-icon" aria-hidden="true"></i>
