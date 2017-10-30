@@ -40,10 +40,10 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-                <a href="{% url 'account_login' %}?next={{ redirect_field_value }}">{% trans "login" %}</a>
+                <a href="{% url 'account_login' %}?next={{ redirect_field_value|urlencode }}">{% trans "login" %}</a>
             </li>
             <li>
-                <a href="{% url 'account_signup' %}?next={{ redirect_field_value }}">{% trans "register" %}</a>
+                <a href="{% url 'account_signup' %}?next={{ redirect_field_value|urlencode }}">{% trans "register" %}</a>
             </li>
         </ul>
     {% endif %}
