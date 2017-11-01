@@ -29,7 +29,7 @@
                 <li>
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ redirect_field_value }}">
+                        <input type="hidden" name="next" value="{{ redirect_field_value|urlencode }}">
                         <button type="submit" value="Register"><i class="fa fa-sign-out"></i> <span class="dropdown-text">{% trans "logout" %}</span></button>
                     </form>
                 </li>
@@ -40,10 +40,10 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-                <a href="{% url 'account_login' %}?next={{ redirect_field_value }}">{% trans "login" %}</a>
+                <a href="{% url 'account_login' %}?next={{ redirect_field_value|urlencode }}">{% trans "login" %}</a>
             </li>
             <li>
-                <a href="{% url 'account_signup' %}?next={{ redirect_field_value }}">{% trans "register" %}</a>
+                <a href="{% url 'account_signup' %}?next={{ redirect_field_value|urlencode }}">{% trans "register" %}</a>
             </li>
         </ul>
     {% endif %}

@@ -9,8 +9,8 @@
 <div class="skinny-form">
     <header class="skinny-form-header">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value}}">{% trans "login" %}</a></li>
-            <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value}}">{% trans "register" %}</a></li>
+            <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">{% trans "login" %}</a></li>
+            <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">{% trans "register" %}</a></li>
         </ul>
     </header>
 
@@ -32,7 +32,7 @@
         {% endif %}
 
         {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value|urlencode }}" />
         {% endif %}
 
         <div class="form-group">
