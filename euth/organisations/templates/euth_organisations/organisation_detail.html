@@ -78,7 +78,7 @@
         {% if project_list|length == 0 %}
           {% trans 'No projects found' %}
         {% else %}
-            <div class="org-projects-grid">
+            <div class="projects-grid">
               {% for project in project_list %}
                 <div class="org-project-tile">
                     {% include "euth_projects/includes/project_tile.html" with project=project %}
