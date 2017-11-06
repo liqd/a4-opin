@@ -1,19 +1,19 @@
 git+git://github.com/liqd/adhocracy4.git@9f39f9da4ed37d328da0e9e09882944302f94c6e
 Django>=1.8,<1.9 # pyup: >=1.8,<1.9
-wagtail==1.12.2
+wagtail==1.13
 feedparser==5.2.1
 python-dateutil==2.6.1
-django-allauth==0.33.0
-django-ckeditor==5.3.0
+django-allauth==0.34.0
+django-ckeditor==5.3.1
 django-countries==5.0
 django-webpack-loader==0.5.0
-django-filter==1.0.4
+django-filter==1.1.0
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.4.2
 django-parler==1.8
 django-autoslug==1.9.3
 # django restframework 3.7 dropped support for Django 1.8
-djangorestframework==3.6.3 # pyup: >=3.6,<3.7
+djangorestframework==3.6.4 # pyup: >=3.6,<3.7
 python-magic==0.4.13
 html5lib==0.999999999
 bleach==2.1.1
