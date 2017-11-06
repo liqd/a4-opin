@@ -11,6 +11,14 @@
 
     <section class="block-inner page-body">
 
+        <div class="row">
+        {% for field in view.filter.form %}
+            <div class="col-lg-3 filter-{{ field.name }}">
+                {{ field }}
+            </div>
+        {% endfor %}
+        </div>
+
         <div class="projects-grid">
               {% for project in project_list %}
                 <div class="org-project-tile">
