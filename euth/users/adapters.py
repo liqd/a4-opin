@@ -38,6 +38,6 @@ class EuthAccountAdapter(DefaultAccountAdapter):
 
     def get_email_confirmation_redirect_url(self, request):
         if 'next' in request.GET and is_safe_url(request.GET['next']):
-            return quote(request.GET['next'])
+            return request.GET['next']
         else:
             return super().get_email_confirmation_redirect_url(request)
