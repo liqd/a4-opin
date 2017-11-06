@@ -26,6 +26,7 @@ from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
 from euth.offlinephases import urls as offlinephase_urls
 from euth.organisations import urls as organisations_urls
+from euth.projects import urls as project_urls
 from euth.projects.api import ProjectViewSet
 from euth.users import urls as user_urls
 from euth.users.api import UserViewSet
@@ -68,6 +69,7 @@ urlpatterns += i18n_patterns(
     url(r'^dashboard/', include(dashboard_urls)),
     url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
+    url(r'^projects/', include(project_urls)),
     url(r'^projects/', include(memberships_project_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),
     url(r'^ideas/', include(ideas_urls)),
