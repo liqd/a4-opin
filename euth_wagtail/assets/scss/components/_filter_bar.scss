@@ -2,6 +2,7 @@
     @include clearfix;
     font-size: $font-size-small;
     padding-bottom: 10px;
+    margin-right: 13px;
 
     .btn {
         background-color: white;
@@ -29,5 +30,50 @@
 
     .btn-filter .value-label {
         display: inline-block;
+    }
+
+    .filter {
+        float: left;
+        margin-right: rem(10px);
+    }
+
+    .ordering {
+        float: right;
+    }
+
+    .search-filter {
+        width: 100%;
+        position: relative;
+
+        .search-filter-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-bottom: 9px;
+        }
+
+        .search-filter-btn:active {
+            outline: none;
+            border: none;
+        }
+
+        .search-filter-btn:focus {
+            outline:0;
+        }
+    }
+
+    .search-filter-input {
+        color: $gray-dark;
+        padding: rem(11px) rem(20px);
+        border:1px solid $gray-light;
+        border-right: none;
+        width: rem(270px);
+    }
+
+    .filter-element {
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-x: hidden;
+        }
     }
 }

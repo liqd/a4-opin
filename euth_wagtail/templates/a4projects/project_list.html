@@ -9,13 +9,19 @@
       <h1 class="block-title">{% trans 'Find your Project' %}</h1>
     </header>
 
-    <section class="block-inner page-body">
+    <section class="page-body">
 
-        <div class="row">
+        <div class="filter-bar">
         {% for field in view.filter.form %}
-            <div class="col-lg-3 filter-{{ field.name }}">
+            {% if field.name != 'ordering' %}
+            <div class="filter projects-filter-{{ field.name }}">
                 {{ field }}
             </div>
+            {% else %}
+            <div class="ordering projects-filter-{{ field.name }}">
+                {{ field }}
+            </div>
+            {% endif %}
         {% endfor %}
         </div>
 
