@@ -1,23 +1,30 @@
 import django_filters
 from django.utils.translation import ugettext_lazy as _
+from django_countries import countries
 
 from adhocracy4.filters import widgets
 from adhocracy4.filters.filters import DefaultsFilterSet, FreeTextFilter
 from adhocracy4.projects.models import Project
-from euth.organisations.models import Organisation
 
 ORDERING_CHOICES = [
     ('newest', _('Most Recent')),
     ('name', _('Alphabetical'))
 ]
 
+COUNTRIES = list(countries)
+
 
 class OrderingFilterWidget(widgets.DropdownLinkWidget):
     label = _('Sorting')
 
 
-class OrganisationFilterWidget(widgets.DropdownLinkWidget):
-    label = _('Organisation')
+class CountryFilterWidget(widgets.DropdownLinkWidget):
+    label = _('Country')
+
+    def __init__(self, attrs=None):
+        choices = [('', _('All')), ]
+        choices += COUNTRIES
+        super().__init__(attrs, choices)
 
 
 class FreeTextSearchFilterWidget(widgets.FreeTextFilterWidget):
@@ -35,10 +42,15 @@ class ProjectFilterSet(DefaultsFilterSet):
         fields=['name']
     )
 
-    organisation = django_filters.ModelChoiceFilter(
-        name='organisation__name',
-        queryset=Organisation.objects.all(),
-        widget=OrganisationFilterWidget,
+    def organisation_countries(self, queryset, name, value):
+        return queryset.filter(
+            organisation__country=value
+        )
+
+    country = django_filters.CharFilter(
+        name='',
+        method='organisation_countries',
+        widget=CountryFilterWidget,
     )
 
     ordering = django_filters.OrderingFilter(
@@ -53,4 +65,4 @@ class ProjectFilterSet(DefaultsFilterSet):
 
     class Meta:
         model = Project
-        fields = ['search', 'organisation', 'ordering']
+        fields = ['search', 'country', 'ordering']
