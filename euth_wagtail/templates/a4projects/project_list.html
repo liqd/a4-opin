@@ -11,7 +11,7 @@
 
     <section class="page-body">
 
-        <div class="filter-bar">
+        <div class="filter-bar flexbox-list">
         {% for field in view.filter.form %}
             {% if field.name != 'ordering' %}
             <div class="filter hidden-xs projects-filter-{{ field.name }}">

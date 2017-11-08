@@ -14,19 +14,24 @@
         {% endif %}
 
         <div id="idea-list">
-            <div class="idea-list-controls">
-                <div class="idea-list-filter filter-bar">
-                {% for field in view.filter.form %}
+            <div class="filter-bar">
+            {% for field in view.filter.form %}
+            {% if field.name != 'ordering' %}
+            <div class="filter hidden-xs projects-filter-{{ field.name }}">
                 {{ field }}
-                {% endfor %}
-                </div>
+            </div>
+            {% else %}
+            <div class="ordering hidden-xs projects-filter-{{ field.name }}">
+                {{ field }}
+            </div>
+            {% endif %}
+            <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+                {{ field }}
+            </div>
+            {% endfor %}
+            </div>
 
-                {% if view.sorts %}
-                {% include "euth_ideas/includes/sort.html" %}
-                {% endif %}
-          </div>
-
-          {% if idea_list|length > 0 %}
+          {% if idea_list.count > 0 %}
           {% for idea in idea_list %}
           {% include "euth_ideas/includes/idea_list_tile.html" with idea=idea %}
           {% endfor %}

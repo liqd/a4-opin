@@ -2,7 +2,11 @@
     @include clearfix;
     font-size: $font-size-small;
     padding-bottom: 10px;
-    margin-right: 13px;
+
+    &.flexbox-list {
+        margin-right: 13px;
+    }
+
 
     .btn {
         background-color: white;
@@ -58,14 +62,14 @@
         }
 
         .search-filter-btn:focus {
-            outline:0;
+            outline: 0;
         }
     }
 
     .search-filter-input {
         color: $gray-dark;
         padding: rem(11px) rem(20px);
-        border:1px solid $gray-light;
+        border: 1px solid $gray-light;
         border-right: none;
         min-width: rem(270px);
         width: 100%;
@@ -84,7 +88,6 @@
         .filter-element {
             width: 100%;
         }
-
     }
 }
 
