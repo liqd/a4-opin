@@ -4,20 +4,8 @@ from . import forms
 from .models import MapIdea
 
 
-class MapIdeaFilterSet(idea_views.IdeaFilterSet):
-    """
-    Required to override filter model due to old a4 version.
-
-    Can be removed once adhocracy4#43cd20e94c01e9364d8b0b2e50c701810d68b491
-    is included in the dependencies.
-    """
-    class Meta(idea_views.IdeaFilterSet.Meta):
-        model = MapIdea
-
-
 class MapIdeaListView(idea_views.IdeaListView):
     model = MapIdea
-    filter_set = MapIdeaFilterSet
 
 
 class MapIdeaCreateView(idea_views.IdeaCreateView):
