@@ -137,38 +137,6 @@ def test_delete_view_wrong_user(client, phase, idea, user, user2):
 
 
 @pytest.mark.django_db
-def test_sort_mixin(rf):
-    from tests.apps.blog.models import Post
-    from django.views import generic
-
-    post1 = Post(heading="B", body="text A")
-    post1.save()
-    post2 = Post(heading="A", body="text A")
-    post2.save()
-
-    class FakeSortView(views.SortMixin, generic.ListView):
-        model = Post
-        sort_default = 'heading'
-        sorts = [
-            ('heading', 'sort by heading'),
-            ('created', 'sort by created')
-        ]
-    view = FakeSortView.as_view()
-
-    response = view(rf.get('/'))
-    assert response.context_data['view'].sort == 'heading'
-    assert list(response.context_data['post_list']) == [post2, post1]
-
-    response = view(rf.get('/', {'sort': 'invalid'}))
-    assert response.context_data['view'].sort == 'heading'
-    assert list(response.context_data['post_list']) == [post2, post1]
-
-    response = view(rf.get('/', {'sort': 'created'}))
-    assert response.context_data['view'].sort == 'created'
-    assert list(response.context_data['post_list']) == [post1, post2]
-
-
-@pytest.mark.django_db
 def test_ideas_download_by_anonymous_forbidden(client, idea_factory, user):
 
     idea = idea_factory()
