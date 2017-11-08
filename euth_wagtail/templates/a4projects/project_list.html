@@ -14,14 +14,17 @@
         <div class="filter-bar">
         {% for field in view.filter.form %}
             {% if field.name != 'ordering' %}
-            <div class="filter projects-filter-{{ field.name }}">
+            <div class="filter hidden-xs projects-filter-{{ field.name }}">
                 {{ field }}
             </div>
             {% else %}
-            <div class="ordering projects-filter-{{ field.name }}">
+            <div class="ordering hidden-xs projects-filter-{{ field.name }}">
                 {{ field }}
             </div>
             {% endif %}
+            <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+                {{ field }}
+            </div>
         {% endfor %}
         </div>
 
@@ -34,7 +37,7 @@
           </div>
 
         {% if is_paginated %}
-        <div class="row">
+        <div class="pagination-row">
           <nav class="pull-right">
             <ul class="pagination">
               {% if page_obj.has_previous %}

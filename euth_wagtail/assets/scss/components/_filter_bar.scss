@@ -67,7 +67,8 @@
         padding: rem(11px) rem(20px);
         border:1px solid $gray-light;
         border-right: none;
-        width: rem(270px);
+        min-width: rem(270px);
+        width: 100%;
     }
 
     .filter-element {
@@ -75,5 +76,14 @@
             max-height: 300px;
             overflow-x: hidden;
         }
+    }
+
+    .col-xs-12 {
+        padding: 0;
+
+        .filter-element {
+            width: 100%;
+        }
+
     }
 }
