@@ -1,0 +1,32 @@
+name: "gunicorn"
+type: "python:3.5"
+disk: 256
+hooks:
+  build: |
+    npm install --production
+    npm run build
+    pip install -r requirements.txt
+    python ./manage.py collectstatic --noinput
+  deploy: |
+    python ./manage.py migrate --noinput
+web:
+  upstream:
+    socket_family: unix
+    protocol: http
+  locations:
+    "/":
+      root: ""
+      passthru: true
+      allow: false
+    "/static":
+      root: "static/"
+      allow: true
+  commands:
+    start: >
+      gunicorn
+      --env DJANGO_SETTINGS_MODULE=euth_wagtail.settings.aws
+      --forwarded-allow-ips=*
+      --workers=2
+      --name=opin_dev
+      --bind=unix:${SOCKET}
+      euth_wagtail.wsgi
