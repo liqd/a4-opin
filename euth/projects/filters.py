@@ -15,7 +15,7 @@ COUNTRIES = list(countries)
 
 
 class OrderingFilterWidget(widgets.DropdownLinkWidget):
-    label = _('Sorting')
+    label = _('Sort by')
 
 
 class CountryFilterWidget(widgets.DropdownLinkWidget):
