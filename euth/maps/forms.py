@@ -17,6 +17,14 @@ class MapIdeaForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
         self.fields['point'].error_messages['required'] = _(
             'Please locate your proposal on the map.')
 
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        category = self.cleaned_data['category']
+        instance.category = category
+        if commit:
+            instance.save()
+        return instance
+
     class Meta:
         model = models.MapIdea
         fields = ['name', 'description', 'image', 'point']
