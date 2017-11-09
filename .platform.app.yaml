@@ -9,10 +9,15 @@ hooks:
     python ./manage.py collectstatic --noinput
   deploy: |
     python ./manage.py migrate --noinput
+relationships:
+  database: "database:postgresql"
+variables:
+  env:
+    DJANGO_SETTINGS_MODULE: "euth_wagtail.settings.aws"
 web:
   upstream:
-    socket_family: unix
-    protocol: http
+    socket_family: "unix"
+    protocol: "http"
   locations:
     "/":
       root: ""

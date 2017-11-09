@@ -1,3 +1,5 @@
+import base64
+import json
 from os import environ
 
 from .base import *
@@ -21,5 +23,20 @@ ALLOWED_HOSTS = [
         environ['PLATFORM_PROJECT']
     ),
 ]
+
+relationships = os.environ['PLATFORM_RELATIONSHIPS']
+relationships = json.loads(str(base64.b64decode(relationships), 'utf-8'))
+db_settings = relationships['database'][0]
+
+DATABASES = {
+    "default": {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': db_settings['path'],
+        'USER': db_settings['username'],
+        'PASSWORD': db_settings['password'],
+        'HOST': db_settings['host'],
+        'PORT': db_settings['port'],
+    }
+}
 
 SECRET_KEY = environ['PLATFORM_PROJECT_ENTROPY']
