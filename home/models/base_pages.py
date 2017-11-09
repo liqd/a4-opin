@@ -141,6 +141,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('accordion_block', blocks.AccordionBlock(icon="collapse-down")),
         ('image_text_block_list', blocks.ImageTextBlockList()),
         ('rss_feed', blocks.RSSImportBlock()),
+        ('switch_block', blocks.SwitchBlock())
     ]
 
     body = translations.TranslatedField(

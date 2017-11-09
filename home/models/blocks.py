@@ -179,3 +179,21 @@ class ImageTextBlockList(core_blocks.StructBlock):
         template = 'home/blocks/imageTextBlockList_block.html'
         icon = 'placeholder'
         label = 'Image Text Block'
+
+
+class SwitchBlockItem(core_blocks.StructBlock):
+    image = image_blocks.ImageChooserBlock()
+    colour = core_blocks.ChoiceBlock(choices=[
+        ('Yellow', 'yellow'),
+        ('Blue', 'blue')
+    ])
+    title = core_blocks.CharBlock()
+    subtitle = core_blocks.CharBlock()
+    url = core_blocks.URLBlock()
+
+    class Meta:
+        template = 'home/blocks/switchBlockItem_block.html'
+
+
+class SwitchBlock(core_blocks.StructBlock):
+    items = core_blocks.ListBlock(SwitchBlockItem)
