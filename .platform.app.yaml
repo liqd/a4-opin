@@ -15,7 +15,9 @@ relationships:
   database: "database:postgresql"
 variables:
   env:
-    DJANGO_SETTINGS_MODULE: "euth_wagtail.settings.aws"
+    DJANGO_SETTINGS_MODULE: "euth_wagtail.settings.platform_sh"
+mounts:
+  "/media": "shared:files/media"
 web:
   upstream:
     socket_family: "unix"
@@ -31,8 +33,6 @@ web:
   commands:
     start: >
       gunicorn
-      --env DJANGO_SETTINGS_MODULE=euth_wagtail.settings.aws
-      --forwarded-allow-ips=*
       --workers=2
       --name=opin_dev
       --bind=unix:${SOCKET}

@@ -1,31 +1,20 @@
 import base64
 import json
 from os import environ
+from urllib.parse import urlparse
 
-from .base import *
-
-DEBUG = False
+from .production import *
 
 try:
     from .local import *
 except ImportError:
     pass
 
-INSTALLED_APPS += [
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
-]
-
-if environ.get('PLATFORM_ENVIRONMENT'):
-    run_time = True
-else:
-    run_time = False
-build_time = not run_time
-
 
 ALLOWED_HOSTS = [
     'localhost',
 ]
+
 
 LOGGING = {
     'version': 1,
@@ -51,15 +40,19 @@ LOGGING = {
     }
 }
 
-if run_time:
-    ALLOWED_HOSTS.append(
-        '{}-{}.eu.platfrom.sh'.format(
-            environ['PLATFORM_ENVIRONMENT'],
-            environ['PLATFORM_PROJECT']
-        )
-    )
 
-    relationships = os.environ['PLATFORM_RELATIONSHIPS']
+routes = environ.get('PLATFORM_ROUTES')
+if routes:
+    routes = json.loads(str(base64.b64decode(routes), 'utf-8'))
+    app_name = os.getenv('PLATFORM_APPLICATION_NAME')
+    for url, route in routes.items():
+        host = urlparse(url).netloc;
+        if host not in ALLOWED_HOSTS and route['type'] == 'upstream' and route['upstream'] == app_name:
+            ALLOWED_HOSTS.append(host)
+
+
+relationships = environ.get('PLATFORM_RELATIONSHIPS')
+if relationships:
     relationships = json.loads(str(base64.b64decode(relationships), 'utf-8'))
     db_settings = relationships['database'][0]
 
@@ -73,6 +66,9 @@ if run_time:
             'PORT': db_settings['port'],
         }
     }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = environ.get('PLATFORM_SMTP_HOST')
 
 # FIXME: PLATFORM_PROJECT_ENTROPY should also be available during build
 SECRET_KEY = environ.get('PLATFORM_PROJECT_ENTROPY', 'tExb2F2cG3sfnOYlwhV1VqXFFbDfLOxbmfnLOEEy')
