@@ -9,6 +9,10 @@ from . import models
 
 class MapIdeaForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
 
+    class Meta:
+        model = models.MapIdea
+        fields = ['name', 'description', 'image', 'point', 'category']
+
     def __init__(self, *args, **kwargs):
         self.settings = kwargs.pop('settings_instance')
         super().__init__(*args, **kwargs)
@@ -16,15 +20,3 @@ class MapIdeaForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
             polygon=self.settings.polygon)
         self.fields['point'].error_messages['required'] = _(
             'Please locate your proposal on the map.')
-
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        category = self.cleaned_data['category']
-        instance.category = category
-        if commit:
-            instance.save()
-        return instance
-
-    class Meta:
-        model = models.MapIdea
-        fields = ['name', 'description', 'image', 'point']
