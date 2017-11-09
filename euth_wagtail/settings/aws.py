@@ -27,6 +27,30 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '[%(asctime)s] [%(levelname)s] %(module)s -- %(message)s',
+            'datefmt' : '%Y-%m-%d %H:%M:%S %z',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        }
+    },
+    'loggers': {
+                'django': {
+                    'handlers': ['console'],
+                    'propagate': True,
+                }
+    }
+}
+
 if run_time:
     ALLOWED_HOSTS.append(
         '{}-{}.eu.platfrom.sh'.format(
@@ -50,4 +74,5 @@ if run_time:
         }
     }
 
+# FIXME: PLATFORM_PROJECT_ENTROPY should also be available during build
 SECRET_KEY = environ.get('PLATFORM_PROJECT_ENTROPY', 'tExb2F2cG3sfnOYlwhV1VqXFFbDfLOxbmfnLOEEy')
