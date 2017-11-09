@@ -3,11 +3,13 @@ type: "python:3.5"
 disk: 256
 hooks:
   build: |
+    set -ex
     npm install --production
     npm run build
     pip install -r requirements.txt
     python ./manage.py collectstatic --noinput
   deploy: |
+    set -ex
     python ./manage.py migrate --noinput
 relationships:
   database: "database:postgresql"
