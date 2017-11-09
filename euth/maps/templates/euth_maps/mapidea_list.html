@@ -36,9 +36,22 @@
     </div>
 
     <div id="idea-list">
-    {% if view.sorts and mapidea_list.count > 1 %}
-    {% include "euth_ideas/includes/sort.html" %}
-    {% endif %}
+    <div class="filter-bar">
+        {% for field in view.filter.form %}
+        {% if field.name != 'ordering' %}
+        <div class="filter hidden-xs projects-filter-{{ field.name }}">
+            {{ field }}
+        </div>
+        {% else %}
+        <div class="ordering hidden-xs projects-filter-{{ field.name }}">
+            {{ field }}
+        </div>
+        {% endif %}
+        <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+            {{ field }}
+        </div>
+        {% endfor %}
+    </div>
 
     {% for idea in mapidea_list %}
     {% include "euth_maps/includes/mapidea_list_tile.html" with idea=idea %}

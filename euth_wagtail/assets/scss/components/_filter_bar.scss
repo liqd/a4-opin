@@ -3,6 +3,11 @@
     font-size: $font-size-small;
     padding-bottom: 10px;
 
+    &.flexbox-list {
+        margin-right: 13px;
+    }
+
+
     .btn {
         background-color: white;
         border: solid 1px $gray-light;
@@ -30,4 +35,62 @@
     .btn-filter .value-label {
         display: inline-block;
     }
+
+    .filter {
+        float: left;
+        margin-right: rem(10px);
+    }
+
+    .ordering {
+        float: right;
+    }
+
+    .search-filter {
+        width: 100%;
+        position: relative;
+
+        .search-filter-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-bottom: 9px;
+        }
+
+        .search-filter-btn:active {
+            outline: none;
+            border: none;
+        }
+
+        .search-filter-btn:focus {
+            outline: 0;
+        }
+    }
+
+    .search-filter-input {
+        color: $gray-dark;
+        padding: rem(11px) rem(20px);
+        border: 1px solid $gray-light;
+        border-right: none;
+        min-width: rem(270px);
+        width: 100%;
+    }
+
+    .filter-element {
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-x: hidden;
+        }
+    }
+
+    .col-xs-12 {
+        padding: 0;
+
+        .filter-element {
+            width: 100%;
+        }
+    }
+}
+
+.no-results {
+    text-align: center;
 }

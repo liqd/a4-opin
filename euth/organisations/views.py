@@ -20,7 +20,8 @@ class OrganisationMixin():
         return context
 
     def get_queryset(self):
-        return super().get_queryset().filter(organisation=self.organisation)
+        return super().get_queryset().filter(organisation=self.organisation,
+                                             is_draft=False)
 
 
 class OrganisationDetailView(OrganisationMixin, filter_views.FilteredListView):

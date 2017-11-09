@@ -67,24 +67,24 @@
 </div>
 
 <div class="container org-page">
-<div class="filter-bar">
-    {% for field in view.filter.form %}
-        {% if field.name != 'ordering' %}
-            {{ field }}
-        {% endif %}
-    {% endfor %}
-</div>
+    <div class="filter-bar">
+        {% for field in view.filter.form %}
+            {% if field.name != 'ordering' %}
+                {{ field }}
+            {% endif %}
+        {% endfor %}
+    </div>
     <section class=" block-inner page-body {% if organisation.project_set.all %} org-projects {% endif %}">
-        {% if project_list|length == 0 %}
-          {% trans 'No projects found' %}
+        {% if not organisation.project_set.all %}
+        {% trans 'No projects found' %}
         {% else %}
-            <div class="org-projects-grid">
-              {% for project in project_list %}
-                <div class="org-project-tile">
-                    {% include "euth_projects/includes/project_tile.html" with project=project %}
-                </div>
-              {% endfor %}
-          </div>
+        <div class="projects-grid">
+        {% for project in project_list %}
+            <div class="org-project-tile">
+                {% include "euth_projects/includes/project_tile.html" with project=project %}
+            </div>
+        {% endfor %}
+        </div>
         {% endif %}
     </section>
 </div>

@@ -4,9 +4,7 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from adhocracy4.categories import filters as cat_filters
 from adhocracy4.filters import views as filter_views
-from adhocracy4.filters import filters
 from adhocracy4.modules.models import Module
 from adhocracy4.projects import mixins
 from euth.contrib import exports
@@ -14,58 +12,17 @@ from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
 from . import forms
-
-
-class SortMixin():
-    sort_default = None
-    sorts = []
-    sort = None
-
-    def get_sort(self):
-        sort = self.request.GET.get('sort') or self.sort_default
-        sorts = dict(self.sorts).keys()
-        if sort not in sorts:
-            sort = self.sort_default
-        return sort
-
-    def get_queryset(self):
-        qs = super().get_queryset()
-        self.sort = self.get_sort()
-
-        if not self.sort:
-            return qs
-
-        return qs.order_by(self.sort)
-
-    def get_current_sortname(self):
-        if self.sort:
-            return dict(self.sorts)[self.sort]
-
-
-class IdeaFilterSet(filters.DefaultsFilterSet):
-    defaults = {}
-    category = cat_filters.CategoryFilter()
-
-    class Meta:
-        model = idea_models.Idea
-        fields = ['category']
+from .filters import IdeaFilterSet
 
 
 class IdeaListView(
     mixins.ProjectMixin,
-    SortMixin,
     prj_mixins.ProjectPhaseMixin,
     filter_views.FilteredListView
 ):
     model = idea_models.Idea
     paginate_by = 15
-    sort_default = '-created'
     filter_set = IdeaFilterSet
-    sorts = [
-        ('-created', _('Most recent')),
-        ('-positive_rating_count', _('Popularity')),
-        ('-comment_count', _('Comments'))
-    ]
 
     def get_queryset(self):
         return super().get_queryset().filter(module=self.module) \
