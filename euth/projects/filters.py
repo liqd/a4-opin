@@ -1,6 +1,8 @@
+from operator import itemgetter
+
 import django_filters
 from django.utils.translation import ugettext_lazy as _
-from django_countries import countries
+from django_countries import Countries
 
 from adhocracy4.filters import widgets
 from adhocracy4.filters.filters import DefaultsFilterSet, FreeTextFilter
@@ -11,7 +13,8 @@ ORDERING_CHOICES = [
     ('name', _('Alphabetical'))
 ]
 
-COUNTRIES = list(countries)
+COUNTRIES = list(Countries().countries.items())
+COUNTRIES.sort(key=itemgetter(1))
 
 
 class OrderingFilterWidget(widgets.DropdownLinkWidget):
