@@ -50,4 +50,4 @@ if run_time:
         }
     }
 
-SECRET_KEY = environ['PLATFORM_PROJECT_ENTROPY']
+SECRET_KEY = environ.get('PLATFORM_PROJECT_ENTROPY', 'tExb2F2cG3sfnOYlwhV1VqXFFbDfLOxbmfnLOEEy')
