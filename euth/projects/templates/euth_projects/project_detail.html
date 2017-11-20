@@ -9,7 +9,7 @@
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
 {% with view.project.phases as phases %}
     <div class="timeline">
-        <p class="text-uppercase">Timeline</p>
+        <p class="text-uppercase">{% trans 'Timeline' %}</p>
         <ul>
             {% for phase in phases %}
                 <li class="{% if phase == view.project.active_phase %}active{% endif %} timeline-phase">

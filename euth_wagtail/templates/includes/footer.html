@@ -4,7 +4,7 @@
 {% load_site_menu "footer" as footer_menu_items %}
 <footer id="footer" class="footer">
     <div class="container">
-        <p class="h6 sans-serif">Connect with us</p>
+        <p class="h6 sans-serif">{% trans 'Connect with us' %}</p>
         <ul id="socials" class="social-list">
             <li class="facebook"><a href="http://facebook.com/euth.net" title="facebook" target="_new"><i class="icon-facebook"></i></a></li>
             <li class="twitter"><a href="http://twitter.com/euthnet" title="twitter" target="_new"><i class="icon-twitter"></i></a></li>
@@ -20,10 +20,7 @@
         <div class="container">
             <img class="footer-disclaimer-logo" src="{% static "images/logo_eu.jpg" %}" alt="EU logo" />
             <p class="footer-disclaimer-text">
-              This project has received funding from the European Union's Horizon 2020 research and
-              innovation programme under grant agreement No 649594. This website reflects only the
-              author's view and the Research Executive Agency or European Commission is not
-              responsible for any use that may be made of the information it contains.
+              {% trans "This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 649594. This website reflects only the author's view and the Research Executive Agency or European Commission is not responsible for any use that may be made of the information it contains." %}
             </p>
         </div>
     </section>
