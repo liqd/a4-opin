@@ -2211,6 +2211,14 @@ msgstr ""
 msgid "Login with "
 msgstr "Login med"
 
+#: home/templates/home/home_page.html.py:12
+msgid "Latest projects on OPIN"
+msgstr ""
+
+#: home/templates/home/includes/wagtail_hero_unit.html.py:15
+msgid "Play video"
+msgstr ""
+
 #~ msgid "Set to archive the project"
 #~ msgstr "Sæt til at arkivere projektet"
 

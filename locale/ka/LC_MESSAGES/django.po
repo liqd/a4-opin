@@ -2139,6 +2139,14 @@ msgstr ""
 msgid "Login with "
 msgstr ""
 
+#: home/templates/home/home_page.html.py:12
+msgid "Latest projects on OPIN"
+msgstr ""
+
+#: home/templates/home/includes/wagtail_hero_unit.html.py:15
+msgid "Play video"
+msgstr ""
+
 #~ msgid "Accessible to all registered users of OPIN.me"
 #~ msgstr "ხელმისაწვდომია OPIN.me-ზე რეგისტრირებული ყველა მომხმარებლისათვის"
 
