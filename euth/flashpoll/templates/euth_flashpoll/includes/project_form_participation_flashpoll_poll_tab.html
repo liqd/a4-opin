@@ -11,7 +11,7 @@
 <div class="flashpoll phase-form">
     <h5>
         <a href="#fp-phase-2" class="collapse collapsed" data-toggle="collapse" aria-expanded="false">
-            Poll: Questions
+            {% trans 'Poll: Questions' %}
             {% if form.module_settings.errors|get_questions_errors != 0 %}<span class="info-number">{{ form.module_settings.errors|get_questions_errors }}</span>{% endif %}
             <i class="fa fa-chevron-up pull-right"></i>
 
@@ -165,7 +165,7 @@
 <div class="flashpoll phase-form">
     <h5>
         <a href="#fp-phase-3" class="collapse collapsed" data-toggle="collapse">
-            Poll: Location
+            {% trans 'Poll: Location' %}
 
             {% if form.module_settings.geofenceLocation.errors %}<span class="info-number">{{ form.module_settings.geofenceLocation.errors|length }}</span>{% endif %}
             <i class="fa fa-chevron-up pull-right"></i>

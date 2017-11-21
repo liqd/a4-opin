@@ -45,7 +45,7 @@ class Aim(Enum):
     agenda_setting = (
         'agenda_setting',
         _('Agenda Setting'),
-        ['Set the agenda of an event, a process, a project etc.']
+        [_('Set the agenda of an event, a process, a project etc.')]
     )
     design_place = (
         'design_place',
@@ -90,9 +90,9 @@ class Result(BlueprintEnum):
 class Experience(BlueprintEnum):
     five_projects = 4, _('More than 5 participative projects')
     two_projects = 3, _('More than 2 participative projects')
-    one_project = 2, ('1-2 participative projects')
-    no_projects = 1, ('I have no experiences in organising participative '
-                      ' projects')
+    one_project = 2, _('1-2 participative projects')
+    no_projects = 1, _('I have no experiences in organising '
+                       'participative projects')
 
 
 class Motivation(BlueprintEnum):

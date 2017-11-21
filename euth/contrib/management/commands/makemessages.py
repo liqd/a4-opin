@@ -26,8 +26,11 @@ class Command(makemessages.Command):
         )
         a4_paths = super().find_files(get_module_dir('adhocracy4'))
         euth_paths = super().find_files(path.relpath(get_module_dir('euth')))
+        home_paths = super().find_files(path.relpath(get_module_dir('home')))
+
         euth_wagtail_paths = super().find_files(
             path.relpath(get_module_dir('euth_wagtail'))
         )
 
-        return a4js_paths + a4_paths + euth_paths + euth_wagtail_paths
+        return a4js_paths + a4_paths + euth_paths + euth_wagtail_paths +\
+            home_paths
