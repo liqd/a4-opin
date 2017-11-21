@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-19 12:11+0000\n"
+"POT-Creation-Date: 2017-11-21 14:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: home/templates/home/home_page.html:12
+#: home/templates/home/home_page.html.py:12
 msgid "Latest projects on OPIN"
+msgstr ""
+
+#: home/templates/home/includes/wagtail_hero_unit.html.py:15
+msgid "Play video"
 msgstr ""
