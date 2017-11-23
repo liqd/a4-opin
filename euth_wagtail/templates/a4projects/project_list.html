@@ -5,69 +5,77 @@
 
 {% block content %}
     <div class="container">
-    <header class="container-narrow block page-intro" >
-      <h1 class="block-title">{% trans 'Find your Project' %}</h1>
-    </header>
+        <header class="container-narrow block page-intro" >
+            <h1 class="block-title">{% trans 'Take part in a project' %}</h1>
+        </header>
 
-    <section class="page-body">
+        <ul class="nav nav-tabs tab-switch" role="tablist">
+            <li role="presentation" class="active">
+                <a href="{% url 'project-list' %}">{% trans 'Find a project' %}</a>
+            </li>
+            <li role="presentation">
+                <a href="{% url 'organisation-list' %}">{% trans 'Search for organisation' %}</a>
+            </li>
+        </ul>
 
-        <div class="filter-bar flexbox-list">
-        {% for field in view.filter.form %}
-            {% if field.name != 'ordering' %}
-            <div class="filter hidden-xs projects-filter-{{ field.name }}">
-                {{ field }}
+        <section class="page-body">
+            <div class="filter-bar flexbox-list">
+            {% for field in view.filter.form %}
+                {% if field.name != 'ordering' %}
+                <div class="filter hidden-xs projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+                {% else %}
+                <div class="ordering hidden-xs projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+                {% endif %}
+                <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+            {% endfor %}
             </div>
-            {% else %}
-            <div class="ordering hidden-xs projects-filter-{{ field.name }}">
-                {{ field }}
+
+            {% if project_list.count == 0 %}
+            <div class="no-results">
+            {% trans 'No projects found' %}
             </div>
             {% endif %}
-            <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
-                {{ field }}
+
+            {% if project_list.count > 0 %}
+            <div class="projects-grid">
+            {% for project in project_list %}
+            <div class="org-project-tile">
+                {% include "euth_projects/includes/project_tile.html" with project=project %}
             </div>
-        {% endfor %}
-        </div>
+            {% endfor %}
+            </div>
+            {% endif %}
 
-        {% if project_list.count == 0 %}
-        <div class="no-results">
-        {% trans 'No projects found' %}
-        </div>
-        {% endif %}
-
-        {% if project_list.count > 0 %}
-        <div class="projects-grid">
-        {% for project in project_list %}
-        <div class="org-project-tile">
-            {% include "euth_projects/includes/project_tile.html" with project=project %}
-        </div>
-        {% endfor %}
-        </div>
-        {% endif %}
-
-        {% if is_paginated %}
-        <div class="pagination-row">
-          <nav class="pull-right">
-            <ul class="pagination">
-              {% if page_obj.has_previous %}
-              <li>
-                <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              {% endif %}
-              {% for number in page_obj.paginator.page_range %}
-              <li><a href="?page={{ number }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
-              {% endfor %}
-              {% if page_obj.has_next %}
-              <li>
-                <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-              {% endif %}
-            </ul>
-          </nav>
-        </div>
+            {% if is_paginated %}
+            <div class="pagination-row">
+                <nav class="pull-right">
+                    <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li>
+                        <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for number in page_obj.paginator.page_range %}
+                    <li><a href="?page={{ number }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    </ul>
+                </nav>
+            </div>
         {% endif %}
         </section>
 </div>

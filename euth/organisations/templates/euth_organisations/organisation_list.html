@@ -5,8 +5,17 @@
 {% block content %}
 <div class="container">
     <header class="container-narrow block page-intro" >
-      <h1 class="block-title">{% trans 'Find your Organisation' %}</h1>
+      <h1 class="block-title">{% trans 'Take part in a project' %}</h1>
     </header>
+
+    <ul class="nav nav-tabs tab-switch" role="tablist">
+        <li role="presentation">
+            <a href="{% url 'project-list' %}">{% trans 'Find a project' %}</a>
+        </li>
+        <li role="presentation"  class="active">
+            <a href="{% url 'organisation-list' %}">{% trans 'Search for organisation' %}</a>
+        </li>
+    </ul>
 
 
     <section class="block-inner page-body org-grid">

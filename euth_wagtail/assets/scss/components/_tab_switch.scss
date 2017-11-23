@@ -1,0 +1,18 @@
+.tab-switch {
+    margin-bottom: rem(40px);
+    justify-content: center;
+    display: flex;
+    border-bottom: 2px solid $brand-primary;
+    background-color: #fff;
+
+    li {
+        margin-bottom: -2px;
+
+        &.active {
+            box-shadow: none;
+            border-top: 2px solid $brand-primary;
+            border-right: 2px solid $brand-primary;
+            border-left: 2px solid $brand-primary;
+        }
+    }
+}
