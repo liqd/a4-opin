@@ -12,7 +12,7 @@
             color: $brand-primary;
         }
 
-        &.tab-switch-active {
+        &.active {
             box-shadow: none;
             border-top: 2px solid $brand-primary;
             border-right: 2px solid $brand-primary;
