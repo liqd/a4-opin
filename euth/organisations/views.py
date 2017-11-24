@@ -35,7 +35,3 @@ class OrganisationListView(filter_views.FilteredListView):
     model = models.Organisation
     paginate_by = 12
     filter_set = organisation_filters.OrganisationFilterSet
-
-    def get_queryset(self):
-        language_code = get_language()
-        return super().get_queryset().active_translations(language_code)
