@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from django.utils.translation import get_language
 
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
