@@ -174,15 +174,7 @@ class PageCollection(translations.TranslatedModel):
     page_15 = models.ForeignKey('wagtailcore.Page', **args)
     page_16 = models.ForeignKey('wagtailcore.Page', **args)
     page_17 = models.ForeignKey('wagtailcore.Page', **args)
-    page_18 = models.ForeignKey('wagtailcore.Page', **args)
-    page_19 = models.ForeignKey('wagtailcore.Page', **args)
-    page_20 = models.ForeignKey('wagtailcore.Page', **args)
-    page_21 = models.ForeignKey('wagtailcore.Page', **args)
-    page_22 = models.ForeignKey('wagtailcore.Page', **args)
-    page_23 = models.ForeignKey('wagtailcore.Page', **args)
-    page_24 = models.ForeignKey('wagtailcore.Page', **args)
-    page_25 = models.ForeignKey('wagtailcore.Page', **args)
-    page_count = 25
+    page_count = 17
 
     panels = [
         edit_handlers.MultiFieldPanel([
