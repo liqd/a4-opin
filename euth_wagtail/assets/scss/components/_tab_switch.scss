@@ -8,11 +8,20 @@
     li {
         margin-bottom: -2px;
 
-        &.active {
+        a:hover {
+            color: $brand-primary;
+        }
+
+        &.tab-switch-active {
             box-shadow: none;
             border-top: 2px solid $brand-primary;
             border-right: 2px solid $brand-primary;
             border-left: 2px solid $brand-primary;
         }
     }
+}
+
+.tab-switch-active-link,
+.tab-switch-active-link:hover {
+    color: $brand-primary !important;
 }

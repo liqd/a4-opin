@@ -12,11 +12,10 @@
         <li role="presentation">
             <a href="{% url 'project-list' %}">{% trans 'Find a project' %}</a>
         </li>
-        <li role="presentation"  class="active">
-            <a href="{% url 'organisation-list' %}">{% trans 'Search for organisation' %}</a>
+        <li role="presentation"  class="tab-switch-active">
+            <a href="{% url 'organisation-list' %}" class="tab-switch-active-link">{% trans 'Search for organisation' %}</a>
         </li>
     </ul>
-
 
     <section class=" page-body">
         <div class="filter-bar flexbox-list">
@@ -34,7 +33,7 @@
                     {{ field }}
                 </div>
             {% endfor %}
-        </div>
+            </div>
     <div class="org-grid block-inner">
         <div class="row">
             {% for object in object_list %}
