@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404
-from django.views import generic
+from django.utils.translation import get_language
 
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
 from euth.contrib import filters
 
+from . import filters as organisation_filters
 from . import models
 
 
@@ -30,6 +31,11 @@ class OrganisationDetailView(OrganisationMixin, filter_views.FilteredListView):
     template_name = 'euth_organisations/organisation_detail.html'
 
 
-class OrganisationListView(generic.ListView):
+class OrganisationListView(filter_views.FilteredListView):
     model = models.Organisation
     paginate_by = 12
+    filter_set = organisation_filters.OrganisationFilterSet
+
+    def get_queryset(self):
+        language_code = get_language()
+        return super().get_queryset().active_translations(language_code)

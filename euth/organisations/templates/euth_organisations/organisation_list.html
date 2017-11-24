@@ -18,7 +18,24 @@
     </ul>
 
 
-    <section class="block-inner page-body org-grid">
+    <section class=" page-body">
+        <div class="filter-bar flexbox-list">
+            {% for field in view.filter.form %}
+                {% if field.name != 'ordering' %}
+                <div class="filter hidden-xs projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+                {% else %}
+                <div class="ordering hidden-xs projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+                {% endif %}
+                <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+    <div class="org-grid block-inner">
         <div class="row">
             {% for object in object_list %}
             {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
@@ -49,6 +66,7 @@
           </nav>
         </div>
         {% endif %}
+        </div>
         </section>
 </div>
 {% endblock %}
