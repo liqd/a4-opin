@@ -2,53 +2,65 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 17:11+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:97
 #: adhocracy4/comments/static/comments/Comment.jsx:97
 msgid "Do you really want to delete this comment?"
 msgstr "Ali res želite izbrisati ta komentar?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:99
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
+#: adhocracy4/comments/static/comments/Comment.jsx:99
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
 msgstr "Izbriši"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:100
-#: adhocracy4/static/Modal.jsx:49 euth/contrib/static/js/Modal.jsx:41
+#: adhocracy4/static/Modal.jsx:49
+#: adhocracy4/comments/static/comments/Comment.jsx:100
+#: euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
 msgstr "Prekini"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:113
+#: adhocracy4/comments/static/comments/Comment.jsx:113
 msgid "Latest edit on"
 msgstr ""
 
+#: adhocracy4/comments/static/comments/Comment.jsx:118
 #: adhocracy4/comments/static/comments/Comment.jsx:118
 msgid "Moderator"
 msgstr "Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:125
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
+#: adhocracy4/comments/static/comments/Comment.jsx:125
+#: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
 msgstr "Ali ste prepričani, da želite prijaviti to vsebino?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:167
+#: adhocracy4/comments/static/comments/Comment.jsx:167
 msgid "Your reply here"
 msgstr "Odgovorite tukaj"
 
+#: adhocracy4/comments/static/comments/CommentBox.jsx:82
 #: adhocracy4/comments/static/comments/CommentBox.jsx:82
 msgid "comment"
 msgid_plural "comments"
@@ -60,34 +72,45 @@ msgstr[3] ""
 #: adhocracy4/comments/static/comments/CommentBox.jsx:85
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments/static/comments/CommentBox.jsx:85
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
 msgid "Your comment here"
 msgstr "Vaš komentar"
 
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 msgid "post"
 msgstr "objava"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
 msgid "cancel"
 msgstr "prekliči"
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:46
 #: adhocracy4/comments/static/comments/CommentForm.jsx:46
 msgid "Please login to comment"
 msgstr "Prosimo, prijavite se za komentar"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:52
+#: adhocracy4/comments/static/comments/CommentForm.jsx:52
 msgid "The currently active phase doesn't allow to comment."
 msgstr "Trenutno aktivna faza ne dopušča komentiranja."
 
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
 msgstr "Uredi"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
 msgstr "Poročilo"
 
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #, javascript-format
 msgid "view %s reply"
@@ -98,39 +121,48 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
+#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
 msgid "Answer"
 msgstr "Odgovori"
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 msgid "Not following"
 msgstr ""
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
 msgid "Never be notified."
 msgstr ""
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:53
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 msgid "Following"
 msgstr ""
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
 msgid "Receive email notifications about this project."
 msgstr ""
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Unfollow"
 msgstr "Prenehati slediti"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Follow"
 msgstr "Sledi"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message here"
 msgstr "Vpišite vaše sporočilo"
 
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
 msgstr "Pošlji poročilo"
