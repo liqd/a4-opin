@@ -6,7 +6,7 @@ from django_countries import Countries
 
 from adhocracy4.filters import widgets
 from adhocracy4.filters.filters import DefaultsFilterSet, FreeTextFilter
-from adhocracy4.projects.models import Project
+from . models import Organisation
 
 ORDERING_CHOICES = [
     ('newest', _('Most Recent')),
@@ -67,5 +67,5 @@ class OrganisationFilterSet(DefaultsFilterSet):
     )
 
     class Meta:
-        model = Project
+        model = Organisation
         fields = ['search', 'country', 'ordering']
