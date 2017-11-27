@@ -1,20 +1,19 @@
 from operator import itemgetter
 
 import django_filters
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from django_countries import Countries
 
 from adhocracy4.filters import widgets
 from adhocracy4.filters.filters import DefaultsFilterSet, FreeTextFilter
-from . models import Organisation
+
+from .models import Organisation
 
 ORDERING_CHOICES = [
     ('newest', _('Most Recent')),
     ('translations__title', _('Alphabetical'))
 ]
-
-COUNTRIES = list(Countries().countries.items())
-COUNTRIES.sort(key=itemgetter(1))
 
 
 class OrderingFilterWidget(widgets.DropdownLinkWidget):
@@ -24,9 +23,14 @@ class OrderingFilterWidget(widgets.DropdownLinkWidget):
 class CountryFilterWidget(widgets.DropdownLinkWidget):
     label = _('Country')
 
-    def __init__(self, attrs=None):
+    def __init__(self, attrs=None, **kwargs):
+        if 'language' in kwargs:
+            language = kwargs.pop('language')
+            translation.activate(language)
         choices = [('', _('All')), ]
-        choices += COUNTRIES
+        countries = list(Countries().countries.items())
+        countries.sort(key=itemgetter(1))
+        choices += countries
         super().__init__(attrs, choices)
 
 
@@ -53,7 +57,7 @@ class OrganisationFilterSet(DefaultsFilterSet):
     country = django_filters.CharFilter(
         name='',
         method='countries',
-        widget=CountryFilterWidget,
+        widget=CountryFilterWidget
     )
 
     ordering = django_filters.OrderingFilter(
@@ -65,6 +69,11 @@ class OrganisationFilterSet(DefaultsFilterSet):
         empty_label=None,
         widget=OrderingFilterWidget
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        current_language = self.view.current_language
+        self.filters['country'].widget(language=current_language)
 
     class Meta:
         model = Organisation

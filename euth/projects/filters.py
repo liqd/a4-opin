@@ -1,6 +1,7 @@
 from operator import itemgetter
 
 import django_filters
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from django_countries import Countries
 
@@ -24,9 +25,14 @@ class OrderingFilterWidget(widgets.DropdownLinkWidget):
 class CountryFilterWidget(widgets.DropdownLinkWidget):
     label = _('Country')
 
-    def __init__(self, attrs=None):
+    def __init__(self, attrs=None, **kwargs):
+        if 'language' in kwargs:
+            language = kwargs.pop('language')
+            translation.activate(language)
         choices = [('', _('All')), ]
-        choices += COUNTRIES
+        countries = list(Countries().countries.items())
+        countries.sort(key=itemgetter(1))
+        choices += countries
         super().__init__(attrs, choices)
 
 
@@ -65,6 +71,11 @@ class ProjectFilterSet(DefaultsFilterSet):
         empty_label=None,
         widget=OrderingFilterWidget
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        current_language = self.view.current_language
+        self.filters['country'].widget(language=current_language)
 
     class Meta:
         model = Project
