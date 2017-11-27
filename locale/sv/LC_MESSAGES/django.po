@@ -3,15 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
-# Gaël Dubus <dubus@kth.se>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Gaël Dubus <dubus@kth.se>, 2017\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
 "Language: sv\n"
@@ -19,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr "Söka"
 
@@ -59,7 +57,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr "Kommentarer"
 
@@ -76,6 +74,7 @@ msgid "unknown user"
 msgstr "okänd användare"
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr "Alla"
 
@@ -197,7 +196,7 @@ msgstr ""
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr "Sluttiden får inte vara mindre än starttiden."
+msgstr ""
 
 #: adhocracy4/projects/models.py:28
 msgid "Title of your project"
@@ -780,7 +779,7 @@ msgstr ""
 
 #: euth/dashboard/forms.py:90
 msgid "Notifications"
-msgstr "Deltagande"
+msgstr ""
 
 #: euth/dashboard/forms.py:100
 msgid "E-mail addresses of invited users"
@@ -1029,6 +1028,7 @@ msgstr "skapa projekt"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr "Inga projekt hittades"
 
@@ -1059,7 +1059,7 @@ msgstr "Användare"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr "Se projekt"
+msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "download module"
@@ -1095,7 +1095,7 @@ msgstr "Väntande"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
-msgstr "Skicka"
+msgstr ""
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1127,7 +1127,7 @@ msgstr "Projektet har arkiverats."
 
 #: euth/dashboard/views.py:271
 msgid "Your project has been deleted."
-msgstr "Ditt projekt har raderats"
+msgstr ""
 
 #: euth/dashboard/views.py:303
 msgid "Invitations successfully sent."
@@ -1147,7 +1147,7 @@ msgstr ""
 
 #: euth/documents/phases.py:20
 msgid "Create text for the project."
-msgstr "skapa text för projektet"
+msgstr ""
 
 #: euth/documents/phases.py:38
 msgid "Comment phase"
@@ -1211,7 +1211,7 @@ msgstr "av Fas:"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
 msgid "Result "
-msgstr "Resultat"
+msgstr ""
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html.py:13
 #: euth/projects/templates/euth_projects/project_detail.html.py:112
@@ -1219,6 +1219,24 @@ msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr ""
+
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "Sortera efter"
 
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
@@ -1315,7 +1333,7 @@ msgstr "annullera"
 msgid "Create Proposal"
 msgstr ""
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1332,23 +1350,11 @@ msgstr "radera"
 msgid "abort"
 msgstr "avbryta"
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr "Sortera efter"
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr "Senaste"
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr "Popularitet"
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr "Din Idé har raderats"
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr ""
 
@@ -1532,7 +1538,26 @@ msgid "Organisations on Opin.me"
 msgstr "Organisationer på Opin.me"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1894,6 +1919,10 @@ msgstr ""
 msgid "Get back to OPIN.ME"
 msgstr "Gå tillbaka till OPIN.ME"
 
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
+msgstr ""
+
 #: euth_wagtail/templates/account/account_inactive.html.py:5
 #: euth_wagtail/templates/account/account_inactive.html.py:10
 msgid "Account Inactive"
@@ -1986,7 +2015,7 @@ msgstr "Lösenord"
 
 #: euth_wagtail/templates/account/login.html.py:55
 msgid "reset password"
-msgstr "återställa Lösenord"
+msgstr ""
 
 #: euth_wagtail/templates/account/login.html.py:63
 #: euth_wagtail/templates/account/signup.html.py:101
@@ -2006,7 +2035,7 @@ msgstr "Ändra ditt lösenord"
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:43
 #: euth_wagtail/templates/account/password_set.html.py:31
 msgid "Repeat password"
-msgstr "Upprepa Lösenord"
+msgstr ""
 
 #: euth_wagtail/templates/account/password_reset.html.py:7
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:6
@@ -2142,7 +2171,7 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
-msgstr "Logga in med"
+msgstr ""
 
 #: home/templates/home/home_page.html.py:12
 msgid "Latest projects on OPIN"
@@ -2152,89 +2181,8 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#~ msgid "Set to archive the project"
-#~ msgstr "Arkivera projektet"
+#~ msgid "Most recent"
+#~ msgstr "Senaste"
 
-#~ msgid "Set the agenda of an event"
-#~ msgstr "Fastställa dagordningen för ett evenemang"
-
-#~ msgid "Majority votes"
-#~ msgstr "Majoritetsbeslut"
-
-#~ msgid "Opinion polls"
-#~ msgstr "Opinionsundersökningar"
-
-#~ msgid "How easy is it to access the project?"
-#~ msgstr "Hur lätt är det att komma åt projektet?"
-
-#~ msgid "Examples"
-#~ msgstr "Exempel"
-
-#~ msgid "Update project: "
-#~ msgstr "Uppdatera projekt:"
-
-#~ msgid "Organisations"
-#~ msgstr "Organisationer"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ukrainska"
-
-#~ msgid "Russian"
-#~ msgstr "Ryska"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltesiska"
-
-#~ msgid "No projects created"
-#~ msgstr "Inga skapade projekt"
-
-#~ msgid "Organisations "
-#~ msgstr "Organisationer"
-
-#~ msgid "Collection of ideas or arguments"
-#~ msgstr "Samling av idéer eller argument"
-
-#~ msgid "%(actor)s %(verb)s %(target)s"
-#~ msgstr "%(actor)s %(verb)s %(target)s"
-
-#~ msgid "%(actor)s %(verb)s %(action_object)s"
-#~ msgstr "%(actor)s %(verb)s %(action_object)s"
-
-#~ msgid "%(actor)s %(verb)s"
-#~ msgstr "%(actor)s %(verb)s"
-
-#~ msgid "Idea collection 1"
-#~ msgstr "Idésamling 1"
-
-#~ msgid "Collect ideas"
-#~ msgstr "Samla idéer"
-
-#~ msgid "Idea collection 2"
-#~ msgstr "Idésamling 2"
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid "Avatar"
-#~ msgstr "Avatar"
-
-#~ msgid "City"
-#~ msgstr "Stad"
-
-#~ msgid "Birthdate"
-#~ msgstr "Födelsedatum"
-
-#~ msgid "There are no results yet. Please check back later."
-#~ msgstr "Det finns inga resultat än. Var god kolla igen senare."
-
-#~ msgid "Dashboard"
-#~ msgstr "Instrumentbräda"
-
-#~ msgid "Please login to comment"
-#~ msgstr "Var snäll och logga in för att kommentera"
-
-#~ msgid "Answer"
-#~ msgstr "Svara"
-
-#~ msgid "Post"
-#~ msgstr "Skicka"
+#~ msgid "Popularity"
+#~ msgstr "Popularitet"

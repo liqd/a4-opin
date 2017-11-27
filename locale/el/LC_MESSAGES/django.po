@@ -3,22 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr ""
 
@@ -52,7 +53,7 @@ msgid "Comment"
 msgstr ""
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr ""
 
@@ -69,6 +70,7 @@ msgid "unknown user"
 msgstr ""
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr ""
 
@@ -997,6 +999,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr ""
 
@@ -1188,6 +1191,24 @@ msgid ""
 "project yet."
 msgstr ""
 
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr ""
+
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
 msgstr ""
@@ -1283,7 +1304,7 @@ msgstr ""
 msgid "Create Proposal"
 msgstr ""
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1300,23 +1321,11 @@ msgstr ""
 msgid "abort"
 msgstr ""
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr ""
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr ""
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr ""
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr ""
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr ""
 
@@ -1500,7 +1509,26 @@ msgid "Organisations on Opin.me"
 msgstr ""
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1860,6 +1888,10 @@ msgstr ""
 #: euth_wagtail/templates/500.html.py:29
 #: euth_wagtail/templates/base_errors.html.py:21
 msgid "Get back to OPIN.ME"
+msgstr ""
+
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
 msgstr ""
 
 #: euth_wagtail/templates/account/account_inactive.html.py:5

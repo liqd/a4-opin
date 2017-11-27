@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
@@ -133,7 +133,7 @@ msgstr "Nie benachrichtigen"
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 msgid "Following"
-msgstr ""
+msgstr "Folgend"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
@@ -206,9 +206,3 @@ msgstr "Titel:"
 #: euth/documents/static/documents/ParagraphBox.jsx:222
 msgid "save"
 msgstr "speichern"
-
-#~ msgid "Please pick an aim for your project."
-#~ msgstr "Bitte wähle das Ziel deines Projekts aus."
-
-#~ msgid "Latest edit"
-#~ msgstr "Zuletzt bearbeitet am"

@@ -3,15 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
-# Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, "
 "2017\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
@@ -20,10 +18,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr "Rechercher"
 
@@ -60,7 +58,7 @@ msgid "Comment"
 msgstr "Réaction"
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr "Réactions"
 
@@ -77,6 +75,7 @@ msgid "unknown user"
 msgstr "Utilisateur inconnu"
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr "Tous"
 
@@ -200,7 +199,7 @@ msgstr ""
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr "La date de fin  ne peut être antérieure à la date de début. "
+msgstr ""
 
 #: adhocracy4/projects/models.py:28
 msgid "Title of your project"
@@ -810,7 +809,7 @@ msgstr "Comment vous joindre"
 
 #: euth/dashboard/forms.py:90
 msgid "Notifications"
-msgstr "Participation"
+msgstr ""
 
 #: euth/dashboard/forms.py:100
 msgid "E-mail addresses of invited users"
@@ -1070,6 +1069,7 @@ msgstr "créer un projet"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr "Aucun projet trouvé"
 
@@ -1100,7 +1100,7 @@ msgstr "Membres"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr "Voir le projet"
+msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "download module"
@@ -1136,7 +1136,7 @@ msgstr "En attente "
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
-msgstr "Soumettre"
+msgstr ""
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1168,7 +1168,7 @@ msgstr "Le projet a été archivé."
 
 #: euth/dashboard/views.py:271
 msgid "Your project has been deleted."
-msgstr "Votre projet a été supprimé"
+msgstr ""
 
 #: euth/dashboard/views.py:303
 msgid "Invitations successfully sent."
@@ -1188,7 +1188,7 @@ msgstr "Commenter un texte"
 
 #: euth/documents/phases.py:20
 msgid "Create text for the project."
-msgstr "créer du texte pour le projet"
+msgstr ""
 
 #: euth/documents/phases.py:38
 msgid "Comment phase"
@@ -1252,7 +1252,7 @@ msgstr "de la phase :"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
 msgid "Result "
-msgstr "Résultats"
+msgstr ""
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html.py:13
 #: euth/projects/templates/euth_projects/project_detail.html.py:112
@@ -1260,6 +1260,24 @@ msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr "L’initiateur n’a pas encore précisé les résultats attendus du projet. "
+
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "Classer par"
 
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
@@ -1358,7 +1376,7 @@ msgstr "Annuler"
 msgid "Create Proposal"
 msgstr "Créer une proposition"
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1375,23 +1393,11 @@ msgstr "supprimer"
 msgid "abort"
 msgstr "abandonner"
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr "Classer par"
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr "Plus récent/e"
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr "Popularité"
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr "Votre idée a été supprimée"
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr "Svp, localisez votre proposition sur la carte. "
 
@@ -1588,7 +1594,26 @@ msgid "Organisations on Opin.me"
 msgstr "Organisations présentes sur Opin.me "
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1745,8 +1770,6 @@ msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
-"Indique si vous souhaitez recevoir des notifications. Décochez la case si "
-"vous ne voulez pas revevoir de notifications. "
 
 #: euth/users/models.py:37
 msgid "username"
@@ -1963,6 +1986,10 @@ msgstr "Erreur interne du serveur."
 msgid "Get back to OPIN.ME"
 msgstr "Retouner sur OPIN.ME"
 
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
+msgstr ""
+
 #: euth_wagtail/templates/account/account_inactive.html.py:5
 #: euth_wagtail/templates/account/account_inactive.html.py:10
 msgid "Account Inactive"
@@ -2059,7 +2086,7 @@ msgstr "Mot de passe"
 
 #: euth_wagtail/templates/account/login.html.py:55
 msgid "reset password"
-msgstr "Réinitiaiser le mot de passe"
+msgstr ""
 
 #: euth_wagtail/templates/account/login.html.py:63
 #: euth_wagtail/templates/account/signup.html.py:101
@@ -2079,7 +2106,7 @@ msgstr "Changer le mot de passe"
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:43
 #: euth_wagtail/templates/account/password_set.html.py:31
 msgid "Repeat password"
-msgstr "Confirmer votre mot de passe"
+msgstr ""
 
 #: euth_wagtail/templates/account/password_reset.html.py:7
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:6
@@ -2238,7 +2265,7 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
-msgstr "Se connecter avec"
+msgstr ""
 
 #: home/templates/home/home_page.html.py:12
 msgid "Latest projects on OPIN"
@@ -2248,144 +2275,8 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#~ msgid "Set to archive the project"
-#~ msgstr "Définir quand archiver un projet"
+#~ msgid "Most recent"
+#~ msgstr "Plus récent/e"
 
-#~ msgid "Set the agenda of an event"
-#~ msgstr "Définir le programme d'un événement"
-
-#~ msgid "Majority votes"
-#~ msgstr "Majorité des votes"
-
-#~ msgid "Opinion polls"
-#~ msgstr "Sondages"
-
-#~ msgid "How easy is it to access the project?"
-#~ msgstr "Dans quelle mesure est-il facile d'accéder au projet?"
-
-#~ msgid "Examples"
-#~ msgstr "Exemples"
-
-#~ msgid ""
-#~ "\n"
-#~ "                                      Approximately %(time)sh per week.\n"
-#~ "                                    "
-#~ msgstr ""
-#~ "\n"
-#~ "Environ %(time)sheures par semaine."
-
-#~ msgid "Accessible to all registered users of OPIN.me"
-#~ msgstr "Accessible à tous les utilisateurs d'OPIN.me"
-
-#~ msgid "Update project: "
-#~ msgstr "Modifier le projet : "
-
-#~ msgid "Add documentation for Offlineevents."
-#~ msgstr "Ajouter les comptes-rendus de vos activités en présentiel."
-
-#~ msgid "Organisations"
-#~ msgstr "Organisations "
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ukrainien"
-
-#~ msgid "Russian"
-#~ msgstr "Russe"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltais"
-
-#~ msgid "No projects created"
-#~ msgstr "Aucun projet crée"
-
-#~ msgid "Organisations "
-#~ msgstr "Organisations "
-
-#~ msgid "Collection of ideas or arguments"
-#~ msgstr "Recueillir des idées ou d'arguments"
-
-#~ msgid "Weighted arguments"
-#~ msgstr "Arguments pondérés "
-
-#~ msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
-#~ msgstr "%(actor)s%(verb)s%(action_object)ssur%(target)s"
-
-#~ msgid "%(actor)s %(verb)s %(target)s"
-#~ msgstr "%(actor)s%(verb)s%(target)s"
-
-#~ msgid "%(actor)s %(verb)s %(action_object)s"
-#~ msgstr "%(actor)s%(verb)s%(action_object)s"
-
-#~ msgid "%(actor)s %(verb)s"
-#~ msgstr "%(actor)s%(verb)s"
-
-#~ msgid "Idea collection 1"
-#~ msgstr "Collecter des idées 1"
-
-#~ msgid "Collect ideas"
-#~ msgstr "Collecter des idées"
-
-#~ msgid "Idea collection 2"
-#~ msgstr "Collecter des idées 2"
-
-#~ msgid "Add comments to an existing text"
-#~ msgstr "Commenter un texte existant"
-
-#~ msgid "Mobile Polling"
-#~ msgstr "Sondage mobile"
-
-#~ msgid "Initiate a mobile polling process"
-#~ msgstr "Lancer un sondage "
-
-#~ msgid ""
-#~ "Your image should be at least 1300px wide and 600px high. Supported "
-#~ "formats are %s."
-#~ msgstr ""
-#~ "Votre image devrait faire au moins 1300px en largeur et 600px en hauteur. "
-#~ "Les formats pris en charge sont% s"
-
-#~ msgid ""
-#~ "Your logo should be at least 200px wide and square. Supported formats are "
-#~ "%s."
-#~ msgstr ""
-#~ "Votre image devrait faire au moins 200px carrés. Les formats pris en "
-#~ "charge sont% s"
-
-#~ msgid "Profile"
-#~ msgstr "Profile"
-
-#~ msgid "Reject"
-#~ msgstr "Refuser"
-
-#~ msgid ""
-#~ "The image will be shown as a decorative background image. It must be min. "
-#~ "1300px wide and 600px tall. Allowed file formats are .jpg and .png. The "
-#~ "file size should be max. 2 MB."
-#~ msgstr ""
-#~ "Cette image sera utilisée comme fond d’écran. Elle doit faire au minimum "
-#~ "1300 pixels de large x 600 de hauteur. Elle doit peser au maximum 2MB. "
-
-#~ msgid "Avatar"
-#~ msgstr "Avatar"
-
-#~ msgid "City"
-#~ msgstr "Ville"
-
-#~ msgid "Birthdate"
-#~ msgstr "Date de naissance"
-
-#~ msgid "There are no results yet. Please check back later."
-#~ msgstr ""
-#~ "Actuellement, il n’y a pas de résultats. Veuillez revenir ultérieurement. "
-
-#~ msgid "Dashboard"
-#~ msgstr "Tableau de bord"
-
-#~ msgid "Please login to comment"
-#~ msgstr "Connectez-vous pour commenter"
-
-#~ msgid "Answer"
-#~ msgstr "Répondre"
-
-#~ msgid "Post"
-#~ msgstr "Publier"
+#~ msgid "Popularity"
+#~ msgstr "Popularité"

@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
 "Language: da\n"
@@ -18,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr ""
 
@@ -58,7 +57,7 @@ msgid "Comment"
 msgstr "Kommenter"
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr "Kommentarer"
 
@@ -75,6 +74,7 @@ msgid "unknown user"
 msgstr "Ukendt bruger"
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr "Alt"
 
@@ -198,7 +198,7 @@ msgstr ""
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr "Sluttid kan ikke være mindre end strattid. "
+msgstr ""
 
 #: adhocracy4/projects/models.py:28
 msgid "Title of your project"
@@ -791,7 +791,7 @@ msgstr "Måder at kontakte dig på"
 
 #: euth/dashboard/forms.py:90
 msgid "Notifications"
-msgstr "Deltagelse"
+msgstr ""
 
 #: euth/dashboard/forms.py:100
 msgid "E-mail addresses of invited users"
@@ -1049,6 +1049,7 @@ msgstr "Opret projekt"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr "Ingen projekter fundet"
 
@@ -1079,7 +1080,7 @@ msgstr "Brugere"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr "Se projekt"
+msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "download module"
@@ -1115,7 +1116,7 @@ msgstr "Afventende "
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
-msgstr "Indsend"
+msgstr ""
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1147,7 +1148,7 @@ msgstr "Projektet er gemt."
 
 #: euth/dashboard/views.py:271
 msgid "Your project has been deleted."
-msgstr "Dit projekt er blevet slettet"
+msgstr ""
 
 #: euth/dashboard/views.py:303
 msgid "Invitations successfully sent."
@@ -1167,7 +1168,7 @@ msgstr "Kommenter tekst"
 
 #: euth/documents/phases.py:20
 msgid "Create text for the project."
-msgstr "Skriv tekst til projektet"
+msgstr ""
 
 #: euth/documents/phases.py:38
 msgid "Comment phase"
@@ -1231,7 +1232,7 @@ msgstr "fra Fase:"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
 msgid "Result "
-msgstr "Resultat"
+msgstr ""
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html.py:13
 #: euth/projects/templates/euth_projects/project_detail.html.py:112
@@ -1241,6 +1242,24 @@ msgid ""
 msgstr ""
 "Initiativtageren har ikke stillet information om det forventede slutresultat "
 "til rådighed endnu. "
+
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "Sorter efter"
 
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
@@ -1337,7 +1356,7 @@ msgstr "Fortryd"
 msgid "Create Proposal"
 msgstr "Opret forslag"
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1354,23 +1373,11 @@ msgstr "Slet"
 msgid "abort"
 msgstr "Afbryd"
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr "Sorter efter"
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr "Seneste"
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr "Popularitet "
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr "Din ide er blevet slettet"
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr "Find venligst dit forslag på kortet"
 
@@ -1565,7 +1572,26 @@ msgid "Organisations on Opin.me"
 msgstr "Organisationer på OPIN.me"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1720,8 +1746,6 @@ msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
-"Angiver om du ønsker at modtage notifikationer. Fravælg hvis du ikke ønsker "
-"at modtage notifikationer. "
 
 #: euth/users/models.py:37
 msgid "username"
@@ -1938,6 +1962,10 @@ msgstr "Intern server fejl. "
 msgid "Get back to OPIN.ME"
 msgstr "Tilbage til OPIN.me"
 
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
+msgstr ""
+
 #: euth_wagtail/templates/account/account_inactive.html.py:5
 #: euth_wagtail/templates/account/account_inactive.html.py:10
 msgid "Account Inactive"
@@ -2034,7 +2062,7 @@ msgstr "Adgangskode "
 
 #: euth_wagtail/templates/account/login.html.py:55
 msgid "reset password"
-msgstr "Nulstil adgangskode"
+msgstr ""
 
 #: euth_wagtail/templates/account/login.html.py:63
 #: euth_wagtail/templates/account/signup.html.py:101
@@ -2054,7 +2082,7 @@ msgstr "Skift adgangskode "
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:43
 #: euth_wagtail/templates/account/password_set.html.py:31
 msgid "Repeat password"
-msgstr "Gentag adgangskode"
+msgstr ""
 
 #: euth_wagtail/templates/account/password_reset.html.py:7
 #: euth_wagtail/templates/account/password_reset_from_key.html.py:6
@@ -2209,7 +2237,7 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
 msgid "Login with "
-msgstr "Login med"
+msgstr ""
 
 #: home/templates/home/home_page.html.py:12
 msgid "Latest projects on OPIN"
@@ -2219,146 +2247,8 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#~ msgid "Set to archive the project"
-#~ msgstr "Sæt til at arkivere projektet"
+#~ msgid "Most recent"
+#~ msgstr "Seneste"
 
-#~ msgid "Set the agenda of an event"
-#~ msgstr "Sæt en dagsorden for begivenheden"
-
-#~ msgid "Majority votes"
-#~ msgstr "Flertalsafgørelse"
-
-#~ msgid "Opinion polls"
-#~ msgstr "Meningsmålinger"
-
-#~ msgid "How easy is it to access the project?"
-#~ msgstr "Hvor nemt er det at få adgang til projektet?"
-
-#~ msgid "Examples"
-#~ msgstr "Eksempler "
-
-#~ msgid ""
-#~ "\n"
-#~ "                                      Approximately %(time)sh per week.\n"
-#~ "                                    "
-#~ msgstr ""
-#~ "\n"
-#~ "Ca.%(time)stime pr uge"
-
-#~ msgid "Accessible to all registered users of OPIN.me"
-#~ msgstr "Tilgængelig for alle registrerede brugere af OPIN.me"
-
-#~ msgid "Update project: "
-#~ msgstr "Opdater projekt:"
-
-#~ msgid "Add documentation for Offlineevents."
-#~ msgstr "Tilføj dokumenter til Offlinebegivenheder"
-
-#~ msgid "Organisations"
-#~ msgstr "Organisationer "
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ukrainsk "
-
-#~ msgid "Russian"
-#~ msgstr "Russisk"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltesisk "
-
-#~ msgid "No projects created"
-#~ msgstr "Ingen projekter oprettet "
-
-#~ msgid "Organisations "
-#~ msgstr "Organisationer "
-
-#~ msgid "Collection of ideas or arguments"
-#~ msgstr "Samling af ideer eller argumenter"
-
-#~ msgid "Weighted arguments"
-#~ msgstr "Tungtvejende argumenter"
-
-#~ msgid "%(actor)s %(verb)s %(action_object)s on %(target)s"
-#~ msgstr "%(target)s%(actor)s%(verb)s%(action_object)spå "
-
-#~ msgid "%(actor)s %(verb)s %(target)s"
-#~ msgstr "%(actor)s%(verb)s%(target)s"
-
-#~ msgid "%(actor)s %(verb)s %(action_object)s"
-#~ msgstr "%(verb)s%(action_object)s%(actor)s"
-
-#~ msgid "%(actor)s %(verb)s"
-#~ msgstr "%(verb)s%(actor)s"
-
-#~ msgid "Idea collection 1"
-#~ msgstr "Idesamling 1"
-
-#~ msgid "Collect ideas"
-#~ msgstr "Indsaml ideer "
-
-#~ msgid "Idea collection 2"
-#~ msgstr "Idesamling 2"
-
-#~ msgid "Add comments to an existing text"
-#~ msgstr "Tilføj kommentarer til en eksisterende tekst"
-
-#~ msgid "Mobile Polling"
-#~ msgstr "Mobil meningsmåling "
-
-#~ msgid "Initiate a mobile polling process"
-#~ msgstr "Start mobil afstemningsproces "
-
-#~ msgid ""
-#~ "Your image should be at least 1300px wide and 600px high. Supported "
-#~ "formats are %s."
-#~ msgstr ""
-#~ "Dit billede skal være mindst 1300px bredt og 600px højt. De understøttede "
-#~ "formater er %s."
-
-#~ msgid ""
-#~ "Your logo should be at least 200px wide and square. Supported formats are "
-#~ "%s."
-#~ msgstr ""
-#~ "Dit logo bør være mindst 200px bredt og kvadratisk. De understøttede "
-#~ "formater er %s. "
-
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgid "Reject"
-#~ msgstr "Afvis"
-
-#~ msgid ""
-#~ "The image will be shown as a decorative background image. It must be min. "
-#~ "1300px wide and 600px tall. Allowed file formats are .jpg and .png. The "
-#~ "file size should be max. 2 MB."
-#~ msgstr ""
-#~ "Dette billede vil blive vist som et dekorativt baggrundsbillede. Det skal "
-#~ "være minimum 1300px bredt og 600px højt. De tilladte filformater er .jpg "
-#~ "og .png. Filen må ikke være større end 2MB. "
-
-#~ msgid "Avatar"
-#~ msgstr "Avatar"
-
-#~ msgid "City"
-#~ msgstr "By"
-
-#~ msgid "Birthdate"
-#~ msgstr "Fødselsdag "
-
-#~ msgid "There are no results yet. Please check back later."
-#~ msgstr ""
-#~ "Der er endnu ingen resultater. Check venligst igen på et senere "
-#~ "tidspunkt. "
-
-#~ msgid "Dashboard"
-#~ msgstr "Dashboard"
-
-#~ msgid "Please login to comment"
-#~ msgstr "Log in for at kommentere"
-
-#~ msgid "Answer"
-#~ msgstr "Svar"
-
-#~ msgid "Post"
-#~ msgstr "Post/Slå op"
+#~ msgid "Popularity"
+#~ msgstr "Popularitet "

@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
@@ -18,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr ""
 
@@ -55,7 +54,7 @@ msgid "Comment"
 msgstr "კომენტარი"
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr ""
 
@@ -72,6 +71,7 @@ msgid "unknown user"
 msgstr "უცნობი მომხმარებელი"
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr ""
 
@@ -190,7 +190,7 @@ msgstr ""
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr "დასრულების თარიღი არ უნდა იყოს იმაზე ნაკლები ვიდრე დაწყების თრიღია"
+msgstr ""
 
 #: adhocracy4/projects/models.py:28
 msgid "Title of your project"
@@ -1009,6 +1009,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr ""
 
@@ -1039,7 +1040,7 @@ msgstr "მომხმარებელი"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr "პროექტის ნახვა"
+msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "download module"
@@ -1075,7 +1076,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
-msgstr "გაგზავნა"
+msgstr ""
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1202,6 +1203,24 @@ msgstr ""
 "ინიციატორს ჯერ არ ააქვს მითითებული ინფორმაცია პროექტის მოსალოდნელ შედეგებთან "
 "დაკავშირებით. "
 
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "დალაგება"
+
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
 msgstr "გაცემის ფაზის"
@@ -1297,7 +1316,7 @@ msgstr "უარყოფა"
 msgid "Create Proposal"
 msgstr "შემოთავაზების შექმნა"
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1314,23 +1333,11 @@ msgstr "წაშლა"
 msgid "abort"
 msgstr "გაუქმება"
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr "დალაგება"
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr "უახლესი"
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr "პოპულარობა"
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr "თქვენი იდეა წაიშალა"
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr ""
 
@@ -1517,7 +1524,26 @@ msgid "Organisations on Opin.me"
 msgstr "ორგანიზაციები Opin.me-ზე"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1671,8 +1697,6 @@ msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
-"მიუთითეთ, გსურთ თუ არა შეტყობინებების მიღება. გააუქმეთ არჩევანი თუ არ გსურთ "
-"შეტყობინებების მიღება."
 
 #: euth/users/models.py:37
 msgid "username"
@@ -1887,6 +1911,10 @@ msgstr ""
 #: euth_wagtail/templates/500.html.py:29
 #: euth_wagtail/templates/base_errors.html.py:21
 msgid "Get back to OPIN.ME"
+msgstr ""
+
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
 msgstr ""
 
 #: euth_wagtail/templates/account/account_inactive.html.py:5
@@ -2147,88 +2175,8 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#~ msgid "Accessible to all registered users of OPIN.me"
-#~ msgstr "ხელმისაწვდომია OPIN.me-ზე რეგისტრირებული ყველა მომხმარებლისათვის"
+#~ msgid "Most recent"
+#~ msgstr "უახლესი"
 
-#~ msgid "Update project: "
-#~ msgstr "პროექტის განახლება:"
-
-#~ msgid "Organisations"
-#~ msgstr "ორგანიზაციები"
-
-#~ msgid "No projects created"
-#~ msgstr "პროექტები არ არის შექმნილი"
-
-#~ msgid "Organisations "
-#~ msgstr "ორგანიზაციები"
-
-#~ msgid "Idea collection 1"
-#~ msgstr "იდეის შეგროვება 1"
-
-#~ msgid "Collect ideas"
-#~ msgstr "შეაგროვე იდეები"
-
-#~ msgid "Idea collection 2"
-#~ msgstr "იდეის შეგროვება 2"
-
-#~ msgid "Add comments to an existing text"
-#~ msgstr "კომენტარების დამატება არსებულ ტექსტში "
-
-#~ msgid "Mobile Polling"
-#~ msgstr "მობილური კენჭისყრა"
-
-#~ msgid "Initiate a mobile polling process"
-#~ msgstr "მობილური კენჭისყრის პროცესის დაწყება"
-
-#~ msgid ""
-#~ "Your image should be at least 1300px wide and 600px high. Supported "
-#~ "formats are %s."
-#~ msgstr ""
-#~ "თქვენი სურათი უნდა იყოს მინიმუმ 1300 პიქსელის სიგანისა და 600 პიქსელის "
-#~ "სიმაღლის. მხარდაჭერილი ფორმატები %s."
-
-#~ msgid ""
-#~ "Your logo should be at least 200px wide and square. Supported formats are "
-#~ "%s."
-#~ msgstr ""
-#~ "თქვენი ლოგო უნდა იყოს მინიმუმ 200 პიქსელის სიგანისა და ფართობის. "
-#~ "მხარდაჭერილი ფორმატები %s."
-
-#~ msgid "Profile"
-#~ msgstr "პროფილი"
-
-#~ msgid "Reject"
-#~ msgstr "უარყოფა"
-
-#~ msgid ""
-#~ "The image will be shown as a decorative background image. It must be min. "
-#~ "1300px wide and 600px tall. Allowed file formats are .jpg and .png. The "
-#~ "file size should be max. 2 MB."
-#~ msgstr ""
-#~ "სურათი გამოჩნდება დეკორატიული ფონის სახით. ის უნდა იყოს მინიმუმ 1300 "
-#~ "პიქსელის სიგანისა და 600 პიქსელის სიმაღლის. ფაილის დასაშვები ფორმატებია ."
-#~ "jpg და .png. , ხოლო ფაილის ზომა არ უნდა აღემატებოდეს 2 მბ ."
-
-#~ msgid "Avatar"
-#~ msgstr "ავატარი"
-
-#~ msgid "City"
-#~ msgstr "ქალაქი"
-
-#~ msgid "Birthdate"
-#~ msgstr "დაბადების თარიღი"
-
-#~ msgid "There are no results yet. Please check back later."
-#~ msgstr "შედეგები ჯერ არ არის. გთხოვთ, მოგვიანებით შეამოწმოთ."
-
-#~ msgid "Dashboard"
-#~ msgstr "მართვის პანელი"
-
-#~ msgid "Please login to comment"
-#~ msgstr "გთხოვთ, შეხვიდეთ კომენტარის დასატოვებლად"
-
-#~ msgid "Answer"
-#~ msgstr "პასუხი"
-
-#~ msgid "Post"
-#~ msgstr "პოსტი"
+#~ msgid "Popularity"
+#~ msgstr "პოპულარობა"

@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-21 14:53+0100\n"
-"PO-Revision-Date: 2017-03-10 16:15+0100\n"
+"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
 "Language: mk\n"
@@ -18,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
-"X-Generator: Poedit 1.8.11\n"
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/projects/filters.py:34
 msgid "Search"
 msgstr ""
 
@@ -55,7 +54,7 @@ msgid "Comment"
 msgstr "Коментар"
 
 #: adhocracy4/comments/models.py:36
-#: euth/contrib/exports.py:207 euth/ideas/views.py:67
+#: euth/contrib/exports.py:207
 msgid "Comments"
 msgstr "Коментари"
 
@@ -72,6 +71,7 @@ msgid "unknown user"
 msgstr "Непознат корисник"
 
 #: adhocracy4/filters/widgets.py:32
+#: euth/projects/filters.py:28
 msgid "All"
 msgstr ""
 
@@ -1013,6 +1013,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
 #: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
 msgid "No projects found"
 msgstr ""
 
@@ -1043,7 +1044,7 @@ msgstr "Корисници"
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
 msgid "view project"
-msgstr "Види проект"
+msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
 msgid "download module"
@@ -1079,7 +1080,7 @@ msgstr ""
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
-msgstr "Потврди"
+msgstr ""
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1195,7 +1196,7 @@ msgstr "од Фаза:"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
 msgid "Result "
-msgstr "Резултат "
+msgstr ""
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html.py:13
 #: euth/projects/templates/euth_projects/project_detail.html.py:112
@@ -1205,6 +1206,24 @@ msgid ""
 msgstr ""
 "Иницијаторот нема обезбедено информации за очекуваниот исход на проектот "
 "се’уште."
+
+#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr ""
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr ""
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr ""
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "Подреди според"
 
 #: euth/ideas/phases.py:14
 msgid "Issue phase"
@@ -1303,7 +1322,7 @@ msgstr "Откажи"
 msgid "Create Proposal"
 msgstr "Креирај предлог"
 
-#: euth/ideas/templates/euth_ideas/idea_list.html.py:40
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
 msgid "No proposals found"
 msgstr ""
 
@@ -1320,23 +1339,11 @@ msgstr "Избриши"
 msgid "abort"
 msgstr "Прекини"
 
-#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-msgid "Sort by"
-msgstr "Подреди според"
-
-#: euth/ideas/views.py:65
-msgid "Most recent"
-msgstr "Најнови"
-
-#: euth/ideas/views.py:66
-msgid "Popularity"
-msgstr "Популарност"
-
-#: euth/ideas/views.py:153
+#: euth/ideas/views.py:110
 msgid "Your Idea has been deleted"
 msgstr "Твојата идеја е избришана"
 
-#: euth/maps/forms.py:18
+#: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
 msgstr ""
 
@@ -1523,7 +1530,26 @@ msgid "Organisations on Opin.me"
 msgstr "Организации на Opin.me"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
-msgid "Find your Organisation"
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr ""
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr ""
+
+#: euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/projects/filters.py:25
+msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
@@ -1678,8 +1704,6 @@ msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
-"Означете дали сакате да добиете известувања. Одселектирајте ако не сакате да "
-"добиете нотификации."
 
 #: euth/users/models.py:37
 msgid "username"
@@ -1894,6 +1918,10 @@ msgstr ""
 #: euth_wagtail/templates/500.html.py:29
 #: euth_wagtail/templates/base_errors.html.py:21
 msgid "Get back to OPIN.ME"
+msgstr ""
+
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
 msgstr ""
 
 #: euth_wagtail/templates/account/account_inactive.html.py:5
@@ -2154,86 +2182,8 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#~ msgid "Accessible to all registered users of OPIN.me"
-#~ msgstr "Достапни за сите регистрирани корисници на OPIN.me"
+#~ msgid "Most recent"
+#~ msgstr "Најнови"
 
-#~ msgid "Update project: "
-#~ msgstr "Надгради проект:"
-
-#~ msgid "Organisations"
-#~ msgstr "Организации"
-
-#~ msgid "No projects created"
-#~ msgstr "Нема креирано проекти"
-
-#~ msgid "Idea collection 1"
-#~ msgstr "Збир на идеи 1"
-
-#~ msgid "Collect ideas"
-#~ msgstr "Собирање на идеи"
-
-#~ msgid "Idea collection 2"
-#~ msgstr "Збир на идеи 2"
-
-#~ msgid "Add comments to an existing text"
-#~ msgstr "Додади коментари на постоечки текст"
-
-#~ msgid "Mobile Polling"
-#~ msgstr "Анкетирање преку мобилен"
-
-#~ msgid "Initiate a mobile polling process"
-#~ msgstr "Поттикни процес за анкетирање преку мобилен."
-
-#~ msgid ""
-#~ "Your image should be at least 1300px wide and 600px high. Supported "
-#~ "formats are %s."
-#~ msgstr ""
-#~ "Вашата слика треба да биде најмалку 1300 пиксели широка и 600 пиксели "
-#~ "висока. Подржаните формати се процентуални"
-
-#~ msgid ""
-#~ "Your logo should be at least 200px wide and square. Supported formats are "
-#~ "%s."
-#~ msgstr ""
-#~ "Вашето лого треба да биде најмалку 200 пиксели широко и подредено. "
-#~ "Подржаните формати се процентуални."
-
-#~ msgid "Profile"
-#~ msgstr "Профил"
-
-#~ msgid "Reject"
-#~ msgstr "Одбиј"
-
-#~ msgid ""
-#~ "The image will be shown as a decorative background image. It must be min. "
-#~ "1300px wide and 600px tall. Allowed file formats are .jpg and .png. The "
-#~ "file size should be max. 2 MB."
-#~ msgstr ""
-#~ "Фотографијата ќе биде прикажана како декоративна позадина. Мора да биде "
-#~ "минимум 1300 пиксели широка и 600 пиксели висока. Дозволени формати на "
-#~ "датотеки се .jpg и .png. Големината на датотеката треба да биде максимум "
-#~ "2 МБ."
-
-#~ msgid "Avatar"
-#~ msgstr "Аватар"
-
-#~ msgid "City"
-#~ msgstr "Град"
-
-#~ msgid "Birthdate"
-#~ msgstr "Роденден"
-
-#~ msgid "There are no results yet. Please check back later."
-#~ msgstr "Нема резултати се’ уште. Ве молиме обидете се повторно подоцна."
-
-#~ msgid "Dashboard"
-#~ msgstr "Контролна табла"
-
-#~ msgid "Please login to comment"
-#~ msgstr "Ве молиме пријавете се за да можете да коментирате"
-
-#~ msgid "Answer"
-#~ msgstr "Одговори"
-
-#~ msgid "Post"
-#~ msgstr "Постави"
+#~ msgid "Popularity"
+#~ msgstr "Популарност"
