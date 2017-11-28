@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 16:25+0100\n"
+"POT-Creation-Date: 2017-11-28 12:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
-#: euth/projects/filters.py:34
+#: euth/organisations/filters.py:34 euth/projects/filters.py:34
 msgid "Search"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "unknown user"
 msgstr ""
 
 #: adhocracy4/filters/widgets.py:32
-#: euth/projects/filters.py:28
+#: euth/organisations/filters.py:28 euth/projects/filters.py:28
 msgid "All"
 msgstr ""
 
@@ -1192,7 +1192,8 @@ msgid ""
 "project yet."
 msgstr ""
 
-#: euth/ideas/filters.py:10 euth/projects/filters.py:12
+#: euth/ideas/filters.py:10 euth/organisations/filters.py:12
+#: euth/projects/filters.py:12
 msgid "Most Recent"
 msgstr ""
 
@@ -1206,7 +1207,7 @@ msgstr ""
 
 #: euth/ideas/filters.py:17
 #: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
-#: euth/projects/filters.py:21
+#: euth/organisations/filters.py:21 euth/projects/filters.py:21
 msgid "Sort by"
 msgstr ""
 
@@ -1477,6 +1478,14 @@ msgstr ""
 msgid "Select a file from your local folder."
 msgstr ""
 
+#: euth/organisations/filters.py:13 euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr ""
+
+#: euth/organisations/filters.py:25 euth/projects/filters.py:25
+msgid "Country"
+msgstr ""
+
 #: euth/organisations/models.py:35
 msgid "The image sets the atmosphere for your organisation page."
 msgstr ""
@@ -1522,14 +1531,6 @@ msgstr ""
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
 #: euth_wagtail/templates/a4projects/project_list.html.py:17
 msgid "Search for organisation"
-msgstr ""
-
-#: euth/projects/filters.py:13
-msgid "Alphabetical"
-msgstr ""
-
-#: euth/projects/filters.py:25
-msgid "Country"
 msgstr ""
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26

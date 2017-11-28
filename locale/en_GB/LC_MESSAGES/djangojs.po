@@ -10,199 +10,168 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 12:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
-"Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
-"Language: mk\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:97
 #: adhocracy4/comments/static/comments/Comment.jsx:97
 msgid "Do you really want to delete this comment?"
-msgstr "Дали навистина сакате да го избришете овој коментар? "
+msgstr "Do you really want to delete this comment?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:99
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/comments/static/comments/Comment.jsx:99
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 msgid "Delete"
-msgstr "Избриши"
+msgstr "Delete"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:100
-#: adhocracy4/static/Modal.jsx:49
-#: adhocracy4/comments/static/comments/Comment.jsx:100
-#: euth/contrib/static/js/Modal.jsx:41
+#: adhocracy4/static/Modal.jsx:49 euth/contrib/static/js/Modal.jsx:41
 msgid "Abort"
-msgstr "Прекини"
+msgstr "Abort"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:113
 #: adhocracy4/comments/static/comments/Comment.jsx:113
 msgid "Latest edit on"
-msgstr "Последно додадено "
+msgstr "Latest edit on"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:118
 #: adhocracy4/comments/static/comments/Comment.jsx:118
 msgid "Moderator"
-msgstr ""
+msgstr "Moderator"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:125
-#: adhocracy4/reports/static/reports/react_reports.jsx:21
 #: adhocracy4/comments/static/comments/Comment.jsx:125
 #: adhocracy4/reports/static/reports/react_reports.jsx:21
 msgid "Are you sure you want to report this item?"
-msgstr "Дали сте сигурни дека сакате да го пријавите овој коментар?"
+msgstr "Are you sure you want to report this item?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:167
 #: adhocracy4/comments/static/comments/Comment.jsx:167
 msgid "Your reply here"
-msgstr "Вашиот одговор овде"
+msgstr "Your reply here"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:82
 #: adhocracy4/comments/static/comments/CommentBox.jsx:82
 msgid "comment"
 msgid_plural "comments"
-msgstr[0] "Коментари"
-msgstr[1] "Коментари"
+msgstr[0] "comment"
+msgstr[1] "comments"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:85
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
-#: adhocracy4/comments/static/comments/CommentForm.jsx:37
 #: adhocracy4/comments/static/comments/CommentBox.jsx:85
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
 msgid "Your comment here"
-msgstr "Твојот коментар овде"
+msgstr "Your comment here"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
-#: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 msgid "post"
-msgstr ""
+msgstr "post"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:37
 msgid "cancel"
-msgstr "Откажи"
+msgstr "cancel"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:46
 #: adhocracy4/comments/static/comments/CommentForm.jsx:46
 msgid "Please login to comment"
-msgstr "Ве молиме пријавете се за да можете да коментирате"
+msgstr "Please login to comment"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:52
 #: adhocracy4/comments/static/comments/CommentForm.jsx:52
 msgid "The currently active phase doesn't allow to comment."
-msgstr ""
+msgstr "The currently active phase doesn't allow to comment."
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
-msgstr "Измени"
+msgstr "Edit"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
-msgstr "Пријави"
+msgstr "Report"
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:6
 #, javascript-format
 msgid "view %s reply"
 msgid_plural "view %s replies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "view %s reply"
+msgstr[1] "view %s replies"
 
-#: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
 #: adhocracy4/comments/static/comments/CommentReplyBar.jsx:26
 msgid "Answer"
-msgstr "Одговори"
+msgstr "Answer"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:51
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 msgid "Not following"
-msgstr ""
+msgstr "Not following"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:52
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 msgid "Never be notified."
-msgstr ""
+msgstr "Never be notified."
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:53
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 msgid "Following"
-msgstr ""
+msgstr "Following"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:54
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 msgid "Receive email notifications about this project."
-msgstr ""
+msgstr "Receive email notifications about this project."
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Unfollow"
-msgstr ""
+msgstr "Unfollow"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:41
 msgid "Follow"
-msgstr ""
+msgstr "Follow"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:65
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message here"
-msgstr "Твојата порака овде"
+msgstr "Your message here"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
-#: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
-msgstr "Испрати извештај"
+msgstr "Send Report"
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
-msgstr ""
+msgstr "Please set all values for your project."
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:7
 msgid "Offline Phase"
-msgstr ""
+msgstr "Offline Phase"
 
 #: euth/dashboard/static/add_offline_phase/add_offline_phase.js:91
 msgid "add offline phase"
-msgstr ""
+msgstr "add offline phase"
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:80
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 #: euth/documents/static/documents/Paragraph.jsx:57
 #: euth/documents/static/documents/ParagraphBox.jsx:205
 msgid "add a new paragraph"
-msgstr ""
+msgstr "add a new paragraph"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 msgid "Headline:"
-msgstr ""
+msgstr "Headline:"
 
 #: euth/documents/static/documents/Paragraph.jsx:82
 msgid "Paragraph:"
-msgstr ""
+msgstr "Paragraph:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:111
 msgid "Your document has been updated."
-msgstr ""
+msgstr "Your document has been updated."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:140
 msgid "Your document has been saved."
-msgstr ""
+msgstr "Your document has been saved."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:168
 msgid "Title:"
-msgstr ""
+msgstr "Title:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:222
 msgid "save"
-msgstr ""
+msgstr "save"
