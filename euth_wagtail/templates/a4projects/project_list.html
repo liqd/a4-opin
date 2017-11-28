@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles contrib_tags %}
 
 {% block title %}{% trans 'Projects on Opin.me' %}{% endblock %}
 
@@ -58,17 +58,20 @@
                     <ul class="pagination">
                     {% if page_obj.has_previous %}
                         <li>
-                        <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        {% combined_url_parameter request.GET page=page_obj.previous_page_number as url_par %}
+                        <a href="{{ url_par }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     {% endif %}
                     {% for number in page_obj.paginator.page_range %}
-                    <li><a href="?page={{ number }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
+                    {% combined_url_parameter request.GET page=number as url_par %}
+                    <li><a href="{{ url_par }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
                     {% endfor %}
                     {% if page_obj.has_next %}
                     <li>
-                        <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        {% combined_url_parameter request.GET page=page_obj.next_page_number as url_par %}
+                        <a href="{{ url_par }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
