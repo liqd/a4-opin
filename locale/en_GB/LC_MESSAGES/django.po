@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:30+0100\n"
+"POT-Creation-Date: 2017-11-28 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,6 +175,7 @@ msgstr ""
 "chars."
 
 #: adhocracy4/phases/models.py:64
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:35
 msgid "Name"
 msgstr "Name"
 
@@ -1041,6 +1042,12 @@ msgstr "save and publish"
 msgid "unpublish"
 msgstr "unpublish"
 
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:71
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:77
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
+msgid "delete"
+msgstr "delete"
+
 #: euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
 msgid "Invite users to project"
 msgstr "Invite users to project"
@@ -1108,9 +1115,31 @@ msgstr "Manage users of"
 msgid "Manage moderators of"
 msgstr "Manage moderators of"
 
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:19
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:25
+msgid "Members"
+msgstr "Members"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:20
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:116
+msgid "Moderators"
+msgstr "Moderators"
+
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:28
 msgid "invite users"
 msgstr "invite users"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:36
+#: euth_wagtail/templates/account/login.html.py:36
+#: euth_wagtail/templates/account/password_reset.html.py:26
+msgid "Email"
+msgstr "Email"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:37
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
+msgid "Edit"
+msgstr "Edit"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:47
 msgid "Request"
@@ -1123,6 +1152,10 @@ msgstr "Pending"
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
 msgstr "submit"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:112
+msgid "There are no invites, requests or users in this project yet."
+msgstr "There are no invites, requests or users in this project yet."
 
 #: euth/dashboard/views.py:79
 msgid "Your profile was successfully updated."
@@ -1314,11 +1347,6 @@ msgstr "Universal phase"
 msgid "Use all features of the idea collection."
 msgstr "Use all features of the idea collection."
 
-#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
-#: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
-msgid "Edit"
-msgstr "Edit"
-
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:31
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:40
 #: euth_wagtail/templates/includes/delete_modal.html.py:19
@@ -1371,10 +1399,6 @@ msgstr "No proposals found"
 #: euth_wagtail/templates/includes/delete_modal.html.py:2
 msgid "Are you sure you want to delete"
 msgstr "Are you sure you want to delete"
-
-#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
-msgid "delete"
-msgstr "delete"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html.py:23
 msgid "abort"
@@ -2055,11 +2079,6 @@ msgstr ""
 #: euth_wagtail/templates/account/login.html.py:8
 msgid "Login"
 msgstr "Login"
-
-#: euth_wagtail/templates/account/login.html.py:36
-#: euth_wagtail/templates/account/password_reset.html.py:26
-msgid "Email"
-msgstr "Email"
 
 #: euth_wagtail/templates/account/login.html.py:45
 #: euth_wagtail/templates/account/password_change.html.py:27

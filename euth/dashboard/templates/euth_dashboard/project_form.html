@@ -68,13 +68,13 @@
                     <li>
                         <button type="button" class="btn btn-sm btn-hover-danger" data-toggle="modal" data-target="#deleteModal">
                             <i class="fa fa-fw fa-trash-o" aria-hidden="true"></i>
-                            <span class="dropdown-text">delete</span>
+                            <span class="dropdown-text">{% trans 'delete' %}</span>
                         </button>
                     </li>
                     {% endif %}
                     {% endwith %}
                     {% elif project.pk != None %}
-                    <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">delete</span></button></li>
+                    <li><button type="button" class="btn btn-sm btn-danger btn-hover-danger"  data-toggle="modal" data-target="#deleteModal"><i class="fa fa-fw fa-trash-o" aria-hidden="true"></i><span class="dropdown-text">{% trans 'delete' %}</span></button></li>
                     {% endif %}
                 </ul>
             </div>

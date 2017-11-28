@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:30+0100\n"
+"POT-Creation-Date: 2017-11-28 18:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Gaël Dubus <dubus@kth.se>, 2017\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
@@ -141,12 +141,12 @@ msgstr "Geometri som GeoJSON"
 #: adhocracy4/maps/fields.py:34
 #: euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
-msgstr "Varsågod och lägg till en markör på kartan"
+msgstr "Vänligen lägg till en markör på kartan"
 
 #: adhocracy4/maps/fields.py:39
 #: euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
-msgstr "Varsågod och rita en polygon på kartan"
+msgstr "Vänligen rita en polygon på kartan"
 
 #: adhocracy4/maps/models.py:11
 msgid "Polygon"
@@ -154,11 +154,11 @@ msgstr "Polygon"
 
 #: adhocracy4/maps/models.py:12
 msgid "Please draw an area on the map."
-msgstr ""
+msgstr "Vänligen rita ett område på kartan."
 
 #: adhocracy4/modules/models.py:14
 msgid "Title of the module"
-msgstr ""
+msgstr "Modulens titel"
 
 #: adhocracy4/modules/models.py:15
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 
 #: adhocracy4/modules/models.py:23
 msgid "Short description of the module"
-msgstr ""
+msgstr "Kort beskrivning av modulen"
 
 #: adhocracy4/modules/models.py:24
 msgid ""
@@ -178,6 +178,7 @@ msgid ""
 msgstr ""
 
 #: adhocracy4/phases/models.py:64
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:35
 msgid "Name"
 msgstr "Namn"
 
@@ -188,15 +189,15 @@ msgstr "Beskrivning"
 
 #: adhocracy4/phases/models.py:70
 msgid "Start date"
-msgstr ""
+msgstr "Startdatum"
 
 #: adhocracy4/phases/models.py:72
 msgid "End date"
-msgstr ""
+msgstr "Slutdatum"
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr ""
+msgstr "Slutdatumet får inte vara tidigare än startdatumet."
 
 #: adhocracy4/projects/models.py:28
 msgid "Title of your project"
@@ -1014,6 +1015,12 @@ msgstr "spara och publicera"
 msgid "unpublish"
 msgstr "avpublicera"
 
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:71
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:77
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
+msgid "delete"
+msgstr "radera"
+
 #: euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
 msgid "Invite users to project"
 msgstr "Bjuda in användare till projektet"
@@ -1081,9 +1088,31 @@ msgstr ""
 msgid "Manage moderators of"
 msgstr ""
 
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:19
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:25
+msgid "Members"
+msgstr ""
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:20
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:116
+msgid "Moderators"
+msgstr ""
+
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:28
 msgid "invite users"
 msgstr "bjuda in användare"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:36
+#: euth_wagtail/templates/account/login.html.py:36
+#: euth_wagtail/templates/account/password_reset.html.py:26
+msgid "Email"
+msgstr "Epost"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:37
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
+msgid "Edit"
+msgstr "Redigera"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:47
 msgid "Request"
@@ -1095,6 +1124,10 @@ msgstr "Väntande"
 
 #: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
 msgid "submit"
+msgstr ""
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:112
+msgid "There are no invites, requests or users in this project yet."
 msgstr ""
 
 #: euth/dashboard/views.py:79
@@ -1285,11 +1318,6 @@ msgstr ""
 msgid "Use all features of the idea collection."
 msgstr ""
 
-#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
-#: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
-msgid "Edit"
-msgstr "Redigera"
-
 #: euth/ideas/templates/euth_ideas/idea_detail.html.py:31
 #: euth/maps/templates/euth_maps/mapidea_detail.html.py:40
 #: euth_wagtail/templates/includes/delete_modal.html.py:19
@@ -1342,10 +1370,6 @@ msgstr ""
 #: euth_wagtail/templates/includes/delete_modal.html.py:2
 msgid "Are you sure you want to delete"
 msgstr "Är du säker på att du vill radera"
-
-#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
-msgid "delete"
-msgstr "radera"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html.py:23
 msgid "abort"
@@ -2000,11 +2024,6 @@ msgstr ""
 #: euth_wagtail/templates/account/login.html.py:8
 msgid "Login"
 msgstr "Login"
-
-#: euth_wagtail/templates/account/login.html.py:36
-#: euth_wagtail/templates/account/password_reset.html.py:26
-msgid "Email"
-msgstr "Epost"
 
 #: euth_wagtail/templates/account/login.html.py:45
 #: euth_wagtail/templates/account/password_change.html.py:27
