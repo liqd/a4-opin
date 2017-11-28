@@ -16,13 +16,13 @@
 {% csrf_token %}
 {% if not project.is_public %}
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
-        <li role="presentation"><a href="#moderators" aria-controls="moderators" role="tab" data-toggle="tab">Moderators</a></li>
+        <li role="presentation" class="active"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">{% trans 'Members' %}</a></li>
+        <li role="presentation"><a href="#moderators" aria-controls="moderators" role="tab" data-toggle="tab">{% trans 'Moderators' %}</a></li>
     </ul>
 
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="members">
-                <h2 class="sans-serif">Members</h2>
+                <h2 class="sans-serif">{% trans 'Members' %}</h2>
             <p>
                 <a href="{% url 'dashboard-project-invite' project.slug %}"
                    class="btn btn-primary pull-right">{% trans 'invite users' %}</a>
@@ -32,9 +32,9 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Edit</th>
+                        <th>{% trans 'Name' %}</th>
+                        <th>{% trans 'Email' %}</th>
+                        <th>{% trans 'Edit' %}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -109,12 +109,11 @@
                 <input type="submit" class="btn btn-primary"
                        value="{% trans 'submit' %}">
             {% else %}
-                <p>There are no invites, requests or users in this project
-                    yet.</p>
+                <p>{% trans 'There are no invites, requests or users in this project yet.' %}</p>
             {% endif %}
         </div>
         <div role="tabpanel" class="tab-pane" id="moderators">
-            <h2 class="sans-serif">Moderators</h2>
+            <h2 class="sans-serif">{% trans 'Moderators' %}</h2>
 {% endif %}
             <div class="row">
                 <div class="col-sm-4">
