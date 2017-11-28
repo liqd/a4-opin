@@ -1,0 +1,2273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-27 18:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html.py:15
+#: euth/organisations/filters.py:34 euth/projects/filters.py:34
+msgid "Search"
+msgstr "Search"
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:8
+msgid "Remove the picture"
+msgstr "Remove the picture"
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:12
+msgid "Upload a picture"
+msgstr "Upload a picture"
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html.py:19
+msgid ""
+"\n"
+"            Your image will be uploaded/removed once you save your changes\n"
+"            at the end of this page.\n"
+"            "
+msgstr ""
+"\n"
+"            Your image will be uploaded/removed once you save your changes\n"
+"            at the end of this page.\n"
+"            "
+
+#: adhocracy4/categories/filters.py:10 euth/contrib/exports.py:235
+#: euth/dashboard/forms.py:48
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:71
+msgid "Category"
+msgstr "Category"
+
+#: adhocracy4/comments/models.py:35
+msgid "Comment"
+msgstr "Comment"
+
+#: adhocracy4/comments/models.py:36 euth/contrib/exports.py:207
+msgid "Comments"
+msgstr "Comments"
+
+#: adhocracy4/comments/models.py:55
+msgid "deleted by creator"
+msgstr "deleted by creator"
+
+#: adhocracy4/comments/models.py:57
+msgid "deleted by moderator"
+msgstr "deleted by moderator"
+
+#: adhocracy4/comments/serializers.py:25
+msgid "unknown user"
+msgstr "unknown user"
+
+#: adhocracy4/filters/widgets.py:32 euth/organisations/filters.py:28
+#: euth/projects/filters.py:28
+msgid "All"
+msgstr "All"
+
+#: adhocracy4/forms/fields.py:18
+#, python-format
+msgid "Time of %(date_label)s"
+msgstr "Time of %(date_label)s"
+
+#: adhocracy4/images/fields.py:70
+#, python-brace-format
+msgid ""
+"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
+"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
+"The file size should be max. {max_size_mb} MB."
+msgstr ""
+"{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
+"{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
+"The file size should be max. {max_size_mb} MB."
+
+#: adhocracy4/images/fields.py:90
+#, python-brace-format
+msgid "{image_name} copyright"
+msgstr "{image_name} copyright"
+
+#: adhocracy4/images/fields.py:93
+#, python-brace-format
+msgid "Copyright shown in the {image_name}."
+msgstr "Copyright shown in the {image_name}."
+
+#: adhocracy4/images/validators.py:20 euth/offlinephases/validators.py:20
+msgid "Unsupported file format. Supported formats are {}."
+msgstr "Unsupported file format. Supported formats are {}."
+
+#: adhocracy4/images/validators.py:27
+#, python-brace-format
+msgid "Image should be at most {max_size} MB"
+msgstr "Image should be at most {max_size} MB"
+
+#: adhocracy4/images/validators.py:30
+#, python-brace-format
+msgid "Image must be at least {min_width} pixels wide"
+msgstr "Image must be at least {min_width} pixels wide"
+
+#: adhocracy4/images/validators.py:33
+#, python-brace-format
+msgid "Image must be at least {min_height} pixels high"
+msgstr "Image must be at least {min_height} pixels high"
+
+#: adhocracy4/images/validators.py:43
+#, python-brace-format
+msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
+msgstr "Image aspect ratio should be {aspect_width}:{aspect_height}"
+
+#: adhocracy4/images/widgets.py:26
+msgid "Select a picture from your local folder."
+msgstr "Select a picture from your local folder."
+
+#: adhocracy4/maps/fields.py:16 euth/maps/fields.py:18
+msgid "Geometry as GeoJSON"
+msgstr "Geometry as GeoJSON"
+
+#: adhocracy4/maps/fields.py:34 euth/maps/fields.py:36
+msgid "Please add a Marker on the map"
+msgstr "Please add a Marker on the map"
+
+#: adhocracy4/maps/fields.py:39 euth/maps/fields.py:41
+msgid "Please draw a Polygon on the map"
+msgstr "Please draw a Polygon on the map"
+
+#: adhocracy4/maps/models.py:11
+msgid "Polygon"
+msgstr "Polygon"
+
+#: adhocracy4/maps/models.py:12
+msgid "Please draw an area on the map."
+msgstr "Please draw an area on the map."
+
+#: adhocracy4/modules/models.py:14
+msgid "Title of the module"
+msgstr "Title of the module"
+
+#: adhocracy4/modules/models.py:15
+msgid ""
+"This title will appear in the timeline and the header on the module and "
+"project detail pages. It should be max. 512 characters long"
+msgstr ""
+"This title will appear in the timeline and the header on the module and "
+"project detail pages. It should be max. 512 characters long"
+
+#: adhocracy4/modules/models.py:23
+msgid "Short description of the module"
+msgstr "Short description of the module"
+
+#: adhocracy4/modules/models.py:24
+msgid ""
+"This short description will appear on the header of the module and project "
+"detail pages. It should briefly state the goal of the module in max. 250 "
+"chars."
+msgstr ""
+"This short description will appear on the header of the module and project "
+"detail pages. It should briefly state the goal of the module in max. 250 "
+"chars."
+
+#: adhocracy4/phases/models.py:64
+msgid "Name"
+msgstr "Name"
+
+#: adhocracy4/phases/models.py:66
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:50
+msgid "Description"
+msgstr "Description"
+
+#: adhocracy4/phases/models.py:70
+msgid "Start date"
+msgstr "Start date"
+
+#: adhocracy4/phases/models.py:72
+msgid "End date"
+msgstr "End date"
+
+#: adhocracy4/phases/models.py:90
+msgid "End date can not be smallerthan the start date."
+msgstr "End date can not be smallerthan the start date."
+
+#: adhocracy4/projects/models.py:28
+msgid "Title of your project"
+msgstr "Title of your project"
+
+#: adhocracy4/projects/models.py:29
+msgid ""
+"This title will appear on the teaser card and on top of the project detail "
+"page. It should be max. 120 characters long"
+msgstr ""
+"This title will appear on the teaser card and on top of the project detail "
+"page. It should be max. 120 characters long"
+
+#: adhocracy4/projects/models.py:38
+msgid "Short description of your project"
+msgstr "Short description of your project"
+
+#: adhocracy4/projects/models.py:39
+msgid ""
+"This short description will appear on the header of the project and in the "
+"teaser. It should briefly state the goal of the project in max. 250 chars."
+msgstr ""
+"This short description will appear on the header of the project and in the "
+"teaser. It should briefly state the goal of the project in max. 250 chars."
+
+#: adhocracy4/projects/models.py:47
+msgid "Description of your project"
+msgstr "Description of your project"
+
+#: adhocracy4/projects/models.py:48
+msgid ""
+"This description should tell participants what the goal of the project is, "
+"how the project’s participation will look like. It will be always visible in "
+"the „Info“ tab on your project’s page."
+msgstr ""
+"This description should tell participants what the goal of the project is, "
+"how the project’s participation will look like. It will be always visible in "
+"the „Info“ tab on your project’s page."
+
+#: adhocracy4/projects/models.py:56
+msgid "Results of your project"
+msgstr "Results of your project"
+
+#: adhocracy4/projects/models.py:57
+msgid ""
+"Here you should explain what the expected outcome of the project will be and "
+"how you are planning to use the results. If the project is finished you "
+"should add a summary of the results."
+msgstr ""
+"Here you should explain what the expected outcome of the project will be and "
+"how you are planning to use the results. If the project is finished you "
+"should add a summary of the results."
+
+#: adhocracy4/projects/models.py:64
+msgid "Access to the project"
+msgstr "Access to the project"
+
+#: adhocracy4/projects/models.py:65
+msgid ""
+"Please indicate whether this project should be public or restricted to "
+"invited users. Teasers for your project including title and short "
+"description will always be visible to everyone"
+msgstr ""
+"Please indicate whether this project should be public or restricted to "
+"invited users. Teasers for your project including title and short "
+"description will always be visible to everyone"
+
+#: adhocracy4/projects/models.py:73 adhocracy4/projects/models.py:79
+#: euth/organisations/models.py:33
+msgid "Header image"
+msgstr "Header image"
+
+#: adhocracy4/projects/models.py:75
+msgid "The image will be shown as a decorative background image."
+msgstr "The image will be shown as a decorative background image."
+
+#: adhocracy4/projects/models.py:82 adhocracy4/projects/models.py:89
+msgid "Tile image"
+msgstr "Tile image"
+
+#: adhocracy4/projects/models.py:84
+msgid "The image will be shown in the project tile."
+msgstr "The image will be shown in the project tile."
+
+#: adhocracy4/projects/models.py:102
+msgid "Project is archived"
+msgstr "Project is archived"
+
+#: adhocracy4/projects/models.py:103
+msgid ""
+"Exclude this project from all listings by default. You can still access this "
+"project by using filters."
+msgstr ""
+"Exclude this project from all listings by default. You can still access this "
+"project by using filters."
+
+#: adhocracy4/projects/templatetags/project_tags.py:12
+#, python-format
+msgid "%(number)d day left"
+msgid_plural "%(number)d days left"
+msgstr[0] "%(number)d day left"
+msgstr[1] "%(number)d days left"
+
+#: adhocracy4/projects/templatetags/project_tags.py:19
+msgid "a few hours left"
+msgstr "a few hours left"
+
+#: adhocracy4/reports/templatetags/react_reports.py:30
+msgid "Report"
+msgstr "Report"
+
+#: euth/blueprints/blueprints.py:35
+msgid "Create and collect new ideas or visions."
+msgstr "Create and collect new ideas or visions."
+
+#: euth/blueprints/blueprints.py:36 euth/blueprints/blueprints.py:53
+msgid "(Urban) planning processes"
+msgstr "(Urban) planning processes"
+
+#: euth/blueprints/blueprints.py:37
+msgid "Develop concepts or guiding principles"
+msgstr "Develop concepts or guiding principles"
+
+#: euth/blueprints/blueprints.py:41
+msgid "Gather feedback on a topic and discuss it in greater detail."
+msgstr "Gather feedback on a topic and discuss it in greater detail."
+
+#: euth/blueprints/blueprints.py:42
+msgid "Discuss existing concepts or plans"
+msgstr "Discuss existing concepts or plans"
+
+#: euth/blueprints/blueprints.py:43
+msgid "Develop solutions for existing problems"
+msgstr "Develop solutions for existing problems"
+
+#: euth/blueprints/blueprints.py:47 euth/blueprints/blueprints.py:261
+msgid "Agenda Setting"
+msgstr "Agenda Setting"
+
+#: euth/blueprints/blueprints.py:48
+msgid "Set the agenda of an event, a process, a project etc."
+msgstr "Set the agenda of an event, a process, a project etc."
+
+#: euth/blueprints/blueprints.py:52
+msgid "Design a place."
+msgstr "Design a place."
+
+#: euth/blueprints/blueprints.py:54
+msgid "Small scale design projects, e.g. renew your premises"
+msgstr "Small scale design projects, e.g. renew your premises"
+
+#: euth/blueprints/blueprints.py:58
+msgid "Learn about what people like most."
+msgstr "Learn about what people like most."
+
+#: euth/blueprints/blueprints.py:59
+msgid "Opinion polls, majority votes etc."
+msgstr "Opinion polls, majority votes etc."
+
+#: euth/blueprints/blueprints.py:63
+msgid "Run a competition."
+msgstr "Run a competition."
+
+#: euth/blueprints/blueprints.py:64
+msgid "All sorts of competitions, like idea contests etc."
+msgstr "All sorts of competitions, like idea contests etc."
+
+#: euth/blueprints/blueprints.py:69
+msgid "Work together with other people on a text document."
+msgstr "Work together with other people on a text document."
+
+#: euth/blueprints/blueprints.py:70
+msgid "Draft or revise statutes, articles, charters etc."
+msgstr "Draft or revise statutes, articles, charters etc."
+
+#: euth/blueprints/blueprints.py:71
+msgid "Involve different authors in writing a shared text"
+msgstr "Involve different authors in writing a shared text"
+
+#: euth/blueprints/blueprints.py:84
+msgid "Collection of commented ideas"
+msgstr "Collection of commented ideas"
+
+#: euth/blueprints/blueprints.py:85
+msgid "Majority vote"
+msgstr "Majority vote"
+
+#: euth/blueprints/blueprints.py:86
+msgid "Both"
+msgstr "Both"
+
+#: euth/blueprints/blueprints.py:91
+msgid "More than 5 participative projects"
+msgstr "More than 5 participative projects"
+
+#: euth/blueprints/blueprints.py:92
+msgid "More than 2 participative projects"
+msgstr "More than 2 participative projects"
+
+#: euth/blueprints/blueprints.py:93
+msgid "1-2 participative projects"
+msgstr "1-2 participative projects"
+
+#: euth/blueprints/blueprints.py:94
+msgid "I have no experiences in organising participative projects"
+msgstr "I have no experiences in organising participative projects"
+
+#: euth/blueprints/blueprints.py:99
+msgid "High motivation"
+msgstr "High motivation"
+
+#: euth/blueprints/blueprints.py:100
+msgid "Medium motivation"
+msgstr "Medium motivation"
+
+#: euth/blueprints/blueprints.py:101
+msgid "Low motivation"
+msgstr "Low motivation"
+
+#: euth/blueprints/blueprints.py:102
+msgid "No motivation"
+msgstr "No motivation"
+
+#: euth/blueprints/blueprints.py:103
+msgid "I don't know."
+msgstr "I don't know."
+
+#: euth/blueprints/blueprints.py:115
+msgid "1-2 weeks"
+msgstr "1-2 weeks"
+
+#: euth/blueprints/blueprints.py:116
+msgid "2-4 weeks"
+msgstr "2-4 weeks"
+
+#: euth/blueprints/blueprints.py:117
+msgid "more than 4 weeks"
+msgstr "more than 4 weeks"
+
+#: euth/blueprints/blueprints.py:122
+msgid "Local"
+msgstr "Local"
+
+#: euth/blueprints/blueprints.py:123
+msgid "Regional"
+msgstr "Regional"
+
+#: euth/blueprints/blueprints.py:124
+msgid "National or international"
+msgstr "National or international"
+
+#: euth/blueprints/blueprints.py:128
+msgid "Very easy to access"
+msgstr "Very easy to access"
+
+#: euth/blueprints/blueprints.py:129
+msgid "Easy to access"
+msgstr "Easy to access"
+
+#: euth/blueprints/blueprints.py:130
+msgid "Hard to access"
+msgstr "Hard to access"
+
+#: euth/blueprints/blueprints.py:131
+msgid "Very hard to access"
+msgstr "Very hard to access"
+
+#: euth/blueprints/blueprints.py:132
+msgid "I don't know"
+msgstr "I don't know"
+
+#: euth/blueprints/blueprints.py:182
+msgid "Brainstorming"
+msgstr "Brainstorming"
+
+#: euth/blueprints/blueprints.py:183 euth/blueprints/blueprints.py:202
+msgid ""
+"Collect ideas, questions and input concerning a problem or a question from a "
+"wide array of people."
+msgstr ""
+"Collect ideas, questions and input concerning a problem or a question from a "
+"wide array of people."
+
+#: euth/blueprints/blueprints.py:201
+msgid "Spatial Brainstorming"
+msgstr "Spatial Brainstorming"
+
+#: euth/blueprints/blueprints.py:220
+msgid "Idea Challenge"
+msgstr "Idea Challenge"
+
+#: euth/blueprints/blueprints.py:221
+msgid "Run a challenge and find the best ideas to solve a particular problem."
+msgstr "Run a challenge and find the best ideas to solve a particular problem."
+
+#: euth/blueprints/blueprints.py:240
+msgid "Spatial Idea Challenge"
+msgstr "Spatial Idea Challenge"
+
+#: euth/blueprints/blueprints.py:241
+msgid ""
+"Run a challenge concerning a certain area or space in your community and "
+"find the best ideas to solve a particular problem."
+msgstr ""
+"Run a challenge concerning a certain area or space in your community and "
+"find the best ideas to solve a particular problem."
+
+#: euth/blueprints/blueprints.py:262
+msgid ""
+"You can involve everyone in planning a meeting. Collect ideas for an "
+"upcoming event and let your participants vote on the topics you want to "
+"tackle."
+msgstr ""
+"You can involve everyone in planning a meeting. Collect ideas for an "
+"upcoming event and let your participants vote on the topics you want to "
+"tackle."
+
+#: euth/blueprints/blueprints.py:283
+msgid "Text Review"
+msgstr "Text Review"
+
+#: euth/blueprints/blueprints.py:284
+msgid ""
+"Let participants discuss individual paragraphs of a text. This is ideal for "
+"discussing position papers or a mission statements with many people."
+msgstr ""
+"Let participants discuss individual paragraphs of a text. This is ideal for "
+"discussing position papers or a mission statements with many people."
+
+#: euth/blueprints/blueprints.py:304
+msgid "Poll"
+msgstr "Poll"
+
+#: euth/blueprints/blueprints.py:305
+msgid ""
+"Run customizable, multi-step polls on OPIN to get detailed opinions on "
+"topics from the public or your members. Via the OPIN polling app for iOS and "
+"Android these polls are also accessible on smartphones."
+msgstr ""
+"Run customizable, multi-step polls on OPIN to get detailed opinions on "
+"topics from the public or your members. Via the OPIN polling app for iOS and "
+"Android these polls are also accessible on smartphones."
+
+#: euth/blueprints/forms.py:23
+msgid "What is the desired outcome of the project?"
+msgstr "What is the desired outcome of the project?"
+
+#: euth/blueprints/forms.py:30
+msgid ""
+"How many on- and offline participative projects have you organised and "
+"managed in the past?"
+msgstr ""
+"How many on- and offline participative projects have you organised and "
+"managed in the past?"
+
+#: euth/blueprints/forms.py:38
+msgid ""
+"How motivated are your participants to take part in a  participative process?"
+msgstr ""
+"How motivated are your participants to take part in a  participative process?"
+
+#: euth/blueprints/forms.py:46
+msgid "How many participants might take part in the project?"
+msgstr "How many participants might take part in the project?"
+
+#: euth/blueprints/forms.py:53
+msgid "What is the scope of the project?"
+msgstr "What is the scope of the project?"
+
+#: euth/blueprints/forms.py:60
+msgid "How long do you want your project to be?"
+msgstr "How long do you want your project to be?"
+
+#: euth/blueprints/forms.py:67
+msgid "How easy can you access your participants?"
+msgstr "How easy can you access your participants?"
+
+#: euth/blueprints/forms.py:74
+msgid "Invalid aim selected"
+msgstr "Invalid aim selected"
+
+#: euth/blueprints/forms.py:80
+msgid "Invalid selection"
+msgstr "Invalid selection"
+
+#: euth/blueprints/templates/euth_blueprints/form.html.py:4
+msgid "Find the right project template"
+msgstr "Find the right project template"
+
+#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html.py:5
+msgid "Aim"
+msgstr "Aim"
+
+#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html.py:6
+#: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html.py:8
+msgid "Fine tuning"
+msgstr "Fine tuning"
+
+#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html.py:7
+#: euth/blueprints/templates/euth_blueprints/includes/step-feasibility.html.py:8
+msgid "Feasibility"
+msgstr "Feasibility"
+
+#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html.py:8
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_result_tab.html.py:6
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:13
+#: euth/projects/templates/euth_projects/project_detail.html.py:44
+msgid "Result"
+msgstr "Result"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:16
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:95
+#: euth/blueprints/templates/euth_blueprints/result.html.py:36
+msgid "Use this template"
+msgstr "Use this template"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:21
+msgid "Project Phases"
+msgstr "Project Phases"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:52
+msgid "Check out the example project"
+msgstr "Check out the example project"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:60
+msgid "Estimated effort"
+msgstr "Estimated effort"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:62
+#, python-format
+msgid ""
+"\n"
+"          <div class=\"box\">\n"
+"            <span>%(time)s hours</span>\n"
+"          </div>\n"
+"          <span>per week</span>\n"
+"          "
+msgstr ""
+"\n"
+"          <div class=\"box\">\n"
+"            <span>%(time)s hours</span>\n"
+"          </div>\n"
+"          <span>per week</span>\n"
+"          "
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:75
+msgid "Guidelines for a successful project"
+msgstr "Guidelines for a successful project"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:78
+msgid "Get inspiration and tips for"
+msgstr "Get inspiration and tips for"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:80
+msgid "setting up your participation project"
+msgstr "setting up your participation project"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:81
+msgid "activation and motivation of participants"
+msgstr "activation and motivation of participants"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:82
+msgid "moderation of discussions"
+msgstr "moderation of discussions"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:83
+msgid "and more"
+msgstr "and more"
+
+#: euth/blueprints/templates/euth_blueprints/includes/infopage.html.py:86
+msgid "Check out the guidelines!"
+msgstr "Check out the guidelines!"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:6
+msgid "Cancel"
+msgstr "Cancel"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:8
+#: euth/blueprints/templates/euth_blueprints/includes/step-feasibility.html.py:6
+#: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html.py:6
+#: euth/blueprints/templates/euth_blueprints/result.html.py:8
+msgid "Decision support tool"
+msgstr "Decision support tool"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:10
+msgid "What do you want to do in your participation project?"
+msgstr "What do you want to do in your participation project?"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:12
+msgid "My Aim"
+msgstr "My Aim"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:13
+msgid "Use Cases"
+msgstr "Use Cases"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-aim.html.py:42
+#: euth/blueprints/templates/euth_blueprints/includes/step-feasibility.html.py:28
+#: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html.py:25
+msgid "Proceed"
+msgstr "Proceed"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-feasibility.html.py:5
+#: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html.py:5
+#: euth/blueprints/templates/euth_blueprints/result.html.py:7
+msgid "Back"
+msgstr "Back"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-feasibility.html.py:9
+msgid ""
+"The questions below help us to estimate the effort you will have to invest "
+"to make your project a success!"
+msgstr ""
+"The questions below help us to estimate the effort you will have to invest "
+"to make your project a success!"
+
+#: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html.py:9
+msgid ""
+"With the following questions we want to get more detailed information to see "
+"which process on OPIN fits best."
+msgstr ""
+"With the following questions we want to get more detailed information to see "
+"which process on OPIN fits best."
+
+#: euth/blueprints/templates/euth_blueprints/result.html.py:11
+msgid ""
+"\n"
+"            This template matches your criterias!\n"
+"            "
+msgid_plural ""
+"\n"
+"            These templates match your criterias!\n"
+"            "
+msgstr[0] ""
+"\n"
+"            This template matches your criterias!\n"
+"            "
+msgstr[1] ""
+"\n"
+"            These templates match your criterias!\n"
+"            "
+
+#: euth/blueprints/templates/euth_blueprints/result.html.py:38
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:59
+msgid "Learn More"
+msgstr "Learn More"
+
+#: euth/contrib/exports.py:84
+msgid "Link"
+msgstr "Link"
+
+#: euth/contrib/exports.py:151
+msgid "Positive ratings"
+msgstr "Positive ratings"
+
+#: euth/contrib/exports.py:153
+msgid "Negative ratings"
+msgstr "Negative ratings"
+
+#: euth/contrib/exports.py:183
+msgid "Comment count"
+msgstr "Comment count"
+
+#: euth/contrib/exports.py:247
+msgid "Location"
+msgstr "Location"
+
+#: euth/contrib/exports.py:249
+msgid "Location label"
+msgstr "Location label"
+
+#: euth/contrib/filters.py:9
+msgid "status"
+msgstr "status"
+
+#: euth/contrib/filters.py:13 euth/users/models.py:51
+msgid "active"
+msgstr "active"
+
+#: euth/contrib/filters.py:14
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:48
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:16
+#: euth/projects/templates/euth_projects/includes/project_tile.html.py:11
+msgid "archived"
+msgstr "archived"
+
+#: euth/contrib/filters.py:15
+msgid "all"
+msgstr "all"
+
+#: euth/dashboard/forms.py:72
+msgid "Basic Info"
+msgstr "Basic Info"
+
+#: euth/dashboard/forms.py:76
+msgid "Personal Info"
+msgstr "Personal Info"
+
+#: euth/dashboard/forms.py:84
+msgid "Ways to connect with you"
+msgstr "Ways to connect with you"
+
+#: euth/dashboard/forms.py:90
+msgid "Notifications"
+msgstr "Notifications"
+
+#: euth/dashboard/forms.py:100
+msgid "E-mail addresses of invited users"
+msgstr "E-mail addresses of invited users"
+
+#: euth/dashboard/forms.py:101
+msgid ""
+"Enter the e-mail addresses of users who you want to invite, separated by "
+"commas. Invited users will get an email to confirm their membership in the "
+"project."
+msgstr ""
+"Enter the e-mail addresses of users who you want to invite, separated by "
+"commas. Invited users will get an email to confirm their membership in the "
+"project."
+
+#: euth/dashboard/forms.py:111
+msgid "Please enter correct e-mail addresses, separated by commas."
+msgstr "Please enter correct e-mail addresses, separated by commas."
+
+#: euth/dashboard/forms.py:148
+msgid "All users can participate (public)."
+msgstr "All users can participate (public)."
+
+#: euth/dashboard/forms.py:149
+msgid "Only invited users can participate (private)."
+msgstr "Only invited users can participate (private)."
+
+#: euth/dashboard/forms.py:162
+msgid "Project settings"
+msgstr "Project settings"
+
+#: euth/dashboard/forms.py:168
+msgid "Information for your participants"
+msgstr "Information for your participants"
+
+#: euth/dashboard/forms.py:198
+msgid "It should be max. 80 characters long."
+msgstr "It should be max. 80 characters long."
+
+#: euth/dashboard/forms.py:199
+msgid "It should be max. 300 characters long."
+msgstr "It should be max. 300 characters long."
+
+#: euth/dashboard/forms.py:200 euth/dashboard/forms.py:201
+msgid "Your timezone: {}"
+msgstr "Your timezone: {}"
+
+#: euth/dashboard/forms.py:251
+msgid "End time can not be smaller than the start time."
+msgstr "End time can not be smaller than the start time."
+
+#: euth/dashboard/forms.py:374
+msgid "Archived projects are read-only."
+msgstr "Archived projects are read-only."
+
+#: euth/dashboard/forms.py:575
+msgid "The title of your organisation"
+msgstr "The title of your organisation"
+
+#: euth/dashboard/forms.py:576
+msgid "title"
+msgstr "title"
+
+#: euth/dashboard/forms.py:579
+msgid "description why"
+msgstr "description why"
+
+#: euth/dashboard/forms.py:584
+msgid "description how"
+msgstr "description how"
+
+#: euth/dashboard/forms.py:587
+msgid "description"
+msgstr "description"
+
+#: euth/dashboard/forms.py:589
+msgid "More info about the organisation / Short text for organisation overview"
+msgstr ""
+"More info about the organisation / Short text for organisation overview"
+
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:17
+msgid "Edit profile"
+msgstr "Edit profile"
+
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:22
+#: euth_wagtail/templates/account/password_change.html.py:6
+#: euth_wagtail/templates/account/password_change.html.py:45
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:52
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:5
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:10
+msgid "Change Password"
+msgstr "Change Password"
+
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:28
+#: euth_wagtail/templates/account/email.html.py:6
+#: euth_wagtail/templates/account/email.html.py:9
+msgid "E-mail Addresses"
+msgstr "E-mail Addresses"
+
+#: euth/dashboard/templates/euth_dashboard/base_dashboard.html.py:34
+#: euth_wagtail/templates/socialaccount/connections.html.py:6
+#: euth_wagtail/templates/socialaccount/connections.html.py:9
+msgid "Account Connections"
+msgstr "Account Connections"
+
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:13
+msgid "Organisation settings"
+msgstr "Organisation settings"
+
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:20
+msgid "Organisation information"
+msgstr "Organisation information"
+
+#: euth/dashboard/templates/euth_dashboard/base_organisation.html.py:27
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:5
+msgid "Projects"
+msgstr "Projects"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:6
+msgid "Create new project from one of the templates"
+msgstr "Create new project from one of the templates"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:13
+msgid "back to project list"
+msgstr "back to project list"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:23
+msgid "Not sure which template?"
+msgstr "Not sure which template?"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:25
+msgid "Try the Decision Support Tool (DST)!"
+msgstr "Try the Decision Support Tool (DST)!"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:26
+msgid ""
+"In just three minutes you'll find out which process suits your needs. It's "
+"easy."
+msgstr ""
+"In just three minutes you'll find out which process suits your needs. It's "
+"easy."
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:32
+msgid "Choose template"
+msgstr "Choose template"
+
+#: euth/dashboard/templates/euth_dashboard/blueprint_list.html.py:56
+msgid "use this template"
+msgstr "use this template"
+
+#: euth/dashboard/templates/euth_dashboard/includes/inline_form.html.py:18
+#: euth/dashboard/templates/euth_dashboard/includes/inline_form.html.py:19
+msgid "Remove category"
+msgstr "Remove category"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:26
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:115
+msgid "add offline phase"
+msgstr "add offline phase"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:61
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:78
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:92
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:41
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:81
+msgid "of Phase "
+msgstr "of Phase "
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:108
+msgid "edit documentation"
+msgstr "edit documentation"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:127
+msgid "Categories"
+msgstr "Categories"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_participation_tab.html.py:154
+msgid "add category"
+msgstr "add category"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:5
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:10
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:10
+#: euth/projects/templates/euth_projects/project_detail.html.py:42
+msgid "Information"
+msgstr "Information"
+
+#: euth/dashboard/templates/euth_dashboard/includes/project_form_tabs.html.py:9
+#: euth/projects/templates/euth_projects/project_detail.html.py:43
+msgid "Participation"
+msgstr "Participation"
+
+#: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:5
+msgid "Edit your organisation information"
+msgstr "Edit your organisation information"
+
+#: euth/dashboard/templates/euth_dashboard/organisation_form.html.py:50
+msgid "save changes"
+msgstr "save changes"
+
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:4
+msgid "Your user profile"
+msgstr "Your user profile"
+
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:6
+msgid "Your profile"
+msgstr "Your profile"
+
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:10
+msgid ""
+"The information you give in your profile will be shown to all users of OPIN."
+"me."
+msgstr ""
+"The information you give in your profile will be shown to all users of OPIN."
+"me."
+
+#: euth/dashboard/templates/euth_dashboard/profile_detail.html.py:50
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:111
+msgid "Save changes"
+msgstr "Save changes"
+
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:12
+msgid "Unable to submit form. Please fix the errors."
+msgstr "Unable to submit form. Please fix the errors."
+
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:16
+msgid "This project is archived."
+msgstr "This project is archived."
+
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:39
+msgid "save draft"
+msgstr "save draft"
+
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:43
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:56
+msgid "save and publish"
+msgstr "save and publish"
+
+#: euth/dashboard/templates/euth_dashboard/project_form.html.py:61
+msgid "unpublish"
+msgstr "unpublish"
+
+#: euth/dashboard/templates/euth_dashboard/project_invites.html.py:5
+msgid "Invite users to project"
+msgstr "Invite users to project"
+
+#: euth/dashboard/templates/euth_dashboard/project_invites.html.py:14
+msgid "send invitations"
+msgstr "send invitations"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:8
+msgid "create project"
+msgstr "create project"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:21
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:79
+#: euth_wagtail/templates/a4projects/project_list.html.py:41
+msgid "No projects found"
+msgstr "No projects found"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:38
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:19
+#: euth/projects/templates/euth_projects/project_detail.html.py:17
+msgid "Phase"
+msgstr "Phase"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:45
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:13
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:9
+#: euth/projects/templates/euth_projects/includes/project_tile.html.py:13
+msgid "private"
+msgstr "private"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:50
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:18
+#: euth/projects/templates/euth_projects/includes/project_list_item.html.py:12
+#: euth/projects/templates/euth_projects/includes/project_tile.html.py:15
+msgid "finished"
+msgstr "finished"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:62
+#: euth/users/models.py:146
+msgid "Users"
+msgstr "Users"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:65
+msgid "view project"
+msgstr "view project"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:71
+msgid "download module"
+msgstr "download module"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:79
+msgid "archive project"
+msgstr "archive project"
+
+#: euth/dashboard/templates/euth_dashboard/project_list.html.py:86
+msgid "unarchive project"
+msgstr "unarchive project"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:8
+msgid "Manage users of"
+msgstr "Manage users of"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:10
+msgid "Manage moderators of"
+msgstr "Manage moderators of"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:28
+msgid "invite users"
+msgstr "invite users"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:47
+msgid "Request"
+msgstr "Request"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:69
+msgid "Pending"
+msgstr "Pending"
+
+#: euth/dashboard/templates/euth_dashboard/project_users.html.py:110
+msgid "submit"
+msgstr "submit"
+
+#: euth/dashboard/views.py:79
+msgid "Your profile was successfully updated."
+msgstr "Your profile was successfully updated."
+
+#: euth/dashboard/views.py:105
+msgid "Organisation successfully updated."
+msgstr "Organisation successfully updated."
+
+#: euth/dashboard/views.py:154
+msgid "Project succesfully created."
+msgstr "Project succesfully created."
+
+#: euth/dashboard/views.py:160
+msgid "New project based on"
+msgstr "New project based on"
+
+#: euth/dashboard/views.py:199
+msgid "Project successfully updated."
+msgstr "Project successfully updated."
+
+#: euth/dashboard/views.py:206
+msgid "Change settings for"
+msgstr "Change settings for"
+
+#: euth/dashboard/views.py:242
+msgid "Project has been archived."
+msgstr "Project has been archived."
+
+#: euth/dashboard/views.py:271
+msgid "Your project has been deleted."
+msgstr "Your project has been deleted."
+
+#: euth/dashboard/views.py:303
+msgid "Invitations successfully sent."
+msgstr "Invitations successfully sent."
+
+#: euth/dashboard/views.py:341
+msgid "User request successfully updated."
+msgstr "User request successfully updated."
+
+#: euth/documents/phases.py:18
+msgid "Create document phase"
+msgstr "Create document phase"
+
+#: euth/documents/phases.py:19 euth/documents/phases.py:39
+msgid "commenting text"
+msgstr "commenting text"
+
+#: euth/documents/phases.py:20
+msgid "Create text for the project."
+msgstr "Create text for the project."
+
+#: euth/documents/phases.py:38
+msgid "Comment phase"
+msgstr "Comment phase"
+
+#: euth/documents/phases.py:40
+msgid "Collect comments for the text."
+msgstr "Collect comments for the text."
+
+#: euth/documents/templates/euth_documents/document_detail.html.py:20
+msgid "Add your comment"
+msgstr "Add your comment"
+
+#: euth/documents/templates/euth_documents/document_form.html.py:10
+msgid "Moderators are currently creating a document."
+msgstr "Moderators are currently creating a document."
+
+#: euth/documents/templates/euth_documents/paragraph_detail.html.py:10
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:14
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:11
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:23
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:15
+msgid "back to project"
+msgstr "back to project"
+
+#: euth/documents/validators.py:14
+msgid "Document for that module already exists"
+msgstr "Document for that module already exists"
+
+#: euth/flashpoll/models.py:8
+msgid "Flashpoll ID"
+msgstr "Flashpoll ID"
+
+#: euth/flashpoll/phases.py:14
+msgid "Flashpoll Phase"
+msgstr "Flashpoll Phase"
+
+#: euth/flashpoll/phases.py:15
+msgid "Initiate a Mobile polling process."
+msgstr "Initiate a Mobile polling process."
+
+#: euth/flashpoll/phases.py:16
+msgid "mobile polling"
+msgstr "mobile polling"
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_poll_tab.html.py:14
+msgid "Poll: Questions"
+msgstr "Poll: Questions"
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_poll_tab.html.py:168
+msgid "Poll: Location"
+msgstr "Poll: Location"
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:21
+msgid "Phase "
+msgstr "Phase "
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_participation_flashpoll_tab.html.py:62
+msgid "of Phase: "
+msgstr "of Phase: "
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html.py:14
+msgid "Result "
+msgstr "Result "
+
+#: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html.py:13
+#: euth/projects/templates/euth_projects/project_detail.html.py:112
+msgid ""
+"The initiator hasn’t provided information on the expected outcome of the "
+"project yet."
+msgstr ""
+"The initiator hasn’t provided information on the expected outcome of the "
+"project yet."
+
+#: euth/ideas/filters.py:10 euth/organisations/filters.py:12
+#: euth/projects/filters.py:12
+msgid "Most Recent"
+msgstr "Most Recent"
+
+#: euth/ideas/filters.py:11
+msgid "Most Comments"
+msgstr "Most Comments"
+
+#: euth/ideas/filters.py:12
+msgid "Most Support"
+msgstr "Most Support"
+
+#: euth/ideas/filters.py:17
+#: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
+#: euth/organisations/filters.py:21 euth/projects/filters.py:21
+msgid "Sort by"
+msgstr "Sort by"
+
+#: euth/ideas/phases.py:14
+msgid "Issue phase"
+msgstr "Issue phase"
+
+#: euth/ideas/phases.py:15
+msgid "Add new ideas."
+msgstr "Add new ideas."
+
+#: euth/ideas/phases.py:16 euth/ideas/phases.py:32 euth/ideas/phases.py:48
+#: euth/ideas/phases.py:66 euth/ideas/phases.py:82 euth/maps/phases.py:16
+#: euth/maps/phases.py:34 euth/maps/phases.py:52
+msgid "ideas collection"
+msgstr "ideas collection"
+
+#: euth/ideas/phases.py:30
+msgid "Collect phase"
+msgstr "Collect phase"
+
+#: euth/ideas/phases.py:31
+msgid "Add new ideas and comment them."
+msgstr "Add new ideas and comment them."
+
+#: euth/ideas/phases.py:47
+msgid "Rating phase"
+msgstr "Rating phase"
+
+#: euth/ideas/phases.py:49
+msgid "Get quantative feeback by rating the collected ideas."
+msgstr "Get quantative feeback by rating the collected ideas."
+
+#: euth/ideas/phases.py:63
+msgid "Feedback phase"
+msgstr "Feedback phase"
+
+#: euth/ideas/phases.py:64
+msgid "Get feedback for collected ideas through rates and comments."
+msgstr "Get feedback for collected ideas through rates and comments."
+
+#: euth/ideas/phases.py:81
+msgid "Universal phase"
+msgstr "Universal phase"
+
+#: euth/ideas/phases.py:83
+msgid "Use all features of the idea collection."
+msgstr "Use all features of the idea collection."
+
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:36
+msgid "Edit"
+msgstr "Edit"
+
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:31
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:40
+#: euth_wagtail/templates/includes/delete_modal.html.py:19
+msgid "Delete"
+msgstr "Delete"
+
+#: euth/ideas/templates/euth_ideas/idea_detail.html.py:52
+#: euth/maps/templates/euth_maps/mapidea_detail.html.py:62
+msgid "Moderator"
+msgstr "Moderator"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:4
+msgid "Create a new proposal"
+msgstr "Create a new proposal"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:19
+msgid "create new proposal for this project"
+msgstr "create new proposal for this project"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:23
+msgid "update idea"
+msgstr "update idea"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:41
+msgid "Title of the proposal"
+msgstr "Title of the proposal"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:85
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:19
+msgid "post"
+msgstr "post"
+
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:89
+#: euth/ideas/templates/euth_ideas/idea_form.html.py:91
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:23
+#: euth/maps/templates/euth_maps/mapidea_form.html.py:25
+msgid "cancel"
+msgstr "cancel"
+
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:12
+#: euth/maps/templates/euth_maps/mapidea_list.html.py:20
+msgid "Create Proposal"
+msgstr "Create Proposal"
+
+#: euth/ideas/templates/euth_ideas/idea_list.html.py:45
+msgid "No proposals found"
+msgstr "No proposals found"
+
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:2
+#: euth_wagtail/templates/includes/delete_modal.html.py:2
+msgid "Are you sure you want to delete"
+msgstr "Are you sure you want to delete"
+
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:20
+msgid "delete"
+msgstr "delete"
+
+#: euth/ideas/templates/euth_ideas/includes/modal.html.py:23
+msgid "abort"
+msgstr "abort"
+
+#: euth/ideas/views.py:110
+msgid "Your Idea has been deleted"
+msgstr "Your Idea has been deleted"
+
+#: euth/maps/forms.py:22
+msgid "Please locate your proposal on the map."
+msgstr "Please locate your proposal on the map."
+
+#: euth/maps/models.py:9
+msgid "Where can your idea be located on a map?"
+msgstr "Where can your idea be located on a map?"
+
+#: euth/maps/models.py:10
+msgid ""
+"Click inside marked area to set a marker. Drag and drop marker to change "
+"place."
+msgstr ""
+"Click inside marked area to set a marker. Drag and drop marker to change "
+"place."
+
+#: euth/maps/phases.py:14
+msgid "Issue Phase"
+msgstr "Issue Phase"
+
+#: euth/maps/phases.py:15
+msgid "Add, comment and rate new ideas on a map."
+msgstr "Add, comment and rate new ideas on a map."
+
+#: euth/maps/phases.py:32
+msgid "Collect Phase"
+msgstr "Collect Phase"
+
+#: euth/maps/phases.py:33
+msgid "Add and comment new ideas on a map."
+msgstr "Add and comment new ideas on a map."
+
+#: euth/maps/phases.py:49
+msgid "Rating Phase"
+msgstr "Rating Phase"
+
+#: euth/maps/phases.py:50
+msgid "Get quantative feeback by rating the collected ideas on a map."
+msgstr "Get quantative feeback by rating the collected ideas on a map."
+
+#: euth/maps/templates/euth_maps/mapidea_list.html.py:26
+msgid "view on list"
+msgstr "view on list"
+
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:4
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:4
+#, python-format
+msgid " Private project: %(project)s"
+msgstr " Private project: %(project)s"
+
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:15
+#, python-format
+msgid " Do you want to join %(project)s?"
+msgstr " Do you want to join %(project)s?"
+
+#: euth/memberships/templates/euth_memberships/invite_base.html.py:19
+msgid ""
+"You were invited by the initiator of the project. If you accept you will be "
+"able to participate in the project. If you decline the invitation, you can "
+"also ask for membership at a later time."
+msgstr ""
+"You were invited by the initiator of the project. If you accept you will be "
+"able to participate in the project. If you decline the invitation, you can "
+"also ask for membership at a later time."
+
+#: euth/memberships/templates/euth_memberships/invite_detail.html.py:4
+msgid "Proceed to login"
+msgstr "Proceed to login"
+
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:6
+msgid "Accept"
+msgstr "Accept"
+
+#: euth/memberships/templates/euth_memberships/invite_form.html.py:7
+msgid "Decline"
+msgstr "Decline"
+
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:17
+#, python-format
+msgid ""
+"\n"
+"            This is a private project. You have applied for a membership on "
+"%(date)s. Your request is awaiting moderation.\n"
+"            "
+msgstr ""
+"\n"
+"            This is a private project. You have applied for a membership on "
+"%(date)s. Your request is awaiting moderation.\n"
+"            "
+
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:24
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:41
+msgid "request membership"
+msgstr "request membership"
+
+#: euth/memberships/templates/euth_memberships/request_detail.html.py:45
+#: euth_wagtail/templates/includes/delete_modal.html.py:23
+msgid "Abort"
+msgstr "Abort"
+
+#: euth/offlinephases/phases.py:14
+msgid "Offlinephase"
+msgstr "Offlinephase"
+
+#: euth/offlinephases/phases.py:15
+msgid "Add offline phases to your online participation."
+msgstr "Add offline phases to your online participation."
+
+#: euth/offlinephases/phases.py:16
+msgid "offlinephase"
+msgstr "offlinephase"
+
+#: euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:7
+msgid "Remove the file"
+msgstr "Remove the file"
+
+#: euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html.py:11
+msgid "Upload a file"
+msgstr "Upload a file"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:10
+msgid "Edit documentation"
+msgstr "Edit documentation"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:18
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:57
+msgid "Downloads"
+msgstr "Downloads"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html.py:29
+msgid "No documentation has been provided yet"
+msgstr "No documentation has been provided yet"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:4
+msgid "Edit offlinephase content"
+msgstr "Edit offlinephase content"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:23
+msgid "update offlinephase"
+msgstr "update offlinephase"
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:59
+#, python-format
+msgid ""
+" You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
+"are %(allowed_file_types)s. "
+msgstr ""
+" You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
+"are %(allowed_file_types)s. "
+
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html.py:99
+msgid "You can add additional files after saving the current file."
+msgstr "You can add additional files after saving the current file."
+
+#: euth/offlinephases/validators.py:26
+msgid "File should be at most {} MB"
+msgstr "File should be at most {} MB"
+
+#: euth/offlinephases/widgets.py:15
+msgid "Select a file from your local folder."
+msgstr "Select a file from your local folder."
+
+#: euth/organisations/filters.py:13 euth/projects/filters.py:13
+msgid "Alphabetical"
+msgstr "Alphabetical"
+
+#: euth/organisations/filters.py:25 euth/projects/filters.py:25
+msgid "Country"
+msgstr "Country"
+
+#: euth/organisations/models.py:35
+msgid "The image sets the atmosphere for your organisation page."
+msgstr "The image sets the atmosphere for your organisation page."
+
+#: euth/organisations/models.py:43
+msgid "The official logo of your organisation."
+msgstr "The official logo of your organisation."
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:4
+msgid "on Opin.me"
+msgstr "on Opin.me"
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:43
+msgid "More info about"
+msgstr "More info about"
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:50
+msgid "Why are we part of OPIN"
+msgstr "Why are we part of OPIN"
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:55
+msgid "How will we use OPIN"
+msgstr "How will we use OPIN"
+
+#: euth/organisations/templates/euth_organisations/organisation_detail.html.py:59
+msgid "More info about the organisation"
+msgstr "More info about the organisation"
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:4
+msgid "Organisations on Opin.me"
+msgstr "Organisations on Opin.me"
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
+#: euth_wagtail/templates/a4projects/project_list.html.py:9
+msgid "Take part in a project"
+msgstr "Take part in a project"
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
+#: euth_wagtail/templates/a4projects/project_list.html.py:14
+msgid "Find a project"
+msgstr "Find a project"
+
+#: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
+#: euth_wagtail/templates/a4projects/project_list.html.py:17
+msgid "Search for organisation"
+msgstr "Search for organisation"
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
+msgid "by"
+msgstr "by"
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:36
+msgid "edit"
+msgstr "edit"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:12
+msgid "Timeline"
+msgstr "Timeline"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:19
+msgid "Active phase"
+msgstr "Active phase"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:51
+msgid "info"
+msgstr "info"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:60
+msgid "Welcome!"
+msgstr "Welcome!"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:61
+msgid "This project has not started yet!"
+msgstr "This project has not started yet!"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:67
+#: euth/projects/templates/euth_projects/project_detail.html.py:71
+msgid "Thanks for participating!"
+msgstr "Thanks for participating!"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:68
+msgid ""
+"This phase is already over. Thanks a lot to everyone for taking part in the "
+"project! The next phase will start soon."
+msgstr ""
+"This phase is already over. Thanks a lot to everyone for taking part in the "
+"project! The next phase will start soon."
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:72
+msgid ""
+"This project is already over. Thanks a lot to everyone for taking part in "
+"the project!"
+msgstr ""
+"This project is already over. Thanks a lot to everyone for taking part in "
+"the project!"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:84
+msgid "This phase ends in"
+msgstr "This phase ends in"
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:92
+msgid "(Your Timezone: "
+msgstr "(Your Timezone: "
+
+#: euth/projects/templates/euth_projects/project_detail.html.py:126
+msgid "other projects from this organisation"
+msgstr "other projects from this organisation"
+
+#: euth/projects/templatetags/time_delta_tags.py:15
+msgid "week"
+msgstr "week"
+
+#: euth/projects/templatetags/time_delta_tags.py:15
+msgid "weeks"
+msgstr "weeks"
+
+#: euth/projects/templatetags/time_delta_tags.py:16
+msgid "day"
+msgstr "day"
+
+#: euth/projects/templatetags/time_delta_tags.py:16
+msgid "days"
+msgstr "days"
+
+#: euth/projects/templatetags/time_delta_tags.py:17
+msgid "hour"
+msgstr "hour"
+
+#: euth/projects/templatetags/time_delta_tags.py:17
+msgid "hours"
+msgstr "hours"
+
+#: euth/projects/templatetags/time_delta_tags.py:18
+msgid "minute"
+msgstr "minute"
+
+#: euth/projects/templatetags/time_delta_tags.py:18
+msgid "minutes"
+msgstr "minutes"
+
+#: euth/projects/templatetags/time_delta_tags.py:19
+msgid "second"
+msgstr "second"
+
+#: euth/projects/templatetags/time_delta_tags.py:19
+msgid "seconds"
+msgstr "seconds"
+
+#: euth/projects/templatetags/time_delta_tags.py:37
+msgid "and"
+msgstr "and"
+
+#: euth/users/admin.py:10
+msgid "Permissions"
+msgstr "Permissions"
+
+#: euth/users/admin.py:11
+msgid "Important dates"
+msgstr "Important dates"
+
+#: euth/users/models.py:15
+msgid ""
+"Enter a valid username. This value may contain only letters, digits, spaces "
+"and @/./+/-/_ characters. It must start with a digit or a letter."
+msgstr ""
+"Enter a valid username. This value may contain only letters, digits, spaces "
+"and @/./+/-/_ characters. It must start with a digit or a letter."
+
+#: euth/users/models.py:19
+msgid "A user with that username already exists."
+msgstr "A user with that username already exists."
+
+#: euth/users/models.py:20
+msgid ""
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+msgstr ""
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+
+#: euth/users/models.py:26
+msgid "A user with that email address already exists."
+msgstr "A user with that email address already exists."
+
+#: euth/users/models.py:28
+msgid "Designates whether the user can log into this admin site."
+msgstr "Designates whether the user can log into this admin site."
+
+#: euth/users/models.py:29
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+
+#: euth/users/models.py:31
+msgid ""
+"Designates whether yo u want to receive notifications. Unselect if you do "
+"not want to receive notifications."
+msgstr ""
+"Designates whether yo u want to receive notifications. Unselect if you do "
+"not want to receive notifications."
+
+#: euth/users/models.py:37
+msgid "username"
+msgstr "username"
+
+#: euth/users/models.py:45
+msgid "email address"
+msgstr "email address"
+
+#: euth/users/models.py:49
+msgid "staff status"
+msgstr "staff status"
+
+#: euth/users/models.py:56
+msgid "Send me email notifications"
+msgstr "Send me email notifications"
+
+#: euth/users/models.py:63
+msgid "Avatar picture"
+msgstr "Avatar picture"
+
+#: euth/users/models.py:69
+msgid "Short description about yourself"
+msgstr "Short description about yourself"
+
+#: euth/users/models.py:70
+msgid "Write a little bit about yourself. (max. 250 characters)"
+msgstr "Write a little bit about yourself. (max. 250 characters)"
+
+#: euth/users/models.py:77
+msgid "Twitter name"
+msgstr "Twitter name"
+
+#: euth/users/models.py:83
+msgid "Facebook name"
+msgstr "Facebook name"
+
+#: euth/users/models.py:89
+msgid "Instagram name"
+msgstr "Instagram name"
+
+#: euth/users/models.py:94
+msgid "Country of residence"
+msgstr "Country of residence"
+
+#: euth/users/models.py:100
+msgid "City of residence"
+msgstr "City of residence"
+
+#: euth/users/models.py:106
+msgid "Date of birth"
+msgstr "Date of birth"
+
+#: euth/users/models.py:111
+msgid "Gender"
+msgstr "Gender"
+
+#: euth/users/models.py:114
+msgid "Male"
+msgstr "Male"
+
+#: euth/users/models.py:115
+msgid "Female"
+msgstr "Female"
+
+#: euth/users/models.py:116
+msgid "Transgender"
+msgstr "Transgender"
+
+#: euth/users/models.py:117
+msgid "Transgender Female"
+msgstr "Transgender Female"
+
+#: euth/users/models.py:118
+msgid "Transgender Male"
+msgstr "Transgender Male"
+
+#: euth/users/models.py:119
+msgid "Intersex"
+msgstr "Intersex"
+
+#: euth/users/models.py:120
+msgid "Gender Fluid"
+msgstr "Gender Fluid"
+
+#: euth/users/models.py:121
+msgid "Other"
+msgstr "Other"
+
+#: euth/users/models.py:127
+msgid "Languages"
+msgstr "Languages"
+
+#: euth/users/models.py:129
+msgid "Enter the languages you’re speaking."
+msgstr "Enter the languages you’re speaking."
+
+#: euth/users/models.py:134
+msgid "Time zone"
+msgstr "Time zone"
+
+#: euth/users/models.py:145
+msgid "User"
+msgstr "User"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:17
+msgid "Admin"
+msgstr "Admin"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:21
+msgid "Account Settings"
+msgstr "Account Settings"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:33
+msgid "logout"
+msgstr "logout"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:39
+msgid "Login / Register"
+msgstr "Login / Register"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:43
+#: euth_wagtail/templates/account/login.html.py:16
+#: euth_wagtail/templates/account/login.html.py:58
+#: euth_wagtail/templates/account/signup.html.py:12
+msgid "login"
+msgstr "login"
+
+#: euth/users/templates/euth_users/indicator_menu.html.py:46
+#: euth_wagtail/templates/account/login.html.py:17
+#: euth_wagtail/templates/account/signup.html.py:13
+#: euth_wagtail/templates/account/signup.html.py:94
+msgid "register"
+msgstr "register"
+
+#: euth/users/templates/euth_users/user_detail.html.py:41
+#: euth/users/templates/euth_users/user_detail.html.py:70
+msgid "years old"
+msgstr "years old"
+
+#: euth/users/templates/euth_users/user_detail.html.py:48
+msgid "Bio"
+msgstr "Bio"
+
+#: euth/users/templates/euth_users/user_detail.html.py:85
+#, python-format
+msgid "%(username)s follows no projects at the moment."
+msgstr "%(username)s follows no projects at the moment."
+
+#: euth_wagtail/settings/base.py:236
+msgid "English"
+msgstr "English"
+
+#: euth_wagtail/settings/base.py:237
+msgid "German"
+msgstr "German"
+
+#: euth_wagtail/settings/base.py:238
+msgid "Italien"
+msgstr "Italien"
+
+#: euth_wagtail/settings/base.py:239
+msgid "French"
+msgstr "French"
+
+#: euth_wagtail/settings/base.py:240
+msgid "Swedish"
+msgstr "Swedish"
+
+#: euth_wagtail/settings/base.py:241
+msgid "Slovene"
+msgstr "Slovene"
+
+#: euth_wagtail/settings/base.py:242
+msgid "Danish"
+msgstr "Danish"
+
+#: euth_wagtail/settings/base.py:243
+msgid "Greek"
+msgstr "Greek"
+
+#: euth_wagtail/settings/base.py:244
+msgid "Georgian"
+msgstr "Georgian"
+
+#: euth_wagtail/settings/base.py:245
+msgid "Macedonian"
+msgstr "Macedonian"
+
+#: euth_wagtail/templates/403.html.py:6
+msgid "You are not allowed to access this page."
+msgstr "You are not allowed to access this page."
+
+#: euth_wagtail/templates/404.html.py:6
+msgid "This page couldn’t be found."
+msgstr "This page couldn’t be found."
+
+#: euth_wagtail/templates/500.html.py:21
+#: euth_wagtail/templates/base_errors.html.py:13
+msgid "Error"
+msgstr "Error"
+
+#: euth_wagtail/templates/500.html.py:27
+#: euth_wagtail/templates/base_errors.html.py:19
+msgid "Sorry, something went wrong."
+msgstr "Sorry, something went wrong."
+
+#: euth_wagtail/templates/500.html.py:28
+msgid "Internal server error."
+msgstr "Internal server error."
+
+#: euth_wagtail/templates/500.html.py:29
+#: euth_wagtail/templates/base_errors.html.py:21
+msgid "Get back to OPIN.ME"
+msgstr "Get back to OPIN.ME"
+
+#: euth_wagtail/templates/a4projects/project_list.html.py:4
+msgid "Projects on Opin.me"
+msgstr "Projects on Opin.me"
+
+#: euth_wagtail/templates/account/account_inactive.html.py:5
+#: euth_wagtail/templates/account/account_inactive.html.py:10
+msgid "Account Inactive"
+msgstr "Account Inactive"
+
+#: euth_wagtail/templates/account/account_inactive.html.py:11
+msgid "This account is inactive."
+msgstr "This account is inactive."
+
+#: euth_wagtail/templates/account/email.html.py:21
+msgid "Primary"
+msgstr "Primary"
+
+#: euth_wagtail/templates/account/email.html.py:24
+msgid "Verified"
+msgstr "Verified"
+
+#: euth_wagtail/templates/account/email.html.py:26
+msgid "Unverified"
+msgstr "Unverified"
+
+#: euth_wagtail/templates/account/email.html.py:31
+msgid "Make Primary"
+msgstr "Make Primary"
+
+#: euth_wagtail/templates/account/email.html.py:32
+msgid "Re-send Verification"
+msgstr "Re-send Verification"
+
+#: euth_wagtail/templates/account/email.html.py:33
+#: euth_wagtail/templates/socialaccount/connections.html.py:31
+msgid "Remove"
+msgstr "Remove"
+
+#: euth_wagtail/templates/account/email.html.py:47
+msgid "Add another Email"
+msgstr "Add another Email"
+
+#: euth_wagtail/templates/account/email.html.py:51
+msgid "Add Email"
+msgstr "Add Email"
+
+#: euth_wagtail/templates/account/email.html.py:59
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Do you really want to remove the selected e-mail address?"
+
+#: euth_wagtail/templates/account/email_confirm.html.py:6
+msgid "Activate your account"
+msgstr "Activate your account"
+
+#: euth_wagtail/templates/account/email_confirm.html.py:16
+#: euth_wagtail/templates/account/email_confirm.html.py:29
+msgid "Welcome to Opin!"
+msgstr "Welcome to Opin!"
+
+#: euth_wagtail/templates/account/email_confirm.html.py:17
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+
+#: euth_wagtail/templates/account/email_confirm.html.py:25
+msgid "Activate account"
+msgstr "Activate account"
+
+#: euth_wagtail/templates/account/email_confirm.html.py:31
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+
+#: euth_wagtail/templates/account/login.html.py:8
+msgid "Login"
+msgstr "Login"
+
+#: euth_wagtail/templates/account/login.html.py:36
+#: euth_wagtail/templates/account/password_reset.html.py:26
+msgid "Email"
+msgstr "Email"
+
+#: euth_wagtail/templates/account/login.html.py:45
+#: euth_wagtail/templates/account/password_change.html.py:27
+#: euth_wagtail/templates/account/password_change.html.py:34
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:37
+#: euth_wagtail/templates/account/password_set.html.py:25
+msgid "Password"
+msgstr "Password"
+
+#: euth_wagtail/templates/account/login.html.py:55
+msgid "reset password"
+msgstr "reset password"
+
+#: euth_wagtail/templates/account/login.html.py:63
+#: euth_wagtail/templates/account/signup.html.py:101
+msgid "Login with social account"
+msgstr "Login with social account"
+
+#: euth_wagtail/templates/account/login.html.py:74
+#, python-format
+msgid "You are already logged in as %(user_display)s."
+msgstr "You are already logged in as %(user_display)s."
+
+#: euth_wagtail/templates/account/password_change.html.py:9
+msgid "Change your password"
+msgstr "Change your password"
+
+#: euth_wagtail/templates/account/password_change.html.py:41
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:43
+#: euth_wagtail/templates/account/password_set.html.py:31
+msgid "Repeat password"
+msgstr "Repeat password"
+
+#: euth_wagtail/templates/account/password_reset.html.py:7
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:6
+msgid "Reset your password"
+msgstr "Reset your password"
+
+#: euth_wagtail/templates/account/password_reset.html.py:14
+msgid ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset your password."
+msgstr ""
+"Enter your e-mail address below, and we'll send you an e-mail allowing you "
+"to reset your password."
+
+#: euth_wagtail/templates/account/password_reset.html.py:30
+msgid "Reset"
+msgstr "Reset"
+
+#: euth_wagtail/templates/account/password_reset_done.html.py:6
+#: euth_wagtail/templates/account/password_reset_done.html.py:11
+msgid "Password Reset"
+msgstr "Password Reset"
+
+#: euth_wagtail/templates/account/password_reset_done.html.py:12
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:12
+msgid "Bad Token"
+msgstr "Bad Token"
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:15
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:48
+msgid "Reset password"
+msgstr "Reset password"
+
+#: euth_wagtail/templates/account/password_reset_from_key.html.py:53
+#: euth_wagtail/templates/account/password_reset_from_key_done.html.py:11
+msgid "Your password is now changed."
+msgstr "Your password is now changed."
+
+#: euth_wagtail/templates/account/password_set.html.py:6
+msgid "Set Password"
+msgstr "Set Password"
+
+#: euth_wagtail/templates/account/password_set.html.py:36
+msgid "Set password"
+msgstr "Set password"
+
+#: euth_wagtail/templates/account/signup.html.py:5
+msgid "Register an account"
+msgstr "Register an account"
+
+#: euth_wagtail/templates/account/signup.html.py:85
+#, python-format
+msgid ""
+"\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
+"\">terms of use</a>.\n"
+"                "
+msgstr ""
+"\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
+"\">terms of use</a>.\n"
+"                "
+
+#: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
+msgid "Note"
+msgstr "Note"
+
+#: euth_wagtail/templates/account/snippets/already_logged_in.html.py:6
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "you are already logged in as %(user_display)s."
+
+#: euth_wagtail/templates/account/verification_sent.html.py:5
+#: euth_wagtail/templates/account/verification_sent.html.py:10
+msgid "Verify Your E-mail Address"
+msgstr "Verify Your E-mail Address"
+
+#: euth_wagtail/templates/account/verification_sent.html.py:11
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+
+#: euth_wagtail/templates/email_base.html.py:75
+#: euth_wagtail/templates/email_base.txt.py:10
+msgid "OPIN.me is an online platform for youth participation operated by"
+msgstr "OPIN.me is an online platform for youth participation operated by"
+
+#: euth_wagtail/templates/includes/footer.html.py:7
+msgid "Connect with us"
+msgstr "Connect with us"
+
+#: euth_wagtail/templates/includes/footer.html.py:23
+msgid ""
+"This project has received funding from the European Union's Horizon 2020 "
+"research and innovation programme under grant agreement No 649594. This "
+"website reflects only the author's view and the Research Executive Agency or "
+"European Commission is not responsible for any use that may be made of the "
+"information it contains."
+msgstr ""
+"This project has received funding from the European Union's Horizon 2020 "
+"research and innovation programme under grant agreement No 649594. This "
+"website reflects only the author's view and the Research Executive Agency or "
+"European Commission is not responsible for any use that may be made of the "
+"information it contains."
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:12
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:36
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+"You currently have no social network accounts connected to this account."
+
+#: euth_wagtail/templates/socialaccount/connections.html.py:39
+msgid "Add a 3rd Party Account"
+msgstr "Add a 3rd Party Account"
+
+#: euth_wagtail/templates/socialaccount/signup.html.py:10
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s but the connected emailaddress of this account is already in "
+"use on this platform. You can either login with this emailaddress and "
+"connect your account to %(provider_name)s or fill in the form underneath. "
+msgstr ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s but the connected emailaddress of this account is already in "
+"use on this platform. You can either login with this emailaddress and "
+"connect your account to %(provider_name)s or fill in the form underneath. "
+
+#: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:17
+#: euth_wagtail/templates/socialaccount/snippets/provider_list.html.py:18
+msgid "Login with "
+msgstr "Login with "
+
+#: home/templates/home/home_page.html.py:12
+msgid "Latest projects on OPIN"
+msgstr "Latest projects on OPIN"
+
+#: home/templates/home/includes/wagtail_hero_unit.html.py:15
+msgid "Play video"
+msgstr "Play video"
+
+#~ msgid "Most recent"
+#~ msgstr "Most recent"
+
+#~ msgid "Popularity"
+#~ msgstr "Popularity"
+
+#~ msgid "Find your Organisation"
+#~ msgstr "Find your Organisation"
