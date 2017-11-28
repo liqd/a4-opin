@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 12:30+0100\n"
+"POT-Creation-Date: 2017-11-28 17:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2016\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
@@ -1271,15 +1271,15 @@ msgstr ""
 #: euth/ideas/filters.py:10 euth/organisations/filters.py:12
 #: euth/projects/filters.py:12
 msgid "Most Recent"
-msgstr ""
+msgstr "zuletzt hinzugefügt"
 
 #: euth/ideas/filters.py:11
 msgid "Most Comments"
-msgstr ""
+msgstr "Meiste Kommentare"
 
 #: euth/ideas/filters.py:12
 msgid "Most Support"
-msgstr ""
+msgstr "Meiste Zustimmungen"
 
 #: euth/ideas/filters.py:17
 #: euth/ideas/templates/euth_ideas/includes/sort.html.py:3
@@ -1573,11 +1573,11 @@ msgstr "Wähle eine Datei auf deinem Computer aus."
 
 #: euth/organisations/filters.py:13 euth/projects/filters.py:13
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alphabetisch"
 
 #: euth/organisations/filters.py:25 euth/projects/filters.py:25
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: euth/organisations/models.py:35
 msgid "The image sets the atmosphere for your organisation page."
@@ -1614,17 +1614,17 @@ msgstr "Organisationen auf OPIN.me"
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:8
 #: euth_wagtail/templates/a4projects/project_list.html.py:9
 msgid "Take part in a project"
-msgstr ""
+msgstr "Nimm teil an einem Projekt"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:13
 #: euth_wagtail/templates/a4projects/project_list.html.py:14
 msgid "Find a project"
-msgstr ""
+msgstr "Projekte finden"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html.py:16
 #: euth_wagtail/templates/a4projects/project_list.html.py:17
 msgid "Search for organisation"
-msgstr ""
+msgstr "Organisation suchen"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html.py:26
 msgid "by"
@@ -1999,7 +1999,7 @@ msgstr "Gehe zurück zu OPIN.me"
 
 #: euth_wagtail/templates/a4projects/project_list.html.py:4
 msgid "Projects on Opin.me"
-msgstr ""
+msgstr "Projekte auf OPIN.me"
 
 #: euth_wagtail/templates/account/account_inactive.html.py:5
 #: euth_wagtail/templates/account/account_inactive.html.py:10
