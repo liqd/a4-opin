@@ -253,14 +253,14 @@ h1.dashboard-title {
         .box {
             background-color: $brand-brand5;
             border-radius: 5px;
-            @include rem(height, 69px);
-            @include rem(width, 185px);
+            max-width: 50%;
             display: block;
             margin: auto;
             color: $brand-brand6;
             @include rem(font-size, 36px);
             font-weight: bold;
             @include rem(padding-top, 8px);
+            @include rem(padding-bottom, 8px);
             @include rem(margin-bottom, 10px);
         }
     }
