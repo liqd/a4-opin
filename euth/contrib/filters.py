@@ -1,6 +1,6 @@
-import operator
-
 import django_filters
+import icu
+from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from django_countries import Countries
 
@@ -52,9 +52,12 @@ class SortedChoiceWidgetMixin:
         prefix = self._unsorted_choices[:ignore_initial]
         to_sort = self._unsorted_choices[ignore_initial:]
 
+        collator = icu.Collator.createInstance(
+            icu.Locale(translation.get_language())
+        )
         return prefix + sorted(
             to_sort,
-            key=operator.itemgetter(1)
+            key=lambda x: collator.getSortKey(str(x[1]))
         )
 
     @choices.setter
