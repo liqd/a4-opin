@@ -1,75 +1,79 @@
 {% extends "base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles contrib_tags %}
 
 {% block title %}{% trans 'Organisations on Opin.me' %}{% endblock %}
 {% block content %}
-<div class="container">
-    <header class="container-narrow block page-intro" >
-      <h1 class="block-title">{% trans 'Take part in a project' %}</h1>
-    </header>
+    <div class="container">
+        <header class="container-narrow block page-intro">
+            <h1 class="block-title">{% trans 'Take part in a project' %}</h1>
+        </header>
 
-    <ul class="nav nav-tabs tab-switch" role="tablist">
-        <li role="presentation">
-            <a href="{% url 'project-list' %}">{% trans 'Find a project' %}</a>
-        </li>
-        <li role="presentation"  class="active">
-            <a href="{% url 'organisation-list' %}" class="tab-switch-active-link">{% trans 'Search for organisation' %}</a>
-        </li>
-    </ul>
+        <ul class="nav nav-tabs tab-switch" role="tablist">
+            <li role="presentation">
+                <a href="{% url 'project-list' %}">{% trans 'Find a project' %}</a>
+            </li>
+            <li role="presentation" class="active">
+                <a href="{% url 'organisation-list' %}"
+                   class="tab-switch-active-link">{% trans 'Search for organisation' %}</a>
+            </li>
+        </ul>
 
-    <section class=" page-body">
-        <div class="filter-bar flexbox-list">
+        <section class=" page-body">
+            <div class="filter-bar flexbox-list">
             {% for field in view.filter.form %}
-                {% if field.name != 'ordering' %}
+            {% if field.name != 'ordering' %}
                 <div class="filter hidden-xs projects-filter-{{ field.name }}">
                     {{ field }}
                 </div>
-                {% else %}
+            {% else %}
                 <div class="ordering hidden-xs projects-filter-{{ field.name }}">
                     {{ field }}
                 </div>
-                {% endif %}
+            {% endif %}
                 <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
                     {{ field }}
                 </div>
             {% endfor %}
             </div>
-    <div class="org-grid block-inner">
-        <div class="row">
-            {% for object in object_list %}
-            {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
-            {% endfor %}
-        </div>
-        {% if is_paginated %}
-        <div class="row">
-          <nav class="pull-right">
-            <ul class="pagination">
-              {% if page_obj.has_previous %}
-              <li>
-                <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              {% endif %}
-              {% for number in page_obj.paginator.page_range %}
-              <li><a href="?page={{ number }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
-              {% endfor %}
-              {% if page_obj.has_next %}
-              <li>
-                <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-              {% endif %}
-            </ul>
-          </nav>
-        </div>
-        {% endif %}
-        </div>
+            <div class="org-grid block-inner">
+                <div class="row">
+                {% for object in object_list %}
+                    {% include "euth_organisations/includes/organisation_tile.html" with organisation=object %}
+                {% endfor %}
+                </div>
+                {% if is_paginated %}
+                <div class="row">
+                    <nav class="pull-right">
+                        <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li>
+                            {% combined_url_parameter request.GET page=page_obj.previous_page_number as url_par %}
+                                <a href="{{ url_par }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for number in page_obj.paginator.page_range %}
+                        {% combined_url_parameter request.GET page=number as url_par %}
+                            <li><a href="{{ url_par }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li>
+                            {% combined_url_parameter request.GET page=page_obj.next_page_number as url_par %}
+                                <a href="{{ url_par }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                {% endif %}
+            </div>
         </section>
-</div>
+    </div>
 {% endblock %}
 
 {% block footer %}
-{% include "includes/footer.html" %}
+    {% include "includes/footer.html" %}
 {% endblock %}
