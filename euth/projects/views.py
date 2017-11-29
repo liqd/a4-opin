@@ -1,5 +1,3 @@
-from django.utils import translation
-
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects.models import Project
 
@@ -13,7 +11,3 @@ class ProjectListView(filter_views.FilteredListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(is_draft=False)
-
-    @property
-    def current_language(self):
-        return translation.get_language()

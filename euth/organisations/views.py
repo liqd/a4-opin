@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from django.utils import translation
 
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
@@ -35,7 +34,3 @@ class OrganisationListView(filter_views.FilteredListView):
     model = models.Organisation
     paginate_by = 12
     filter_set = organisation_filters.OrganisationFilterSet
-
-    @property
-    def current_language(self):
-        return translation.get_language()
