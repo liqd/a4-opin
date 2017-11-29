@@ -1,6 +1,5 @@
 import django_filters
-import icu
-from django.utils import translation
+import pyuca
 from django.utils.translation import ugettext_lazy as _
 from django_countries import Countries
 
@@ -52,12 +51,10 @@ class SortedChoiceWidgetMixin:
         prefix = self._unsorted_choices[:ignore_initial]
         to_sort = self._unsorted_choices[ignore_initial:]
 
-        collator = icu.Collator.createInstance(
-            icu.Locale(translation.get_language())
-        )
+        collator = pyuca.Collator()
         return prefix + sorted(
             to_sort,
-            key=lambda x: collator.getSortKey(str(x[1]))
+            key=lambda x: collator.sort_key(str(x[1]))
         )
 
     @choices.setter
