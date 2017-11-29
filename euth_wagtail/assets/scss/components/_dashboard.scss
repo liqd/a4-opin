@@ -173,9 +173,20 @@ h1.dashboard-title {
         @include rem(width, 570px);
     }
 
-    .blueprint-tile {
+    .blueprint-modal-image {
         border: 0;
         margin: 0;
+        @include rem(padding-top, 30px);
+        background-color: $brand-brand5;
+        display: flex;
+        flex-direction: column;
+
+        > h2 {
+            text-align: center;
+            @include rem(padding, 15px 0);
+            margin: 0 0 0 0;
+            color: #fff;
+        }
 
         > .blueprint-image {
             @include rem(height, 173px);
@@ -242,14 +253,14 @@ h1.dashboard-title {
         .box {
             background-color: $brand-brand5;
             border-radius: 5px;
-            @include rem(height, 69px);
-            @include rem(width, 185px);
+            max-width: 50%;
             display: block;
             margin: auto;
             color: $brand-brand6;
             @include rem(font-size, 36px);
             font-weight: bold;
             @include rem(padding-top, 8px);
+            @include rem(padding-bottom, 8px);
             @include rem(margin-bottom, 10px);
         }
     }
