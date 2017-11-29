@@ -25,3 +25,4 @@ git+git://github.com/bmispelon/django-multiform.git@0e02f0d5729a80502a290070b474
 micawber==0.3.4
 bcrypt==3.1.4
 XlsxWriter==1.0.2
+pyuca==1.2

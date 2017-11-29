@@ -1,5 +1,3 @@
-
-
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects.models import Project
 
