@@ -1,6 +1,6 @@
 name: "gunicorn"
 type: "python:3.5"
-disk: 256
+disk: 1024
 hooks:
   build: |
     set -ex
@@ -29,6 +29,9 @@ web:
       allow: false
     "/static":
       root: "static/"
+      allow: true
+    "/media":
+      root: "media/"
       allow: true
   commands:
     start: >
