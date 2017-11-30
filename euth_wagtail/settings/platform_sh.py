@@ -67,8 +67,8 @@ if relationships:
         }
     }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = environ.get('PLATFORM_SMTP_HOST')
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST=environ.get('PLATFORM_SMTP_HOST')
 
 # FIXME: PLATFORM_PROJECT_ENTROPY should also be available during build
 SECRET_KEY = environ.get('PLATFORM_PROJECT_ENTROPY', 'tExb2F2cG3sfnOYlwhV1VqXFFbDfLOxbmfnLOEEy')
