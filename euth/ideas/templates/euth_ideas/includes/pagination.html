@@ -1,4 +1,4 @@
-{% load idea_tags %}
+{% load idea_tags contrib_tags %}
 <nav aria-label="Page navigation">
     <div class="text-center">
         <ul class="pagination">
@@ -11,7 +11,8 @@
             {% endif %}
 
             {% if page_obj.paginator.num_pages < 6 %}
-            {% for page in page_obj.paginator.page_range %}
+            {% limited_paginator page_obj as page_range %}
+            {% for page in page_range %}
             <li {% ifequal page page_obj.number %}class="active"{% endifequal %}>
                 <a href="?{% if view.sort %}sort={{view.sort}}&{% endif %}page={{ page }}#idea-create" aria-label="Next">
                     {{ page }}
