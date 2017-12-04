@@ -27,13 +27,13 @@
                         {% if block.block_type == 'image' %}
                              {% image block.value original class="img-responsive" %}
                         {% elif block.block_type == 'heading' %}
-                            <h2>{{ block.value }}</h2>
+                            <h2>{{ block }}</h2>
                         {% else %}
-                            {{ block.value }}
+                            {{ block }}
                         {% endif %}
                     </div>
                     {% else %}
-                        {{ block.value }}
+                        {{ block }}
                     {% endif %}
                 {% endfor %}
                 </section>
