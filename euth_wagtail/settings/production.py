@@ -14,3 +14,4 @@ INSTALLED_APPS += [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
 ]
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
