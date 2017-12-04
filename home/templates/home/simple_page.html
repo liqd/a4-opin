@@ -5,22 +5,22 @@
 {% include "home/includes/simple_header.html" with image=page.intro_image title=page.translated_title intro=page.translated_intro %}
 <section class="page-body">
 {% for block in self.body %}
-    {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
+    {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' or block.block_type == 'accordion_block' %}
     <div class="block-inner">
         <div class="container">
             <div class="container-narrow">
             {% if block.block_type == 'image' %}
                  {% image block.value original class="img-responsive" %}
             {% elif block.block_type == 'heading' %}
-                <h2>{{ block.value }}</h2>
+                <h2>{{ block }}</h2>
             {% else %}
-                {{ block.value }}
+                {{ block }}
             {% endif %}
             </div>
         </div>
     </div>
     {% else %}
-        {{ block.value }}
+        {{ block }}
     {% endif %}
 {% endfor %}
 </section>
