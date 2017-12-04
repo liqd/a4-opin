@@ -64,7 +64,8 @@
                         </a>
                     </li>
                     {% endif %}
-                    {% for number in page_obj.paginator.page_range %}
+                    {% limited_paginator page_obj as page_range %}
+                    {% for number in page_range %}
                     {% combined_url_parameter request.GET page=number as url_par %}
                     <li><a href="{{ url_par }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
                     {% endfor %}
