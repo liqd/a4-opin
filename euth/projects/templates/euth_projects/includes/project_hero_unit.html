@@ -12,7 +12,7 @@
                     {% if not project.is_public %}
                     <span class="label label-private">{% trans 'private' %}</span>
                     {% endif %}
-                    {% if project.is_archived %}a
+                    {% if project.is_archived %}
                     <span class="label label-archived">{% trans 'archived' %}</span>
                     {% elif project.has_finished %}
                     <span class="label label-finished">{% trans 'finished' %}</span>
