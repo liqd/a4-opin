@@ -472,22 +472,21 @@ def test_dashboard_update_organisation(client, organisation):
     response = client.get(url)
     form = response.context_data['form']
     assert form.prefiled_languages() == ['en']
-    assert len(form.untranslated()) == 8
+    assert len(form.untranslated()) == 9
     assert len(form.translated()) == 10
     assert form.translated()[0][0] == 'en'
-    assert len(form.translated()[0][1]) == 4
+    assert len(form.translated()[0][1]) == 3
 
     response = client.post(url, {
+        'name': 'name.de',
         'twitter_handle': 'a thandle',
         'place': 'Berlin',
         'country': 'DE',
         'en': 'en',
-        'en__title': 'title.en',
         'en__description': 'desc.en',
         'en__description_why': 'desc why.en',
         'en__description_how': 'desc how.en',
         'de': 'de',
-        'de__title': 'title.de',
         'de__description': 'desc.de',
         'de__description_why': 'desc why.de',
         'de__description_how': 'desc how.de',
@@ -520,15 +519,14 @@ def test_dashboard_organisation_delete_language(client, organisation):
         organisation.save()
 
     response = client.post(url, {
+        'name': 'name.en',
         'twitter_handle': 'a thandle',
         'place': 'Berlin',
         'country': 'DE',
         'en': 'en',
-        'en__title': 'title.en',
         'en__description': 'desc.en',
         'en__description_why': 'desc why.en',
         'en__description_how': 'desc how.en',
-        'de__title': 'title.de',
         'de__description': 'desc.de',
         'de__description_why': 'desc why.de',
         'de__description_how': 'desc how.de',

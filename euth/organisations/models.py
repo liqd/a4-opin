@@ -15,11 +15,14 @@ class OrganisationManager(TranslatableManager):
 
 
 class Organisation(base.TimeStampedModel, TranslatableModel):
-    name = models.CharField(max_length=512, unique=True)
+    name = models.CharField(
+        max_length=512,
+        unique=True,
+        verbose_name=_('title')
+    )
     slug = models.SlugField(max_length=512, unique=True)
 
     translations = TranslatedFields(
-        title=models.CharField(max_length=512),
         description_why=models.TextField(),
         description_how=models.TextField(),
         description=models.TextField(),

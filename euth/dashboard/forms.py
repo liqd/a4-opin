@@ -571,10 +571,6 @@ class OrganisationForm(forms.ModelForm):
     """
 
     translated_fields = [
-        ('title', forms.CharField, {
-            'help_text': _('The title of your organisation'),
-            'label': _('title')
-        }),
         ('description_why', forms.CharField, {
             'label': _('description why'),
             'widget': forms.Textarea,
@@ -596,9 +592,12 @@ class OrganisationForm(forms.ModelForm):
     class Meta:
         model = org_models.Organisation
         fields = [
-            'image', 'logo', 'twitter_handle', 'facebook_handle',
+            'name', 'image', 'logo', 'twitter_handle', 'facebook_handle',
             'instagram_handle', 'webpage', 'country', 'place'
         ]
+        help_texts = {
+            'name': _('The title of your organisation'),
+        }
 
     def _get_identifier(self, language, fieldname):
         return '{}__{}'.format(language, fieldname)

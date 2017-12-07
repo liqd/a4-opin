@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n staticfiles thumbnail %}
 
-{% block title %}{{ organisation.title }} {% trans 'on Opin.me' %}{% endblock %}
+{% block title %}{{ organisation.name }} {% trans 'on Opin.me' %}{% endblock %}
 {% block content %}
 <header class="herounit" style="{% if organisation.image %} background-image: url({{ organisation.image|thumbnail_url:'heroimage'}});{% endif %}">
     <div class="container">
@@ -24,12 +24,12 @@
                 {% endif %}
                 <div class="herounit-logo herounit-logo-lg">
                     {% if organisation.logo %}
-                    <img alt="{{ organisation.title }} logo" src="{{ organisation.logo|thumbnail_url:'org_avatar_medium' }}">
+                    <img alt="{{ organisation.name }} logo" src="{{ organisation.logo|thumbnail_url:'org_avatar_medium' }}">
                     {% else %}
                     <img alt="opin logo" src="{% static "images/logo.png" %}">
                     {% endif %}
                 </div>
-                <h1 class="herounit-title">{{ organisation.title }}</h1>
+                <h1 class="herounit-title">{{ organisation.name }}</h1>
                 <p class="herounit-location"><i class="fa fa-map-marker"></i>  {{organisation.place}}, {{organisation.country.name}}</p>
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="container-narrow">
             <h2 class="accordion-title" id="organisation-title">
                 <a class="accordion-link collapsed" role="button" data-toggle="collapse" href="#organisation-panel" aria-expanded="false" aria-controls="organisation-panel">
-                    {% trans "More info about" %} {{ organisation.title }}
+                    {% trans "More info about" %} {{ organisation.name }}
                 </a>
             </h2>
 
