@@ -41,6 +41,7 @@ class OrderingFilterWidget(widgets.DropdownLinkWidget):
 
 class SortedChoiceWidgetMixin:
     ignore_initial = None
+    collator = pyuca.Collator()
 
     @property
     def choices(self):
@@ -51,10 +52,9 @@ class SortedChoiceWidgetMixin:
         prefix = self._unsorted_choices[:ignore_initial]
         to_sort = self._unsorted_choices[ignore_initial:]
 
-        collator = pyuca.Collator()
         return prefix + sorted(
             to_sort,
-            key=lambda x: collator.sort_key(str(x[1]))
+            key=lambda x: self.collator.sort_key(str(x[1]))
         )
 
     @choices.setter
