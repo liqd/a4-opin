@@ -15,7 +15,7 @@ def add(number1, number2):
 def next(some_list, current_index):
     try:
         return some_list[int(current_index) + 1]
-    except:
+    except (IndexError, TypeError, ValueError):
         return ''
 
 
