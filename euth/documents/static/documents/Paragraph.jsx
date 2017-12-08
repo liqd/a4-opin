@@ -45,7 +45,7 @@ var Paragraph = React.createClass({
     this.ckEditorCreate(id)
   },
   render: function () {
-    var ckEditorToolbarsHeight = 60  // measured on example editor
+    var ckEditorToolbarsHeight = 60 // measured on example editor
     return (
       <div>
         <div className="row">
@@ -97,31 +97,30 @@ var Paragraph = React.createClass({
           <div className="col-sm-3 comment-count">
             <div className="action-bar">
               { this.props.moveParagraphUp
-              ? <button
-                className="btn btn-hover-primary"
-                onClick={this.up}
-                type="button">
-                <i className="fa fa-chevron-up" />
-              </button>
-              : <button
-                className="btn btn-hover-primary"
-                disabled="true"
-                type="button">
-                <i className="fa fa-chevron-up" />
-              </button> }
+                ? <button
+                  className="btn btn-hover-primary"
+                  onClick={this.up}
+                  type="button">
+                  <i className="fa fa-chevron-up" />
+                </button>
+                : <button
+                  className="btn btn-hover-primary"
+                  type="button">
+                  <i className="fa fa-chevron-up" />
+                </button> }
               { this.props.moveParagraphDown
-              ? <button
-                className="btn btn-hover-primary"
-                onClick={this.down}
-                type="button">
-                <i className="fa fa-chevron-down" />
-              </button>
-              : <button
-                className="btn btn-hover-primary"
-                disabled="true"
-                type="button">
-                <i className="fa fa-chevron-down" />
-              </button> }
+                ? <button
+                  className="btn btn-hover-primary"
+                  onClick={this.down}
+                  type="button">
+                  <i className="fa fa-chevron-down" />
+                </button>
+                : <button
+                  className="btn btn-hover-primary"
+                  disabled="true"
+                  type="button">
+                  <i className="fa fa-chevron-down" />
+                </button> }
               <button
                 className="btn btn-hover-danger"
                 onClick={this.delete}
