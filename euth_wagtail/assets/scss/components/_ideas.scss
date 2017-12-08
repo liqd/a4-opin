@@ -58,8 +58,9 @@
 }
 
 .idea-list-tile {
-    clear: right;
     @extend .tile-list;
+    
+    clear: right;
 }
 
 .idea-list-controls {
