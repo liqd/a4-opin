@@ -59,7 +59,7 @@ class SortedChoiceWidgetMixin:
 
     @choices.setter
     def choices(self, value):
-        self._unsorted_choices = value
+        self._unsorted_choices = list(value)
 
 
 class CountryFilterWidget(SortedChoiceWidgetMixin, widgets.DropdownLinkWidget):
@@ -74,6 +74,6 @@ class FreeTextSearchFilterWidget(widgets.FreeTextFilterWidget):
 class CountryFilter(django_filters.ChoiceFilter):
 
     def __init__(self, **kwargs):
-        kwargs.setdefault('choices', Countries().countries.items())
+        kwargs.setdefault('choices', Countries().countries)
         kwargs.setdefault('widget', CountryFilterWidget)
         super().__init__(**kwargs)
