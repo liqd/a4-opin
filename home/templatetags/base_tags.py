@@ -36,7 +36,7 @@ def import_rss(context, rss_import):
     for entry in entries:
         try:
             published = parser.parse(entry["published"])
-        except:
+        except Exception:
             published = ''
 
         result.append({

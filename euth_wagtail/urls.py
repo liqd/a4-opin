@@ -94,7 +94,7 @@ if settings.DEBUG:
 
     try:
         import debug_toolbar
-    except:
+    except ImportError:
         pass
     else:
         urlpatterns += [
