@@ -1,5 +1,7 @@
 # CMS for EUTH Project
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/liqd/a4-opin.svg)](https://greenkeeper.io/)
+
 ## Requires
 
  * nodejs (+ npm)

@@ -11,27 +11,28 @@ var FollowButton = React.createClass({
   },
   toggleFollow: function () {
     api.follow.change({ enabled: !this.state.followed }, this.props.project)
-       .done((follow) => {
-         this.setState({
-           followed: follow.enabled,
-           follows: follow.follows
-         })
-       })
+      .done((follow) => {
+        this.setState({
+          followed: follow.enabled,
+          follows: follow.follows
+        })
+      })
   },
   componentDidMount: function () {
     api.follow.get(this.props.project)
-       .done((follow) => {
-         this.setState({
-           followed: follow.enabled,
-           follows: follow.follows
-         })
-       })
-       .fail((response) => {
-         response.status === 404
-         this.setState({
-           followed: false
-         })
-       })
+      .done((follow) => {
+        this.setState({
+          followed: follow.enabled,
+          follows: follow.follows
+        })
+      })
+      .fail((response) => {
+        if (response.status === 404) {
+          this.setState({
+            followed: false
+          })
+        }
+      })
   },
   render: function () {
     return (
