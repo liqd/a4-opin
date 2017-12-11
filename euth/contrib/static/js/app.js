@@ -1,4 +1,3 @@
-var moment = require('moment')
 var ReactComments = require('adhocracy4').comments
 var ReactParagraphs = require('../../../documents/static/documents/ParagraphBox.jsx')
 var ReactRatings = require('adhocracy4').ratings
@@ -16,8 +15,6 @@ module.exports = {
   'renderFollow': ReactFollow.renderFollow,
   'renderUserList': ReactUserList.renderUserList
 }
-
-moment.locale(document.documentElement.lang)
 
 var initialiseWidget = function (project, name, initialiser) {
   if (!initialiser) {
