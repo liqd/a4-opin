@@ -21,7 +21,7 @@
     "js-cookie": "~2.2.0",
     "leaflet": "1.2.0",
     "leaflet-draw": "0.4.2",
-    "moment": "2.14.1",
+    "moment": "2.19.4",
     "node-sass": "4.7.2",
     "postcss-loader": "2.0.9",
     "react": "16.2.0",
