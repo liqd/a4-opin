@@ -8,19 +8,19 @@ from .models import Organisation
 
 ORDERING_CHOICES = [
     ('newest', _('Most Recent')),
-    ('translations__title', _('Alphabetical'))
+    ('title', _('Alphabetical'))
 ]
 
 
 class OrganisationFilterSet(DefaultsFilterSet):
 
     defaults = {
-        'ordering': 'translations__title'
+        'ordering': 'title'
     }
 
     search = FreeTextFilter(
         widget=contrib_filters.FreeTextSearchFilterWidget,
-        fields=['translations__title']
+        fields=['name']
     )
 
     country = contrib_filters.CountryFilter()
@@ -28,7 +28,7 @@ class OrganisationFilterSet(DefaultsFilterSet):
     ordering = django_filters.OrderingFilter(
         fields=(
             ('-created', 'newest'),
-            ('translations__title', 'title'),
+            ('name', 'title'),
         ),
         choices=ORDERING_CHOICES,
         empty_label=None,

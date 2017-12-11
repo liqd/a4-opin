@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from django.utils import translation
 
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
@@ -35,10 +34,3 @@ class OrganisationListView(filter_views.FilteredListView):
     model = models.Organisation
     paginate_by = 12
     filter_set = organisation_filters.OrganisationFilterSet
-
-    def filter_kwargs(self):
-        kwargs = super().filter_kwargs()
-        qs = kwargs['queryset']
-        qs = qs.active_translations(translation.get_language())
-        kwargs['queryset'] = qs
-        return kwargs

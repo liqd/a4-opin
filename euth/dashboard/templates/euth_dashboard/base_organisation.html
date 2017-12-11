@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <div class="dashboard-nav">
                 <div class="dashboard-nav-group">
-                    {% include 'euth_dashboard/includes/dropdown.html' with logo=view.organisation.logo title=view.organisation.title orgs=view.other_organisations_of_user%}
+                    {% include 'euth_dashboard/includes/dropdown.html' with logo=view.organisation.logo title=view.organisation.name orgs=view.other_organisations_of_user%}
                     <h4 class="h6 sans-serif text-uppercase dashboard-nav-title">{% trans 'Organisation settings' %}</h4>
 
                     <!-- Organisation preferences -->

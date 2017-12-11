@@ -29,7 +29,7 @@ class ProjectFilterSet(DefaultsFilterSet):
     ordering = django_filters.OrderingFilter(
         fields=(
             ('-created', 'newest'),
-            ('name', 'title'),
+            ('name', 'name'),
         ),
         choices=ORDERING_CHOICES,
         empty_label=None,
