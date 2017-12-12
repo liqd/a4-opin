@@ -2,7 +2,7 @@ var api = require('adhocracy4').api
 var Paragraph = require('./Paragraph.jsx')
 var React = require('react')
 var ReactDOM = require('react-dom')
-var update = require('react-addons-update')
+var update = require('immutability-helper')
 var django = require('django')
 var FlipMove = require('react-flip-move')
 
