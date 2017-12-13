@@ -1,9 +1,10 @@
+var $ = require('jquery')
+var cookie = require('js-cookie')
+var django = require('django')
+var PropTypes = require('prop-types')
 var React = require('react')
 var ReactDOM = require('react-dom')
-var $ = require('jquery')
-var django = require('django')
 var UserListItem = require('./UserListItem.jsx')
-var cookie = require('js-cookie')
 
 $(function () {
   $.ajaxSetup({
@@ -11,22 +12,22 @@ $(function () {
   })
 })
 
-var UserList = React.createClass({
-  selectedUsers: [],
+class UserList extends React.Component {
+  constructor (props) {
+    super(props)
 
-  getInitialState () {
-    return {
-      users: this.props.users,
-      listenTo: this.props.listenTo
+    this.state = {
+      users: props.users,
+      listenTo: props.listenTo
     }
-  },
+  }
 
   add (user) {
     // create new array with only user IDs and add the new one
     let users = this.state.users.concat([user])
 
     return this.updateUsers(users, this.props.project)
-  },
+  }
 
   updateUsers (users, projectId) {
     users = users.map(user => user.id)
@@ -42,7 +43,7 @@ var UserList = React.createClass({
         users: data[this.props.listenTo]
       })
     })
-  },
+  }
 
   submitHandler (e) {
     var checkedUsers = this.refs.userlist.querySelectorAll(':checked')
@@ -56,7 +57,7 @@ var UserList = React.createClass({
       users = users.filter(user => idsToBeActedOn.indexOf(user.id) === -1)
     }
     this.updateUsers(users)
-  },
+  }
 
   render () {
     var userList = this.state.users.map(user => {
@@ -82,11 +83,20 @@ var UserList = React.createClass({
       </div>
     )
   }
-})
+}
 
 UserList.propTypes = {
-  users: React.PropTypes.array,
-  listenTo: React.PropTypes.string
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      username: PropTypes.string,
+      email: PropTypes.string,
+      avatar: PropTypes.string,
+      default_avatar: PropTypes.string
+    })
+  ),
+  listenTo: PropTypes.string,
+  project: PropTypes.number
 }
 
 UserList.defaultProps = {

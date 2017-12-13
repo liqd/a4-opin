@@ -1,14 +1,17 @@
 var api = require('adhocracy4').api
 var Paragraph = require('./Paragraph.jsx')
+var PropTypes = require('prop-types')
 var React = require('react')
 var ReactDOM = require('react-dom')
 var update = require('react-addons-update')
 var django = require('django')
 var FlipMove = require('react-flip-move')
 
-var ParagraphBox = React.createClass({
-  getInitialState: function () {
-    return {
+class ParagraphBox extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
       id: this.props.id,
       name: this.props.name,
       paragraphs: this.props.paragraphs,
@@ -17,13 +20,15 @@ var ParagraphBox = React.createClass({
       maxParagraphKey: 0,
       successMessage: ''
     }
-  },
-  handleDocumentNameChange: function (e) {
+  }
+
+  handleDocumentNameChange (e) {
     this.setState({
       name: e.target.value
     })
-  },
-  getNextParagraphKey: function () {
+  }
+
+  getNextParagraphKey () {
     /** Get an artifical key for non-commited paragraphs.
      *
      *  Prefix to prevent collisions with real database keys;
@@ -31,21 +36,24 @@ var ParagraphBox = React.createClass({
     var paragraphKey = 'local_' + (this.state.maxParagraphKey + 1)
     this.setState({maxParagraphKey: this.state.maxParagraphKey + 1})
     return paragraphKey
-  },
-  getNewParagraph: function (name, text) {
+  }
+
+  getNewParagraph (name, text) {
     var newParagraph = {}
     newParagraph['name'] = name
     newParagraph['text'] = text
     newParagraph['paragraph_key'] = this.getNextParagraphKey()
     return newParagraph
-  },
-  deleteParagraph: function (index) {
+  }
+
+  deleteParagraph (index) {
     var newArray = update(this.state.paragraphs, {$splice: [[index, 1]]})
     this.setState({
       paragraphs: newArray
     })
-  },
-  moveParagraphUp: function (index) {
+  }
+
+  moveParagraphUp (index) {
     var paragraph = this.state.paragraphs[index]
     var paragraphs = update(this.state.paragraphs, {
       $splice: [[index, 1], [index - 1, 0, paragraph]]
@@ -53,8 +61,9 @@ var ParagraphBox = React.createClass({
     this.setState({
       paragraphs: paragraphs
     })
-  },
-  moveParagraphDown: function (index) {
+  }
+
+  moveParagraphDown (index) {
     var paragraph = this.state.paragraphs[index]
     var paragraphs = update(this.state.paragraphs, {
       $splice: [[index, 1], [index + 1, 0, paragraph]]
@@ -62,30 +71,35 @@ var ParagraphBox = React.createClass({
     this.setState({
       paragraphs: paragraphs
     })
-  },
-  addParagraphBeforeIndex: function (index) {
+  }
+
+  addParagraphBeforeIndex (index) {
     var newParagraph = this.getNewParagraph('', '')
     var newArray = update(this.state.paragraphs, {$splice: [[index, 0, newParagraph]]})
     this.setState({
       paragraphs: newArray
     })
-  },
-  appendParagraph: function () {
+  }
+
+  appendParagraph () {
     var newParagraph = this.getNewParagraph('', '')
     var newArray = update(this.state.paragraphs, {$push: [newParagraph]})
     this.setState({
       paragraphs: newArray
     })
-  },
-  updateParagraphName: function (index, name) {
+  }
+
+  updateParagraphName (index, name) {
     // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[index].name = name
-  },
-  updateParagraphText: function (index, text) {
+  }
+
+  updateParagraphText (index, text) {
     // deliberatly not call setState, because otherwise jkEditor reload/flicker
     this.state.paragraphs[index].text = text
-  },
-  submitDocument: function (e) {
+  }
+
+  submitDocument (e) {
     if (e) {
       e.preventDefault()
     }
@@ -94,8 +108,9 @@ var ParagraphBox = React.createClass({
     } else {
       this.createDocument()
     }
-  },
-  updateDocument: function (id) {
+  }
+
+  updateDocument (id) {
     var submitData = {
       urlReplaces: {moduleId: this.props.module}
     }
@@ -122,8 +137,9 @@ var ParagraphBox = React.createClass({
           paragraphsErrors: xhr.responseJSON.paragraphs
         })
       }.bind(this))
-  },
-  createDocument: function () {
+  }
+
+  createDocument () {
     var submitData = {
       urlReplaces: {moduleId: this.props.module}
     }
@@ -151,14 +167,17 @@ var ParagraphBox = React.createClass({
           paragraphsErrors: xhr.responseJSON.paragraphs
         })
       }.bind(this))
-  },
-  shouldComponentUpdate: function (nextProps, nextState) {
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
     return !(nextState.name !== this.state.name)
-  },
-  getErrors: function (index) {
+  }
+
+  getErrors (index) {
     return this.state.paragraphsErrors[index]
-  },
-  render: function () {
+  }
+
+  render () {
     return (
       <div className="general-form">
         <form onSubmit={this.submitDocument}>
@@ -170,7 +189,7 @@ var ParagraphBox = React.createClass({
                   className="form-control"
                   type="text"
                   defaultValue={this.state.name}
-                  onChange={this.handleDocumentNameChange} />
+                  onChange={this.handleDocumentNameChange.bind(this)} />
               </div>
             </div>
           </div>
@@ -185,12 +204,12 @@ var ParagraphBox = React.createClass({
                     paragraph={paragraph}
                     errors={this.getErrors(index)}
                     config={this.props.config}
-                    deleteParagraph={this.deleteParagraph}
-                    moveParagraphUp={index !== 0 ? this.moveParagraphUp : null}
-                    moveParagraphDown={index < this.state.paragraphs.length - 1 ? this.moveParagraphDown : null}
-                    addParagraphBeforeIndex={this.addParagraphBeforeIndex}
-                    updateParagraphName={this.updateParagraphName}
-                    updateParagraphText={this.updateParagraphText}
+                    deleteParagraph={this.deleteParagraph.bind(this)}
+                    moveParagraphUp={index !== 0 ? this.moveParagraphUp.bind(this) : null}
+                    moveParagraphDown={index < this.state.paragraphs.length - 1 ? this.moveParagraphDown.bind(this) : null}
+                    addParagraphBeforeIndex={this.addParagraphBeforeIndex.bind(this)}
+                    updateParagraphName={this.updateParagraphName.bind(this)}
+                    updateParagraphText={this.updateParagraphText.bind(this)}
                   />
                 )
               }.bind(this))
@@ -200,7 +219,7 @@ var ParagraphBox = React.createClass({
             <div className="col-md-9">
               <button
                 className="btn btn-hover-success btn-block"
-                onClick={this.appendParagraph}
+                onClick={this.appendParagraph.bind(this)}
                 type="button">
                 <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
               </button>
@@ -225,7 +244,22 @@ var ParagraphBox = React.createClass({
       </div>
     )
   }
-})
+}
+
+ParagraphBox.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  module: PropTypes.string.isRequired,
+  config: PropTypes.object.isRequired,
+  paragraphs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string,
+      text: PropTypes.string,
+      weight: PropTypes.number
+    })
+  )
+}
 
 module.exports.renderParagraphs = function (el) {
   let module = el.getAttribute('data-module')

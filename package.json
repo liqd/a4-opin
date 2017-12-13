@@ -23,6 +23,7 @@
     "leaflet-draw": "0.4.2",
     "node-sass": "4.7.2",
     "postcss-loader": "2.0.9",
+    "prop-types": "15.6.0",
     "react": "16.2.0",
     "react-addons-update": "~15.6.2",
     "react-dom": "16.2.0",

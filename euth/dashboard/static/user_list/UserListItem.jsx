@@ -1,4 +1,5 @@
 var React = require('react')
+var PropTypes = require('prop-types')
 
 var UserListItem = function (props) {
   return (
@@ -20,7 +21,7 @@ var UserListItem = function (props) {
 }
 
 UserListItem.propTypes = {
-  user: React.PropTypes.object
+  user: PropTypes.object
 }
 
 var Avatar = function (props) {
@@ -29,8 +30,8 @@ var Avatar = function (props) {
 }
 
 Avatar.propTypes = {
-  src: React.PropTypes.string,
-  fallback: React.PropTypes.string
+  src: PropTypes.string,
+  fallback: PropTypes.string
 }
 
 module.exports = UserListItem
