@@ -1,5 +1,5 @@
 name: "gunicorn"
-type: "python:3.5"
+type: "python:3.6-rc"
 disk: 1024
 hooks:
   build: |
