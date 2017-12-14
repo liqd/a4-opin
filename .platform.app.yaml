@@ -42,3 +42,7 @@ web:
       --name=opin_dev
       --bind=unix:${SOCKET}
       euth_wagtail.wsgi
+crons:
+  notify_followers:
+    spec: "*/20 * * * *"
+    cmd: "python ./manage.py notify_followers"
