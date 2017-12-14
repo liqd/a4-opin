@@ -37,7 +37,8 @@ web:
   commands:
     start: >
       gunicorn
-      --workers=2
+      --workers=4
+      --threads=2
       --name=opin_dev
       --bind=unix:${SOCKET}
       euth_wagtail.wsgi
