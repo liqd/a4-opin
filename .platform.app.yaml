@@ -46,3 +46,8 @@ crons:
   notify_followers:
     spec: "*/20 * * * *"
     cmd: "python ./manage.py notify_followers"
+workers:
+  process_tasks:
+    size: S
+    commands:
+      start: "python ./manage.py process_tasks"
