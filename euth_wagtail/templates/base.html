@@ -1,4 +1,4 @@
-{% load base_tags i18n static url_translations wagtailuserbar webpack_loader %}
+{% load base_tags i18n static url_translations wagtailuserbar %}
 {% get_current_language as LANGUAGE_CODE %}
 
 
@@ -28,14 +28,13 @@
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
 
-        {% render_bundle 'vendor' 'css' %}
-        {% render_bundle 'adhocracy4' 'css' %}
+        <link rel="stylesheet" href="{% static 'vendor.css' %}">
+        <link rel="stylesheet" href="{% static 'adhocracy4.css' %}">
 
         {# Global javascript #}
         <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
-
-        {% render_bundle 'vendor' 'js' %}
-        {% render_bundle 'adhocracy4' 'js' %}
+        <script type="text/javascript" src="{% static 'vendor.js' %}"></script>
+        <script type="text/javascript" src="{% static 'adhocracy4.js' %}"></script>
     </head>
 
     <body class="{% block body_class %}{% endblock %}">

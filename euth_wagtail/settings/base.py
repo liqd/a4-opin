@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'widget_tweaks',
-    'webpack_loader',
     'easy_thumbnails',
     'parler',
     'ckeditor',
@@ -301,17 +300,6 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': False,
-        'BUNDLE_DIR_NAME': '/static/', # must end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'IGNORE': ['.+\.hot-update.js', '.+\.map']
-    }
-}
 
 
 STATICFILES_DIRS = [
