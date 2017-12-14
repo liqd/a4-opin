@@ -1,4 +1,3 @@
-var BundleTracker = require('webpack-bundle-tracker')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
@@ -110,7 +109,6 @@ module.exports = {
     modules: [path.resolve('./node_modules')]
   },
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'}),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js'}),
     new ExtractTextPlugin('[name].css'),
     new CopyWebpackPlugin([

@@ -1,9 +1,9 @@
-{% load i18n static webpack_loader %}
+{% load i18n static %}
 <html>
     <head>
         <title>Error | Opin.me</title>
-        {% render_bundle 'vendor' 'css' %}
-        {% render_bundle 'adhocracy4' 'css' %}
+        <link rel="stylesheet" href="{% static 'vendor.css' %}">
+        <link rel="stylesheet" href="{% static 'adhocracy4.css' %}">
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top main-menu" id="main-menu">
