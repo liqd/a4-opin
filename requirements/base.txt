@@ -4,19 +4,19 @@ wagtail==1.13.1
 feedparser==5.2.1
 python-dateutil==2.6.1
 django-allauth==0.34.0
-django-ckeditor==5.3.1
+django-ckeditor==5.4.0
 django-countries==5.0
 django-webpack-loader==0.5.0
 django-filter==1.1.0
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.5
-django-parler==1.9
+django-parler==1.9.1
 django-autoslug==1.9.3
 # django restframework 3.7 dropped support for Django 1.8
 djangorestframework==3.6.4 # pyup: >=3.6,<3.7
 python-magic==0.4.15
-html5lib==0.999999999
-bleach==2.1.1
+html5lib==1.0.1
+bleach==2.1.2
 django-autofixture==0.12.1
 rules==1.2.1
 jsonfield==2.0.2
