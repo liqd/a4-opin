@@ -37,7 +37,7 @@ web:
   commands:
     start: >
       gunicorn
-      --workers=4
+      --workers=2
       --threads=2
       --name=opin_dev
       --bind=unix:${SOCKET}
