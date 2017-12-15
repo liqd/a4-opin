@@ -27,6 +27,8 @@ We usually have tree environments running:
 From the production platform, one can reach stage and dev via appending `/@dev` or
 `/@stage`. This is configured manually in the platfrom.sh enviroment setup.
 
+In addition each environmnet needs to have at least `DJANGO_SECRET_KEY` variable
+defined.
 
 Local preparations
 ---

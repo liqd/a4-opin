@@ -40,10 +40,13 @@ LOGGING = {
     }
 }
 
+def get_platfrom_environ(name):
+    if name in environ:
+        return json.loads(str(base64.b64decode(environ[name]), 'utf-8'))
 
-routes = environ.get('PLATFORM_ROUTES')
+
+routes = get_platfrom_environ('PLATFORM_ROUTES')
 if routes:
-    routes = json.loads(str(base64.b64decode(routes), 'utf-8'))
     app_name = os.getenv('PLATFORM_APPLICATION_NAME')
     for url, route in routes.items():
         host = urlparse(url).netloc;
@@ -51,9 +54,8 @@ if routes:
             ALLOWED_HOSTS.append(host)
 
 
-relationships = environ.get('PLATFORM_RELATIONSHIPS')
+relationships = get_platfrom_environ('PLATFORM_RELATIONSHIPS')
 if relationships:
-    relationships = json.loads(str(base64.b64decode(relationships), 'utf-8'))
     db_settings = relationships['database'][0]
 
     DATABASES = {
@@ -70,5 +72,5 @@ if relationships:
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST=environ.get('PLATFORM_SMTP_HOST')
 
-# FIXME: PLATFORM_PROJECT_ENTROPY should also be available during build
-SECRET_KEY = environ.get('PLATFORM_PROJECT_ENTROPY', 'tExb2F2cG3sfnOYlwhV1VqXFFbDfLOxbmfnLOEEy')
+variables = get_platfrom_environ('PLATFORM_VARIABLES')
+SECRET_KEY = variables['DJANGO_SECRET_KEY']
