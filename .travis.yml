@@ -14,7 +14,11 @@ after_success:
   - coveralls
 deploy:
   - provider: script
-    script: scripts/deploy.sh
+    script: scripts/deploy.sh benhabib
+    on:
+      branch: master
+  - provider: script
+    script: scripts/deploy.sh platformsh
     on:
       branch: master
 env:
