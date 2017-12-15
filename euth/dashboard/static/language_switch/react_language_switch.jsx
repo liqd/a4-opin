@@ -1,9 +1,17 @@
+var PropTypes = require('prop-types')
 var React = require('react')
 var ReactDOM = require('react-dom')
 var $ = require('jquery')
 
-var LanguageSwitch = React.createClass({
-  switchLanguage: function (e) {
+class LanguageSwitch extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      activeLanguages: this.props.activeLanguages
+    }
+  }
+
+  switchLanguage (e) {
     var languageCode = e.target.textContent
     var index = this.state.activeLanguages.indexOf(languageCode)
     var newActiveLanguages = this.state.activeLanguages.concat([])
@@ -25,17 +33,14 @@ var LanguageSwitch = React.createClass({
         $checkbox.next('a').tab('show')
       }
     })
-  },
-  getInitialState: function () {
-    return {
-      activeLanguages: this.props.activeLanguages
-    }
-  },
-  componentDidMount: function () {
+  }
+
+  componentDidMount () {
     $(this.refs.toggleButton).dropdown()
     $(this.refs.checkboxList).find('.a').tab()
-  },
-  render: function () {
+  }
+
+  render () {
     return (
       <div>
         <ul className="checkbox-list" ref="checkboxList">
@@ -61,7 +66,7 @@ var LanguageSwitch = React.createClass({
               this.props.languages.map(languageCode => {
                 return (
                   <li key={languageCode}>
-                    <button type="button" onClick={this.switchLanguage}>{languageCode}</button>
+                    <button type="button" onClick={this.switchLanguage.bind(this)}>{languageCode}</button>
                   </li>
                 )
               })
@@ -71,10 +76,10 @@ var LanguageSwitch = React.createClass({
       </div>
     )
   }
-})
+}
 
 LanguageSwitch.propTypes = {
-  activeLanguages: React.PropTypes.array
+  activeLanguages: PropTypes.arrayOf(PropTypes.string)
 }
 
 module.exports.renderLanguageSwitch = function (el) {

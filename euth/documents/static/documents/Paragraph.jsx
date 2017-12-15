@@ -1,29 +1,36 @@
 var React = require('react')
 var django = require('django')
+var PropTypes = require('prop-types')
 
-var Paragraph = React.createClass({
-  add: function () {
+class Paragraph extends React.Component {
+  add () {
     this.props.addParagraphBeforeIndex(this.props.index)
-  },
-  delete: function () {
+  }
+
+  delete () {
     this.props.deleteParagraph(this.props.index)
-  },
-  up: function () {
+  }
+
+  up () {
     this.props.moveParagraphUp(this.props.index)
-  },
-  down: function () {
+  }
+
+  down () {
     this.props.moveParagraphDown(this.props.index)
-  },
-  handleNameChange: function (e) {
+  }
+
+  handleNameChange (e) {
     var index = this.props.index
     var text = e.target.value
     this.props.updateParagraphName(index, text)
-  },
-  ckEditorDestroy: function (id) {
+  }
+
+  ckEditorDestroy (id) {
     var editor = window.CKEDITOR.instances[id]
     editor.destroy()
-  },
-  ckEditorCreate: function (id) {
+  }
+
+  ckEditorCreate (id) {
     var editor = window.CKEDITOR.replace(id, this.props.config)
     editor.on('change', function (e) {
       var text = e.editor.getData()
@@ -31,20 +38,24 @@ var Paragraph = React.createClass({
       this.props.updateParagraphText(index, text)
     }.bind(this))
     editor.setData(this.props.paragraph.text)
-  },
-  componentWillUpdate: function () {
+  }
+
+  componentWillUpdate () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorDestroy(id)
-  },
-  componentDidUpdate: function () {
+  }
+
+  componentDidUpdate () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
-  },
-  componentDidMount: function () {
+  }
+
+  componentDidMount () {
     var id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
-  },
-  render: function () {
+  }
+
+  render () {
     var ckEditorToolbarsHeight = 60 // measured on example editor
     return (
       <div>
@@ -52,7 +63,7 @@ var Paragraph = React.createClass({
           <div className="col-md-9">
             <button
               className="btn btn-hover-success btn-block"
-              onClick={this.add}
+              onClick={this.add.bind(this)}
               type="button">
               <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
             </button>
@@ -73,7 +84,7 @@ var Paragraph = React.createClass({
                 name={'paragraphs-' + this.props.id + '-name'}
                 type="text"
                 defaultValue={this.props.paragraph.name}
-                onChange={this.handleNameChange} />
+                onChange={this.handleNameChange.bind(this)} />
               {this.props.errors && this.props.errors.name ? <ul className="errorlist">
                 <li>{this.props.errors.name[0]}</li>
               </ul> : null}
@@ -99,7 +110,7 @@ var Paragraph = React.createClass({
               { this.props.moveParagraphUp
                 ? <button
                   className="btn btn-hover-primary"
-                  onClick={this.up}
+                  onClick={this.up.bind(this)}
                   type="button">
                   <i className="fa fa-chevron-up" />
                 </button>
@@ -111,7 +122,7 @@ var Paragraph = React.createClass({
               { this.props.moveParagraphDown
                 ? <button
                   className="btn btn-hover-primary"
-                  onClick={this.down}
+                  onClick={this.down.bind(this)}
                   type="button">
                   <i className="fa fa-chevron-down" />
                 </button>
@@ -123,7 +134,7 @@ var Paragraph = React.createClass({
                 </button> }
               <button
                 className="btn btn-hover-danger"
-                onClick={this.delete}
+                onClick={this.delete.bind(this)}
                 type="button">
                 <i className="fa fa-trash" />
               </button>
@@ -133,6 +144,24 @@ var Paragraph = React.createClass({
       </div>
     )
   }
-})
+}
+
+Paragraph.propTypes = {
+  index: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  config: PropTypes.object,
+  errors: PropTypes.object,
+  paragraph: PropTypes.shape({
+    name: PropTypes.string,
+    text: PropTypes.string
+  }),
+  weight: PropTypes.number,
+  addParagraphBeforeIndex: PropTypes.func.isRequired,
+  deleteParagraph: PropTypes.func.isRequired,
+  moveParagraphUp: PropTypes.func,
+  moveParagraphDown: PropTypes.func,
+  updateParagraphName: PropTypes.func.isRequired,
+  updateParagraphText: PropTypes.func.isRequired
+}
 
 module.exports = Paragraph
