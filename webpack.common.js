@@ -31,12 +31,12 @@ module.exports = {
       'react',
       'react-dom',
       'react-flip-move',
-      'react-addons-update',
       'classnames',
       'font-awesome/scss/font-awesome.scss',
       './euth_wagtail/assets/js/jquery-fix.js',
       'bootstrap-sass',
       './euth_wagtail/assets/js/modernizr-custom.js',
+      'immutability-helper',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css'
     ],
