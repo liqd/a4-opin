@@ -113,7 +113,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new CopyWebpackPlugin([
       {
-        from: './euth/assets/images/**/*',
+        from: './euth_wagtail/assets/images/**/*',
         to: 'images/',
         flatten: true
       },
