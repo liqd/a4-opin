@@ -10,7 +10,7 @@ test_db.sqlite3
 /media
 .sass-cache
 venv
-/euth_wagtail/static
+/euth_wagtail/static/bundles
 /node_modules
 /lib/python*
 /lib64

@@ -23,7 +23,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
   entry: {
     adhocracy4: [
-      './euth_wagtail/assets/scss/all.scss',
+      './euth_wagtail/static/scss/all.scss',
       './euth/contrib/static/js/app.js'
     ],
     vendor: [
@@ -33,10 +33,10 @@ module.exports = {
       'react-flip-move',
       'classnames',
       'font-awesome/scss/font-awesome.scss',
-      './euth_wagtail/assets/js/jquery-fix.js',
+      './euth_wagtail/static/js/jquery-fix.js',
       'bootstrap-sass',
-      './euth_wagtail/assets/js/modernizr-custom.js',
       'immutability-helper',
+      './euth_wagtail/static/js/modernizr-custom.js',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css'
     ],
@@ -47,8 +47,8 @@ module.exports = {
   output: {
     libraryTarget: 'var',
     library: '[name]',
-    path: path.resolve('./euth_wagtail/static/'),
-    publicPath: '/static/',
+    path: path.resolve('./euth_wagtail/static/bundles'),
+    publicPath: '/static/bundles/',
     filename: '[name].js'
   },
   externals: {
@@ -80,12 +80,7 @@ module.exports = {
               }
             },
             {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [
-                  path.resolve('./node_modules/bootstrap-sass/assets/stylesheets')
-                ]
-              }
+              loader: 'sass-loader'
             }
           ]
         })
@@ -106,27 +101,13 @@ module.exports = {
     // folder by default. This may result in dependencies being included twice.
     // Setting `resolve.root` forces webpack to resolve all dependencies
     // against the local directory.
-    modules: [path.resolve('./node_modules')]
+    modules: [path.resolve('./node_modules')],
+    alias: {
+      'bootstrap': 'bootstrap-sass/assets/stylesheets/bootstrap'
+    }
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js'}),
-    new ExtractTextPlugin('[name].css'),
-    new CopyWebpackPlugin([
-      {
-        from: './euth/assets/images/**/*',
-        to: 'images/',
-        flatten: true
-      },
-      {
-        from: './euth_wagtail/assets/icons/favicon.ico',
-        to: 'images/',
-        flatten: true
-      },
-      {
-        from: './euth_wagtail/assets/scss/wagtail_admin',
-        to: '',
-        flatten: true
-      }
-    ])
+    new ExtractTextPlugin('[name].css')
   ]
 }
