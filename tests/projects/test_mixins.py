@@ -36,6 +36,7 @@ def phase2(module, phase_factory):
 def project_detail_view():
     class FakeProjectDetailView(mixins.PhaseDispatchMixin, ListView):
         model = models.Project
+        project_url_kwarg = 'slug'
 
         def get(self, request, *args, **kwargs):
             return HttpResponse('project_detail')
