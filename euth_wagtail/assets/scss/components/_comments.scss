@@ -64,6 +64,13 @@
         margin: 0 40px 0 40px;
     }
 
+    & .comment-answer-button {
+        float: left;
+
+        @include rem(padding, 7px 14px);
+        @include button-hover-background($brand-primary);
+    }
+
     & .comment-reply-button {
         font-weight: bold;
 
