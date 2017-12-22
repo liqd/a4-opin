@@ -7,6 +7,7 @@ from freezegun import freeze_time
 
 from adhocracy4.projects import models
 from euth.projects import mixins
+from tests.apps.fakeprojects.phases import FakePhase0, FakePhase1
 from tests.apps.fakeprojects.views import FakePhase0View, FakePhase1View
 
 
@@ -14,7 +15,7 @@ from tests.apps.fakeprojects.views import FakePhase0View, FakePhase1View
 def phase1(module, phase_factory):
     return phase_factory(
         module=module,
-        type='fakeprojects:010:phase',
+        type=FakePhase0().identifier,
         start_date=parse('2013-03-01 18:00:00 UTC'),
         end_date=parse('2013-03-02 18:00:00 UTC'),
         weight=0
@@ -25,7 +26,7 @@ def phase1(module, phase_factory):
 def phase2(module, phase_factory):
     return phase_factory(
         module=module,
-        type='fakeprojects:020:phase',
+        type=FakePhase1().identifier,
         start_date=parse('2013-03-03 18:00:00 UTC'),
         end_date=parse('2013-03-05 18:00:00 UTC'),
         weight=1

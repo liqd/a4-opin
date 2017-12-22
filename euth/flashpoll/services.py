@@ -25,7 +25,7 @@ def send_to_flashpoll(data, project):
                             settings.FLASHPOLL_BACK_PASSWORD))
     else:
         phase = [p for p in project.phases
-                 if p.type == 'euth_flashpoll:010:poll'][0]
+                 if p.type == 'euth_flashpoll:poll'][0]
         # dates
         startTime = time.mktime(phase.start_date.timetuple())
         endTime = time.mktime(phase.end_date.timetuple())

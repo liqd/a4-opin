@@ -2,7 +2,7 @@
 window.jQuery(document).ready(function () {
   function updateNewElement (element) {
     element.addClass('phaseform-offline-phase')
-    element.find('#id_phases-0-type').val('euth_offlinephases:000:offline')
+    element.find('#id_phases-0-type').val('euth_offlinephases:offline')
     element.find('#id_phases-0-delete').val(0)
     element.find('.collapse').eq(0).text(django.gettext('Offline Phase')).append('<i class="fa fa-chevron-up pull-right"></i>')
     element.css('display', 'block')

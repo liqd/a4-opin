@@ -8,7 +8,6 @@ from . import apps, models, views
 class OfflinePhase(phases.PhaseContent):
     app = apps.OfflinephaseConfig.label
     phase = 'offline'
-    weight = 0
     view = views.OfflinephaseView
 
     name = _('Offlinephase')

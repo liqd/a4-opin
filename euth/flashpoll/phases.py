@@ -8,7 +8,6 @@ from . import apps, models, views
 class FlashpollPhase(phases.PhaseContent):
     app = apps.FlashpollConfig.label
     phase = 'poll'
-    weight = 10
     view = views.FlashpollDetailView
 
     name = _('Flashpoll Phase')
