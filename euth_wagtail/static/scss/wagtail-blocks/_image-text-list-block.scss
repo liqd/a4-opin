@@ -4,6 +4,10 @@
 
 .image-text-list-block-item {
     @include rem(padding, 10px 0 10px 0);
+
+    span {
+        line-height: 1.3;
+    }
 }
 
 .image-text-list-block-item-text {
