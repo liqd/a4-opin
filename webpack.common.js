@@ -109,22 +109,5 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js'}),
     new ExtractTextPlugin('[name].css'),
-    new CopyWebpackPlugin([
-      {
-        from: './euth_wagtail/assets/images/**/*',
-        to: 'images/',
-        flatten: true
-      },
-      {
-        from: './euth_wagtail/assets/icons/favicon.ico',
-        to: 'images/',
-        flatten: true
-      },
-      {
-        from: './euth_wagtail/assets/scss/wagtail_admin',
-        to: '',
-        flatten: true
-      }
-    ])
   ]
 }
