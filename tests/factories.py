@@ -41,8 +41,7 @@ class ContentTypeFactory(factory.django.DjangoModelFactory):
 
 
 class PhaseFactory(factories.PhaseFactory):
-
-    type = 'blog:020:phase'
+    type = 'blog:phase'
 
 
 class ImageFactory():

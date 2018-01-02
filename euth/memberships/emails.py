@@ -10,14 +10,14 @@ class RequestReceivedEmail(emails.ModeratorNotification):
 
 
 class RequestAcceptedEmail(
-        emails.UserNotification,
-        emails.mixins.SyncEmailMixin
+        emails.mixins.SyncEmailMixin,
+        emails.UserNotification
 ):
     template_name = 'euth_memberships/emails/request_accepted'
 
 
 class RequestDeniedEmail(
-        emails.UserNotification,
-        emails.mixins.SyncEmailMixin
+        emails.mixins.SyncEmailMixin,
+        emails.UserNotification
 ):
     template_name = 'euth_memberships/emails/request_denied'

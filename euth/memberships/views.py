@@ -17,6 +17,7 @@ class RequestsProjectDetailView(
 ):
     model = prj_models.Project
     permission_required = 'a4projects.view_project'
+    project_url_kwarg = 'slug'
 
     @property
     def raise_exception(self):

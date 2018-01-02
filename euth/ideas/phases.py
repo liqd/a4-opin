@@ -8,7 +8,6 @@ from . import apps, models, views
 class IssuePhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
     phase = 'issue'
-    weight = 10
     view = views.IdeaListView
 
     name = _('Issue phase')
@@ -24,7 +23,6 @@ class IssuePhase(phases.PhaseContent):
 class CollectPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
     phase = 'collect'
-    weight = 20
     view = views.IdeaListView
 
     name = _('Collect phase')
@@ -41,7 +39,6 @@ class CollectPhase(phases.PhaseContent):
 class RatingPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
     phase = 'rating'
-    weight = 30
     view = views.IdeaListView
 
     name = _('Rating phase')
@@ -57,7 +54,6 @@ class RatingPhase(phases.PhaseContent):
 class FeedbackPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
     phase = 'feedback'
-    weight = 40
     view = views.IdeaListView
 
     name = _('Feedback phase')
@@ -75,7 +71,6 @@ class FeedbackPhase(phases.PhaseContent):
 class UniversalPhase(phases.PhaseContent):
     app = apps.IdeaConfig.label
     phase = 'universal'
-    weight = 50
     view = views.IdeaListView
 
     name = _('Universal phase')

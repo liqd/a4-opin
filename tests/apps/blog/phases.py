@@ -7,7 +7,6 @@ class BlogPhase(phases.PhaseContent):
     app = apps.BlogConfig.label
     phase = 'phase'
     view = views.PostList
-    weight = 20
 
     features = {
         'comment': (models.Post, )
