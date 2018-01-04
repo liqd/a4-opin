@@ -14,7 +14,7 @@
     "css-loader": "0.28.7",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.6",
-    "flatpickr": "4.1.4",
+    "flatpickr": "4.2.0",
     "font-awesome": "4.7.0",
     "highcharts": "6.0.4",
     "immutability-helper": "2.6.1",
