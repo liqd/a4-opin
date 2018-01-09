@@ -310,6 +310,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/highcharts/js'),
     os.path.join(BASE_DIR, 'node_modules/highcharts/css'),
     os.path.join(PROJECT_DIR, 'static'),
+    os.path.join(PROJECT_DIR, 'static/bundles'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
