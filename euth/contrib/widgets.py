@@ -1,4 +1,3 @@
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import widgets
 from django.utils import formats
 from django.utils.safestring import mark_safe
@@ -7,9 +6,13 @@ from django.utils.safestring import mark_safe
 class DateInput(widgets.DateInput):
 
     class Media:
-        js = (staticfiles_storage.url('flatpickr.min.js'),
-              staticfiles_storage.url('js/dateTimeInput.js'))
-        css = {'all': [staticfiles_storage.url('flatpickr.min.css')]}
+        js = (
+            'flatpickr.min.js',
+            'js/dateTimeInput.js',
+        )
+        css = {'all': (
+            'flatpickr.min.css',
+        )}
 
     input_type = 'text'
     format_index = 0

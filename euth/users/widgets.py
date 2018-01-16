@@ -1,4 +1,3 @@
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import TextInput
 from django.template import Context
 from django.template.loader import get_template
@@ -7,8 +6,8 @@ from django.template.loader import get_template
 class UserSearchInput(TextInput):
     class Media:
         js = (
-            staticfiles_storage.url('typeahead.jquery.min.js'),
-            staticfiles_storage.url('user_search.js'),
+            'typeahead.jquery.min.js',
+            'user_search.js',
         )
 
     def __init__(self, identifier=None, *args, **kwargs):
