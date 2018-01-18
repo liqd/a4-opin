@@ -8,9 +8,8 @@ from . import models
 
 
 class DocumentCreateView(
-    mixins.ProjectMixin,
-    generic.TemplateView,
-    prj_mixins.ProjectPhaseMixin
+    prj_mixins.ProjectPhaseMixin,
+    generic.TemplateView
 ):
     template_name = 'euth_documents/document_form.html'
 

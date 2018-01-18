@@ -276,7 +276,7 @@ IMAGE_ALIASES = {
     'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
     'avatar': {'min_resolution': (200, 200)},
     'idea_image': {'min_resolution': (800, 200)},
-    'tileimage': {},
+    'tileimage': {'min_resolution': (500, 300)},
 }
 
 THUMBNAIL_ALIASES = {
@@ -310,6 +310,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/highcharts/js'),
     os.path.join(BASE_DIR, 'node_modules/highcharts/css'),
     os.path.join(PROJECT_DIR, 'static'),
+    os.path.join(PROJECT_DIR, 'static/bundles'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -83,11 +83,34 @@ $rem-px-only: false !default;
     }
 }
 
-@mixin button-hover($hover-color) {
+@mixin button-hover-text($hover-color) {
     background-color: $gray-lighter;
     color: $black;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $hover-color;
     }
+}
+
+@mixin button-hover-background($hover-color) {
+        background: #fff;
+
+        border: 1px solid $hover-color;
+        -webkit-appearance: none;
+
+        color: $hover-color;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            border-color: $hover-color;
+            background: $hover-color;
+        }
+
+        i {
+            display: inline-block;
+            margin-right: .5em;
+        }
 }

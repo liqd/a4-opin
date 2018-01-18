@@ -21,7 +21,7 @@
             </div>
             {% endfor %}
 
-            {% if not form.phases.0.instance.type == 'euth_offlinephases:000:offline' %}
+            {% if not form.phases.0.instance.type == 'euth_offlinephases:offline' %}
             <a class="add-offline-phase btn btn-gray btn-primary btn-sm" href="">
                 <i class="fa fa-plus"></i> {% trans 'add offline phase'%}
             </a>
@@ -30,9 +30,9 @@
             {% with form.phases as phase_forms %}
             {% for form in form.phases %}
 
-                <div class="phase-form {% if form.instance.type == 'euth_offlinephases:000:offline' %}phaseform-offline-phase{% endif %}" {% if form.delete.value == '1' %}style="display: none;"{% endif %}>
+                <div class="phase-form {% if form.instance.type == 'euth_offlinephases:offline' %}phaseform-offline-phase{% endif %}" {% if form.delete.value == '1' %}style="display: none;"{% endif %}>
                     <div class="phasefrom-collapse-top">
-                        {% if form.instance.type == 'euth_offlinephases:000:offline' %}
+                        {% if form.instance.type == 'euth_offlinephases:offline' %}
                         <button type="button" class="phaseform-delete btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
                         {% endif %}
                         <h5>
@@ -110,7 +110,7 @@
                     </div>
             </div>
             {% next phase_forms forloop.counter0 as next_element %}
-            {% if not form.instance.type == 'euth_offlinephases:000:offline' and not next_element.instance.type == 'euth_offlinephases:000:offline' %}
+            {% if not form.instance.type == 'euth_offlinephases:offline' and not next_element.instance.type == 'euth_offlinephases:offline' %}
             <a class="add-offline-phase btn btn-gray btn-primary btn-sm" href="">
                 <i class="fa fa-plus"></i> {% trans 'add offline phase'%}
             </a>

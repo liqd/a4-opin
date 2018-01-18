@@ -8,7 +8,6 @@ from . import apps, models, views
 class IssuePhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'issue'
-    weight = 10
     view = views.MapIdeaListView
 
     name = _('Issue Phase')
@@ -26,7 +25,6 @@ class IssuePhase(phases.PhaseContent):
 class CollectPhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'collect'
-    weight = 20
     view = views.MapIdeaListView
 
     name = _('Collect Phase')
@@ -43,7 +41,6 @@ class CollectPhase(phases.PhaseContent):
 class RatingPhase(phases.PhaseContent):
     app = apps.MapConfig.label
     phase = 'rating'
-    weight = 30
     view = views.MapIdeaListView
 
     name = _('Rating Phase')

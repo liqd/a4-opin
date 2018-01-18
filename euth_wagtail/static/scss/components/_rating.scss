@@ -1,9 +1,9 @@
 .rating-button {
-    background: transparent;
-    font-weight: $font-size-medium;
-    font-weight: 600;
-    border: 1px solid currentColor;
     @include rem(padding, 7px 14px);
+    @extends .btn;
+
+    background: transparent;
+    border: 1px solid currentColor;
     cursor: pointer;
     -webkit-appearance: none;
 
@@ -20,14 +20,7 @@
 }
 
 .rating-up {
-    color: $brand-success;
-
-    &:hover,
-    &:focus {
-        color: #fff;
-        border-color: $brand-success;
-        background: $brand-success;
-    }
+    @include button-hover-background($brand-success);
 
     &.is-selected {
         background-color: $brand-success;
@@ -47,15 +40,8 @@
 }
 
 .rating-down {
-    color: $brand-danger;
+    @include button-hover-background($brand-danger);
     @include rem(margin, 0 10px);
-
-    &:hover,
-    &:focus {
-        color: #fff;
-        border-color: $brand-danger;
-        background: $brand-danger;
-    }
 
     &.is-selected {
         background-color: $brand-danger;

@@ -16,7 +16,6 @@ from .filters import IdeaFilterSet
 
 
 class IdeaListView(
-    mixins.ProjectMixin,
     prj_mixins.ProjectPhaseMixin,
     filter_views.FilteredListView
 ):
@@ -123,7 +122,7 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
                        kwargs={'slug': self.object.project.slug})
 
 
-class IdeaDownloadView(prj_mixins.ModuleMixin,
+class IdeaDownloadView(mixins.ProjectMixin,
                        PermissionRequiredMixin,
                        exports.ItemExportView,
                        exports.ItemExportWithRatesMixin,
@@ -131,7 +130,7 @@ class IdeaDownloadView(prj_mixins.ModuleMixin,
                        exports.ItemExportWithCommentsMixin,
                        exports.ItemExportWithCategoriesMixin
                        ):
-
+    module_url_kwarg = 'slug'
     model = idea_models.Idea
     permission_required = "euth_ideas.export_ideas"
     fields = ['name', 'description', 'creator', 'created']

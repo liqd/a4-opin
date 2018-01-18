@@ -13,7 +13,6 @@ class CreateDocumentPhase(phases.PhaseContent):
     app = apps.DocumentConfig.label
     phase = 'create_document'
     view = views.DocumentCreateView
-    weight = 30
 
     name = _('Create document phase')
     module_name = _('commenting text')
@@ -33,7 +32,6 @@ class CommentPhase(phases.PhaseContent):
     app = apps.DocumentConfig.label
     phase = 'comment'
     view = views.DocumentDetailView
-    weight = 40
 
     name = _('Comment phase')
     module_name = _('commenting text')

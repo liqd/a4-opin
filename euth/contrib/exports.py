@@ -10,19 +10,10 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 
 from adhocracy4.comments.models import Comment
-from adhocracy4.modules import models as module_models
 from adhocracy4.ratings.models import Rating
 
 
 class AbstractXlsxExportView(generic.View):
-    def dispatch(self, request, *args, **kwargs):
-        if 'module' in kwargs:
-            self.module = kwargs['module']
-        else:
-            self.module = \
-                module_models.Module.objects.get(slug=kwargs['slug'])
-
-        return super().dispatch(request, *args, **kwargs)
 
     def get_filename(self):
         project = self.module.project

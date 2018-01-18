@@ -48,15 +48,15 @@ button {
 }
 
 .btn-hover-primary {
-    @include button-hover($brand-primary);
+    @include button-hover-text($brand-primary);
 }
 
 .btn-hover-danger {
-    @include button-hover($brand-danger);
+    @include button-hover-text($brand-danger);
 }
 
 .btn-hover-success {
-    @include button-hover($brand-success);
+    @include button-hover-text($brand-success);
 }
 
 
