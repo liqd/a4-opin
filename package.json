@@ -29,7 +29,7 @@
     "react-flip-move": "2.10.0",
     "sass-loader": "6.0.6",
     "slick-carousel": "1.6.0",
-    "style-loader": "0.19.1",
+    "style-loader": "0.20.0",
     "typeahead.js": "0.11.1",
     "webpack": "3.10.0",
     "webpack-merge": "4.1.1"
