@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static tz time_delta_tags flashpoll_form_tags %}
+{% load i18n static tz time_delta_tags flashpoll_form_tags wagtailcore_tags ckeditor_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -50,12 +50,12 @@
         <div class="container-narrow">
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
             <div class="tab-panel-description usercontent">
-                {{ view.project.information |safe|linebreaks }}
+                {{ view.project.information | transform_collapsibles | richtext }}
             </div>
         </div>
     </article>
     <article id="participation" class="tab-panel active">
-        <div class="tab-panel-description">            
+        <div class="tab-panel-description">
             {% if not view.phase %}
               {% trans 'Welcome!' as title %}
               {% trans 'This project has not started yet!' as text %}
@@ -103,8 +103,8 @@
             {% block phase_content %}{% endblock %}
         </div>
     </article>
-    {% if module_settings == "euth_flashpoll" %}        
-        {% include 'euth_flashpoll/includes/project_result_flashpoll_tab.html' with form=form view=view %}        
+    {% if module_settings == "euth_flashpoll" %}
+        {% include 'euth_flashpoll/includes/project_result_flashpoll_tab.html' with form=form view=view %}
     {% else %}
     <article id="result" class="tab-panel">
         <div class="container-narrow">
@@ -113,8 +113,8 @@
                 {{ view.project.result |default:no_results|safe|linebreaks }}
             </div>
         </div>
-    </article>    
-    {% endif %}  
+    </article>
+    {% endif %}
 </div>
 {% if view.project.other_projects %}
 <div class="project-other-projects">
