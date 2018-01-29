@@ -180,7 +180,7 @@ class ParagraphBox extends React.Component {
   render () {
     return (
       <div className="general-form">
-        <form onSubmit={this.submitDocument}>
+        <form onSubmit={this.submitDocument.bind(this)}>
           <div className="row">
             <div className="col-sm-9">
               <div className="form-group">
@@ -199,7 +199,7 @@ class ParagraphBox extends React.Component {
                 return (
                   <Paragraph
                     key={paragraph.paragraph_key || paragraph.id}
-                    id={paragraph.paragraph_key || paragraph.id}
+                    id={paragraph.paragraph_key || (paragraph.id).toString()}
                     index={index}
                     paragraph={paragraph}
                     errors={this.getErrors(index)}
