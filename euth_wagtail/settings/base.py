@@ -108,6 +108,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.locale.LocaleMiddleware',
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 SITE_ID = 1
@@ -400,3 +401,8 @@ A4_REPORTABLES = (
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
+
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
+CSP_IMG_SRC = ("'self'", "data:")
+CSP_FRAME_SRC = ("'self'", "*.vimeo.com", "*.youtube.com")
+CSP_EXCLUDE_URL_PREFIXES = ("/admin", )
