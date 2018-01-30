@@ -1,3 +1,11 @@
 .alert-text {
     text-align: center;
 }
+
+.alert--danger {
+    @extend .alert-danger;
+}
+
+.alert__close {
+    @extend .close;
+}

@@ -4,10 +4,10 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
+from adhocracy4.exports import mixins as export_mixins
+from adhocracy4.exports import views as export_views
 from adhocracy4.filters import views as filter_views
 from adhocracy4.modules.models import Module
-from adhocracy4.projects import mixins
-from euth.contrib import exports
 from euth.projects import mixins as prj_mixins
 
 from . import models as idea_models
@@ -122,13 +122,12 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
                        kwargs={'slug': self.object.project.slug})
 
 
-class IdeaDownloadView(mixins.ProjectMixin,
-                       PermissionRequiredMixin,
-                       exports.ItemExportView,
-                       exports.ItemExportWithRatesMixin,
-                       exports.ItemExportWithCommentCountMixin,
-                       exports.ItemExportWithCommentsMixin,
-                       exports.ItemExportWithCategoriesMixin
+class IdeaDownloadView(PermissionRequiredMixin,
+                       export_views.ItemExportView,
+                       export_mixins.ItemExportWithRatesMixin,
+                       export_mixins.ItemExportWithCommentCountMixin,
+                       export_mixins.ItemExportWithCommentsMixin,
+                       export_mixins.ItemExportWithCategoriesMixin
                        ):
     module_url_kwarg = 'slug'
     model = idea_models.Idea

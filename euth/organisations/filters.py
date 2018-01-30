@@ -1,7 +1,7 @@
-import django_filters
 from django.utils.translation import ugettext_lazy as _
 
-from adhocracy4.filters.filters import DefaultsFilterSet, FreeTextFilter
+from adhocracy4.filters.filters import (DefaultsFilterSet,
+                                        DistinctOrderingFilter, FreeTextFilter)
 from euth.contrib import filters as contrib_filters
 
 from .models import Organisation
@@ -25,7 +25,7 @@ class OrganisationFilterSet(DefaultsFilterSet):
 
     country = contrib_filters.CountryFilter()
 
-    ordering = django_filters.OrderingFilter(
+    ordering = DistinctOrderingFilter(
         fields=(
             ('-created', 'newest'),
             ('name', 'title'),
