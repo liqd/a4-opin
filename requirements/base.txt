@@ -5,7 +5,7 @@ feedparser==5.2.1
 python-dateutil==2.6.1
 django-allauth==0.35.0
 django-ckeditor==5.4.0
-django-countries==5.0
+django-countries==5.1.1
 django-filter==1.1.0
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.5
