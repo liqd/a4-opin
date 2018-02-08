@@ -56,7 +56,7 @@ class UserList extends React.Component {
       // filter out users whose id is in idsToBeActedOn
       users = users.filter(user => idsToBeActedOn.indexOf(user.id) === -1)
     }
-    this.updateUsers(users)
+    this.updateUsers(users, this.props.project)
   }
 
   render () {
@@ -77,7 +77,7 @@ class UserList extends React.Component {
             {userList}
           </tbody>
         </table>
-        <button type="button" className="btn btn-danger" onClick={this.submitHandler} value="remove">
+        <button type="button" className="btn btn-danger" onClick={this.submitHandler.bind(this)} value="remove">
           {django.gettext('Remove')}
         </button>
       </div>
@@ -105,8 +105,8 @@ UserList.defaultProps = {
 
 module.exports.renderUserList = function (el) {
   let users = JSON.parse(el.getAttribute('data-users'))
-  let listenTo = el.getAttribute('data-listen-to')
-  let project = el.getAttribute('data-project')
+  let listenTo = $(el).data('listen-to')
+  let project = $(el).data('project')
 
   // check if userList object exists, otherwise create an empty one
   window.adhocracy4.userList = window.adhocracy4.userList || {}
