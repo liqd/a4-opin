@@ -15,6 +15,7 @@ from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
+from euth.accounts import urls as accounts_urls
 from euth.blueprints import urls as blueprints_urls
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
@@ -64,8 +65,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    url(r'^accounts/', include('allauth.account.urls')),
-    url(r'^accounts/social/', include('allauth.socialaccount.urls')),
+    url(r'^accounts/', include(accounts_urls)),
     url(r'^dashboard/', include(dashboard_urls)),
     url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),

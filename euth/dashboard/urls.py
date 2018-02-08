@@ -4,28 +4,6 @@ from . import views
 
 urlpatterns = [
     url(
-        r'^$',
-        views.dashboard_default,
-        name='dashboard'),
-    url(
-        r'^profile/$',
-        views.DashboardProfileView.as_view(),
-        name='dashboard-profile'),
-    url(
-        r'^change_password/$',
-        views.ChangePasswordView.as_view(),
-        name='dashboard-password'),
-    url(
-        r'^email/$',
-        views.DashboardEmailView.as_view(),
-        name='dashboard-email'
-    ),
-    url(
-        r'^connections/$',
-        views.DashboardAccountView.as_view(),
-        name='dashboard-connections'
-    ),
-    url(
         r'^(?P<organisation_slug>[-\w_]+)/$',
         views.DashboardOrganisationUpdateView.as_view(),
         name='dashboard-organisation-edit'

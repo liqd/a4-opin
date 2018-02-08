@@ -1,11 +1,11 @@
-{% extends "euth_dashboard/base_dashboard.html" %}
+{% extends "euth_accounts/base_account.html" %}
 
 {% load i18n %}
 {% load widget_tweaks %}
 
 {% block title %}{% trans 'E-mail Addresses' %}{% endblock %}
 
-{% block dashboard_content %}
+{% block account_content %}
 <h1 class="gray-divider dashboard-title">{% trans 'E-mail Addresses' %}</h1>
 <div class="general-form">
     <form action="{% url 'account_email' %}?next={{ request.path|urlencode }}" class="email_list" method="post">
