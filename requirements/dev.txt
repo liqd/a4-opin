@@ -7,4 +7,4 @@ pytest-django==3.1.2
 pytest-factoryboy==2.0.1 # supports only factory-boy < 2.9.0
 pytest-cov==2.5.1
 Faker==0.8.10
-transifex-client==0.13.0
+transifex-client==0.12.5
