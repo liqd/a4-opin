@@ -432,3 +432,7 @@ A4_REPORTABLES = (
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
+
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_HTTPONLY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
