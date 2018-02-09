@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'micawber.contrib.mcdjango',
 
     'adhocracy4.images.apps.ImagesConfig',
+    'adhocracy4.forms.apps.FormsConfig',
     'adhocracy4.phases.apps.PhasesConfig',
     'adhocracy4.projects.apps.ProjectsConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
