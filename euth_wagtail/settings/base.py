@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'euth.a4_dashboard.apps.A4DashboardConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
+    'euth.exports.apps.Config',
     'euth.flashpoll.apps.FlashpollConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
