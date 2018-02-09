@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'adhocracy4.rules.apps.RulesConfig',
     'adhocracy4.ckeditor.apps.CKEditorConfig',
     'adhocracy4.dashboard.apps.DashboardConfig',
+    'adhocracy4.organisations.apps.OrganisationsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
