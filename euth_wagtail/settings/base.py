@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'adhocracy4.filters.apps.FiltersConfig',
     'adhocracy4.rules.apps.RulesConfig',
     'adhocracy4.ckeditor.apps.CKEditorConfig',
+    'adhocracy4.dashboard.apps.DashboardConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -431,3 +432,8 @@ A4_REPORTABLES = (
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
+
+A4_DASHBOARD = {
+    'PROJECT_DASHBOARD_CLASS': 'adhocracy4.dashboard.ProjectDashboard',
+    'BLUEPRINTS': 'euth.blueprints.blueprints.blueprints'
+}
