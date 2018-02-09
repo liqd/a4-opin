@@ -1,0 +1,113 @@
+.widget--datetimeinput {
+    @include clearfix;
+}
+
+.widget--datetimeinput__date {
+    display: flex;
+}
+
+.datepicker {
+    flex: 1 1 auto;
+}
+
+// stylelint-disable selector-max-specificity
+// need to override the default styling
+.date-picker-control:link {
+    background-image: none !important;
+    min-width: 3em;
+    z-index: 0;
+
+    margin-left: -1px;
+
+    &:last-child {
+        border-top-right-radius: 0.3em;
+        border-bottom-right-radius: 0.3em;
+    }
+    @extend .btn;
+    @extend .btn--light;
+
+    span:first-child {
+        display: inline;
+
+        &:before {
+            content: '\f133'; // calender-o
+            font-family: 'FontAwesome', sans-serif;
+        }
+    }
+
+    &:focus {
+        outline: 2px solid Highlight !important;
+        outline: 5px auto -webkit-focus-ring-color !important;
+    }
+
+    &:focus,
+    &:hover {
+        span:first-child:before {
+            content: '\f073'; // calendar
+        }
+
+        span {
+            box-shadow: none !important;
+            animation: none !important;
+        }
+    }
+}
+// stylelint-enable
+
+.date-picker {
+    font-family: $font-family-sans-serif;
+
+    // overwrite gradient
+    table,
+    td {
+        background: $body-bg;
+    }
+
+    .date-picker-unused {
+        background: $gray-lighter;
+    }
+
+    .date-picker-highlight {
+        color: $text-color;
+    }
+
+    .prev-but,
+    .next-but {
+        font-size: 0;
+
+        &:before {
+            font-family: 'FontAwesome', sans-serif;
+            font-size: $font-size-large;
+            vertical-align: bottom;
+        }
+    }
+
+    .prev-but:before {
+        content: '\f104'; // angle-left
+    }
+
+    .prev-year:before {
+        content: '\f100'; // angle-double-left
+    }
+
+    .next-but:before {
+        content: '\f105'; // angle-right
+    }
+
+    .next-year:before {
+        content: '\f101'; // angle-double-right
+    }
+
+    .date-picker-hover {
+        border: none;
+
+        background: $brand-primary;
+        color: $brand-primary;
+        box-shadow: none;
+        text-shadow: none;
+    }
+}
+
+.timepicker {
+    @extend .form-control;
+}

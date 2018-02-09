@@ -40,3 +40,44 @@
         color: #fff;
     }
 }
+
+.progress__background,
+.progress__value {
+    stroke-width: 3;
+    fill: none;
+}
+
+.progress__background {
+    stroke: $brand-brand2;
+}
+
+.progress__value {
+    stroke: $brand-brand5;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.progress__label {
+    text-anchor: middle;
+    font-size: 6px;
+}
+
+.progress__check {
+    fill: $brand-primary;
+}
+
+.progress-box {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid $gray-lighter;
+}
+
+.progress-box__progress {
+    flex: 1 1 40%;
+}
+
+.progress-box__description {
+    flex: 1 1 60%;
+    margin-left: 1rem;
+}
