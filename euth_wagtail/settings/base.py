@@ -415,6 +415,11 @@ A4_MAP_BOUNDING_BOX = [
 
 A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
 
+A4_CATEGORIZABLE = (
+    ('euth_ideas', 'idea'),
+    ('euth_mapideas', 'mapidea')
+)
+
 A4_COMMENTABLES = (
     ('euth_ideas', 'idea'),
     ('euth_maps', 'mapidea'),
