@@ -403,6 +403,6 @@ A4_REPORTABLES = (
 )
 
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
-CSP_IMG_SRC = ("'self'", "data:")
+CSP_IMG_SRC = ("'self'", "data:", "*.tile.openstreetmap.org")
 CSP_FRAME_SRC = ("'self'", "*.vimeo.com", "*.youtube.com")
 CSP_EXCLUDE_URL_PREFIXES = ("/admin", )
