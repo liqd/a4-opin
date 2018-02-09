@@ -1,7 +1,12 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404
+from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
+from adhocracy4.dashboard import mixins as a4dashboard_mixins
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
+from euth.a4_dashboard import forms
 from euth.contrib import filters
 
 from . import filters as organisation_filters
@@ -34,3 +39,19 @@ class OrganisationListView(filter_views.FilteredListView):
     model = models.Organisation
     paginate_by = 12
     filter_set = organisation_filters.OrganisationFilterSet
+
+
+class DashboardOrganisationUpdateView(a4dashboard_mixins.DashboardBaseMixin,
+                                      SuccessMessageMixin,
+                                      generic.UpdateView):
+
+    model = models.Organisation
+    form_class = forms.OrganisationForm
+    slug_url_kwarg = 'organisation_slug'
+    template_name = 'euth_organisations/organisation_form.html'
+    success_message = _('Organisation successfully updated.')
+    permission_required = 'euth_organisations.modify_organisation'
+    menu_item = 'organisation'
+
+    def get_permission_object(self):
+        return self.organisation
