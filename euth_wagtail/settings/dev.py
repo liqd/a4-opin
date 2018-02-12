@@ -29,3 +29,5 @@ try:
     from .local import *
 except ImportError:
     pass
+
+CSP_REPORT_ONLY = True
