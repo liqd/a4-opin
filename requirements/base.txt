@@ -9,7 +9,7 @@ django-countries==5.1.1
 django-filter==1.1.0
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.5
-django-parler==1.9.1
+django-parler==1.9.2
 django-autoslug==1.9.3
 # django restframework 3.7 dropped support for Django 1.8
 djangorestframework==3.6.4 # pyup: >=3.6,<3.7
