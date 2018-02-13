@@ -18,11 +18,9 @@
                     </li>
                 {% endif %}
 
-                {% comment %}
                 <li>
-                    <a href="{% url 'account' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
+                    <a href="{% url 'account-profile' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
-                {% endcomment %}
 
                 {% for organisation in request.user.organisations %}
                     <li><a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}">

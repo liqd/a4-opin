@@ -21,6 +21,16 @@
     }
 }
 
+.dashboard-header-indicator {
+    color: white;
+    padding: 1px 7px 2px 7px;
+
+}
+
+.dashboard-header-no-tabs {
+    padding-bottom: 26px;
+}
+
 .dashboard-header-tab {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -46,4 +56,9 @@
 
 .dashboard-content {
     margin-top: 40px;
+}
+
+.dashboard-content-heading {
+    margin: 0 0 20px 0;
+    font-size: 24px;
 }
