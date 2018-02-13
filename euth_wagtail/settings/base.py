@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'euth.projects.apps.ProjectsConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.a4_dashboard.apps.A4DashboardConfig',
+    'euth.accounts.apps.AccountConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
     'euth.exports.apps.Config',
