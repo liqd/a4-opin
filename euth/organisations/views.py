@@ -6,8 +6,8 @@ from django.views import generic
 from adhocracy4.dashboard import mixins as a4dashboard_mixins
 from adhocracy4.filters import views as filter_views
 from adhocracy4.projects import models as project_models
-from euth.a4_dashboard import forms
 from euth.contrib import filters
+from euth.dashboard import forms
 
 from . import filters as organisation_filters
 from . import models

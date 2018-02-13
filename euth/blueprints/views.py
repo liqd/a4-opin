@@ -3,7 +3,7 @@ import math
 from django.views import generic
 from rules.contrib import views as rules_views
 
-from euth.a4_dashboard.mixins import DashboardBaseMixin
+from euth.dashboard.mixins import DashboardBaseMixin
 
 from . import blueprints, forms
 

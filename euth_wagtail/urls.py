@@ -15,9 +15,9 @@ from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
-from euth.a4_dashboard import urls as dashboard_urls
 from euth.accounts import urls as accounts_urls
 from euth.blueprints import urls as blueprints_urls
+from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
 from euth.follows.api import FollowViewSet

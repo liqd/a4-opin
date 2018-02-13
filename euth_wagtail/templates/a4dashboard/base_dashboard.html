@@ -7,7 +7,7 @@
 <nav class="nav navbar-default dashboard-header">
     <div class="container">
         <ul class="nav navbar-nav">
-        {% include 'a4_dashboard/dropdown.html' with logo=view.organisation.logo title=view.organisation.name orgs=view.other_organisations_of_user%}
+        {% include 'euth_dashboard/dropdown.html' with logo=view.organisation.logo title=view.organisation.name orgs=view.other_organisations_of_user%}
         </ul>
          <ul class="dashboard-header-tabs nav nav-tabs pull-right" role="tablist">
              {% url 'a4dashboard:organisation-edit' organisation_slug=view.organisation.slug as organisation_edit_url %}

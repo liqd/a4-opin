@@ -42,9 +42,6 @@ module.exports = {
       './euth_wagtail/static/js/modernizr-custom.js',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css'
-    ],
-    user_search: [
-      './euth/users/static/users/js/user_search.js'
     ]
   },
   output: {
