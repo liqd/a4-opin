@@ -24,7 +24,8 @@ def get_simplejson(modelobject):
 
 @register.filter(name='get_poll_from_string')
 def get_poll_from_string(poll):
-    return json.loads(poll)
+    if poll:
+        return json.loads(poll)
 
 
 @register.filter(name='get_description_errors')
