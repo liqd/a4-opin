@@ -12,10 +12,11 @@ class IdeaExportView(a4_export_mixins.ItemExportWithRatesMixin,
                      a4_export_mixins.ItemExportWithCategoriesMixin,
                      a4_export_mixins.ItemExportWithCommentCountMixin,
                      a4_export_mixins.ItemExportWithCommentsMixin,
-                     a4_export_views.ItemExportView):
+                     a4_export_views.BaseItemExportView):
 
     model = models.Idea
-    fields = ['name', 'description']
+    fields = ['name']
+    html_fields = ['description']
 
     def get_queryset(self):
         return super().get_queryset() \
