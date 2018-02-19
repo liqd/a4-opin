@@ -9,7 +9,9 @@ from . import models
 
 
 @register_export(_('MapIdeas with comments'))
-class MapIdeaExportView(ItemExportWithLocationMixin,
+class MapIdeaExportView(a4_export_mixins.ItemExportWithLinkMixin,
+                        a4_export_mixins.ExportModelFieldsMixin,
+                        ItemExportWithLocationMixin,
                         a4_export_mixins.ItemExportWithRatesMixin,
                         a4_export_mixins.ItemExportWithCategoriesMixin,
                         a4_export_mixins.ItemExportWithCommentCountMixin,
@@ -17,7 +19,7 @@ class MapIdeaExportView(ItemExportWithLocationMixin,
                         a4_export_views.BaseItemExportView):
 
     model = models.MapIdea
-    fields = ['name']
+    fields = ['name', 'description']
     html_fields = ['description']
 
     def get_queryset(self):
