@@ -6,4 +6,4 @@ omit =
     */tests.py
     */test_*.py
     */autofixtures.py
-    */flashpoll/services.py
+    */flashpoll/*
