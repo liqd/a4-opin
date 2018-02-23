@@ -7,3 +7,4 @@ omit =
     */test_*.py
     */autofixtures.py
     */flashpoll/*
+    */users/management/commands/import_a3_users.py
