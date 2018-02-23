@@ -74,6 +74,6 @@ class FreeTextSearchFilterWidget(widgets.FreeTextFilterWidget):
 class CountryFilter(django_filters.ChoiceFilter):
 
     def __init__(self, **kwargs):
-        kwargs.setdefault('choices', Countries().countries)
+        kwargs.setdefault('choices', list(Countries().countries.items()))
         kwargs.setdefault('widget', CountryFilterWidget)
         super().__init__(**kwargs)
