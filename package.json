@@ -10,8 +10,8 @@
     "babel-preset-react": "6.16.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
-    "css-loader": "0.28.9",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
+    "css-loader": "0.28.10",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.6",
     "flatpickr": "4.2.4",
@@ -30,22 +30,22 @@
     "react-flip-move": "2.10.0",
     "sass-loader": "6.0.6",
     "slick-carousel": "1.6.0",
-    "style-loader": "0.19.1",
+    "style-loader": "0.20.0",
     "typeahead.js": "0.11.1",
     "webpack": "3.10.0",
-    "webpack-merge": "4.1.1"
+    "webpack-merge": "4.1.2"
   },
   "devDependencies": {
     "eslint": "^4.12.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-config-standard-jsx": "^4.0.2",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-jsx": "^5.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "stylelint": "^8.3.1"
+    "stylelint": "^9.1.1"
   },
   "license": "AGPL-3.0+",
   "scripts": {
