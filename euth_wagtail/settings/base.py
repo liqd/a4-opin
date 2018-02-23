@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'euth.documents.apps.DocumentConfig',
     'euth.exports.apps.Config',
     'euth.flashpoll.apps.FlashpollConfig',
+    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.blueprints.apps.BlueprintsConfig',
