@@ -92,6 +92,21 @@ def test_initiator_edit_project(client, phase):
 
 
 @pytest.mark.django_db
+def test_dashboard_project_moderators(client, project, user_factory):
+    url = reverse('a4dashboard:moderators', kwargs={
+        'project_slug': project.slug,
+    })
+
+    response = client.get(url)
+    assert redirect_target(response) == 'account_login'
+
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
 def test_dashboard_project_members_requests(client, project,
                                             request_factory):
     url = reverse('a4dashboard:members', kwargs={
