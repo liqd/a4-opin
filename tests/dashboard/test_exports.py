@@ -6,7 +6,7 @@ User = auth.get_user_model()
 
 
 @pytest.mark.django_db
-def test_initiator_list_projects(client, phase):
+def test_export_module(client, phase):
     phase.type = 'euth_ideas:collect'
     phase.save()
     user = phase.module.project.organisation.initiators.first()
