@@ -25,6 +25,10 @@ module.exports = {
       './euth_wagtail/static/scss/all.scss',
       './euth/contrib/static/js/app.js'
     ],
+    datepicker: [
+      './euth_wagtail/static/js/init-picker.js',
+      'datepicker/css/datepicker.min.css'
+    ],
     vendor: [
       'jquery',
       'react',

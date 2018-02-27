@@ -40,7 +40,7 @@
     var elem = document.getElementById('geofenceLocation')
     elem.parentNode.removeChild(elem)
 
-    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value=""/>'
+    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="geofenceLocation" value=""/>'
     document.getElementById('field-hide').innerHTML += geofenceKey
   }
 
@@ -55,7 +55,7 @@
     var elem = document.getElementById('geofenceLocation')
     elem.parentNode.removeChild(elem)
 
-    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value="' + initialGeofenceLocation + '""/>'
+    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="geofenceLocation" value="' + initialGeofenceLocation + '""/>'
     document.getElementById('field-hide').innerHTML += geofenceKey
 
     // To show:
@@ -133,7 +133,7 @@
     var elem = document.getElementById('geofenceLocation')
     elem.parentNode.removeChild(elem)
 
-    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="module_settings-geofenceLocation" value="' + wktFormat + '""/>'
+    var geofenceKey = '<input type="hidden" id="geofenceLocation" name="geofenceLocation" value="' + wktFormat + '""/>'
     document.getElementById('field-hide').innerHTML += geofenceKey
   }
 
@@ -339,8 +339,8 @@
           $(this).attr('id', 'form-group-question-' + qorderId + '.choice-' + qcorderId)
           $(this).children()[0].innerHTML = 'Choice ' + qcorderId
 
-          $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
-          $(this).children()[1].children[0].children[0].name = 'module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+          $(this).children()[1].children[0].children[0].id = 'id_question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+          $(this).children()[1].children[0].children[0].name = 'question_' + qorderId + '_choice_' + qcorderId + '_answerText'
 
           var formkey = 'form-group-question-' + qorderId + '.choice-' + qcorderId
           $(this).children()[1].children[1].children[0].onclick = function () { window.removeChoice(choices, qcorderId, qorderId, formkey) }
@@ -402,8 +402,8 @@
 
         // Titre - $(this).children()[0]
         $(this).children()[0].children[0].innerHTML = 'Question ' + qorderId
-        $(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_' + qorderId + '_questionText'
-        $(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_' + qorderId + '_questionText'
+        $(this).children()[0].children[1].children[0].children[0].id = 'id_question_' + qorderId + '_questionText'
+        $(this).children()[0].children[1].children[0].children[0].name = 'question_' + qorderId + '_questionText'
 
         var formkey = 'form-group-question-' + qorderId
         $(this).children()[0].children[1].children[1].children[0].onclick = function () { window.removeQuestion (questions, qorderId, formkey) }
@@ -419,7 +419,7 @@
                 'Type' +
                 '<br>' +
             '</label>' +
-            '<select class="form-control select" id="id_module_settings-question_' + qorderId + '_questionType" name="module_settings-question_' + qorderId + '_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-' + qorderId + '", ' + qorderId + ')\' >'
+            '<select class="form-control select" id="id_question_' + qorderId + '_questionType" name="question_' + qorderId + '_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-' + qorderId + '", ' + qorderId + ')\' >'
         if (value === 'CHECKBOX') {
           selectKey = selectKey + '<option value="CHECKBOX"  selected>MULTIPLE</option>'
         } else {
@@ -448,8 +448,8 @@
         $(this).children()[1].innerHTML = selectKey
 
         // Mandatory - $(this).children()[2]
-        $(this).children()[2].children[0].children[0].id = 'id_module_settings-question_' + qorderId + '_mandatory'
-        $(this).children()[2].children[0].children[0].name = 'module_settings-question_' + qorderId + '_mandatory'
+        $(this).children()[2].children[0].children[0].id = 'id_question_' + qorderId + '_mandatory'
+        $(this).children()[2].children[0].children[0].name = 'question_' + qorderId + '_mandatory'
 
         if ($(this).children()[3]) {
           // Choices - $(this).children()[3]
@@ -462,8 +462,8 @@
             if ($(this).children()[1] && $(this).children()[1].children[0]) {
               $(this).attr('id', 'form-group-question-' + qorderId + '.choice-' + qcorderId)
               $(this).children()[0].innerHTML = 'Choice ' + qcorderId
-              $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
-              $(this).children()[1].children[0].children[0].name = 'module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+              $(this).children()[1].children[0].children[0].id = 'id_question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+              $(this).children()[1].children[0].children[0].name = 'question_' + qorderId + '_choice_' + qcorderId + '_answerText'
 
               var formkey = 'form-group-question-' + qorderId + '.choice-' + qcorderId
               var orderId = qcorderId
@@ -500,13 +500,13 @@
     return false
   }
 
-  
-window.exportResults = function (pollresults, title) {        
-    var data = flatten(pollresults)          
+
+window.exportResults = function (pollresults, title) {
+    var data = flatten(pollresults)
     JSONToCSVConvertor(JSON.stringify(data), title);
     return false
   }
-  
+
 /* Add a choice to collection
  * param (choices array) : choice collection of question
  * param (int questionPos) : position of the question
@@ -537,7 +537,7 @@ window.exportResults = function (pollresults, title) {
               '</label>' +
               '<div style="position:relative;">' +
                   '<div style="margin-right: 44px;">' +
-                      '<input class="form-control choice" id="id_module_settings-question_' + questionPos + '_choice_' + choice.orderId + '_answerText" maxlength="800" name="module_settings-question_' + questionPos + '_choice_' + choice.orderId + '_answerText" type="text" value="" />' +
+                      '<input class="form-control choice" id="id_question_' + questionPos + '_choice_' + choice.orderId + '_answerText" maxlength="800" name="question_' + questionPos + '_choice_' + choice.orderId + '_answerText" type="text" value="" />' +
                   '</div>' +
                   '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">' +
                       '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice(' + JSON.stringify(choices) + ',' + choice.orderId + ',' + questionPos + ',"form-group-question-' + questionPos + '.choice-' + choice.orderId + '")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>' +
@@ -567,8 +567,8 @@ window.exportResults = function (pollresults, title) {
         $(this).attr('id', 'form-group-question-' + qorderId + '.choice-' + qcorderId)
         $(this).children()[0].innerHTML = 'Choice ' + qcorderId
 
-        $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
-        $(this).children()[1].children[0].children[0].name = 'module_settings-question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+        $(this).children()[1].children[0].children[0].id = 'id_question_' + qorderId + '_choice_' + qcorderId + '_answerText'
+        $(this).children()[1].children[0].children[0].name = 'question_' + qorderId + '_choice_' + qcorderId + '_answerText'
 
         var formkey = 'form-group-question-' + qorderId + '.choice-' + qcorderId
         $(this).children()[1].children[1].children[0].onclick = function () { removeChoice(choices, qcorderId, qorderId, formkey) }
@@ -604,7 +604,7 @@ window.exportResults = function (pollresults, title) {
             '</label>' +
             '<div style="position:relative;">' +
                 '<div style="margin-right: 44px;">' +
-                   '<input class="form-control choice" id="id_module_settings-question_' + question.orderId + '_questionText" name="module_settings-question_' + question.orderId + '_questionText" type="text" value="" maxlength="800" />' +
+                   '<input class="form-control choice" id="id_question_' + question.orderId + '_questionText" name="question_' + question.orderId + '_questionText" type="text" value="" maxlength="800" />' +
                 '</div>' +
                 '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">' +
                     '<i class="fa fa-trash-o fa-2x" tooltip="Supprimer" tooltip-popup-delay="1000" tooltip-trigger="mouseenter" tooltip-placement="left" onclick=\'removeQuestion(' + JSON.stringify(questions) + ',' + question.orderId + ', "form-group-question-' + question.orderId + '")\' tabindex="-1"></i>' +
@@ -616,7 +616,7 @@ window.exportResults = function (pollresults, title) {
                 'Type' +
                 '<br>' +
             '</label>' +
-            '<select class="form-control select" id="id_module_settings-question_' + question.orderId + '_questionType" name="module_settings-question_' + question.orderId + '_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-' + question.orderId + '", ' + question.orderId + ')\' >' +
+            '<select class="form-control select" id="id_question_' + question.orderId + '_questionType" name="question_' + question.orderId + '_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-' + question.orderId + '", ' + question.orderId + ')\' >' +
                 '<option value="CHECKBOX"  selected>MULTIPLE</option>' +
                 '<option value="RADIO" >SINGLE</option>' +
                 '<option value="FREETEXT" >OPEN</option>' +
@@ -625,7 +625,7 @@ window.exportResults = function (pollresults, title) {
         '</div>' +
         '<div class="form-group ">' +
             '<label>' +
-                '<input id="id_module_settings-question_' + question.orderId + '_mandatory" name="module_settings-question_' + question.orderId + '_mandatory" type="checkbox" value="" checked="checked" />' +
+                '<input id="id_question_' + question.orderId + '_mandatory" name="question_' + question.orderId + '_mandatory" type="checkbox" value="" checked="checked" />' +
                 'Mandatory' +
                 '<br>' +
             '</label>' +
@@ -640,7 +640,7 @@ window.exportResults = function (pollresults, title) {
                 '</label>' +
                 '<div style="position:relative;">' +
                     '<div style="margin-right: 44px;">' +
-                        '<input class="form-control choice" id="id_module_settings-question_' + question.orderId + '_choice_' + answer.orderId + '_answerText" maxlength="800" name="module_settings-question_' + question.orderId + '_choice_' + answer.orderId + '_answerText" type="text" value="" />' +
+                        '<input class="form-control choice" id="id_question_' + question.orderId + '_choice_' + answer.orderId + '_answerText" maxlength="800" name="question_' + question.orderId + '_choice_' + answer.orderId + '_answerText" type="text" value="" />' +
                     '</div>' +
                     '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">' +
                         '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice(' + JSON.stringify(question.answers) + ',' + answer.orderId + ',' + question.orderId + ', "form-group-question-' + question.orderId + '.choice-' + answer.orderId + '")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>' +
@@ -684,8 +684,8 @@ window.exportResults = function (pollresults, title) {
 
       // Titre - $(this).children()[0]
       $(this).children()[0].children[0].innerHTML = 'Question '+qorderId
-      $(this).children()[0].children[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_questionText'
-      $(this).children()[0].children[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_questionText'
+      $(this).children()[0].children[1].children[0].children[0].id = 'id_question_'+qorderId+'_questionText'
+      $(this).children()[0].children[1].children[0].children[0].name = 'question_'+qorderId+'_questionText'
 
       var formkey ='form-group-question-'+qorderId;
       $(this).children()[0].children[1].children[1].children[0].onclick = function(){ removeQuestion(questions, qorderId, formkey) }
@@ -703,7 +703,7 @@ window.exportResults = function (pollresults, title) {
                 'Type'+
                 '<br>'+
             '</label>'+
-            '<select class="form-control select" id="id_module_settings-question_'+qorderId+'_questionType" name="module_settings-question_'+qorderId+'_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+qorderId+'", '+qorderId+')\' >'
+            '<select class="form-control select" id="id_question_'+qorderId+'_questionType" name="question_'+qorderId+'_questionType"  onchange=\'changeType(this.options[this.selectedIndex].value, "fp-phase-qc-'+qorderId+'", '+qorderId+')\' >'
                 if(value =='CHECKBOX')
                     selectKey = selectKey +'<option value="CHECKBOX"  selected>MULTIPLE</option>'
                 else
@@ -729,8 +729,8 @@ window.exportResults = function (pollresults, title) {
             $(this).children()[1].innerHTML = selectKey
 
       // Mandatory - $(this).children()[2]
-      $(this).children()[2].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_mandatory'
-      $(this).children()[2].children[0].children[0].name = 'module_settings-question_'+qorderId+'_mandatory'
+      $(this).children()[2].children[0].children[0].id = 'id_question_'+qorderId+'_mandatory'
+      $(this).children()[2].children[0].children[0].name = 'question_'+qorderId+'_mandatory'
 
 
             if($(this).children()[3]){
@@ -744,8 +744,8 @@ window.exportResults = function (pollresults, title) {
         if($(this).children()[1] && $(this).children()[1].children[0])  {
           $(this).attr('id','form-group-question-'+qorderId+'.choice-'+qcorderId)
           $(this).children()[0].innerHTML = 'Choice '+qcorderId
-                    $(this).children()[1].children[0].children[0].id = 'id_module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText'
-                    $(this).children()[1].children[0].children[0].name = 'module_settings-question_'+qorderId+'_choice_'+qcorderId+'_answerText'
+                    $(this).children()[1].children[0].children[0].id = 'id_question_'+qorderId+'_choice_'+qcorderId+'_answerText'
+                    $(this).children()[1].children[0].children[0].name = 'question_'+qorderId+'_choice_'+qcorderId+'_answerText'
 
 
           var formkey ='form-group-question-'+qorderId+'.choice-'+qcorderId
@@ -791,7 +791,7 @@ window.changeType = function(questionType, key, qorderId) {
               '</label>'+
               '<div style="position:relative;">'+
                   '<div style="margin-right: 44px;">'+
-                      '<input class="form-control choice" id="id_module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="800" name="module_settings-question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
+                      '<input class="form-control choice" id="id_question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" maxlength="800" name="question_'+question.orderId+'_choice_'+answer.orderId+'_answerText" type="text" value="" />'+
                   '</div>'+
                   '<div style="width: 39px;position:absolute;right:0;height:100%;top:0;">'+
                       '<i class="fa fa-times fa-2x" tooltip="Supprimer" tooltip-trigger="mouseenter" tooltip-placement="left" tooltip-popup-delay="1000" onclick=\'removeChoice('+JSON.stringify(question.answers)+','+answer.orderId+','+question.orderId+', "form-group-question-'+question.orderId+'.choice-'+answer.orderId+'")\' ng-disabled="question.questionChoices.length<=2" tabindex="-1" disabled="disabled"></i>'+
@@ -830,44 +830,44 @@ window.changeType = function(questionType, key, qorderId) {
 // from the example at http://jsfiddle.net/hybrid13i/JXrwM/
 var JSONToCSVConvertor = function (JSONData, ReportTitle) {
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
-    
-    var CSV = '';    
+
+    var CSV = '';
     var row = "";
-    
+
     // Fields to skip
     var fieldsToSkip = ["userAgent", "userLocation"];
     var timestampField = "timestamp";
-    
+
     //This loop will extract the label from 1st index of on array
     for (var index in arrData[0]) {
         if(!contains(fieldsToSkip, index)){
                 //Now convert each value to string and comma-seprated
                 row += index + ',';
-        }        
+        }
     }
 
     row = row.slice(0, -1);
-    
+
     //append Label row with line break
     CSV += row + '\r\n';
-    
+
     //1st loop is to extract each row
     for (var i = 0; i < arrData.length; i++) {
         var row = "";
-        
+
         //2nd loop will extract each column and convert it in string comma-seprated
         for (var index in arrData[i]) {
-            if(!contains(fieldsToSkip, index)){                
+            if(!contains(fieldsToSkip, index)){
                 if(index == timestampField){
                     row += '"' + (new Date(arrData[i][index]*1000)).toString() + '",';
                 }else{
                     row += '"' + arrData[i][index] + '",';
-                }                
+                }
             }
         }
 
         row.slice(0, row.length - 1);
-        
+
         //add a line break after each row
         CSV += row + '\r\n';
     }
@@ -875,22 +875,22 @@ var JSONToCSVConvertor = function (JSONData, ReportTitle) {
     //Generate a file name
     var fileName = "pollResults_";
     //this will remove the blank-spaces from the title and replace it with an underscore
-    fileName += ReportTitle.replace(/ /g,"_");       
+    fileName += ReportTitle.replace(/ /g,"_");
 
-    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);    
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
     //generate a temp <a /> tag
-    var link = document.createElement("a");    
+    var link = document.createElement("a");
     link.href = uri;
-    
+
     link.style = "visibility:hidden";
     link.download = fileName + ".csv";
-        
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 }
 
-var flatten = function(data) {    
+var flatten = function(data) {
     var list_result = [];
     function recurse (cur, prop) {
         if (Object(cur) !== cur) {
@@ -908,15 +908,15 @@ var flatten = function(data) {
             }
             if (isEmpty && prop)
                 result[prop] = {};
-        }        
+        }
     }
-    
+
     if (data.length > 0) {
       for (var i = 0; i < data.length; i++) {
           var result = {};
           recurse(data[i], "");
           list_result[i] = result;
-      }        
+      }
     }
     return list_result;
 }

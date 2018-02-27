@@ -2,7 +2,7 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "adhocracy4": "git+https://github.com/liqd/adhocracy4#57c977f776e5ae854ec1407052f245d2eb67b539",
+    "adhocracy4": "git+https://github.com/liqd/adhocracy4#1eb1cf8bcf785ab489b4772848ea06a9f157c330",
     "autoprefixer": "7.2.6",
     "babel-core": "6.17.0",
     "babel-loader": "7.1.2",
@@ -10,6 +10,7 @@
     "babel-preset-react": "6.16.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
+    "datepicker": "git+https://github.com/liqd/datePicker.git",
     "css-loader": "0.28.10",
     "extract-text-webpack-plugin": "3.0.2",
     "flatpickr": "4.3.2",

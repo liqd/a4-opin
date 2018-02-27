@@ -26,6 +26,8 @@
 
 // Components
 @import "components/accordion";
+@import "components/blueprints";
+@import "components/datepicker";
 @import "components/projects";
 @import "components/orgs";
 @import "components/menus";
@@ -48,6 +50,7 @@
 @import "components/ideas";
 @import "components/dashboard";
 @import "components/dashboard-nav";
+@import "components/dashboard-projects";
 @import "components/membership-request";
 @import "components/membership-invite";
 @import "components/phase-form";
