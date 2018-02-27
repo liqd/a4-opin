@@ -18,7 +18,7 @@
                     </li>
                 {% endif %}
                 <li>
-                    <a href="{% url 'dashboard' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
+                    <a href="{% url 'account' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
                 {% for organisation in request.user.organisations %}
                     <li><a href="{% url 'dashboard-project-list' organisation_slug=organisation.slug %}">
