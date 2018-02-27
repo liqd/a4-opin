@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'euth.projects.apps.ProjectsConfig',
     'euth.ideas.apps.IdeaConfig',
     'euth.dashboard.apps.DashboardConfig',
+    'euth.accounts.apps.AccountConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
     'euth.flashpoll.apps.FlashpollConfig',

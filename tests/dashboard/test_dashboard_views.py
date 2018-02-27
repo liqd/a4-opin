@@ -120,29 +120,6 @@ def running_project(organisation, client):
 
 
 @pytest.mark.django_db
-def test_anonymous_cannot_view_dashboard_profile(client):
-    url = reverse('dashboard-profile')
-    response = client.get(url)
-    assert response.status_code == 302
-
-
-@pytest.mark.django_db
-def test_authenticated_user_can_view_profile(client, user, login_url):
-    url = reverse('dashboard-profile')
-    client.post(login_url, {'email': user.email, 'password': 'password'})
-    response = client.get(url)
-    assert redirect_target(response) == 'account_login'
-
-
-@pytest.mark.django_db
-def test_authenticated_user_can_upload_avatar(client, user, login_url):
-    url = reverse('dashboard-profile')
-    client.post(login_url, {'email': user.email, 'password': 'password'})
-    response = client.get(url)
-    assert redirect_target(response) == 'account_login'
-
-
-@pytest.mark.django_db
 def test_initiator_list_projects(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')

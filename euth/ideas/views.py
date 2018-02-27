@@ -10,8 +10,8 @@ from adhocracy4.filters import views as filter_views
 from adhocracy4.modules.models import Module
 from euth.projects import mixins as prj_mixins
 
-from . import models as idea_models
 from . import forms
+from . import models as idea_models
 from .filters import IdeaFilterSet
 
 

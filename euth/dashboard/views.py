@@ -1,9 +1,7 @@
-from allauth.account import views as account_views
-from allauth.socialaccount import views as socialaccount_views
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.utils import functional
 from django.utils.translation import ugettext as _
 from django.views import generic
@@ -13,8 +11,8 @@ from rules.contrib import views as rules_views
 from adhocracy4.filters import views as filter_views
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
-from euth.blueprints import mixins as blueprint_mixins
 from euth.blueprints import blueprints
+from euth.blueprints import mixins as blueprint_mixins
 from euth.contrib import filters
 from euth.flashpoll import services
 from euth.memberships import models as member_models
@@ -22,10 +20,6 @@ from euth.organisations import models as org_models
 from euth.users import models as user_models
 
 from . import emails, forms
-
-
-def dashboard_default(request):
-    return redirect('dashboard-profile')
 
 
 class DashboardBaseMixin(mixins.LoginRequiredMixin,
@@ -58,40 +52,6 @@ class DashboardBaseMixin(mixins.LoginRequiredMixin,
     @property
     def raise_exception(self):
         return self.request.user.is_authenticated()
-
-
-class DashboardEmailView(DashboardBaseMixin, account_views.EmailView):
-    menu_item = 'email'
-
-
-class DashboardAccountView(DashboardBaseMixin,
-                           socialaccount_views.ConnectionsView):
-    menu_item = 'connections'
-
-
-class DashboardProfileView(DashboardBaseMixin,
-                           SuccessMessageMixin,
-                           generic.UpdateView):
-
-    model = user_models.User
-    template_name = "euth_dashboard/profile_detail.html"
-    form_class = forms.ProfileForm
-    success_message = _("Your profile was successfully updated.")
-    menu_item = 'profile'
-
-    def get_object(self):
-        return get_object_or_404(user_models.User, pk=self.request.user.id)
-
-    def get_success_url(self):
-        return self.request.path
-
-
-class ChangePasswordView(DashboardBaseMixin,
-                         account_views.PasswordChangeView):
-    menu_item = 'password'
-
-    def get_success_url(self):
-        return reverse('dashboard-password')
 
 
 class DashboardOrganisationUpdateView(DashboardBaseMixin,

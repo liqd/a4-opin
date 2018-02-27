@@ -1,11 +1,11 @@
-{% extends "euth_dashboard/base_dashboard.html" %}
+{% extends "euth_accounts/base_account.html" %}
 
 {% load i18n %}
 {% load widget_tweaks %}
 
 {% block title %}{% trans 'Account Connections' %}{% endblock %}
 
-{% block dashboard_content %}
+{% block account_content %}
 <h1 class="gray-divider dashboard-title">{% trans 'Account Connections' %}</h1>
 <div class="general-form">
     {% if form.accounts %}

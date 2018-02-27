@@ -221,7 +221,7 @@ def test_profile(client, user):
 @pytest.mark.django_db
 def test_profile_edit(client, user):
     client.login(email=user.email, password='password')
-    url = reverse('dashboard-profile')
+    url = reverse('account-profile')
 
     response = client.post(url, {
         'city': 'Kings Landing',
