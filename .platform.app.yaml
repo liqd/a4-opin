@@ -1,0 +1,53 @@
+name: "gunicorn"
+type: "python:3.6-rc"
+disk: 1024
+hooks:
+  build: |
+    set -ex
+    npm install --production
+    npm run build
+    pip install -r requirements.txt
+    python ./manage.py collectstatic --noinput
+    python ./manage.py compilemessages
+  deploy: |
+    set -ex
+    python ./manage.py migrate --noinput
+relationships:
+  database: "database:postgresql"
+variables:
+  env:
+    DJANGO_SETTINGS_MODULE: "euth_wagtail.settings.platform_sh"
+mounts:
+  "/media": "shared:files/media"
+web:
+  upstream:
+    socket_family: "unix"
+    protocol: "http"
+  locations:
+    "/":
+      root: ""
+      passthru: true
+      allow: false
+    "/static":
+      root: "static/"
+      allow: true
+    "/media":
+      root: "media/"
+      allow: true
+  commands:
+    start: >
+      gunicorn
+      --workers=2
+      --threads=2
+      --name=opin_dev
+      --bind=unix:${SOCKET}
+      euth_wagtail.wsgi
+crons:
+  notify_followers:
+    spec: "*/20 * * * *"
+    cmd: "python ./manage.py notify_followers"
+workers:
+  process_tasks:
+    size: S
+    commands:
+      start: "python ./manage.py process_tasks"
