@@ -14,7 +14,7 @@ from euth.projects import mixins as prj_mixins
 from . import models
 
 
-class FlashpollLoadMixin():
+class FlashpollLoadMixin:
 
     def get_context_data(self, **kwargs):
         useremail = str(uuid.uuid4())
@@ -95,18 +95,19 @@ class FlashpollExportView(ProjectMixin,
         if not self.request.user.is_anonymous():
             useremail = self.request.user.email
 
-        context = {
-            'url': '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
+            url = '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
                 base_url=settings.FLASHPOLL_URL,
                 language=get_language(),
                 poll_id=self.get_object().key,
                 mail=useremail
             )
-        }
+
+        context = dict(url=url)
         context['pollid'] = self.get_object().key
         context['module_settings'] = "euth_flashpoll"
 
         if self.get_object().key:
+
             url_poll = '{base_url}/poll/{poll_id}'.format(
                 base_url=settings.FLASHPOLL_BACK_URL,
                 poll_id=context['pollid']
@@ -135,5 +136,19 @@ class FlashpollExportView(ProjectMixin,
                     settings.FLASHPOLL_BACK_PASSWORD
                 ))
             context['pollresult'] = json.loads(res.text)
+
+            url_poll = '{base_url}/poll/{poll_id}/results'.format(
+                base_url=settings.FLASHPOLL_BACK_URL,
+                poll_id=context['pollid']
+            )
+
+            headers = {'Content-type': 'application/json'}
+            res = requests.get(url_poll,
+                               headers=headers,
+                               auth=HTTPBasicAuth(
+                                    settings.FLASHPOLL_BACK_USER,
+                                    settings.FLASHPOLL_BACK_PASSWORD
+                                ))
+            context['pollresults'] = json.loads(res.text)
 
         return super().get_context_data(**context)
