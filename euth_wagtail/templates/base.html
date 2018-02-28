@@ -45,12 +45,14 @@
         {% endblock %}
 
         {% for message in messages %}
-            <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} role="alert">
+            <div {% if message.tags %} class="alert alert-{{ message.tags }} alert-top" {% endif %} role="alert">
                 <div class="container-narrow alert-text">
                 {{ message }}
                 </div>
             </div>
         {% endfor %}
+
+        {% block extra_messages %}{% endblock %}
 
         <div>
             {% block content %}{% endblock %}
