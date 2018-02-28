@@ -4,9 +4,9 @@
 {% block title %}{% trans "Settings" %} &mdash; {{ block.super }}{% endblock%}
 
 {% block dashboard_content %}
-<div class="general-form row">
+<div class="general-form dashboard-content row">
     <div class="col-md-8 col-md-offset-2">
-        <h1>{% trans "Edit your organisagtion details" %}</h1>
+        <h1 class="dashboard-content-heading">{% trans "Edit your organisation details" %}</h1>
     <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
         {% csrf_token %}
 
