@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static tz time_delta_tags flashpoll_form_tags wagtailcore_tags ckeditor_tags %}
+{% load i18n static tz time_delta_tags timeline_tags flashpoll_form_tags wagtailcore_tags ckeditor_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -11,27 +11,59 @@
     <div class="timeline">
         <p class="text-uppercase">{% trans 'Timeline' %}</p>
         <ul>
-            {% for phase in phases %}
-                <li class="{% if phase == view.project.active_phase %}active{% endif %} timeline-phase">
-                    {% if phase in view.project.past_phases or phase == view.project.active_phase %}<a href="?phase={{ phase.weight }}">{% endif %}
-                    <div class="dot" title="{% trans "Phase" %} {{ forloop.counter }}/{{ phases|length }}
-                         {% if phase == view.project.active_phase %}
+            {% get_sorted_date_items view.project as items %}
+            {% get_past_phases_ids view.project as ids %}
+            {% for item in items %}
+
+                {% if item.type %}
+                <li class="{% if item.id == view.project.active_phase.id %}active{% endif %} timeline-phase">
+                    {% if item.id in ids or item.id == view.project.active_phase.id %}
+                    <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
+                    {% endif %}
+
+                    <div class="dot"
+                         title="{% trans "Phase" %}
+                         {% if item.id == view.project.active_phase.id %}
                              <div class='label label-secondary label-xs pull-right'>{% trans 'Active phase' %}</div>
                          {% endif %}"
                          data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
                          id="button-phase-{{ forloop.counter }}"
                          data-content="
-                                <p class='small'>{{ phase.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ phase.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
-                                <h4>{{ phase.name }}</h4>
+                                <p class='small'>{{ item.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ item.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
+                                <h4>{{ item.name }}</h4>
                             "></div>
 
-                    {% if phase in view.project.past_phases or phase == view.project.active_phase %}</a>{% endif %}
-                    {% if not forloop.last and phases|length > 1 %}
+                    {% if item.id in ids or item.id == view.project.active_phase.id %}</a>{% endif %}
+
+                    {% if not forloop.last and items|length > 1 %}
                         <span class="timeline-arrow fa fa-caret-right"></span>
                         <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
                         <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
                     {% endif %}
                 </li>
+                {% else %}
+                <li class="timeline-phase">
+                    <a href="{% url 'offlineevent-detail' pk=item.id %}">
+
+                        <div class="dot"
+                         title="{% trans "Event" %}"
+                         data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
+                         id="button-phase-{{ forloop.counter }}"
+                         data-content="
+                                <p class='small'>{{ item.date|date:"SHORT_DATETIME_FORMAT" }}</p>
+                                <h4>{{ item.name }}</h4>
+                            "></div>
+                    </a>
+
+                    {% if not forloop.last and items|length > 1 %}
+                        <span class="timeline-arrow fa fa-caret-right"></span>
+                        <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
+                        <span class="timeline-arrow fa fa-caret-right hidden-xs"></span>
+                    {% endif %}
+                </li>
+                {% endif %}
+
+
             {% endfor %}
         </ul>
     </div>
@@ -55,6 +87,8 @@
         </div>
     </article>
     <article id="participation" class="tab-panel active">
+        {% url 'offlineevent-detail' pk=object.pk as url %}
+        {% if not request.get_full_path == url %}
         <div class="tab-panel-description">
             {% if not view.phase %}
               {% trans 'Welcome!' as title %}
@@ -97,6 +131,7 @@
                 {% endif %}
                 <p class="idea-list-description">{{ view.phase.description }} </p>
             </div>
+            {% endif %}
             {% endif %}
 
 
