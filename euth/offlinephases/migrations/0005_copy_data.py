@@ -18,7 +18,7 @@ def copy_offlinephase_data(apps, schema_editor):
             project=offlinephase.phase.module.project
         )
         offline_event.save()
-        for fileupload in offlinephase.file_upload_set.all():
+        for fileupload in offlinephase.fileupload_set.all():
             offline_event_file_upload = OfflineEventFileUpload.objects.create(
                 title=fileupload.title,
                 document=fileupload.document,
