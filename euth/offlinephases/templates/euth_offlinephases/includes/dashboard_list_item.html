@@ -16,7 +16,7 @@
                             <i class="fa fa-eye" aria-hidden="true"></i>
                             {% trans 'View' %}
                         </a>
-                        <a href="" type="button" class="btn btn-gray btn-sm">
+                        <a href="{% url 'a4dashboard:offlineevent-update' object.slug %}" type="button" class="btn btn-gray btn-sm">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                             {% trans 'Edit'%}
                         </a>

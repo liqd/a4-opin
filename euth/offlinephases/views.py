@@ -68,7 +68,7 @@ class OfflineEventUpdateView(ProjectMixin,
     model = offlinephase_models.OfflineEvent
     form_class = offlinephase_forms.OfflineEventForm
     permission_required = 'meinberlin_offlineevents.change_offlineevent'
-    template_name = 'meinberlin_offlineevents/offlineevent_update_form.html'
+    template_name = 'euth_offlinephases/offlineevent_create_form.html'
     get_context_from_object = True
 
     def get_success_url(self):
