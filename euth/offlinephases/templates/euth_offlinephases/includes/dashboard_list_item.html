@@ -20,7 +20,7 @@
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                             {% trans 'Edit'%}
                         </a>
-                        <a href="" type="button" class="btn btn-gray btn-sm">
+                        <a href="{% url 'a4dashboard:offlineevent-delete' object.slug %}" type="button" class="btn btn-gray btn-sm">
                             <i class="fa fa-remove" aria-hidden="true"></i>
                             {% trans 'Delete'%}
                         </a>
