@@ -2,16 +2,16 @@
 {% project_tile_image project as project_image %}
 {% project_tile_image_copyright project as project_image_copyright %}
 
-<li class="dashboard-projects-listitem">
-        <div class="dashboard-projects-image" {% if project_image %}style="background-image: url({% thumbnail project_image '170x170' crop %})"{% endif %}>
+<li class="dashboard-list-listitem">
+        <div class="dashboard-list-image" {% if project_image %}style="background-image: url({% thumbnail project_image '170x170' crop %})"{% endif %}>
         </div>
-        <div class="dashboard-projects-body">
-            <div class="row dashboard-projects-content">
+        <div class="dashboard-list-body">
+            <div class="row dashboard-list-content">
                 <div class="col-md-4">
-                    <h2 class="dashboard-projects-name">
+                    <h2 class="dashboard-list-name">
                         {{ project.name }}
                     </h2>
-                    <div class="dashboard-projects-labels">
+                    <div class="dashboard-list-labels">
                         {% if project.has_finished %}
                         <span class="label label-finished">{% trans "Finished" %}</span>
                         {% endif %}
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="btn-group pull-right dashboard-projects-actions" role="group" aria-label="project actions">
+                    <div class="btn-group pull-right dashboard-list-actions" role="group" aria-label="project actions">
                         <a href="{% url 'a4dashboard:project-edit' project_slug=project.slug %}" type="button" class="btn btn-gray btn-sm">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                             {% if project.is_draft %}

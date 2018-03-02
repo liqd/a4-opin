@@ -1,9 +1,9 @@
-.dashboard-projects-list {
+.dashboard-list {
     list-style-type: none;
     padding: 0;
 }
 
-.dashboard-projects-listitem {
+.dashboard-list-listitem {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     clear: right;
     position: relative;
@@ -11,13 +11,13 @@
     min-height: 100px;
 }
 
-.dashboard-projects-name {
+.dashboard-list-name {
     font-size: 16px;
     margin: 0;
     padding: 0;
 }
 
-.dashboard-projects-image {
+.dashboard-list-image {
     background-color: $brand-primary;
     height: auto;
     bottom: 0;
@@ -29,19 +29,19 @@
     top: 0;
 }
 
-.dashboard-projects-body {
+.dashboard-list-body {
     margin-left: 7.5rem;
 }
 
-.dashboard-projects-content {
+.dashboard-list-content {
     padding: 20px;
 }
 
-.dashboard-projects-labels {
+.dashboard-list-labels {
     padding-top: 20px;
 }
 
-.dashboard-projects-actions {
+.dashboard-list-actions {
     background-color: $gray-light;
 
     a {
@@ -49,6 +49,6 @@
     }
 }
 
-.dashboard-projects-actions:last-child {
+.dashboard-list-actions:last-child {
     margin: 0;
 }
