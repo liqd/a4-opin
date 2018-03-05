@@ -1,19 +1,21 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.db import transaction
+from django.shortcuts import redirect, render
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from adhocracy4.dashboard import mixins
 from adhocracy4.projects.mixins import ProjectMixin
 
-from . import forms as offlinephase_forms
-from . import models as offlinephase_models
+from . import forms, models
+from .mixins import OfflineEventFormMixin
 
 
 class OfflineEventDetailView(
     generic.DetailView
 ):
-    model = offlinephase_models.OfflineEvent
+    model = models.OfflineEvent
 
     @property
     def project(self):
@@ -25,7 +27,7 @@ class OfflineEventListView(ProjectMixin,
                            mixins.DashboardComponentMixin,
                            generic.ListView):
 
-    model = offlinephase_models.OfflineEvent
+    model = models.OfflineEvent
     template_name = 'euth_offlinephases/offlineevent_list.html'
     permission_required = 'a4projects.change_project'
 
@@ -36,52 +38,125 @@ class OfflineEventListView(ProjectMixin,
         return self.project
 
 
-class OfflineEventCreateView(ProjectMixin,
-                             mixins.DashboardBaseMixin,
-                             mixins.DashboardComponentMixin,
-                             mixins.DashboardComponentFormSignalMixin,
-                             generic.CreateView):
-    model = offlinephase_models.OfflineEvent
-    form_class = offlinephase_forms.OfflineEventForm
+class OfflineEventCreateView(
+        ProjectMixin,
+        mixins.DashboardBaseMixin,
+        mixins.DashboardComponentMixin,
+        generic.TemplateView,
+        OfflineEventFormMixin
+):
+    template_name = 'euth_offlinephases/offlineevent_form.html'
     permission_required = 'a4projects.change_project'
-    template_name = 'euth_offlinephases/offlineevent_create_form.html'
+    project_url_kwarg = 'project_slug'
 
-    def form_valid(self, form):
-        form.instance.creator = self.request.user
-        form.instance.project = self.project
-        return super().form_valid(form)
+    def get_permission_object(self):
+        return self.project
 
     def get_success_url(self):
         return reverse(
             'a4dashboard:offlineevent-list',
             kwargs={'project_slug': self.project.slug})
 
-    def get_permission_object(self):
-        return self.project
+    def get_context_data(self, form=None, upload_forms=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if not form:
+            form = forms.OfflineEventForm()
+        if not upload_forms:
+            upload_forms = self.empty_upload_formset()
+        context['form'] = form
+        context['upload_forms'] = upload_forms
+        return context
+
+    def _process_formdata(self, form, upload_forms):
+        form.instance.project = self.project
+        with transaction.atomic():
+            object = form.save()
+            intstances = upload_forms.save(commit=False)
+            for instance in intstances:
+                instance.offlineevent = object
+                instance.save()
+
+    def post(self, request, *args, **kwargs):
+        form = forms.OfflineEventForm(request.POST)
+        upload_forms = self.filled_upload_formset(request)
+        if form.is_valid() and upload_forms.is_valid():
+            self._process_formdata(form, upload_forms)
+            messages.add_message(request,
+                                 messages.SUCCESS,
+                                 _('Offline events '
+                                   'have been updated'))
+            response = redirect(self.get_success_url())
+        else:
+            response = render(request,
+                              self.template_name,
+                              self.get_context_data(form=form,
+                                                    upload_forms=upload_forms))
+        return response
 
 
 class OfflineEventUpdateView(ProjectMixin,
                              mixins.DashboardBaseMixin,
                              mixins.DashboardComponentMixin,
-                             mixins.DashboardComponentFormSignalMixin,
-                             generic.UpdateView):
-    model = offlinephase_models.OfflineEvent
-    form_class = offlinephase_forms.OfflineEventForm
-    permission_required = 'meinberlin_offlineevents.change_offlineevent'
-    template_name = 'euth_offlinephases/offlineevent_create_form.html'
+                             generic.detail.SingleObjectMixin,
+                             generic.TemplateView,
+                             OfflineEventFormMixin):
+
+    model = models.OfflineEvent
+    permission_required = 'a4projects.change_project'
+    template_name = 'euth_offlinephases/offlineevent_form.html'
     get_context_from_object = True
+
+    def dispatch(self, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, form=None, upload_forms=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if not form:
+            form = forms.OfflineEventForm(instance=self.get_object())
+        if not upload_forms:
+            queryset = \
+                models.OfflineEventFileUpload\
+                .objects.filter(offlineevent=self.get_object())
+            upload_forms = self.update_upload_formset(queryset)
+        context['form'] = form
+        context['upload_forms'] = upload_forms
+        return context
 
     def get_success_url(self):
         return reverse(
             'a4dashboard:offlineevent-list',
             kwargs={'project_slug': self.project.slug})
 
-    @property
-    def organisation(self):
-        return self.project.organisation
-
     def get_permission_object(self):
         return self.project
+
+    def _process_formdata(self, form, upload_forms):
+        with transaction.atomic():
+            form.save()
+            intstances = upload_forms.save(commit=False)
+            for obj in upload_forms.deleted_objects:
+                obj.delete()
+            for instance in intstances:
+                instance.offlineevent = self.object
+                instance.save()
+
+    def post(self, request, *args, **kwargs):
+        upload_forms = self.filled_upload_formset(request)
+        form = forms.OfflineEventForm(request.POST, instance=self.object)
+        if upload_forms.is_valid() and form.is_valid():
+            self._process_formdata(form, upload_forms)
+            messages.add_message(request,
+                                 messages.SUCCESS,
+                                 _('Offline events '
+                                   'have been updated'))
+            response = redirect(self.get_success_url())
+        else:
+            response = render(request,
+                              self.template_name,
+                              self.get_context_data(
+                                  form=form, upload_forms=upload_forms))
+        return response
 
 
 class OfflineEventDeleteView(ProjectMixin,
@@ -89,7 +164,7 @@ class OfflineEventDeleteView(ProjectMixin,
                              mixins.DashboardComponentMixin,
                              mixins.DashboardComponentDeleteSignalMixin,
                              generic.DeleteView):
-    model = offlinephase_models.OfflineEvent
+    model = models.OfflineEvent
     success_message = _('The offline event has been deleted')
     permission_required = ''
     template_name = 'euth_offlinephases/offlineevent_confirm_delete.html'
