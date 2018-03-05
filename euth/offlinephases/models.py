@@ -68,10 +68,15 @@ class OfflineEvent(base.TimeStampedModel):
         super().save(*args, **kwargs)
 
 
+def document_path(instance, filename):
+    return 'documents/offlineevent_{}/{}'.format(
+        instance.offlineevent.pk, filename)
+
+
 class FileUpload(base.TimeStampedModel):
     title = models.CharField(max_length=256)
     document = models.FileField(
-        upload_to='offlinephase/documents',
+        upload_to=document_path,
         validators=[validators.validate_file_type_and_size])
     offlinephase = models.ForeignKey(Offlinephase)
 
