@@ -7,7 +7,8 @@ register = template.Library()
 @register.assignment_tag
 def get_sorted_date_items(project):
 
-    phases = list(project.phases.all().annotate(date=F('start_date')).values())
+    phases_with_date = project.phases.filter(start_date__isnull=False)
+    phases = list(phases_with_date.annotate(date=F('start_date')).values())
     events = list(project.offlineevent_set.all().values())
 
     object_list = phases + events
