@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.forms.fields import DateTimeField
 
-from . import models
+from . import models, widgets
 
 
 class OfflineEventForm(forms.ModelForm):
@@ -18,3 +18,13 @@ class OfflineEventForm(forms.ModelForm):
     class Meta:
         model = models.OfflineEvent
         fields = ['name', 'date', 'description']
+
+
+class FileUploadForm(forms.ModelForm):
+
+    class Meta:
+        model = models.OfflineEventFileUpload
+        fields = ['title', 'document']
+        widgets = {
+            'document': widgets.FileUploadWidget()
+        }
