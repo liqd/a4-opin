@@ -87,7 +87,8 @@ span.btn-dark:focus {
 
     &:hover,
     &:focus {
-        color: $gray-light;
+        color: $list-group-link-hover-color;
+        background-color: $list-group-hover-bg;
     }
 }
 
