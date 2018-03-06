@@ -3,7 +3,6 @@
 
 {% block dashboard_content %}
 <div class="dashboard-content">
-    <a href="{% url 'a4dashboard:project-list' organisation_slug=view.organisation.slug %}" class="btn btn-gray dashboard-nav-btn">{% trans 'Back to project overview' %}</a>
     <div class="row">
         <div class="col-md-3 dashboard-left-nav">
             <h2 class="dashboard-left-nav-header">{{ project.name }}</h2>
