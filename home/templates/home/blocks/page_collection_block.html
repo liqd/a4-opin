@@ -1,4 +1,4 @@
-{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailimages_tags wagtailcore_tags base_tags %}
 <div class="pagecollection">
     <h2 class="h5 sans-serif"
         id="{{ self.title|slugify }}">{{ self.title }}</h2>
@@ -15,7 +15,7 @@
                 {% for page in self.pages %}
                     {% if page %}
                         <li>
-                            <a href="{% pageurl page %}">{{ page }}</a>
+                            <a href="{% pageurl page %}">{% get_page_name page %}</a>
                         </li>
                     {% endif %}
                 {% endfor %}

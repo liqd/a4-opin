@@ -3,10 +3,20 @@ import feedparser
 from dateutil import parser
 from django import template
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 
+from home.models.manual_pages import ManualsDetailPage
 from home.models.snippets import NavigationMenu
 
 register = template.Library()
+
+
+@register.assignment_tag(takes_context=True)
+def get_page_name(context, page):
+    try:
+        return ManualsDetailPage.objects.get(id=page.id).translated_title
+    except ObjectDoesNotExist:
+        return page
 
 
 @register.assignment_tag(takes_context=True)
