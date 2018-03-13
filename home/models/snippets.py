@@ -148,7 +148,11 @@ class PageCollection(translations.TranslatedModel):
         help_text='The Image that is shown on top of the page'
     )
 
-    intro_text = models.CharField(max_length=250, blank=True)
+    intro_text = translations.TranslatedField(
+        'intro_text',
+        models.CharField(max_length=250, blank=True),
+        overwrite_fallback={'blank': False}
+    )
 
     args = {
         'on_delete': models.SET_NULL,
@@ -184,7 +188,12 @@ class PageCollection(translations.TranslatedModel):
         ],
             heading="Title",
         ),
-        edit_handlers.FieldPanel('intro_text'),
+        edit_handlers.MultiFieldPanel([
+            edit_handlers.FieldPanel(
+                    'intro_text_{}'.format(lang_code)
+                ) for lang_code, lang in LANGUAGES
+                ],
+            heading='intro_text'),
         edit_handlers.MultiFieldPanel([
             edit_handlers.PageChooserPanel(
                 'page_{}'.format(x)
