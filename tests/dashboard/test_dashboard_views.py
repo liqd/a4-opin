@@ -1,11 +1,10 @@
 import pytest
 from django.contrib import auth
 from django.core import mail
-from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
-from faker import Faker
 from parler.utils.context import switch_language
 
+from adhocracy4.projects.models import Project
 from tests.helpers import redirect_target
 
 User = auth.get_user_model()
@@ -16,7 +15,7 @@ User = auth.get_user_model()
 def new_project(organisation, client):
     user = organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-create', kwargs={
+    url = reverse('a4dashboard:project-create', kwargs={
         'organisation_slug': organisation.slug,
         'blueprint_slug': 'brainstorming'
     })
@@ -25,97 +24,14 @@ def new_project(organisation, client):
 
     # Create project
     response = client.post(url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': '',
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': '',
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_ideas:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '2',
-        'categories-INITIAL_FORMS': '0',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '1000',
-        'categories-0-name': '',
-        'categories-0-id': '',
-        'categories-1-name': '',
-        'categories-1-id': '',
+        'description': 'Project description',
+        'name': 'Project name'
     })
     assert response.status_code == 302
-    assert redirect_target(response) == 'dashboard-project-list'
+    assert redirect_target(response) == 'project-create'
     project = organisation.project_set.first()
     assert not project.is_archived
     assert project.name == 'Project name'
-    assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 2
-    return project
-
-
-@pytest.fixture()
-@pytest.mark.django_db
-def running_project(organisation, client):
-    user = organisation.initiators.first()
-    client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-create', kwargs={
-        'organisation_slug': organisation.slug,
-        'blueprint_slug': 'brainstorming'
-    })
-    response = client.get(url)
-    assert response.status_code == 200
-
-    # Create project
-    response = client.post(url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': '',
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': '',
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2099-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_ideas:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '2',
-        'categories-INITIAL_FORMS': '0',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '1000',
-        'categories-0-name': 'foo',
-        'categories-0-id': '',
-        'categories-1-name': 'bar',
-        'categories-1-id': '',
-    })
-    assert response.status_code == 302
-    assert redirect_target(response) == 'dashboard-project-list'
-    project = organisation.project_set.first()
-    assert not project.is_archived
-    assert project.name == 'Project name'
-    assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 2
     return project
 
 
@@ -123,7 +39,7 @@ def running_project(organisation, client):
 def test_initiator_list_projects(client, project):
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-list', kwargs={
+    url = reverse('a4dashboard:project-list', kwargs={
         'organisation_slug': project.organisation.slug,
     })
     response = client.get(url)
@@ -132,10 +48,10 @@ def test_initiator_list_projects(client, project):
 
 
 @pytest.mark.django_db
-def test_initiator_create_and_update_project(client, organisation):
+def test_initiator_create_project(client, organisation):
     user = organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-create', kwargs={
+    url = reverse('a4dashboard:project-create', kwargs={
         'organisation_slug': organisation.slug,
         'blueprint_slug': 'brainstorming'
     })
@@ -143,148 +59,14 @@ def test_initiator_create_and_update_project(client, organisation):
     assert response.status_code == 200
 
     response = client.post(url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': '',
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': '',
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_ideas:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '2',
-        'categories-INITIAL_FORMS': '0',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '1000',
-        'categories-0-name': 'foo',
-        'categories-0-id': '',
-        'categories-1-name': 'bar',
-        'categories-1-id': '',
-        'save_draft': ''
+        'name': 'Project name',
+        'description': 'Project info'
     })
     assert response.status_code == 302
-    assert redirect_target(response) == 'dashboard-project-list'
+    assert redirect_target(response) == 'project-edit'
     project = organisation.project_set.first()
     assert project.is_draft
     assert project.name == 'Project name'
-    assert list(project.moderators.all()) == [user]
-    assert len(project.module_set.first().phase_set.all()) == 2
-
-    update_url = reverse('dashboard-project-edit', kwargs={
-        'project_slug': project.slug
-    })
-
-    module = project.module_set.first()
-
-    phase_1 = module.phase_set.first().pk
-    phase_2 = module.phase_set.all()[1].pk
-
-    cat_0 = module.category_set.first().pk
-    cat_1 = module.category_set.all()[1].pk
-
-    response = client.post(update_url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': str(phase_1),
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '1',
-        'phases-1-id': str(phase_2),
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '2',
-        'categories-INITIAL_FORMS': '2',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '1000',
-        'categories-0-name': 'foo',
-        'categories-0-id': str(cat_0),
-        'categories-1-name': 'bar',
-        'categories-1-id': str(cat_1),
-        'save_draft': ''
-    })
-    assert response.status_code == 302
-    assert len(project.module_set.first().phase_set.all()) == 1
-
-
-@pytest.mark.django_db
-def test_initiator_create_flashpoll_project(client, organisation):
-    user = organisation.initiators.first()
-    client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-create', kwargs={
-        'organisation_slug': organisation.slug,
-        'blueprint_slug': 'flashpoll'
-    })
-    response = client.get(url)
-    assert response.status_code == 200
-
-    response = client.post(url, {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': '',
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': '',
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name Flashpoll',
-        'project-information': 'Project info',
-        'save_draft': '',
-        'module_settings-key': '32a34235ba14df2de',
-        'module_settings-title': 'title',
-        'module_settings-shortDescription': 'shortDescription',
-        'module_settings-longDescription': 'longDescription',
-        'module_settings-concludeMessage': 'concludeMessage',
-        'module_settings-startTime': '30/01/2017 12:00',
-        'module_settings-endTime': '01/02/2017 12:00',
-        'module_settings-geofenceLocation': 'POLYGON' +
-        '((12.721618618816137 52.71100659513395,' +
-        '12.765563931316137 52.05384170239608,' +
-        '14.039977993816137 52.38699960050584' +
-        ',13.073181118816137 52.707678513988185' +
-        ',12.721618618816137 52.71100659513395))',
-    })
-
-    assert response.status_code == 302
-    assert redirect_target(response) == 'dashboard-project-list'
-    project = organisation.project_set.first()
-    assert project.is_draft
-    assert project.name == 'Project name Flashpoll'
-    assert len(project.module_set.first().phase_set.all()) == 2
 
 
 @pytest.mark.django_db
@@ -292,42 +74,28 @@ def test_initiator_edit_project(client, phase):
     project = phase.module.project
     user = project.organisation.initiators.first()
     client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-edit', kwargs={
+    url = reverse('a4dashboard:dashboard-basic-edit', kwargs={
         'project_slug': project.slug,
     })
     response = client.get(url)
-    assert response.context_data['form']['project'].instance == project
+    assert response.context_data['form'].instance == project
     assert response.status_code == 200
 
-
-@pytest.mark.django_db
-def test_project_delete(client, project):
-    user = project.organisation.initiators.first()
-    client.login(username=user.email, password='password')
-    url = reverse('dashboard-project-delete', kwargs={
-        'project_slug': project.slug
+    client.post(url, {
+        'name': 'Project name',
+        'description': 'Project info'
     })
-    response = client.post(url, {})
-    assert response.status_code == 302
-    assert redirect_target(response) == 'dashboard-project-list'
-    assert mail.outbox[0].to == [project.organisation.initiators.first().email]
+
+    project = Project.objects.get(id=project.id)
+    assert project.name == 'Project name'
+    assert project.description == 'Project info'
 
 
 @pytest.mark.django_db
-def test_dashboard_project_users(client, project, user_factory,
-                                 request_factory, invite_factory):
-    url = reverse('dashboard-project-users', kwargs={
+def test_dashboard_project_moderators(client, project, user_factory):
+    url = reverse('a4dashboard:moderators', kwargs={
         'project_slug': project.slug,
     })
-    request0 = request_factory(project=project)
-    request1 = request_factory(project=project)
-    request2 = request_factory(project=project)
-    invite0 = invite_factory(project=project)
-    invite1 = invite_factory(project=project)
-    user0 = user_factory(email='test@test1.de')
-    user1 = user_factory(email='test@test2.de')
-    project.participants.add(user0)
-    project.participants.add(user1)
 
     response = client.get(url)
     assert redirect_target(response) == 'account_login'
@@ -336,56 +104,83 @@ def test_dashboard_project_users(client, project, user_factory,
     client.login(username=initiator.email, password='password')
     response = client.get(url)
     assert response.status_code == 200
-    multiform = response.context['form']
-    assert len(multiform['requests'].forms) == 3
-    assert multiform['requests'].forms[0].instance == request0
-    assert multiform['requests'].forms[1].instance == request1
-    assert multiform['requests'].forms[2].instance == request2
-    assert multiform['requests'].extra == 0
-    assert len(multiform['invites'].forms) == 2
-    assert multiform['invites'].forms[0].instance == invite0
-    assert multiform['invites'].forms[1].instance == invite1
-    assert len(multiform['users'].forms) == 2
-    assert multiform['users'].forms[0].instance == user0
-    assert multiform['users'].forms[1].instance == user1
+
+
+@pytest.mark.django_db
+def test_dashboard_project_members_requests(client, project,
+                                            request_factory):
+    url = reverse('a4dashboard:members', kwargs={
+        'project_slug': project.slug,
+    })
+    request0 = request_factory(project=project)
+    request1 = request_factory(project=project)
+    request2 = request_factory(project=project)
+
+    response = client.get(url)
+    assert redirect_target(response) == 'account_login'
+
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
 
     response = client.post(url, {
-        'requests-0-id': request0.pk,
-        'requests-0-action': 'accept',
-        'requests-1-id': request1.pk,
-        'requests-1-action': 'decline',
-        'requests-2-id': request2.pk,
-        'requests-2-action': '',
-        'requests-TOTAL_FORMS': '3',
-        'requests-INITIAL_FORMS': '3',
-        'requests-MAX_NUM_FORMS': '',
-        'invites-TOTAL_FORMS': '2',
-        'invites-INITIAL_FORMS': '2',
-        'invites-MAX_NUM_FORMS': '',
-        'invites-0-id': invite0.pk,
-        'invites-0-delete': 'on',
-        'invites-1-id': invite1.pk,
-        'users-TOTAL_FORMS': '2',
-        'users-INITIAL_FORMS': '2',
-        'users-MAX_NUM_FORMS': '',
-        'users-0-id': user0.id,
-        'users-0-delete': 'on',
-        'users-1-id': user1.id,
-        'users-1-delete': '',
+        'form-TOTAL_FORMS': '3',
+        'form-INITIAL_FORMS': '3',
+        'form-MIN_NUM_FORMS': '0',
+        'form-MAX_NUM_FORMS': '1000',
+        'form-0-id': request0.id,
+        'form-0-action': 'accept',
+        'form-1-id': request1.id,
+        'form-1-action': 'accept',
+        'form-2-id': request2.id,
+        'form-2-action': 'decline',
+        'submit_action': 'update_request'
     })
-    assert redirect_target(response) == 'dashboard-project-users'
-    assert len(project.request_set.all()) == 1
-    assert project.request_set.first() == request2
-    assert len(project.invite_set.all()) == 1
-    assert project.invite_set.first() == invite1
+
+    assert redirect_target(response) == 'members'
+    assert len(project.request_set.all()) == 0
     assert len(project.participants.all()) == 2
-    assert not project.participants.filter(username=user0.username).exists()
-    assert User.objects.filter(username=user0.username).exists()
+
+
+@pytest.mark.django_db
+def test_dashboard_project_members_delete(client, project, user_factory):
+    url = reverse('a4dashboard:members', kwargs={
+        'project_slug': project.slug,
+    })
+    user0 = user_factory(email='test@test1.de')
+    user1 = user_factory(email='test@test2.de')
+    project.participants.add(user0)
+    project.participants.add(user1)
+
+    assert len(project.participants.all()) == 2
+
+    response = client.get(url)
+    assert redirect_target(response) == 'account_login'
+
+    initiator = project.organisation.initiators.first()
+    client.login(username=initiator.email, password='password')
+    response = client.get(url)
+    assert response.status_code == 200
+
+    response = client.post(url, {
+        'form-TOTAL_FORMS': '2',
+        'form-INITIAL_FORMS': '2',
+        'form-MIN_NUM_FORMS': '0',
+        'form-MAX_NUM_FORMS': '1000',
+        'form-0-id': user0.id,
+        'form-0-delete': 'on',
+        'form-1-id': user1.id,
+        'submit_action': 'remove_members'
+    })
+
+    assert redirect_target(response) == 'members'
+    assert len(project.participants.all()) == 1
 
 
 @pytest.mark.django_db
 def test_dashboard_project_invite(client, project):
-    url = reverse('dashboard-project-invite', kwargs={
+    url = reverse('a4dashboard:invites', kwargs={
         'project_slug': project.slug,
     })
 
@@ -400,7 +195,8 @@ def test_dashboard_project_invite(client, project):
     response = client.post(url, {
         'emails': 'j@he.ix, james.dean@gmail.com'
     })
-    assert redirect_target(response) == 'dashboard-project-users'
+
+    assert redirect_target(response) == 'invites'
     assert len(project.invite_set.all()) == 2
     assert project.invite_set.all()[0].email == 'j@he.ix'
     assert project.invite_set.all()[1].email == 'james.dean@gmail.com'
@@ -416,7 +212,7 @@ def test_dashboard_project_invite(client, project):
 
 @pytest.mark.django_db
 def test_dashboard_project_invalid(client, project):
-    url = reverse('dashboard-project-invite', kwargs={
+    url = reverse('a4dashboard:invites', kwargs={
         'project_slug': project.slug,
     })
 
@@ -440,7 +236,7 @@ def test_dashboard_project_invalid(client, project):
 
 @pytest.mark.django_db
 def test_dashboard_update_organisation(client, organisation):
-    url = reverse('dashboard-organisation-edit', kwargs={
+    url = reverse('a4dashboard:organisation-edit', kwargs={
         'organisation_slug': organisation.slug,
     })
     initiator = organisation.initiators.first()
@@ -482,7 +278,7 @@ def test_dashboard_update_organisation(client, organisation):
 
 @pytest.mark.django_db
 def test_dashboard_organisation_delete_language(client, organisation):
-    url = reverse('dashboard-organisation-edit', kwargs={
+    url = reverse('a4dashboard:organisation-edit', kwargs={
         'organisation_slug': organisation.slug,
     })
 
@@ -522,7 +318,7 @@ def test_dashboard_organisation_delete_language(client, organisation):
 @pytest.mark.django_db
 def test_dashboard_blueprint(client, organisation):
     from euth.blueprints.blueprints import blueprints
-    url = reverse('dashboard-blueprint-list', kwargs={
+    url = reverse('a4dashboard:blueprint-list', kwargs={
         'organisation_slug': organisation.slug
     })
     user = organisation.initiators.first()
@@ -539,327 +335,23 @@ def test_dashboard_blueprint(client, organisation):
 def test_other_initiator_project_update(client, project, other_organisation):
     other_user = other_organisation.initiators.first()
 
-    url = reverse('dashboard-project-edit', kwargs={
+    url = reverse('a4dashboard:dashboard-basic-edit', kwargs={
         'project_slug': project.slug
     })
 
     assert client.login(username=other_user.email, password='password')
     response = client.get(url)
     assert response.status_code == 403
-
-
-@pytest.mark.django_db
-def test_other_initiator_project_delete(client, project, other_organisation):
-    other_user = other_organisation.initiators.first()
-
-    assert client.login(username=other_user.email, password='password')
-    url = reverse('dashboard-project-delete', kwargs={
-        'project_slug': project.slug
-    })
-    response = client.post(url, {})
-    assert response.status_code == 403
-    project.refresh_from_db()
-    assert project.id is not None
 
 
 @pytest.mark.django_db
 def test_other_initiator_project_invite(client, project, other_organisation):
     other_user = other_organisation.initiators.first()
 
-    url = reverse('dashboard-project-invite', kwargs={
+    url = reverse('a4dashboard:members', kwargs={
         'project_slug': project.slug,
     })
 
     assert client.login(username=other_user.email, password='password')
     response = client.get(url)
     assert response.status_code == 403
-
-
-@pytest.mark.django_db
-def test_archive_project(client, organisation, new_project, user2):
-    archive_url = reverse('dashboard-project-archive', kwargs={
-        'project_slug': new_project.slug
-    })
-    unarchive_url = reverse('dashboard-project-unarchive', kwargs={
-        'project_slug': new_project.slug
-    })
-
-    # unarchiving project that is not yet archived must fail
-    response = client.post(unarchive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 302
-    assert not project.is_archived
-
-    # archiving project must succeed
-    response = client.post(archive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 302
-    assert project.is_archived
-
-    # unarchiving project that is archived must work
-    response = client.post(unarchive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 302
-    assert not project.is_archived
-
-    # a different user must not be able to archive the project
-    client.login(username=user2.email, password='password')
-    response = client.post(archive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 403
-    assert not project.is_archived
-
-
-@pytest.mark.django_db
-def test_archive_running_project(client, organisation, running_project):
-    archive_url = reverse('dashboard-project-archive', kwargs={
-        'project_slug': running_project.slug
-    })
-
-    # archiving running project must fail
-    response = client.post(archive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 302
-    assert not project.is_archived
-
-
-@pytest.mark.django_db
-def test_edit_archived_project(client, organisation, new_project):
-    archive_url = reverse('dashboard-project-archive', kwargs={
-        'project_slug': new_project.slug
-    })
-
-    # archive project
-    response = client.post(archive_url)
-    project = organisation.project_set.first()
-    assert response.status_code == 302
-    assert project.is_archived
-
-    # edit project
-    update_url = reverse('dashboard-project-edit', kwargs={
-        'project_slug': project.slug
-    })
-
-    module = project.module_set.first()
-
-    phase_1 = module.phase_set.first().pk
-    phase_2 = module.phase_set.all()[1].pk
-    oldname = project.name
-
-    # changing project property of archived project must fail
-    with pytest.raises(ValidationError) as ve:
-        response = client.post(update_url, {
-            'phases-TOTAL_FORMS': '2',
-            'phases-INITIAL_FORMS': '0',
-            'phases-0-id': str(phase_1),
-            'phases-0-start_date': '2016-10-01 16:12',
-            'phases-0-end_date': '2016-10-01 16:13',
-            'phases-0-name': 'Name 0',
-            'phases-0-description': 'Description 0',
-            'phases-0-type': 'euth_offlinephases:offline',
-            'phases-0-weight': '0',
-            'phases-0-delete': '0',
-            'phases-1-id': str(phase_2),
-            'phases-1-start_date': '2016-10-01 16:14',
-            'phases-1-end_date': '2016-10-01 16:15',
-            'phases-1-name': 'Name 1',
-            'phases-1-description': 'Description 1',
-            'phases-1-type': 'euth_maps:collect',
-            'phases-1-weight': '1',
-            'phases-1-delete': '0',
-            'project-description': 'Project description',
-            'project-name': 'new project name',
-            'project-information': 'Project info',
-            'categories-TOTAL_FORMS': '2',
-            'categories-INITIAL_FORMS': '0',
-            'categories-MIN_NUM_FORMS': '0',
-            'categories-MAX_NUM_FORMS': '1000',
-            'categories-0-name': '',
-            'categories-0-id': '',
-            'categories-1-name': '',
-            'categories-1-id': '',
-        })
-
-    assert 'read-only' in str(ve)
-    project = organisation.project_set.first()
-    assert project.name == oldname
-    assert response.status_code == 302
-    assert project.is_archived
-
-    # changing phase property of archived project must fail
-    phaseoldname = project.module_set.first().phase_set.all()[0].name
-    with pytest.raises(ValidationError) as ve:
-        response = client.post(update_url, {
-            'phases-TOTAL_FORMS': '2',
-            'phases-INITIAL_FORMS': '0',
-            'phases-0-id': str(phase_1),
-            'phases-0-start_date': '2016-10-01 16:12',
-            'phases-0-end_date': '2016-10-01 16:13',
-            'phases-0-name': 'New Name 0',
-            'phases-0-description': 'Description 0',
-            'phases-0-type': 'euth_offlinephases:offline',
-            'phases-0-weight': '0',
-            'phases-0-delete': '0',
-            'phases-1-id': str(phase_2),
-            'phases-1-start_date': '2016-10-01 16:14',
-            'phases-1-end_date': '2016-10-01 16:15',
-            'phases-1-name': 'Name 1',
-            'phases-1-description': 'Description 1',
-            'phases-1-type': 'euth_maps:collect',
-            'phases-1-weight': '1',
-            'phases-1-delete': '0',
-            'project-description': 'Project description',
-            'project-name': oldname,
-            'project-information': 'Project info',
-            'categories-TOTAL_FORMS': '2',
-            'categories-INITIAL_FORMS': '0',
-            'categories-MIN_NUM_FORMS': '0',
-            'categories-MAX_NUM_FORMS': '1000',
-            'categories-0-name': '',
-            'categories-0-id': '',
-            'categories-1-name': '',
-            'categories-1-id': '',
-        })
-
-    assert 'read-only' in str(ve)
-    project = organisation.project_set.first()
-    phases = project.module_set.first().phase_set.all()
-    assert phases[0].name == phaseoldname
-    assert response.status_code == 302
-    assert project.is_archived
-
-
-@pytest.mark.django_db
-def test_adding_categories_to_project(client, new_project):
-    CATEGORIES = 100
-    fake = Faker()
-
-    update_url = reverse('dashboard-project-edit', kwargs={
-        'project_slug': new_project.slug
-    })
-
-    module = new_project.module_set.first()
-    phase_1 = module.phase_set.first().pk
-    phase_2 = module.phase_set.all()[1].pk
-
-    request = {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': str(phase_1),
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'New Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': str(phase_2),
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': str(CATEGORIES),
-        'categories-INITIAL_FORMS': '0',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '100',
-    }
-
-    for i in range(CATEGORIES):
-        request.update({
-            'categories-{}-id'.format(i): '',
-            'categories-{}-name'.format(i): fake.text(max_nb_chars=20)
-        })
-
-    response = client.post(update_url, request)
-    assert response.status_code == 302, str(request)
-    assert len(module.category_set.all()) == CATEGORIES, str(request)
-
-
-@pytest.mark.django_db
-def test_deleting_categories_from_project(client, new_project):
-    update_url = reverse('dashboard-project-edit', kwargs={
-        'project_slug': new_project.slug
-    })
-
-    module = new_project.module_set.first()
-    phase_1 = module.phase_set.first().pk
-    phase_2 = module.phase_set.all()[1].pk
-
-    request = {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': str(phase_1),
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'New Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': str(phase_2),
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '1',
-        'categories-INITIAL_FORMS': '0',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '100',
-        'categories-0-id': '',
-        'categories-0-name': 'foo'
-    }
-
-    # adding category first
-    response = client.post(update_url, request)
-    assert response.status_code == 302, str(request)
-    assert len(module.category_set.all()) == 1, str(request)
-
-    cat_0 = module.category_set.first().pk
-
-    request = {
-        'phases-TOTAL_FORMS': '2',
-        'phases-INITIAL_FORMS': '0',
-        'phases-0-id': str(phase_1),
-        'phases-0-start_date': '2016-10-01 16:12',
-        'phases-0-end_date': '2016-10-01 16:13',
-        'phases-0-name': 'New Name 0',
-        'phases-0-description': 'Description 0',
-        'phases-0-type': 'euth_offlinephases:offline',
-        'phases-0-weight': '0',
-        'phases-0-delete': '0',
-        'phases-1-id': str(phase_2),
-        'phases-1-start_date': '2016-10-01 16:14',
-        'phases-1-end_date': '2016-10-01 16:15',
-        'phases-1-name': 'Name 1',
-        'phases-1-description': 'Description 1',
-        'phases-1-type': 'euth_maps:collect',
-        'phases-1-weight': '1',
-        'phases-1-delete': '0',
-        'project-description': 'Project description',
-        'project-name': 'Project name',
-        'project-information': 'Project info',
-        'categories-TOTAL_FORMS': '1',
-        'categories-INITIAL_FORMS': '1',
-        'categories-MIN_NUM_FORMS': '0',
-        'categories-MAX_NUM_FORMS': '100',
-        'categories-0-DELETE': 'on',
-        'categories-0-id': str(cat_0),
-        'categories-0-name': 'foo'
-    }
-
-    # deleting freshly added category
-    response = client.post(update_url, request)
-    assert response.status_code == 302, str(request)
-    assert len(module.category_set.all()) == 0, str(request)

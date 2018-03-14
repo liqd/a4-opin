@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'micawber.contrib.mcdjango',
 
     'adhocracy4.images.apps.ImagesConfig',
+    'adhocracy4.forms.apps.FormsConfig',
     'adhocracy4.phases.apps.PhasesConfig',
     'adhocracy4.projects.apps.ProjectsConfig',
     'adhocracy4.ratings.apps.RatingsConfig',
@@ -79,6 +80,8 @@ INSTALLED_APPS = [
     'adhocracy4.filters.apps.FiltersConfig',
     'adhocracy4.rules.apps.RulesConfig',
     'adhocracy4.ckeditor.apps.CKEditorConfig',
+    'adhocracy4.dashboard.apps.DashboardConfig',
+    'adhocracy4.organisations.apps.OrganisationsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -89,10 +92,11 @@ INSTALLED_APPS = [
     'euth.accounts.apps.AccountConfig',
     'euth.memberships.apps.MembershipsConfig',
     'euth.documents.apps.DocumentConfig',
+    'euth.exports.apps.Config',
     'euth.flashpoll.apps.FlashpollConfig',
+    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
-    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.blueprints.apps.BlueprintsConfig',
     'euth.contrib',
 ]
@@ -414,6 +418,11 @@ A4_MAP_BOUNDING_BOX = [
 
 A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
 
+A4_CATEGORIZABLE = (
+    ('euth_ideas', 'idea'),
+    ('euth_mapideas', 'mapidea')
+)
+
 A4_COMMENTABLES = (
     ('euth_ideas', 'idea'),
     ('euth_maps', 'mapidea'),
@@ -433,3 +442,8 @@ A4_REPORTABLES = (
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
+
+A4_DASHBOARD = {
+    'PROJECT_DASHBOARD_CLASS': 'adhocracy4.dashboard.ProjectDashboard',
+    'BLUEPRINTS': 'euth.blueprints.blueprints.blueprints'
+}

@@ -9,7 +9,7 @@ def _verify_valid_response(response):
     """ verifies a response of a request that is considered valid """
     assert response.status_code == 200
     assert 'euth_blueprints/result.html' in templates_used(response)
-    assert 'form' not in response.context_data
+    assert response.context_data['form'].is_valid()
     assert len(response.context_data['blueprints']) > 0
 
     for b in response.context_data['blueprints']:

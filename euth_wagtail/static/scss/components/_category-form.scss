@@ -33,3 +33,39 @@
 .formset__template {
     display: none;
 }
+
+
+
+.formset__form {
+    position: relative;
+
+    input {
+        padding-right: 1.5em;
+        width: 100%;
+    }
+}
+
+.formset__template {
+    display: none;
+}
+
+.formset__delete {
+
+    & ~ .formset__delete-label {
+        position: absolute;
+        right: 0.5em;
+        top: 0.6em;
+        color: $gray;
+    }
+
+    &:checked ~ label {
+        color: $brand-danger;
+    }
+
+    &:checked ~ input {
+        color: $brand-danger;
+        text-decoration: line-through;
+    }
+}
+
+

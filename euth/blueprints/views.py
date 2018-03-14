@@ -1,10 +1,9 @@
 import math
 
-from django.template import Context
 from django.views import generic
 from rules.contrib import views as rules_views
 
-from euth.dashboard.views import DashboardBaseMixin
+from euth.dashboard.mixins import DashboardBaseMixin
 
 from . import blueprints, forms
 
@@ -115,7 +114,6 @@ class SuggestFormView(DashboardBaseMixin,
             'request': self.request  # FIXME: should be done context processor
         }
         context.update(self.get_context_data())
-        context = Context(context)
         return self.response_class(
             request=self.request,
             template='euth_blueprints/result.html',

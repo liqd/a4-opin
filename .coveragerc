@@ -6,4 +6,6 @@ omit =
     */tests.py
     */test_*.py
     */autofixtures.py
-    */flashpoll/services.py
+    */flashpoll/*
+    */offlinephases/*
+    */users/management/commands/import_a3_users.py

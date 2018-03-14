@@ -1,152 +1,35 @@
-.dashboard-nav {
-    height: 100%;
-    color: #fff;
+.dashboard-left-nav {
 
-    a {
-        color: inherit;
+    .list-group{
+        background-color: $gray-lighter;
+        padding: 10px 10px 20px 10px;
     }
 
-    a,
-    a:active,
-    a:focus,
-    a:visited {
-        text-decoration: none;
-    }
-
-    hr {
-        margin: 5px 0;
-    }
-
-    .dashboard-nav-group {
-        @include rem(margin-bottom, 30px);
-        background-color: $black;
-    }
-
-    .dashboard-nav-title {
-        @include rem(padding, 10px);
-        line-height: 1.2;
-        margin-top: 0;
-    }
-
-    .list-group-item-heading {
-        display: block;
-        @include rem(padding, 20px 30px 20px 70px);
-        margin: 0;
-        @include rem(font-size, 14px);
+    .list-group-item {
+        background-color: transparent;
+        border: none;
         font-weight: bold;
-        position: relative;
-
-        &:hover,
-        &:focus {
-            color: $brand-brand1;
-        }
-
-        i {
-            @include rem(left, 25px);
-            @include rem(font-size, 25px);
-            @include rem(height, 25px);
-            font-weight: normal;
-            vertical-align: middle;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-        }
-
-        span {
-            vertical-align: middle;
-        }
-    }
-
-    .selected {
-        color: $brand-brand1;
-        text-decoration: none;
-
-        i {
-            color: $brand-brand1;
-        }
-
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 5px;
-            background-color: $brand-brand1;
-        }
-
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 15px 17px 15px 0;
-            border-color: transparent #fff transparent transparent;
-        }
-    }
-
-    .dropdown {
-        @include rem(padding, 10px);
-
-        button {
-            display: flex;
-            align-items: center;
-            color: #fff;
-            width: 100%;
-            background: transparent;
-            border: 0;
-            @include rem(padding, 10px 0);
-            text-align: left;
-        }
-
-        img:not(.circled) {
-            width: 30px;
-        }
-
-        .circled {
-            @include rem(margin-right, 10px);
-        }
-
-        .circle-bg {
-            @include rem(margin-right, 10px);
-            display: block;
-            float: left;
-            text-align: center;
-        }
-    }
-
-    .dropdown-menu {
-        @include rem(left, 5px);
         border-radius: 0;
+        color: $black;
+    }
+
+    .active {
+        background-color: white;
+        border-left: 2px solid $brand-primary;
+        color: $brand-primary;
     }
 }
 
-.dashboard-bright {
-    .dashboard-nav {
-        color: $gray-darker;
-    }
+.dashboard-left-nav-header {
+    font-size: 20px;
+    margin-bottom: 26px;
+    background-color: $gray-lighter;
+    margin: 0;
+    padding: 15px 15px 15px 10px;
+    border-bottom: 1px solid white;
+}
 
-    .dashboard-nav-group {
-        background-color: $gray-lighter;
-    }
-
-    .dashboard-nav-title {
-        color: $gray-darker;
-    }
-
-    .dropdown button {
-        color: $gray-darker;
-    }
-
-    hr {
-        border-top-color: #fff;
-    }
+.dashboard-nav-btn {
+    margin-bottom: 30px;
+    font-size: 16px;
 }

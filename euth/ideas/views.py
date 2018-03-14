@@ -4,8 +4,6 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from adhocracy4.exports import mixins as export_mixins
-from adhocracy4.exports import views as export_views
 from adhocracy4.filters import views as filter_views
 from adhocracy4.modules.models import Module
 from euth.projects import mixins as prj_mixins
@@ -120,30 +118,3 @@ class IdeaDeleteView(PermissionRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse('project-detail',
                        kwargs={'slug': self.object.project.slug})
-
-
-class IdeaDownloadView(PermissionRequiredMixin,
-                       export_views.ItemExportView,
-                       export_mixins.ItemExportWithRatesMixin,
-                       export_mixins.ItemExportWithCommentCountMixin,
-                       export_mixins.ItemExportWithCommentsMixin,
-                       export_mixins.ItemExportWithCategoriesMixin
-                       ):
-    module_url_kwarg = 'slug'
-    model = idea_models.Idea
-    permission_required = "euth_ideas.export_ideas"
-    fields = ['name', 'description', 'creator', 'created']
-
-    @property
-    def raise_exception(self):
-        return self.request.user.is_authenticated()
-
-    def get_queryset(self):
-        return super().get_queryset() \
-            .filter(module=self.module)\
-            .annotate_comment_count()\
-            .annotate_positive_rating_count()\
-            .annotate_negative_rating_count()
-
-    def get_permission_object(self, *args, **kwargs):
-        return self.module

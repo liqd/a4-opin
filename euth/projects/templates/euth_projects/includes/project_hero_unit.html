@@ -32,7 +32,7 @@
 
                 {% has_perm 'a4projects.change_project' user project as can_change_project %}
                 {% if can_change_project %}
-                    <a href="{% url 'dashboard-project-edit' project.slug %}" class="btn btn-dark btn-primary btn-sm">
+                    <a href="{% url 'a4dashboard:project-edit' project.slug %}" class="btn btn-dark btn-primary btn-sm">
                         <i class="fa fa-edit"></i> {% trans 'edit' %}
                     </a>
                 {% endif %}
