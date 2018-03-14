@@ -8,9 +8,6 @@
         <div class="list-group">
             <a href="{% url 'a4dashboard:project-list' organisation_slug=view.organisation.slug %}" class="list-group-item {% if request.resolver_match.url_name == 'project-list' %}active{% endif %}">{% trans "Projects" %}</a>
         </div>
-        <a href="{% url 'a4dashboard:blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary btn-wide">
-                {% trans 'New Project' %}
-        </a>
     </div>
     <div class="col-md-9">
         <div class="">

@@ -18,7 +18,6 @@
         border-left: 2px solid $brand-primary;
         color: $brand-primary;
     }
-
 }
 
 .dashboard-left-nav-header {
@@ -28,5 +27,9 @@
     margin: 0;
     padding: 15px 15px 15px 10px;
     border-bottom: 1px solid white;
+}
 
+.dashboard-nav-btn {
+    margin-bottom: 30px;
+    font-size: 16px;
 }

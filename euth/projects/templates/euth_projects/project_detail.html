@@ -5,6 +5,19 @@
 {% block extra_js %}
 <script src="{% static 'euth_projects/timeline-popover.js' %}"></script>
 {% endblock %}
+
+{% block extra_messages %}
+    {{ block.super }}
+
+    {% if view.project.is_draft %}
+        <div class="alert alert-warning alert-top" role="alert">
+            <div class="container-narrow alert-text">
+                {% trans 'This project is in not published yet.' %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 {% include 'euth_projects/includes/project_hero_unit.html' with project=view.project %}
 {% with view.project.phases as phases %}

@@ -2,7 +2,8 @@
 {% load i18n %}
 
 {% block dashboard_content %}
-    <div class="row dashboard-content">
+<div class="dashboard-content">
+    <div class="row">
         <div class="col-md-3 dashboard-left-nav">
             <h2 class="dashboard-left-nav-header">{{ project.name }}</h2>
             <div class="list-group">
@@ -42,4 +43,5 @@
             {% include "a4dashboard/includes/preview.html" with project=project %}
         </div>
     </div>
+</div>
 {% endblock %}
