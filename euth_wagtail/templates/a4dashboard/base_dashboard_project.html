@@ -5,7 +5,7 @@
 <div class="dashboard-content">
     <div class="row">
         <div class="col-md-3 dashboard-left-nav">
-            <h2 class="dashboard-left-nav-header">{{ project.name }}</h2>
+            <h2 class="dashboard-left-nav-header">{% trans 'Project' %}: {{ project.name }}</h2>
             <div class="list-group">
                 {% for item in dashboard_menu.project %}
                 <a href="{{ item.url }}"
@@ -19,7 +19,7 @@
             </div>
 
             {% for module_menu in dashboard_menu.modules %}
-            <h2 class="dashboard-left-nav-header">{{ module_menu.module.name }}</h2>
+            <h2 class="dashboard-left-nav-header">{% trans 'Module'%}: {{ module_menu.module.name }}</h2>
             <div class="list-group">
                 {% for item in module_menu.menu %}
                     <a href="{{ item.url }}"
