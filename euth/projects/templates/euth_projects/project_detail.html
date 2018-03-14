@@ -100,8 +100,8 @@
         </div>
     </article>
     <article id="participation" class="tab-panel active">
-        {% url 'offlineevent-detail' pk=object.pk as url %}
-        {% if not request.get_full_path == url %}
+        {% url 'offlineevent-detail' pk=object.pk as offlineevent_url %}
+        {% if not request.get_full_path == offlineevent_url %}
         <div class="tab-panel-description">
             {% if not view.phase %}
               {% trans 'Welcome!' as title %}
