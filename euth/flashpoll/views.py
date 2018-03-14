@@ -21,14 +21,14 @@ class FlashpollLoadMixin:
         if not self.request.user.is_anonymous():
             useremail = self.request.user.email
 
-        context = {
-            'url': '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
+        url = '{base_url}/{language}/poll/{poll_id}?userId={mail}'.format(
                 base_url=settings.FLASHPOLL_URL,
                 language=get_language(),
                 poll_id=self.get_object().key,
-                mail=useremail
-            )
-        }
+                mail=useremail)
+
+        context = dict(flashpoll_url=url)
+
         context['pollid'] = self.get_object().key
         context['module_settings'] = "euth_flashpoll"
 

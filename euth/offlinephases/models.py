@@ -1,12 +1,15 @@
+from autoslug import AutoSlugField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.utils import functional
+from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4 import transforms
 from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.phases import models as phase_models
+from adhocracy4.projects import models as project_models
 
 from . import validators
 
@@ -44,9 +47,30 @@ class Offlinephase(base.TimeStampedModel):
         return self.project.organisation
 
 
+class OfflineEvent(base.TimeStampedModel):
+    slug = AutoSlugField(populate_from='name', unique=True)
+    name = models.CharField(max_length=120, verbose_name=_('Title'))
+    date = models.DateTimeField(verbose_name=_('Date'))
+    description = RichTextUploadingField(
+        config_name='image-editor', verbose_name=_('Description'))
+    project = models.ForeignKey(
+        project_models.Project, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        self.description = transforms.clean_html_field(
+            self.description, 'image-editor')
+        super().save(*args, **kwargs)
+
+
 def document_path(instance, filename):
-    return 'documents/offlinephase_{}/{}'.format(
-        instance.offlinephase.pk, filename)
+    return 'documents/offlineevent_{}/{}'.format(
+        instance.offlineevent.pk, filename)
 
 
 class FileUpload(base.TimeStampedModel):
@@ -55,3 +79,11 @@ class FileUpload(base.TimeStampedModel):
         upload_to=document_path,
         validators=[validators.validate_file_type_and_size])
     offlinephase = models.ForeignKey(Offlinephase)
+
+
+class OfflineEventFileUpload(base.TimeStampedModel):
+    title = models.CharField(max_length=256)
+    document = models.FileField(
+        upload_to='offlineevents/documents',
+        validators=[validators.validate_file_type_and_size])
+    offlineevent = models.ForeignKey(OfflineEvent)

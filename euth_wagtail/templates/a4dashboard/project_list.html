@@ -14,7 +14,7 @@
     </div>
 
     {% if project_list|length > 0 %}
-    <ul class="dashboard-projects-list">
+    <ul class="dashboard-list">
         {% for project in project_list %}
             {% include "a4dashboard/includes/project_list_item.html" with project=project %}
         {% endfor %}
