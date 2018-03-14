@@ -14,3 +14,5 @@ test_db.sqlite3
 /pyvenv.cfg
 /webpack-stats.json
 /euth_wagtail/settings/local.py
+/.pytest_cache/
+/pip-selfcheck.json
