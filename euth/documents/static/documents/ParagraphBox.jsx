@@ -5,7 +5,7 @@ var React = require('react')
 var ReactDOM = require('react-dom')
 var update = require('immutability-helper')
 var django = require('django')
-var FlipMove = require('react-flip-move')
+var FlipMove = require('react-flip-move').default
 
 class ParagraphBox extends React.Component {
   constructor (props) {
