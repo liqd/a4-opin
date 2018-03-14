@@ -49,7 +49,8 @@
   },
   "license": "AGPL-3.0+",
   "scripts": {
-    "build": "webpack --config ./webpack.prod.js --progress --colors",
+    "build": "webpack --config ./webpack.prod.js",
+    "build:dev": "webpack --config ./webpack.dev.js --progress --colors",
     "watch": "webpack --config ./webpack.dev.js --progress --colors --watch",
     "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
     "precommit": "make lint"
