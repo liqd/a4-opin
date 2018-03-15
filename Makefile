@@ -84,6 +84,7 @@ locales:
 	$(VIRTUAL_ENV)/bin/python manage.py compilemessages
 
 .PHONY: release
+release: export DJANGO_SETTINGS_MODULE ?= euth_wagtail.settings.build
 release:
 	npm install --silent
 	npm run build
