@@ -8,7 +8,7 @@ test_db.sqlite3
 *.mo
 /media
 .sass-cache
-/env/
+/venv/
 /euth_wagtail/static/bundles
 /node_modules
 /pyvenv.cfg

@@ -1,6 +1,6 @@
 all: help
 
-VIRTUAL_ENV ?= env
+VIRTUAL_ENV ?= venv
 SOURCE_DIRS = euth euth_wagtail home tests
 
 help:
