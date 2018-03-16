@@ -1,10 +1,5 @@
 .formset__form__category {
     position: relative;
-
-    input {
-        padding-right: 1.5em;
-        width: 100%;
-    }
 }
 
 .formset__template {
@@ -19,10 +14,6 @@
         right: 0.5em;
         top: 0.6em;
         color: $gray;
-    }
-
-    &:focus ~ .category-formset__delete-label {
-        // @include fake-focus;
     }
 
     &:checked ~ label {
