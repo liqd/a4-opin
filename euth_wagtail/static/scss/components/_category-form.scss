@@ -1,42 +1,4 @@
-.category-form {
-    position: relative;
-    height: 47px;
-
-    .category-text {
-        padding-left: 63px;
-    }
-
-    .category__delete-label {
-        @include rem(height, 48px);
-        @include rem(padding, 12px 20px);
-
-        color: white;
-        position: absolute;
-        margin: 0;
-        left: 0;
-    }
-
-    .category__delete {
-        @extend .sr-only;
-
-        &:checked ~ input[type="text"] {
-            text-decoration: line-through;
-            color: $brand-danger;
-        }
-    }
-}
-
-.categories-form {
-    @include rem(margin-bottom, 40px);
-}
-
-.formset__template {
-    display: none;
-}
-
-
-
-.formset__form {
+.formset__form__category {
     position: relative;
 
     input {
@@ -50,12 +12,17 @@
 }
 
 .formset__delete {
+    @extend .sr-only;
 
-    & ~ .formset__delete-label {
+    & ~ .category-formset__delete-label {
         position: absolute;
         right: 0.5em;
         top: 0.6em;
         color: $gray;
+    }
+
+    &:focus ~ .category-formset__delete-label {
+        // @include fake-focus;
     }
 
     &:checked ~ label {
@@ -67,5 +34,3 @@
         text-decoration: line-through;
     }
 }
-
-
