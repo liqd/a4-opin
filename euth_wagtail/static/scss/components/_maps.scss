@@ -75,3 +75,22 @@
         }
     }
 }
+
+.marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: rgba($brand-brand1, 0.6);
+
+    div {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+        text-align: center;
+        border-radius: 15px;
+        font-size: 12px;
+        background-color: $brand-brand1;
+        color: #fff;
+        line-height: 30px;
+    }
+}
