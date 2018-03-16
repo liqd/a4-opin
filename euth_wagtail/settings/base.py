@@ -420,7 +420,7 @@ A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
 
 A4_CATEGORIZABLE = (
     ('euth_ideas', 'idea'),
-    ('euth_mapideas', 'mapidea')
+    ('euth_maps', 'mapidea')
 )
 
 A4_COMMENTABLES = (
