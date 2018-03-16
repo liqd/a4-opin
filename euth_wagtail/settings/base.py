@@ -344,6 +344,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/typeahead.js/dist'),
     os.path.join(BASE_DIR, 'node_modules/highcharts/js'),
     os.path.join(BASE_DIR, 'node_modules/highcharts/css'),
+    os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
     os.path.join(PROJECT_DIR, 'static'),
     os.path.join(PROJECT_DIR, 'static/bundles'),
 ]
