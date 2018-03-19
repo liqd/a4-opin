@@ -2,6 +2,7 @@
     position: relative;
 
     input {
+        @extend .form-control;
         @include rem(padding-right, 20px);
         width: 100%;
     }
