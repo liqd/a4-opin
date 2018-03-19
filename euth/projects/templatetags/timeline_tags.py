@@ -17,4 +17,4 @@ def get_sorted_date_items(project):
 
 @register.assignment_tag
 def get_past_phases_ids(project):
-    return project.past_phases.values('id')
+    return project.past_phases.values_list('id', flat=True)

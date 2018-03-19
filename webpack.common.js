@@ -45,7 +45,13 @@ module.exports = {
     ],
     user_search: [
       './euth/users/static/users/js/user_search.js'
-    ]
+    ],
+    leaflet: [
+      'leaflet',
+      'leaflet/dist/leaflet.css',
+      'leaflet.markercluster',
+      'leaflet.markercluster/dist/MarkerCluster.css'
+    ],
   },
   output: {
     libraryTarget: 'var',
