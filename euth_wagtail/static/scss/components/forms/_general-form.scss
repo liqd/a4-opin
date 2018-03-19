@@ -74,6 +74,10 @@
     font-size: $font-size-small;
 }
 
+.form-hint {
+    @extend .form-help-text;
+}
+
 .form-control {
     &,
     &:focus {
