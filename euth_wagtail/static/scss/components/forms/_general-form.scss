@@ -76,6 +76,7 @@
 
 .form-hint {
     @extend .form-help-text;
+    @extend p;
 }
 
 .form-control {
