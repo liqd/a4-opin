@@ -13,7 +13,7 @@
             <span>{{ error }}</span>
             {% endfor %}
 
-            <form enctype="multipart/form-data" action="{{ request.path }}" method="post" id="project-create-form">
+            <form enctype="multipart/form-data" class="general-form" action="{{ request.path }}" method="post" id="project-create-form">
                 {% csrf_token %}
 
                 {% include 'a4forms/includes/form_field.html' with field=form.name %}
