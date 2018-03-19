@@ -24,7 +24,6 @@
 .dashboard-header-indicator {
     color: white;
     padding: 1px 7px 2px 7px;
-
 }
 
 .dashboard-header-no-tabs {
@@ -34,6 +33,7 @@
 .dashboard-header-tab {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    border-top: 5px solid $brand-brand5;
 
     &.active {
         border-top: 5px solid $brand-brand2;
