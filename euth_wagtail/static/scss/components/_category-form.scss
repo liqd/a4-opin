@@ -1,18 +1,23 @@
-.formset__form__category {
+.category-formset__form__category {
     position: relative;
+
+    input {
+        @include rem(padding-right, 20px);
+        width: 100%;
+    }
 }
 
-.formset__template {
+.category-formset__template {
     display: none;
 }
 
-.formset__delete {
+.category-formset__delete {
     @extend .sr-only;
 
     & ~ .category-formset__delete-label {
         position: absolute;
-        right: 0.5em;
-        top: 0.6em;
+        @include rem(right, 7px);
+        @include rem(top, 7px);
         color: $gray;
     }
 
