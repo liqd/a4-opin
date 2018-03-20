@@ -446,3 +446,7 @@ A4_DASHBOARD = {
     'PROJECT_DASHBOARD_CLASS': 'adhocracy4.dashboard.ProjectDashboard',
     'BLUEPRINTS': 'euth.blueprints.blueprints.blueprints'
 }
+
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_HTTPONLY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
