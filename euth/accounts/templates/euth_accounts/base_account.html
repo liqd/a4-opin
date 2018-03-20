@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n thumbnail avatar %}
+
+{% block meta_viewport %}{% endblock %}
+
+{% block content %}
+<nav class="nav navbar-default dashboard-header dashboard-header-no-tabs">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <div class="dashboard-header-indicator" id="dLabel">
+                <span class="dashboard-header-logo">
+                    <img src="{% get_avatar request.user 'avatar_small' %}" alt="">
+                </span>
+                <span class="dropdown-title">{{ request.user.username }}</span>
+            </div>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row dashboard-content">
+        <div class="col-md-3 dashboard-left-nav">
+            <h2 class="dashboard-left-nav-header">{% trans 'Account Settings' %}</h2>
+            <div class="list-group">
+                {% with request.resolver_match.url_name as url_name %}
+                <a href="{% url 'account-profile' %}"
+                   class="list-group-item list-group-item-heading {% if url_name == 'account-profile' %}active{% endif %}">
+                    <i class="fa fa-user" aria-hidden="true"></i> <span>{% trans 'Edit profile' %}</span>
+                </a>
+                <a href="{% url 'account_change_password' %}"
+                   class="list-group-item list-group-item-heading {% if url_name == 'account_change_password' %}active{% endif %}">
+                    <i class="fa fa-lock"></i>
+                    <span>{% trans "Change Password" %}</span>
+                </a>
+                <a href="{% url 'account_email' %}"
+                   class="list-group-item list-group-item-heading {% if url_name == 'account_email' %}active{% endif %}">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>{% trans 'E-mail Addresses' %}</span>
+                </a>
+                <a href="{% url 'socialaccount_connections' %}"
+                   class="list-group-item list-group-item-heading {% if url_name == 'socialaccount_connections' %}active{% endif %}">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>{% trans 'Account Connections' %}</span>
+                </a>
+                {% endwith %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% block account_content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

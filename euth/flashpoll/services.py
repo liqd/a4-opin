@@ -9,7 +9,7 @@ from requests.auth import HTTPBasicAuth
 
 
 def send_to_flashpoll(data, project):
-    if 'save_draft' in data and data['current_preview'] == 'True':
+    if 'save' in data and data['current_preview'] == 'True':
         # Handling unpublish
         url_poll = '{base_url}/poll/{poll_id}/opin/stop'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
@@ -52,21 +52,21 @@ def send_to_flashpoll(data, project):
         jsonGenerator['campaign'] = 'default'
         # location
         jsonGenerator['geofenceLocation'] = data[
-            'module_settings-geofenceLocation']
+            'geofenceLocation']
         jsonGenerator['geofenceRadius'] = 0
         jsonGenerator['geofenceId'] = ''
         # questions
         q = 1
         questions = []
-        question_key = "module_settings-question_"+str(q)+"_questionType"
+        question_key = "question_"+str(q)+"_questionType"
         while question_key in data:
             question = {}
             question['questionText'] = data[
-                "module_settings-question_"+str(q)+"_questionText"]
+                "question_"+str(q)+"_questionText"]
             question['orderId'] = q
             question['questionType'] = data[
-                "module_settings-question_"+str(q)+"_questionType"]
-            if "module_settings-question_"+str(q)+"_mandatory" in data:
+                "question_"+str(q)+"_questionType"]
+            if "question_"+str(q)+"_mandatory" in data:
                 question['mandatory'] = True
             else:
                 question['mandatory'] = False
@@ -74,19 +74,19 @@ def send_to_flashpoll(data, project):
             # answers
             a = 1
             answers = []
-            answer_key = "module_settings-question_" + \
+            answer_key = "question_" + \
                 str(q)+"_choice_"+str(a)+"_answerText"
             while answer_key in data:
                 answer = {}
                 answer['answerText'] = data[
-                    "module_settings-question_"
+                    "question_"
                     + str(q)
                     + "_choice_"+str(a)
                     + "_answerText"
                 ]
                 answer['orderId'] = a
                 answer['mediaURL'] = ''
-                if (data["module_settings-question_"
+                if (data["question_"
                          + str(q)
                          +
                          "_questionType"] == "FREETEXT"):
@@ -95,18 +95,18 @@ def send_to_flashpoll(data, project):
                     answer['freetextAnswer'] = False
                 answers.append(answer)
                 a = a + 1
-                answer_key = "module_settings-question_" + \
+                answer_key = "question_" + \
                     str(q)+"_choice_"+str(a)+"_answerText"
             question['answers'] = answers
             questions.append(question)
             q = q + 1
-            question_key = "module_settings-question_" + \
+            question_key = "question_" + \
                 str(q)+"_questionType"
         jsonGenerator['questions'] = questions
         json_data = json.dumps(jsonGenerator)
         url_poll = '{base_url}/poll/{poll_id}/opin'.format(
             base_url=settings.FLASHPOLL_BACK_URL,
-            poll_id=data['module_settings-key']
+            poll_id=data['key']
         )
 
         # Handle post
@@ -172,30 +172,31 @@ def fp_context_data_for_update_view(context, view):
     return context
 
 
-def fp_context_data(module_settings):
-    data = dict(module_settings.data)
+def fp_context_data(form):
+    data = dict(form.data)
+
     # case submitted
-    if ('save_draft' in data) or ('publish' in data):
+    if ('save' in data) or ('publish' in data):
         jsonGenerator = {}
         jsonGenerator['descriptionMediaURLs'] = [""]
         jsonGenerator['keywords'] = []
         jsonGenerator['resultVisibility'] = 0
         # location
         jsonGenerator['geofenceLocation'] = data[
-            'module_settings-geofenceLocation']
+            'geofenceLocation']
         # questions
         q = 1
         questions = []
-        question_key = "module_settings-question_"+str(q)+"_questionType"
+        question_key = "question_"+str(q)+"_questionType"
         while question_key in data:
             question = {}
             question['questionText'] = data[
-                "module_settings-question_"+str(q)+"_questionText"]
+                "question_"+str(q)+"_questionText"]
             question['orderId'] = q
             question['questionType'] = data[
-                "module_settings-question_"+str(q)+"_questionType"]
+                "question_"+str(q)+"_questionType"]
 
-            if "module_settings-question_"+str(q)+"_mandatory" in data:
+            if "question_"+str(q)+"_mandatory" in data:
                 question['mandatory'] = True
             else:
                 question['mandatory'] = False
@@ -204,12 +205,12 @@ def fp_context_data(module_settings):
             # answers
             a = 1
             answers = []
-            answer_key = "module_settings-question_" + \
+            answer_key = "question_" + \
                 str(q)+"_choice_"+str(a)+"_answerText"
             while answer_key in data:
                 answer = {}
                 answer['answerText'] = data[
-                    "module_settings-question_"
+                    "question_"
                     + str(q)
                     + "_choice_"
                     + str(a)
@@ -217,7 +218,7 @@ def fp_context_data(module_settings):
                 answer['orderId'] = a
                 answer['mediaURL'] = ''
                 if (data[
-                        "module_settings-question_"
+                        "question_"
                         + str(q)
                         + "_questionType"] == "FREETEXT"):
                     answer['freetextAnswer'] = True
@@ -226,23 +227,23 @@ def fp_context_data(module_settings):
 
                 answers.append(answer)
                 a = a + 1
-                answer_key = "module_settings-question_" + \
+                answer_key = "question_" + \
                     str(q)+"_choice_"+str(a)+"_answerText"
 
             question['answers'] = answers
             questions.append(question)
             q = q + 1
-            question_key = "module_settings-question_"+str(q)+"_questionType"
+            question_key = "question_"+str(q)+"_questionType"
 
         jsonGenerator['questions'] = questions
         poll = jsonGenerator
-        module_settings.data._mutable = True
-        module_settings.data['module_settings-poll'] = json.dumps(poll)
+        form.data._mutable = True
+        form.data['poll'] = json.dumps(poll)
 
     else:
         # case edit
-        if 'key' in module_settings.initial:
-            pollid = module_settings.initial['key']
+        if 'key' in form.initial and not form.initial['key'] == '':
+            pollid = form.initial['key']
             if pollid:
                 url_poll = '{base_url}/poll/{poll_id}'.format(
                     base_url=settings.FLASHPOLL_BACK_URL,
@@ -264,7 +265,8 @@ def fp_context_data(module_settings):
             poll = {
                 'keywords': [''],
                 'shortDescription': '',
-                'geofenceLocation': '', 'title': '',
+                'geofenceLocation': '',
+                'title': '',
                 'concludeMessage': '',
                 'questions': [
                     {
@@ -294,48 +296,48 @@ def fp_context_data(module_settings):
                 'descriptionMediaURLs': ['']
             }
 
-    module_settings.fields['poll'] = forms.CharField(
+    form.fields['poll'] = forms.CharField(
         widget=forms.Textarea)
-    module_settings.initial['poll'] = json.dumps(poll)
+    form.initial['poll'] = json.dumps(poll)
 
     # geofenceLocation
-    module_settings.fields['geofenceLocation'] = forms.CharField(
+    form.fields['geofenceLocation'] = forms.CharField(
         widget=forms.Textarea, label='Location', required=True)
-    module_settings.initial['geofenceLocation'] = poll['geofenceLocation']
+    form.initial['geofenceLocation'] = poll['geofenceLocation']
     # questions
     for question in poll['questions']:
         q = question['orderId']
-        module_settings.fields[
+        form.fields[
             'question_'+str(q)+'_questionText'] = forms.CharField(
                 label='Question '+str(q), max_length=800)
-        module_settings.initial[
+        form.initial[
             'question_'+str(q)+'_questionText'] = question['questionText']
-        module_settings.fields['question_'
-                               + str(q)
-                               + '_questionType'] = forms.ChoiceField(
+        form.fields['question_'
+                    + str(q)
+                    + '_questionType'] = forms.ChoiceField(
             label='Type', widget=forms.Select(), choices=(
                 [('CHECKBOX', 'MULTIPLE'),
                  ('RADIO', 'SINGLE'),
                  ('FREETEXT', 'OPEN'),
                  ('ORDER', 'RANKING'), ]), initial='3', required=True)
-        module_settings.initial[
+        form.initial[
             'question_'+str(q)+'_questionType'] = question['questionType']
-        module_settings.fields[
+        form.fields[
             'question_'+str(q)+'_mandatory'] = forms.BooleanField(
                 label='Mandatory', required=False)
-        module_settings.initial[
+        form.initial[
             'question_'+str(q)+'_mandatory'] = question['mandatory']
 
         for answer in question['answers']:
             a = answer['orderId']
-            module_settings.fields[
+            form.fields[
                 'question_'
                 + str(q) +
                 '_choice_'
                 + str(a)
                 + '_answerText'] = forms.CharField(
                     label='Choice '+str(a), max_length=800)
-            module_settings.initial[
+            form.initial[
                 'question_'
                 + str(q)
                 + '_choice_'

@@ -12,7 +12,7 @@
 
         <div class="blueprint-description border-bottom">
             {{ blueprint.description | linebreaks }}
-            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+            <a href="{% url 'a4dashboard:project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
             {% trans 'Use this template' %}
             </a>
         </div>
@@ -32,17 +32,6 @@
                           </div>
                     </li>
                 {% endfor %}
-                    <li class="phase-description">
-                          {% get_offlinephase as phase %}
-                          <span class="icon fa-stack fa-3x">
-                            <i class="fa fa-circle fa-stack-2x offlinephase"></i>
-                            <i class="fa fa-{{ phase.icon }} fa-fw fa-stack-1x offlinephase" aria-hidden="true"></i>
-                          </span>
-                          <div class="description">
-                            <strong>Optional</strong><p>{{ phase.description }}</p>
-                          </div>
-                    </li>
-
             </ul>
         </div>
 
@@ -91,7 +80,7 @@
         {% endwith %}
 
         <div class="blueprint-footer">
-            <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+            <a href="{% url 'a4dashboard:project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
             {% trans 'Use this template' %}
             </a>
         </div>

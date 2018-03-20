@@ -1,51 +1,46 @@
-{% load static i18n form_tags flashpoll_form_tags widget_tweaks %}
+{% load static i18n flashpoll_form_tags widget_tweaks %}
 
 <link rel="stylesheet" href="{% static 'highcharts.css' %}">
 <script src="{% static 'highcharts.js' %}"></script>
+<script src="{% static 'js/flashpoll.js' %}"></script>
 <script src="{% static 'js/flashpoll_result.js' %}"></script>
 
 <article id="result"
-         class="flashpoll tab-panel"
+         class="flashpoll"
          data-api-key="{% api_key %}"
          data-poll="{{ poll|get_simplejson }}"
          data-poll-result="{{ pollresult|get_simplejson }}">
 
-    <div class="form-section">
-        <h3 class="form-section-heading">{% trans 'Result '%}</h3>
-        <div class="form-section-fields">
+    <h1 class="dashboard-content-heading">{% trans 'Answers and Export'%}</h1>
+    <div class="">
 
-            <div class="form-group{% if field.errors %} has-error{% endif %}">
-                <label for="{{form.project.result.id_for_label}}">{{ form.project.result.label }}</label>
-                <p class='form-help-text'>{{ form.project.result.help_text }}</p>
-                {% render_field form.project.result class="form-control" %}
-                <span class="help-block">{{ error }}</span>
-            </div>
-            {% if poll %}
-                <div class="download-button">
-                    <i class="fa fa-download fa-2x" tooltip="Download" tooltip-popup-delay="1000" tooltip-trigger="Download" tooltip-placement="left" onclick="exportResults({{pollresults|get_simplejson}}, {{poll.title|get_simplejson}})" tabindex="-1"></i>
+        {% if pollresult.noOfReceivedResults != 0 %}
+            {% for question in poll.questions %}
+                {% if question.questionType != 'ORDER' %}
+                    Question type: <b>{{ question.questionType }}</b>
+                {% else  %}
+                    Question type: <b>RANKING</b>
+                {% endif %}
+                {% if question.questionType != 'FREETEXT' %}
+                <div class="form-group">
+                    <div id="container-{{question.orderId}}" class="question-result"></div>
                 </div>
-            {% endif %}
- 
-			{% if pollresult.noOfReceivedResults != 0 %}
-				{% for question in poll.questions %}
-                    {% if question.questionType != 'ORDER' %}
-                        Question type: <b>{{ question.questionType }}</b>
-                    {% else  %}
-                        Question type: <b>RANKING</b>
-                    {% endif %}
-					{% if question.questionType != 'FREETEXT' %}
-					<div class="form-group">
-						<div id="container-{{question.orderId}}" class="question-result"></div>
-					</div>
-					{% else  %}
-					<div class="form-group">
-						<label >{{ question.questionText }}</label>
-						<p class='form-help-text'>Visualization not implemented for this type of question</p>
-					</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-        </div>
+                {% else  %}
+                <div class="form-group">
+                    <label >{{ question.questionText }}</label>
+                    <p class='form-help-text'>Visualization not implemented for this type of question</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if poll %}
+            <button
+                class="btn btn-primary"
+                onclick="exportResults({{pollresults|get_simplejson}}, {{poll.title|get_simplejson}})">
+                <i class="fa fa-download" ></i> {% trans 'Download Answers' %}
+            </button>
+        {% endif %}
     </div>
 
 </article>

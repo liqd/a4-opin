@@ -1,0 +1,25 @@
+{% extends "a4dashboard/base_project_list.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Projects" %} &mdash; {{ block.super }}{% endblock%}
+
+{% block project_list %}
+    <div class="dashboard-content-header">
+        <h1 class="dashboard-content-left dashboard-content-heading">{% trans 'Projects' %}</h1>
+        <div class="dashboard-content-right">
+            <a href="{% url 'a4dashboard:blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary">
+                {% trans 'New Project' %}
+            </a>
+        </div>
+    </div>
+
+    {% if project_list|length > 0 %}
+    <ul class="dashboard-list">
+        {% for project in project_list %}
+            {% include "a4dashboard/includes/project_list_item.html" with project=project %}
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>{% trans 'We could not find any projects.' %}</p>
+    {% endif %}
+{% endblock %}

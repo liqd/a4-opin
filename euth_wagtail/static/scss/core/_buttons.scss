@@ -87,7 +87,8 @@ span.btn-dark:focus {
 
     &:hover,
     &:focus {
-        color: $gray-light;
+        color: $list-group-link-hover-color;
+        background-color: $list-group-hover-bg;
     }
 }
 
@@ -138,7 +139,7 @@ span.btn-dark:focus {
     right: 0;
     transform-origin: 100% 0;
     top: 40%;
-    z-index: 100;
+    z-index: 401;
 
     &:hover,
     &:focus {
@@ -227,4 +228,38 @@ span.btn-dark:focus {
 
 .btngroup-primary {
     background-color: $brand-brand1;
+}
+
+.btn-primary:disabled {
+    background-color: $gray-lighter;
+    color: $gray-darker;
+
+    &:focus,
+    &:hover,
+    &:active,
+    &:visited {
+        background-color: $gray-lighter;
+        color: $gray-darker;
+    }
+}
+
+.btn-wide {
+    width: 100%;
+}
+
+.btn--primary {
+    @extend .btn-primary;
+}
+
+.btn--full {
+    @extend .btn-wide;
+}
+
+.btn--light {
+    @extend .btn-gray;
+    @include rem(font-size, $font-size-small);
+}
+
+.btn--attached-top {
+    margin-bottom: 10px;
 }

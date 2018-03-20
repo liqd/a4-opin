@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="blueprint-footer">
-                        <a href="{% url 'dashboard-project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
+                        <a href="{% url 'a4dashboard:project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}" class="btn btn-primary">
                             {% trans 'Use this template' %}
                         </a>
                         <button class="btn-link" type="button" data-toggle="modal" data-target="#dst-infopage-{{ blueprint_slug }}">{% trans 'Learn More' %}</button>

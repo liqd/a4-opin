@@ -1,0 +1,18 @@
+{% extends "a4dashboard/base_dashboard_project.html" %}
+{% load i18n react_user_list widget_tweaks %}
+
+{% block dashboard_project_content %}
+<h1 class="dashboard-content-heading">{% trans 'Moderators' %}</h1>
+
+<div class="row">
+    <div class="form-group">
+        <label for="{{ form.user.id_for_label }}">{{ form.user.label }}</label>
+        <div class="form-hint"> {{ form.user.help_text }} </div>
+        {{ form.user|add_class:'form-control' }}
+        {{ form.user.errors }}
+    </div>
+</div>
+{% react_user_list project.moderators.all project 'moderators' %}
+{{ form.media }}
+
+{% endblock %}

@@ -15,6 +15,7 @@ from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
+from euth.accounts import urls as accounts_urls
 from euth.blueprints import urls as blueprints_urls
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
@@ -24,7 +25,7 @@ from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
-from euth.offlinephases import urls as offlinephase_urls
+from euth.offlinephases import urls as offlinephases_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as project_urls
 from euth.projects.api import ProjectViewSet
@@ -64,18 +65,17 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    url(r'^accounts/', include('allauth.account.urls')),
-    url(r'^accounts/social/', include('allauth.socialaccount.urls')),
+    url(r'^accounts/', include(accounts_urls)),
     url(r'^dashboard/', include(dashboard_urls)),
     url(r'^profile/', include(user_urls)),
     url(r'^orgs/', include(organisations_urls)),
     url(r'^projects/', include(project_urls)),
     url(r'^projects/', include(memberships_project_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),
+    url(r'^offlineevents/', include(offlinephases_urls)),
     url(r'^ideas/', include(ideas_urls)),
     url(r'^maps/', include(maps_urls)),
     url(r'^memberships/', include(memberships_urls)),
-    url(r'^offlinephases/', include(offlinephase_urls)),
     url(r'^blueprints/', include(blueprints_urls)),
     url(r'^jsi18n/$', javascript_catalog,
         js_info_dict, name='javascript-catalog'),

@@ -1,0 +1,18 @@
+{% extends "a4dashboard/base_dashboard.html" %}
+{% load i18n %}
+
+{% block dashboard_content %}
+<div class="row dashboard-content">
+    <div class="col-md-3 dashboard-left-nav">
+        <h2 class="dashboard-left-nav-header">{% trans "Participation projects" %}</h2>
+        <div class="list-group">
+            <a href="{% url 'a4dashboard:project-list' organisation_slug=view.organisation.slug %}" class="list-group-item {% if request.resolver_match.url_name == 'project-list' %}active{% endif %}">{% trans "Projects" %}</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="">
+            {% block project_list %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

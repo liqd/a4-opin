@@ -1,35 +1,33 @@
-.category-form {
+.category-formset__form__category {
     position: relative;
-    height: 47px;
 
-    .category-text {
-        padding-left: 63px;
-    }
-
-    .category__delete-label {
-        @include rem(height, 48px);
-        @include rem(padding, 12px 20px);
-
-        color: white;
-        position: absolute;
-        margin: 0;
-        left: 0;
-    }
-
-    .category__delete {
-        @extend .sr-only;
-
-        &:checked ~ input[type="text"] {
-            text-decoration: line-through;
-            color: $brand-danger;
-        }
+    input {
+        @extend .form-control;
+        @include rem(padding-right, 20px);
+        width: 100%;
     }
 }
 
-.categories-form {
-    @include rem(margin-bottom, 40px);
-}
-
-.formset__template {
+.category-formset__template {
     display: none;
+}
+
+.category-formset__delete {
+    @extend .sr-only;
+
+    & ~ .category-formset__delete-label {
+        position: absolute;
+        @include rem(right, 7px);
+        @include rem(top, 7px);
+        color: $gray;
+    }
+
+    &:checked ~ label {
+        color: $brand-danger;
+    }
+
+    &:checked ~ input {
+        color: $brand-danger;
+        text-decoration: line-through;
+    }
 }

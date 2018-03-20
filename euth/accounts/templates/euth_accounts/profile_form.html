@@ -1,0 +1,55 @@
+{% extends "euth_accounts/base_account.html" %}
+{% load widget_tweaks i18n %}
+
+{% block title %}{% trans 'Your user profile' %}{% endblock %}
+{% block account_content %}
+<h1 class="dashboard-content-heading">{% trans 'Your profile' %}</h1>
+
+<div class="general-form">
+    <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+        <p>{% trans 'The information you give in your profile will be shown to all users of OPIN.me.' %}</p>
+        {% csrf_token %}
+        {% for name, fields in form.formsections.items %}
+            <div class="form-section">
+                <h3 class="form-section-heading">{{ name }}</h3>
+                <div class="form-section-fields row">
+                    <div class="col-md-10">
+                        {% for field in form %}
+                            {% if field.name in fields %}
+                                <div class="form-group {% if field.errors %} has-error{% endif %}">
+                                    {% if field|widget_type == 'checkboxinput' %}
+                                        {% if field.help_text %}
+                                            <p class='form-help-text'>{{ field.help_text }}</p>
+                                        {% endif %}
+                                        <label>
+                                            {% render_field field %}
+                                            {{ field.label }}
+                                        </label>
+                                    {% else %}
+                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        {% if field.help_text %}
+                                            <p class='form-help-text'>{{ field.help_text }}</p>
+                                        {% endif %}
+                                        {% render_field field class="form-control" %}
+                                    {% endif %}
+                                    {% if field.errors %}
+                                    <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                        <li> {{ error }} </li>
+                                    {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="form-group">
+          <button type="submit" class="btn btn-sm btn-primary">{% trans 'Save changes'%}</button>
+        </div>
+    </form>
+    {{ form.media }}
+</div>
+{% endblock %}

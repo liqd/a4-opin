@@ -1,0 +1,48 @@
+{% load i18n avatar %}
+<div class="dashboard-content-section">
+    <h2 class="dashboard-content-subheader">{% trans 'Members'%}</h2>
+    {% if member_formset.forms %}
+    <form method="post">
+        {% csrf_token %}
+        {{ member_formset.management_form }}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>{% trans 'Name' %}</th>
+                    <th>{% trans 'Email' %}</th>
+                    <th>{% trans 'Edit' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in member_formset %}
+                <tr>
+                    <td>
+                        <a href="{% url 'profile' form.instance.username %}">
+                            <img src="{% get_avatar form.instance 'org_avatar_medium' %}" alt="" class="circled">
+                            {{ form.instance.username }}
+                        </a>
+                    </td>
+                    <td>
+                        <strong>{{ form.instance.email }}</strong>
+                    </td>
+                    <td>
+                        {{ form.id }}
+                        <div class="radio-action">
+                            {{ form.delete }}
+                            <label for="{{ form.delete.id_for_label }}"
+                                   class="{{ form.delete.label|lower }} radio-label">
+                                <span class="radio-text sr-only">{{ form.delete.label }}</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary" name="submit_action" value="remove_members">{% trans 'submit'%}</button>
+    </form>
+    {% else %}
+    <p>{% trans 'This project has no members yet' %}</p>
+
+    {% endif %}
+</div>

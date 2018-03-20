@@ -1,5 +1,4 @@
 from django.forms import TextInput
-from django.template import Context
 from django.template.loader import get_template
 
 
@@ -26,8 +25,8 @@ class UserSearchInput(TextInput):
         input_field = super().render(name, value, attrs)
 
         template = get_template('euth_users/user_search.html')
-        context = Context({
+        context = {
             'input': input_field,
-        })
+        }
 
         return template.render(context)
