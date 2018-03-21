@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     'adhocracy4.ckeditor.apps.CKEditorConfig',
     'adhocracy4.dashboard.apps.DashboardConfig',
     'adhocracy4.organisations.apps.OrganisationsConfig',
+    'adhocracy4.offlineevents.apps.OfflineEventsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -95,7 +96,6 @@ INSTALLED_APPS = [
     'euth.documents.apps.DocumentConfig',
     'euth.exports.apps.Config',
     'euth.flashpoll.apps.FlashpollConfig',
-    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.blueprints.apps.BlueprintsConfig',
@@ -291,6 +291,7 @@ PARLER_LANGUAGES = {
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
 FILE_ALIASES = {
     '*': {
+        'max_size': 5*10**6,
         'fileformats': (
             ('.png', 'image/png'),
             ('.jpeg', 'image/jpeg'),

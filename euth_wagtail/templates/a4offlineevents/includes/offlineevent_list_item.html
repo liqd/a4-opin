@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="btn-group pull-right dashboard-list-actions" role="group" aria-label="project actions">
-                        <a href="{% url 'offlineevent-detail' object.pk %}" type="button" class="btn btn-gray btn-sm">
+                        <a href="{{ object.get_absolute_url  }}" type="button" class="btn btn-gray btn-sm">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                             {% trans 'View' %}
                         </a>

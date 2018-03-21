@@ -32,7 +32,6 @@
 
     {% with upload_forms.max_num as fileupload_max %}
     <h3>{% trans 'Downloads' %}</h3>
-    {% getAllowedFileTypes as allowed_file_types %}
     <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
     {% for form in upload_forms %}
     <div class="well">

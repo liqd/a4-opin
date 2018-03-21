@@ -13,6 +13,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
+from adhocracy4.offlineevents import urls as offlineevent_urls
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
@@ -25,7 +26,6 @@ from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
-from euth.offlinephases import urls as offlinephases_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as project_urls
 from euth.projects.api import ProjectViewSet
@@ -72,7 +72,7 @@ urlpatterns += i18n_patterns(
     url(r'^projects/', include(project_urls)),
     url(r'^projects/', include(memberships_project_urls)),
     url(r'^paragraphs/', include(paragraph_urls)),
-    url(r'^offlineevents/', include(offlinephases_urls)),
+    url(r'^offlineevents/', include(offlineevent_urls)),
     url(r'^ideas/', include(ideas_urls)),
     url(r'^maps/', include(maps_urls)),
     url(r'^memberships/', include(memberships_urls)),

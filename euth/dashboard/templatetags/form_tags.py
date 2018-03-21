@@ -1,5 +1,4 @@
 from django import template
-from django.conf import settings
 
 from adhocracy4 import phases
 
@@ -23,12 +22,6 @@ def next(some_list, current_index):
 def getPhaseName(type):
     name = phases.content.__getitem__(type).name
     return name
-
-
-@register.assignment_tag
-def getAllowedFileTypes():
-    fileformats = settings.FILE_ALIASES['*']['fileformats']
-    return ', '.join([name for name, mimetype in fileformats])
 
 
 @register.assignment_tag
