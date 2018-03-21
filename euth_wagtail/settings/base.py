@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'micawber.contrib.mcdjango',
 
+    'adhocracy4.files.apps.FilesConfig',
     'adhocracy4.images.apps.ImagesConfig',
     'adhocracy4.forms.apps.FormsConfig',
     'adhocracy4.phases.apps.PhasesConfig',
@@ -288,7 +289,7 @@ PARLER_LANGUAGES = {
 # fixtures
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
-FILE_ALIASES  = {
+FILE_ALIASES = {
     '*': {
         'fileformats': (
             ('.png', 'image/png'),
@@ -302,12 +303,15 @@ FILE_ALIASES  = {
             ('.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
             ('.ppt', 'application/mspowerpoint')
         )
-    }
+    },
+    'offlineevents': {}
 }
 IMAGE_ALIASES = {
     '*': {
         'max_size': 5*10**6,
-        'fileformats': ('image/png', 'image/jpeg', 'image/gif')
+        'fileformats': (('.png', 'image/png'),
+                        ('.jpeg', 'image/jpeg'),
+                        ('.gif', 'image/gif'))
     },
     'heroimage': {'min_resolution': (1300, 600)},
     'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
