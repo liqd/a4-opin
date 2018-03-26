@@ -1,8 +1,8 @@
-.clear-image {
+.clear-file {
     display: none;
 }
 
-.clear-image:checked + img {
+.clear-file:checked + img {
     opacity: 0.2;
     filter: grayscale(100%);
 }

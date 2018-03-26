@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'micawber.contrib.mcdjango',
 
+    'adhocracy4.files.apps.FilesConfig',
     'adhocracy4.images.apps.ImagesConfig',
     'adhocracy4.forms.apps.FormsConfig',
     'adhocracy4.phases.apps.PhasesConfig',
@@ -82,6 +83,7 @@ INSTALLED_APPS = [
     'adhocracy4.ckeditor.apps.CKEditorConfig',
     'adhocracy4.dashboard.apps.DashboardConfig',
     'adhocracy4.organisations.apps.OrganisationsConfig',
+    'adhocracy4.offlineevents.apps.OfflineEventsConfig',
 
     'euth.users.apps.UsersConfig',
     'euth.actions.apps.ActionsConfig',
@@ -94,7 +96,6 @@ INSTALLED_APPS = [
     'euth.documents.apps.DocumentConfig',
     'euth.exports.apps.Config',
     'euth.flashpoll.apps.FlashpollConfig',
-    'euth.offlinephases.apps.OfflinephaseConfig',
     'euth.maps.apps.MapConfig',
     'euth.follows.apps.FollowsConfig',
     'euth.blueprints.apps.BlueprintsConfig',
@@ -288,8 +289,9 @@ PARLER_LANGUAGES = {
 # fixtures
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
-FILE_ALIASES  = {
+FILE_ALIASES = {
     '*': {
+        'max_size': 5*10**6,
         'fileformats': (
             ('.png', 'image/png'),
             ('.jpeg', 'image/jpeg'),
@@ -302,12 +304,15 @@ FILE_ALIASES  = {
             ('.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
             ('.ppt', 'application/mspowerpoint')
         )
-    }
+    },
+    'offlineevents': {}
 }
 IMAGE_ALIASES = {
     '*': {
         'max_size': 5*10**6,
-        'fileformats': ('image/png', 'image/jpeg', 'image/gif')
+        'fileformats': (('.png', 'image/png'),
+                        ('.jpeg', 'image/jpeg'),
+                        ('.gif', 'image/gif'))
     },
     'heroimage': {'min_resolution': (1300, 600)},
     'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},

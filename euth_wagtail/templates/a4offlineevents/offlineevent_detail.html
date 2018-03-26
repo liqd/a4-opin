@@ -8,19 +8,19 @@
 
 {{ object.description |oembed_html }}
 
-{% if object.offlineeventfileupload_set.count > 0 %}
+{% if object.documents.count > 0 %}
 <hr />
 <h4>{% trans 'Downloads' %}</h4>
 <ul>
-{% for fileupload in object.offlineeventfileupload_set.all %}
+{% for document in object.documents.all %}
 <li>
-    <a target="_blank" href="{{ fileupload.document.url }}">{{ fileupload.title }}</a>
+    <a target="_blank" href="{{ document.document.url }}">{{ document.title }}</a>
 </li>
 {% endfor %}
 </ul>
 {% endif %}
 
-{% if object.description == '' and object.offlineeventfileupload_set.count == 0 %}
+{% if object.description == '' and object.documents.count == 0 %}
     <p>{% trans 'No documentation has been provided yet' %}</p>
 {% endif %}
 
