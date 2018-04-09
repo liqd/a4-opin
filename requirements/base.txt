@@ -1,5 +1,5 @@
 git+git://github.com/liqd/adhocracy4.git@9b9d9ef636649ba14e76fc72e5a26ab7f6146db4
-Django==1.11.11 # pyup: <2.0
+Django==1.11.12 # pyup: <2.0
 wagtail==1.13.1 # pyup: <2.0
 feedparser==5.2.1
 python-dateutil==2.7.2
