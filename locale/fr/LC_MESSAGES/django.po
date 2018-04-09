@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,19 +10,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 15:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, "
-"2017\n"
+"Last-Translator: Luca Thüer <l.thueer@liqd.net>, 2018\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: adhocracy4/categories/templates/a4categories/includes/inline_form.html:11
-#: adhocracy4/categories/templates/a4categories/includes/inline_form.html:12
-#: adhocracy4/categories/templates/a4categories/includes/inline_form.html:15
-#: adhocracy4/categories/templates/a4categories/includes/inline_form.html:16
 #: adhocracy4/categories/templates/a4categories/includes/inline_form.html:11
 #: adhocracy4/categories/templates/a4categories/includes/inline_form.html:12
 #: adhocracy4/categories/templates/a4categories/includes/inline_form.html:15
@@ -31,59 +26,50 @@ msgid "Remove category"
 msgstr ""
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
 "In this section, you can create\n"
 "categories. If you create any, users must assign their contributions\n"
 "to one of them. This way, content can be classified."
 msgstr ""
+"Dans cette section, vous pouvez créer\n"
+"catégories Si vous en créez, les utilisateurs doivent affecter leurs contributions\n"
+"à l'un d'eux. De cette façon, le contenu peut être classé."
 
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:20
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:20
 msgid "Add category"
-msgstr ""
+msgstr "Ajouter une catégorie"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:4
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
 msgid "Project Settings"
-msgstr ""
+msgstr "Paramètres du projet"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:15
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:29
 msgid "Missing fields for publication"
-msgstr ""
+msgstr "Champs manquants pour la publication"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: euth_wagtail/templates/a4dashboard/base_form_module.html:18
 #: euth_wagtail/templates/a4dashboard/base_form_project.html:22
 msgid "Save"
-msgstr ""
+msgstr "sauvegarder"
 
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:4
 #: euth_wagtail/templates/a4dashboard/project_list.html:11
 msgid "New Project"
-msgstr ""
+msgstr "Nouveau projet"
 
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
 #: euth/projects/templates/euth_projects/project_detail.html:38
@@ -91,77 +77,64 @@ msgid "Phase"
 msgstr "Phase"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
 msgid "Select"
-msgstr ""
+msgstr "Sélectionner"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
 #: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
 msgid "Missing field for publication"
-msgstr ""
+msgstr "Champ manquant pour la publication"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
 msgid "Preview"
-msgstr ""
+msgstr "Aperçu"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "View"
-msgstr ""
+msgstr "Vue"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:15
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:15
 #, python-format
 msgid "%(value)s from %(max)s"
-msgstr ""
+msgstr "%(value)s de %(max)s "
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 msgid "required fields for publication"
-msgstr ""
+msgstr "champs obligatoires pour la publication"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:26
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:26
 msgid "Publish"
-msgstr ""
+msgstr "Publier"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:30
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:30
 msgid "Unpublish"
-msgstr ""
+msgstr "Annuler la publication"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:4
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:10
 msgid "Create project based on"
-msgstr ""
+msgstr "Créer un projet basé sur"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:26
 msgid ""
 "After saving the draft project you can further customize and edit your "
 "project and eventually publish it."
 msgstr ""
+"Après avoir sauvegardé le projet de projet, vous pouvez personnaliser et "
+"éditer votre projet et éventuellement le publier."
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:29
 msgid "Create draft"
-msgstr ""
+msgstr "Créer une ébauche"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:6
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:14
@@ -169,8 +142,6 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:14
@@ -181,12 +152,10 @@ msgid "Projects"
 msgstr "Projet"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:17
 msgid "Finished"
-msgstr ""
+msgstr "Fini"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
@@ -195,7 +164,6 @@ msgstr ""
 msgid "private"
 msgstr "Privé"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html:36
@@ -208,41 +176,33 @@ msgid "Edit"
 msgstr "Modifier"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
 msgid "Duplicate"
-msgstr ""
+msgstr "Dupliquer"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
-msgstr ""
+msgstr "Nous n'avons trouvé aucun projet."
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: adhocracy4/dashboard/filter.py:11
-#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:71
+#: adhocracy4/dashboard/filter.py:11 euth/contrib/filters.py:71
 msgid "Search"
 msgstr "Rechercher"
 
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
-#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
-msgstr ""
+msgstr "Ce champ est requis"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 msgid "Remove the picture"
 msgstr "Supprimer la photo"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 msgid "Upload a picture"
 msgstr "Importer une photo"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 msgid ""
 "\n"
@@ -251,8 +211,7 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"Votre image sera sauvegardée/supprimée une fois que vous aurez enregistrer "
-"les changements au bas de cette page."
+"Votre image sera sauvegardée/supprimée une fois que vous aurez enregistrer les changements au bas de cette page."
 
 #: adhocracy4/categories/dashboard.py:12
 msgid "Categories"
@@ -260,12 +219,10 @@ msgstr "Catégories/Etiquettes"
 
 #: adhocracy4/categories/dashboard.py:14
 msgid "Edit categories"
-msgstr ""
+msgstr "Modifier les catégories"
 
-#: adhocracy4/categories/fields.py:11
-#: adhocracy4/categories/filters.py:10
-#: adhocracy4/categories/forms.py:33
-#: adhocracy4/exports/mixins.py:149
+#: adhocracy4/categories/fields.py:11 adhocracy4/categories/filters.py:10
+#: adhocracy4/categories/forms.py:33 adhocracy4/exports/mixins.py:149
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "Etiquette"
@@ -274,8 +231,7 @@ msgstr "Etiquette"
 msgid "Comment"
 msgstr "Réaction"
 
-#: adhocracy4/comments/models.py:36
-#: adhocracy4/exports/mixins.py:121
+#: adhocracy4/comments/models.py:36 adhocracy4/exports/mixins.py:121
 msgid "Comments"
 msgstr "Réactions"
 
@@ -297,15 +253,15 @@ msgstr "a été correctement modifié"
 
 #: adhocracy4/dashboard/components/forms/views.py:47
 msgid "Module successfully updated."
-msgstr ""
+msgstr "Module mis à jour avec succès."
 
 #: adhocracy4/dashboard/dashboard.py:13
 msgid "Basic settings"
-msgstr ""
+msgstr "Paramètres de base"
 
 #: adhocracy4/dashboard/dashboard.py:15
 msgid "Edit basic settings"
-msgstr ""
+msgstr "Modifier les paramètres de base"
 
 #: adhocracy4/dashboard/dashboard.py:23
 #: euth/memberships/templates/euth_memberships/invite_base.html:10
@@ -316,7 +272,7 @@ msgstr "Information"
 
 #: adhocracy4/dashboard/dashboard.py:25
 msgid "Edit project information"
-msgstr ""
+msgstr "Modifier les informations du projet"
 
 #: adhocracy4/dashboard/dashboard.py:33
 #: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html:8
@@ -326,49 +282,48 @@ msgstr "Résultats"
 
 #: adhocracy4/dashboard/dashboard.py:35
 msgid "Edit project result"
-msgstr ""
+msgstr "Modifier le résultat du projet"
 
 #: adhocracy4/dashboard/dashboard.py:43
 msgid "Basic information"
-msgstr ""
+msgstr "Informations de base"
 
 #: adhocracy4/dashboard/dashboard.py:45
 msgid "Edit basic module information"
-msgstr ""
+msgstr "Modifier les informations de base du module"
 
 #: adhocracy4/dashboard/dashboard.py:53
 msgid "Phases"
-msgstr ""
+msgstr "Phases"
 
 #: adhocracy4/dashboard/dashboard.py:55
 msgid "Edit phases information"
-msgstr ""
+msgstr "Modifier les informations sur les phases"
 
 #: adhocracy4/dashboard/dashboard.py:64
 msgid "Areasettings"
-msgstr ""
+msgstr "Paramètres de zone"
 
 #: adhocracy4/dashboard/dashboard.py:65
 msgid "Edit areasettings"
-msgstr ""
+msgstr "Modifier les paramètres de zone"
 
 #: adhocracy4/dashboard/filter.py:15
 msgid "Archived"
-msgstr ""
+msgstr "Archivé"
 
-#: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
 msgid "All"
 msgstr "Tous"
 
 #: adhocracy4/dashboard/filter.py:20
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: adhocracy4/dashboard/filter.py:21
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:11
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: adhocracy4/dashboard/forms.py:57
 msgid "All users can participate (public)."
@@ -378,59 +333,58 @@ msgstr "Tous les utilisateurs peuvent participer (processus public)."
 msgid "Only invited users can participate (private)."
 msgstr "Seuls les utilisateurs invités peuvent participer (processus privé)."
 
-#: adhocracy4/dashboard/forms.py:97
-#: adhocracy4/phases/models.py:72
+#: adhocracy4/dashboard/forms.py:97 adhocracy4/phases/models.py:72
 msgid "End date"
-msgstr ""
+msgstr "Date de fin"
 
 #: adhocracy4/dashboard/forms.py:97
 msgid "End time"
-msgstr ""
+msgstr "Heure de fin"
 
-#: adhocracy4/dashboard/forms.py:103
-#: adhocracy4/phases/models.py:70
+#: adhocracy4/dashboard/forms.py:103 adhocracy4/phases/models.py:70
 msgid "Start date"
 msgstr ""
 
 #: adhocracy4/dashboard/forms.py:103
 msgid "Start time"
-msgstr ""
+msgstr "Heure de début"
 
 #: adhocracy4/dashboard/mixins.py:192
 msgid "Project successfully duplicated."
-msgstr ""
+msgstr "Projet dupliqué avec succès."
 
 #: adhocracy4/dashboard/views.py:69
 msgid "Project successfully created."
-msgstr ""
+msgstr "Projet créé avec succès."
 
 #: adhocracy4/dashboard/views.py:154
 msgid "Invalid action"
-msgstr ""
+msgstr "Action invalide"
 
 #: adhocracy4/dashboard/views.py:171
 msgid "Project is already published"
-msgstr ""
+msgstr "Le projet est déjà publié"
 
 #: adhocracy4/dashboard/views.py:181
 msgid "Project cannot be published. Required fields are missing."
 msgstr ""
+"Le projet ne peut pas être publié. Les champs obligatoires sont manquants."
 
 #: adhocracy4/dashboard/views.py:190
 msgid "Project cannot be published."
-msgstr ""
+msgstr "Le projet ne peut pas être publié."
 
 #: adhocracy4/dashboard/views.py:201
 msgid "Project successfully published."
-msgstr ""
+msgstr "Projet publié avec succès."
 
 #: adhocracy4/dashboard/views.py:206
 msgid "Project is already unpublished"
-msgstr ""
+msgstr "Le projet est déjà inédit"
 
 #: adhocracy4/dashboard/views.py:215
 msgid "Project successfully unpublished."
-msgstr ""
+msgstr "Projet avec succès non publié."
 
 #: adhocracy4/exports/mixins.py:18
 msgid "Link"
@@ -448,15 +402,13 @@ msgstr "Evaluation négative"
 msgid "Comment count"
 msgstr ""
 
-#: adhocracy4/exports/mixins.py:161
-#: euth/exports/mixins.py:9
+#: adhocracy4/exports/mixins.py:161 euth/exports/mixins.py:9
 msgid "Location (Longitude)"
-msgstr ""
+msgstr "Emplacement (Longitude)"
 
-#: adhocracy4/exports/mixins.py:163
-#: euth/exports/mixins.py:11
+#: adhocracy4/exports/mixins.py:163 euth/exports/mixins.py:11
 msgid "Location (Latitude)"
-msgstr ""
+msgstr "Emplacement (Latitude)"
 
 #: adhocracy4/exports/mixins.py:165
 msgid "Location label"
@@ -488,8 +440,7 @@ msgstr "{image_name} copyright"
 msgid "Copyright shown in the {image_name}."
 msgstr "Copyright s'appliquant à {image_name}."
 
-#: adhocracy4/images/validators.py:20
-#: euth/offlinephases/validators.py:20
+#: adhocracy4/images/validators.py:20 euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Format non accepté. Les formats acceptés sont {}."
 
@@ -512,15 +463,14 @@ msgstr "La hauteur minimale de l'image doit être de {min_height} pixels "
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr ""
-"Le rapport hauteur/largeur de l'image doit être de {aspect_width}:"
-"{aspect_height}"
+"Le rapport hauteur/largeur de l'image doit être de "
+"{aspect_width}:{aspect_height}"
 
 #: adhocracy4/images/widgets.py:25
 msgid "Select a picture from your local folder."
 msgstr "Choisir une photo à partir de vos fichiers"
 
-#: adhocracy4/maps/admin.py:14
-#: adhocracy4/maps/models.py:11
+#: adhocracy4/maps/admin.py:14 adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Polygone"
 
@@ -529,19 +479,18 @@ msgid ""
 "Enter a valid GeoJSON object. To initialize a new areasetting enter the "
 "string \"false\" without quotation marks."
 msgstr ""
+"Entrez un objet GeoJSON valide. Pour initialiser un nouveau areasetting, "
+"entrez la chaîne \"false\" sans guillemets."
 
-#: adhocracy4/maps/fields.py:16
-#: euth/maps/fields.py:18
+#: adhocracy4/maps/fields.py:16 euth/maps/fields.py:18
 msgid "Geometry as GeoJSON"
 msgstr "Géométrie par GeoJSON"
 
-#: adhocracy4/maps/fields.py:34
-#: euth/maps/fields.py:36
+#: adhocracy4/maps/fields.py:34 euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
 msgstr "Svp placez un repère sur la carte"
 
-#: adhocracy4/maps/fields.py:39
-#: euth/maps/fields.py:41
+#: adhocracy4/maps/fields.py:39 euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
 msgstr "Svp tracez un polygone sur la carte"
 
@@ -569,6 +518,9 @@ msgid ""
 "detail pages. It should briefly state the goal of the module in max. 512 "
 "chars."
 msgstr ""
+"Cette courte description apparaîtra sur l'en-tête des pages de détails du "
+"module et du projet. Il devrait indiquer brièvement l'objectif du module "
+"dans max. 512 caractères."
 
 #: adhocracy4/phases/models.py:64
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -590,7 +542,7 @@ msgstr ""
 #: adhocracy4/projects/admin.py:8
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
 msgid "Project"
-msgstr ""
+msgstr "Projet"
 
 #: adhocracy4/projects/models.py:29
 msgid "Title of your project"
@@ -622,12 +574,12 @@ msgstr "Courte description de votre projet"
 #: adhocracy4/projects/models.py:49
 msgid ""
 "This description should tell participants what the goal of the project is, "
-"how the project’s participation will look like. It will be always visible in "
-"the „Info“ tab on your project’s page."
+"how the project’s participation will look like. It will be always visible in"
+" the „Info“ tab on your project’s page."
 msgstr ""
 "Cette description doit expliquer le but du porjet aux participants, en quoi "
-"consistera la participation. Elle sera toujours présente sur votre page sous "
-"l’onglet info. "
+"consistera la participation. Elle sera toujours présente sur votre page sous"
+" l’onglet info. "
 
 #: adhocracy4/projects/models.py:57
 msgid "Results of your project"
@@ -635,13 +587,13 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:58
 msgid ""
-"Here you should explain what the expected outcome of the project will be and "
-"how you are planning to use the results. If the project is finished you "
+"Here you should explain what the expected outcome of the project will be and"
+" how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 msgstr ""
 "Ici vous devez expliquer quels sont les résultats attendus de votre projet "
-"et comment ils seront utilisés. Si le projet est achevé vous devriez ajouter "
-"un résumé des résultats. "
+"et comment ils seront utilisés. Si le projet est achevé vous devriez ajouter"
+" un résumé des résultats. "
 
 #: adhocracy4/projects/models.py:65
 msgid "Access to the project"
@@ -654,8 +606,7 @@ msgid ""
 "description will always be visible to everyone"
 msgstr ""
 
-#: adhocracy4/projects/models.py:74
-#: adhocracy4/projects/models.py:80
+#: adhocracy4/projects/models.py:74 adhocracy4/projects/models.py:80
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "Image d'en-tête"
@@ -664,8 +615,7 @@ msgstr "Image d'en-tête"
 msgid "The image will be shown as a decorative background image."
 msgstr "L'image constituera un arrière-plan décoratif"
 
-#: adhocracy4/projects/models.py:83
-#: adhocracy4/projects/models.py:90
+#: adhocracy4/projects/models.py:83 adhocracy4/projects/models.py:90
 msgid "Tile image"
 msgstr ""
 
@@ -679,8 +629,8 @@ msgstr "Le projet est archivé"
 
 #: adhocracy4/projects/models.py:104
 msgid ""
-"Exclude this project from all listings by default. You can still access this "
-"project by using filters."
+"Exclude this project from all listings by default. You can still access this"
+" project by using filters."
 msgstr ""
 "Exclure par défaut ce projet de toutes les listes. Vous pouvez toujours "
 "accéder à ce projet en utilisant les filtres pertinents.  "
@@ -756,8 +706,8 @@ msgstr "Votre profil"
 
 #: euth/accounts/templates/euth_accounts/profile_form.html:10
 msgid ""
-"The information you give in your profile will be shown to all users of OPIN."
-"me."
+"The information you give in your profile will be shown to all users of "
+"OPIN.me."
 msgstr ""
 "Les informations de votre profil seront visibles pour tous les utilisateurs "
 "d'OPIN.me."
@@ -938,8 +888,8 @@ msgstr "Brainstorming"
 
 #: euth/blueprints/blueprints.py:183 euth/blueprints/blueprints.py:202
 msgid ""
-"Collect ideas, questions and input concerning a problem or a question from a "
-"wide array of people."
+"Collect ideas, questions and input concerning a problem or a question from a"
+" wide array of people."
 msgstr ""
 "Recueillir les idées, questions et propositions d'un large nombre de "
 "personnes sur un problème ou un enjeu défini. "
@@ -996,8 +946,8 @@ msgid ""
 "discussing position papers or a mission statements with many people."
 msgstr ""
 "Permet aux participants de discuter les paragraphes d'un texte. Cette "
-"fonction est idéale pour débattre en grand nombre d'un bilan, d'un statut ou "
-"d'une déclaration. "
+"fonction est idéale pour débattre en grand nombre d'un bilan, d'un statut ou"
+" d'une déclaration. "
 
 #: euth/blueprints/blueprints.py:304
 msgid "Poll"
@@ -1006,14 +956,11 @@ msgstr "Sondage"
 #: euth/blueprints/blueprints.py:305
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members. Via the OPIN polling app for iOS and"
+" Android these polls are also accessible on smartphones."
 msgstr ""
-"Créer un sondage ou un vote personnalisé sur OPIN pour recueillir l'opinion "
-"de vos participants ou du public sur un sujet. Les questions posées sont "
-"aussi disponibles sur smartphone via l'application OPIN  (iOS et Android).\n"
-"En revanche, on ne peut pas créer de questionnaire, sondage ou vote depuis "
-"l'application : on doit utiliser la version mobile d'OPIN.me. "
+"Créer un sondage ou un vote personnalisé sur OPIN pour recueillir l'opinion de vos participants ou du public sur un sujet. Les questions posées sont aussi disponibles sur smartphone via l'application OPIN  (iOS et Android).\n"
+"En revanche, on ne peut pas créer de questionnaire, sondage ou vote depuis l'application : on doit utiliser la version mobile d'OPIN.me. "
 
 #: euth/blueprints/forms.py:23
 msgid "What is the desired outcome of the project?"
@@ -1027,7 +974,8 @@ msgstr ""
 
 #: euth/blueprints/forms.py:38
 msgid ""
-"How motivated are your participants to take part in a  participative process?"
+"How motivated are your participants to take part in a  participative "
+"process?"
 msgstr "Quel est le degré de motiviation de vos participants?"
 
 #: euth/blueprints/forms.py:46
@@ -1176,8 +1124,8 @@ msgstr ""
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html:9
 msgid ""
-"With the following questions we want to get more detailed information to see "
-"which process on OPIN fits best."
+"With the following questions we want to get more detailed information to see"
+" which process on OPIN fits best."
 msgstr ""
 "Par les questions suivantes, nous obtenons des informations plus détaillées "
 "pour voir quel processus d'OPIN correspond le mieux à votre projet. "
@@ -1243,7 +1191,8 @@ msgid "description"
 msgstr "description"
 
 #: euth/dashboard/forms.py:24
-msgid "More info about the organisation / Short text for organisation overview"
+msgid ""
+"More info about the organisation / Short text for organisation overview"
 msgstr ""
 "Plus d'info sur l'organisation/ Court texte pour l'aperçu de l'organisation"
 
@@ -1293,20 +1242,20 @@ msgstr "Ce module a déjà un document"
 
 #: euth/exports/dashboard.py:12
 msgid "Export Excel"
-msgstr ""
+msgstr "Exporter Excel"
 
 #: euth/flashpoll/dashboard.py:14
 msgid "Flashpollsettings"
-msgstr ""
+msgstr "Flashpollsettings"
 
 #: euth/flashpoll/dashboard.py:15
 msgid "Edit flashpollsettings"
-msgstr ""
+msgstr "Modifier les paramètres flashpolls"
 
 #: euth/flashpoll/dashboard.py:36
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html:14
 msgid "Answers and Export"
-msgstr ""
+msgstr "Réponses et Export"
 
 #: euth/flashpoll/models.py:8
 msgid "Flashpoll ID"
@@ -1334,18 +1283,19 @@ msgstr ""
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html:41
 msgid "Download Answers"
-msgstr ""
+msgstr "Télécharger les réponses"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_result_flashpoll_tab.html:13
 #: euth/projects/templates/euth_projects/project_detail.html:160
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
-msgstr "L’initiateur n’a pas encore précisé les résultats attendus du projet. "
+msgstr ""
+"L’initiateur n’a pas encore précisé les résultats attendus du projet. "
 
 #: euth/ideas/exports.py:10
 msgid "Ideas with comments"
-msgstr ""
+msgstr "Idées avec commentaires"
 
 #: euth/ideas/filters.py:10 euth/organisations/filters.py:10
 #: euth/projects/filters.py:9
@@ -1476,7 +1426,7 @@ msgstr "Votre idée a été supprimée"
 
 #: euth/maps/exports.py:11
 msgid "MapIdeas with comments"
-msgstr ""
+msgstr "MapIdeas avec des commentaires"
 
 #: euth/maps/forms.py:22
 msgid "Please locate your proposal on the map."
@@ -1533,7 +1483,7 @@ msgstr ""
 #: euth/memberships/dashboard.py:33
 #: euth/memberships/templates/euth_memberships/dashboard_invites.html:5
 msgid "Invited Members"
-msgstr ""
+msgstr "Membres invités"
 
 #: euth/memberships/forms.py:68
 msgid "E-mail addresses of invited users"
@@ -1574,11 +1524,11 @@ msgstr ""
 
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:45
 msgid "This project has no members yet"
-msgstr ""
+msgstr "Ce projet n'a pas encore de membres"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:3
 msgid "Membership Invites"
-msgstr ""
+msgstr "Invitations d'adhésion"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:20
 msgid "Pending"
@@ -1586,15 +1536,15 @@ msgstr "En attente "
 
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:37
 msgid "Remove Invites"
-msgstr ""
+msgstr "Supprimer les invitations"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:40
 msgid "No membership invites pending"
-msgstr ""
+msgstr "Aucune adhésion en attente"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:3
 msgid "Membership Requests"
-msgstr ""
+msgstr "Demandes d'adhésion"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:23
 msgid "Request"
@@ -1602,7 +1552,7 @@ msgstr "Demande"
 
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:47
 msgid "No membership requests at the moment"
-msgstr ""
+msgstr "Aucune demande d'adhésion pour le moment"
 
 #: euth/memberships/templates/euth_memberships/invite_base.html:4
 #: euth/memberships/templates/euth_memberships/request_detail.html:4
@@ -1641,13 +1591,11 @@ msgstr "Refuser"
 #, python-format
 msgid ""
 "\n"
-"            This is a private project. You have applied for a membership on "
-"%(date)s. Your request is awaiting moderation.\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
 "\n"
-"Ce projet est privé. Vous y avez demandé l’accès le %(date)s. Votre demande "
-"est en cours de modération."
+"Ce projet est privé. Vous y avez demandé l’accès le %(date)s. Votre demande est en cours de modération."
 
 #: euth/memberships/templates/euth_memberships/request_detail.html:24
 #: euth/memberships/templates/euth_memberships/request_detail.html:41
@@ -1661,32 +1609,32 @@ msgstr "Abandonner"
 
 #: euth/memberships/views.py:67
 msgid "Project member invites have been updated"
-msgstr ""
+msgstr "Les invitations des membres du projet ont été mises à jour"
 
 #: euth/memberships/views.py:92
 msgid "Invites have been sent"
-msgstr ""
+msgstr "Des invitations ont été envoyées"
 
 #: euth/memberships/views.py:166 euth/memberships/views.py:172
 msgid "Project membership requests have been updated"
-msgstr ""
+msgstr "Les demandes d'adhésion au projet ont été mises à jour"
 
 #: euth/offlinephases/dashboard.py:12
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:10
 msgid "Offline Events"
-msgstr ""
+msgstr "Événements hors-ligne"
 
 #: euth/offlinephases/forms.py:15 euth/offlinephases/models.py:53
 msgid "Date"
-msgstr ""
+msgstr "Rendez-vous amoureux"
 
 #: euth/offlinephases/forms.py:15
 msgid "Time"
-msgstr ""
+msgstr "Temps"
 
 #: euth/offlinephases/models.py:52
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: euth/offlinephases/templates/euth_offlinephases/file_upload_widget.html:7
 msgid "Remove the file"
@@ -1698,11 +1646,11 @@ msgstr "Télécharger un fichier"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:4
 msgid "Confirm Offline Event Deletion"
-msgstr ""
+msgstr "Confirmer la suppression de l'événement hors ligne"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:7
 msgid "Are you sure you want to delete the offline event?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'événement hors ligne?"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
@@ -1718,7 +1666,7 @@ msgstr "Aucune documentation n'a été transmise à ce stade"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:5
 msgid "Add event"
-msgstr ""
+msgstr "Ajouter un évènement"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
@@ -1738,21 +1686,23 @@ msgstr ""
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:4
 msgid "Offlineevents"
-msgstr ""
+msgstr "Hors-ligne"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:15
 msgid "Add offline event"
-msgstr ""
+msgstr "Ajouter un événement hors connexion"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:20
 msgid ""
 "Here, you can include events that take place as part of the participation "
 "project."
 msgstr ""
+"Ici, vous pouvez inclure des événements qui se déroulent dans le cadre du "
+"projet de participation."
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:29
 msgid "Nothing to show"
-msgstr ""
+msgstr "Rien à montrer"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:4
 msgid "Edit offlinephase content"
@@ -1768,11 +1718,11 @@ msgstr "La taille maximum du fichier doit être de {} MB"
 
 #: euth/offlinephases/views.py:86 euth/offlinephases/views.py:151
 msgid "Offline events have been updated"
-msgstr ""
+msgstr "Les événements hors connexion ont été mis à jour"
 
 #: euth/offlinephases/views.py:168
 msgid "The offline event has been deleted"
-msgstr ""
+msgstr "L'événement hors ligne a été supprimé"
 
 #: euth/offlinephases/widgets.py:15
 msgid "Select a file from your local folder."
@@ -1821,11 +1771,11 @@ msgstr "Aucun projet trouvé"
 
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: euth/organisations/templates/euth_organisations/organisation_form.html:9
 msgid "Edit your organisation details"
-msgstr ""
+msgstr "Modifier les détails de votre organisation"
 
 #: euth/organisations/templates/euth_organisations/organisation_form.html:52
 msgid "save changes"
@@ -1875,7 +1825,7 @@ msgstr "modifier"
 
 #: euth/projects/templates/euth_projects/project_detail.html:15
 msgid "This project is in not published yet."
-msgstr ""
+msgstr "Ce projet n'est pas encore publié."
 
 #: euth/projects/templates/euth_projects/project_detail.html:25
 msgid "Timeline"
@@ -1887,7 +1837,7 @@ msgstr "Phase en cours"
 
 #: euth/projects/templates/euth_projects/project_detail.html:62
 msgid "Event"
-msgstr ""
+msgstr "un événement"
 
 #: euth/projects/templates/euth_projects/project_detail.html:88
 msgid "Participation"
@@ -2003,7 +1953,8 @@ msgstr "Cet identifiant existe déjà. "
 
 #: euth/users/models.py:20
 msgid ""
-"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
 msgstr ""
 "Obligatoire. 60 caractères max. Peuvent être utilises lettres, chiffres, "
 "espaces et caractères suivants @/./+/-/_ "
@@ -2023,8 +1974,8 @@ msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
-"Indique si cet utilisateur est actif . En cas d'inactivité d'un utilisateur, "
-"décochez cette case plutôt que de supprimer son compte.  "
+"Indique si cet utilisateur est actif . En cas d'inactivité d'un utilisateur,"
+" décochez cette case plutôt que de supprimer son compte.  "
 
 #: euth/users/models.py:31
 msgid ""
@@ -2249,19 +2200,19 @@ msgstr "Retouner sur OPIN.ME"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:15
 msgid "Organisation"
-msgstr ""
+msgstr "Organisation"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:22
 msgid "Module"
-msgstr ""
+msgstr "Module"
 
 #: euth_wagtail/templates/a4dashboard/base_project_list.html:7
 msgid "Participation projects"
-msgstr ""
+msgstr "Projets de participation"
 
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:10
 msgid "What kind of project would you like to create?"
-msgstr ""
+msgstr "Quel genre de projet aimeriez-vous créer?"
 
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:17
 msgid "Not sure which template?"
@@ -2352,8 +2303,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Veuillez confirme que<a href=\"mailto:%(email)s\"> %(email)s</a> l'adresse e-"
-"mail d'un utilisateur %(user_display)s. "
+"Veuillez confirme que<a href=\"mailto:%(email)s\"> %(email)s</a> l'adresse "
+"e-mail d'un utilisateur %(user_display)s. "
 
 #: euth_wagtail/templates/account/email_confirm.html:25
 msgid "Activate account"
@@ -2362,11 +2313,11 @@ msgstr "Activer mon compte"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Ce lien de confirmation a expiré ou est invalide. Veuillez<a href="
-"\"%(email_url)s\"> demander un nouvel e-mail de confirmation</a>. "
+"Ce lien de confirmation a expiré ou est invalide. Veuillez<a "
+"href=\"%(email_url)s\"> demander un nouvel e-mail de confirmation</a>. "
 
 #: euth_wagtail/templates/account/login.html:8
 msgid "Login"
@@ -2414,8 +2365,8 @@ msgid ""
 "Enter your e-mail address below, and we'll send you an e-mail allowing you "
 "to reset your password."
 msgstr ""
-"Entrez votre adresse e-mail ci-dessous et nous vous enverrons un e-mail pour "
-"réinitialiser votre mot de passe. "
+"Entrez votre adresse e-mail ci-dessous et nous vous enverrons un e-mail pour"
+" réinitialiser votre mot de passe. "
 
 #: euth_wagtail/templates/account/password_reset.html:30
 msgid "Reset"
@@ -2442,12 +2393,12 @@ msgstr "Mauvaise authentification "
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Le lien de réinitialisation du mot de passe est invalide, il a probablement "
-"déjà été utilisé. Veuillez envoyer une demande pour <a href="
-"\"%(passwd_reset_url)s\">un nouveau lien de réinitialisation du mot de "
+"déjà été utilisé. Veuillez envoyer une demande pour <a "
+"href=\"%(passwd_reset_url)s\">un nouveau lien de réinitialisation du mot de "
 "passe</a>. "
 
 #: euth_wagtail/templates/account/password_reset_from_key.html:48
@@ -2475,13 +2426,11 @@ msgstr "Créer un compte"
 #, python-format
 msgid ""
 "\n"
-"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
-"\">terms of use</a>.\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank\">terms of use</a>.\n"
 "                "
 msgstr ""
 "\n"
-"J'accepte  <a href=\"%(terms_of_use_url)s\" target=\"blank\"> les conditions "
-"d'utilisation </a>."
+"J'accepte  <a href=\"%(terms_of_use_url)s\" target=\"blank\"> les conditions d'utilisation </a>."
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html:6
 msgid "Note"
@@ -2504,8 +2453,8 @@ msgid ""
 "within a few minutes."
 msgstr ""
 "Nous vous avons envoyer un e-mail d'activation. Cliquez sur le lien envoyé "
-"pour activer votre compte. S'il vous plaît contactez nous si vous ne recevez "
-"pas ledit e-mail dans les minutes qui suivent. "
+"pour activer votre compte. S'il vous plaît contactez nous si vous ne recevez"
+" pas ledit e-mail dans les minutes qui suivent. "
 
 #: euth_wagtail/templates/email_base.html:75
 #: euth_wagtail/templates/email_base.txt:10
@@ -2522,8 +2471,8 @@ msgstr ""
 msgid ""
 "This project has received funding from the European Union's Horizon 2020 "
 "research and innovation programme under grant agreement No 649594. This "
-"website reflects only the author's view and the Research Executive Agency or "
-"European Commission is not responsible for any use that may be made of the "
+"website reflects only the author's view and the Research Executive Agency or"
+" European Commission is not responsible for any use that may be made of the "
 "information it contains."
 msgstr ""
 
@@ -2548,14 +2497,12 @@ msgstr "Ajouter un autre compte."
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"%(site_name)s but the connected emailaddress of this account is already in "
-"use on this platform. You can either login with this emailaddress and "
-"connect your account to %(provider_name)s or fill in the form underneath. "
+"%(site_name)s but the connected emailaddress of this account is already in use on this platform. You can either login with this emailaddress and connect your account to %(provider_name)s or fill in the form underneath. "
 msgstr ""
 "Vous êtes sur le point d'utiliser votre compte %(provider_name)spour vous "
 "connecter à %(site_name)smais l'adresse e-mail de ce compte est déjà en "
-"utilisée sur cette plateforme. Vous pouvez vous connecter en utilisant cette "
-"adresse e-mail pour vous connecter à%(provider_name)s ou remplir le "
+"utilisée sur cette plateforme. Vous pouvez vous connecter en utilisant cette"
+" adresse e-mail pour vous connecter à%(provider_name)s ou remplir le "
 "formulaire ci-dessous. "
 
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:17
@@ -2573,7 +2520,16 @@ msgstr ""
 
 #: home/templates/home/manuals_section_page.html:23
 msgid "Contents"
-msgstr ""
+msgstr "Contenu"
+
+#~ msgid ""
+#~ "This short description will appear on the header of the module and project "
+#~ "detail pages. It should briefly state the goal of the module in max. 250 "
+#~ "chars."
+#~ msgstr ""
+
+#~ msgid "Location"
+#~ msgstr ""
 
 #~ msgid "Project settings"
 #~ msgstr "Paramètres du projet"
@@ -2646,6 +2602,9 @@ msgstr ""
 #~ msgid "create project"
 #~ msgstr "créer un projet"
 
+#~ msgid "view project"
+#~ msgstr ""
+
 #~ msgid "download module"
 #~ msgstr "télécharger le module"
 
@@ -2658,8 +2617,14 @@ msgstr ""
 #~ msgid "Manage users of"
 #~ msgstr "Gérér les membres de"
 
+#~ msgid "Manage moderators of"
+#~ msgstr ""
+
 #~ msgid "invite users"
 #~ msgstr "Inviter des personnes"
+
+#~ msgid "There are no invites, requests or users in this project yet."
+#~ msgstr ""
 
 #~ msgid "Project succesfully created."
 #~ msgstr "a été correctement modifié"
@@ -2667,8 +2632,14 @@ msgstr ""
 #~ msgid "New project based on"
 #~ msgstr "Nouveau projet basé sur "
 
+#~ msgid "Change settings for"
+#~ msgstr ""
+
 #~ msgid "Project has been archived."
 #~ msgstr "Le projet a été archivé."
+
+#~ msgid "Your project has been deleted."
+#~ msgstr ""
 
 #~ msgid "Invitations successfully sent."
 #~ msgstr "Les invitations ont été envoyées."
@@ -2682,12 +2653,14 @@ msgstr ""
 #~ msgid "of Phase: "
 #~ msgstr "de la phase :"
 
+#~ msgid "Result "
+#~ msgstr ""
+
 #~ msgid "Offlinephase"
 #~ msgstr "Activité en présentiel"
 
 #~ msgid "Add offline phases to your online participation."
-#~ msgstr ""
-#~ "Ajouter les activités en présentiel de votre projet de participation."
+#~ msgstr "Ajouter les activités en présentiel de votre projet de participation."
 
 #~ msgid "offlinephase"
 #~ msgstr "Activité en présentiel"
@@ -2700,3 +2673,6 @@ msgstr ""
 
 #~ msgid "Popularity"
 #~ msgstr "Popularité"
+
+#~ msgid "Find your Organisation"
+#~ msgstr ""
