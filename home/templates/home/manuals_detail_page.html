@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n wagtailimages_tags wagtailcore_tags %}
+{% load i18n wagtailimages_tags wagtailcore_tags base_tags %}
 
 {% block title %}{{ page.translated_title }}{% endblock %}
 
@@ -9,7 +9,7 @@
             <div class="herounit-header">
                 <h1>
                     {% image page.image width-80 %}
-                    {{ page.translated_title }}
+                    {% get_page_name page %}
                 </h1>
             </div>
         </div>
