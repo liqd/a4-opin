@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load i18n wagtailimages_tags wagtailcore_tags react_comments base_tags %}
+{% load i18n wagtailimages_tags wagtailcore_tags react_comments %}
 
 {% block body_class %}template-homepage{% endblock %}
 {% block title %}{{ page.translated_title }}{% endblock %}
 
 {% block content %}
     <div class="container">
-        <h1>{% get_page_name page %}</h1>
+        <h1>{{ page.translated_title }}</h1>
     </div>
 
     {% if page.subpages %}
