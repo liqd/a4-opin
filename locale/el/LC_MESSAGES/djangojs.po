@@ -81,7 +81,7 @@ msgstr "Είστε βέβαιοι ότι θέλετε να αναφέρετε α
 
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 msgid "Answer"
-msgstr ""
+msgstr "Απάντηση"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:218
 msgid "Your reply here"
@@ -90,14 +90,14 @@ msgstr "Η απάντησή σας εδώ"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
 msgid "comment"
 msgid_plural "comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "σχόλια"
+msgstr[1] "σχόλια"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
 msgid "Your comment here"
-msgstr ""
+msgstr "Το σχόλιό σας εδώ"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
 msgid "save changes"
@@ -105,61 +105,62 @@ msgstr "αποθηκεύστε τις αλλαγές"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
 msgid "cancel"
-msgstr ""
+msgstr "Ματαίωση"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
 msgid "post"
-msgstr ""
+msgstr "Θέση"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
 msgid "Please login to comment"
-msgstr ""
+msgstr "Παρακαλούμε συνδεθείτε για να σχολιάσετε"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
 msgid "The currently active phase doesn't allow to comment."
-msgstr ""
+msgstr "Η τρέχουσα ενεργή φάση δεν επιτρέπει την παρατήρηση."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
-msgstr ""
+msgstr "Κανω ΑΝΑΦΟΡΑ"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 msgid "Not following"
-msgstr ""
+msgstr "Δεν ακολουθείτε"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 msgid "Never be notified."
-msgstr ""
+msgstr "Μην ειδοποιείτε ποτέ."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 msgid "Following"
-msgstr ""
+msgstr "ΕΠΟΜΕΝΟ"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 msgid "Receive email notifications about this project."
 msgstr ""
+"Λάβετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου σχετικά με αυτό το έργο."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
-msgstr ""
+msgstr "Απαγορεύεται η παρακολούθηση"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
-msgstr ""
+msgstr "Ακολουθηστε"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message here"
-msgstr ""
+msgstr "Το μήνυμά σας εδώ"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
-msgstr ""
+msgstr "Αποστολή αναφοράς"
 
 #: adhocracy4/static/Alert.jsx:10 adhocracy4/static/Alert.jsx:11
 msgid "Close"
@@ -167,48 +168,48 @@ msgstr "Κλείσιμο"
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
-msgstr ""
+msgstr "Ορίστε όλες τις τιμές για το έργο σας."
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
 msgid "Remove"
-msgstr ""
+msgstr "Αφαιρώ"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 #: euth/documents/static/documents/ParagraphBox.jsx:224
 msgid "add a new paragraph"
-msgstr ""
+msgstr "προσθέστε μια νέα παράγραφο"
 
 #: euth/documents/static/documents/Paragraph.jsx:79
 msgid "Headline:"
-msgstr ""
+msgstr "Επικεφαλίδα:"
 
 #: euth/documents/static/documents/Paragraph.jsx:93
 msgid "Paragraph:"
-msgstr ""
+msgstr "Παράγραφος:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
 msgid "Your document has been updated."
-msgstr ""
+msgstr "Το έγγραφό σας έχει ενημερωθεί."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
 msgid "Your document has been saved."
-msgstr ""
+msgstr "Το έγγραφό σας έχει αποθηκευτεί."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
 msgid "Title:"
-msgstr ""
+msgstr "Τίτλος:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:241
 msgid "save"
-msgstr ""
+msgstr "αποθηκεύσετε"
 
 #~ msgid "view %s reply"
 #~ msgid_plural "view %s replies"
-#~ msgstr[0] ""
-#~ msgstr[1] ""
+#~ msgstr[0] "βλέπε %s απαντήσεις"
+#~ msgstr[1] "βλέπε %s απαντήσεις"
 
 #~ msgid "Offline Phase"
-#~ msgstr ""
+#~ msgstr "Φάση εκτός σύνδεσης"
 
 #~ msgid "add offline phase"
-#~ msgstr ""
+#~ msgstr "Προσθήκη φάσης εκτός σύνδεσης"

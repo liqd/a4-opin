@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 15:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Luca Thüer <l.thueer@liqd.net>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2018\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: adhocracy4/categories/templates/a4categories/includes/inline_form.html:15
 #: adhocracy4/categories/templates/a4categories/includes/inline_form.html:16
 msgid "Remove category"
-msgstr ""
+msgstr "Supprimer la catégorie"
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
@@ -140,7 +140,7 @@ msgstr "Créer une ébauche"
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:14
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:31
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
@@ -343,7 +343,7 @@ msgstr "Heure de fin"
 
 #: adhocracy4/dashboard/forms.py:103 adhocracy4/phases/models.py:70
 msgid "Start date"
-msgstr ""
+msgstr "Date de début"
 
 #: adhocracy4/dashboard/forms.py:103
 msgid "Start time"
@@ -400,7 +400,7 @@ msgstr "Evaluation négative"
 
 #: adhocracy4/exports/mixins.py:97
 msgid "Comment count"
-msgstr ""
+msgstr "compteur de commentaire"
 
 #: adhocracy4/exports/mixins.py:161 euth/exports/mixins.py:9
 msgid "Location (Longitude)"
@@ -496,21 +496,23 @@ msgstr "Svp tracez un polygone sur la carte"
 
 #: adhocracy4/maps/models.py:12
 msgid "Please draw an area on the map."
-msgstr ""
+msgstr "Veuillez dessiner une zone sur la carte."
 
 #: adhocracy4/modules/models.py:14
 msgid "Title of the module"
-msgstr ""
+msgstr "Titre du module"
 
 #: adhocracy4/modules/models.py:15
 msgid ""
 "This title will appear in the timeline and the header on the module and "
 "project detail pages. It should be max. 512 characters long"
 msgstr ""
+"Ce titre apparaîtra dans la timeline et l'en-tête sur les pages de détails "
+"du module et du projet. Cela devrait être max. 512 caractères de long."
 
 #: adhocracy4/modules/models.py:23
 msgid "Short description of the module"
-msgstr ""
+msgstr "Brève description du module"
 
 #: adhocracy4/modules/models.py:24
 msgid ""
@@ -537,7 +539,7 @@ msgstr "Description"
 
 #: adhocracy4/phases/models.py:90
 msgid "End date can not be smallerthan the start date."
-msgstr ""
+msgstr "La date de fin ne peut pas être inférieure à la date de début."
 
 #: adhocracy4/projects/admin.py:8
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
@@ -583,7 +585,7 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:57
 msgid "Results of your project"
-msgstr ""
+msgstr "Résultats de votre projet"
 
 #: adhocracy4/projects/models.py:58
 msgid ""
@@ -605,6 +607,9 @@ msgid ""
 "invited users. Teasers for your project including title and short "
 "description will always be visible to everyone"
 msgstr ""
+"Veuillez indiquer si ce projet doit être public ou réservé aux utilisateurs "
+"invités. Teasers pour votre projet, y compris le titre et une brève "
+"description sera toujours visible pour tout le monde"
 
 #: adhocracy4/projects/models.py:74 adhocracy4/projects/models.py:80
 #: euth/organisations/models.py:36
@@ -617,11 +622,11 @@ msgstr "L'image constituera un arrière-plan décoratif"
 
 #: adhocracy4/projects/models.py:83 adhocracy4/projects/models.py:90
 msgid "Tile image"
-msgstr ""
+msgstr "Image de tuile"
 
 #: adhocracy4/projects/models.py:85
 msgid "The image will be shown in the project tile."
-msgstr ""
+msgstr "L'image sera affichée dans la vignette du projet."
 
 #: adhocracy4/projects/models.py:103
 msgid "Project is archived"
@@ -664,7 +669,7 @@ msgstr "Comment vous joindre"
 
 #: euth/accounts/forms.py:44
 msgid "Notifications"
-msgstr ""
+msgstr "Notifications"
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -723,7 +728,7 @@ msgstr "Votre profil a été correctement modifié"
 
 #: euth/blueprints/blueprints.py:35
 msgid "Create and collect new ideas or visions."
-msgstr ""
+msgstr "Créez et collectez de nouvelles idées ou visions."
 
 #: euth/blueprints/blueprints.py:36 euth/blueprints/blueprints.py:53
 msgid "(Urban) planning processes"
@@ -752,7 +757,7 @@ msgstr "Créer un agenda"
 
 #: euth/blueprints/blueprints.py:48
 msgid "Set the agenda of an event, a process, a project etc."
-msgstr ""
+msgstr "Définir l'agenda d'un événement, d'un processus, d'un projet, etc."
 
 #: euth/blueprints/blueprints.py:52
 msgid "Design a place."
@@ -780,11 +785,11 @@ msgstr "Toute sorte de compétition : d'idées, de propositions etc. "
 
 #: euth/blueprints/blueprints.py:69
 msgid "Work together with other people on a text document."
-msgstr ""
+msgstr "Travaillez ensemble avec d'autres personnes sur un document texte."
 
 #: euth/blueprints/blueprints.py:70
 msgid "Draft or revise statutes, articles, charters etc."
-msgstr ""
+msgstr "Rédiger ou réviser des statuts, des articles, des chartes, etc."
 
 #: euth/blueprints/blueprints.py:71
 msgid "Involve different authors in writing a shared text"
@@ -812,11 +817,12 @@ msgstr "Plus de 2 projets de participation"
 
 #: euth/blueprints/blueprints.py:93
 msgid "1-2 participative projects"
-msgstr ""
+msgstr "1-2 projets participatifs"
 
 #: euth/blueprints/blueprints.py:94
 msgid "I have no experiences in organising participative projects"
 msgstr ""
+"Je n'ai aucune expérience dans l'organisation de projets participatifs"
 
 #: euth/blueprints/blueprints.py:99
 msgid "High motivation"
@@ -971,6 +977,8 @@ msgid ""
 "How many on- and offline participative projects have you organised and "
 "managed in the past?"
 msgstr ""
+"Combien de projets participatifs en ligne et hors ligne avez-vous organisés "
+"et gérés par le passé?"
 
 #: euth/blueprints/forms.py:38
 msgid ""
@@ -980,7 +988,7 @@ msgstr "Quel est le degré de motiviation de vos participants?"
 
 #: euth/blueprints/forms.py:46
 msgid "How many participants might take part in the project?"
-msgstr ""
+msgstr "Combien de participants pourraient participer au projet?"
 
 #: euth/blueprints/forms.py:53
 msgid "What is the scope of the project?"
@@ -988,11 +996,11 @@ msgstr "Quelle est la portée de votre projet? "
 
 #: euth/blueprints/forms.py:60
 msgid "How long do you want your project to be?"
-msgstr ""
+msgstr "Combien de temps voulez-vous que votre projet soit?"
 
 #: euth/blueprints/forms.py:67
 msgid "How easy can you access your participants?"
-msgstr ""
+msgstr "Avec quelle facilité pouvez-vous accéder à vos participants?"
 
 #: euth/blueprints/forms.py:74
 msgid "Invalid aim selected"
@@ -1028,15 +1036,15 @@ msgstr "Utiliser ce modèle"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:21
 msgid "Project Phases"
-msgstr ""
+msgstr "Phases du projet"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:41
 msgid "Check out the example project"
-msgstr ""
+msgstr "Découvrez l'exemple de projet"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:49
 msgid "Estimated effort"
-msgstr ""
+msgstr "Effort estimé"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:51
 #, python-format
@@ -1065,7 +1073,7 @@ msgstr "Inspiration et astuces pour"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:69
 msgid "setting up your participation project"
-msgstr ""
+msgstr "mettre en place votre projet de participation"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:70
 msgid "activation and motivation of participants"
@@ -1092,7 +1100,7 @@ msgstr "Outil d'aide à la décision"
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:10
 msgid "What do you want to do in your participation project?"
-msgstr ""
+msgstr "Que voulez-vous faire dans votre projet de participation?"
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:12
 msgid "My Aim"
@@ -1176,7 +1184,7 @@ msgstr "Classer par"
 
 #: euth/contrib/filters.py:66
 msgid "Country"
-msgstr ""
+msgstr "Pays"
 
 #: euth/dashboard/forms.py:14
 msgid "description why"
@@ -1210,7 +1218,7 @@ msgstr "Commenter un texte"
 
 #: euth/documents/phases.py:19
 msgid "Create text for the project."
-msgstr ""
+msgstr "Créez un texte pour le projet."
 
 #: euth/documents/phases.py:36
 msgid "Comment phase"
@@ -1275,11 +1283,11 @@ msgstr "Sondage mobile"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/flashpoll_form.html:12
 msgid "Poll: Questions"
-msgstr ""
+msgstr "Sondage: Questions"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/flashpoll_form.html:166
 msgid "Poll: Location"
-msgstr ""
+msgstr "Sondage: Emplacement"
 
 #: euth/flashpoll/templates/euth_flashpoll/includes/project_form_result_flashpoll_tab.html:41
 msgid "Download Answers"
@@ -1300,15 +1308,15 @@ msgstr "Idées avec commentaires"
 #: euth/ideas/filters.py:10 euth/organisations/filters.py:10
 #: euth/projects/filters.py:9
 msgid "Most Recent"
-msgstr ""
+msgstr "Le plus récent"
 
 #: euth/ideas/filters.py:11
 msgid "Most Comments"
-msgstr ""
+msgstr "La plupart des commentaires"
 
 #: euth/ideas/filters.py:12
 msgid "Most Support"
-msgstr ""
+msgstr "Le plus de soutien"
 
 #: euth/ideas/phases.py:13
 msgid "Issue phase"
@@ -1405,7 +1413,7 @@ msgstr "Créer une proposition"
 
 #: euth/ideas/templates/euth_ideas/idea_list.html:45
 msgid "No proposals found"
-msgstr ""
+msgstr "Aucune proposition trouvée"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html:2
 #: euth_wagtail/templates/includes/delete_modal.html:2
@@ -1478,7 +1486,7 @@ msgstr "voir dans la liste"
 #: euth/memberships/templates/euth_memberships/dashboard_members.html:5
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:3
 msgid "Members"
-msgstr ""
+msgstr "Membres"
 
 #: euth/memberships/dashboard.py:33
 #: euth/memberships/templates/euth_memberships/dashboard_invites.html:5
@@ -1520,7 +1528,7 @@ msgstr "E-mail"
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:44
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:82
 msgid "submit"
-msgstr ""
+msgstr "soumettre"
 
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:45
 msgid "This project has no members yet"
@@ -1730,7 +1738,7 @@ msgstr "Choisissez un fichier à partir de votre ordinateur "
 
 #: euth/organisations/filters.py:11 euth/projects/filters.py:10
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alphabétique"
 
 #: euth/organisations/models.py:21
 msgid "title"
@@ -1788,17 +1796,17 @@ msgstr "Organisations présentes sur Opin.me "
 #: euth/organisations/templates/euth_organisations/organisation_list.html:8
 #: euth_wagtail/templates/a4projects/project_list.html:9
 msgid "Take part in a project"
-msgstr ""
+msgstr "Participez à un projet"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html:13
 #: euth_wagtail/templates/a4projects/project_list.html:14
 msgid "Find a project"
-msgstr ""
+msgstr "Trouver un projet"
 
 #: euth/organisations/templates/euth_organisations/organisation_list.html:17
 #: euth_wagtail/templates/a4projects/project_list.html:17
 msgid "Search for organisation"
-msgstr ""
+msgstr "Rechercher une organisation"
 
 #: euth/organisations/views.py:52
 msgid "Organisation successfully updated."
@@ -1807,7 +1815,7 @@ msgstr "a été correctement modifié"
 #: euth/projects/dashboard.py:12
 #: euth/projects/templates/euth_projects/dashboard_moderators.html:5
 msgid "Moderators"
-msgstr ""
+msgstr "Modérateurs"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:18
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:12
@@ -1829,7 +1837,7 @@ msgstr "Ce projet n'est pas encore publié."
 
 #: euth/projects/templates/euth_projects/project_detail.html:25
 msgid "Timeline"
-msgstr ""
+msgstr "Chronologie"
 
 #: euth/projects/templates/euth_projects/project_detail.html:40
 msgid "Active phase"
@@ -1982,6 +1990,8 @@ msgid ""
 "Designates whether yo u want to receive notifications. Unselect if you do "
 "not want to receive notifications."
 msgstr ""
+"Indique si vous souhaitez recevoir des notifications. Désélectionnez si vous"
+" ne souhaitez pas recevoir de notifications."
 
 #: euth/users/models.py:37
 msgid "username"
@@ -2240,7 +2250,7 @@ msgstr "Utiliser ce modèle"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
-msgstr ""
+msgstr "Projets sur Opin.me"
 
 #: euth_wagtail/templates/account/account_inactive.html:5
 #: euth_wagtail/templates/account/account_inactive.html:10
@@ -2333,7 +2343,7 @@ msgstr "Mot de passe"
 
 #: euth_wagtail/templates/account/login.html:55
 msgid "reset password"
-msgstr ""
+msgstr "réinitialiser le mot de passe"
 
 #: euth_wagtail/templates/account/login.html:63
 #: euth_wagtail/templates/account/signup.html:101
@@ -2353,7 +2363,7 @@ msgstr "Changer le mot de passe"
 #: euth_wagtail/templates/account/password_reset_from_key.html:43
 #: euth_wagtail/templates/account/password_set.html:31
 msgid "Repeat password"
-msgstr ""
+msgstr "Répéter le mot de passe"
 
 #: euth_wagtail/templates/account/password_reset.html:7
 #: euth_wagtail/templates/account/password_reset_from_key.html:6
@@ -2465,7 +2475,7 @@ msgstr ""
 
 #: euth_wagtail/templates/includes/footer.html:7
 msgid "Connect with us"
-msgstr ""
+msgstr "Connecte-toi avec nous"
 
 #: euth_wagtail/templates/includes/footer.html:23
 msgid ""
@@ -2475,6 +2485,11 @@ msgid ""
 " European Commission is not responsible for any use that may be made of the "
 "information it contains."
 msgstr ""
+"Ce site a reçu un financement du programme de recherche et d'innovation "
+"Horizon 2020 de l'Union européenne en vertu de la convention de subvention n"
+" ° 649594. Ce site reflète uniquement le point de vue de l'auteur et "
+"l'Agence exécutive Recherche ou Commission européenne n'est pas responsable "
+"de l'utilisation des informations contient"
 
 #: euth_wagtail/templates/socialaccount/connections.html:12
 msgid ""
@@ -2508,15 +2523,15 @@ msgstr ""
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:18
 msgid "Login with "
-msgstr ""
+msgstr "Connectez-vous avec"
 
 #: home/templates/home/home_page.html:12
 msgid "Latest projects on OPIN"
-msgstr ""
+msgstr "Derniers projets sur OPIN"
 
 #: home/templates/home/includes/wagtail_hero_unit.html:15
 msgid "Play video"
-msgstr ""
+msgstr "Lire la vidéo"
 
 #: home/templates/home/manuals_section_page.html:23
 msgid "Contents"
@@ -2527,9 +2542,12 @@ msgstr "Contenu"
 #~ "detail pages. It should briefly state the goal of the module in max. 250 "
 #~ "chars."
 #~ msgstr ""
+#~ "Cette courte description apparaîtra sur l'en-tête des pages de détails du "
+#~ "module et du projet. Il devrait indiquer brièvement l'objectif du module "
+#~ "dans max. 250 caractères"
 
 #~ msgid "Location"
-#~ msgstr ""
+#~ msgstr "Emplacement"
 
 #~ msgid "Project settings"
 #~ msgstr "Paramètres du projet"
@@ -2603,7 +2621,7 @@ msgstr "Contenu"
 #~ msgstr "créer un projet"
 
 #~ msgid "view project"
-#~ msgstr ""
+#~ msgstr "voir le projet"
 
 #~ msgid "download module"
 #~ msgstr "télécharger le module"
@@ -2618,13 +2636,15 @@ msgstr "Contenu"
 #~ msgstr "Gérér les membres de"
 
 #~ msgid "Manage moderators of"
-#~ msgstr ""
+#~ msgstr "Gérer les modérateurs de"
 
 #~ msgid "invite users"
 #~ msgstr "Inviter des personnes"
 
 #~ msgid "There are no invites, requests or users in this project yet."
 #~ msgstr ""
+#~ "Il n'y a pas encore d'invitations, de demandes ou d'utilisateurs dans ce "
+#~ "projet."
 
 #~ msgid "Project succesfully created."
 #~ msgstr "a été correctement modifié"
@@ -2633,13 +2653,13 @@ msgstr "Contenu"
 #~ msgstr "Nouveau projet basé sur "
 
 #~ msgid "Change settings for"
-#~ msgstr ""
+#~ msgstr "Modifier les paramètres pour"
 
 #~ msgid "Project has been archived."
 #~ msgstr "Le projet a été archivé."
 
 #~ msgid "Your project has been deleted."
-#~ msgstr ""
+#~ msgstr "Votre projet a été supprimé."
 
 #~ msgid "Invitations successfully sent."
 #~ msgstr "Les invitations ont été envoyées."
@@ -2654,7 +2674,7 @@ msgstr "Contenu"
 #~ msgstr "de la phase :"
 
 #~ msgid "Result "
-#~ msgstr ""
+#~ msgstr "Résultat"
 
 #~ msgid "Offlinephase"
 #~ msgstr "Activité en présentiel"
@@ -2675,4 +2695,4 @@ msgstr "Contenu"
 #~ msgstr "Popularité"
 
 #~ msgid "Find your Organisation"
-#~ msgstr ""
+#~ msgstr "Trouvez votre organisation"
