@@ -1,7 +1,6 @@
 from django.views import generic
 from rules.contrib.views import PermissionRequiredMixin
 
-from adhocracy4.projects import mixins
 from euth.projects import mixins as prj_mixins
 
 from . import models
@@ -18,7 +17,7 @@ class DocumentCreateView(
         return models.Document.objects.filter(module=self.module).first()
 
 
-class DocumentDetailView(generic.DetailView, mixins.ProjectMixin):
+class DocumentDetailView(generic.DetailView, prj_mixins.ProjectPhaseMixin):
     model = models.Document
 
     def get_object(self):
