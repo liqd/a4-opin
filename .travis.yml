@@ -9,6 +9,8 @@ install:
   - pip install -r requirements/dev.txt
   - pip install coveralls
 script:
+  - make lint
+  - python manage.py makemigrations --dry-run --check --noinput
   - py.test --cov
 after_success:
   - coveralls
