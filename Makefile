@@ -13,7 +13,9 @@ help:
 	@echo
 	@echo "  make install      -- install dev setup"
 	@echo "  make fixtures     -- load example data"
-	@echo "  make watch	       -- development server"
+	@echo "  make server	   -- start a dev server"
+	@echo "  make watch        -- start a dev server and rebuild js and css files on changes"
+	@echo "  make background   -- start a dev server, rebuild js and css files on changes, and start background processes"
 	@echo "  make test         -- tests on exiting database"
 	@echo "  make test-clean   -- test on new database"
 	@echo "  make lint	       -- lint javascript and python"
@@ -41,14 +43,21 @@ fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4phases.Phase:20
 	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
+.PHONY: server
+server:
+	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8001
+
 .PHONY: watch
 watch:
 	trap 'kill %1' KILL; \
 	npm run watch & \
 	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8001
 
-.PHONY: server
-server:
+.PHONY: background
+background:
+	trap 'kill %1; kill %2' KILL; \
+	npm run watch & \
+	$(VIRTUAL_ENV)/bin/python3 manage.py process_tasks & \
 	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8001
 
 .PHONY: test
