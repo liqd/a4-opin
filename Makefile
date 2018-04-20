@@ -3,6 +3,7 @@ all: help
 VIRTUAL_ENV ?= venv
 SOURCE_DIRS = euth euth_wagtail home tests
 
+.PHONY: help
 help:
 	@echo OPIN development tools
 	@echo
@@ -11,16 +12,17 @@ help:
 	@echo
 	@echo usage:
 	@echo
-	@echo "  make install      -- install dev setup"
-	@echo "  make fixtures     -- load example data"
-	@echo "  make server	   -- start a dev server"
-	@echo "  make watch        -- start a dev server and rebuild js and css files on changes"
-	@echo "  make background   -- start a dev server, rebuild js and css files on changes, and start background processes"
-	@echo "  make test         -- tests on exiting database"
-	@echo "  make test-clean   -- test on new database"
-	@echo "  make lint	       -- lint javascript and python"
-	@echo "  make locales      -- create new po and mo files"
-	@echo "  make release      -- build everything required for a release"
+	@echo "  make install         -- install dev setup"
+	@echo "  make fixtures        -- load example data"
+	@echo "  make server	      -- start a dev server"
+	@echo "  make watch           -- start a dev server and rebuild js and css files on changes"
+	@echo "  make background      -- start a dev server, rebuild js and css files on changes, and start background processes"
+	@echo "  make test            -- tests on exiting database"
+	@echo "  make test-lastfailed -- run test that failed last"
+	@echo "  make test-clean      -- test on new database"
+	@echo "  make lint	          -- lint javascript and python"
+	@echo "  make locales         -- create new po and mo files"
+	@echo "  make release         -- build everything required for a release"
 	@echo
 
 .PHONY: install
@@ -72,6 +74,7 @@ test-lastfailed:
 test-clean:
 	if [ -f test_db.sqlite3 ]; then rm test_db.sqlite3; fi
 	find media -iname 'example_*.jpg' -exec rm {} \+
+	$(VIRTUAL_ENV)/bin/py.test
 
 .PHONY: coverage
 coverage:
