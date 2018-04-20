@@ -1,7 +1,8 @@
-all: help
-
 VIRTUAL_ENV ?= venv
 SOURCE_DIRS = euth euth_wagtail home tests
+
+.PHONY: all
+all: help
 
 .PHONY: help
 help:
