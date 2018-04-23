@@ -1,18 +1,63 @@
-*.pyc
-__pycache__
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
 .cache
-db.sqlite3
-test_db.sqlite3
-/static/
-.DS_Store
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache
+
+# Translations
 *.mo
-/media
-.sass-cache
-/venv/
-/euth_wagtail/static/bundles
-/node_modules
+*.pot
+
+# Environments
+venv/
 /pyvenv.cfg
-/webpack-stats.json
-/euth_wagtail/settings/local.py
-/.pytest_cache/
 /pip-selfcheck.json
+
+# Node
+node_modules/
+package-lock.json
+npm-debug.log*
+/webpack-stats.json
+
+# IDEs
+.idea/
+
+# Django databases
+*.sqlite3
+db.sqlite3*
+
+# Local instance specific settings
+/euth_wagtail/settings/local.py
+
+# Generated static files
+/euth_wagtail/static/
+static/
+
+# Media
+media/
+
+# setuptools
+/build
+/dist
+/*.egg-info
+/share
+
+# OS
+.DS_Store
+
+# sass
+.sass-cache
