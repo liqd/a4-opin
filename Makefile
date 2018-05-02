@@ -14,6 +14,7 @@ help:
 	@echo usage:
 	@echo
 	@echo "  make install         -- install dev setup"
+	@echo "  make clean           -- delete node modules and venv"
 	@echo "  make fixtures        -- load example data"
 	@echo "  make server	      -- start a dev server"
 	@echo "  make watch           -- start a dev server and rebuild js and css files on changes"
@@ -37,6 +38,11 @@ install:
 	$(VIRTUAL_ENV)/bin/python3 -m pip install --upgrade -r requirements/dev.txt
 	$(VIRTUAL_ENV)/bin/python3 manage.py migrate
 	$(VIRTUAL_ENV)/bin/python3 manage.py loaddata site-dev
+
+.PHONY: clean
+clean:
+	if [ -d node_modules ]; then rm -r node_modules; fi
+	if [ -d venv ]; then rm -r venv; fi
 
 .PHONY: fixtures
 fixtures:
