@@ -64,15 +64,15 @@
 
    - pulling and compiling
 
-         make locales-build
+         make tx-mo
 
    - extracting and update for en_GB
 
-         make locales-collect
+         make po
 
-   - extracting and compiling
+   - compiling
 
-         make locales
+         make mo
 
 ### Adding a new language
 
