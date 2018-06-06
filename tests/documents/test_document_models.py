@@ -72,3 +72,24 @@ def test_delete_paragraph(paragraph, comment_factory):
     paragraph.delete()
     comment_count = comments_models.Comment.objects.all().count()
     assert comment_count == 0
+
+
+@pytest.mark.django_db
+def test_clusterd_comments_property(paragraph_factory,
+                                    document_factory,
+                                    comment_factory):
+
+    document = document_factory()
+    p1 = paragraph_factory(document=document)
+    p2 = paragraph_factory(document=document)
+
+    c1 = comment_factory(content_object=document)
+    comment_factory(content_object=c1)
+    c2 = comment_factory(content_object=p1)
+    c3 = comment_factory(content_object=p2)
+    comment_factory(content_object=c2)
+    comment_factory(content_object=c3)
+
+    count = comments_models.Comment.objects.all().count()
+
+    assert count == document.clustered_comments.count()

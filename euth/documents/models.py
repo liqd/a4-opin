@@ -28,6 +28,20 @@ class Document(module_models.Item):
         from django.core.urlresolvers import reverse
         return reverse('project-detail', args=[str(self.project.slug)])
 
+    @property
+    def clustered_comments(self):
+        comments = (
+            comment_models.Comment.objects.filter(
+                document__module=self.module) |
+            comment_models.Comment.objects.filter(
+                paragraph__document__module=self.module) |
+            comment_models.Comment.objects.filter(
+                parent_comment__paragraph__document__module=self.module) |
+            comment_models.Comment.objects.filter(
+                parent_comment__document__module=self.module)
+        )
+        return comments
+
 
 class Paragraph(base.TimeStampedModel):
     name = models.CharField(max_length=120, blank=True)
