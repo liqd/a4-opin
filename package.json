@@ -5,7 +5,7 @@
     "adhocracy4": "git+https://github.com/liqd/adhocracy4#31bd992a1813208c5aa44a0cebb2fe00bdea6f34",
     "autoprefixer": "8.4.0",
     "babel-core": "6.26.0",
-    "babel-loader": "7.1.4",
+    "babel-loader": "8.0.0-beta.3",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
     "bootstrap-sass": "3.3.7",
