@@ -50,3 +50,33 @@ def test_reply_to_mixin(comment_factory, document):
 
     assert mixin.get_replies_to_data(comment) == ''
     assert mixin.get_replies_to_data(reply_comment) == comment.id
+
+
+@pytest.mark.django_db
+def test_export_with_comments(client,
+                              paragraph_factory,
+                              document_factory,
+                              comment_factory):
+    document = document_factory()
+    p1 = paragraph_factory(document=document)
+    p2 = paragraph_factory(document=document)
+
+    c1 = comment_factory(content_object=document)
+    comment_factory(content_object=c1)
+    c2 = comment_factory(content_object=p1)
+    c3 = comment_factory(content_object=p2)
+    comment_factory(content_object=c2)
+    comment_factory(content_object=c3)
+
+    module = document.module
+
+    url = '/dashboard/modules/{}/export/0/'.format(module.slug)
+    response = client.get(url)
+    response.status_code = 403
+
+    user = module.project.moderators.first()
+
+    client.login(username=user.email, password='password')
+
+    response = client.get(url)
+    response.status_code = 200
