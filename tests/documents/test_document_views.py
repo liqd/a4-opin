@@ -80,3 +80,18 @@ def test_export_with_comments(client,
 
     response = client.get(url)
     response.status_code = 200
+
+
+@pytest.mark.django_db
+def test_export_without_document(client, module):
+
+    url = '/dashboard/modules/{}/export/0/'.format(module.slug)
+    response = client.get(url)
+    response.status_code = 403
+
+    user = module.project.moderators.first()
+
+    client.login(username=user.email, password='password')
+
+    response = client.get(url)
+    response.status_code = 200
