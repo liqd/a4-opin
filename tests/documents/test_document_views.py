@@ -37,6 +37,22 @@ def test_paragraph_private_detail_view(client, paragraph_factory, user):
 
 
 @pytest.mark.django_db
+def test_user_generated_content_mixin(comment_factory, document):
+    mixin = mixins.UserGeneratedContentExportMixin()
+
+    virtual = mixin.get_virtual_fields({})
+    assert 'creator' in virtual
+    assert 'created' in virtual
+
+    comment = comment_factory(content_object=document)
+
+    assert Comment.objects.count() == 1
+
+    assert mixin.get_creator_data(comment) == comment.creator.username
+    assert mixin.get_created_data(comment) == comment.created.isoformat()
+
+
+@pytest.mark.django_db
 def test_reply_to_mixin(comment_factory, document):
     mixin = mixins.ItemExportWithRepliesToMixin()
 
