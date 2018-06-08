@@ -23,6 +23,8 @@ module.exports = {
   entry: {
     adhocracy4: [
       './euth_wagtail/static/scss/all.scss',
+      'slick-carousel/slick/slick.min.js',
+      'slick-carousel/slick/slick.css',
       './euth/contrib/static/js/app.js'
     ],
     datepicker: [
@@ -39,9 +41,7 @@ module.exports = {
       './euth_wagtail/static/js/jquery-fix.js',
       'bootstrap-sass',
       'immutability-helper',
-      './euth_wagtail/static/js/modernizr-custom.js',
-      'slick-carousel/slick/slick.min.js',
-      'slick-carousel/slick/slick.css'
+      './euth_wagtail/static/js/modernizr-custom.js'
     ],
     user_search: [
       './euth/users/static/users/js/user_search.js'
@@ -64,7 +64,7 @@ module.exports = {
     'django': 'django'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!adhocracy4)/,  // exclude all dependencies but adhocracy4
@@ -116,7 +116,6 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js'}),
     new ExtractTextPlugin('[name].css'),
   ]
 }
