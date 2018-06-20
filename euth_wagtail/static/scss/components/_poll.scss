@@ -1,0 +1,23 @@
+//Poll
+.poll {
+    padding-top: 1em;
+}
+.poll__rows {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.poll-row {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    margin-bottom: 1em;
+
+    input[type=checkbox]:checked + span {
+      font-weight: bold;
+    }
+    input[type=radio]:checked + span {
+      font-weight: bold;
+    }
+}
+.poll__actions {
+    margin-bottom: 1em;
+}

@@ -1,0 +1,65 @@
+//Polls radio styles
+
+.radio__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+//checkbox styling
+$checkbox-size: 25px;
+
+.radio__text {
+    font-weight: normal;
+    display: block;
+    padding-left: 10px;
+    padding-right: $checkbox-size + 15px;
+    position: relative;
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+        content: "";
+
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        width: $checkbox-size;
+        height: $checkbox-size;
+        border-radius: $checkbox-size / 2;
+    }
+
+    &:before {
+        border: 2px solid $gray-light;
+    }
+
+    &:after {
+        transition: transform 0.3s, opacity 0.3s;
+        transform: scale(1.3);
+        opacity: 0;
+
+        font-family: 'FontAwesome', sans-serif;
+        background-color: $brand-primary;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+    }
+}
+
+.radio__input:checked + .radio__text:after {
+    content: '\f00c'; // check
+    transform: scale(1);
+    opacity: 1;
+}
+
+.radio__text--checkbox {
+    &:before,
+    &:after {
+        border-radius: 0;
+    }
+}
