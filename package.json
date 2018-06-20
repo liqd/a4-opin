@@ -15,7 +15,7 @@
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
     "flatpickr": "4.5.0",
-    "font-awesome": "4.7.0",
+    "@fortawesome/fontawesome-free-webfonts": "1.0.4",
     "highcharts": "6.1.0",
     "immutability-helper": "2.7.0",
     "jquery": "3.3.1",
