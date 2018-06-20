@@ -6,6 +6,10 @@
     @extend .alert-danger;
 }
 
+.alert--success {
+    @extend .alert-success;
+}
+
 .alert__close {
     @extend .close;
 }

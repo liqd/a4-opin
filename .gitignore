@@ -44,8 +44,7 @@ db.sqlite3*
 /euth_wagtail/settings/local.py
 
 # Generated static files
-/euth_wagtail/static/
-static/
+/euth_wagtail/static/bundles
 
 # Media
 media/
