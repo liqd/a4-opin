@@ -43,10 +43,6 @@ db.sqlite3*
 # Local instance specific settings
 /euth_wagtail/settings/local.py
 
-# Generated static files
-/euth_wagtail/static/
-static/
-
 # Media
 media/
 
