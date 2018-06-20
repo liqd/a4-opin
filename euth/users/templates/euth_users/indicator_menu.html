@@ -14,7 +14,7 @@
             <ul class="dropdown-menu">
                 {% if request.user.is_superuser %}
                     <li>
-                        <a href="{% url 'admin:index' %}"><i class="fa fa-hand-spock-o"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
+                        <a href="{% url 'admin:index' %}"><i class="far fa-hand-spock"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
                     </li>
                 {% endif %}
 
@@ -32,7 +32,7 @@
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ redirect_field_value }}">
-                        <button type="submit" value="Register"><i class="fa fa-sign-out"></i> <span class="dropdown-text">{% trans "logout" %}</span></button>
+                        <button type="submit" value="Register"><i class="fas fa-sign-out-alt"></i> <span class="dropdown-text">{% trans "logout" %}</span></button>
                     </form>
                 </li>
             </ul>
