@@ -23,13 +23,14 @@
     font-size: 0.8em;
 
     &:after {
-        font-family: 'FontAwesome';
+        font-family: "Font Awesome 5 Free", sans-serif;
+        font-weight: 400; //for regular or brands
         font-size: 1.4em;
         vertical-align: middle;
     }
 
     &.github:after {
-        content: '\f09b';
+        content: '\f09b'; //github
     }
 
     &.google {
@@ -37,7 +38,7 @@
     }
 
     &.google:after {
-        content: '\f1a0';
+        content: '\f1a0'; //google
     }
 
     &.facebook {
@@ -45,7 +46,7 @@
     }
 
     &.facebook:after {
-        content: '\f230';
+        content: '\f09a'; //facebook
     }
 
     &:hover,

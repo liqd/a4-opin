@@ -30,8 +30,9 @@
         display: inline;
 
         &:before {
-            content: '\f133'; // calender-o
-            font-family: 'FontAwesome', sans-serif;
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 300; // for light, formerly -o
+            content: '\f133'; // calendar
         }
     }
 
@@ -43,7 +44,9 @@
     &:focus,
     &:hover {
         span:first-child:before {
-            content: '\f073'; // calendar
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 300;
+            content: '\f073'; // calendar-alt
         }
 
         span {
@@ -76,7 +79,8 @@
         font-size: 0;
 
         &:before {
-            font-family: 'FontAwesome', sans-serif;
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 900;
             font-size: $font-size-large;
             vertical-align: bottom;
         }
