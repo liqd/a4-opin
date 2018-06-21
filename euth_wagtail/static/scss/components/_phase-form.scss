@@ -27,11 +27,15 @@
         color: $brand-brand1;
     }
 
-    h5 .fa {
+    h5 .fa,
+    h5 .fas,
+    h5 .far {
         transition: transform 0.3s;
     }
 
-    .collapsed .fa {
+    .collapsed .fa,
+    .collapsed .fas,
+    .collapsed .far {
         transform: rotateZ(180deg);
     }
 }

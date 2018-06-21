@@ -326,6 +326,8 @@
     }
 }
 
-.herounit-location .fa {
+.herounit-location .fa,
+.herounit-location .fas,
+.herounit-location .far {
     @include rem(margin-right, 5px);
 }
