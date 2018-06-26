@@ -90,6 +90,19 @@
     }
 }
 
+.form-check__label {
+    margin-bottom: 1em;
+}
+
 .flatpickr-input[readonly] {
     background-color: #fff;
+}
+.input-group {
+    width: 100%;
+}
+
+.input-group__input {
+    width: 90%;
+    padding: 5px;
+    vertical-align: middle;
 }

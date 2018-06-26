@@ -8,4 +8,4 @@ class BlueprintNames(Enum):
     map_idea_challenge = 'map-idea-challenge'
     agenda_setting = 'agenda-setting'
     commenting_text = 'commenting-text'
-    flashpoll = 'flashpoll'
+    a4_poll = 'a4-poll'

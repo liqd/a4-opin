@@ -13,6 +13,8 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
+from adhocracy4.polls.api import PollViewSet, VoteViewSet
+from adhocracy4.polls.routers import QuestionDefaultRouter
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
@@ -40,9 +42,13 @@ js_info_dict = {
 
 router = routers.DefaultRouter()
 router.register(r'follows', FollowViewSet, base_name='follows')
+router.register(r'polls', PollViewSet, base_name='polls')
 router.register(r'reports', ReportViewSet, base_name='reports')
 router.register(r'projects', ProjectViewSet, base_name='projects')
 router.register(r'users', UserViewSet, base_name='users')
+
+question_router = QuestionDefaultRouter()
+question_router.register(r'vote', VoteViewSet, base_name='vote')
 
 ct_router = a4routers.ContentTypeDefaultRouter()
 ct_router.register(r'comments', CommentViewSet, base_name='comments')
@@ -58,6 +64,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(ct_router.urls)),
     url(r'^api/', include(module_router.urls)),
+    url(r'^api/', include(question_router.urls)),
     url(r'^upload/',
         login_required(ck_views.upload), name='ckeditor_upload'),
     url(r'^browse/',

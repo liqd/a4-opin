@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'adhocracy4.rules.apps.RulesConfig',
     'adhocracy4.ckeditor.apps.CKEditorConfig',
     'adhocracy4.dashboard.apps.DashboardConfig',
+    'adhocracy4.polls.apps.PollsConfig',
     'adhocracy4.organisations.apps.OrganisationsConfig',
 
     'euth.users.apps.UsersConfig',
@@ -429,6 +430,7 @@ A4_COMMENTABLES = (
     ('euth_documents', 'paragraph'),
     ('euth_documents', 'document'),
     ('a4comments', 'comment'),
+    ('a4polls', 'poll')
 )
 
 A4_RATEABLES = (

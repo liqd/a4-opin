@@ -3,8 +3,8 @@ from enum import Enum, unique
 
 from django.utils.translation import ugettext_lazy as _
 
+from adhocracy4.polls import phases as poll_phases
 from euth.documents import phases as documents_phases
-from euth.flashpoll import phases as flashpoll_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
 
@@ -299,7 +299,7 @@ blueprints = [
          complexity=COMPLEXITY_VECTOR_F,
          type=BlueprintNames.commenting_text.name
      )),
-    (BlueprintNames.flashpoll.value,
+    (BlueprintNames.a4_poll.value,
      Blueprint(
          title=_('Poll'),
          description=_('Run customizable, multi-step polls on OPIN to get '
@@ -307,10 +307,10 @@ blueprints = [
                        'members. Via the OPIN polling app for iOS and Android '
                        'these polls are also accessible on smartphones.'),
          content=[
-             flashpoll_phases.FlashpollPhase(),
+             poll_phases.VotingPhase(),
          ],
          image='images/poll.png',
-         settings_model=('euth_flashpoll', 'Flashpoll'),
+         settings_model=None,
          requirements=Requirements(
              aims=[Aim.run_survey],
              results=[Result.majority_vote],
@@ -318,8 +318,8 @@ blueprints = [
              motivation=Motivation.not_found
          ),
          complexity=COMPLEXITY_VECTOR_E,
-         type=BlueprintNames.flashpoll.name
-     )),
+         type=BlueprintNames.a4_poll.name
+     ))
 ]
 
 
@@ -328,7 +328,7 @@ fallbacks = {
     Aim.discuss_topic: BlueprintNames.brainstorming.value,
     Aim.agenda_setting: BlueprintNames.agenda_setting.value,
     Aim.design_place: BlueprintNames.map_brainstorming.value,
-    Aim.run_survey: BlueprintNames.flashpoll.value,
+    Aim.run_survey: BlueprintNames.a4_poll.value,
     Aim.run_competition: BlueprintNames.agenda_setting.value,
     Aim.work_document: BlueprintNames.commenting_text.value
 }
