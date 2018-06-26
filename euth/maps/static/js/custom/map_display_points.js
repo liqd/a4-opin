@@ -80,7 +80,7 @@ window.jQuery(document).ready(function () {
                             feature.properties.negative_rating_count + ' <i class="fa fa-chevron-down" aria-hidden="true"></i>' +
                             '</span>' +
                             '<span class="idea-comments-count idea-meta-item">' +
-                            feature.properties.comments_count + ' <i class="fa fa-comment-o" aria-hidden="true"></i>' +
+                            feature.properties.comments_count + ' <i class="far fa-comment" aria-hidden="true"></i>' +
                             '</span>' +
                             '</div>' +
                         '<div class="maps-popups-popup-name"><a href="' + feature.properties.url + '">' + feature.properties.name + '</a></div>'

@@ -83,13 +83,6 @@
         @include rem(margin-bottom, 88px);
     }
 
-    & .icon:before {
-        display: inline-block;
-        margin-right: .5em;
-        font: normal normal normal 14px/1 "FontAwesome";
-        font-size: inherit;
-    }
-
     & .navbar-right {
         margin-right: 0;
     }

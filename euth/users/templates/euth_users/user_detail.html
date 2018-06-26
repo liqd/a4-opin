@@ -12,13 +12,13 @@
                     {% if object.has_social_share %}
                         <ul class="herounit-links">
                             {% if object.facebook_handle  %}
-                                <li><a href="https://www.facebook.com/{{ object.facebook_handle }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/{{ object.facebook_handle }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             {% endif %}
                             {% if object.twitter_handle %}
-                                <li><a href="https://twitter.com/{{ object.twitter_handle }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://twitter.com/{{ object.twitter_handle }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                             {% endif %}
                             {% if object.instagram_handle %}
-                                <li><a href="https://www.instagram.com/{{ object.instagram_handle }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.instagram.com/{{ object.instagram_handle }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             {% endif %}
                         </ul>
                     {% endif %}
@@ -28,7 +28,7 @@
                     <div class="visible-xs herounit-meta">
                         {% if object.city or object.country %}
                             <p>
-                                <i class="fa fa-map-marker"></i>
+                                <i class="fas fa-map-marker-alt"></i>
                                 {{object.city}}
                                 {% if object.city and object.country %}, {% endif %}
                                 {{object.country.name}}
@@ -38,7 +38,7 @@
                             <p><i class="fa fa-comment"></i> {{object.languages}}</p>
                         {% endif %}
                         {% if object.birthdate %}
-                            <p><i class="fa fa-calendar"></i> {{ object.age }} {% trans 'years old' %}</p>
+                            <p><i class="fas fa-calendar-alt"></i> {{ object.age }} {% trans 'years old' %}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="col-sm-3 hidden-xs">
                     {% if object.city or object.country %}
                         <p>
-                            <i class="fa fa-map-marker"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                             {{object.city}}{% if object.city and object.country %}, {% endif %}
                             {{object.country.name}}
                         </p>
@@ -67,7 +67,7 @@
                         <p><i class="fa fa-comment"></i> {{object.languages}}</p>
                     {% endif %}
                     {% if object.birthdate %}
-                        <p><i class="fa fa-calendar"></i> {{ object.age }} {% trans 'years old' %}</p>
+                        <p><i class="fas fa-calendar-alt"></i> {{ object.age }} {% trans 'years old' %}</p>
                     {% endif %}
                     {% if object.description %}
                         <p class="bio">{{ object.description }}</p>

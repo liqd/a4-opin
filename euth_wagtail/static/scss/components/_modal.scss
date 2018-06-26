@@ -32,7 +32,9 @@
             content: none;
         }
 
-        .fa {
+        .fa,
+        .far,
+        .fas {
             color: $brand-success;
             display: block;
             text-align: center;
@@ -84,7 +86,9 @@
         content: none;
     }
 
-    .modal-title .fa {
+    .modal-title .fa,
+    .modal-title .fas,
+    .modal-title .far {
         display: block;
         text-align: center;
         font-size: 100px;

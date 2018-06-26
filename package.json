@@ -2,7 +2,7 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "adhocracy4": "git+https://github.com/liqd/adhocracy4#b0d2e2c8f4d441b553c0b0fc4a4d7e6b0a3fb594",
+    "adhocracy4": "git+https://github.com/liqd/adhocracy4#029bd5fb27236f9c1c042e32b126e41fe4f9a73e",
     "autoprefixer": "8.6.3",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
@@ -15,7 +15,7 @@
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
     "flatpickr": "4.5.0",
-    "font-awesome": "4.7.0",
+    "@fortawesome/fontawesome-free-webfonts": "1.0.4",
     "highcharts": "6.1.0",
     "immutability-helper": "2.7.1",
     "jquery": "3.3.1",

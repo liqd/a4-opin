@@ -136,7 +136,7 @@ class Paragraph extends React.Component {
                 className="btn btn-hover-danger"
                 onClick={this.delete.bind(this)}
                 type="button">
-                <i className="fa fa-trash" />
+                <i className="fas fa-trash-alt" />
               </button>
             </div>
           </div>

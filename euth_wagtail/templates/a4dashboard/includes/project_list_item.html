@@ -32,7 +32,7 @@
                         {% endif %}
                     </a>
                     <a href="{% url 'a4dashboard:project-edit' project_slug=project.slug %}" type="button" class="btn btn-gray btn-sm">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                         {% trans 'Edit'%}
                     </a>
                     <div class="btn-group" role="group">
@@ -46,7 +46,7 @@
                                     <input type="hidden" name="project_pk" value="{{ project.pk }}">
                                     <button type="submit" name="duplicate" value="{{ project }}"
                                             class="">
-                                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                                        <i class="far fa-copy" aria-hidden="true"></i>
                                         {% trans 'Duplicate' %}
                                     </button>
                                 </form>

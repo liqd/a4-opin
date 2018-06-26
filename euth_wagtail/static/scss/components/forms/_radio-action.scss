@@ -15,27 +15,28 @@
         @include rem(width, 35px);
         @include rem(height, 35px);
         border-radius: 50%;
-        font-family: 'FontAwesome';
+        font-family: "Font Awesome 5 Free", sans-serif;
+        font-weight: 900;
         @include rem(line-height, 30px);
         @include rem(font-size, 16px);
         text-align: center;
     }
 
     &.accept:before {
-        content: '\f00c';
+        content: '\f00c'; //check
         border: 2px solid $brand-success;
         color: $brand-success;
     }
 
     &.decline:before,
     &.delete:before {
-        content: '\f00d';
+        content: '\f00d'; //times
         border: 2px solid $brand-danger;
         color: $brand-danger;
     }
 
     &.delete:before {
-        content: '\f235';
+        content: '\f235'; //user-times
     }
 
     :checked + &.accept:before {

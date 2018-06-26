@@ -10,13 +10,13 @@
                 {% if organisation.has_social_share %}
                 <ul class="herounit-links">
                   {% if organisation.facebook_handle  %}
-                  <li><a href="https://www.facebook.com/{{ organisation.facebook_handle }}"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://www.facebook.com/{{ organisation.facebook_handle }}"><i class="fab fa-facebook-f"></i></a></li>
                   {% endif %}
                   {% if organisation.twitter_handle %}
-                  <li><a href="https://twitter.com/{{ organisation.twitter_handle }}"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://twitter.com/{{ organisation.twitter_handle }}"><i class="fab fa-twitter"></i></a></li>
                   {% endif %}
                   {% if organisation.instagram_handle %}
-                  <li><a href="https://www.instagram.com/{{ organisation.instagram_handle }}"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.instagram.com/{{ organisation.instagram_handle }}"><i class="fab fa-instagram"></i></a></li>
                   {% endif %}
                   {% if organisation.webpage %}<li><a href="{{ organisation.webpage }}"><i class="fa fa-link"></i></a></li>
                   {% endif %}
@@ -30,7 +30,7 @@
                     {% endif %}
                 </div>
                 <h1 class="herounit-title">{{ organisation.name }}</h1>
-                <p class="herounit-location"><i class="fa fa-map-marker"></i>  {{organisation.place}}, {{organisation.country.name}}</p>
+                <p class="herounit-location"><i class="fas fa-map-marker-alt"></i>  {{organisation.place}}, {{organisation.country.name}}</p>
             </div>
         </div>
     </div>
