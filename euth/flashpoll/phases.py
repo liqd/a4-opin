@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4 import phases
 
-from . import apps, models, views
+from . import apps, views
 
 
 class FlashpollPhase(phases.PhaseContent):
@@ -16,7 +16,7 @@ class FlashpollPhase(phases.PhaseContent):
     icon = 'times-circle-o'
 
     features = {
-        'crud': (models.Flashpoll,),
+        # 'crud': (models.Flashpoll,),
     }
 
 

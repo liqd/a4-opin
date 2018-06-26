@@ -11,7 +11,7 @@ from adhocracy4.dashboard import mixins
 from adhocracy4.projects.mixins import ProjectMixin
 from euth.projects import mixins as prj_mixins
 
-from . import models
+# from . import models
 
 
 class FlashpollLoadMixin:
@@ -68,10 +68,12 @@ class FlashpollLoadMixin:
 class FlashpollDetailView(prj_mixins.ProjectPhaseMixin,
                           FlashpollLoadMixin,
                           generic.DetailView):
-    model = models.Flashpoll
+    # model = models.Flashpoll
 
-    def get_object(self, queryset=None):
-        return models.Flashpoll.objects.filter(module=self.module).first()
+    # def get_object(self, queryset=None):
+    #     return models.Flashpoll.objects.filter(module=self.module).first()
+
+    pass
 
 
 class FlashpollExportView(ProjectMixin,
@@ -80,15 +82,15 @@ class FlashpollExportView(ProjectMixin,
                           generic.DetailView
                           ):
 
-    model = models.Flashpoll
+    # model = models.Flashpoll
     permission_required = 'a4projects.change_project'
     template_name = 'euth_flashpoll/flashpoll_export.html'
 
     def get_permission_object(self):
         return self.project
 
-    def get_object(self, queryset=None):
-        return models.Flashpoll.objects.filter(module=self.module).first()
+    # def get_object(self, queryset=None):
+    #     return models.Flashpoll.objects.filter(module=self.module).first()
 
     def get_context_data(self, **kwargs):
         useremail = str(uuid.uuid4())

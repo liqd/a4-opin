@@ -1,5 +1,5 @@
-from django.contrib import admin
+# from django.contrib import admin
 
-from .models import Flashpoll
+# from .models import Flashpoll
 
-admin.site.register(Flashpoll)
+# admin.site.register(Flashpoll)
