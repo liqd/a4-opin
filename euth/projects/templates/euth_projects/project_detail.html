@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static tz time_delta_tags timeline_tags flashpoll_form_tags wagtailcore_tags ckeditor_tags %}
+{% load i18n static tz time_delta_tags timeline_tags wagtailcore_tags ckeditor_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
 {% block extra_js %}
@@ -151,9 +151,6 @@
             {% block phase_content %}{% endblock %}
         </div>
     </article>
-    {% if module_settings == "euth_flashpoll" %}
-        {% include 'euth_flashpoll/includes/project_result_flashpoll_tab.html' with form=form view=view %}
-    {% else %}
     <article id="result" class="tab-panel">
         <div class="container-narrow">
             <div class="tab-panel-description project usercontent">
