@@ -115,8 +115,3 @@
 .timepicker {
     @extend .form-control;
 }
-
-// The original styling causes a huge focus box in firefox
-.fd-screen-reader {
-    @extend .sr-only;
-}
