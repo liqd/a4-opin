@@ -16,10 +16,16 @@
         margin: 0;
         @include rem(padding, 5px 0);
         text-align: center;
+
+        i {
+          position: absolute;
+          right: 1em;
+          transition: transform 0.3s;
+        }
     }
 
     .accordion-link {
-        @include rem(font-size, $font-size-medium);
+        @include rem(font-size, $font-size-small);
         @include rem(padding, 20px 20px);
         position: relative;
         color: $gray-darker;
@@ -29,8 +35,6 @@
         text-decoration: none;
 
         &:after {
-            content: "–";
-            @include rem(font-size, $font-size-large);
             position: absolute;
             top: 50%;
             right: 0;
@@ -41,10 +45,6 @@
             border-color: $gray-light;
             background: transparent;
             color: #000;
-        }
-
-        &.collapsed:after {
-            content: "+";
         }
     }
 
@@ -84,21 +84,18 @@
     }
 
     .accordion-link {
-        @include rem(font-size, $font-size-large);
-        @include rem(padding, 22px 30px 15px 22px);
+        @include rem(font-size, $font-size-medium);
+        @include rem(padding, 15px 50px 12px 15px);
         border: 1px solid $brand-brand1;
         position: relative;
         color: #fff;
 
-        &:after {
-            @include rem(right, 22px);
-            @include rem(top, 22px);
-            content: "x";
-            position: absolute;
+        &[aria-expanded="true"] i {
+        transform: rotate(180deg);
         }
     }
 
     .panel-body {
         @include rem(padding, 0 22px 22px 22px);
     }
-}
+  }
