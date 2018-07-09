@@ -1,7 +1,9 @@
 .upload-wrapper {
     position: relative;
-    @include rem(margin-bottom, 20px);
     @include clearfix();
+}
+.alert-info {
+    margin-bottom: 2px;
 }
 
 .form-control-upload {
