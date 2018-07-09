@@ -1,3 +1,5 @@
+/* global location */
+
 var widget = require('adhocracy4').widget
 var ReactComments = require('adhocracy4').comments
 var ReactParagraphs = require('../../../documents/static/documents/ParagraphBox.jsx')
@@ -10,6 +12,10 @@ var $ = window.jQuery = window.$ = require('jquery')
 
 require('../../../../euth_wagtail/static/js/euth_wagtail')
 
+var getCurrentPath = function () {
+  return location.pathname
+}
+
 $(function () {
   widget.initialise('a4', 'comment', ReactComments.renderComment)
   widget.initialise('a4', 'ratings', ReactRatings.renderRatings)
@@ -20,3 +26,7 @@ $(function () {
   widget.initialise('euth', 'userlist', ReactUserList.renderUserList)
   widget.initialise('euth', 'language-switch', ReactLanguageSwitch.renderLanguageSwitch)
 })
+
+module.exports = {
+  'getCurrentPath': getCurrentPath
+}
