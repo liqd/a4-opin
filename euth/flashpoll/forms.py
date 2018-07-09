@@ -2,7 +2,7 @@ import uuid
 
 from adhocracy4.dashboard.components.forms import ModuleDashboardForm
 
-from . import models, services
+from . import services
 
 
 class FlashpollSettingsForm(ModuleDashboardForm):
@@ -31,8 +31,8 @@ class FlashpollSettingsForm(ModuleDashboardForm):
     def get_project(self):
         return self.module.project
 
-    class Meta:
-        model = models.Flashpoll
-        fields = ['key']
-        required_for_project_publish = ['key']
-        widgets = models.Flashpoll.widgets()
+    # class Meta:
+    #     model = models.Flashpoll
+    #     fields = ['key']
+    #     required_for_project_publish = ['key']
+    #     widgets = models.Flashpoll.widgets()
