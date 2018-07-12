@@ -3,7 +3,7 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "adhocracy4": "git+https://github.com/liqd/adhocracy4#a800d014f4bb3cbf2e3f14cfa970cc3380f0dfcd",
-    "autoprefixer": "8.6.4",
+    "autoprefixer": "8.6.5",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
@@ -23,7 +23,7 @@
     "leaflet": "1.3.1",
     "leaflet-draw": "1.0.2",
     "leaflet.markercluster": "1.3.0",
-    "node-sass": "4.9.1",
+    "node-sass": "4.9.2",
     "postcss-loader": "2.1.5",
     "prop-types": "15.6.2",
     "react": "16.4.1",
@@ -37,7 +37,7 @@
     "webpack-merge": "4.1.3"
   },
   "devDependencies": {
-    "eslint": "5.0.1",
+    "eslint": "5.1.0",
     "eslint-config-standard": "11.0.0",
     "eslint-config-standard-jsx": "5.0.0",
     "eslint-plugin-import": "2.13.0",
