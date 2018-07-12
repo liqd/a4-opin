@@ -96,24 +96,24 @@
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
             <div class="tab-panel-description usercontent">
                 {{ view.project.information | transform_collapsibles | richtext }}
-                {% if project.contact_name or project.contact_address_text or project.contact_email or project.contact_phone or project.contact_url %}
+                {% if view.project.contact_name or view.project.contact_address_text or view.project.contact_email or view.project.contact_phone or view.project.contact_url %}
                     <h4>{% trans 'Contact for questions' %}</h4>
-                    {% if project.contact_name %}
-                    <p>{{ project.contact_name }}</p>
+                    {% if view.project.contact_name %}
+                    <p>{{ view.project.contact_name }}</p>
                     {% endif %}
-                    {% if project.contact_address_text %}
-                    <p>{{ project.contact_address_text|linebreaks }}</p>
+                    {% if view.project.contact_address_text %}
+                    <p>{{ view.project.contact_address_text|linebreaks }}</p>
                     {% endif %}
-                    {% if project.contact_phone %}
-                    <p><strong>{% trans 'Telephone' %}: </strong>{{ project.contact_phone }}</p>
+                    {% if view.project.contact_phone %}
+                    <p><strong>{% trans 'Telephone' %}: </strong>{{ view.project.contact_phone }}</p>
                     {% endif %}
-                    {% if project.contact_email %}
-                    <a class="btn btn-primary" href="mailto:{{ project.contact_email }}">
+                    {% if view.project.contact_email %}
+                    <a class="btn btn-primary" href="mailto:{{ view.project.contact_email }}">
                         {% trans 'Email' %}
                     </a>
                     {% endif %}
-                    {% if project.contact_url %}
-                    <a class="btn btn-primary" target="_blank" href="{{ project.contact_url }}">
+                    {% if view.project.contact_url %}
+                    <a class="btn btn-primary" target="_blank" href="{{ view.project.contact_url }}">
                         {% trans 'Website' %}
                     </a>
                     {% endif %}
