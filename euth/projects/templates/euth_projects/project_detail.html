@@ -96,6 +96,28 @@
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
             <div class="tab-panel-description usercontent">
                 {{ view.project.information | transform_collapsibles | richtext }}
+                {% if project.contact_name or project.contact_address_text or project.contact_email or project.contact_phone or project.contact_url %}
+                    <h4>{% trans 'Contact for questions' %}</h4>
+                    {% if project.contact_name %}
+                    <p>{{ project.contact_name }}</p>
+                    {% endif %}
+                    {% if project.contact_address_text %}
+                    <p>{{ project.contact_address_text|linebreaks }}</p>
+                    {% endif %}
+                    {% if project.contact_phone %}
+                    <p><strong>{% trans 'Telephone' %}: </strong>{{ project.contact_phone }}</p>
+                    {% endif %}
+                    {% if project.contact_email %}
+                    <a class="btn btn-primary" href="mailto:{{ project.contact_email }}">
+                        {% trans 'Email' %}
+                    </a>
+                    {% endif %}
+                    {% if project.contact_url %}
+                    <a class="btn btn-primary" target="_blank" href="{{ project.contact_url }}">
+                        {% trans 'Website' %}
+                    </a>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </article>
@@ -151,9 +173,6 @@
             {% block phase_content %}{% endblock %}
         </div>
     </article>
-    {% if module_settings == "euth_flashpoll" %}
-        {% include 'euth_flashpoll/includes/project_result_flashpoll_tab.html' with form=form view=view %}
-    {% else %}
     <article id="result" class="tab-panel">
         <div class="container-narrow">
             <div class="tab-panel-description project usercontent">
@@ -162,7 +181,6 @@
             </div>
         </div>
     </article>
-    {% endif %}
 </div>
 {% if view.project.other_projects %}
 <div class="project-other-projects">
