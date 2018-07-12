@@ -16,7 +16,7 @@
 
     .input-group-btn .btn,
     .form-control {
-        @include rem(height, 48px);
+        @include rem(min-height, 48px);
         border-radius: 0;
     }
 
