@@ -29,7 +29,7 @@
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-flip-move": "3.0.2",
-    "sass-loader": "7.0.3",
+    "sass-loader": "7.1.0",
     "slick-carousel": "1.8.1",
     "style-loader": "0.21.0",
     "typeahead.js": "0.11.1",
