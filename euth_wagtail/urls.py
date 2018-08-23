@@ -11,6 +11,11 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
+from wagtail.contrib.wagtailsitemaps import views as wagtail_sitemap_views
+from wagtail.contrib.wagtailsitemaps.sitemap_generator import Sitemap as WagtailSitemap
+from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
+from euth.contrib.sitemaps.static_sitemap import StaticSitemap
+
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
 from adhocracy4.polls.api import PollViewSet, VoteViewSet
@@ -57,6 +62,12 @@ ct_router.register(r'ratings', RatingViewSet, base_name='ratings')
 module_router = a4routers.ModuleDefaultRouter()
 module_router.register(r'documents', DocumentViewSet, base_name='documents')
 
+sitemaps = {
+    'adhocracy4': Adhocracy4Sitemap,
+    'wagtail': WagtailSitemap,
+    'static': StaticSitemap
+}
+
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
@@ -86,6 +97,8 @@ urlpatterns += i18n_patterns(
     url(r'^blueprints/', include(blueprints_urls)),
     url(r'^jsi18n/$', javascript_catalog,
         js_info_dict, name='javascript-catalog'),
+    url(r'^sitemap\.xml$', wagtail_sitemap_views.index, {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
+    url(r'^sitemap-(?P<section>.+)\.xml$', wagtail_sitemap_views.sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
     url(r'', include(wagtail_urls)),
 )
 
