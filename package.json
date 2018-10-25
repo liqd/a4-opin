@@ -28,7 +28,7 @@
     "prop-types": "15.6.2",
     "react": "16.5.2",
     "react-dom": "16.5.2",
-    "react-flip-move": "3.0.2",
+    "react-flip-move": "3.0.3",
     "sass-loader": "7.1.0",
     "slick-carousel": "1.8.1",
     "style-loader": "0.23.1",
