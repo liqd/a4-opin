@@ -4,7 +4,7 @@ wagtail==1.13.4 # pyup: <2.0
 feedparser==5.2.1
 python-dateutil==2.7.5
 django-allauth==0.34.0 # pyup: <0.35.0 # not supported with django 1.8
-django-ckeditor==5.5.0
+django-ckeditor==5.6.1
 django-cloudflare-push==0.2.0
 django-countries==5.3.1
 django-filter==1.1.0
