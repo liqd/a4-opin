@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MapConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.maps'
     label = 'euth_maps'

@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class OrganisationsConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.organisations'
     label = 'euth_organisations'
 

@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class FollowsConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.follows'
     label = 'euth_follows'
 

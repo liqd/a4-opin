@@ -6,7 +6,7 @@ from . import apps, models, views
 
 
 class IssuePhase(phases.PhaseContent):
-    app = apps.MapConfig.label
+    app = apps.Config.label
     phase = 'issue'
     view = views.MapIdeaListView
 
@@ -23,7 +23,7 @@ class IssuePhase(phases.PhaseContent):
 
 
 class CollectPhase(phases.PhaseContent):
-    app = apps.MapConfig.label
+    app = apps.Config.label
     phase = 'collect'
     view = views.MapIdeaListView
 
@@ -39,7 +39,7 @@ class CollectPhase(phases.PhaseContent):
 
 
 class RatingPhase(phases.PhaseContent):
-    app = apps.MapConfig.label
+    app = apps.Config.label
     phase = 'rating'
     view = views.MapIdeaListView
 

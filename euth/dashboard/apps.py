@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DashboardConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.dashboard'
     label = 'euth_dashboard'

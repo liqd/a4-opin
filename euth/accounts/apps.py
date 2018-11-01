@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.accounts'
     label = 'euth_accounts'
