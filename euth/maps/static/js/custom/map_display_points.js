@@ -33,7 +33,7 @@ window.jQuery(document).ready(function () {
     'fillOpacity': 0.2
   }
 
-  var basePolygon = L.geoJson(polygon, {style: polygonStyle}).addTo(map)
+  var basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
   basePolygon.on('dblclick', function (event) {
     map.zoomIn()
   })
@@ -70,7 +70,7 @@ window.jQuery(document).ready(function () {
 
   L.geoJson(point, {
     pointToLayer: function (feature, latlng) {
-      var marker = L.marker(latlng, {icon: icon}).addTo(map)
+      var marker = L.marker(latlng, { icon: icon }).addTo(map)
       var popupContent = getImage(feature) +
                         '<div class="maps-popups-popup-meta">' +
                             '<span class="idea-upvotes idea-meta-item">' +

@@ -6,8 +6,8 @@ window.jQuery(document).ready(function () {
 
   var basemap = baseurl + '{z}/{x}/{y}.png'
   var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, {attribution: osmAttrib})
-  var map = new L.Map('map', {scrollWheelZoom: false, zoomControl: false})
+  var baselayer = L.tileLayer(basemap, { attribution: osmAttrib })
+  var map = new L.Map('map', { scrollWheelZoom: false, zoomControl: false })
   baselayer.addTo(map)
 
   var polygonStyle = {
@@ -27,7 +27,7 @@ window.jQuery(document).ready(function () {
     popupAnchor: [0, -45]
   })
 
-  var basePolygon = L.geoJson(polygon, {style: polygonStyle}).addTo(map)
+  var basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
   map.fitBounds(basePolygon)
   map.options.minZoom = map.getZoom()
   L.control.zoom({
@@ -36,7 +36,7 @@ window.jQuery(document).ready(function () {
 
   L.geoJson(point, {
     pointToLayer: function (feature, latlng) {
-      var marker = L.marker(latlng, {icon: icon}).addTo(map)
+      var marker = L.marker(latlng, { icon: icon }).addTo(map)
       return marker
     }
   })

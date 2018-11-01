@@ -1,20 +1,20 @@
 
 $(document).ready(function () {
-  //hide the all of the element with class collapsible_body
-  $(".collapsible_body").hide();
-  //toggle the component with class collapsible_body
-  $(".collapsible_head").click(function () {
-    $(this).next(".collapsible_body").slideToggle(600);
-  });
+  // hide the all of the element with class collapsible_body
+  $('.collapsible_body').hide()
+  // toggle the component with class collapsible_body
+  $('.collapsible_head').click(function () {
+    $(this).next('.collapsible_body').slideToggle(600)
+  })
 
-  if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-    if (history.pushState)  {
-      history.pushState(null, null, '#'+$(e.target).attr('href').substr(1));
+  if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show')
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    if (history.pushState) {
+      history.pushState(null, null, '#' + $(e.target).attr('href').substr(1))
     } else {
-      location.hash = '#'+$(e.target).attr('href').substr(1);
+      location.hash = '#' + $(e.target).attr('href').substr(1)
     }
-  });
+  })
 
   $('.carousel').slick({
     centerMode: false,
@@ -59,7 +59,7 @@ $(document).ready(function () {
         }
       }
     ]
-  });
+  })
 
   $('.slider-xs').slick({
     centerMode: false,
@@ -83,10 +83,10 @@ $(document).ready(function () {
         settings: 'unslick'
       }
     ]
-  });
+  })
 
-  $(".form-control-file").change(function() {
+  $('.form-control-file').change(function () {
     var string = $(this).val().match(/[^\\/]+$/)[0]
-    $(this).parent().find(".form-control-file-dummy").val(string)
-  });
-});
+    $(this).parent().find('.form-control-file-dummy').val(string)
+  })
+})
