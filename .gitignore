@@ -60,3 +60,6 @@ media/
 
 # sass
 .sass-cache
+
+# Static
+static/
