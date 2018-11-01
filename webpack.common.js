@@ -1,8 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var path = require('path')
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
 
 /** How do we use webpack to handle static files?
  *
@@ -54,7 +53,7 @@ module.exports = {
       'leaflet/dist/leaflet.css',
       'leaflet.markercluster',
       'leaflet.markercluster/dist/MarkerCluster.css'
-    ],
+    ]
   },
   output: {
     libraryTarget: 'var',
@@ -70,7 +69,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules\/(?!adhocracy4)/,  // exclude all dependencies but adhocracy4
+        exclude: /node_modules\/(?!adhocracy4)/, // exclude all dependencies but adhocracy4
         loader: 'babel-loader',
         query: {
           presets: ['babel-preset-env', 'babel-preset-react'].map(require.resolve)
@@ -87,7 +86,7 @@ module.exports = {
               options: {
                 ident: 'postcss',
                 plugins: (loader) => [
-                  autoprefixer({browsers: ['last 3 versions', 'ie >= 10']})
+                  autoprefixer({ browsers: ['last 3 versions', 'ie >= 10'] })
                 ]
               }
             },
@@ -119,7 +118,7 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js'}),
-    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
+    new ExtractTextPlugin('[name].css')
   ]
 }

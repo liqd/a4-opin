@@ -7,14 +7,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.views.i18n import javascript_catalog
 from rest_framework import routers
+from wagtail.contrib.wagtailsitemaps import views as wagtail_sitemap_views
+from wagtail.contrib.wagtailsitemaps.sitemap_generator import \
+    Sitemap as WagtailSitemap
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
-
-from wagtail.contrib.wagtailsitemaps import views as wagtail_sitemap_views
-from wagtail.contrib.wagtailsitemaps.sitemap_generator import Sitemap as WagtailSitemap
-from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
-from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
@@ -24,6 +22,8 @@ from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
 from euth.blueprints import urls as blueprints_urls
+from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
+from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
 from euth.documents import urls as paragraph_urls
 from euth.documents.api import DocumentViewSet
@@ -97,8 +97,12 @@ urlpatterns += i18n_patterns(
     url(r'^blueprints/', include(blueprints_urls)),
     url(r'^jsi18n/$', javascript_catalog,
         js_info_dict, name='javascript-catalog'),
-    url(r'^sitemap\.xml$', wagtail_sitemap_views.index, {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
-    url(r'^sitemap-(?P<section>.+)\.xml$', wagtail_sitemap_views.sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
+    url(r'^sitemap\.xml$',
+        wagtail_sitemap_views.index,
+        {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
+    url(r'^sitemap-(?P<section>.+)\.xml$',
+        wagtail_sitemap_views.sitemap,
+        {'sitemaps': sitemaps}, name='sitemaps'),
     url(r'', include(wagtail_urls)),
 )
 

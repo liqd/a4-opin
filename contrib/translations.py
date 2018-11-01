@@ -1,16 +1,17 @@
 from django.db import models
 from django.utils import translation
-from wagtail.wagtailcore.blocks.stream_block import StreamValue
 from wagtail.wagtailcore.models import PageBase
 
 from euth_wagtail.settings import LANGUAGES
+
 
 class TranslatedField(object):
     fallback_lang = 'en'
 
     def __init__(self, field_name, field, overwrite_fallback={}):
         for language_code, language in LANGUAGES:
-            setattr(self, language_code + '_field', field_name + '_' + language_code)
+            setattr(self, language_code + '_field',
+                    field_name + '_' + language_code)
         self.field_name = field_name
         self.field = field
         self.overwrite_fallback = overwrite_fallback

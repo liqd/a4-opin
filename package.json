@@ -2,6 +2,7 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "1.0.9",
     "adhocracy4": "git+https://github.com/liqd/adhocracy4#014e8ef2cc586c93cdffed2631accf08cb93bc30",
     "autoprefixer": "8.6.5",
     "babel-core": "6.26.3",
@@ -10,12 +11,11 @@
     "babel-preset-react": "6.24.1",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.6",
-    "datepicker": "git+https://github.com/liqd/datePicker.git",
     "css-loader": "0.28.11",
+    "datepicker": "git+https://github.com/liqd/datePicker.git",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
     "flatpickr": "4.5.1",
-    "@fortawesome/fontawesome-free-webfonts": "1.0.9",
     "highcharts": "6.1.1",
     "immutability-helper": "2.7.1",
     "jquery": "3.3.1",
@@ -37,23 +37,30 @@
     "webpack-merge": "4.1.4"
   },
   "devDependencies": {
-    "eslint": "5.1.0",
-    "eslint-config-standard": "11.0.0",
-    "eslint-config-standard-jsx": "5.0.0",
-    "eslint-plugin-import": "2.13.0",
-    "eslint-plugin-node": "6.0.1",
-    "eslint-plugin-promise": "3.8.0",
-    "eslint-plugin-react": "7.10.0",
-    "eslint-plugin-standard": "3.1.0",
-    "husky": "0.14.3",
-    "stylelint": "9.5.0"
+    "eslint": "5.7.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-config-standard-jsx": "6.0.2",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "7.0.1",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-standard": "4.0.0",
+    "husky": "1.1.2",
+    "markdownlint-cli": "0.13.0",
+    "polylint.sh": "0.0.4",
+    "stylelint": "9.7.1",
+    "stylelint-config-standard": "18.2.0",
+    "stylelint-declaration-strict-value": "1.0.4"
   },
   "license": "AGPL-3.0+",
   "scripts": {
     "build": "webpack --config ./webpack.prod.js",
     "build:dev": "webpack --config ./webpack.dev.js --progress --colors",
-    "watch": "webpack --config ./webpack.dev.js --progress --colors --watch",
-    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
-    "precommit": "make lint"
+    "watch": "webpack --config ./webpack.dev.js --progress --colors --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "make lint-quick"
+    }
   }
 }
