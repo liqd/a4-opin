@@ -3,7 +3,7 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "1.0.9",
-    "adhocracy4": "git+https://github.com/liqd/adhocracy4#014e8ef2cc586c93cdffed2631accf08cb93bc30",
+    "adhocracy4": "git+https://github.com/liqd/adhocracy4#aef456e4f32dc6f0f272209e770fdd69bef75435",
     "autoprefixer": "8.6.5",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",

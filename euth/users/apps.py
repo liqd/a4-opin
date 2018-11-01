@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class UsersConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.users'
     label = 'euth_users'
 

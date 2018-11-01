@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class ActionsConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.actions'
     label = 'euth_actions'
 

@@ -1,1 +1,1 @@
-default_app_config = 'euth.projects.apps.ProjectsConfig'
+default_app_config = 'euth.projects.apps.Config'

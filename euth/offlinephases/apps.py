@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class OfflinephaseConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.offlinephases'
     label = 'euth_offlinephases'
 

@@ -6,7 +6,7 @@ from . import apps, models, views
 
 
 class IssuePhase(phases.PhaseContent):
-    app = apps.IdeaConfig.label
+    app = apps.Config.label
     phase = 'issue'
     view = views.IdeaListView
 
@@ -21,7 +21,7 @@ class IssuePhase(phases.PhaseContent):
 
 
 class CollectPhase(phases.PhaseContent):
-    app = apps.IdeaConfig.label
+    app = apps.Config.label
     phase = 'collect'
     view = views.IdeaListView
 
@@ -37,7 +37,7 @@ class CollectPhase(phases.PhaseContent):
 
 
 class RatingPhase(phases.PhaseContent):
-    app = apps.IdeaConfig.label
+    app = apps.Config.label
     phase = 'rating'
     view = views.IdeaListView
 
@@ -52,7 +52,7 @@ class RatingPhase(phases.PhaseContent):
 
 
 class FeedbackPhase(phases.PhaseContent):
-    app = apps.IdeaConfig.label
+    app = apps.Config.label
     phase = 'feedback'
     view = views.IdeaListView
 
@@ -69,7 +69,7 @@ class FeedbackPhase(phases.PhaseContent):
 
 
 class UniversalPhase(phases.PhaseContent):
-    app = apps.IdeaConfig.label
+    app = apps.Config.label
     phase = 'universal'
     view = views.IdeaListView
 
