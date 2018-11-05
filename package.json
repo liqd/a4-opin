@@ -2,7 +2,7 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "adhocracy4": "git+https://github.com/liqd/adhocracy4#fbee92186d0e45b90974a507f42e1199b0cdc94b",
+    "adhocracy4": "git+https://github.com/liqd/adhocracy4#44b104bbeff2400e62f5e9033cd217ec7757d493",
     "autoprefixer": "8.6.5",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
@@ -37,23 +37,32 @@
     "webpack-merge": "4.1.4"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "5.8.0",
-    "eslint-config-standard": "11.0.0",
-    "eslint-config-standard-jsx": "5.0.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-config-standard-jsx": "6.0.2",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-node": "7.0.1",
     "eslint-plugin-promise": "4.0.1",
-    "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-standard": "3.1.0",
-    "husky": "0.14.3",
-    "stylelint": "9.6.0"
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "4.0.0",
+    "husky": "1.1.2",
+    "markdownlint-cli": "0.13.0",
+    "polylint.sh": "0.0.4",
+    "stylelint": "9.7.1",
+    "stylelint-config-standard": "18.2.0",
+    "stylelint-declaration-strict-value": "1.0.4"
   },
   "license": "AGPL-3.0+",
   "scripts": {
     "build": "webpack --config ./webpack.prod.js",
     "build:dev": "webpack --config ./webpack.dev.js --progress --colors",
     "watch": "webpack --config ./webpack.dev.js --progress --colors --watch",
-    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
-    "precommit": "make lint"
+    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "make lint"
+    }
   }
 }

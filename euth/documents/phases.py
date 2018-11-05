@@ -10,7 +10,7 @@ class CreateDocumentPhase(phases.PhaseContent):
     Allows no interaction for participants, only
     creation for moderators.
     """
-    app = apps.DocumentConfig.label
+    app = apps.Config.label
     phase = 'create_document'
     view = views.DocumentCreateView
 
@@ -29,7 +29,7 @@ class CommentPhase(phases.PhaseContent):
     """
     Allows only commenting of paragraphs.
     """
-    app = apps.DocumentConfig.label
+    app = apps.Config.label
     phase = 'comment'
     view = views.DocumentDetailView
 

@@ -23,7 +23,7 @@ help:
 	@echo "  make test-lastfailed -- run test that failed last"
 	@echo "  make test-clean      -- test on new database"
 	@echo "  make coverage        -- write coverage report to dir htmlcov"
-	@echo "  make lint	          -- lint javascript and python, check for missing migrations"
+	@echo "  make lint            -- lint javascript and python, check for missing migrations"
 	@echo "  make po              -- create new po files from the source"
 	@echo "  make mo              -- create new mo files from the translated po files"
 	@echo "  make tx-mo           -- pull from transifex and create new mo files from the translated po files"

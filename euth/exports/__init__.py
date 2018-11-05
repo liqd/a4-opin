@@ -1,5 +1,7 @@
 from django.apps import apps as django_apps
 
+default_app_config = 'euth.exports.apps.Config'
+
 
 def register_export(description):
     def export_view_decorator(view_cls):

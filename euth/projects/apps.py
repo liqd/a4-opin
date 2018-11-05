@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ProjectsConfig(AppConfig):
+class Config(AppConfig):
     name = 'euth.projects'
     label = 'euth_projects'
