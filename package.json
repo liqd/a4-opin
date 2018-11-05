@@ -56,11 +56,12 @@
   "scripts": {
     "build": "webpack --config ./webpack.prod.js",
     "build:dev": "webpack --config ./webpack.dev.js --progress --colors",
-    "watch": "webpack --config ./webpack.dev.js --progress --colors --watch"
+    "watch": "webpack --config ./webpack.dev.js --progress --colors --watch",
+    "lint": "eslint euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "make lint-quick"
+      "pre-commit": "make lint"
     }
   }
 }

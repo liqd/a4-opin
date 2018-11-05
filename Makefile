@@ -1,5 +1,4 @@
 VIRTUAL_ENV ?= venv
-NODE_BIN = node_modules/.bin
 SOURCE_DIRS = euth euth_wagtail home tests
 
 .PHONY: all
@@ -24,8 +23,7 @@ help:
 	@echo "  make test-lastfailed -- run test that failed last"
 	@echo "  make test-clean      -- test on new database"
 	@echo "  make coverage        -- write coverage report to dir htmlcov"
-	@echo "  make lint            -- lint all project files"
-	@echo "  make lint-quick      -- lint all files staged in git"
+	@echo "  make lint            -- lint javascript and python, check for missing migrations"
 	@echo "  make po              -- create new po files from the source"
 	@echo "  make mo              -- create new mo files from the translated po files"
 	@echo "  make tx-mo           -- pull from transifex and create new mo files from the translated po files"
@@ -94,14 +92,9 @@ coverage:
 .PHONY: lint
 lint:
 	EXIT_STATUS=0; \
-	. $(VIRTUAL_ENV)/bin/activate && $(NODE_BIN)/polylint || EXIT_STATUS=$$?; \
-	$(VIRTUAL_ENV)/bin/python manage.py makemigrations --dry-run --check --noinput || EXIT_STATUS=$$?; \
-	exit $${EXIT_STATUS}
-
-.PHONY: lint-quick
-lint-quick:
-	EXIT_STATUS=0; \
-	. $(VIRTUAL_ENV)/bin/activate && $(NODE_BIN)/polylint -SF || EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/bin/isort -rc -c $(SOURCE_DIRS) --diff ||  EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/bin/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
+	npm run lint --silent ||  EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/python manage.py makemigrations --dry-run --check --noinput || EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
