@@ -35,7 +35,7 @@ class UserList extends React.Component {
     return $.ajax({
       type: 'PATCH',
       url: `/api/projects/${projectId}/`,
-      data: JSON.stringify({moderators: users}),
+      data: JSON.stringify({ moderators: users }),
       dataType: 'json',
       contentType: 'application/json; charset=utf-8'
     }).done(data => {
