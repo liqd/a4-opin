@@ -95,10 +95,10 @@ class Paragraph extends React.Component {
               <div
                 className="django-ckeditor-widget"
                 data-field-id={'id_paragraphs-' + this.props.id + '-text'}
-                style={{display: 'inline-block'}}>
+                style={{ display: 'inline-block' }}>
                 <textarea
                   id={'id_paragraphs-' + this.props.id + '-text'}
-                  style={{height: this.props.config.height + ckEditorToolbarsHeight}} />
+                  style={{ height: this.props.config.height + ckEditorToolbarsHeight }} />
                 { this.props.errors && this.props.errors.text ? <ul className="errorlist">
                   <li>{this.props.errors.text[0]}</li>
                 </ul> : null }

@@ -5,6 +5,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
+from django.views.generic import TemplateView
 from django.views.i18n import javascript_catalog
 from rest_framework import routers
 from wagtail.contrib.wagtailsitemaps import views as wagtail_sitemap_views
@@ -80,6 +81,9 @@ urlpatterns = [
         login_required(ck_views.upload), name='ckeditor_upload'),
     url(r'^browse/',
         never_cache(login_required(ck_views.browse)), name='ckeditor_browse'),
+    url(r'^robots\.txt$', TemplateView.as_view(
+        template_name='robots.txt',
+        content_type="text/plain"), name="robots_file"),
 ]
 
 urlpatterns += i18n_patterns(

@@ -34,7 +34,7 @@ class ParagraphBox extends React.Component {
      *  Prefix to prevent collisions with real database keys;
      */
     var paragraphKey = 'local_' + (this.state.maxParagraphKey + 1)
-    this.setState({maxParagraphKey: this.state.maxParagraphKey + 1})
+    this.setState({ maxParagraphKey: this.state.maxParagraphKey + 1 })
     return paragraphKey
   }
 
@@ -47,7 +47,7 @@ class ParagraphBox extends React.Component {
   }
 
   deleteParagraph (index) {
-    var newArray = update(this.state.paragraphs, {$splice: [[index, 1]]})
+    var newArray = update(this.state.paragraphs, { $splice: [[index, 1]] })
     this.setState({
       paragraphs: newArray
     })
@@ -75,7 +75,7 @@ class ParagraphBox extends React.Component {
 
   addParagraphBeforeIndex (index) {
     var newParagraph = this.getNewParagraph('', '')
-    var newArray = update(this.state.paragraphs, {$splice: [[index, 0, newParagraph]]})
+    var newArray = update(this.state.paragraphs, { $splice: [[index, 0, newParagraph]] })
     this.setState({
       paragraphs: newArray
     })
@@ -83,7 +83,7 @@ class ParagraphBox extends React.Component {
 
   appendParagraph () {
     var newParagraph = this.getNewParagraph('', '')
-    var newArray = update(this.state.paragraphs, {$push: [newParagraph]})
+    var newArray = update(this.state.paragraphs, { $push: [newParagraph] })
     this.setState({
       paragraphs: newArray
     })
@@ -112,7 +112,7 @@ class ParagraphBox extends React.Component {
 
   updateDocument (id) {
     var submitData = {
-      urlReplaces: {moduleId: this.props.module}
+      urlReplaces: { moduleId: this.props.module }
     }
     submitData['name'] = this.state.name
     this.state.paragraphs.forEach(function (val, index) { val.weight = index })
@@ -141,7 +141,7 @@ class ParagraphBox extends React.Component {
 
   createDocument () {
     var submitData = {
-      urlReplaces: {moduleId: this.props.module}
+      urlReplaces: { moduleId: this.props.module }
     }
     submitData['name'] = this.state.name
     this.state.paragraphs.forEach(function (val, index) { val.weight = index })
