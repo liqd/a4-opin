@@ -6,7 +6,7 @@ python-dateutil==2.7.5
 django-allauth==0.34.0 # pyup: <0.35.0 # not supported with django 1.8
 django-ckeditor==5.6.1
 django-cloudflare-push==0.2.0
-django-countries==5.3.1
+django-countries==5.3.2
 django-filter==1.1.0
 django-sites==0.10
 django-widget-tweaks==1.4.2
