@@ -34,7 +34,7 @@
     "style-loader": "0.23.1",
     "typeahead.js": "0.11.1",
     "webpack": "3.12.0",
-    "webpack-merge": "4.1.4"
+    "webpack-merge": "4.1.5"
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
