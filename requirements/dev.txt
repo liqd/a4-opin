@@ -7,5 +7,5 @@ pytest-django==3.4.5
 pytest-factoryboy==2.0.2
 pytest-cov==2.6.1
 pytest==4.1.1
-Faker==0.8.16
+Faker==1.0.1
 transifex-client==0.12.5 # pyup: <0.13.0 # not found with pip/travis
