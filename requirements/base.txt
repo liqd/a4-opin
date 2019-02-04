@@ -26,5 +26,5 @@ bcrypt==3.1.6
 XlsxWriter==1.1.2
 pyuca==1.2
 brotli==1.0.7
-whitenoise==3.3.1
+whitenoise==4.1.2
 raven==6.9.0
