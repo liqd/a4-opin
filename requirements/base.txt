@@ -12,7 +12,7 @@ django-sites==0.10
 django-widget-tweaks==1.4.3
 easy-thumbnails==2.6
 django-parler==1.9.2
-django-autoslug==1.9.3
+django-autoslug==1.9.4
 # django restframework 3.7 dropped support for Django 1.8
 djangorestframework==3.6.4 # pyup: >=3.6,<3.7
 python-magic==0.4.15
