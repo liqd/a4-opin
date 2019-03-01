@@ -1,4 +1,8 @@
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.dashboard import mixins
 from adhocracy4.filters import views as filter_views
@@ -41,3 +45,23 @@ class ModeratorsDashboardView(
 
     def get_object(self, queryset=None):
         return self.project
+
+
+class ProjectDeleteView(PermissionRequiredMixin,
+                        generic.DeleteView):
+    model = prj_models.Project
+    permission_required = 'a4projects.change_project'
+    http_method_names = ['post']
+    success_message = _("Project '%(name)s' was deleted successfully.")
+
+    def get_success_url(self):
+        return reverse_lazy('a4dashboard:project-list',
+                            kwargs={
+                                'organisation_slug':
+                                    self.get_object().organisation.slug}
+                            )
+
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super().delete(request, *args, **kwargs)
