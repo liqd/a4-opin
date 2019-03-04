@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 09:39+0200\n"
+"POT-Creation-Date: 2019-03-04 13:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,20 +90,20 @@ msgstr "Preview"
 msgid "View"
 msgstr "View"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:15
+#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 #, python-format
 msgid "%(value)s from %(max)s"
 msgstr "%(value)s from %(max)s"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
+#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
 msgid "required fields for publication"
 msgstr "required fields for publication"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:26
+#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 msgid "Publish"
 msgstr "Publish"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:30
+#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 msgid "Unpublish"
 msgstr "Unpublish"
 
@@ -267,23 +267,27 @@ msgstr "Category name"
 msgid "Category icon"
 msgstr "Category icon"
 
-#: adhocracy4/comments/models.py:35
+#: adhocracy4/comments/models.py:37
 msgid "Comment"
 msgstr "Comment"
 
-#: adhocracy4/comments/models.py:36 adhocracy4/exports/mixins.py:121
+#: adhocracy4/comments/models.py:38 adhocracy4/exports/mixins.py:121
 msgid "Comments"
 msgstr "Comments"
 
-#: adhocracy4/comments/models.py:55
+#: adhocracy4/comments/models.py:57
 msgid "deleted by creator"
 msgstr "deleted by creator"
 
-#: adhocracy4/comments/models.py:57
+#: adhocracy4/comments/models.py:60
 msgid "deleted by moderator"
 msgstr "deleted by moderator"
 
-#: adhocracy4/comments/serializers.py:25
+#: adhocracy4/comments/serializers.py:49
+msgid "Please choose a category"
+msgstr "Please choose a category"
+
+#: adhocracy4/comments/serializers.py:59
 msgid "unknown user"
 msgstr "unknown user"
 
@@ -374,34 +378,41 @@ msgid "Only invited users can participate (private)."
 msgstr "Only invited users can participate (private)."
 
 #: adhocracy4/dashboard/forms.py:66
-msgid "Contact"
-msgstr "Contact"
+#: euth/projects/templates/euth_projects/project_detail.html:100
+msgid "Contact for questions"
+msgstr "Contact for questions"
 
 #: adhocracy4/dashboard/forms.py:67
-msgid "Contact details"
-msgstr "Contact details"
+msgid ""
+"Please name a contact person. The user will then know who is carrying out "
+"this project and to whom they can address possible questions. The contact "
+"person will be shown in the information tab on the project page."
+msgstr ""
+"Please name a contact person. The user will then know who is carrying out "
+"this project and to whom they can address possible questions. The contact "
+"person will be shown in the information tab on the project page."
 
-#: adhocracy4/dashboard/forms.py:68
-msgid "This is the help text."
-msgstr "This is the help text."
+#: adhocracy4/dashboard/forms.py:72
+msgid "More contact possibilities"
+msgstr "More contact possibilities"
 
-#: adhocracy4/dashboard/forms.py:81 adhocracy4/phases/models.py:64
+#: adhocracy4/dashboard/forms.py:85 adhocracy4/phases/models.py:64
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
 msgid "Name"
 msgstr "Name"
 
-#: adhocracy4/dashboard/forms.py:83
+#: adhocracy4/dashboard/forms.py:87
 msgid "Address"
 msgstr "Address"
 
-#: adhocracy4/dashboard/forms.py:86
+#: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
 msgstr "Telephone"
 
-#: adhocracy4/dashboard/forms.py:88
+#: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -411,24 +422,24 @@ msgstr "Telephone"
 msgid "Email"
 msgstr "Email"
 
-#: adhocracy4/dashboard/forms.py:90
+#: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
 msgstr "Website"
 
-#: adhocracy4/dashboard/forms.py:118 adhocracy4/phases/models.py:72
+#: adhocracy4/dashboard/forms.py:122 adhocracy4/phases/models.py:72
 msgid "End date"
 msgstr "End date"
 
-#: adhocracy4/dashboard/forms.py:118
+#: adhocracy4/dashboard/forms.py:122
 msgid "End time"
 msgstr "End time"
 
-#: adhocracy4/dashboard/forms.py:124 adhocracy4/phases/models.py:70
+#: adhocracy4/dashboard/forms.py:128 adhocracy4/phases/models.py:70
 msgid "Start date"
 msgstr "Start date"
 
-#: adhocracy4/dashboard/forms.py:124
+#: adhocracy4/dashboard/forms.py:128
 msgid "Start time"
 msgstr "Start time"
 
@@ -660,19 +671,56 @@ msgstr "Choice has to belong to the question set in the url."
 msgid "Project"
 msgstr "Project"
 
-#: adhocracy4/projects/models.py:33
-msgid ""
-"Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-"allowed."
-msgstr ""
-"Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-"allowed."
+#: adhocracy4/projects/admin.py:47
+msgid "Information and result"
+msgstr "Information and result"
 
-#: adhocracy4/projects/models.py:62
+#: adhocracy4/projects/admin.py:50
+#: euth/organisations/templates/euth_organisations/organisation_form.html:4
+msgid "Settings"
+msgstr "Settings"
+
+#: adhocracy4/projects/admin.py:55
+msgid "Images"
+msgstr "Images"
+
+#: adhocracy4/projects/admin.py:60
+msgid "Contact"
+msgstr "Contact"
+
+#: adhocracy4/projects/admin.py:65
+msgid "Topic and location"
+msgstr "Topic and location"
+
+#: adhocracy4/projects/models.py:37
+msgid ""
+"Phone numbers can only contain digits, spaces and the following characters: "
+"-, +, (, ). It has to be between 8 and 20 characters long."
+msgstr ""
+"Phone numbers can only contain digits, spaces and the following characters: "
+"-, +, (, ). It has to be between 8 and 20 characters long."
+
+#: adhocracy4/projects/models.py:43
+msgid "Postal address"
+msgstr "Postal address"
+
+#: adhocracy4/projects/models.py:52
+msgid "Contact person"
+msgstr "Contact person"
+
+#: adhocracy4/projects/models.py:72
+msgid "Location of your Project"
+msgstr "Location of your Project"
+
+#: adhocracy4/projects/models.py:79
+msgid "Administrative district"
+msgstr "Administrative district"
+
+#: adhocracy4/projects/models.py:89
 msgid "Title of your project"
 msgstr "Title of your project"
 
-#: adhocracy4/projects/models.py:63
+#: adhocracy4/projects/models.py:90
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -680,11 +728,11 @@ msgstr ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
 
-#: adhocracy4/projects/models.py:72
+#: adhocracy4/projects/models.py:99
 msgid "Short description of your project"
 msgstr "Short description of your project"
 
-#: adhocracy4/projects/models.py:73
+#: adhocracy4/projects/models.py:100
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -692,11 +740,11 @@ msgstr ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
 
-#: adhocracy4/projects/models.py:81
+#: adhocracy4/projects/models.py:108
 msgid "Description of your project"
 msgstr "Description of your project"
 
-#: adhocracy4/projects/models.py:82
+#: adhocracy4/projects/models.py:109
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -706,11 +754,11 @@ msgstr ""
 "how the project’s participation will look like. It will be always visible in "
 "the „Info“ tab on your project’s page."
 
-#: adhocracy4/projects/models.py:90
+#: adhocracy4/projects/models.py:117
 msgid "Results of your project"
 msgstr "Results of your project"
 
-#: adhocracy4/projects/models.py:91
+#: adhocracy4/projects/models.py:118
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -720,11 +768,11 @@ msgstr ""
 "how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 
-#: adhocracy4/projects/models.py:98
+#: adhocracy4/projects/models.py:125
 msgid "Access to the project"
 msgstr "Access to the project"
 
-#: adhocracy4/projects/models.py:99
+#: adhocracy4/projects/models.py:126
 msgid ""
 "Please indicate whether this project should be public or restricted to "
 "invited users. Teasers for your project including title and short "
@@ -734,34 +782,38 @@ msgstr ""
 "invited users. Teasers for your project including title and short "
 "description will always be visible to everyone"
 
-#: adhocracy4/projects/models.py:107 adhocracy4/projects/models.py:113
+#: adhocracy4/projects/models.py:134 adhocracy4/projects/models.py:140
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "Header image"
 
-#: adhocracy4/projects/models.py:109
+#: adhocracy4/projects/models.py:136
 msgid "The image will be shown as a decorative background image."
 msgstr "The image will be shown as a decorative background image."
 
-#: adhocracy4/projects/models.py:116 adhocracy4/projects/models.py:123
+#: adhocracy4/projects/models.py:143 adhocracy4/projects/models.py:150
 msgid "Tile image"
 msgstr "Tile image"
 
-#: adhocracy4/projects/models.py:118
+#: adhocracy4/projects/models.py:145
 msgid "The image will be shown in the project tile."
 msgstr "The image will be shown in the project tile."
 
-#: adhocracy4/projects/models.py:136
+#: adhocracy4/projects/models.py:163
 msgid "Project is archived"
 msgstr "Project is archived"
 
-#: adhocracy4/projects/models.py:137
+#: adhocracy4/projects/models.py:164
 msgid ""
 "Exclude this project from all listings by default. You can still access this "
 "project by using filters."
 msgstr ""
 "Exclude this project from all listings by default. You can still access this "
 "project by using filters."
+
+#: adhocracy4/projects/models.py:168
+msgid "Project topic"
+msgstr "Project topic"
 
 #: adhocracy4/projects/templatetags/project_tags.py:12
 #, python-format
@@ -1478,6 +1530,7 @@ msgstr "post"
 #: euth/ideas/templates/euth_ideas/idea_form.html:91
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
 msgid "cancel"
 msgstr "cancel"
 
@@ -1496,6 +1549,8 @@ msgid "Are you sure you want to delete"
 msgstr "Are you sure you want to delete"
 
 #: euth/ideas/templates/euth_ideas/includes/modal.html:20
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:57
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:77
 msgid "delete"
 msgstr "delete"
 
@@ -1843,10 +1898,6 @@ msgstr "More info about the organisation"
 msgid "No projects found"
 msgstr "No projects found"
 
-#: euth/organisations/templates/euth_organisations/organisation_form.html:4
-msgid "Settings"
-msgstr "Settings"
-
 #: euth/organisations/templates/euth_organisations/organisation_form.html:9
 msgid "Edit your organisation details"
 msgstr "Edit your organisation details"
@@ -1928,10 +1979,6 @@ msgstr "Participation"
 #: euth/projects/templates/euth_projects/project_detail.html:96
 msgid "info"
 msgstr "info"
-
-#: euth/projects/templates/euth_projects/project_detail.html:100
-msgid "Contact for questions"
-msgstr "Contact for questions"
 
 #: euth/projects/templates/euth_projects/project_detail.html:129
 msgid "Welcome!"
@@ -2025,6 +2072,11 @@ msgstr "seconds"
 #: euth/projects/templatetags/time_delta_tags.py:37
 msgid "and"
 msgstr "and"
+
+#: euth/projects/views.py:55
+#, python-format
+msgid "Project '%(name)s' was deleted successfully."
+msgstr "Project '%(name)s' was deleted successfully."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2224,43 +2276,43 @@ msgstr "Bio"
 msgid "%(username)s follows no projects at the moment."
 msgstr "%(username)s follows no projects at the moment."
 
-#: euth_wagtail/settings/base.py:273
+#: euth_wagtail/settings/base.py:276
 msgid "English"
 msgstr "English"
 
-#: euth_wagtail/settings/base.py:274
+#: euth_wagtail/settings/base.py:277
 msgid "German"
 msgstr "German"
 
-#: euth_wagtail/settings/base.py:275
+#: euth_wagtail/settings/base.py:278
 msgid "Italien"
 msgstr "Italien"
 
-#: euth_wagtail/settings/base.py:276
+#: euth_wagtail/settings/base.py:279
 msgid "French"
 msgstr "French"
 
-#: euth_wagtail/settings/base.py:277
+#: euth_wagtail/settings/base.py:280
 msgid "Swedish"
 msgstr "Swedish"
 
-#: euth_wagtail/settings/base.py:278
+#: euth_wagtail/settings/base.py:281
 msgid "Slovene"
 msgstr "Slovene"
 
-#: euth_wagtail/settings/base.py:279
+#: euth_wagtail/settings/base.py:282
 msgid "Danish"
 msgstr "Danish"
 
-#: euth_wagtail/settings/base.py:280
+#: euth_wagtail/settings/base.py:283
 msgid "Greek"
 msgstr "Greek"
 
-#: euth_wagtail/settings/base.py:281
+#: euth_wagtail/settings/base.py:284
 msgid "Georgian"
 msgstr "Georgian"
 
-#: euth_wagtail/settings/base.py:282
+#: euth_wagtail/settings/base.py:285
 msgid "Macedonian"
 msgstr "Macedonian"
 
@@ -2330,6 +2382,11 @@ msgstr "Choose template"
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:49
 msgid "use this template"
 msgstr "use this template"
+
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
+#, python-format
+msgid " Are you sure you want to delete the project '%(project_name)s'? "
+msgstr " Are you sure you want to delete the project '%(project_name)s'? "
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2560,20 +2617,6 @@ msgstr "OPIN.me is an online platform for youth participation operated by"
 msgid "Connect with us"
 msgstr "Connect with us"
 
-#: euth_wagtail/templates/includes/footer.html:23
-msgid ""
-"This project has received funding from the European Union's Horizon 2020 "
-"research and innovation programme under grant agreement No 649594. This "
-"website reflects only the author's view and the Research Executive Agency or "
-"European Commission is not responsible for any use that may be made of the "
-"information it contains."
-msgstr ""
-"This project has received funding from the European Union's Horizon 2020 "
-"research and innovation programme under grant agreement No 649594. This "
-"website reflects only the author's view and the Research Executive Agency or "
-"European Commission is not responsible for any use that may be made of the "
-"information it contains."
-
 #: euth_wagtail/templates/socialaccount/connections.html:12
 msgid ""
 "You can sign in to your account using any of the following third party "
@@ -2621,6 +2664,32 @@ msgstr "Play video"
 #: home/templates/home/manuals_section_page.html:23
 msgid "Contents"
 msgstr "Contents"
+
+#~ msgid "Contact details"
+#~ msgstr "Contact details"
+
+#~ msgid "This is the help text."
+#~ msgstr "This is the help text."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+
+#~ msgid ""
+#~ "This project has received funding from the European Union's Horizon 2020 "
+#~ "research and innovation programme under grant agreement No 649594. This "
+#~ "website reflects only the author's view and the Research Executive Agency "
+#~ "or European Commission is not responsible for any use that may be made of "
+#~ "the information it contains."
+#~ msgstr ""
+#~ "This project has received funding from the European Union's Horizon 2020 "
+#~ "research and innovation programme under grant agreement No 649594. This "
+#~ "website reflects only the author's view and the Research Executive Agency "
+#~ "or European Commission is not responsible for any use that may be made of "
+#~ "the information it contains."
 
 #~ msgid ""
 #~ "In this section, you can create\n"
