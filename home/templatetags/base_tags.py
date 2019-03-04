@@ -20,7 +20,7 @@ def get_page_name(context, page):
         else:
             return page
     except ObjectDoesNotExist:
-            return page
+        return page
 
 
 @register.assignment_tag(takes_context=True)
