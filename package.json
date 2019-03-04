@@ -13,7 +13,7 @@
     "css-loader": "1.0.0",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
     "file-loader": "1.1.11",
-    "flatpickr": "4.5.2",
+    "flatpickr": "4.5.5",
     "@fortawesome/fontawesome-free-webfonts": "1.0.9",
     "highcharts": "6.2.0",
     "immutability-helper": "2.9.0",
