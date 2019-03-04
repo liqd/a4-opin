@@ -1,3 +1,4 @@
+import 'slick-carousel'
 
 $(document).ready(function () {
   // hide the all of the element with class collapsible_body
