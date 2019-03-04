@@ -1,4 +1,4 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
@@ -66,7 +66,7 @@ module.exports = {
     'django': 'django'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!adhocracy4)/, // exclude all dependencies but adhocracy4
@@ -77,24 +77,26 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: (loader) => [
-                  autoprefixer({ browsers: ['last 3 versions', 'ie >= 10'] })
-                ]
-              }
-            },
-            {
-              loader: 'sass-loader'
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: (loader) => [
+                autoprefixer({browsers: ['last 3 versions', 'ie >= 10']})
+              ]
             }
-          ]
-        })
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       },
       {
         test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
@@ -118,7 +120,10 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
-    new ExtractTextPlugin('[name].css')
+    new webpack.optimize.SplitChunksPlugin({ name: 'vendor', filename: 'vendor.js' }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ]
 }
