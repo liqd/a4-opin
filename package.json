@@ -33,7 +33,7 @@
     "slick-carousel": "1.8.1",
     "style-loader": "0.23.1",
     "typeahead.js": "0.11.1",
-    "webpack": "4.25.1",
+    "webpack": "4.29.6",
     "webpack-cli": "3.2.3",
     "webpack-merge": "4.2.1"
   },
