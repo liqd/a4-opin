@@ -158,9 +158,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='NavigationMenuItem',
             fields=[
-                ('menuitem_ptr', models.OneToOneField(parent_link=True, to='home.MenuItem', auto_created=True, primary_key=True, serialize=False)),
+                ('menuitem_ptr', models.OneToOneField(parent_link=True, to='home.MenuItem', auto_created=True, primary_key=True, serialize=False, on_delete=models.CASCADE)),
                 ('sort_order', models.IntegerField(editable=False, blank=True, null=True)),
-                ('parent', modelcluster.fields.ParentalKey(to='home.NavigationMenu', related_name='menu_items')),
+                ('parent', modelcluster.fields.ParentalKey(to='home.NavigationMenu', related_name='menu_items', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['sort_order'],
@@ -171,6 +171,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='menuitem',
             name='link_page',
-            field=models.ForeignKey(to='wagtailcore.Page', related_name='+'),
+            field=models.ForeignKey(to='wagtailcore.Page', related_name='+', on_delete=models.CASCADE),
         ),
     ]

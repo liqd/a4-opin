@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
                 ('polygon', euth.maps.fields.MultiPolygonField()),
-                ('module', models.OneToOneField(to='a4modules.Module', related_name='areasettings_settings')),
+                ('module', models.OneToOneField(to='a4modules.Module', related_name='areasettings_settings', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MapIdea',
             fields=[
-                ('idea_ptr', models.OneToOneField(serialize=False, auto_created=True, primary_key=True, parent_link=True, to='euth_ideas.Idea')),
+                ('idea_ptr', models.OneToOneField(serialize=False, auto_created=True, primary_key=True, parent_link=True, to='euth_ideas.Idea', on_delete=models.CASCADE)),
                 ('point', euth.maps.fields.PointField()),
             ],
             options={

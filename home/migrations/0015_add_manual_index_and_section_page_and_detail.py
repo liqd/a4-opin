@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ManualsDetailPage',
             fields=[
-                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True)),
+                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True, on_delete=models.CASCADE)),
                 ('title_en', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_de', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_it', models.CharField(verbose_name='Title', max_length=150, blank=True)),
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ManualsIndex',
             fields=[
-                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True)),
+                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True, on_delete=models.CASCADE)),
                 ('title_en', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_de', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_it', models.CharField(verbose_name='Title', max_length=150, blank=True)),
@@ -73,7 +73,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ManualsSectionPage',
             fields=[
-                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True)),
+                ('page_ptr', models.OneToOneField(serialize=False, primary_key=True, to='wagtailcore.Page', auto_created=True, parent_link=True, on_delete=models.CASCADE)),
                 ('title_en', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_de', models.CharField(verbose_name='Title', max_length=150, blank=True)),
                 ('title_it', models.CharField(verbose_name='Title', max_length=150, blank=True)),

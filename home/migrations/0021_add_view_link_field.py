@@ -19,6 +19,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='menuitem',
             name='link_page',
-            field=models.ForeignKey(blank=True, to='wagtailcore.Page', null=True, related_name='+'),
+            field=models.ForeignKey(blank=True, to='wagtailcore.Page', null=True, related_name='+', on_delete=models.CASCADE),
         ),
     ]

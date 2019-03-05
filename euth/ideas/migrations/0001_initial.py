@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Idea',
             fields=[
-                ('item_ptr', models.OneToOneField(to='a4modules.Item', parent_link=True, serialize=False, auto_created=True, primary_key=True)),
+                ('item_ptr', models.OneToOneField(to='a4modules.Item', parent_link=True, serialize=False, auto_created=True, primary_key=True, on_delete=models.CASCADE)),
                 ('slug', autoslug.fields.AutoSlugField(unique=True, editable=False, populate_from='name')),
                 ('name', models.CharField(max_length=120)),
                 ('description', ckeditor.fields.RichTextField()),

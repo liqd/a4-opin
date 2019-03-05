@@ -24,8 +24,8 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(editable=False, null=True, blank=True)),
                 ('email', models.EmailField(max_length=254)),
                 ('token', models.UUIDField(default=uuid.uuid4, unique=True)),
-                ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='a4projects.Project')),
+                ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ('project', models.ForeignKey(to='a4projects.Project', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AlterUniqueTogether(
