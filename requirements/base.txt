@@ -1,4 +1,4 @@
-git+git://github.com/liqd/adhocracy4.git@02dd093a95bf8b8033f347aa04e40e714a885688#egg=adhocracy4
+git+git://github.com/liqd/adhocracy4.git@opin-v3.5.0#egg=adhocracy4
 
 bcrypt==3.1.6
 bleach==3.1.0
