@@ -3,10 +3,10 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.wagtailadmin import edit_handlers
-from wagtail.wagtailcore.models import Orderable
-from wagtail.wagtailimages import edit_handlers as image_edit_handlers
-from wagtail.wagtailsnippets.models import register_snippet
+from wagtail.admin import edit_handlers
+from wagtail.core.models import Orderable
+from wagtail.images import edit_handlers as image_edit_handlers
+from wagtail.snippets.models import register_snippet
 
 from contrib import translations
 from euth_wagtail.settings import LANGUAGES

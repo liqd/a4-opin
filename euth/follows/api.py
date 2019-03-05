@@ -1,4 +1,5 @@
-from rest_framework import filters, mixins, permissions, viewsets
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import mixins, permissions, viewsets
 
 from euth.contrib.api.mixins import AllowPUTAsCreateMixin
 
@@ -16,7 +17,7 @@ class FollowViewSet(AllowPUTAsCreateMixin,
     queryset = models.Follow.objects
     serializer_class = FollowSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend,)
     filter_fields = ('enabled', )
 
     def get_queryset(self):

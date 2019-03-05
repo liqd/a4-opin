@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import translation
-from wagtail.wagtailcore.models import PageBase
+from wagtail.core.models import PageBase
 
 from euth_wagtail.settings import LANGUAGES
 

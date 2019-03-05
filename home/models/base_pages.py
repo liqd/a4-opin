@@ -1,10 +1,10 @@
 from django.db import models
-from wagtail.wagtailadmin import edit_handlers
-from wagtail.wagtailcore import blocks as core_blocks
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailimages import blocks as image_blocks
-from wagtail.wagtailimages import edit_handlers as image_edit_handlers
+from wagtail.admin import edit_handlers
+from wagtail.core import blocks as core_blocks
+from wagtail.core.fields import StreamField
+from wagtail.core.models import Page
+from wagtail.images import blocks as image_blocks
+from wagtail.images import edit_handlers as image_edit_handlers
 
 from adhocracy4.projects import models as prj_models
 from contrib import translations

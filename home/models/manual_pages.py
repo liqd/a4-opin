@@ -1,11 +1,11 @@
 from django.db import models
-from wagtail.wagtailadmin import edit_handlers
-from wagtail.wagtailcore import blocks as core_blocks
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailimages import blocks as image_blocks
-from wagtail.wagtailimages import edit_handlers as image_edit_handlers
-from wagtail.wagtailsnippets import blocks as snippet_blocks
+from wagtail.admin import edit_handlers
+from wagtail.core import blocks as core_blocks
+from wagtail.core.fields import StreamField
+from wagtail.core.models import Page
+from wagtail.images import blocks as image_blocks
+from wagtail.images import edit_handlers as image_edit_handlers
+from wagtail.snippets import blocks as snippet_blocks
 
 from contrib import translations
 from euth_wagtail.settings import LANGUAGES
