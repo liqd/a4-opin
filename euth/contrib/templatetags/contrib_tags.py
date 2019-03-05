@@ -3,7 +3,7 @@ from django import template
 register = template.Library()
 
 
-@register.assignment_tag
+@register.simple_tag
 def combined_url_parameter(request_query_dict, **kwargs):
     combined_query_dict = request_query_dict.copy()
     for key in kwargs:
@@ -12,7 +12,7 @@ def combined_url_parameter(request_query_dict, **kwargs):
     return encoded_parameter
 
 
-@register.assignment_tag
+@register.simple_tag
 def limited_paginator(page_obj):
     ADDITIONAL_PAGES = 3
 

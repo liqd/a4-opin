@@ -5,7 +5,7 @@ from euth.ideas.models import Idea
 register = template.Library()
 
 
-@register.assignment_tag
+@register.simple_tag
 def get_range(number, listcount):
     if number < 3:
         return range(1, 6)
@@ -15,6 +15,6 @@ def get_range(number, listcount):
         return range(number-2, number+3)
 
 
-@register.assignment_tag
+@register.simple_tag
 def is_idea_list(module):
     return Idea.objects.filter(module=module).count() > 0
