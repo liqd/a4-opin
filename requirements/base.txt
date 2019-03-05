@@ -1,9 +1,10 @@
 git+git://github.com/liqd/adhocracy4.git@opin-v3.5.0#egg=adhocracy4
+Django==1.11.20 # pyup: <2.0
+wagtail==2.3 # pyup: <2.4
 
 bcrypt==3.1.6
 bleach==3.1.0
 brotli==1.0.7
-Django==1.11.20 # pyup: <2.0
 django-allauth==0.38.0
 django-autofixture==0.12.1
 django-autoslug==1.9.4
@@ -26,6 +27,5 @@ python-magic==0.4.15
 pyuca==1.2
 raven==6.10.0
 rules==2.0.1
-wagtail==2.3
 whitenoise==4.1.2
 XlsxWriter==1.1.5
