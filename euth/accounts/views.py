@@ -1,8 +1,8 @@
+from django.contrib.auth import mixins
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext as _
 from django.views import generic
-from rules.compat import access_mixins as mixins
 
 from euth.users import models as user_models
 

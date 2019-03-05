@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib import messages
+from django.contrib.auth import mixins as mixin
 from django.http import Http404
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
-from rules.compat import access_mixins as mixin
 from rules.contrib import views as rules_views
 
 from adhocracy4.dashboard import mixins

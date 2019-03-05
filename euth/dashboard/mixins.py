@@ -1,7 +1,7 @@
+from django.contrib.auth import mixins
 from django.shortcuts import get_object_or_404
 from django.utils import functional
 from django.views import generic
-from rules.compat import access_mixins as mixins
 
 from adhocracy4.projects import models as project_models
 from euth.organisations import models as org_models
