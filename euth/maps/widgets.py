@@ -17,7 +17,7 @@ class MapChoosePolygonWidget(Widget):
             'leaflet.draw.css',
         )}
 
-    def render(self, name, value, attrs):
+    def render(self, name, value, attrs, renderer=None):
 
         context = {
             'map_url': settings.BASE_MAP,
@@ -48,7 +48,7 @@ class MapChoosePointWidget(Widget):
             'leaflet.css',
         ]}
 
-    def render(self, name, value, attrs):
+    def render(self, name, value, attrs, renderer=None):
 
         context = {
             'map_url': settings.BASE_MAP,
