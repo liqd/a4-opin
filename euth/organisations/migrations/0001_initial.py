@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
                 ('description_why', models.TextField()),
                 ('description_how', models.TextField()),
                 ('description', models.TextField()),
-                ('master', models.ForeignKey(null=True, related_name='translations', editable=False, to='euth_organisations.Organisation')),
+                ('master', models.ForeignKey(null=True, related_name='translations', editable=False, to='euth_organisations.Organisation', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'organisation Translation',

@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='paragraph',
             name='document',
-            field=models.ForeignKey(to='euth_documents.Document', related_name='paragraphs'),
+            field=models.ForeignKey(to='euth_documents.Document', related_name='paragraphs', on_delete=models.CASCADE),
         ),
     ]

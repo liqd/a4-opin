@@ -10,7 +10,7 @@ from home.models.snippets import NavigationMenu
 register = template.Library()
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def get_page_name(context, page):
     page_type = page.content_type
     try:
@@ -20,10 +20,10 @@ def get_page_name(context, page):
         else:
             return page
     except ObjectDoesNotExist:
-            return page
+        return page
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def get_site_root(context):
     return context['request'].site.root_page
 
@@ -72,7 +72,7 @@ def import_rss(context, rss_import):
     }
 
 
-@register.assignment_tag(takes_context=False)
+@register.simple_tag(takes_context=False)
 def load_site_menu(menu_name):
     menu = NavigationMenu.objects.filter(menu_name=menu_name)
 

@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 register = template.Library()
 
 
-@register.assignment_tag
+@register.simple_tag
 def get_time_left(time):
 
     def seconds_in_units(seconds):

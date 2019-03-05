@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Document',
             fields=[
-                ('item_ptr', models.OneToOneField(auto_created=True, primary_key=True, to='a4modules.Item', serialize=False, parent_link=True)),
+                ('item_ptr', models.OneToOneField(auto_created=True, primary_key=True, to='a4modules.Item', serialize=False, parent_link=True, on_delete=models.CASCADE)),
                 ('name', models.CharField(max_length=120)),
             ],
             options={
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(blank=True, max_length=120)),
                 ('text', ckeditor.fields.RichTextField()),
                 ('weight', models.PositiveIntegerField()),
-                ('document', models.ForeignKey(to='euth_documents.Document')),
+                ('document', models.ForeignKey(to='euth_documents.Document', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,

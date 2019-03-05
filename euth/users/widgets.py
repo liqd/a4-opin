@@ -13,7 +13,7 @@ class UserSearchInput(TextInput):
         super().__init__(*args, **kwargs)
         self.identifier = identifier
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if attrs and 'class' in attrs:
             attrs['class'] += ' typeahead'
         else:

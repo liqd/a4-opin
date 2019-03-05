@@ -5,10 +5,10 @@ from .. import models
 register = template.Library()
 
 
-@register.assignment_tag()
+@register.simple_tag()
 def is_following(user, project):
     return (
-        user.is_authenticated() and
+        user.is_authenticated and
         models.Follow.objects.filter(
             enabled=True,
             project=project,

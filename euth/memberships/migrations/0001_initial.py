@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('created', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
                 ('modified', models.DateTimeField(null=True, editable=False, blank=True)),
-                ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(to='a4projects.Project')),
+                ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ('project', models.ForeignKey(to='a4projects.Project', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AlterUniqueTogether(

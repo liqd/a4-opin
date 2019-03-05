@@ -4,7 +4,7 @@ from django.db.models import F
 register = template.Library()
 
 
-@register.assignment_tag
+@register.simple_tag
 def get_sorted_date_items(project):
 
     phases_with_date = project.phases.filter(start_date__isnull=False)
@@ -15,6 +15,6 @@ def get_sorted_date_items(project):
     return sorted(object_list, key=lambda k: k['date'])
 
 
-@register.assignment_tag
+@register.simple_tag
 def get_past_phases_ids(project):
     return project.past_phases.values_list('id', flat=True)

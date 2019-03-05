@@ -1,7 +1,7 @@
-from wagtail.wagtailcore import blocks as core_blocks
-from wagtail.wagtailembeds import blocks as embed_blocks
-from wagtail.wagtailimages import blocks as image_blocks
-from wagtail.wagtailsnippets import blocks as snippet_blocks
+from wagtail.core import blocks as core_blocks
+from wagtail.embeds import blocks as embed_blocks
+from wagtail.images import blocks as image_blocks
+from wagtail.snippets import blocks as snippet_blocks
 
 from .snippets import PageCollection, RSSImport
 

@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib import messages
+from django.contrib.auth import mixins as mixin
 from django.http import Http404
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
-from rules.compat import access_mixins as mixin
 from rules.contrib import views as rules_views
 
 from adhocracy4.dashboard import mixins
@@ -94,7 +94,7 @@ class InviteDashboardView(
 
     @property
     def raise_exception(self):
-        return self.request.user.is_authenticated()
+        return self.request.user.is_authenticated
 
 
 class MembershipsDashboardView(
@@ -178,7 +178,7 @@ class MembershipsDashboardView(
 
     @property
     def raise_exception(self):
-        return self.request.user.is_authenticated()
+        return self.request.user.is_authenticated
 
 
 class RequestsProjectDetailView(
@@ -192,7 +192,7 @@ class RequestsProjectDetailView(
 
     @property
     def raise_exception(self):
-        return self.request.user.is_authenticated()
+        return self.request.user.is_authenticated
 
     @property
     def project(self):
@@ -206,7 +206,7 @@ class RequestsProjectDetailView(
         Check if user could join
         """
         user = self.request.user
-        is_member = user.is_authenticated() and self.project.has_member(user)
+        is_member = user.is_authenticated and self.project.has_member(user)
 
         if is_member:
             return super().handle_no_permission()
@@ -215,7 +215,7 @@ class RequestsProjectDetailView(
 
     def handle_no_membership(self):
         membership_impossible = (
-            not self.request.user.is_authenticated()
+            not self.request.user.is_authenticated
             or self.project.is_draft
             or self.project.has_member(self.request.user)
         )
@@ -233,7 +233,7 @@ class InviteDetailView(generic.DetailView):
     slug_url_kwarg = 'invite_token'
 
     def dispatch(self, request, invite_token, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return redirect(
                 'membership-invite-update',
                 invite_token=invite_token

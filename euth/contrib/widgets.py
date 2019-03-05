@@ -17,7 +17,7 @@ class DateInput(widgets.DateInput):
     input_type = 'text'
     format_index = 0
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if attrs:
             format = formats.get_format(
                 self.format_key

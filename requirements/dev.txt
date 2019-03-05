@@ -1,11 +1,11 @@
 -r base.txt
 factory-boy==2.11.1
-flake8==3.5.0
-freezegun==0.3.10
-isort==4.3.4
-pytest-django==3.4.3
-pytest-factoryboy==2.0.1
-pytest-cov==2.5.1
-pytest==3.7.4
-Faker==0.8.16
-transifex-client==0.12.5 # pyup: <0.13.0 # not found with pip/travis
+Faker==1.0.2
+flake8==3.7.7
+freezegun==0.3.11
+isort==4.3.10
+pytest-django==3.4.8
+pytest-factoryboy==2.0.2
+pytest-cov==2.6.1
+pytest==4.3.0
+transifex-client==0.12.5

@@ -8,7 +8,7 @@ from django.utils.translation import ugettext
 
 
 class FileUploadWidget(widgets.ClearableFileInput):
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         has_file_set = self.is_initial(value)
         is_required = self.is_required
 

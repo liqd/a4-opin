@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='areasettings',
             name='module',
-            field=models.OneToOneField(related_name='areasettings_settings_legacy', to='a4modules.Module'),
+            field=models.OneToOneField(related_name='areasettings_settings_legacy', to='a4modules.Module', on_delete=models.CASCADE),
         ),
     ]

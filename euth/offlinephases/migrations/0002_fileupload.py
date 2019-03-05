@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('modified', models.DateTimeField(null=True, blank=True, editable=False)),
                 ('title', models.CharField(max_length=256)),
                 ('document', models.FileField(upload_to=euth.offlinephases.models.document_path)),
-                ('offlinephase', models.ForeignKey(to='euth_offlinephases.Offlinephase')),
+                ('offlinephase', models.ForeignKey(to='euth_offlinephases.Offlinephase', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,

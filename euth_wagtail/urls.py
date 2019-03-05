@@ -8,12 +8,12 @@ from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
 from django.views.i18n import javascript_catalog
 from rest_framework import routers
-from wagtail.contrib.wagtailsitemaps import views as wagtail_sitemap_views
-from wagtail.contrib.wagtailsitemaps.sitemap_generator import \
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.contrib.sitemaps import views as wagtail_sitemap_views
+from wagtail.contrib.sitemaps.sitemap_generator import \
     Sitemap as WagtailSitemap
-from wagtail.wagtailadmin import urls as wagtailadmin_urls
-from wagtail.wagtailcore import urls as wagtail_urls
-from wagtail.wagtaildocs import urls as wagtaildocs_urls
+from wagtail.core import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments.api import CommentViewSet
@@ -70,7 +70,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    url(r'^django-admin/', include(admin.site.urls)),
+    url(r'^django-admin/', admin.site.urls),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^api/', include(router.urls)),

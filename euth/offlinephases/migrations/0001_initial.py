@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(editable=False, default=django.utils.timezone.now)),
                 ('modified', models.DateTimeField(editable=False, null=True, blank=True)),
                 ('text', ckeditor.fields.RichTextField(blank=True)),
-                ('phase', models.OneToOneField(to='a4phases.Phase', related_name='offlinephase', serialize=False, primary_key=True)),
+                ('phase', models.OneToOneField(to='a4phases.Phase', related_name='offlinephase', serialize=False, primary_key=True, on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
