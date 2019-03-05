@@ -1,7 +1,11 @@
 language: python
+dist: xenial
 python:
   - "3.6"
-cache: pip
+cache:
+  pip: true
+  directories:
+    - node_modules
 install:
   - nvm install 8
   - npm install --production
@@ -9,6 +13,7 @@ install:
   - pip install -r requirements/dev.txt
   - pip install coveralls
 script:
+  - python manage.py collectstatic > /dev/null
   - py.test --cov
   - python manage.py makemigrations --dry-run --check --noinput
 after_success:
