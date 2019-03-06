@@ -23,7 +23,7 @@ class ProjectFilterSet(DefaultsFilterSet):
     )
 
     country = contrib_filters.CountryFilter(
-        name='organisation__country',
+        field_name='organisation__country',
     )
 
     ordering = DistinctOrderingFilter(
