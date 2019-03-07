@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 13:27+0100\n"
+"POT-Creation-Date: 2019-03-07 15:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,11 +275,11 @@ msgstr "Comment"
 msgid "Comments"
 msgstr "Comments"
 
-#: adhocracy4/comments/models.py:57
+#: adhocracy4/comments/models.py:58
 msgid "deleted by creator"
 msgstr "deleted by creator"
 
-#: adhocracy4/comments/models.py:60
+#: adhocracy4/comments/models.py:61
 msgid "deleted by moderator"
 msgstr "deleted by moderator"
 
@@ -287,7 +287,7 @@ msgstr "deleted by moderator"
 msgid "Please choose a category"
 msgstr "Please choose a category"
 
-#: adhocracy4/comments/serializers.py:59
+#: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
 msgstr "unknown user"
 
@@ -709,18 +709,26 @@ msgid "Contact person"
 msgstr "Contact person"
 
 #: adhocracy4/projects/models.py:72
-msgid "Location of your Project"
-msgstr "Location of your Project"
+msgid "Can your project be located on the map?"
+msgstr "Can your project be located on the map?"
 
-#: adhocracy4/projects/models.py:79
+#: adhocracy4/projects/models.py:73
+msgid ""
+"Locate your project. Click inside the marked area or type in an address to "
+"set the marker. A set marker can be dragged when pressed."
+msgstr ""
+"Locate your project. Click inside the marked area or type in an address to "
+"set the marker. A set marker can be dragged when pressed."
+
+#: adhocracy4/projects/models.py:84
 msgid "Administrative district"
 msgstr "Administrative district"
 
-#: adhocracy4/projects/models.py:89
+#: adhocracy4/projects/models.py:94
 msgid "Title of your project"
 msgstr "Title of your project"
 
-#: adhocracy4/projects/models.py:90
+#: adhocracy4/projects/models.py:95
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -728,11 +736,11 @@ msgstr ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
 
-#: adhocracy4/projects/models.py:99
+#: adhocracy4/projects/models.py:104
 msgid "Short description of your project"
 msgstr "Short description of your project"
 
-#: adhocracy4/projects/models.py:100
+#: adhocracy4/projects/models.py:105
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -740,11 +748,11 @@ msgstr ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
 
-#: adhocracy4/projects/models.py:108
+#: adhocracy4/projects/models.py:113
 msgid "Description of your project"
 msgstr "Description of your project"
 
-#: adhocracy4/projects/models.py:109
+#: adhocracy4/projects/models.py:114
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -754,11 +762,11 @@ msgstr ""
 "how the project’s participation will look like. It will be always visible in "
 "the „Info“ tab on your project’s page."
 
-#: adhocracy4/projects/models.py:117
+#: adhocracy4/projects/models.py:122
 msgid "Results of your project"
 msgstr "Results of your project"
 
-#: adhocracy4/projects/models.py:118
+#: adhocracy4/projects/models.py:123
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -768,11 +776,11 @@ msgstr ""
 "how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 
-#: adhocracy4/projects/models.py:125
+#: adhocracy4/projects/models.py:130
 msgid "Access to the project"
 msgstr "Access to the project"
 
-#: adhocracy4/projects/models.py:126
+#: adhocracy4/projects/models.py:131
 msgid ""
 "Please indicate whether this project should be public or restricted to "
 "invited users. Teasers for your project including title and short "
@@ -782,28 +790,28 @@ msgstr ""
 "invited users. Teasers for your project including title and short "
 "description will always be visible to everyone"
 
-#: adhocracy4/projects/models.py:134 adhocracy4/projects/models.py:140
+#: adhocracy4/projects/models.py:139 adhocracy4/projects/models.py:145
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "Header image"
 
-#: adhocracy4/projects/models.py:136
+#: adhocracy4/projects/models.py:141
 msgid "The image will be shown as a decorative background image."
 msgstr "The image will be shown as a decorative background image."
 
-#: adhocracy4/projects/models.py:143 adhocracy4/projects/models.py:150
+#: adhocracy4/projects/models.py:148 adhocracy4/projects/models.py:155
 msgid "Tile image"
 msgstr "Tile image"
 
-#: adhocracy4/projects/models.py:145
+#: adhocracy4/projects/models.py:150
 msgid "The image will be shown in the project tile."
 msgstr "The image will be shown in the project tile."
 
-#: adhocracy4/projects/models.py:163
+#: adhocracy4/projects/models.py:168
 msgid "Project is archived"
 msgstr "Project is archived"
 
-#: adhocracy4/projects/models.py:164
+#: adhocracy4/projects/models.py:169
 msgid ""
 "Exclude this project from all listings by default. You can still access this "
 "project by using filters."
@@ -811,9 +819,43 @@ msgstr ""
 "Exclude this project from all listings by default. You can still access this "
 "project by using filters."
 
-#: adhocracy4/projects/models.py:168
-msgid "Project topic"
-msgstr "Project topic"
+#: adhocracy4/projects/models.py:173
+msgid "Project topics"
+msgstr "Project topics"
+
+#: adhocracy4/projects/models.py:174
+msgid "Add topics to your project."
+msgstr "Add topics to your project."
+
+#: adhocracy4/projects/models.py:295
+#: euth/projects/templatetags/time_delta_tags.py:16
+msgid "day"
+msgstr "day"
+
+#: adhocracy4/projects/models.py:295
+#: euth/projects/templatetags/time_delta_tags.py:16
+msgid "days"
+msgstr "days"
+
+#: adhocracy4/projects/models.py:296
+#: euth/projects/templatetags/time_delta_tags.py:17
+msgid "hour"
+msgstr "hour"
+
+#: adhocracy4/projects/models.py:296
+#: euth/projects/templatetags/time_delta_tags.py:17
+msgid "hours"
+msgstr "hours"
+
+#: adhocracy4/projects/models.py:297
+#: euth/projects/templatetags/time_delta_tags.py:18
+msgid "minute"
+msgstr "minute"
+
+#: adhocracy4/projects/models.py:297
+#: euth/projects/templatetags/time_delta_tags.py:18
+msgid "minutes"
+msgstr "minutes"
 
 #: adhocracy4/projects/templatetags/project_tags.py:12
 #, python-format
@@ -2037,30 +2079,6 @@ msgstr "week"
 msgid "weeks"
 msgstr "weeks"
 
-#: euth/projects/templatetags/time_delta_tags.py:16
-msgid "day"
-msgstr "day"
-
-#: euth/projects/templatetags/time_delta_tags.py:16
-msgid "days"
-msgstr "days"
-
-#: euth/projects/templatetags/time_delta_tags.py:17
-msgid "hour"
-msgstr "hour"
-
-#: euth/projects/templatetags/time_delta_tags.py:17
-msgid "hours"
-msgstr "hours"
-
-#: euth/projects/templatetags/time_delta_tags.py:18
-msgid "minute"
-msgstr "minute"
-
-#: euth/projects/templatetags/time_delta_tags.py:18
-msgid "minutes"
-msgstr "minutes"
-
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "second"
@@ -2661,9 +2679,20 @@ msgstr "Latest projects on OPIN"
 msgid "Play video"
 msgstr "Play video"
 
-#: home/templates/home/manuals_section_page.html:23
+#: home/templates/home/manuals_section_page.html:18
+#: home/templates/home/manuals_section_page.html:24
+msgid "Download guidelines"
+msgstr "Download guidelines"
+
+#: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contents"
+
+#~ msgid "Location of your Project"
+#~ msgstr "Location of your Project"
+
+#~ msgid "Project topic"
+#~ msgstr "Project topic"
 
 #~ msgid "Contact details"
 #~ msgstr "Contact details"
