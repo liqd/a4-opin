@@ -70,6 +70,25 @@ button {
     }
 }
 
+.btn-dark-blue {
+    background-color: $brand-brand5;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        color: $gray-light;
+        background-color: darken($brand-brand5, 10);
+    }
+}
+
+.btn-round-hero {
+    border-radius: 25px;
+
+    @media (min-width: $screen-sm) {
+        margin-top: 22px;
+    }
+}
+
 span.btn-dark:hover,
 span.btn-dark:focus {
     background-color: $black;

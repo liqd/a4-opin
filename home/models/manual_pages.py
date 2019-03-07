@@ -3,6 +3,7 @@ from wagtail.admin import edit_handlers
 from wagtail.core import blocks as core_blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
+from wagtail.documents import edit_handlers as doc_edit_handlers
 from wagtail.images import blocks as image_blocks
 from wagtail.images import edit_handlers as image_edit_handlers
 from wagtail.snippets import blocks as snippet_blocks
@@ -99,6 +100,14 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
         related_name='+'
     )
 
+    document = models.ForeignKey(
+        'wagtaildocs.Document',
+        on_delete=models.SET_NULL,
+        related_name='+',
+        null=True,
+        blank=True,
+    )
+
     colors = (
         ('blue', 'Blue'),
         ('orange', 'Orange'),
@@ -119,6 +128,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
         edit_handlers.FieldPanel('slug'),
         edit_handlers.FieldPanel('color'),
         image_edit_handlers.ImageChooserPanel('image'),
+        doc_edit_handlers.DocumentChooserPanel('document')
     ]
 
     content_panels = [
