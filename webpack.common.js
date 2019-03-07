@@ -45,6 +45,9 @@ module.exports = {
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css'
     ],
+    timeline_popover: [
+      './euth/projects/static/euth_projects/timeline-popover.js'
+    ],
     user_search: [
       './euth/users/static/users/js/user_search.js'
     ],
