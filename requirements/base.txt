@@ -5,7 +5,7 @@ wagtail==2.3 # pyup: <2.4
 bcrypt==3.1.6
 bleach==3.1.0
 brotli==1.0.7
-django-allauth==0.38.0
+django-allauth==0.39.1
 django-autofixture==0.12.1
 django-autoslug==1.9.4
 django-ckeditor==5.6.1
