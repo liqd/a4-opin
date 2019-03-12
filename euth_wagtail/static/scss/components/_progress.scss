@@ -63,7 +63,11 @@
 }
 
 .progress__check {
-    fill: $brand-primary;
+    fill: $brand-brand5;
+}
+
+.progress__check-unpublished {
+    fill: $brand-brand2;
 }
 
 .progress-box {
