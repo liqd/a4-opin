@@ -5,7 +5,7 @@ wagtail==2.3 # pyup: <2.4
 bcrypt==3.1.6
 bleach==3.1.0
 brotli==1.0.7
-django-allauth==0.38.0
+django-allauth==0.39.1
 django-autofixture==0.12.1
 django-autoslug==1.9.4
 django-ckeditor==5.6.1
@@ -16,7 +16,7 @@ django-multiselectfield==0.1.8
 django-parler==1.9.2
 django-sites==0.10
 django-widget-tweaks==1.4.3
-djangorestframework==3.8.2
+djangorestframework==3.9.2
 easy-thumbnails==2.6
 feedparser==5.2.1
 html5lib==1.0.1
