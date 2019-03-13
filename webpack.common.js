@@ -72,10 +72,11 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules\/(?!adhocracy4)/, // exclude all dependencies but adhocracy4
+        exclude: /node_modules\/(?!(adhocracy4|bootstrap)\/).*/, // exclude all dependencies but adhocracy4
         loader: 'babel-loader',
         query: {
-          presets: ['babel-preset-env', 'babel-preset-react'].map(require.resolve)
+          presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
+          plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
         }
       },
       {
