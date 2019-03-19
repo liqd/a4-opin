@@ -89,6 +89,14 @@ button {
     }
 }
 
+.btn-round-hero-imge {
+    border-radius: 25px;
+
+    @media (min-width: $screen-sm) {
+        margin-top: 3rem;
+    }
+}
+
 span.btn-dark:hover,
 span.btn-dark:focus {
     background-color: $black;

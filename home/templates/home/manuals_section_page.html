@@ -14,14 +14,14 @@
                     </h1>
                     {% if page.document %}
                     {% if page.color == 'blue' %}
-                    <div class="herounit-btn__download col-sm-4">
-                        <a class="btn btn-dark-blue btn-round-hero" href="{{ page.document.url }}">
+                    <div class="herounit-btn__download col-sm-4 ">
+                        <a class="btn btn-dark-blue {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
                             {% trans 'Download guidelines' %}
                         </a>
                     </div>
                     {% else %}
                     <div class="herounit-btn__download col-sm-4">
-                        <a class="btn btn-primary btn-round-hero" href="{{ page.document.url }}">
+                        <a class="btn btn-primary {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
                             {% trans 'Download guidelines' %}
                         </a>
                     </div>
