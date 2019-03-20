@@ -7,25 +7,28 @@
     <header class="herounit herounit-sm herounit-{{ page.color }}">
         <div class="container">
             <div class="herounit-header row">
-                <h1 class="{% if page.document %}col-sm-6 col-sm-offset-3{% endif %}">
-                    {% image page.image width-80 %}
-                    {{ page.translated_title }}
-                </h1>
-                {% if page.document %}
-                {% if page.color == 'blue' %}
-                <div class="download-btn col-sm-2">
-                    <a class="btn btn-dark-blue btn-round-hero" href="{{ page.document.url }}">
-                        {% trans 'Download guidelines' %}
-                    </a>
+                <div class="col-sm-9 col-sm-offset-3">
+                    <h1 class="{% if page.document %}col-sm-7{% endif %}">
+                        {% image page.image width-80 %}
+                        {{ page.translated_title }}
+                    </h1>
+                    {% if page.document %}
+                    {% if page.color == 'blue' %}
+                    <div class="herounit-btn__download col-sm-4 ">
+                        <a class="btn btn-dark-blue {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
+                            {% trans 'Download guidelines' %}
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="herounit-btn__download col-sm-4">
+                        <a class="btn btn-primary {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
+                            {% trans 'Download guidelines' %}
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="download-btn col-sm-2">
-                    <a class="btn btn-primary btn-round-hero" href="{{ page.document.url }}">
-                        {% trans 'Download guidelines' %}
-                    </a>
-                </div>
-            {% endif %}
-            {% endif %}
+            </div>
         </div>
     </header>
 
