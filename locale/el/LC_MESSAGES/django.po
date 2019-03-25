@@ -2,10 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
-#
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -13,15 +14,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-07 15:00+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
 "In this section, you can create\n"
@@ -33,23 +33,18 @@ msgstr ""
 "σε έναν από αυτούς. Με αυτόν τον τρόπο, το περιεχόμενο μπορεί να ταξινομηθεί."
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
 msgid "Add category"
 msgstr "Προσθήκη κατηγορίας"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:4
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
 msgid "Project Settings"
 msgstr "Ρυθμίσεις έργου"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:15
@@ -57,8 +52,6 @@ msgstr "Ρυθμίσεις έργου"
 msgid "Missing fields for publication"
 msgstr "Λείπει πεδία για δημοσίευση"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: euth_wagtail/templates/a4dashboard/base_form_module.html:18
@@ -69,15 +62,11 @@ msgstr "Αποθηκεύσετε"
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:4
 #: euth_wagtail/templates/a4dashboard/project_list.html:11
 msgid "New Project"
 msgstr "Νέο Έργο"
 
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
 #: euth/projects/templates/euth_projects/project_detail.html:38
@@ -85,17 +74,13 @@ msgid "Phase"
 msgstr "Φάση"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
 msgid "Select"
 msgstr "Επιλέγω"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
-#: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
 msgid "Missing field for publication"
 msgstr "Λείπει πεδίο για δημοσίευση"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
@@ -104,36 +89,28 @@ msgstr "Προεπισκόπηση"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "View"
 msgstr "Θέα"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 #, python-format
 msgid "%(value)s from %(max)s"
 msgstr "%(value)sαπό%(max)s"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
 msgid "required fields for publication"
 msgstr "υποχρεωτικά πεδία για δημοσίευση"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 msgid "Publish"
 msgstr "Δημοσιεύω"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 msgid "Unpublish"
 msgstr "Κατάργηση δημοσίευσης"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:4
@@ -141,7 +118,6 @@ msgstr "Κατάργηση δημοσίευσης"
 msgid "Create project based on"
 msgstr "Δημιουργία έργου βασισμένου σε"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:26
 msgid ""
@@ -152,12 +128,10 @@ msgstr ""
 "επεξεργαστείτε περαιτέρω το έργο σας και να το δημοσιεύσετε τελικά."
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:29
 msgid "Create draft"
 msgstr "Δημιουργία σχεδίου"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:6
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:14
@@ -165,8 +139,6 @@ msgstr "Δημιουργία σχεδίου"
 msgid "Cancel"
 msgstr "Ματαίωση"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:14
@@ -177,12 +149,10 @@ msgid "Projects"
 msgstr "Εργα"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:17
 msgid "Finished"
 msgstr "Πεπερασμένος"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
@@ -191,7 +161,6 @@ msgstr "Πεπερασμένος"
 msgid "private"
 msgstr "ιδιωτικός"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html:36
@@ -204,25 +173,20 @@ msgid "Edit"
 msgstr "Επεξεργασία"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
 msgid "Duplicate"
 msgstr "Αντίγραφο"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
 msgstr "Δεν μπορούσαμε να βρούμε σχέδια."
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: adhocracy4/dashboard/filter.py:11
-#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:71
+#: adhocracy4/dashboard/filter.py:11 euth/contrib/filters.py:71
 msgid "Search"
 msgstr "Ψάξιμο"
 
-#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
@@ -232,24 +196,17 @@ msgstr "Αυτό το πεδίο απαιτείται"
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:14
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
 msgid "Remove category"
 msgstr "Κατάργηση κατηγορίας"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 msgid "Remove the picture"
 msgstr "Αφαιρέστε την εικόνα"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 msgid "Upload a picture"
 msgstr "Μεταφορτώστε μια φωτογραφία"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 msgid ""
 "\n"
@@ -258,11 +215,9 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"Η εικόνα σας θα μεταφορτωθεί / καταργηθεί μόλις αποθηκεύσετε τις αλλαγές "
-"σας \n"
+"Η εικόνα σας θα μεταφορτωθεί / καταργηθεί μόλις αποθηκεύσετε τις αλλαγές σας \n"
 "στο τέλος αυτής της σελίδας."
 
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
 msgid ""
 "In this section, you can create\n"
@@ -270,17 +225,13 @@ msgid ""
 "to one or more of them. This way, content can be classified."
 msgstr ""
 "Σε αυτή την ενότητα, μπορείτε να δημιουργήσετε\n"
-"ετικέτες. Αν δημιουργήσετε κάποιο, μπορείτε να αντιστοιχίσετε κάθε "
-"συνεισφορά\n"
-"σε ένα ή περισσότερα από αυτά. Με αυτόν τον τρόπο, το περιεχόμενο μπορεί να "
-"ταξινομηθεί."
+"ετικέτες. Αν δημιουργήσετε κάποιο, μπορείτε να αντιστοιχίσετε κάθε συνεισφορά\n"
+"σε ένα ή περισσότερα από αυτά. Με αυτόν τον τρόπο, το περιεχόμενο μπορεί να ταξινομηθεί."
 
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 msgid "Add label"
 msgstr "Προσθήκη ετικέτας"
 
-#: adhocracy4/polls/templates/a4polls/poll_404.html:8
 #: adhocracy4/polls/templates/a4polls/poll_404.html:8
 msgid ""
 "Participation is not possible at the moment. The poll has not been set up "
@@ -290,13 +241,11 @@ msgstr ""
 "ρυθμιστεί ακόμα."
 
 #: adhocracy4/polls/templates/a4polls/poll_404.html:15
-#: adhocracy4/polls/templates/a4polls/poll_404.html:15
 msgid "Setup the poll by adding questions and answers in the dashboard."
 msgstr ""
 "Ρυθμίστε την δημοσκόπηση προσθέτοντας ερωτήσεις και απαντήσεις στον πίνακα "
 "ελέγχου."
 
-#: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 #: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 msgid "Edit poll"
 msgstr "Επεξεργασία δημοσκόπησης"
@@ -309,16 +258,13 @@ msgstr "Κατηγορίες"
 msgid "Edit categories"
 msgstr "Επεξεργασία κατηγοριών"
 
-#: adhocracy4/categories/fields.py:12
-#: adhocracy4/categories/filters.py:14
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins.py:149
+#: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:14
+#: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins.py:149
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: adhocracy4/categories/forms.py:38
-#: adhocracy4/labels/forms.py:14
+#: adhocracy4/categories/forms.py:38 adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "Ονομα κατηγορίας"
 
@@ -330,8 +276,7 @@ msgstr "Εικονίδιο κατηγορίας"
 msgid "Comment"
 msgstr "Σχόλιο"
 
-#: adhocracy4/comments/models.py:38
-#: adhocracy4/exports/mixins.py:121
+#: adhocracy4/comments/models.py:38 adhocracy4/exports/mixins.py:121
 msgid "Comments"
 msgstr "Σχόλια"
 
@@ -345,7 +290,7 @@ msgstr "διαγράφηκε από τον συντονιστή"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε κατηγορία"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -416,8 +361,7 @@ msgstr "Επεξεργαστείτε τις ρυθμίσεις περιοχής"
 msgid "Archived"
 msgstr "Αρχειοθετημένα"
 
-#: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
 msgid "All"
 msgstr "Ολα"
 
@@ -441,7 +385,7 @@ msgstr "Μόνο προσκεκλημένοι χρήστες μπορούν να
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "Επικοινωνία για ερωτήσεις"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -449,13 +393,16 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"Παρακαλώ ονομάστε ένα πρόσωπο επαφής. Στη συνέχεια, ο χρήστης θα γνωρίζει "
+"ποιος εκτελεί αυτό το έργο και σε ποιον μπορεί να απευθύνει πιθανές "
+"ερωτήσεις. Το άτομο επικοινωνίας θα εμφανιστεί στην καρτέλα πληροφοριών στη "
+"σελίδα του έργου."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "Περισσότερες δυνατότητες επικοινωνίας"
 
-#: adhocracy4/dashboard/forms.py:85
-#: adhocracy4/phases/models.py:64
+#: adhocracy4/dashboard/forms.py:85 adhocracy4/phases/models.py:64
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
@@ -464,12 +411,12 @@ msgstr "Ονομα"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "Τηλέφωνο"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -484,10 +431,9 @@ msgstr "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "Δικτυακός τόπος"
 
-#: adhocracy4/dashboard/forms.py:122
-#: adhocracy4/phases/models.py:72
+#: adhocracy4/dashboard/forms.py:122 adhocracy4/phases/models.py:72
 msgid "End date"
 msgstr "Ημερομηνία λήξης"
 
@@ -495,8 +441,7 @@ msgstr "Ημερομηνία λήξης"
 msgid "End time"
 msgstr "Τέλος χρόνου"
 
-#: adhocracy4/dashboard/forms.py:128
-#: adhocracy4/phases/models.py:70
+#: adhocracy4/dashboard/forms.py:128 adhocracy4/phases/models.py:70
 msgid "Start date"
 msgstr "Ημερομηνία έναρξης"
 
@@ -557,18 +502,15 @@ msgstr "Αρνητικές αξιολογήσεις"
 msgid "Comment count"
 msgstr "Καταμέτρηση σχολίων"
 
-#: adhocracy4/exports/mixins.py:162
-#: adhocracy4/labels/dashboard.py:12
+#: adhocracy4/exports/mixins.py:162 adhocracy4/labels/dashboard.py:12
 msgid "Labels"
 msgstr "Ετικέτες"
 
-#: adhocracy4/exports/mixins.py:174
-#: euth/exports/mixins.py:10
+#: adhocracy4/exports/mixins.py:174 euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "Τοποθεσία (Γεωγραφικό μήκος)"
 
-#: adhocracy4/exports/mixins.py:176
-#: euth/exports/mixins.py:12
+#: adhocracy4/exports/mixins.py:176 euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "Τοποθεσία (Latitude)"
 
@@ -603,8 +545,7 @@ msgstr "{image_name}πνευματική ιδιοκτησία"
 msgid "Copyright shown in the {image_name}."
 msgstr "Τα πνευματικά δικαιώματα που εμφανίζονται στο{image_name}."
 
-#: adhocracy4/images/validators.py:20
-#: euth/offlinephases/validators.py:20
+#: adhocracy4/images/validators.py:20 euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Μη υποστηριζόμενη μορφή αρχείου. Οι υποστηριζόμενες μορφές είναι {}."
 
@@ -641,8 +582,7 @@ msgstr "Επεξεργασία ετικετών"
 msgid "Label"
 msgstr "Επιγραφή"
 
-#: adhocracy4/maps/admin.py:14
-#: adhocracy4/maps/models.py:11
+#: adhocracy4/maps/admin.py:14 adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
@@ -654,18 +594,15 @@ msgstr ""
 "Εισαγάγετε ένα έγκυρο αντικείμενο GeoJSON. Για να εκκινήσετε μια νέα "
 "περιοχή, πληκτρολογήστε τη συμβολοσειρά \"false\" χωρίς εισαγωγικά."
 
-#: adhocracy4/maps/fields.py:16
-#: euth/maps/fields.py:18
+#: adhocracy4/maps/fields.py:16 euth/maps/fields.py:18
 msgid "Geometry as GeoJSON"
 msgstr "Γεωμετρία ως GeoJSON"
 
-#: adhocracy4/maps/fields.py:34
-#: euth/maps/fields.py:36
+#: adhocracy4/maps/fields.py:34 euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
 msgstr "Προσθέστε ένα δείκτη στο χάρτη"
 
-#: adhocracy4/maps/fields.py:39
-#: euth/maps/fields.py:41
+#: adhocracy4/maps/fields.py:39 euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
 msgstr "Σχεδιάστε ένα πολύγωνο στο χάρτη"
 
@@ -711,8 +648,7 @@ msgid "End date can not be smallerthan the start date."
 msgstr ""
 "Η ημερομηνία λήξης δεν μπορεί να είναι μικρότερη από την ημερομηνία έναρξης."
 
-#: adhocracy4/polls/dashboard.py:14
-#: euth/blueprints/blueprints.py:304
+#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:304
 msgid "Poll"
 msgstr "Ψηφοφορία"
 
@@ -749,7 +685,7 @@ msgstr "Εργο"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "Πληροφορίες και αποτελέσματα"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -758,43 +694,49 @@ msgstr "Ρυθμίσεις"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "Εικόνες"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "Επικοινωνία"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "Θέμα και τοποθεσία"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"Οι αριθμοί τηλεφώνου μπορούν να περιέχουν μόνο ψηφία, διαστήματα και τους "
+"ακόλουθους χαρακτήρες: -, +, (,). Πρέπει να έχει μήκος μεταξύ 8 και 20 "
+"χαρακτήρων."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "ταχυδρομική διεύθυνση"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "Υπεύθυνος επικοινωνίας"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "Μπορεί το έργο σας να βρίσκεται στον χάρτη;"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"Εντοπίστε το έργο σας. Κάντε κλικ μέσα στην επιλεγμένη περιοχή ή "
+"πληκτρολογήστε μια διεύθυνση για να ορίσετε το δείκτη. Ένας δείκτης μπορεί "
+"να σύρεται όταν πατηθεί."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "Διοικητική περιοχή"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -828,11 +770,11 @@ msgstr "Περιγραφή του έργου σας"
 #: adhocracy4/projects/models.py:114
 msgid ""
 "This description should tell participants what the goal of the project is, "
-"how the project’s participation will look like. It will be always visible in "
-"the „Info“ tab on your project’s page."
+"how the project’s participation will look like. It will be always visible in"
+" the „Info“ tab on your project’s page."
 msgstr ""
-"Αυτή η περιγραφή πρέπει να αναφέρει στους συμμετέχοντες ποιος είναι ο στόχος "
-"του έργου, πώς θα μοιάζει η συμμετοχή του σχεδίου. Θα είναι πάντοτε ορατό "
+"Αυτή η περιγραφή πρέπει να αναφέρει στους συμμετέχοντες ποιος είναι ο στόχος"
+" του έργου, πώς θα μοιάζει η συμμετοχή του σχεδίου. Θα είναι πάντοτε ορατό "
 "στην καρτέλα \"Πληροφορίες\" στη σελίδα του έργου σας."
 
 #: adhocracy4/projects/models.py:122
@@ -841,12 +783,12 @@ msgstr "Αποτελέσματα του έργου σας"
 
 #: adhocracy4/projects/models.py:123
 msgid ""
-"Here you should explain what the expected outcome of the project will be and "
-"how you are planning to use the results. If the project is finished you "
+"Here you should explain what the expected outcome of the project will be and"
+" how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 msgstr ""
-"Εδώ θα πρέπει να εξηγήσετε ποιο θα είναι το αναμενόμενο αποτέλεσμα του έργου "
-"και πώς σκοπεύετε να χρησιμοποιήσετε τα αποτελέσματα. Εάν ολοκληρωθεί το "
+"Εδώ θα πρέπει να εξηγήσετε ποιο θα είναι το αναμενόμενο αποτέλεσμα του έργου"
+" και πώς σκοπεύετε να χρησιμοποιήσετε τα αποτελέσματα. Εάν ολοκληρωθεί το "
 "έργο, θα πρέπει να προσθέσετε μια περίληψη των αποτελεσμάτων."
 
 #: adhocracy4/projects/models.py:130
@@ -860,11 +802,10 @@ msgid ""
 "description will always be visible to everyone"
 msgstr ""
 "Υποδείξτε εάν αυτό το έργο πρέπει να είναι δημόσιο ή να περιορίζεται στους "
-"προσκεκλημένους χρήστες. Τα teasers για το έργο σας, συμπεριλαμβανομένου του "
-"τίτλου και της σύντομης περιγραφής, θα είναι πάντοτε ορατά σε όλους"
+"προσκεκλημένους χρήστες. Τα teasers για το έργο σας, συμπεριλαμβανομένου του"
+" τίτλου και της σύντομης περιγραφής, θα είναι πάντοτε ορατά σε όλους"
 
-#: adhocracy4/projects/models.py:139
-#: adhocracy4/projects/models.py:145
+#: adhocracy4/projects/models.py:139 adhocracy4/projects/models.py:145
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "Εικόνα επικεφαλίδας"
@@ -873,8 +814,7 @@ msgstr "Εικόνα επικεφαλίδας"
 msgid "The image will be shown as a decorative background image."
 msgstr "Η εικόνα θα εμφανιστεί ως εικόνα διακοσμητικού φόντου."
 
-#: adhocracy4/projects/models.py:148
-#: adhocracy4/projects/models.py:155
+#: adhocracy4/projects/models.py:148 adhocracy4/projects/models.py:155
 msgid "Tile image"
 msgstr "Εικόνα κεραμιδιών"
 
@@ -888,19 +828,19 @@ msgstr "Το έργο αρχειοθετείται"
 
 #: adhocracy4/projects/models.py:169
 msgid ""
-"Exclude this project from all listings by default. You can still access this "
-"project by using filters."
+"Exclude this project from all listings by default. You can still access this"
+" project by using filters."
 msgstr ""
 "Εξαίρεση αυτού του έργου από όλες τις λίστες από προεπιλογή. Μπορείτε ακόμα "
 "να έχετε πρόσβαση σε αυτό το έργο χρησιμοποιώντας φίλτρα."
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "Θέματα του έργου"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "Προσθέστε θέματα στο έργο σας."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -1003,8 +943,8 @@ msgstr "Το προφίλ σου"
 
 #: euth/accounts/templates/euth_accounts/profile_form.html:10
 msgid ""
-"The information you give in your profile will be shown to all users of OPIN."
-"me."
+"The information you give in your profile will be shown to all users of "
+"OPIN.me."
 msgstr ""
 "Οι πληροφορίες που δίνετε στο προφίλ σας θα εμφανίζονται σε όλους τους "
 "χρήστες του OPIN.me."
@@ -1058,7 +998,8 @@ msgstr "Σχεδιάστε ένα μέρος."
 
 #: euth/blueprints/blueprints.py:54
 msgid "Small scale design projects, e.g. renew your premises"
-msgstr "χέδια μικρής κλίμακας σχεδιασμού, π.χ. ανανεώστε τις εγκαταστάσεις σας"
+msgstr ""
+"χέδια μικρής κλίμακας σχεδιασμού, π.χ. ανανεώστε τις εγκαταστάσεις σας"
 
 #: euth/blueprints/blueprints.py:58
 msgid "Learn about what people like most."
@@ -1186,8 +1127,8 @@ msgstr "καταιγισμός ιδεών"
 
 #: euth/blueprints/blueprints.py:183 euth/blueprints/blueprints.py:202
 msgid ""
-"Collect ideas, questions and input concerning a problem or a question from a "
-"wide array of people."
+"Collect ideas, questions and input concerning a problem or a question from a"
+" wide array of people."
 msgstr ""
 "Συλλέξτε ιδέες, ερωτήσεις και πληροφορίες σχετικά με ένα πρόβλημα ή μια "
 "ερώτηση από ένα ευρύ φάσμα ανθρώπων."
@@ -1226,8 +1167,8 @@ msgid ""
 "tackle."
 msgstr ""
 "Μπορείτε να συμμετάσχετε όλοι στο σχεδιασμό μιας συνάντησης. Συλλέξτε ιδέες "
-"για μια επερχόμενη εκδήλωση και αφήστε τους συμμετέχοντες να ψηφίσουν για τα "
-"θέματα που θέλετε να αντιμετωπίσετε."
+"για μια επερχόμενη εκδήλωση και αφήστε τους συμμετέχοντες να ψηφίσουν για τα"
+" θέματα που θέλετε να αντιμετωπίσετε."
 
 #: euth/blueprints/blueprints.py:283
 msgid "Text Review"
@@ -1239,17 +1180,17 @@ msgid ""
 "discussing position papers or a mission statements with many people."
 msgstr ""
 "Ας συζητήσουν οι συμμετέχοντες μεμονωμένες παραγράφους ενός κειμένου. Αυτό "
-"είναι ιδανικό για τη συζήτηση εγγράφων θέσης ή δηλώσεων αποστολής με πολλούς "
-"ανθρώπους."
+"είναι ιδανικό για τη συζήτηση εγγράφων θέσης ή δηλώσεων αποστολής με πολλούς"
+" ανθρώπους."
 
 #: euth/blueprints/blueprints.py:305
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members. Via the OPIN polling app for iOS and"
+" Android these polls are also accessible on smartphones."
 msgstr ""
-"Εκτελέστε προσαρμόσιμες, πολλών βημάτων δημοσκοπήσεις στο OPIN για να λάβετε "
-"λεπτομερείς απόψεις σχετικά με θέματα από το κοινό ή τα μέλη σας. Μέσω της "
+"Εκτελέστε προσαρμόσιμες, πολλών βημάτων δημοσκοπήσεις στο OPIN για να λάβετε"
+" λεπτομερείς απόψεις σχετικά με θέματα από το κοινό ή τα μέλη σας. Μέσω της "
 "εφαρμογής OPIN polling για iOS και Android αυτές οι δημοσκοπήσεις είναι "
 "επίσης προσβάσιμες σε smartphones."
 
@@ -1266,7 +1207,8 @@ msgstr ""
 
 #: euth/blueprints/forms.py:38
 msgid ""
-"How motivated are your participants to take part in a  participative process?"
+"How motivated are your participants to take part in a  participative "
+"process?"
 msgstr ""
 "Πόσο κίνητρα είναι οι συμμετέχοντες σας να συμμετάσχουν σε μια συμμετοχική "
 "διαδικασία;"
@@ -1416,11 +1358,11 @@ msgstr ""
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html:9
 msgid ""
-"With the following questions we want to get more detailed information to see "
-"which process on OPIN fits best."
+"With the following questions we want to get more detailed information to see"
+" which process on OPIN fits best."
 msgstr ""
-"Με τις παρακάτω ερωτήσεις θέλουμε να λάβουμε πιο λεπτομερείς πληροφορίες για "
-"να δούμε ποια διαδικασία στο OPIN ταιριάζει καλύτερα."
+"Με τις παρακάτω ερωτήσεις θέλουμε να λάβουμε πιο λεπτομερείς πληροφορίες για"
+" να δούμε ποια διαδικασία στο OPIN ταιριάζει καλύτερα."
 
 #: euth/blueprints/templates/euth_blueprints/result.html:11
 msgid ""
@@ -1483,7 +1425,8 @@ msgid "description"
 msgstr "περιγραφή"
 
 #: euth/dashboard/forms.py:24
-msgid "More info about the organisation / Short text for organisation overview"
+msgid ""
+"More info about the organisation / Short text for organisation overview"
 msgstr ""
 "Περισσότερες πληροφορίες σχετικά με τον οργανισμό / Σύντομο κείμενο για την "
 "επισκόπηση της οργάνωσης"
@@ -1727,8 +1670,8 @@ msgstr "Φάση αξιολόγησης"
 #: euth/maps/phases.py:47
 msgid "Get quantative feeback by rating the collected ideas on a map."
 msgstr ""
-"Αποκτήστε ποσοτική ανατροφοδότηση βαθμολογώντας τις συλλεγμένες ιδέες σε ένα "
-"χάρτη."
+"Αποκτήστε ποσοτική ανατροφοδότηση βαθμολογώντας τις συλλεγμένες ιδέες σε ένα"
+" χάρτη."
 
 #: euth/maps/templates/euth_maps/mapidea_list.html:26
 msgid "view on list"
@@ -1755,10 +1698,10 @@ msgid ""
 "commas. Invited users will get an email to confirm their membership in the "
 "project."
 msgstr ""
-"Καταχωρίστε τις διευθύνσεις ηλεκτρονικού ταχυδρομείου των χρηστών που θέλετε "
-"να προσκαλέσετε, χωρισμένοι με κόμματα. Οι προσκεκλημένοι χρήστες θα λάβουν "
-"ένα μήνυμα ηλεκτρονικού ταχυδρομείου για να επιβεβαιώσουν την συμμετοχή τους "
-"στο έργο."
+"Καταχωρίστε τις διευθύνσεις ηλεκτρονικού ταχυδρομείου των χρηστών που θέλετε"
+" να προσκαλέσετε, χωρισμένοι με κόμματα. Οι προσκεκλημένοι χρήστες θα λάβουν"
+" ένα μήνυμα ηλεκτρονικού ταχυδρομείου για να επιβεβαιώσουν την συμμετοχή "
+"τους στο έργο."
 
 #: euth/memberships/forms.py:79
 msgid "Please enter correct e-mail addresses, separated by commas."
@@ -1845,13 +1788,11 @@ msgstr "Πτώση"
 #, python-format
 msgid ""
 "\n"
-"            This is a private project. You have applied for a membership on "
-"%(date)s. Your request is awaiting moderation.\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
 "\n"
-"Αυτό είναι ένα ιδιωτικό έργο. Έχετε υποβάλει αίτηση για συμμετοχή σε"
-"%(date)s. Το αίτημά σας αναμένει μετριοπάθεια."
+"Αυτό είναι ένα ιδιωτικό έργο. Έχετε υποβάλει αίτηση για συμμετοχή σε%(date)s. Το αίτημά σας αναμένει μετριοπάθεια."
 
 #: euth/memberships/templates/euth_memberships/request_detail.html:24
 #: euth/memberships/templates/euth_memberships/request_detail.html:41
@@ -2182,7 +2123,7 @@ msgstr "και"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "Το έργο '%(name)s' διαγράφηκε με επιτυχία."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2198,8 +2139,8 @@ msgid ""
 "and @/./+/-/_ characters. It must start with a digit or a letter."
 msgstr ""
 "Εισαγάγετε ένα έγκυρο όνομα χρήστη. Αυτή η τιμή μπορεί να περιέχει μόνο "
-"γράμματα, ψηφία, κενά και χαρακτήρες @ /. / + / - / _. Πρέπει να ξεκινάει με "
-"ένα ψηφίο ή ένα γράμμα."
+"γράμματα, ψηφία, κενά και χαρακτήρες @ /. / + / - / _. Πρέπει να ξεκινάει με"
+" ένα ψηφίο ή ένα γράμμα."
 
 #: euth/users/models.py:19
 msgid "A user with that username already exists."
@@ -2207,10 +2148,11 @@ msgstr "Υπάρχει ήδη ένας χρήστης με αυτό το όνο�
 
 #: euth/users/models.py:20
 msgid ""
-"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
 msgstr ""
-"Απαιτείται. 60 χαρακτήρες ή λιγότεροι. Γράμματα, ψηφία, κενά και μόνο @ /. / "
-"+ / - / _."
+"Απαιτείται. 60 χαρακτήρες ή λιγότεροι. Γράμματα, ψηφία, κενά και μόνο @ /. /"
+" + / - / _."
 
 #: euth/users/models.py:26
 msgid "A user with that email address already exists."
@@ -2497,7 +2439,7 @@ msgstr "χρησιμοποιήστε αυτό το πρότυπο"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε το έργο '%(project_name)s';"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2566,8 +2508,9 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Επιβεβαιώστε ότι πρόκειται για <a href=\"mailto:%(email)s\">%(email)s</"
-"a>διεύθυνση ηλεκτρονικού ταχυδρομείου για τον χρήστη%(user_display)s."
+"Επιβεβαιώστε ότι πρόκειται για <a "
+"href=\"mailto:%(email)s\">%(email)s</a>διεύθυνση ηλεκτρονικού ταχυδρομείου "
+"για τον χρήστη%(user_display)s."
 
 #: euth_wagtail/templates/account/email_confirm.html:25
 msgid "Activate account"
@@ -2576,8 +2519,8 @@ msgstr "Ενεργοποίηση λογαριασμού"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Αυτός ο σύνδεσμος επιβεβαίωσης ηλεκτρονικού ταχυδρομείου έληξε ή είναι "
 "άκυρος. Δημιουργήστε <a href=\"%(email_url)s\">ένα νέο αίτημα επιβεβαίωσης "
@@ -2658,8 +2601,8 @@ msgstr "Bad Token"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Ο σύνδεσμος επαναφοράς κωδικού πρόσβασης δεν ήταν έγκυρος, πιθανώς επειδή "
 "έχει ήδη χρησιμοποιηθεί. Ζητήστε μια <a href=\"%(passwd_reset_url)s\">νέα "
@@ -2690,13 +2633,11 @@ msgstr "Εγγραφή ενός λογαριασμού"
 #, python-format
 msgid ""
 "\n"
-"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
-"\">terms of use</a>.\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank\">terms of use</a>.\n"
 "                "
 msgstr ""
 "\n"
-"Αποδέχομαι τους <a href=\"%(terms_of_use_url)s\" target=\"blank\">όρους "
-"χρήσης</a>."
+"Αποδέχομαι τους <a href=\"%(terms_of_use_url)s\" target=\"blank\">όρους χρήσης</a>."
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html:6
 msgid "Note"
@@ -2743,8 +2684,8 @@ msgstr ""
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr ""
-"Αυτήν τη στιγμή δεν έχετε λογαριασμούς κοινωνικής δικτύωσης συνδεδεμένους σε "
-"αυτόν τον λογαριασμό."
+"Αυτήν τη στιγμή δεν έχετε λογαριασμούς κοινωνικής δικτύωσης συνδεδεμένους σε"
+" αυτόν τον λογαριασμό."
 
 #: euth_wagtail/templates/socialaccount/connections.html:39
 msgid "Add a 3rd Party Account"
@@ -2754,16 +2695,10 @@ msgstr "Προσθέστε έναν λογαριασμό τρίτου μέρου
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"%(site_name)s but the connected emailaddress of this account is already in "
-"use on this platform. You can either login with this emailaddress and "
-"connect your account to %(provider_name)s or fill in the form underneath. "
+"%(site_name)s but the connected emailaddress of this account is already in use on this platform. You can either login with this emailaddress and connect your account to %(provider_name)s or fill in the form underneath. "
 msgstr ""
-"Πρόκειται να χρησιμοποιήσετε το λογαριασμό σας %(provider_name)sγια να "
-"συνδεθείτε\n"
-"%(site_name)sαλλά η συνδεδεμένη διεύθυνση ηλεκτρονικού ταχυδρομείου αυτού "
-"του λογαριασμού χρησιμοποιείται ήδη σε αυτήν την πλατφόρμα. Μπορείτε είτε να "
-"συνδεθείτε με αυτό το emailaddress και να συνδεθείτε με το λογαριασμό σας "
-"%(provider_name)sή να συμπληρώσετε τη φόρμα κάτω."
+"Πρόκειται να χρησιμοποιήσετε το λογαριασμό σας %(provider_name)sγια να συνδεθείτε\n"
+"%(site_name)sαλλά η συνδεδεμένη διεύθυνση ηλεκτρονικού ταχυδρομείου αυτού του λογαριασμού χρησιμοποιείται ήδη σε αυτήν την πλατφόρμα. Μπορείτε είτε να συνδεθείτε με αυτό το emailaddress και να συνδεθείτε με το λογαριασμό σας %(provider_name)sή να συμπληρώσετε τη φόρμα κάτω."
 
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:18
@@ -2781,24 +2716,43 @@ msgstr "Παίξε το βίντεο"
 #: home/templates/home/manuals_section_page.html:18
 #: home/templates/home/manuals_section_page.html:24
 msgid "Download guidelines"
-msgstr ""
+msgstr "Κατεβάστε οδηγίες"
 
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Περιεχόμενα"
 
+#~ msgid "Location of your Project"
+#~ msgstr "Θέση του Έργου σας"
+
+#~ msgid "Project topic"
+#~ msgstr "Θέμα του έργου"
+
+#~ msgid "Contact details"
+#~ msgstr "Στοιχεία επικοινωνίας"
+
+#~ msgid "This is the help text."
+#~ msgstr "Αυτό είναι το κείμενο βοήθειας."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Ο αριθμός τηλεφώνου πρέπει να εισαχθεί στη μορφή: '+999999999'. Έως 15 ψηφία"
+#~ " επιτρέπονται."
+
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "
 #~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
+#~ "website reflects only the author's view and the Research Executive Agency or"
+#~ " European Commission is not responsible for any use that may be made of the "
+#~ "information it contains."
 #~ msgstr ""
 #~ "Το έργο αυτό έλαβε χρηματοδότηση από το πρόγραμμα έρευνας και καινοτομίας "
 #~ "της Ευρωπαϊκής Ένωσης Horizon 2020 βάσει της συμφωνίας επιχορήγησης αριθ. "
-#~ "649594. Ο ιστότοπος αυτός αντικατοπτρίζει μόνο τη γνώμη του δημιουργού "
-#~ "και ο Εκτελεστικός Οργανισμός Έρευνας ή η Ευρωπαϊκή Επιτροπή δεν είναι "
-#~ "υπεύθυνος για οποιαδήποτε χρήση των πληροφοριών που περιέχει."
+#~ "649594. Ο ιστότοπος αυτός αντικατοπτρίζει μόνο τη γνώμη του δημιουργού και ο"
+#~ " Εκτελεστικός Οργανισμός Έρευνας ή η Ευρωπαϊκή Επιτροπή δεν είναι υπεύθυνος "
+#~ "για οποιαδήποτε χρήση των πληροφοριών που περιέχει."
 
 #~ msgid ""
 #~ "In this section, you can create\n"
@@ -2806,10 +2760,8 @@ msgstr "Περιεχόμενα"
 #~ "to one of them. This way, content can be classified."
 #~ msgstr ""
 #~ "Σε αυτή την ενότητα, μπορείτε να δημιουργήσετε\n"
-#~ "κατηγορίες. Αν δημιουργήσετε κάποιο, οι χρήστες πρέπει να αντιστοιχίσουν "
-#~ "τις συνεισφορές τους\n"
-#~ "σε έναν από αυτούς. Με αυτόν τον τρόπο, το περιεχόμενο μπορεί να "
-#~ "ταξινομηθεί."
+#~ "κατηγορίες. Αν δημιουργήσετε κάποιο, οι χρήστες πρέπει να αντιστοιχίσουν τις συνεισφορές τους\n"
+#~ "σε έναν από αυτούς. Με αυτόν τον τρόπο, το περιεχόμενο μπορεί να ταξινομηθεί."
 
 #~ msgid "Flashpollsettings"
 #~ msgstr "Ρυθμίσεις Flashpoll"
@@ -2842,9 +2794,9 @@ msgstr "Περιεχόμενα"
 #~ msgstr "Λήψη Απαντήσεων"
 
 #~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
+#~ "This short description will appear on the header of the module and project "
+#~ "detail pages. It should briefly state the goal of the module in max. 250 "
+#~ "chars."
 #~ msgstr ""
 #~ "Αυτή η σύντομη περιγραφή θα εμφανιστεί στην κεφαλίδα των σελίδων "
 #~ "λεπτομέρειας της μονάδας και του έργου. Θα πρέπει να αναφέρει σύντομα το "

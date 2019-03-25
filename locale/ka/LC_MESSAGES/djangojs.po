@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Yves Müller <yves.mueller@liqd.de>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
-#
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -16,65 +17,52 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-07 15:00+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Philipp Munck <p.munck+1@liqd.net>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
-"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "დასაშვები ნივთი მოათავსეთ"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
-#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "სათაური"
 
-#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "სხეულის ტექსტი"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
-#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "დასაშვები ელემენტი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
-#: adhocracy4/comments/static/comments/Comment.jsx:26
 msgid "hide one reply"
 msgstr "ერთი პასუხი დამალა"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:26
 #: adhocracy4/comments/static/comments/Comment.jsx:26
 #, javascript-format
 msgid "hide %s replies"
 msgstr "პასუხების %s დამალვა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
-#: adhocracy4/comments/static/comments/Comment.jsx:28
 msgid "view one reply"
 msgstr "ერთი პასუხი ნახეთ"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:28
 #: adhocracy4/comments/static/comments/Comment.jsx:28
 #, javascript-format
 msgid "view %s replies"
 msgstr "პასუხების %s ნახვა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:128
-#: adhocracy4/comments/static/comments/Comment.jsx:128
 msgid "Do you really want to delete this comment?"
 msgstr "ნამდვილად გსურთ ამ კომენტარის წაშლა?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:130
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:93
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:96
 #: adhocracy4/comments/static/comments/Comment.jsx:130
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
@@ -84,22 +72,17 @@ msgstr "წაშლა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:131
 #: adhocracy4/static/Modal.jsx:49
-#: adhocracy4/comments/static/comments/Comment.jsx:131
 msgid "Abort"
 msgstr "გაუქმება"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:144
 #: adhocracy4/comments/static/comments/Comment.jsx:144
 msgid "Latest edit on"
 msgstr "ბოლოს რედაქტირებული"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments/static/comments/Comment.jsx:149
 msgid "Moderator"
 msgstr "მოდერატორი"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:156
-#: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:156
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
@@ -107,20 +90,19 @@ msgid ""
 "moderation. The moderation will look at the reported content. The content "
 "will be deleted if it does not meet our discussion rules (netiquette)."
 msgstr ""
+"გსურთ ამ კონტენტის მოხსენება? თქვენი შეტყობინება გადაეგზავნება მოდერაციას. "
+"მოდერაცია შეისწავლის ანგარიშის შინაარსს. შინაარსი წაიშლება, თუ ის არ "
+"აკმაყოფილებს ჩვენს სადისკუსიო წესებს()."
 
-#: adhocracy4/comments/static/comments/Comment.jsx:179
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:26
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
 msgid "Answer"
 msgstr "პასუხი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:218
-#: adhocracy4/comments/static/comments/Comment.jsx:218
 msgid "Your reply here"
 msgstr "თქვენი პასუხი აქ"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:167
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
 msgid "comment"
 msgid_plural "comments"
@@ -130,74 +112,58 @@ msgstr[1] "კომენტარები"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
-#: adhocracy4/comments/static/comments/CommentBox.jsx:170
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
-#: adhocracy4/comments/static/comments/CommentForm.jsx:48
 msgid "Your comment here"
 msgstr "თქვენი კომენტარი აქ"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
 msgid "save changes"
 msgstr "ცვლილებების შენახვა"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
 msgid "cancel"
 msgstr "უარყოფა"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:51
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
 msgid "post"
 msgstr "პოსტი"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
-#: adhocracy4/comments/static/comments/CommentForm.jsx:57
 msgid "Please login to comment"
 msgstr "კომენტარის დასატოვებლად გაიარეთ ავტორიზაცია"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:63
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
 msgid "The currently active phase doesn't allow to comment."
 msgstr "ამჟამად აქტიური ფაზა კომენტარს არ აკეთებს."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 msgid "Edit"
 msgstr "რედაქტირება"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 msgid "Report"
 msgstr "მოხსენება"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
-#: adhocracy4/follows/static/follows/FollowButton.jsx:51
 msgid "Not following"
 msgstr "არ არის შემდეგი"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:52
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 msgid "Never be notified."
 msgstr "არასოდეს ეცნობება."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
-#: adhocracy4/follows/static/follows/FollowButton.jsx:53
 msgid "Following"
 msgstr "შემდეგ"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:54
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 msgid "Receive email notifications about this project."
 msgstr "ამ პროექტის შესახებ ელფოსტის შეტყობინებების მიღება."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
-#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "დაუცველი"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
@@ -205,57 +171,45 @@ msgstr "გაყოლა"
 
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
-#: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
-#: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
 msgid "remove"
 msgstr "ამოიღე"
 
-#: adhocracy4/polls/static/polls/PollManagement.jsx:188
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
 msgid "The poll has been updated."
 msgstr "გამოკითხვა განახლდა."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
-#: adhocracy4/polls/static/polls/PollManagement.jsx:205
 msgid "The poll could not be updated."
 msgstr "გამოკითხვა ვერ მოხერხდა."
 
-#: adhocracy4/polls/static/polls/PollManagement.jsx:246
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
 msgid "Add a new question"
 msgstr "ახალი შეკითხვა"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
-#: adhocracy4/polls/static/polls/PollManagement.jsx:252
 msgid "Save"
 msgstr "გადარჩენა"
 
-#: adhocracy4/polls/static/polls/Question.jsx:51
 #: adhocracy4/polls/static/polls/Question.jsx:51
 msgid "Vote counted"
 msgstr "ხმის დათვლა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:61
-#: adhocracy4/polls/static/polls/Question.jsx:61
 msgid "Vote has not been counted due to a server error."
 msgstr "ხმის დათვლა ვერ მოხერხდა სერვერის შეცდომის გამო."
 
-#: adhocracy4/polls/static/polls/Question.jsx:108
 #: adhocracy4/polls/static/polls/Question.jsx:108
 msgid "Vote"
 msgstr "ხმის მიცემა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:114
-#: adhocracy4/polls/static/polls/Question.jsx:114
 msgid "Please login to vote"
 msgstr "გთხოვთ, ხელახლა შესვლა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:136
-#: adhocracy4/polls/static/polls/Question.jsx:136
 msgid "Multiple answers are possible for this question"
 msgstr "ამ კითხვაზე შესაძლებელია მრავალი პასუხი"
 
-#: adhocracy4/polls/static/polls/Question.jsx:141
 #: adhocracy4/polls/static/polls/Question.jsx:141
 msgid "vote"
 msgid_plural "votes"
@@ -263,47 +217,37 @@ msgstr[0] "ხმა"
 msgstr[1] "ხმა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
-#: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "To poll"
 msgstr "გამოკითხვაში"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
 #: adhocracy4/polls/static/polls/Question.jsx:145
 msgid "Change vote"
 msgstr "ხმის მიცემა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:149
-#: adhocracy4/polls/static/polls/Question.jsx:149
 msgid "Show preliminary results"
 msgstr "წინასწარი შედეგების ჩვენება"
 
-#: adhocracy4/polls/static/polls/Question.jsx:177
 #: adhocracy4/polls/static/polls/Question.jsx:177
 msgid "Your choice"
 msgstr "ენი არჩევანი"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:15
 msgid "Question"
 msgstr "კითხვა"
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:37
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
 msgid "Users can select more than one answer."
 msgstr "მომხმარებელს შეუძლია აირჩიოს ერთზე მეტი პასუხი."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:45
 msgid "Choice"
 msgstr "არჩევანი"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:67
 msgid "Add a new choice"
 msgstr "ახალი არჩევანის დამატება"
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:76
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:79
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:76
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
 msgid "Move up"
@@ -311,28 +255,22 @@ msgstr "გადაადგილება"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:85
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:85
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:88
 msgid "Move down"
 msgstr "გადატანა ქვემოთ"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:57
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
 msgid "Thank you! We are taking care of it."
 msgstr "მადლობთ! ჩვენ ზრუნავს მასზე."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
-#: adhocracy4/reports/static/reports/ReportModal.jsx:65
 msgid "Your message"
-msgstr ""
+msgstr "ქვენი შეტყობინება"
 
-#: adhocracy4/reports/static/reports/ReportModal.jsx:77
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
 msgid "Send Report"
 msgstr "ანგარიშის გაგზავნა"
 
-#: adhocracy4/static/Alert.jsx:10
-#: adhocracy4/static/Alert.jsx:11
+#: adhocracy4/static/Alert.jsx:10 adhocracy4/static/Alert.jsx:11
 msgid "Close"
 msgstr "დახურვა"
 

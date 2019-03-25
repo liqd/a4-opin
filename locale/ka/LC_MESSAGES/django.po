@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
-#
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -16,15 +17,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-07 15:00+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Philipp Munck <p.munck+1@liqd.net>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
-"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
 "In this section, you can create\n"
@@ -36,23 +36,18 @@ msgstr ""
 "კლასიფიცირებული იყოს."
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
 msgid "Add category"
 msgstr "კატეგორიის დამატება"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:4
 msgid "Dashboard"
 msgstr "დაფა"
 
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
 msgid "Project Settings"
 msgstr "პროექტის პარამეტრები"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:15
@@ -60,8 +55,6 @@ msgstr "პროექტის პარამეტრები"
 msgid "Missing fields for publication"
 msgstr "გამოტოვებული ველი გამოსაქვეყნებლად"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: euth_wagtail/templates/a4dashboard/base_form_module.html:18
@@ -72,15 +65,11 @@ msgstr "გადარჩენა"
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:4
 #: euth_wagtail/templates/a4dashboard/project_list.html:11
 msgid "New Project"
 msgstr "ახალი პროექტი"
 
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
 #: euth/projects/templates/euth_projects/project_detail.html:38
@@ -88,17 +77,13 @@ msgid "Phase"
 msgstr "ფაზა"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
 msgid "Select"
 msgstr "აირჩიეთ"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
-#: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
 msgid "Missing field for publication"
 msgstr "გამოტოვებული ველი გამოსაქვეყნებლად"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:35
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
@@ -107,36 +92,28 @@ msgstr "გადახედვა"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:37
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "View"
 msgstr "ნახვა"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 #, python-format
 msgid "%(value)s from %(max)s"
 msgstr "%(value)sდან%(max)s"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
 msgid "required fields for publication"
 msgstr "აუცილებელი ველი გამოსაქვეყნებლად"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 msgid "Publish"
 msgstr "გამოქვეყნება"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 msgid "Unpublish"
 msgstr "გამოაქვეყნა"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:4
@@ -144,7 +121,6 @@ msgstr "გამოაქვეყნა"
 msgid "Create project based on"
 msgstr "შექმენით პროექტი"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:26
 msgid ""
@@ -155,12 +131,10 @@ msgstr ""
 "საბოლოოდ გამოქვეყნებას."
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:29
 msgid "Create draft"
 msgstr "შექმენით პროექტი"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:6
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:14
@@ -168,8 +142,6 @@ msgstr "შექმენით პროექტი"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:14
@@ -180,12 +152,10 @@ msgid "Projects"
 msgstr "პროექტები"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:23
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:17
 msgid "Finished"
 msgstr "დასრულდა"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:26
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
@@ -194,7 +164,6 @@ msgstr "დასრულდა"
 msgid "private"
 msgstr "დახურული"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:44
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html:36
@@ -207,25 +176,20 @@ msgid "Edit"
 msgstr "რედაქტირება"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:53
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
 msgid "Duplicate"
 msgstr "დუბლიკატი"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:60
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
 msgstr "ჩვენ ვერც პროექტების მოძიება ვერ მოხერხდა."
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: adhocracy4/dashboard/filter.py:11
-#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:71
+#: adhocracy4/dashboard/filter.py:11 euth/contrib/filters.py:71
 msgid "Search"
 msgstr "ძიება"
 
-#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
@@ -235,24 +199,17 @@ msgstr "ეს ველი სავალდებულოა"
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:14
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
 msgid "Remove category"
 msgstr "კატეგორიების წაშლა"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 msgid "Remove the picture"
 msgstr "სურათის წაშლა"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 msgid "Upload a picture"
 msgstr "სურათის ატვირთვა"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 msgid ""
 "\n"
@@ -265,22 +222,19 @@ msgstr ""
 "ამ გვერდის ბოლოს."
 
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
 msgid ""
 "In this section, you can create\n"
 "labels. If you create any, each contribution can be assigned\n"
 "to one or more of them. This way, content can be classified."
 msgstr ""
-"ამ განყოფილებაში თქვენ შეგიძლიათ შექმნათ ფილმები. თუ თქვენ შექმნით, თითოეული "
-"წვლილი შეიძლება გადაეცეს ერთ ან მეტს. ამ გზით, შინაარსი შეიძლება "
+"ამ განყოფილებაში თქვენ შეგიძლიათ შექმნათ ფილმები. თუ თქვენ შექმნით, თითოეული"
+" წვლილი შეიძლება გადაეცეს ერთ ან მეტს. ამ გზით, შინაარსი შეიძლება "
 "კლასიფიცირებული იყოს."
 
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 msgid "Add label"
 msgstr "ლეიბლის დამატება"
 
-#: adhocracy4/polls/templates/a4polls/poll_404.html:8
 #: adhocracy4/polls/templates/a4polls/poll_404.html:8
 msgid ""
 "Participation is not possible at the moment. The poll has not been set up "
@@ -288,11 +242,9 @@ msgid ""
 msgstr "ამ ეტაპზე მონაწილეობა შეუძლებელია. გამოკითხვა არ არის დადგენილი."
 
 #: adhocracy4/polls/templates/a4polls/poll_404.html:15
-#: adhocracy4/polls/templates/a4polls/poll_404.html:15
 msgid "Setup the poll by adding questions and answers in the dashboard."
 msgstr "შედგენა გამოკითხვის მეშვეობით დასმულ კითხვებზე და პასუხებში."
 
-#: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 #: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 msgid "Edit poll"
 msgstr "გამოკითხვის რედაქტირება"
@@ -305,16 +257,13 @@ msgstr "კატეგორიები"
 msgid "Edit categories"
 msgstr "კატეგორიების რედაქტირება"
 
-#: adhocracy4/categories/fields.py:12
-#: adhocracy4/categories/filters.py:14
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins.py:149
+#: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:14
+#: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins.py:149
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "კატეგორია"
 
-#: adhocracy4/categories/forms.py:38
-#: adhocracy4/labels/forms.py:14
+#: adhocracy4/categories/forms.py:38 adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "კატეგორიის სახელი"
 
@@ -326,8 +275,7 @@ msgstr "კატეგორიის ხატი"
 msgid "Comment"
 msgstr "კომენტარი"
 
-#: adhocracy4/comments/models.py:38
-#: adhocracy4/exports/mixins.py:121
+#: adhocracy4/comments/models.py:38 adhocracy4/exports/mixins.py:121
 msgid "Comments"
 msgstr "კომენტარები"
 
@@ -341,7 +289,7 @@ msgstr "წაიშალა მოდერატორი"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "გთხოვთ, აირჩიეთ კატეგორია"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -412,8 +360,7 @@ msgstr "ფართობი პარამეტრების რედა�
 msgid "Archived"
 msgstr "არქივი"
 
-#: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
 msgid "All"
 msgstr "ყველა"
 
@@ -437,7 +384,7 @@ msgstr "მხოლოდ მოწვეული მომხმარებ�
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "დაუკავშირდით კითხვებს"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -445,13 +392,15 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"გთხოვთ დაასახელოთ საკონტაქტო პირი. მომხმარებელი მაშინ იცის, ვინ ახორციელებს "
+"ამ პროექტს და ვის შეუძლია მათთვის შესაძლო კითხვებზე საუბარი. საკონტაქტო პირი"
+" პროექტის გვერდზე განთავსდება ინფორმაციის ჩანართში."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "მეტი კონტაქტი შესაძლებლობები"
 
-#: adhocracy4/dashboard/forms.py:85
-#: adhocracy4/phases/models.py:64
+#: adhocracy4/dashboard/forms.py:85 adhocracy4/phases/models.py:64
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
@@ -460,12 +409,12 @@ msgstr "სახელი"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "მისამართი"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "ტელეფონი"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -480,10 +429,9 @@ msgstr "ელ.ფოსტა"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "საიტი"
 
-#: adhocracy4/dashboard/forms.py:122
-#: adhocracy4/phases/models.py:72
+#: adhocracy4/dashboard/forms.py:122 adhocracy4/phases/models.py:72
 msgid "End date"
 msgstr "დასრულების თარიღი"
 
@@ -491,8 +439,7 @@ msgstr "დასრულების თარიღი"
 msgid "End time"
 msgstr "დროის დასასრული"
 
-#: adhocracy4/dashboard/forms.py:128
-#: adhocracy4/phases/models.py:70
+#: adhocracy4/dashboard/forms.py:128 adhocracy4/phases/models.py:70
 msgid "Start date"
 msgstr "დაწყების თარიღი"
 
@@ -552,18 +499,15 @@ msgstr "უარყოფითი რეიტინგები"
 msgid "Comment count"
 msgstr "კომენტარების რაოდენობა"
 
-#: adhocracy4/exports/mixins.py:162
-#: adhocracy4/labels/dashboard.py:12
+#: adhocracy4/exports/mixins.py:162 adhocracy4/labels/dashboard.py:12
 msgid "Labels"
 msgstr "იარლიყები"
 
-#: adhocracy4/exports/mixins.py:174
-#: euth/exports/mixins.py:10
+#: adhocracy4/exports/mixins.py:174 euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "საიდან (გრძედი)"
 
-#: adhocracy4/exports/mixins.py:176
-#: euth/exports/mixins.py:12
+#: adhocracy4/exports/mixins.py:176 euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "საიდან (გრძედი)"
 
@@ -597,8 +541,7 @@ msgstr "{image_name} საავტორო უფლებები"
 msgid "Copyright shown in the {image_name}."
 msgstr "საავტორო უფლებები ნაჩვენები {image_name}."
 
-#: adhocracy4/images/validators.py:20
-#: euth/offlinephases/validators.py:20
+#: adhocracy4/images/validators.py:20 euth/offlinephases/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "მხარდაჭერილი ფაილის ფორმატი. მხარდაჭერილი ფორმატები {}."
 
@@ -635,8 +578,7 @@ msgstr "ლეიბლების რედაქტირება"
 msgid "Label"
 msgstr "ლეიბლი"
 
-#: adhocracy4/maps/admin.py:14
-#: adhocracy4/maps/models.py:11
+#: adhocracy4/maps/admin.py:14 adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "პოლიგონი"
 
@@ -648,18 +590,15 @@ msgstr ""
 "შეიყვანეთ სწორი GeoJSON ობიექტი. ახალი ფართობის პარამეტრების ამოქმედება "
 "სიტემის \"ცრუ\" ბრჭყალების გარეშე."
 
-#: adhocracy4/maps/fields.py:16
-#: euth/maps/fields.py:18
+#: adhocracy4/maps/fields.py:16 euth/maps/fields.py:18
 msgid "Geometry as GeoJSON"
 msgstr "Geometry როგორც GeoJSON"
 
-#: adhocracy4/maps/fields.py:34
-#: euth/maps/fields.py:36
+#: adhocracy4/maps/fields.py:34 euth/maps/fields.py:36
 msgid "Please add a Marker on the map"
 msgstr "გთხოვთ, დაამატოთ მარკერი რუკაზე"
 
-#: adhocracy4/maps/fields.py:39
-#: euth/maps/fields.py:41
+#: adhocracy4/maps/fields.py:39 euth/maps/fields.py:41
 msgid "Please draw a Polygon on the map"
 msgstr "გთხოვთ, მოითმინოთ პოლიგონი რუკაზე"
 
@@ -702,8 +641,7 @@ msgstr "აღწერა"
 msgid "End date can not be smallerthan the start date."
 msgstr "დასასრულის თარიღი არ უნდა იყოს უფრო მცირე, ვიდრე დაწყების თარიღი."
 
-#: adhocracy4/polls/dashboard.py:14
-#: euth/blueprints/blueprints.py:304
+#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:304
 msgid "Poll"
 msgstr "გამოკითხვა"
 
@@ -739,7 +677,7 @@ msgstr "პროექტი"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "ინფორმაცია და შედეგი"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -748,43 +686,48 @@ msgstr "პარამეტრები"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "სურათები"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "კონტაქტი"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "თემა და ადგილმდებარეობა"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"ტელეფონის ნომრები შეიძლება შეიცავდეს ციფრებს, სივრცეებს და შემდეგ "
+"სიმბოლოებს: -, +, (,). ეს უნდა იყოს 8 და 20 სიმბოლოს შორის."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "საფოსტო მისამართი"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "აკონტაქტო პირი"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "შეიძლება თუ არა თქვენი პროექტი მდებარეობდეს რუკაზე?"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"იპოვეთ თქვენი პროექტი. დაწკაპეთ შიგნით დანიშნულ ადგილას ან შეიტანეთ "
+"მისამართი მარკერის დასაყენებლად. კომპლექტი მარკერი შეიძლება დაიძინოს, "
+"როდესაც დაპრესილი."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "ადმინისტრაციული ოლქი"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -817,12 +760,12 @@ msgstr "თქვენი პროექტის აღწერა"
 #: adhocracy4/projects/models.py:114
 msgid ""
 "This description should tell participants what the goal of the project is, "
-"how the project’s participation will look like. It will be always visible in "
-"the „Info“ tab on your project’s page."
+"how the project’s participation will look like. It will be always visible in"
+" the „Info“ tab on your project’s page."
 msgstr ""
 "ამ აღწერილობამ უნდა გააცნოს მონაწილეებს პროექტის მიზანი. როგორი იქნება "
-"მონაწილეობის პროცესი? ეს ინფორმაცია გამოჩნდება თქვენი პროექტის გვერდის \"ინფო"
-"\" ჩანართზე."
+"მონაწილეობის პროცესი? ეს ინფორმაცია გამოჩნდება თქვენი პროექტის გვერდის "
+"\"ინფო\" ჩანართზე."
 
 #: adhocracy4/projects/models.py:122
 msgid "Results of your project"
@@ -830,8 +773,8 @@ msgstr "თქვენი პროექტის შედეგები"
 
 #: adhocracy4/projects/models.py:123
 msgid ""
-"Here you should explain what the expected outcome of the project will be and "
-"how you are planning to use the results. If the project is finished you "
+"Here you should explain what the expected outcome of the project will be and"
+" how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 msgstr ""
 "აქ თქვენ უნდა ახსნათ, რა იქნება პროექტის მოსალოდნელი შედეგები და როგორ "
@@ -852,8 +795,7 @@ msgstr ""
 "თქვენს პროექტს, მათ შორის სათაური და მოკლე აღწერა, ყველასთვის ყოველთვის "
 "გამოჩნდება"
 
-#: adhocracy4/projects/models.py:139
-#: adhocracy4/projects/models.py:145
+#: adhocracy4/projects/models.py:139 adhocracy4/projects/models.py:145
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "მთავარი სურათი"
@@ -862,8 +804,7 @@ msgstr "მთავარი სურათი"
 msgid "The image will be shown as a decorative background image."
 msgstr "სურათი გამოჩნდება დეკორატიული ფონის სახით. "
 
-#: adhocracy4/projects/models.py:148
-#: adhocracy4/projects/models.py:155
+#: adhocracy4/projects/models.py:148 adhocracy4/projects/models.py:155
 msgid "Tile image"
 msgstr "კრამიტის სურათი"
 
@@ -877,19 +818,19 @@ msgstr "პროექტი დაარქივებულია"
 
 #: adhocracy4/projects/models.py:169
 msgid ""
-"Exclude this project from all listings by default. You can still access this "
-"project by using filters."
+"Exclude this project from all listings by default. You can still access this"
+" project by using filters."
 msgstr ""
 "გამორიცხეთ ეს პროექტი ყველა სიიდან ყველა სიიდან. ამ პროექტს ფილტრების "
 "გამოყენება შეგიძლიათ."
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "პროექტის თემები"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "თემების დამატება თქვენს პროექტში."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -992,11 +933,11 @@ msgstr "თქვენი პროფილი"
 
 #: euth/accounts/templates/euth_accounts/profile_form.html:10
 msgid ""
-"The information you give in your profile will be shown to all users of OPIN."
-"me."
+"The information you give in your profile will be shown to all users of "
+"OPIN.me."
 msgstr ""
-"თქვენი პროფილის თქვენს მიერ წარმოდგენილი ინფორმაცია ნაჩვენები იქნება OPIN."
-"me- ის ყველა მომხმარებლისთვის."
+"თქვენი პროფილის თქვენს მიერ წარმოდგენილი ინფორმაცია ნაჩვენები იქნება "
+"OPIN.me- ის ყველა მომხმარებლისთვის."
 
 #: euth/accounts/templates/euth_accounts/profile_form.html:50
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:111
@@ -1173,8 +1114,8 @@ msgstr "ბრეინსტორმი"
 
 #: euth/blueprints/blueprints.py:183 euth/blueprints/blueprints.py:202
 msgid ""
-"Collect ideas, questions and input concerning a problem or a question from a "
-"wide array of people."
+"Collect ideas, questions and input concerning a problem or a question from a"
+" wide array of people."
 msgstr ""
 "პრობლემებისა და კითხვების შესახებ შეკრებისა და კითხვების შეგროვება ხალხის "
 "ფართო სპექტრიდან."
@@ -1224,14 +1165,14 @@ msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
 msgstr ""
-"მონაწილეებმა განიხილონ ტექსტის ინდივიდუალური პუნქტები. ეს იდეალურია პოზიციის "
-"განხილვისა და მისიის განცხადებების განხილვაზე ბევრ ადამიანსთან."
+"მონაწილეებმა განიხილონ ტექსტის ინდივიდუალური პუნქტები. ეს იდეალურია პოზიციის"
+" განხილვისა და მისიის განცხადებების განხილვაზე ბევრ ადამიანსთან."
 
 #: euth/blueprints/blueprints.py:305
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members. Via the OPIN polling app for iOS and"
+" Android these polls are also accessible on smartphones."
 msgstr ""
 "დააკონფიგურიროთ მულტიმედიური, მრავალმხრივი გამოკითხვა OPIN- ზე, რათა მიიღოთ "
 "დეტალური მოსაზრებები საზოგადოების ან თქვენი წევრების თემებზე. IOS და "
@@ -1252,7 +1193,8 @@ msgstr ""
 
 #: euth/blueprints/forms.py:38
 msgid ""
-"How motivated are your participants to take part in a  participative process?"
+"How motivated are your participants to take part in a  participative "
+"process?"
 msgstr ""
 "რამდენად მოტივირებული ხართ თქვენი მონაწილეები მონაწილეობა მიიღონ "
 "მონაწილეობის პროცესში?"
@@ -1402,8 +1344,8 @@ msgstr ""
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html:9
 msgid ""
-"With the following questions we want to get more detailed information to see "
-"which process on OPIN fits best."
+"With the following questions we want to get more detailed information to see"
+" which process on OPIN fits best."
 msgstr ""
 "შემდეგი კითხვებით გვინდა უფრო დეტალური ინფორმაცია დაინახოს, თუ რომელი "
 "პროცესი ოპინზე საუკეთესოდ შეესაბამება."
@@ -1469,7 +1411,8 @@ msgid "description"
 msgstr "აღწერა"
 
 #: euth/dashboard/forms.py:24
-msgid "More info about the organisation / Short text for organisation overview"
+msgid ""
+"More info about the organisation / Short text for organisation overview"
 msgstr ""
 "დამატებითი ინფორმაცია ორგანიზაციის შესახებ/მოკლე ტექსტი ორგანიზაციის შესახებ"
 
@@ -1738,8 +1681,8 @@ msgid ""
 "commas. Invited users will get an email to confirm their membership in the "
 "project."
 msgstr ""
-"შეიყვანეთ მომხმარებლების ელექტრონული ფოსტის მისამართები, რომლებიც გინდა, რომ "
-"მოიწვიოთ, გამოყავით მძიმით. მოწვეული მომხმარებლები მიიღებენ ელ-ფოსტაში "
+"შეიყვანეთ მომხმარებლების ელექტრონული ფოსტის მისამართები, რომლებიც გინდა, რომ"
+" მოიწვიოთ, გამოყავით მძიმით. მოწვეული მომხმარებლები მიიღებენ ელ-ფოსტაში "
 "პროექტის განხორციელების დადასტურებას."
 
 #: euth/memberships/forms.py:79
@@ -1827,13 +1770,11 @@ msgstr "შემცირება"
 #, python-format
 msgid ""
 "\n"
-"            This is a private project. You have applied for a membership on "
-"%(date)s. Your request is awaiting moderation.\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
 "\n"
-"ეს არის დახურული პროექტი. თქვენ გააგზავნეთ წევრობაზე მოთხოვნა %(date)s-ები. "
-"თქვენ მოთხოვნას იხილავს მოდერატორი. "
+"ეს არის დახურული პროექტი. თქვენ გააგზავნეთ წევრობაზე მოთხოვნა %(date)s-ები. თქვენ მოთხოვნას იხილავს მოდერატორი. "
 
 #: euth/memberships/templates/euth_memberships/request_detail.html:24
 #: euth/memberships/templates/euth_memberships/request_detail.html:41
@@ -2046,7 +1987,8 @@ msgstr "მოდერატორები"
 
 #: euth/projects/forms.py:11
 msgid "Type in the username of a user you would like to add as moderator."
-msgstr "შეიყვანეთ მომხმარებელის მომხმარებლის სახელი, რომლის მოდერატორიც გსურთ."
+msgstr ""
+"შეიყვანეთ მომხმარებელის მომხმარებლის სახელი, რომლის მოდერატორიც გსურთ."
 
 #: euth/projects/forms.py:14
 msgid "Search for username"
@@ -2130,8 +2072,8 @@ msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr ""
-"ინიციატორს ჯერ არ ააქვს მითითებული ინფორმაცია პროექტის მოსალოდნელ შედეგებთან "
-"დაკავშირებით. "
+"ინიციატორს ჯერ არ ააქვს მითითებული ინფორმაცია პროექტის მოსალოდნელ შედეგებთან"
+" დაკავშირებით. "
 
 #: euth/projects/templates/euth_projects/project_detail.html:192
 msgid "other projects from this organisation"
@@ -2160,7 +2102,7 @@ msgstr "და"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "პროექტი '%(name)s' წარმატებით წაიშალა."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2184,10 +2126,11 @@ msgstr "მომხმარებელი ასეთი სახელი�
 
 #: euth/users/models.py:20
 msgid ""
-"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
 msgstr ""
-"საჭიროა 60 სიმბოლო ან ნაკლები, მხოლოდ ასოები, ციფრები, ინტერვალი და @/./+/-/"
-"_ ."
+"საჭიროა 60 სიმბოლო ან ნაკლები, მხოლოდ ასოები, ციფრები, ინტერვალი და "
+"@/./+/-/_ ."
 
 #: euth/users/models.py:26
 msgid "A user with that email address already exists."
@@ -2456,8 +2399,8 @@ msgid ""
 "In just three minutes you'll find out which process suits your needs. It's "
 "easy."
 msgstr ""
-"მხოლოდ სამი წუთის განმავლობაში თქვენ გაირკვეს, თუ რომელი პროცესი შეესაბამება "
-"თქვენს მოთხოვნებს. ადვილია."
+"მხოლოდ სამი წუთის განმავლობაში თქვენ გაირკვეს, თუ რომელი პროცესი შეესაბამება"
+" თქვენს მოთხოვნებს. ადვილია."
 
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:26
 msgid "Choose template"
@@ -2470,7 +2413,7 @@ msgstr "გამოიყენეთ ეს შაბლონი"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr " Are you sure you want to delete the project '%(project_name)s'? "
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2547,11 +2490,11 @@ msgstr "ანგარიშის გააქტიურება"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"ეს ელ-ფოსტის დადასტურება ბათილია ან არასწორია. გთხოვთ <a href=\"%(email_url)s"
-"\"> issue a new e-mail confirmation request </a>."
+"ეს ელ-ფოსტის დადასტურება ბათილია ან არასწორია. გთხოვთ <a "
+"href=\"%(email_url)s\"> issue a new e-mail confirmation request </a>."
 
 #: euth_wagtail/templates/account/login.html:8
 msgid "Login"
@@ -2627,12 +2570,12 @@ msgstr "ცუდი ნიშნად"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "პაროლის აღდგენის ბმული არასწორია, შესაძლოა, რადგან ის უკვე გამოყენებულია. "
-"გთხოვთ, მოითხოვოთ <a href=\"%(passwd_reset_url)s\"> ახალი პაროლის აღდგენა </"
-"a>."
+"გთხოვთ, მოითხოვოთ <a href=\"%(passwd_reset_url)s\"> ახალი პაროლის აღდგენა "
+"</a>."
 
 #: euth_wagtail/templates/account/password_reset_from_key.html:48
 msgid "Reset password"
@@ -2659,13 +2602,11 @@ msgstr "ანგარიშის რეგისტრაცია"
 #, python-format
 msgid ""
 "\n"
-"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
-"\">terms of use</a>.\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank\">terms of use</a>.\n"
 "                "
 msgstr ""
 "\n"
-"მე ვეთანხმები <a href=\"%(terms_of_use_url)s\" target=\"blank\"> მოხმარების "
-"პირობები </a>."
+"მე ვეთანხმები <a href=\"%(terms_of_use_url)s\" target=\"blank\"> მოხმარების პირობები </a>."
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html:6
 msgid "Note"
@@ -2721,15 +2662,10 @@ msgstr "დაამატეთ მე -3 პარტიის ანგარ
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"%(site_name)s but the connected emailaddress of this account is already in "
-"use on this platform. You can either login with this emailaddress and "
-"connect your account to %(provider_name)s or fill in the form underneath. "
+"%(site_name)s but the connected emailaddress of this account is already in use on this platform. You can either login with this emailaddress and connect your account to %(provider_name)s or fill in the form underneath. "
 msgstr ""
 "თქვენ აპირებთ გამოიყენოთ თქვენი %(provider_name)s ანგარიშზე შესვლა \n"
-"%(site_name)s მაგრამ ამ ანგარიშის დაკავშირებული ელექტრონული ფოსტის მისამართი "
-"უკვე გამოყენებულია ამ პლატფორმაზე. თქვენ შეგიძლიათ შეხვიდეთ ამ ელფოსტის "
-"მისამართთან და დააკავშირეთ თქვენი ანგარიში %(provider_name)s ან შეავსოთ "
-"ფორმა."
+"%(site_name)s მაგრამ ამ ანგარიშის დაკავშირებული ელექტრონული ფოსტის მისამართი უკვე გამოყენებულია ამ პლატფორმაზე. თქვენ შეგიძლიათ შეხვიდეთ ამ ელფოსტის მისამართთან და დააკავშირეთ თქვენი ანგარიში %(provider_name)s ან შეავსოთ ფორმა."
 
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:18
@@ -2747,24 +2683,42 @@ msgstr "ვიდეოს დაკვრა"
 #: home/templates/home/manuals_section_page.html:18
 #: home/templates/home/manuals_section_page.html:24
 msgid "Download guidelines"
-msgstr ""
+msgstr "ჩამოტვირთვა სახელმძღვანელო"
 
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "შინაარსი"
 
+#~ msgid "Location of your Project"
+#~ msgstr "თქვენი პროექტის ადგილმდებარეობა"
+
+#~ msgid "Project topic"
+#~ msgstr "პროექტის თემა"
+
+#~ msgid "Contact details"
+#~ msgstr "აკონტაქტო ინფორმაცია"
+
+#~ msgid "This is the help text."
+#~ msgstr "ეს არის დახმარების ტექსტი."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "ტელეფონის ნომერი უნდა შეიყვანოთ ფორმატში: '+999999999'. დაშვებულია 15 ციფრი."
+
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "
 #~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
+#~ "website reflects only the author's view and the Research Executive Agency or"
+#~ " European Commission is not responsible for any use that may be made of the "
+#~ "information it contains."
 #~ msgstr ""
 #~ "ეს პროექტი დაფინანსებულია ევროკავშირის ჰორიზონტის 2020 კვლევისა და "
-#~ "ინოვაციების პროგრამის დაფინანსებით, რომელიც არ არის 649594. ამ ვებ-"
-#~ "გვერდზე ასახულია მხოლოდ ავტორის ხედვა და კვლევის აღმასრულებელი სააგენტო "
-#~ "ან ევროკომისია არ არის პასუხისმგებელი ნებისმიერი სახის გამოყენების "
-#~ "შესახებ, შეიცავს."
+#~ "ინოვაციების პროგრამის დაფინანსებით, რომელიც არ არის 649594. ამ ვებ-გვერდზე "
+#~ "ასახულია მხოლოდ ავტორის ხედვა და კვლევის აღმასრულებელი სააგენტო ან "
+#~ "ევროკომისია არ არის პასუხისმგებელი ნებისმიერი სახის გამოყენების შესახებ, "
+#~ "შეიცავს."
 
 #~ msgid ""
 #~ "In this section, you can create\n"
@@ -2772,8 +2726,7 @@ msgstr "შინაარსი"
 #~ "to one of them. This way, content can be classified."
 #~ msgstr ""
 #~ "ამ სექციაში, თქვენ შეგიძლიათ შექმნათ\n"
-#~ "კატეგორიები. თუ თქვენ შექმნით ნებისმიერ მომხმარებელს, მომხმარებელი უნდა "
-#~ "მიანიჭოს მათ წვლილს\n"
+#~ "კატეგორიები. თუ თქვენ შექმნით ნებისმიერ მომხმარებელს, მომხმარებელი უნდა მიანიჭოს მათ წვლილს\n"
 #~ "ერთი მათგანი. ამ გზით, შინაარსი შეიძლება კლასიფიცირებული იყოს."
 
 #~ msgid "Flashpollsettings"
@@ -2807,12 +2760,12 @@ msgstr "შინაარსი"
 #~ msgstr "ჩამოტვირთეთ პასუხები"
 
 #~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
+#~ "This short description will appear on the header of the module and project "
+#~ "detail pages. It should briefly state the goal of the module in max. 250 "
+#~ "chars."
 #~ msgstr ""
-#~ "ეს მოკლე აღწერა გამოჩნდება მოდულის სათაურში და პროექტის დეტალურ "
-#~ "გვერდებზე. მოკლედ უნდა აღინიშნოს მაქსიმალური მოდულის მიზანი. 250 სიმბოლო."
+#~ "ეს მოკლე აღწერა გამოჩნდება მოდულის სათაურში და პროექტის დეტალურ გვერდებზე. "
+#~ "მოკლედ უნდა აღინიშნოს მაქსიმალური მოდულის მიზანი. 250 სიმბოლო."
 
 #~ msgid "Location"
 #~ msgstr "მდებარეობა"
