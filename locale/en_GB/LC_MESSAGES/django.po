@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2679,12 +2679,12 @@ msgstr "Latest projects on OPIN"
 msgid "Play video"
 msgstr "Play video"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
 msgstr "Download guidelines"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contents"
 

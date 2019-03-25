@@ -2,63 +2,77 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mk\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "Внеси склоплива точка"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "Наслов"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "Текст на телото"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "Склоплив елемент"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 msgid "hide one reply"
 msgstr "скриј еден одговор"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 #, javascript-format
 msgid "hide %s replies"
 msgstr "скриј %s одговори"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 msgid "view one reply"
 msgstr "погледнете еден одговор"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 #, javascript-format
 msgid "view %s replies"
 msgstr "погледнете %s одговори"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:128
+#: adhocracy4/comments/static/comments/Comment.jsx:128
+#: adhocracy4.js:87
 msgid "Do you really want to delete this comment?"
 msgstr "Дали навистина сакате да го избришете овој коментар? "
 
@@ -66,24 +80,38 @@ msgstr "Дали навистина сакате да го избришете о
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+#: adhocracy4/comments/static/comments/Comment.jsx:130
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:93
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+#: adhocracy4.js:87
 msgid "Delete"
 msgstr "Избриши"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:131
 #: adhocracy4/static/Modal.jsx:49
+#: adhocracy4/comments/static/comments/Comment.jsx:131
+#: adhocracy4.js:87
 msgid "Abort"
 msgstr "Прекини"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:144
+#: adhocracy4/comments/static/comments/Comment.jsx:144
+#: adhocracy4.js:87
 msgid "Latest edit on"
 msgstr "Последно додадено "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4.js:87
 msgid "Moderator"
 msgstr "Модератор"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:156
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4/comments/static/comments/Comment.jsx:156
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4.js:87
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
@@ -95,14 +123,21 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:179
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+#: adhocracy4.js:87
 msgid "Answer"
 msgstr "Одговори"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:218
+#: adhocracy4/comments/static/comments/Comment.jsx:218
+#: adhocracy4.js:87
 msgid "Your reply here"
 msgstr "Вашиот одговор овде"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4.js:87
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Коментари"
@@ -111,144 +146,216 @@ msgstr[1] "Коментари"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
+#: adhocracy4/comments/static/comments/CommentBox.jsx:170
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
+#: adhocracy4/comments/static/comments/CommentForm.jsx:48
+#: adhocracy4.js:87
 msgid "Your comment here"
 msgstr "Твојот коментар овде"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+#: adhocracy4.js:87
 msgid "save changes"
 msgstr "зачувај промени"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+#: adhocracy4.js:87
 msgid "cancel"
 msgstr "Откажи"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
+#: adhocracy4/comments/static/comments/CommentForm.jsx:51
+#: adhocracy4.js:87
 msgid "post"
 msgstr "пост"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
+#: adhocracy4/comments/static/comments/CommentForm.jsx:57
+#: adhocracy4.js:87
 msgid "Please login to comment"
 msgstr "Ве молиме пријавете се за да можете да коментирате"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
+#: adhocracy4/comments/static/comments/CommentForm.jsx:63
+#: adhocracy4.js:87
 msgid "The currently active phase doesn't allow to comment."
 msgstr "Тековната активна фаза не дозволува да коментираат."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+#: adhocracy4.js:87
 msgid "Edit"
 msgstr "Измени"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4.js:87
 msgid "Report"
 msgstr "Пријави"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
+#: adhocracy4.js:87
 msgid "Not following"
 msgstr "Не следи"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4.js:87
 msgid "Never be notified."
 msgstr "Никогаш не бидете известени."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
+#: adhocracy4/follows/static/follows/FollowButton.jsx:53
+#: adhocracy4.js:87
 msgid "Following"
 msgstr "Следи"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4.js:87
 msgid "Receive email notifications about this project."
 msgstr "Добивајте е-пошта за овој проект."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Unfollow"
 msgstr "Отстрани"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Follow"
 msgstr "Следете"
 
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+#: adhocracy4.js:87
 msgid "remove"
 msgstr "отстрани"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
+#: adhocracy4/polls/static/polls/PollManagement.jsx:188
+#: adhocracy4.js:87
 msgid "The poll has been updated."
 msgstr "Анкетата е ажурирана."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
+#: adhocracy4/polls/static/polls/PollManagement.jsx:205
+#: adhocracy4.js:87
 msgid "The poll could not be updated."
 msgstr "Анкетата не можеше да се ажурира."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
+#: adhocracy4/polls/static/polls/PollManagement.jsx:246
+#: adhocracy4.js:87
 msgid "Add a new question"
 msgstr "Додај ново прашање"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
+#: adhocracy4/polls/static/polls/PollManagement.jsx:252
+#: adhocracy4.js:87
 msgid "Save"
 msgstr "Зачувај"
 
 #: adhocracy4/polls/static/polls/Question.jsx:51
+#: adhocracy4/polls/static/polls/Question.jsx:51
+#: adhocracy4.js:87
 msgid "Vote counted"
 msgstr "Пребројувањето на гласовите"
 
 #: adhocracy4/polls/static/polls/Question.jsx:61
+#: adhocracy4/polls/static/polls/Question.jsx:61
+#: adhocracy4.js:87
 msgid "Vote has not been counted due to a server error."
 msgstr "Пребројувањето на гласовите"
 
 #: adhocracy4/polls/static/polls/Question.jsx:108
+#: adhocracy4/polls/static/polls/Question.jsx:108
+#: adhocracy4.js:87
 msgid "Vote"
 msgstr "Гласај"
 
 #: adhocracy4/polls/static/polls/Question.jsx:114
+#: adhocracy4/polls/static/polls/Question.jsx:114
+#: adhocracy4.js:87
 msgid "Please login to vote"
 msgstr "Ве молиме пријавете се за да гласате"
 
 #: adhocracy4/polls/static/polls/Question.jsx:136
+#: adhocracy4/polls/static/polls/Question.jsx:136
+#: adhocracy4.js:87
 msgid "Multiple answers are possible for this question"
 msgstr "За ова прашање се можни повеќе одговори"
 
 #: adhocracy4/polls/static/polls/Question.jsx:141
+#: adhocracy4/polls/static/polls/Question.jsx:141
+#: adhocracy4.js:87
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "гласови"
 msgstr[1] "гласови"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
+#: adhocracy4/polls/static/polls/Question.jsx:142
+#: adhocracy4.js:87
 msgid "To poll"
 msgstr "Да анкета"
 
 #: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4.js:87
 msgid "Change vote"
 msgstr "Промени го гласањето"
 
 #: adhocracy4/polls/static/polls/Question.jsx:149
+#: adhocracy4/polls/static/polls/Question.jsx:149
+#: adhocracy4.js:87
 msgid "Show preliminary results"
 msgstr "Прикажи прелиминарни резултати"
 
 #: adhocracy4/polls/static/polls/Question.jsx:177
+#: adhocracy4/polls/static/polls/Question.jsx:177
+#: adhocracy4.js:87
 msgid "Your choice"
 msgstr "Твој избор"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+#: adhocracy4.js:87
 msgid "Question"
 msgstr "Прашање"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+#: adhocracy4.js:87
 msgid "Users can select more than one answer."
 msgstr "Корисниците можат да одберат повеќе од еден одговор."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+#: adhocracy4.js:87
 msgid "Choice"
 msgstr "Избор"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+#: adhocracy4.js:87
 msgid "Add a new choice"
 msgstr "Додај нов избор"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:76
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:76
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+#: adhocracy4.js:87
 msgid "Move up"
 msgstr ""
 "7/5000\n"
@@ -256,22 +363,33 @@ msgstr ""
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:85
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:85
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+#: adhocracy4.js:87
 msgid "Move down"
 msgstr "Да се движи надолу"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
+#: adhocracy4/reports/static/reports/ReportModal.jsx:57
+#: adhocracy4.js:87
 msgid "Thank you! We are taking care of it."
 msgstr "Ви благодарам! Ние се грижиме за тоа."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4.js:87
 msgid "Your message"
 msgstr "Вашата порака"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
+#: adhocracy4.js:87
 msgid "Send Report"
 msgstr "Испрати извештај"
 
-#: adhocracy4/static/Alert.jsx:10 adhocracy4/static/Alert.jsx:11
+#: adhocracy4/static/Alert.jsx:10
+#: adhocracy4/static/Alert.jsx:11
+#: adhocracy4.js:44
 msgid "Close"
 msgstr "Затвори"
 
@@ -280,35 +398,43 @@ msgid "Please set all values for your project."
 msgstr "Ве молиме поставете ги сите вредности за вашиот проект."
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: adhocracy4.js:87
 msgid "Remove"
 msgstr "Отстрани"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 #: euth/documents/static/documents/ParagraphBox.jsx:224
+#: adhocracy4.js:87
 msgid "add a new paragraph"
 msgstr "додадете нов став"
 
 #: euth/documents/static/documents/Paragraph.jsx:79
+#: adhocracy4.js:87
 msgid "Headline:"
 msgstr "Наслов:"
 
 #: euth/documents/static/documents/Paragraph.jsx:93
+#: adhocracy4.js:87
 msgid "Paragraph:"
 msgstr "Став:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
+#: adhocracy4.js:87
 msgid "Your document has been updated."
 msgstr "Вашиот документ е надграден."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
+#: adhocracy4.js:87
 msgid "Your document has been saved."
 msgstr "Вашиот документ е зачуван."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
+#: adhocracy4.js:87
 msgid "Title:"
 msgstr "Наслов:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:241
+#: adhocracy4.js:87
 msgid "save"
 msgstr "спаси"
 

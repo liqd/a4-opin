@@ -2,63 +2,78 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Anita Molka <anita.molka@razvoj.si>, 2017
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "Vstavi zložljivo postavko"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "Naslov"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "Besedilo telesa"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "Zložljivi element"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 msgid "hide one reply"
 msgstr "skriti en odgovor"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 #, javascript-format
 msgid "hide %s replies"
 msgstr "skrij %sodgovore"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 msgid "view one reply"
 msgstr "si oglejte en odgovor"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 #, javascript-format
 msgid "view %s replies"
 msgstr "prikaži %s odgovore"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:128
+#: adhocracy4/comments/static/comments/Comment.jsx:128
+#: adhocracy4.js:87
 msgid "Do you really want to delete this comment?"
 msgstr "Ali res želiš izbrisati ta komentar?"
 
@@ -66,24 +81,38 @@ msgstr "Ali res želiš izbrisati ta komentar?"
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+#: adhocracy4/comments/static/comments/Comment.jsx:130
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:93
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+#: adhocracy4.js:87
 msgid "Delete"
 msgstr "Izbriši"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:131
 #: adhocracy4/static/Modal.jsx:49
+#: adhocracy4/comments/static/comments/Comment.jsx:131
+#: adhocracy4.js:87
 msgid "Abort"
 msgstr "Prekini"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:144
+#: adhocracy4/comments/static/comments/Comment.jsx:144
+#: adhocracy4.js:87
 msgid "Latest edit on"
 msgstr "Zadnje urejanje"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4.js:87
 msgid "Moderator"
 msgstr "Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:156
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4/comments/static/comments/Comment.jsx:156
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4.js:87
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
@@ -95,14 +124,21 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+#: adhocracy4/comments/static/comments/Comment.jsx:179
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+#: adhocracy4.js:87
 msgid "Answer"
 msgstr "Odgovori"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:218
+#: adhocracy4/comments/static/comments/Comment.jsx:218
+#: adhocracy4.js:87
 msgid "Your reply here"
 msgstr "Odgovori tukaj"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4.js:87
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "komentar"
@@ -113,105 +149,158 @@ msgstr[3] "komentarji"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
+#: adhocracy4/comments/static/comments/CommentBox.jsx:170
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
+#: adhocracy4/comments/static/comments/CommentForm.jsx:48
+#: adhocracy4.js:87
 msgid "Your comment here"
 msgstr "Tvoj komentar tukaj"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+#: adhocracy4.js:87
 msgid "save changes"
 msgstr "shrani spremembe"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+#: adhocracy4.js:87
 msgid "cancel"
 msgstr "prekliči"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
+#: adhocracy4/comments/static/comments/CommentForm.jsx:51
+#: adhocracy4.js:87
 msgid "post"
 msgstr "objavi"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
+#: adhocracy4/comments/static/comments/CommentForm.jsx:57
+#: adhocracy4.js:87
 msgid "Please login to comment"
 msgstr "Prosimo, prijavi se za komentar"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
+#: adhocracy4/comments/static/comments/CommentForm.jsx:63
+#: adhocracy4.js:87
 msgid "The currently active phase doesn't allow to comment."
 msgstr "Trenutno aktivna faza ne dopušča komentiranja."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+#: adhocracy4.js:87
 msgid "Edit"
 msgstr "Uredi"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4.js:87
 msgid "Report"
 msgstr "Poročaj"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
+#: adhocracy4.js:87
 msgid "Not following"
 msgstr "Ne sledim"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4.js:87
 msgid "Never be notified."
 msgstr "Ne želim biti obveščen/a."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
+#: adhocracy4/follows/static/follows/FollowButton.jsx:53
+#: adhocracy4.js:87
 msgid "Following"
 msgstr "Sledim"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4.js:87
 msgid "Receive email notifications about this project."
 msgstr "O tem projektu želim prejemati obvestila preko spletne pošte."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Unfollow"
 msgstr "Prenehaj slediti"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Follow"
 msgstr "Sledi"
 
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+#: adhocracy4.js:87
 msgid "remove"
 msgstr "odstraniti"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
+#: adhocracy4/polls/static/polls/PollManagement.jsx:188
+#: adhocracy4.js:87
 msgid "The poll has been updated."
 msgstr "Anketa je bila posodobljena."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
+#: adhocracy4/polls/static/polls/PollManagement.jsx:205
+#: adhocracy4.js:87
 msgid "The poll could not be updated."
 msgstr "Ankete ni bilo mogoče posodobiti."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
+#: adhocracy4/polls/static/polls/PollManagement.jsx:246
+#: adhocracy4.js:87
 msgid "Add a new question"
 msgstr "Dodajte novo vprašanje"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
+#: adhocracy4/polls/static/polls/PollManagement.jsx:252
+#: adhocracy4.js:87
 msgid "Save"
 msgstr "Shrani"
 
 #: adhocracy4/polls/static/polls/Question.jsx:51
+#: adhocracy4/polls/static/polls/Question.jsx:51
+#: adhocracy4.js:87
 msgid "Vote counted"
 msgstr "Glasovanje šteje"
 
 #: adhocracy4/polls/static/polls/Question.jsx:61
+#: adhocracy4/polls/static/polls/Question.jsx:61
+#: adhocracy4.js:87
 msgid "Vote has not been counted due to a server error."
 msgstr "Glasovanje ni bilo upoštevano zaradi napake strežnika."
 
 #: adhocracy4/polls/static/polls/Question.jsx:108
+#: adhocracy4/polls/static/polls/Question.jsx:108
+#: adhocracy4.js:87
 msgid "Vote"
 msgstr "Glasujte"
 
 #: adhocracy4/polls/static/polls/Question.jsx:114
+#: adhocracy4/polls/static/polls/Question.jsx:114
+#: adhocracy4.js:87
 msgid "Please login to vote"
 msgstr "Prosimo, prijavite se za glasovanje"
 
 #: adhocracy4/polls/static/polls/Question.jsx:136
+#: adhocracy4/polls/static/polls/Question.jsx:136
+#: adhocracy4.js:87
 msgid "Multiple answers are possible for this question"
 msgstr "Za to vprašanje so možni več odgovorov"
 
 #: adhocracy4/polls/static/polls/Question.jsx:141
+#: adhocracy4/polls/static/polls/Question.jsx:141
+#: adhocracy4.js:87
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "glasov"
@@ -220,60 +309,90 @@ msgstr[2] "glasov"
 msgstr[3] "glasov"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
+#: adhocracy4/polls/static/polls/Question.jsx:142
+#: adhocracy4.js:87
 msgid "To poll"
 msgstr "Anketirati"
 
 #: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4.js:87
 msgid "Change vote"
 msgstr "Spremeni glasovanje"
 
 #: adhocracy4/polls/static/polls/Question.jsx:149
+#: adhocracy4/polls/static/polls/Question.jsx:149
+#: adhocracy4.js:87
 msgid "Show preliminary results"
 msgstr "Prikaži predhodne rezultate"
 
 #: adhocracy4/polls/static/polls/Question.jsx:177
+#: adhocracy4/polls/static/polls/Question.jsx:177
+#: adhocracy4.js:87
 msgid "Your choice"
 msgstr "Tvoja izbira"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+#: adhocracy4.js:87
 msgid "Question"
 msgstr "Vprašanje"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+#: adhocracy4.js:87
 msgid "Users can select more than one answer."
 msgstr "Uporabniki lahko izberejo več kot en odgovor."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+#: adhocracy4.js:87
 msgid "Choice"
 msgstr "Izbira"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+#: adhocracy4.js:87
 msgid "Add a new choice"
 msgstr "Dodaj novo izbiro"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:76
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:76
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+#: adhocracy4.js:87
 msgid "Move up"
 msgstr "Pomakni se navzgor"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:85
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:85
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+#: adhocracy4.js:87
 msgid "Move down"
 msgstr "Premik navzdol"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
+#: adhocracy4/reports/static/reports/ReportModal.jsx:57
+#: adhocracy4.js:87
 msgid "Thank you! We are taking care of it."
 msgstr "Hvala vam! Skrbimo za to."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4.js:87
 msgid "Your message"
 msgstr "Tvoje sporočilo"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
+#: adhocracy4.js:87
 msgid "Send Report"
 msgstr "Pošlji poročilo"
 
-#: adhocracy4/static/Alert.jsx:10 adhocracy4/static/Alert.jsx:11
+#: adhocracy4/static/Alert.jsx:10
+#: adhocracy4/static/Alert.jsx:11
+#: adhocracy4.js:44
 msgid "Close"
 msgstr "Zapri"
 
@@ -282,35 +401,43 @@ msgid "Please set all values for your project."
 msgstr "Prosimo, da nastaviš vse vrednosti svojega projekta."
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: adhocracy4.js:87
 msgid "Remove"
 msgstr "Odstrani"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 #: euth/documents/static/documents/ParagraphBox.jsx:224
+#: adhocracy4.js:87
 msgid "add a new paragraph"
 msgstr "dodaj nov odstavek"
 
 #: euth/documents/static/documents/Paragraph.jsx:79
+#: adhocracy4.js:87
 msgid "Headline:"
 msgstr "Naslov:"
 
 #: euth/documents/static/documents/Paragraph.jsx:93
+#: adhocracy4.js:87
 msgid "Paragraph:"
 msgstr "Odstavek:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
+#: adhocracy4.js:87
 msgid "Your document has been updated."
 msgstr "Tvoj dokument je bil posodobljen."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
+#: adhocracy4.js:87
 msgid "Your document has been saved."
 msgstr "Tvoj dokument je bil shranjen."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
+#: adhocracy4.js:87
 msgid "Title:"
 msgstr "Naslov:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:241
+#: adhocracy4.js:87
 msgid "save"
 msgstr "shrani"
 
