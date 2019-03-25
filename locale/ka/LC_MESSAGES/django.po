@@ -8,15 +8,16 @@
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Philipp Munck <p.munck+1@liqd.net>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -341,7 +342,7 @@ msgstr "წაიშალა მოდერატორი"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "გთხოვთ, აირჩიეთ კატეგორია"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -437,7 +438,7 @@ msgstr "მხოლოდ მოწვეული მომხმარებ�
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "დაუკავშირდით კითხვებს"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -445,10 +446,13 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"გთხოვთ დაასახელოთ საკონტაქტო პირი. მომხმარებელი მაშინ იცის, ვინ ახორციელებს "
+"ამ პროექტს და ვის შეუძლია მათთვის შესაძლო კითხვებზე საუბარი. საკონტაქტო პირი "
+"პროექტის გვერდზე განთავსდება ინფორმაციის ჩანართში."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "მეტი კონტაქტი შესაძლებლობები"
 
 #: adhocracy4/dashboard/forms.py:85
 #: adhocracy4/phases/models.py:64
@@ -460,12 +464,12 @@ msgstr "სახელი"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "მისამართი"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "ტელეფონი"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -480,7 +484,7 @@ msgstr "ელ.ფოსტა"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "საიტი"
 
 #: adhocracy4/dashboard/forms.py:122
 #: adhocracy4/phases/models.py:72
@@ -739,7 +743,7 @@ msgstr "პროექტი"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "ინფორმაცია და შედეგი"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -748,43 +752,48 @@ msgstr "პარამეტრები"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "სურათები"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "კონტაქტი"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "თემა და ადგილმდებარეობა"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"ტელეფონის ნომრები შეიძლება შეიცავდეს ციფრებს, სივრცეებს და შემდეგ "
+"სიმბოლოებს: -, +, (,). ეს უნდა იყოს 8 და 20 სიმბოლოს შორის."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "საფოსტო მისამართი"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "აკონტაქტო პირი"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "შეიძლება თუ არა თქვენი პროექტი მდებარეობდეს რუკაზე?"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"იპოვეთ თქვენი პროექტი. დაწკაპეთ შიგნით დანიშნულ ადგილას ან შეიტანეთ "
+"მისამართი მარკერის დასაყენებლად. კომპლექტი მარკერი შეიძლება დაიძინოს, "
+"როდესაც დაპრესილი."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "ადმინისტრაციული ოლქი"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -885,11 +894,11 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "პროექტის თემები"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "თემების დამატება თქვენს პროექტში."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -2160,7 +2169,7 @@ msgstr "და"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "პროექტი '%(name)s' წარმატებით წაიშალა."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2470,7 +2479,7 @@ msgstr "გამოიყენეთ ეს შაბლონი"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr " Are you sure you want to delete the project '%(project_name)s'? "
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2744,14 +2753,33 @@ msgstr "უახლესი პროექტები OPIN- ზე"
 msgid "Play video"
 msgstr "ვიდეოს დაკვრა"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
-msgstr ""
+msgstr "ჩამოტვირთვა სახელმძღვანელო"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "შინაარსი"
+
+#~ msgid "Location of your Project"
+#~ msgstr "თქვენი პროექტის ადგილმდებარეობა"
+
+#~ msgid "Project topic"
+#~ msgstr "პროექტის თემა"
+
+#~ msgid "Contact details"
+#~ msgstr "აკონტაქტო ინფორმაცია"
+
+#~ msgid "This is the help text."
+#~ msgstr "ეს არის დახმარების ტექსტი."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "ტელეფონის ნომერი უნდა შეიყვანოთ ფორმატში: '+999999999'. დაშვებულია 15 "
+#~ "ციფრი."
 
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
@@ -2614,11 +2614,11 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
 msgstr ""
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr ""

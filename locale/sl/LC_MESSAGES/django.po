@@ -7,15 +7,16 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Anita Molka <anita.molka@razvoj.si>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -342,7 +343,7 @@ msgstr "izbrisano od moderatorja"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "Izberite kategorijo"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -438,7 +439,7 @@ msgstr "Udeležijo se lahko le povabljeni uporabniki (zasebno)."
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "Kontakt za vprašanja"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -446,10 +447,13 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"Ime kontaktne osebe. Uporabnik bo nato vedel, kdo izvaja ta projekt in komu "
+"se lahko obrnejo na morebitna vprašanja. Kontaktna oseba bo prikazana na "
+"zavihku z informacijami na strani projekta."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "Več možnosti za stik"
 
 #: adhocracy4/dashboard/forms.py:85
 #: adhocracy4/phases/models.py:64
@@ -461,12 +465,12 @@ msgstr "Ime"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "Naslov"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -481,7 +485,7 @@ msgstr "Elektronska pošta"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "Spletna stran"
 
 #: adhocracy4/dashboard/forms.py:122
 #: adhocracy4/phases/models.py:72
@@ -739,7 +743,7 @@ msgstr "Projekt"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "Informacije in rezultati"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -748,43 +752,48 @@ msgstr "Nastavitve"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "Slike"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "Tema in lokacija"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"Telefonske številke lahko vsebujejo samo številke, presledke in naslednje "
+"znake: -, +, (,). Dolžina mora biti od 8 do 20 znakov."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "poštni naslov"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "Kontaktna oseba"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "Ali se lahko vaš projekt nahaja na zemljevidu?"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"Poiščite svoj projekt. Kliknite znotraj označenega območja ali vnesite "
+"naslov, da nastavite oznako. Oznako nastavitve lahko povlečete, ko jo "
+"pritisnete."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "Upravno okrožje"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -884,11 +893,11 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "Teme projekta"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "Dodajte teme svojemu projektu."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -2170,7 +2179,7 @@ msgstr "in"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "Projekt '%(name)s' je bil uspešno izbrisan."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2481,7 +2490,7 @@ msgstr "uporabi osnutek"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr "Ali ste prepričani, da želite izbrisati projekt '%(project_name)s'?"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2757,14 +2766,33 @@ msgstr "Zadnji projekti na OPIN-u"
 msgid "Play video"
 msgstr "Predvajaj posnetek"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
-msgstr ""
+msgstr "Prenesite navodila"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Vsebina"
+
+#~ msgid "Location of your Project"
+#~ msgstr "Lokacija vašega projekta"
+
+#~ msgid "Project topic"
+#~ msgstr "Tema projekta"
+
+#~ msgid "Contact details"
+#~ msgstr "Kontaktni podatki"
+
+#~ msgid "This is the help text."
+#~ msgstr "To je besedilo pomoči."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Telefonsko številko je treba vnesti v obliki: \"+999999999\". Dovoljeno "
+#~ "je do 15 številk."
 
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "

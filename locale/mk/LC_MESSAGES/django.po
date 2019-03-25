@@ -8,15 +8,16 @@
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Philipp Munck <p.munck+1@liqd.net>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -344,7 +345,7 @@ msgstr "избришани од модератор"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "Изберете категорија"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -440,7 +441,7 @@ msgstr "Само поканети корисници можат да учест�
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "Контакт за прашања"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -448,10 +449,13 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"Ве молиме наведете контакт лице. Корисникот тогаш ќе знае кој го спроведува "
+"овој проект и на кого можат да ги решаваат можните прашања. Контакт лицето "
+"ќе биде прикажано во табулаторот за информации на страната на проектот."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "Повеќе можности за контакт"
 
 #: adhocracy4/dashboard/forms.py:85
 #: adhocracy4/phases/models.py:64
@@ -463,12 +467,12 @@ msgstr "Име"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -483,7 +487,7 @@ msgstr "Е-пошта"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "Веб-страница"
 
 #: adhocracy4/dashboard/forms.py:122
 #: adhocracy4/phases/models.py:72
@@ -744,7 +748,7 @@ msgstr "Проект"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "Информации и резултати"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -753,43 +757,48 @@ msgstr "Поставки"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "Слики"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "Контакт"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "Тема и локација"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"Телефонските броеви можат да содржат само цифри, празни места и следните "
+"знаци: -, +, (,). Треба да биде долга помеѓу 8 и 20 карактери."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "поштенска адреса"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "Лице за контакт"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "Дали вашиот проект може да се наоѓа на мапата?"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"Пронајдете го вашиот проект. Кликнете во означената област или внесете "
+"адреса за да го поставите маркерот. Поставен маркер може да се влече кога ќе "
+"се притисне."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "Административна област"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -891,11 +900,11 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "Проектни теми"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "Додајте теми во вашиот проект."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -2168,7 +2177,7 @@ msgstr "и"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "Проектот '%(name)s' беше успешно избришан."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2479,6 +2488,7 @@ msgstr "Искористи го овој примерок"
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
 msgstr ""
+"Дали сте сигурни дека сакате да го избришете проектот '%(project_name)s'?"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2752,14 +2762,33 @@ msgstr "Последни проекти на OPIN"
 msgid "Play video"
 msgstr "Пуштете видео"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
-msgstr ""
+msgstr "Упатства за преземање"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Содржина"
+
+#~ msgid "Location of your Project"
+#~ msgstr "Локација на вашиот проект"
+
+#~ msgid "Project topic"
+#~ msgstr "Тема на проектот"
+
+#~ msgid "Contact details"
+#~ msgstr "Детали за контакт"
+
+#~ msgid "This is the help text."
+#~ msgstr "Ова е текстот за помош."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Телефонскиот број мора да биде внесен во формат: '+999999999'. Дозволено "
+#~ "е до 15 цифри."
 
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "

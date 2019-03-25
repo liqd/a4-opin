@@ -7,17 +7,17 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, 2017
 # Luca Thüer <l.thueer@liqd.net>, 2018
-# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -346,7 +346,7 @@ msgstr "Supprimé par le modérateur"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "Veuillez choisir une catégorie"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -442,7 +442,7 @@ msgstr "Seuls les utilisateurs invités peuvent participer (processus privé)."
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "Contact pour des questions"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -450,10 +450,14 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"Veuillez nommer une personne de contact. L'utilisateur saura alors qui "
+"réalise ce projet et à qui il peut adresser les questions éventuelles. La "
+"personne à contacter sera affichée dans l’onglet informations de la page du "
+"projet."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "Plus de possibilités de contact"
 
 #: adhocracy4/dashboard/forms.py:85
 #: adhocracy4/phases/models.py:64
@@ -465,12 +469,12 @@ msgstr "Nom"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "Téléphone"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -485,7 +489,7 @@ msgstr "E-mail"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "Site Internet"
 
 #: adhocracy4/dashboard/forms.py:122
 #: adhocracy4/phases/models.py:72
@@ -747,7 +751,7 @@ msgstr "Projet"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "Information et résultat"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -756,43 +760,49 @@ msgstr "Paramètres"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "Sujet et lieu"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"Les numéros de téléphone ne peuvent contenir que des chiffres, des espaces "
+"et les caractères suivants: -, +, (,). Il doit comporter entre 8 et 20 "
+"caractères."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "adresse postale"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "Contact"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "Votre projet peut-il être situé sur la carte?"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"Localisez votre projet. Cliquez à l'intérieur de la zone marquée ou tapez "
+"une adresse pour définir le marqueur. Un marqueur de jeu peut être déplacé "
+"lorsque vous appuyez dessus."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "District administratif"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -892,11 +902,11 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "Sujets de projet"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "Ajoutez des sujets à votre projet."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -2177,7 +2187,7 @@ msgstr "et"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "Le projet '%(name)s' a été supprimé avec succès."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2491,7 +2501,7 @@ msgstr "Utiliser ce modèle"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le projet '%(project_name)s'?"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2768,14 +2778,33 @@ msgstr "Derniers projets sur OPIN"
 msgid "Play video"
 msgstr "Lire la vidéo"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
-msgstr ""
+msgstr "Instructions de téléchargement"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contenu"
+
+#~ msgid "Location of your Project"
+#~ msgstr "Lieu de votre projet"
+
+#~ msgid "Project topic"
+#~ msgstr "Sujet du projet"
+
+#~ msgid "Contact details"
+#~ msgstr "Détails du contact"
+
+#~ msgid "This is the help text."
+#~ msgstr "Ceci est le texte d'aide."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Le numéro de téléphone doit être entré dans le format: '+999999999'. "
+#~ "Jusqu'à 15 chiffres autorisés."
 
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "

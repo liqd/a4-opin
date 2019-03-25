@@ -9,15 +9,16 @@
 # Josefine Jakobsen <jbj@tekno.dk>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -47,28 +48,33 @@ msgstr "Sammenfoldeligt element"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 msgid "hide one reply"
 msgstr "skjul et svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:26
 #: adhocracy4/comments/static/comments/Comment.jsx:26
+#: adhocracy4.js:87
 #, javascript-format
 msgid "hide %s replies"
 msgstr "skjul %s svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 msgid "view one reply"
 msgstr "se et svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:28
 #: adhocracy4/comments/static/comments/Comment.jsx:28
+#: adhocracy4.js:87
 #, javascript-format
 msgid "view %s replies"
 msgstr "se %s svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:128
 #: adhocracy4/comments/static/comments/Comment.jsx:128
+#: adhocracy4.js:87
 msgid "Do you really want to delete this comment?"
 msgstr "Er du sikker på, at du vil slette kommentaren?"
 
@@ -80,22 +86,26 @@ msgstr "Er du sikker på, at du vil slette kommentaren?"
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+#: adhocracy4.js:87
 msgid "Delete"
 msgstr "Slet"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:131
 #: adhocracy4/static/Modal.jsx:49
 #: adhocracy4/comments/static/comments/Comment.jsx:131
+#: adhocracy4.js:87
 msgid "Abort"
 msgstr "Afbryd"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:144
 #: adhocracy4/comments/static/comments/Comment.jsx:144
+#: adhocracy4.js:87
 msgid "Latest edit on"
 msgstr "Sidste udgave af"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
 #: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4.js:87
 msgid "Moderator"
 msgstr "Ordstyrer/Mødeleder/Mægler/Moderator"
 
@@ -103,26 +113,33 @@ msgstr "Ordstyrer/Mødeleder/Mægler/Moderator"
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:156
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4.js:87
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
 "will be deleted if it does not meet our discussion rules (netiquette)."
 msgstr ""
+"Vil du rapportere dette indhold? Din besked vil blive sendt til "
+"moderationen. Modereringen vil se på det rapporterede indhold. Indholdet "
+"slettes, hvis det ikke overholder vores diskussionsregler (netiquette)."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
 #: adhocracy4/comments/static/comments/Comment.jsx:179
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+#: adhocracy4.js:87
 msgid "Answer"
 msgstr "Svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:218
 #: adhocracy4/comments/static/comments/Comment.jsx:218
+#: adhocracy4.js:87
 msgid "Your reply here"
 msgstr "Tast dit svar her"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4.js:87
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Kommentarer"
@@ -134,31 +151,37 @@ msgstr[1] "Kommentarer"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
+#: adhocracy4.js:87
 msgid "Your comment here"
 msgstr "Skriv din kommentar her"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+#: adhocracy4.js:87
 msgid "save changes"
 msgstr "Gem ændringer"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+#: adhocracy4.js:87
 msgid "cancel"
 msgstr "Annuller"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
+#: adhocracy4.js:87
 msgid "post"
 msgstr "Post/Beskeder/Send/Slå op"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
+#: adhocracy4.js:87
 msgid "Please login to comment"
 msgstr "Log ind for at kommentere"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
+#: adhocracy4.js:87
 msgid "The currently active phase doesn't allow to comment."
 msgstr ""
 "Det er ikke muligt at kommentere i denne fase/Denne side tillader ikke "
@@ -166,43 +189,51 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+#: adhocracy4.js:87
 msgid "Edit"
 msgstr "Rediger"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+#: adhocracy4.js:87
 msgid "Report"
 msgstr "Reporter/Anmeld"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
+#: adhocracy4.js:87
 msgid "Not following"
 msgstr "Følger ikke"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
+#: adhocracy4.js:87
 msgid "Never be notified."
 msgstr "Bliv aldrig meddelt"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
+#: adhocracy4.js:87
 msgid "Following"
 msgstr "Følger"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
+#: adhocracy4.js:87
 msgid "Receive email notifications about this project."
 msgstr "Modtag e-mail notifikationer omkring dette projekt "
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Unfollow"
 msgstr "Følg ikke længere"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:87
 msgid "Follow"
 msgstr "Følg"
 
@@ -210,56 +241,67 @@ msgstr "Følg"
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+#: adhocracy4.js:87
 msgid "remove"
 msgstr "fjerne"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
+#: adhocracy4.js:87
 msgid "The poll has been updated."
 msgstr "Undersøgelsen er blevet opdateret."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
+#: adhocracy4.js:87
 msgid "The poll could not be updated."
 msgstr "Undersøgelsen kunne ikke opdateres."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
+#: adhocracy4.js:87
 msgid "Add a new question"
 msgstr "Tilføj et nyt spørgsmål"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
+#: adhocracy4.js:87
 msgid "Save"
 msgstr "Gemme"
 
 #: adhocracy4/polls/static/polls/Question.jsx:51
 #: adhocracy4/polls/static/polls/Question.jsx:51
+#: adhocracy4.js:87
 msgid "Vote counted"
 msgstr "Stemmen tælles"
 
 #: adhocracy4/polls/static/polls/Question.jsx:61
 #: adhocracy4/polls/static/polls/Question.jsx:61
+#: adhocracy4.js:87
 msgid "Vote has not been counted due to a server error."
 msgstr "Afstemningen er ikke talt på grund af en serverfejl."
 
 #: adhocracy4/polls/static/polls/Question.jsx:108
 #: adhocracy4/polls/static/polls/Question.jsx:108
+#: adhocracy4.js:87
 msgid "Vote"
 msgstr "Stemme"
 
 #: adhocracy4/polls/static/polls/Question.jsx:114
 #: adhocracy4/polls/static/polls/Question.jsx:114
+#: adhocracy4.js:87
 msgid "Please login to vote"
 msgstr "Venligst log ind for at stemme"
 
 #: adhocracy4/polls/static/polls/Question.jsx:136
 #: adhocracy4/polls/static/polls/Question.jsx:136
+#: adhocracy4.js:87
 msgid "Multiple answers are possible for this question"
 msgstr "Flere svar er mulige for dette spørgsmål"
 
 #: adhocracy4/polls/static/polls/Question.jsx:141
 #: adhocracy4/polls/static/polls/Question.jsx:141
+#: adhocracy4.js:87
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "stemmer"
@@ -267,41 +309,49 @@ msgstr[1] "stemmer"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
+#: adhocracy4.js:87
 msgid "To poll"
 msgstr "At afstemme"
 
 #: adhocracy4/polls/static/polls/Question.jsx:145
 #: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4.js:87
 msgid "Change vote"
 msgstr "Skift afstemning"
 
 #: adhocracy4/polls/static/polls/Question.jsx:149
 #: adhocracy4/polls/static/polls/Question.jsx:149
+#: adhocracy4.js:87
 msgid "Show preliminary results"
 msgstr "Vis foreløbige resultater"
 
 #: adhocracy4/polls/static/polls/Question.jsx:177
 #: adhocracy4/polls/static/polls/Question.jsx:177
+#: adhocracy4.js:87
 msgid "Your choice"
 msgstr "Dit valg"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+#: adhocracy4.js:87
 msgid "Question"
 msgstr "Spørgsmål"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+#: adhocracy4.js:87
 msgid "Users can select more than one answer."
 msgstr "Brugere kan vælge mere end ét svar."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+#: adhocracy4.js:87
 msgid "Choice"
 msgstr "Valg"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+#: adhocracy4.js:87
 msgid "Add a new choice"
 msgstr "Tilføj et nyt valg"
 
@@ -309,6 +359,7 @@ msgstr "Tilføj et nyt valg"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:76
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+#: adhocracy4.js:87
 msgid "Move up"
 msgstr "Flyt op"
 
@@ -316,26 +367,31 @@ msgstr "Flyt op"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:85
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+#: adhocracy4.js:87
 msgid "Move down"
 msgstr "Flyt ned"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
+#: adhocracy4.js:87
 msgid "Thank you! We are taking care of it."
 msgstr "Tak skal du have! Vi tager os af det."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
+#: adhocracy4.js:87
 msgid "Your message"
-msgstr ""
+msgstr "Din besked"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
+#: adhocracy4.js:87
 msgid "Send Report"
 msgstr "Send rapport"
 
 #: adhocracy4/static/Alert.jsx:10
 #: adhocracy4/static/Alert.jsx:11
+#: adhocracy4.js:44
 msgid "Close"
 msgstr "Tæt"
 
@@ -344,35 +400,43 @@ msgid "Please set all values for your project."
 msgstr "Indstil venligst alle værdierne for dit projekt. "
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: adhocracy4.js:87
 msgid "Remove"
 msgstr "Fjern"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 #: euth/documents/static/documents/ParagraphBox.jsx:224
+#: adhocracy4.js:87
 msgid "add a new paragraph"
 msgstr "Tilføj nyt afsnit"
 
 #: euth/documents/static/documents/Paragraph.jsx:79
+#: adhocracy4.js:87
 msgid "Headline:"
 msgstr "Overskrift:"
 
 #: euth/documents/static/documents/Paragraph.jsx:93
+#: adhocracy4.js:87
 msgid "Paragraph:"
 msgstr "Afsnit:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
+#: adhocracy4.js:87
 msgid "Your document has been updated."
 msgstr "Dit dokument er blevet opdateret."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
+#: adhocracy4.js:87
 msgid "Your document has been saved."
 msgstr "Dit dokument er blevet gemt."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
+#: adhocracy4.js:87
 msgid "Title:"
 msgstr "Titel:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:241
+#: adhocracy4.js:87
 msgid "save"
 msgstr "Gem"
 

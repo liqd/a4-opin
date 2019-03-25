@@ -5,15 +5,16 @@
 #
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"POT-Creation-Date: 2019-03-25 11:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +346,7 @@ msgstr "διαγράφηκε από τον συντονιστή"
 
 #: adhocracy4/comments/serializers.py:49
 msgid "Please choose a category"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε κατηγορία"
 
 #: adhocracy4/comments/serializers.py:58
 msgid "unknown user"
@@ -441,7 +442,7 @@ msgstr "Μόνο προσκεκλημένοι χρήστες μπορούν να
 #: adhocracy4/dashboard/forms.py:66
 #: euth/projects/templates/euth_projects/project_detail.html:100
 msgid "Contact for questions"
-msgstr ""
+msgstr "Επικοινωνία για ερωτήσεις"
 
 #: adhocracy4/dashboard/forms.py:67
 msgid ""
@@ -449,10 +450,14 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
+"Παρακαλώ ονομάστε ένα πρόσωπο επαφής. Στη συνέχεια, ο χρήστης θα γνωρίζει "
+"ποιος εκτελεί αυτό το έργο και σε ποιον μπορεί να απευθύνει πιθανές "
+"ερωτήσεις. Το άτομο επικοινωνίας θα εμφανιστεί στην καρτέλα πληροφοριών στη "
+"σελίδα του έργου."
 
 #: adhocracy4/dashboard/forms.py:72
 msgid "More contact possibilities"
-msgstr ""
+msgstr "Περισσότερες δυνατότητες επικοινωνίας"
 
 #: adhocracy4/dashboard/forms.py:85
 #: adhocracy4/phases/models.py:64
@@ -464,12 +469,12 @@ msgstr "Ονομα"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #: adhocracy4/dashboard/forms.py:90
 #: euth/projects/templates/euth_projects/project_detail.html:108
 msgid "Telephone"
-msgstr ""
+msgstr "Τηλέφωνο"
 
 #: adhocracy4/dashboard/forms.py:92
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
@@ -484,7 +489,7 @@ msgstr "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ"
 #: adhocracy4/dashboard/forms.py:94
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Website"
-msgstr ""
+msgstr "Δικτυακός τόπος"
 
 #: adhocracy4/dashboard/forms.py:122
 #: adhocracy4/phases/models.py:72
@@ -749,7 +754,7 @@ msgstr "Εργο"
 
 #: adhocracy4/projects/admin.py:47
 msgid "Information and result"
-msgstr ""
+msgstr "Πληροφορίες και αποτελέσματα"
 
 #: adhocracy4/projects/admin.py:50
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
@@ -758,43 +763,49 @@ msgstr "Ρυθμίσεις"
 
 #: adhocracy4/projects/admin.py:55
 msgid "Images"
-msgstr ""
+msgstr "Εικόνες"
 
 #: adhocracy4/projects/admin.py:60
 msgid "Contact"
-msgstr ""
+msgstr "Επικοινωνία"
 
 #: adhocracy4/projects/admin.py:65
 msgid "Topic and location"
-msgstr ""
+msgstr "Θέμα και τοποθεσία"
 
 #: adhocracy4/projects/models.py:37
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
+"Οι αριθμοί τηλεφώνου μπορούν να περιέχουν μόνο ψηφία, διαστήματα και τους "
+"ακόλουθους χαρακτήρες: -, +, (,). Πρέπει να έχει μήκος μεταξύ 8 και 20 "
+"χαρακτήρων."
 
 #: adhocracy4/projects/models.py:43
 msgid "Postal address"
-msgstr ""
+msgstr "ταχυδρομική διεύθυνση"
 
 #: adhocracy4/projects/models.py:52
 msgid "Contact person"
-msgstr ""
+msgstr "Υπεύθυνος επικοινωνίας"
 
 #: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
-msgstr ""
+msgstr "Μπορεί το έργο σας να βρίσκεται στον χάρτη;"
 
 #: adhocracy4/projects/models.py:73
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
+"Εντοπίστε το έργο σας. Κάντε κλικ μέσα στην επιλεγμένη περιοχή ή "
+"πληκτρολογήστε μια διεύθυνση για να ορίσετε το δείκτη. Ένας δείκτης μπορεί "
+"να σύρεται όταν πατηθεί."
 
 #: adhocracy4/projects/models.py:84
 msgid "Administrative district"
-msgstr ""
+msgstr "Διοικητική περιοχή"
 
 #: adhocracy4/projects/models.py:94
 msgid "Title of your project"
@@ -896,11 +907,11 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:173
 msgid "Project topics"
-msgstr ""
+msgstr "Θέματα του έργου"
 
 #: adhocracy4/projects/models.py:174
 msgid "Add topics to your project."
-msgstr ""
+msgstr "Προσθέστε θέματα στο έργο σας."
 
 #: adhocracy4/projects/models.py:295
 #: euth/projects/templatetags/time_delta_tags.py:16
@@ -2182,7 +2193,7 @@ msgstr "και"
 #: euth/projects/views.py:55
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
-msgstr ""
+msgstr "Το έργο '%(name)s' διαγράφηκε με επιτυχία."
 
 #: euth/users/admin.py:10
 msgid "Permissions"
@@ -2497,7 +2508,7 @@ msgstr "χρησιμοποιήστε αυτό το πρότυπο"
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
-msgstr ""
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε το έργο '%(project_name)s';"
 
 #: euth_wagtail/templates/a4projects/project_list.html:4
 msgid "Projects on Opin.me"
@@ -2778,14 +2789,33 @@ msgstr "Τελευταία έργα στο OPIN"
 msgid "Play video"
 msgstr "Παίξε το βίντεο"
 
-#: home/templates/home/manuals_section_page.html:18
-#: home/templates/home/manuals_section_page.html:24
+#: home/templates/home/manuals_section_page.html:19
+#: home/templates/home/manuals_section_page.html:25
 msgid "Download guidelines"
-msgstr ""
+msgstr "Κατεβάστε οδηγίες"
 
-#: home/templates/home/manuals_section_page.html:38
+#: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Περιεχόμενα"
+
+#~ msgid "Location of your Project"
+#~ msgstr "Θέση του Έργου σας"
+
+#~ msgid "Project topic"
+#~ msgstr "Θέμα του έργου"
+
+#~ msgid "Contact details"
+#~ msgstr "Στοιχεία επικοινωνίας"
+
+#~ msgid "This is the help text."
+#~ msgstr "Αυτό είναι το κείμενο βοήθειας."
+
+#~ msgid ""
+#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
+#~ "allowed."
+#~ msgstr ""
+#~ "Ο αριθμός τηλεφώνου πρέπει να εισαχθεί στη μορφή: '+999999999'. Έως 15 "
+#~ "ψηφία επιτρέπονται."
 
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "
