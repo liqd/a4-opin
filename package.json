@@ -21,7 +21,7 @@
     "immutability-helper": "3.0.0",
     "jquery": "3.4.1",
     "js-cookie": "2.2.0",
-    "leaflet": "1.4.0",
+    "leaflet": "1.5.1",
     "leaflet-draw": "1.0.4",
     "leaflet.markercluster": "1.4.1",
     "mini-css-extract-plugin": "0.6.0",
