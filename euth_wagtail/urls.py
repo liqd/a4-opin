@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
-from django.views.i18n import javascript_catalog
+from django.views.i18n import JavaScriptCatalog
 from rest_framework import routers
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps import views as wagtail_sitemap_views
@@ -41,10 +41,6 @@ from euth.users import urls as user_urls
 from euth.users.api import UserViewSet
 
 from . import urls_accounts
-
-js_info_dict = {
-    'packages': ('adhocracy4.comments',),
-}
 
 router = routers.DefaultRouter()
 router.register(r'follows', FollowViewSet, base_name='follows')
@@ -99,8 +95,7 @@ urlpatterns += i18n_patterns(
     url(r'^maps/', include(maps_urls)),
     url(r'^memberships/', include(memberships_urls)),
     url(r'^blueprints/', include(blueprints_urls)),
-    url(r'^jsi18n/$', javascript_catalog,
-        js_info_dict, name='javascript-catalog'),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     url(r'^sitemap\.xml$',
         wagtail_sitemap_views.index,
         {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
