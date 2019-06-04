@@ -43,7 +43,8 @@ class LinkFields(models.Model):
         'wagtailcore.Page',
         related_name='+',
         blank=True,
-        null=True
+        null=True,
+        on_delete=models.CASCADE
     )
 
     allowed_views = (
