@@ -2,7 +2,7 @@ import os
 from urllib.parse import urlparse
 
 from django.conf import settings
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 from easy_thumbnails.files import get_thumbnailer
 
 

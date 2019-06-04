@@ -1,7 +1,7 @@
 import pytest
 from django.contrib import auth
 from django.core import mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from parler.utils.context import switch_language
 
 from adhocracy4.projects.models import Project

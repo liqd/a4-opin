@@ -25,7 +25,7 @@ class Document(module_models.Item):
         super().clean(*args, **kwargs)
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse
         return reverse('project-detail', args=[str(self.project.slug)])
 
     @property
@@ -66,7 +66,7 @@ class Paragraph(base.TimeStampedModel):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse
         return reverse('paragraph-detail', args=[str(self.pk)])
 
     @cached_property

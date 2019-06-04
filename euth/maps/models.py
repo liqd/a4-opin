@@ -13,5 +13,5 @@ class MapIdea(idea_models.Idea):
     objects = idea_models.IdeaQuerySet.as_manager()
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse
         return reverse('map-idea-detail', args=[str(self.slug)])

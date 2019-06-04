@@ -1,5 +1,5 @@
 from django import template
-from django.core.urlresolvers import resolve, reverse
+from django.urls import resolve, reverse
 from django.http import Http404
 from django.utils import translation
 

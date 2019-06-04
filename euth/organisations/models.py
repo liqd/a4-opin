@@ -68,5 +68,5 @@ class Organisation(base.TimeStampedModel, TranslatableModel):
         return user in self.initiators.all()
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse
         return reverse('organisation-detail', args=[str(self.slug)])

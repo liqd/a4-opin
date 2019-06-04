@@ -1,5 +1,5 @@
 import pytest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from adhocracy4.comments.models import Comment
 from euth.exports import mixins

@@ -44,5 +44,5 @@ class Idea(module_models.Item):
         super(Idea, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse
         return reverse('idea-detail', args=[str(self.slug)])
