@@ -2,8 +2,9 @@
 {% load i18n static tz time_delta_tags timeline_tags wagtailcore_tags ckeditor_tags %}
 
 {% block title %}{{view.project.name}}{% endblock %}
+
 {% block extra_js %}
-<script src="{% static 'timeline_popover.js' %}"></script>
+<script src="{% static 'euth_projects/timeline_popover.js' %}"></script>
 {% endblock %}
 
 {% block extra_messages %}
