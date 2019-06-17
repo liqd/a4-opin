@@ -1,7 +1,6 @@
 import pytest
 from django.urls import reverse
 
-from euth.blueprints import blueprints, forms
 from tests.helpers import templates_used
 
 
