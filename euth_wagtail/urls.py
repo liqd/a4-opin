@@ -43,21 +43,21 @@ from euth.users.api import UserViewSet
 from . import urls_accounts
 
 router = routers.DefaultRouter()
-router.register(r'follows', FollowViewSet, base_name='follows')
-router.register(r'polls', PollViewSet, base_name='polls')
-router.register(r'reports', ReportViewSet, base_name='reports')
-router.register(r'projects', ProjectViewSet, base_name='projects')
-router.register(r'users', UserViewSet, base_name='users')
+router.register(r'follows', FollowViewSet, basename='follows')
+router.register(r'polls', PollViewSet, basename='polls')
+router.register(r'reports', ReportViewSet, basename='reports')
+router.register(r'projects', ProjectViewSet, basename='projects')
+router.register(r'users', UserViewSet, basename='users')
 
 question_router = QuestionDefaultRouter()
-question_router.register(r'vote', VoteViewSet, base_name='vote')
+question_router.register(r'vote', VoteViewSet, basename='vote')
 
 ct_router = a4routers.ContentTypeDefaultRouter()
-ct_router.register(r'comments', CommentViewSet, base_name='comments')
-ct_router.register(r'ratings', RatingViewSet, base_name='ratings')
+ct_router.register(r'comments', CommentViewSet, basename='comments')
+ct_router.register(r'ratings', RatingViewSet, basename='ratings')
 
 module_router = a4routers.ModuleDefaultRouter()
-module_router.register(r'documents', DocumentViewSet, base_name='documents')
+module_router.register(r'documents', DocumentViewSet, basename='documents')
 
 sitemaps = {
     'adhocracy4': Adhocracy4Sitemap,
