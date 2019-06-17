@@ -52,7 +52,7 @@ def test_moderator_cannot_delete(client, project_factory, user):
             'pk': project.pk
         })
     response = client.post(url)
-    assert response.status_code == 302
+    assert response.status_code == 403
     count = models.Project.objects.all().count()
     assert count == 1
 
