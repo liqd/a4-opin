@@ -21,7 +21,7 @@ easy-thumbnails==2.6
 feedparser==5.2.1
 html5lib==1.0.1
 jsonfield==2.0.2
-micawber==0.4.0
+micawber==0.4.1
 python-dateutil==2.8.0
 python-magic==0.4.15
 pyuca==1.2
