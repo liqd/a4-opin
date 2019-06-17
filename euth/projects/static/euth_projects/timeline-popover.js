@@ -12,3 +12,5 @@ $('body').on('click', function (e) {
     }
   })
 })
+
+$('.dropdown-toggle').dropdown()
