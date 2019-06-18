@@ -13,6 +13,7 @@ install:
   - pip install coveralls
 script:
   - python manage.py collectstatic > /dev/null
+  - if [ -f test_db.sqlite3 ]; then rm test_db.sqlite3; fi
   - py.test --cov
   - python manage.py makemigrations --dry-run --check --noinput
 after_success:
