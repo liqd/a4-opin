@@ -4,11 +4,10 @@ python:
   - "3.6"
 cache:
   pip: true
-  directories:
-    - node_modules
+  npm: true
 install:
   - nvm install 8
-  - npm install --production
+  - npm install
   - npm run build
   - pip install -r requirements/dev.txt
   - pip install coveralls
