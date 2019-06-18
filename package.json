@@ -60,8 +60,8 @@
   "license": "AGPL-3.0+",
   "scripts": {
     "build:prod": "webpack --config ./webpack.prod.js --mode production",
-    "build": "webpack --config ./webpack.dev.js --progress --colors --mode development",
-    "watch": "webpack --config ./webpack.dev.js --progress --colors --watch --mode development",
+    "build": "webpack --config ./webpack.dev.js --mode development",
+    "watch": "webpack --config ./webpack.dev.js --watch --mode development",
     "lint": "eslint --fix euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
   },
   "husky": {
