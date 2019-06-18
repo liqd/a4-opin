@@ -1,4 +1,4 @@
-git+git://github.com/liqd/adhocracy4.git@edf58ba4b69d60c528cc27f650c6e658bfe2b275#egg=adhocracy4
+git+git://github.com/liqd/adhocracy4.git@0dc3eae28531963bcd420452d6c7b537eef43dfb#egg=adhocracy4
 Django==2.2.2
 wagtail==2.5.1
 
