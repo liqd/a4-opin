@@ -4,7 +4,7 @@ import pytest
 from allauth.account.models import EmailAddress
 from django.contrib import auth
 from django.core import mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from euth.users import models
 from tests.helpers import redirect_target

@@ -1,6 +1,6 @@
 import pytest
 from django.core import mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from rest_framework import status
 
 from tests.factories import UserFactory

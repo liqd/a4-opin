@@ -78,7 +78,10 @@ class FileUpload(base.TimeStampedModel):
     document = models.FileField(
         upload_to=document_path,
         validators=[validators.validate_file_type_and_size])
-    offlinephase = models.ForeignKey(Offlinephase)
+    offlinephase = models.ForeignKey(
+        Offlinephase,
+        on_delete=models.CASCADE
+    )
 
 
 class OfflineEventFileUpload(base.TimeStampedModel):
@@ -86,4 +89,7 @@ class OfflineEventFileUpload(base.TimeStampedModel):
     document = models.FileField(
         upload_to='offlineevents/documents',
         validators=[validators.validate_file_type_and_size])
-    offlineevent = models.ForeignKey(OfflineEvent)
+    offlineevent = models.ForeignKey(
+        OfflineEvent,
+        on_delete=models.CASCADE
+    )

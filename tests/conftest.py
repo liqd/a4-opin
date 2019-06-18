@@ -1,11 +1,11 @@
 import factory
 import pytest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 
+from adhocracy4.test import factories as a4_factories
 from adhocracy4.test import helpers
-from adhocracy4.test.factories import ModuleFactory, ProjectFactory
 from tests.memberships import factories as member_factories
 from tests.organisations import factories as org_factories
 
@@ -18,8 +18,9 @@ register(factories.ContentTypeFactory)
 
 register(org_factories.OrganisationFactory)
 register(org_factories.OrganisationFactory, 'other_organisation')
-register(ProjectFactory)
-register(ModuleFactory)
+register(a4_factories.GroupFactory)
+register(a4_factories.ProjectFactory)
+register(a4_factories.ModuleFactory)
 register(factories.PhaseFactory)
 register(member_factories.RequestFactory, 'membership_request')
 register(member_factories.InviteFactory)

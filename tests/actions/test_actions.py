@@ -83,7 +83,8 @@ def test_comment_creator_gets_email_after_comment(
     comment_factory(content_object=comment, creator=user)
 
     action_count = Action.objects.all().count()
-    assert action_count == 3
+
+    assert action_count == 4
     assert len(mail.outbox) == 3
     assert 'A Comment was added to your idea' in mail.outbox[1].subject
     assert mail.outbox[1].recipients() == [user.email]

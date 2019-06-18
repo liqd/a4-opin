@@ -1,6 +1,6 @@
 import pytest
 from django.core import mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from euth.memberships import models
 from tests.helpers import redirect_target, templates_used

@@ -73,7 +73,7 @@ background:
 
 .PHONY: test
 test:
-	$(VIRTUAL_ENV)/bin/py.test --reuse-db
+	$(VIRTUAL_ENV)/bin/py.test --reuse-db --no-migrations
 
 .PHONY: test-lastfailed
 test-lastfailed:
@@ -119,7 +119,7 @@ tx-mo:
 release: export DJANGO_SETTINGS_MODULE ?= euth_wagtail.settings.build
 release:
 	npm install --silent
-	npm run build
+	npm run build:prod
 	$(VIRTUAL_ENV)/bin/python3 -m pip install -r requirements.txt -q
 	$(VIRTUAL_ENV)/bin/python3 manage.py compilemessages -v0
 	$(VIRTUAL_ENV)/bin/python3 manage.py collectstatic --noinput -v0

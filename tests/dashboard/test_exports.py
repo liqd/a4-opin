@@ -1,6 +1,6 @@
 import pytest
 from django.contrib import auth
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 User = auth.get_user_model()
 

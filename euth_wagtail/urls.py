@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
-from django.views.i18n import javascript_catalog
+from django.views.i18n import JavaScriptCatalog
 from rest_framework import routers
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps import views as wagtail_sitemap_views
@@ -42,26 +42,22 @@ from euth.users.api import UserViewSet
 
 from . import urls_accounts
 
-js_info_dict = {
-    'packages': ('adhocracy4.comments',),
-}
-
 router = routers.DefaultRouter()
-router.register(r'follows', FollowViewSet, base_name='follows')
-router.register(r'polls', PollViewSet, base_name='polls')
-router.register(r'reports', ReportViewSet, base_name='reports')
-router.register(r'projects', ProjectViewSet, base_name='projects')
-router.register(r'users', UserViewSet, base_name='users')
+router.register(r'follows', FollowViewSet, basename='follows')
+router.register(r'polls', PollViewSet, basename='polls')
+router.register(r'reports', ReportViewSet, basename='reports')
+router.register(r'projects', ProjectViewSet, basename='projects')
+router.register(r'users', UserViewSet, basename='users')
 
 question_router = QuestionDefaultRouter()
-question_router.register(r'vote', VoteViewSet, base_name='vote')
+question_router.register(r'vote', VoteViewSet, basename='vote')
 
 ct_router = a4routers.ContentTypeDefaultRouter()
-ct_router.register(r'comments', CommentViewSet, base_name='comments')
-ct_router.register(r'ratings', RatingViewSet, base_name='ratings')
+ct_router.register(r'comments', CommentViewSet, basename='comments')
+ct_router.register(r'ratings', RatingViewSet, basename='ratings')
 
 module_router = a4routers.ModuleDefaultRouter()
-module_router.register(r'documents', DocumentViewSet, base_name='documents')
+module_router.register(r'documents', DocumentViewSet, basename='documents')
 
 sitemaps = {
     'adhocracy4': Adhocracy4Sitemap,
@@ -99,8 +95,7 @@ urlpatterns += i18n_patterns(
     url(r'^maps/', include(maps_urls)),
     url(r'^memberships/', include(memberships_urls)),
     url(r'^blueprints/', include(blueprints_urls)),
-    url(r'^jsi18n/$', javascript_catalog,
-        js_info_dict, name='javascript-catalog'),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     url(r'^sitemap\.xml$',
         wagtail_sitemap_views.index,
         {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),

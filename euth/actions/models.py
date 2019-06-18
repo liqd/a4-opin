@@ -18,7 +18,10 @@ class Action(models.Model):
                               null=True)
 
     # target eg. idea
-    target_content_type = models.ForeignKey(ContentType, blank=True, null=True,
+    target_content_type = models.ForeignKey(ContentType,
+                                            blank=True,
+                                            null=True,
+                                            on_delete=models.CASCADE,
                                             related_name='target')
     target_object_id = models.CharField(max_length=255, blank=True, null=True)
     target = GenericForeignKey(
@@ -27,7 +30,9 @@ class Action(models.Model):
     # action object eg. comment
     action_object_content_type = models.ForeignKey(
         ContentType,
-        blank=True, null=True,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
         related_name='action_object')
     action_object_object_id = models.CharField(
         max_length=255, blank=True, null=True)
