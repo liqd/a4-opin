@@ -8,7 +8,7 @@
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.4.5",
-    "@fortawesome/fontawesome-free-webfonts": "1.0.9",
+    "@fortawesome/fontawesome-free": "5.9.0",
     "adhocracy4": "github:liqd/adhocracy4#0dc3eae28531963bcd420452d6c7b537eef43dfb",
     "autoprefixer": "9.5.1",
     "babel-loader": "8.0.6",
