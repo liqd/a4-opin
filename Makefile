@@ -73,7 +73,7 @@ background:
 
 .PHONY: test
 test:
-	$(VIRTUAL_ENV)/bin/py.test --reuse-db
+	$(VIRTUAL_ENV)/bin/py.test --reuse-db --no-migrations
 
 .PHONY: test-lastfailed
 test-lastfailed:
