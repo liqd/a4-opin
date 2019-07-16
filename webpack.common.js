@@ -29,7 +29,6 @@ module.exports = {
       'datepicker/css/datepicker.min.css'
     ],
     vendor: [
-      'jquery',
       'react',
       'react-dom',
       'react-flip-move',
@@ -42,7 +41,6 @@ module.exports = {
       'immutability-helper',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css',
-      './euth_wagtail/assets/js/jquery-fix.js',
       './euth_wagtail/assets/js/modernizr-custom.js'
     ],
     timeline_popover: [
@@ -121,10 +119,15 @@ module.exports = {
     // against the local directory.
     modules: [path.resolve('./node_modules')],
     alias: {
-      bootstrap: 'bootstrap-sass/assets/stylesheets/bootstrap'
+      bootstrap: 'bootstrap-sass/assets/stylesheets/bootstrap',
+      jquery$: 'jquery/dist/jquery.min.js'
     }
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new webpack.optimize.SplitChunksPlugin({
       name: 'vendor',
       filename: 'vendor.js'
