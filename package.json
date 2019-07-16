@@ -69,7 +69,7 @@
   "browserslist": "last 3 versions, ie >= 11",
   "husky": {
     "hooks": {
-      "pre-commit": "make lint"
+      "pre-commit": "make lint && make check-migrations"
     }
   }
 }
