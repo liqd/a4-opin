@@ -64,7 +64,7 @@
     "build:prod": "webpack --config ./webpack.prod.js --mode production",
     "build": "webpack --config ./webpack.dev.js --mode development",
     "watch": "webpack --config ./webpack.dev.js --watch --mode development",
-    "lint": "eslint euth --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
+    "lint": "eslint euth euth_wagtail/assets --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
   },
   "browserslist": "last 3 versions, ie >= 11",
   "husky": {
