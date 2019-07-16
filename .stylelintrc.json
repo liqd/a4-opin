@@ -49,7 +49,7 @@
     "comment-empty-line-before": "always",
     "indentation": 4,
     "max-empty-lines": 2,
-    "max-nesting-depth": 2,
+    "max-nesting-depth": 3,
     "no-extra-semicolons": true
   },
   "ignoreFiles": [
