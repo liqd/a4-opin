@@ -25,7 +25,7 @@ def test_image_validation_image_too_small(organisation_factory, smallImage):
     organisation = organisation_factory(image=smallImage, logo=smallImage)
     with pytest.raises(Exception) as e:
         organisation.full_clean()
-    assert 'Image must be at least 600 pixels high' in str(e)
+    assert 'Image must be at least 600 pixels high' in str(e.value)
 
 
 @pytest.mark.django_db
@@ -39,7 +39,7 @@ def test_image_validation_type_not_allowed(organisation_factory, ImageBMP):
     organisation = organisation_factory(image=ImageBMP, logo=ImageBMP)
     with pytest.raises(Exception) as e:
         organisation.full_clean()
-    assert 'Unsupported file format.' in str(e)
+    assert 'Unsupported file format.' in str(e.value)
 
 
 @pytest.mark.django_db
