@@ -41,18 +41,16 @@ def filter_blueprints(aim, result, experience, motivation,
                 continue
 
         timeneeded = compute_time_needed(
-                        blueprint, participants, duration, scope,
-                        motivation, accessibility, experience
-                        )
+            blueprint, participants, duration, scope,
+            motivation, accessibility, experience)
         candidates.append((name, blueprint, timeneeded))
 
     if not candidates:
         name = fallbacks[aim]
         blueprint = dict(options)[name]
         timeneeded = compute_time_needed(
-                        blueprint, participants, duration, scope,
-                        motivation, accessibility, experience
-                        )
+            blueprint, participants, duration, scope,
+            motivation, accessibility, experience)
         candidates.append((name, blueprint, timeneeded))
 
     return candidates
@@ -72,7 +70,7 @@ def compute_complexity(blueprint, participants, duration, scope):
 
 def compute_mobilisation(motivation, accessibility):
     # modify to match different coding for motivation
-    return custom_round((5 - motivation.value + accessibility.value)/2)
+    return custom_round((5 - motivation.value + accessibility.value) / 2)
 
 
 def compute_time_needed(

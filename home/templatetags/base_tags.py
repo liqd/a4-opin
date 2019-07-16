@@ -84,7 +84,7 @@ def load_site_menu(menu_name):
 
 @register.filter(name='clear_class')
 def clear_class(columns_per_row, count):
-    if (count-1) % (12/int(columns_per_row)) == 0:
+    if (count - 1) % (12 / int(columns_per_row)) == 0:
         return "m-clear"
     else:
         return ""

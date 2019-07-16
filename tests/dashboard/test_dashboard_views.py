@@ -198,8 +198,8 @@ def test_dashboard_project_invite(client, project):
 
     assert redirect_target(response) == 'invites'
     assert len(project.invite_set.all()) == 2
-    #assert project.invite_set.all()[0].email == 'j@he.ix'
-    #assert project.invite_set.all()[1].email == 'james.dean@gmail.com'
+    # assert project.invite_set.all()[0].email == 'j@he.ix'
+    # assert project.invite_set.all()[1].email == 'james.dean@gmail.com'
     assert len(mail.outbox) == 2
 
     response = client.post(url, {

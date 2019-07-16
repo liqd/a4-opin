@@ -74,7 +74,7 @@ def test_phase_dispatch_mixin_return_super(
 
     # Requesting invalid phase parameter should return the last past
     # phase.
-    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+    request = rf.get("{0}?phase={1}".format(project_url, "A" * 100))
     response = project_detail_view(request, slug=project.slug)
     assert response.content == b'project_detail'
     assert FakePhase0View.template_name not in \
@@ -112,7 +112,7 @@ def test_phase_dispatch_mixin_return_last_phase(
 
     # Requesting invalid phase parameter should return the last past
     # phase.
-    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+    request = rf.get("{0}?phase={1}".format(project_url, "A" * 100))
     response = project_detail_view(request, slug=project.slug)
     assert FakePhase1View.template_name in response.template_name
     assert FakePhase0View.template_name not in response.template_name
@@ -153,7 +153,7 @@ def test_phase_dispatch_mixin_return_active_phase(
 
     with freeze_time(phase1.start_date):
         # Requesting garbage should return the currently active phase.
-        request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+        request = rf.get("{0}?phase={1}".format(project_url, "A" * 100))
         response = project_detail_view(request, slug=project.slug)
         assert FakePhase0View.template_name in response.template_name
         assert FakePhase1View.template_name not in response.template_name
@@ -187,7 +187,7 @@ def test_project_phase_mixin_return_last_phase(
 
     # Requesting invalid phase parameter should return the last past
     # phase.
-    request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+    request = rf.get("{0}?phase={1}".format(project_url, "A" * 100))
     response = dummy_view(request, slug=project.slug, project=project)
     view_data = response.context_data['view']
     assert view_data.project == project
@@ -231,7 +231,7 @@ def test_project_phase_mixin_return_active_phase(
 
     with freeze_time(phase2.start_date):
         # Requesting garbage should return the currently active phase.
-        request = rf.get("{0}?phase={1}".format(project_url, "A"*100))
+        request = rf.get("{0}?phase={1}".format(project_url, "A" * 100))
         response = dummy_view(request, slug=project.slug, project=project)
         view_data = response.context_data['view']
         assert view_data.project == project

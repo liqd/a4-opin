@@ -152,9 +152,9 @@ COMPLEXITY_VECTOR_BD = ComplexityVector(
 )
 
 COMPLEXITY_VECTOR_E = ComplexityVector(
-    participants=(0, 1/3),
+    participants=(0, 1 / 3),
     duration=(0, 0),
-    scope=(0, 1/3)
+    scope=(0, 1 / 3)
 )
 
 COMPLEXITY_VECTOR_F = ComplexityVector(

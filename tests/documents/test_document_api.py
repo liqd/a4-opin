@@ -14,7 +14,7 @@ def test_anonymous_user_can_not_retrieve_document_list(apiclient, module):
 
 @pytest.mark.django_db
 def test_anonymous_user_can_not_retrieve_document_detail(apiclient, document):
-    url = reverse('documents-detail',  kwargs={
+    url = reverse('documents-detail', kwargs={
         'module_pk': document.module.pk,
         'pk': document.pk
     })

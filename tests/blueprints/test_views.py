@@ -5,7 +5,7 @@ from tests.helpers import templates_used
 
 
 def _verify_valid_response(response):
-    """ verifies a response of a request that is considered valid """
+    """ Verifies a response of a request that is considered valid """
     assert response.status_code == 200
     assert 'euth_blueprints/result.html' in templates_used(response)
     assert response.context_data['form'].is_valid()

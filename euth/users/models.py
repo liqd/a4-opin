@@ -134,7 +134,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name=_('Time zone'),
         max_length=100,
         choices=[(t, t) for t in common_timezones]
-        )
+    )
 
     objects = auth_models.UserManager()
 
@@ -184,13 +184,15 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     def get_full_name(self):
         """
-        Returns the first_name plus the last_name, with a space in between.
+        Return the first_name plus the last_name, with a space in between.
         """
         full_name = '%s <%s>' % (self.username, self.email)
         return full_name.strip()
 
     def get_short_name(self):
-        "Returns the short name for the user."
+        """
+        Return the short name for the user.
+        """
         return self.username
 
     def signup(self, username, email, timezone, commit=True):

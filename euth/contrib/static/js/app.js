@@ -10,7 +10,7 @@ var ReactLanguageSwitch = require('../../../dashboard/static/language_switch/rea
 var ReactUserList = require('../../../dashboard/static/user_list/react_user_list.jsx')
 var $ = window.jQuery = window.$ = require('jquery')
 
-require('../../../../euth_wagtail/static/js/euth_wagtail')
+require('../../../../euth_wagtail/assets/js/euth_wagtail')
 
 var getCurrentPath = function () {
   return location.pathname
