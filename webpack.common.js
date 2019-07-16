@@ -56,6 +56,18 @@ module.exports = {
       'leaflet.markercluster',
       'leaflet.markercluster/dist/MarkerCluster.css'
     ],
+    'a4maps/map_choose_point.js': [
+      './euth/maps/static/js/custom/map_choose_point.js'
+    ],
+    'a4maps/map_choose_polygon.js': [
+      './euth/maps/static/js/custom/map_choose_polygon.js'
+    ],
+    'a4maps/map_display_point.js': [
+      './euth/maps/static/js/custom/map_display_point.js'
+    ],
+    'a4maps/map_display_points.js': [
+      './euth/maps/static/js/custom/map_display_points.js'
+    ],
     a4maps_display_point: [
       'leaflet/dist/leaflet.css',
       'mapbox-gl/dist/mapbox-gl.css',
