@@ -55,6 +55,28 @@ module.exports = {
       'leaflet/dist/leaflet.css',
       'leaflet.markercluster',
       'leaflet.markercluster/dist/MarkerCluster.css'
+    ],
+    a4maps_display_point: [
+      'leaflet/dist/leaflet.css',
+      'mapbox-gl/dist/mapbox-gl.css',
+      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_point.js'
+    ],
+    a4maps_display_points: [
+      'leaflet/dist/leaflet.css',
+      'mapbox-gl/dist/mapbox-gl.css',
+      'leaflet.markercluster/dist/MarkerCluster.css',
+      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_points.js'
+    ],
+    a4maps_choose_point: [
+      'leaflet/dist/leaflet.css',
+      'mapbox-gl/dist/mapbox-gl.css',
+      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_point.js'
+    ],
+    a4maps_choose_polygon: [
+      'leaflet/dist/leaflet.css',
+      'mapbox-gl/dist/mapbox-gl.css',
+      'leaflet-draw/dist/leaflet.draw.css',
+      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_polygon.js'
     ]
   },
   output: {
@@ -120,7 +142,8 @@ module.exports = {
     modules: [path.resolve('./node_modules')],
     alias: {
       bootstrap: 'bootstrap-sass/assets/stylesheets/bootstrap',
-      jquery$: 'jquery/dist/jquery.min.js'
+      jquery$: 'jquery/dist/jquery.min.js',
+      a4maps_common$: 'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_common.js'
     }
   },
   plugins: [

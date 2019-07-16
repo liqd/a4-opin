@@ -343,9 +343,6 @@ STATICFILES_FINDERS = [
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'node_modules/flatpickr/dist'),
-    os.path.join(BASE_DIR, 'node_modules/typeahead.js/dist'),
-    os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 
