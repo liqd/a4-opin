@@ -46,6 +46,7 @@
     "eslint-config-standard": "13.0.1",
     "eslint-config-standard-jsx": "7.0.0",
     "eslint-plugin-import": "2.18.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-node": "9.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.14.2",
@@ -62,7 +63,7 @@
     "build:prod": "webpack --config ./webpack.prod.js --mode production",
     "build": "webpack --config ./webpack.dev.js --mode development",
     "watch": "webpack --config ./webpack.dev.js --watch --mode development",
-    "lint": "eslint --fix euth -c ./.eslintrc --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
+    "lint": "eslint euth --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss"
   },
   "browserslist": "last 3 versions, ie >= 11",
   "husky": {
