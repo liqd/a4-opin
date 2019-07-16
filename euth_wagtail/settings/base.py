@@ -347,7 +347,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'node_modules/typeahead.js/dist'),
     os.path.join(BASE_DIR, 'node_modules/leaflet-draw/dist'),
     os.path.join(PROJECT_DIR, 'static'),
-    os.path.join(PROJECT_DIR, 'static/bundles'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
