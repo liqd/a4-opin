@@ -17,7 +17,7 @@
         var $this = $(this)
         var name = $this.attr('name')
 
-        if (!radioButtonsByName.hasOwnProperty(name)) {
+        if (!Object.prototype.hasOwnProperty.call(radioButtonsByName, name)) {
           radioButtonsByName[name] = $()
         }
 
@@ -25,7 +25,7 @@
       })
 
       for (var key in radioButtonsByName) {
-        if (radioButtonsByName.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(radioButtonsByName, key)) {
           var $inputs = radioButtonsByName[key]
           if (!$inputs.filter(':checked').length) {
             return false

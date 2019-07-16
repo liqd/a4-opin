@@ -19,4 +19,4 @@ urlpatterns = [
         views.InviteUpdateView.as_view(),
         name='membership-invite-update'
     ),
- ]
+]

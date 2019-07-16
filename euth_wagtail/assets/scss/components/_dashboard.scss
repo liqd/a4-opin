@@ -4,7 +4,6 @@
 
     .dropdown {
         color: white;
-
     }
 
     .nav-tabs {
@@ -58,7 +57,7 @@
     margin-top: 40px;
 }
 
-.dashboard-content-header::after {
+.dashboard-content-header:after {
     display: block;
     content: "";
     clear: both;

@@ -189,11 +189,12 @@ class PageCollection(translations.TranslatedModel):
         ],
             heading="Title",
         ),
-        edit_handlers.MultiFieldPanel([
-            edit_handlers.FieldPanel(
+        edit_handlers.MultiFieldPanel(
+            [
+                edit_handlers.FieldPanel(
                     'intro_text_{}'.format(lang_code)
                 ) for lang_code, lang in LANGUAGES
-                ],
+            ],
             heading='intro_text'),
         edit_handlers.MultiFieldPanel([
             edit_handlers.PageChooserPanel(
@@ -204,7 +205,7 @@ class PageCollection(translations.TranslatedModel):
             heading="Pages",
         ),
         image_edit_handlers.ImageChooserPanel('image'),
-     ]
+    ]
 
     def __str__(self):
         return self.title

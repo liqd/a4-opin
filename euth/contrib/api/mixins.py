@@ -6,9 +6,12 @@ from rest_framework.response import Response
 
 class AllowPUTAsCreateMixin(object):
     """
+    PUT-as-create mixin.
+
     The following mixin class may be used in order to support PUT-as-create
     behavior for incoming requests.
     """
+
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object_or_none()

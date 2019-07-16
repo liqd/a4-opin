@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 def validate_file_type_and_size(upload):
 
     file_max_mb = 5
-    max_size = file_max_mb*10**6
+    max_size = file_max_mb * 10**6
     fileformats = settings.FILE_ALIASES['*']['fileformats']
     mimetypes = [mimetype for name, mimetype in fileformats]
     names = [name for name, mimetype in fileformats]

@@ -26,9 +26,7 @@ class ArchivedFilter(filters.DefaultsFilterSet):
     }
 
     is_archived = django_filters.BooleanFilter(
-                    field_name='is_archived',
-                    widget=ArchivedFilterWidget
-                )
+        field_name='is_archived', widget=ArchivedFilterWidget)
 
     class Meta:
         model = models.Project

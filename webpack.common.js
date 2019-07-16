@@ -1,7 +1,7 @@
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
-var path = require('path')
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
+const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 /** How do we use webpack to handle static files?
  *
@@ -21,11 +21,11 @@ var autoprefixer = require('autoprefixer')
 module.exports = {
   entry: {
     adhocracy4: [
-      './euth_wagtail/static/scss/all.scss',
+      './euth_wagtail/assets/scss/all.scss',
       './euth/contrib/static/js/app.js'
     ],
     datepicker: [
-      './euth_wagtail/static/js/init-picker.js',
+      './euth_wagtail/assets/js/init-picker.js',
       'datepicker/css/datepicker.min.css'
     ],
     vendor: [
@@ -38,12 +38,12 @@ module.exports = {
       '@fortawesome/fontawesome-free/scss/brands.scss',
       '@fortawesome/fontawesome-free/scss/regular.scss',
       '@fortawesome/fontawesome-free/scss/solid.scss',
-      './euth_wagtail/static/js/jquery-fix.js',
       'bootstrap-sass',
       'immutability-helper',
-      './euth_wagtail/static/js/modernizr-custom.js',
       'slick-carousel/slick/slick.min.js',
-      'slick-carousel/slick/slick.css'
+      'slick-carousel/slick/slick.css',
+      './euth_wagtail/assets/js/jquery-fix.js',
+      './euth_wagtail/assets/js/modernizr-custom.js'
     ],
     timeline_popover: [
       './euth/projects/static/euth_projects/timeline-popover.js'
@@ -60,14 +60,14 @@ module.exports = {
     ]
   },
   output: {
-    libraryTarget: 'var',
+    libraryTarget: 'this',
     library: '[name]',
-    path: path.resolve('./euth_wagtail/static/bundles'),
-    publicPath: '/static/bundles/',
+    path: path.resolve('./euth_wagtail/static'),
+    publicPath: '/static/',
     filename: '[name].js'
   },
   externals: {
-    'django': 'django'
+    django: 'django'
   },
   module: {
     rules: [
@@ -93,8 +93,8 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: (loader) => [
-                autoprefixer({browsers: ['last 3 versions', 'ie >= 10']})
+              plugins: [
+                require('autoprefixer')
               ]
             }
           },
@@ -121,14 +121,34 @@ module.exports = {
     // against the local directory.
     modules: [path.resolve('./node_modules')],
     alias: {
-      'bootstrap': 'bootstrap-sass/assets/stylesheets/bootstrap'
+      bootstrap: 'bootstrap-sass/assets/stylesheets/bootstrap'
     }
   },
   plugins: [
-    new webpack.optimize.SplitChunksPlugin({ name: 'vendor', filename: 'vendor.js' }),
+    new webpack.optimize.SplitChunksPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: './euth_wagtail/assets/images/*',
+        to: 'images/',
+        flatten: true
+      },
+      {
+        from: './euth_wagtail/assets/icons/*',
+        to: 'icons/',
+        flatten: true
+      },
+      {
+        from: './euth_wagtail/assets/category_icons/**/*',
+        to: 'category_icons/',
+        flatten: true
+      }
+    ])
   ]
 }

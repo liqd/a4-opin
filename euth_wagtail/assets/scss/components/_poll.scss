@@ -12,11 +12,11 @@
     margin-bottom: 1em;
     position: relative;
 
-    input[type=checkbox]:checked + span {
-      font-weight: bold;
+    input[type="checkbox"]:checked + span {
+        font-weight: bold;
     }
-    input[type=radio]:checked + span {
-      font-weight: bold;
+    input[type="radio"]:checked + span {
+        font-weight: bold;
     }
 }
 .poll__actions {
