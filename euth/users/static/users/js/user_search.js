@@ -26,7 +26,7 @@ class UserSearch {
   }
 
   renderSuggestions (context) {
-    let avatar = context.avatar ? context.avatar : context.default_avatar
+    const avatar = context.avatar ? context.avatar : context.default_avatar
     return (
       `<div>
         <img src="${avatar}" alt="" class="circled"> ${context.username}
@@ -48,7 +48,7 @@ class UserSearch {
     if (window.adhocracy4 && window.adhocracy4.userList && window.adhocracy4.userList[this.identifier]) {
       var listeningComponents = window.adhocracy4.userList[this.identifier]
       for (var i = 0; i < listeningComponents.length; i++) {
-        let userList = listeningComponents[i]
+        const userList = listeningComponents[i]
         userList.add(context).done((data, status) => {
           if (status !== 'success') {
             return console.error(data, status)

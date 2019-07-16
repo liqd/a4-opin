@@ -11,10 +11,10 @@ window.jQuery(document).ready(function () {
   baselayer.addTo(map)
 
   var polygonStyle = {
-    'color': '#0076ae',
-    'weight': 2,
-    'opacity': 1,
-    'fillOpacity': 0.2
+    color: '#0076ae',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.2
   }
 
   var icon = L.icon({

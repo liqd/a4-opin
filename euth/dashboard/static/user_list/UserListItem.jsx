@@ -25,7 +25,7 @@ UserListItem.propTypes = {
 }
 
 var Avatar = function (props) {
-  let avatar = props.src ? props.src : props.fallback
+  const avatar = props.src ? props.src : props.fallback
   return <img src={avatar} alt="" className="circled" />
 }
 

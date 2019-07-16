@@ -65,10 +65,10 @@ window.jQuery(document).ready(function () {
   var map = createMap(L, baseurl, name)
 
   var polygonStyle = {
-    'color': '#0076ae',
-    'weight': 2,
-    'opacity': 1,
-    'fillOpacity': 0.2
+    color: '#0076ae',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.2
   }
 
   var basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)

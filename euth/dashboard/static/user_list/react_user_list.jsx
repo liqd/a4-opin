@@ -24,7 +24,7 @@ class UserList extends React.Component {
 
   add (user) {
     // create new array with only user IDs and add the new one
-    let users = this.state.users.concat([user])
+    const users = this.state.users.concat([user])
 
     return this.updateUsers(users, this.props.project)
   }
@@ -104,9 +104,9 @@ UserList.defaultProps = {
 }
 
 module.exports.renderUserList = function (el) {
-  let users = JSON.parse(el.getAttribute('data-users'))
-  let listenTo = $(el).data('listen-to')
-  let project = $(el).data('project')
+  const users = JSON.parse(el.getAttribute('data-users'))
+  const listenTo = $(el).data('listen-to')
+  const project = $(el).data('project')
 
   // check if userList object exists, otherwise create an empty one
   window.adhocracy4.userList = window.adhocracy4.userList || {}

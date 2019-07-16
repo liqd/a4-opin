@@ -262,9 +262,9 @@ ParagraphBox.propTypes = {
 }
 
 module.exports.renderParagraphs = function (el) {
-  let module = el.getAttribute('data-module')
-  let doc = JSON.parse(el.getAttribute('data-document'))
-  let config = JSON.parse(el.getAttribute('data-config'))
+  const module = el.getAttribute('data-module')
+  const doc = JSON.parse(el.getAttribute('data-document'))
+  const config = JSON.parse(el.getAttribute('data-config'))
 
   ReactDOM.render(<ParagraphBox
     name={doc.name}

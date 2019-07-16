@@ -28,5 +28,5 @@ $(function () {
 })
 
 module.exports = {
-  'getCurrentPath': getCurrentPath
+  getCurrentPath: getCurrentPath
 }
