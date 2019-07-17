@@ -56,39 +56,19 @@ module.exports = {
       'leaflet.markercluster',
       'leaflet.markercluster/dist/MarkerCluster.css'
     ],
-    'a4maps/map_choose_point.js': [
-      './euth/maps/static/js/custom/map_choose_point.js'
-    ],
-    'a4maps/map_choose_polygon.js': [
-      './euth/maps/static/js/custom/map_choose_polygon.js'
-    ],
-    'a4maps/map_display_point.js': [
+    map_display_point.js: [
       './euth/maps/static/js/custom/map_display_point.js'
     ],
-    'a4maps/map_display_points.js': [
+    map_display_points.js: [
       './euth/maps/static/js/custom/map_display_points.js'
     ],
-    a4maps_display_point: [
-      'leaflet/dist/leaflet.css',
-      'mapbox-gl/dist/mapbox-gl.css',
-      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_point.js'
+    map_choose_point.js: [
+      './euth/maps/static/js/custom/map_choose_point.js'
     ],
-    a4maps_display_points: [
-      'leaflet/dist/leaflet.css',
-      'mapbox-gl/dist/mapbox-gl.css',
-      'leaflet.markercluster/dist/MarkerCluster.css',
-      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_points.js'
-    ],
-    a4maps_choose_point: [
-      'leaflet/dist/leaflet.css',
-      'mapbox-gl/dist/mapbox-gl.css',
-      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_point.js'
-    ],
-    a4maps_choose_polygon: [
-      'leaflet/dist/leaflet.css',
-      'mapbox-gl/dist/mapbox-gl.css',
+    map_choose_polygon.js: [
+      'leaflet.draw',
       'leaflet-draw/dist/leaflet.draw.css',
-      'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_polygon.js'
+      './euth/maps/static/js/custom/map_choose_polygon.js'
     ]
   },
   output: {
