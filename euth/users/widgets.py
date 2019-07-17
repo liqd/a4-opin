@@ -5,7 +5,6 @@ from django.template.loader import get_template
 class UserSearchInput(TextInput):
     class Media:
         js = (
-            'typeahead.jquery.min.js',
             'user_search.js',
         )
 
