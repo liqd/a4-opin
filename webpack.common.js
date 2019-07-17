@@ -56,17 +56,17 @@ module.exports = {
       'leaflet.markercluster',
       'leaflet.markercluster/dist/MarkerCluster.css'
     ],
-    map_display_point.js: [
+    map_display_point: [
       './euth/maps/static/js/custom/map_display_point.js'
     ],
-    map_display_points.js: [
+    map_display_points: [
       './euth/maps/static/js/custom/map_display_points.js'
     ],
-    map_choose_point.js: [
+    map_choose_point: [
       './euth/maps/static/js/custom/map_choose_point.js'
     ],
-    map_choose_polygon.js: [
-      'leaflet.draw',
+    map_choose_polygon: [
+      'leaflet-draw',
       'leaflet-draw/dist/leaflet.draw.css',
       './euth/maps/static/js/custom/map_choose_polygon.js'
     ]
