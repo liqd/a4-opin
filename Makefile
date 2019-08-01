@@ -46,13 +46,6 @@ clean:
 .PHONY: fixtures
 fixtures:
 	$(VIRTUAL_ENV)/bin/python3 manage.py loaddata site-dev
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_users.User:20
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.Organisation:5
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_organisations.OrganisationTranslation:4
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4projects.Project:10
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4modules.Module:15
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata a4phases.Phase:20
-	$(VIRTUAL_ENV)/bin/python3 manage.py loadtestdata euth_ideas.Idea:40
 
 .PHONY: server
 server:
