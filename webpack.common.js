@@ -69,6 +69,10 @@ module.exports = {
       'leaflet-draw',
       'leaflet-draw/dist/leaflet.draw.css',
       './euth/maps/static/js/custom/map_choose_polygon.js'
+    ],
+    flatpickr: [
+      'flatpickr/dist/flatpickr.min.js',
+      'flatpickr/dist/flatpickr.min.css'
     ]
   },
   output: {

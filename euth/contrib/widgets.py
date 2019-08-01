@@ -7,11 +7,11 @@ class DateInput(widgets.DateInput):
 
     class Media:
         js = (
-            'flatpickr.min.js',
+            'flatpickr.js',
             'js/dateTimeInput.js',
         )
         css = {'all': (
-            'flatpickr.min.css',
+            'flatpickr.css',
         )}
 
     input_type = 'text'
