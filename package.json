@@ -9,7 +9,7 @@
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.5.5",
     "@fortawesome/fontawesome-free": "5.10.0",
-    "adhocracy4": "github:liqd/adhocracy4#mB-v2.2.2",
+    "adhocracy4": "github:liqd/adhocracy4#b98fa6bf651699a2f1c3375dbdbf72e2cba34d3c",
     "autoprefixer": "9.6.1",
     "babel-loader": "8.0.6",
     "bootstrap-sass": "3.4.1",
