@@ -176,7 +176,7 @@ module.exports = {
       },
       {
         from: './euth_wagtail/assets/category_icons/**/*',
-        to: 'category_icons/',
+        to: 'category_icons/icons/',
         flatten: true
       }
     ])
