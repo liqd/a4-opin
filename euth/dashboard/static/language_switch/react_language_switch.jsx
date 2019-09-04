@@ -48,10 +48,15 @@ class LanguageSwitch extends React.Component {
             this.props.languages.map((languageCode, i) => {
               return (
                 <li key={languageCode} className={i === 0 ? 'active' : ''}>
-                  <input type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
-                    checked={this.state.activeLanguages.indexOf(languageCode) !== -1} readOnly />
-                  <a href={'#' + languageCode + '_language_panel'} className="language-switch btn"
-                    data-toggle="tab">{languageCode}</a>
+                  <input
+                    type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
+                    checked={this.state.activeLanguages.indexOf(languageCode) !== -1} readOnly
+                  />
+                  <a
+                    href={'#' + languageCode + '_language_panel'} className="language-switch btn"
+                    data-toggle="tab"
+                  >{languageCode}
+                  </a>
                 </li>
               )
             })

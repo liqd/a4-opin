@@ -13,8 +13,10 @@ var UserListItem = function (props) {
         {props.user.email}
       </td>
       <td>
-        <input type="checkbox" name={`user_${props.user.id}`}
-          id={`user_${props.user.id}`} data-userid={props.user.id} />
+        <input
+          type="checkbox" name={`user_${props.user.id}`}
+          id={`user_${props.user.id}`} data-userid={props.user.id}
+        />
       </td>
     </tr>
   )

@@ -40,9 +40,9 @@ class ParagraphBox extends React.Component {
 
   getNewParagraph (name, text) {
     var newParagraph = {}
-    newParagraph['name'] = name
-    newParagraph['text'] = text
-    newParagraph['paragraph_key'] = this.getNextParagraphKey()
+    newParagraph.name = name
+    newParagraph.text = text
+    newParagraph.paragraph_key = this.getNextParagraphKey()
     return newParagraph
   }
 
@@ -114,9 +114,9 @@ class ParagraphBox extends React.Component {
     var submitData = {
       urlReplaces: { moduleId: this.props.module }
     }
-    submitData['name'] = this.state.name
+    submitData.name = this.state.name
     this.state.paragraphs.forEach(function (val, index) { val.weight = index })
-    submitData['paragraphs'] = this.state.paragraphs
+    submitData.paragraphs = this.state.paragraphs
 
     api.document.change(submitData, id)
       .done(function (data) {
@@ -143,9 +143,9 @@ class ParagraphBox extends React.Component {
     var submitData = {
       urlReplaces: { moduleId: this.props.module }
     }
-    submitData['name'] = this.state.name
+    submitData.name = this.state.name
     this.state.paragraphs.forEach(function (val, index) { val.weight = index })
-    submitData['paragraphs'] = this.state.paragraphs
+    submitData.paragraphs = this.state.paragraphs
 
     api.document.add(submitData)
       .done(function (data) {
@@ -189,7 +189,8 @@ class ParagraphBox extends React.Component {
                   className="form-control"
                   type="text"
                   defaultValue={this.state.name}
-                  onChange={this.handleDocumentNameChange.bind(this)} />
+                  onChange={this.handleDocumentNameChange.bind(this)}
+                />
               </div>
             </div>
           </div>
@@ -220,24 +221,25 @@ class ParagraphBox extends React.Component {
               <button
                 className="btn btn-hover-success btn-block"
                 onClick={this.appendParagraph.bind(this)}
-                type="button">
+                type="button"
+              >
                 <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
               </button>
             </div>
           </div>
-          { this.state.successMessage
+          {this.state.successMessage
             ? <div className="row">
               <div className="col-md-9">
                 <p className="alert alert-success ">
                   {this.state.successMessage}
                 </p>
               </div>
-            </div> : null
-          }
+            </div> : null /* eslint-disable-line */ }
           <button
             id="submit-button"
             className="btn btn-primary"
-            type="submit">
+            type="submit"
+          >
             {django.gettext('save')}
           </button>
         </form>
@@ -271,6 +273,7 @@ module.exports.renderParagraphs = function (el) {
     id={doc.id}
     module={module}
     paragraphs={doc.paragraphs}
-    config={config} />, el
+    config={config}
+  />, el /* eslint-disable-line */
   )
 }
