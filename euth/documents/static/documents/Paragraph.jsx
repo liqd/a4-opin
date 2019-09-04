@@ -64,18 +64,21 @@ class Paragraph extends React.Component {
             <button
               className="btn btn-hover-success btn-block"
               onClick={this.add.bind(this)}
-              type="button">
+              type="button"
+            >
               <i className="fa fa-plus" /> {django.gettext('add a new paragraph')}
             </button>
           </div>
         </div>
         <div
           className="section row commenting-paragraph"
-          id={'paragraphs' + this.props.id}>
+          id={'paragraphs' + this.props.id}
+        >
           <div className="col-sm-9 paragraph">
             <div className="form-group">
               <label
-                htmlFor={'id_paragraphs-' + this.props.id + '-name'}>
+                htmlFor={'id_paragraphs-' + this.props.id + '-name'}
+              >
                 {django.gettext('Headline:')}
               </label>
               <input
@@ -84,58 +87,67 @@ class Paragraph extends React.Component {
                 name={'paragraphs-' + this.props.id + '-name'}
                 type="text"
                 defaultValue={this.props.paragraph.name}
-                onChange={this.handleNameChange.bind(this)} />
+                onChange={this.handleNameChange.bind(this)}
+              />
               {this.props.errors && this.props.errors.name ? <ul className="errorlist">
                 <li>{this.props.errors.name[0]}</li>
-              </ul> : null}
+              </ul> : null /* eslint-disable-line */ }
               <label
-                htmlFor={'id_paragraphs-' + this.props.id + '-text'}>
+                htmlFor={'id_paragraphs-' + this.props.id + '-text'}
+              >
                 {django.gettext('Paragraph:')}
               </label>
               <div
                 className="django-ckeditor-widget"
                 data-field-id={'id_paragraphs-' + this.props.id + '-text'}
-                style={{ display: 'inline-block' }}>
+                style={{ display: 'inline-block' }}
+              >
                 <textarea
                   id={'id_paragraphs-' + this.props.id + '-text'}
-                  style={{ height: this.props.config.height + ckEditorToolbarsHeight }} />
-                { this.props.errors && this.props.errors.text ? <ul className="errorlist">
+                  style={{ height: this.props.config.height + ckEditorToolbarsHeight }}
+                />
+                {this.props.errors && this.props.errors.text ? <ul className="errorlist">
                   <li>{this.props.errors.text[0]}</li>
-                </ul> : null }
+                </ul> : null /* eslint-disable-line */ }
               </div>
             </div>
           </div>
           <div className="col-sm-3 comment-count">
             <div className="action-bar">
-              { this.props.moveParagraphUp
+              {this.props.moveParagraphUp
                 ? <button
                   className="btn btn-hover-primary"
                   onClick={this.up.bind(this)}
-                  type="button">
+                  type="button"
+                /* eslint-disable-line */ >
                   <i className="fa fa-chevron-up" />
-                </button>
+                </button> // eslint-disable-line
                 : <button
                   className="btn btn-hover-primary"
-                  type="button">
+                  type="button"
+                /* eslint-disable-line */ >
                   <i className="fa fa-chevron-up" />
-                </button> }
-              { this.props.moveParagraphDown
+                </button> /* eslint-disable-line */ }
+              {this.props.moveParagraphDown
                 ? <button
                   className="btn btn-hover-primary"
                   onClick={this.down.bind(this)}
-                  type="button">
+                  type="button"
+                /* eslint-disable-line */>
                   <i className="fa fa-chevron-down" />
-                </button>
+                </button> // eslint-disable-line
                 : <button
                   className="btn btn-hover-primary"
                   disabled="true"
-                  type="button">
+                  type="button"
+                /* eslint-disable-line */ >
                   <i className="fa fa-chevron-down" />
-                </button> }
+                </button> /* eslint-disable-line */ }
               <button
                 className="btn btn-hover-danger"
                 onClick={this.delete.bind(this)}
-                type="button">
+                type="button"
+              >
                 <i className="fas fa-trash-alt" />
               </button>
             </div>

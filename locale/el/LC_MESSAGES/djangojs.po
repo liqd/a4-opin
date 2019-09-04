@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-25 11:12+0100\n"
+"POT-Creation-Date: 2019-09-04 14:58+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
@@ -43,74 +43,58 @@ msgstr "Σώμα κειμένου"
 msgid "Collapsible element"
 msgstr "Συρραπτικό στοιχείο"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:26
-#: adhocracy4/comments/static/comments/Comment.jsx:26
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:23
+#: adhocracy4/comments/static/comments/Comment.jsx:23
+#, javascript-format
 msgid "hide one reply"
-msgstr "απόκρυψη μιας απάντησης"
+msgid_plural "hide %s replies"
+msgstr[0] "απόκρυψη μιας απάντησης"
+msgstr[1] "απόκρυψη %s απαντήσεωνg"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:26
-#: adhocracy4/comments/static/comments/Comment.jsx:26
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4/comments/static/comments/Comment.jsx:25
 #, javascript-format
-msgid "hide %s replies"
-msgstr "απόκρυψη %s απαντήσεωνg"
-
-#: adhocracy4/comments/static/comments/Comment.jsx:28
-#: adhocracy4/comments/static/comments/Comment.jsx:28
-#: adhocracy4.js:87
 msgid "view one reply"
-msgstr "δείτε μια απάντηση"
+msgid_plural "view %s replies"
+msgstr[0] "δείτε μια απάντηση"
+msgstr[1] "βλέπε %s απαντήσεις"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:28
-#: adhocracy4/comments/static/comments/Comment.jsx:28
-#: adhocracy4.js:87
-#, javascript-format
-msgid "view %s replies"
-msgstr "βλέπε %s απαντήσεις"
-
-#: adhocracy4/comments/static/comments/Comment.jsx:128
-#: adhocracy4/comments/static/comments/Comment.jsx:128
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:125
+#: adhocracy4/comments/static/comments/Comment.jsx:125
 msgid "Do you really want to delete this comment?"
 msgstr "Θέλετε πραγματικά να διαγράψετε αυτό το σχόλιο;"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:130
+#: adhocracy4/comments/static/comments/Comment.jsx:127
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:96
-#: adhocracy4/comments/static/comments/Comment.jsx:130
+#: adhocracy4/comments/static/comments/Comment.jsx:127
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:93
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:96
-#: adhocracy4.js:87
 msgid "Delete"
 msgstr "Διαγράφω"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:131
+#: adhocracy4/comments/static/comments/Comment.jsx:128
 #: adhocracy4/static/Modal.jsx:49
-#: adhocracy4/comments/static/comments/Comment.jsx:131
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:128
 msgid "Abort"
 msgstr "Απορρίπτω "
 
-#: adhocracy4/comments/static/comments/Comment.jsx:144
-#: adhocracy4/comments/static/comments/Comment.jsx:144
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:141
+#: adhocracy4/comments/static/comments/Comment.jsx:141
 msgid "Latest edit on"
 msgstr "Τελευταία επεξεργασία"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:146
+#: adhocracy4/comments/static/comments/Comment.jsx:146
 msgid "Moderator"
 msgstr "Συντονιστής "
 
-#: adhocracy4/comments/static/comments/Comment.jsx:156
+#: adhocracy4/comments/static/comments/Comment.jsx:153
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
-#: adhocracy4/comments/static/comments/Comment.jsx:156
+#: adhocracy4/comments/static/comments/Comment.jsx:153
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
-#: adhocracy4.js:87
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
@@ -120,23 +104,20 @@ msgstr ""
 "μέτρηση. Η μετριοπάθεια θα εξετάσει το περιεχόμενο που αναφέρθηκε. Το "
 "περιεχόμενο θα διαγραφεί εάν δεν πληροί τους κανόνες συζήτησης (netiquette)."
 
-#: adhocracy4/comments/static/comments/Comment.jsx:179
+#: adhocracy4/comments/static/comments/Comment.jsx:176
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
-#: adhocracy4/comments/static/comments/Comment.jsx:179
+#: adhocracy4/comments/static/comments/Comment.jsx:176
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:26
-#: adhocracy4.js:87
 msgid "Answer"
 msgstr "Απάντηση"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:218
-#: adhocracy4/comments/static/comments/Comment.jsx:218
-#: adhocracy4.js:87
+#: adhocracy4/comments/static/comments/Comment.jsx:215
+#: adhocracy4/comments/static/comments/Comment.jsx:215
 msgid "Your reply here"
 msgstr "Η απάντησή σας εδώ"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
 #: adhocracy4/comments/static/comments/CommentBox.jsx:167
-#: adhocracy4.js:87
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "σχόλια"
@@ -148,73 +129,61 @@ msgstr[1] "σχόλια"
 #: adhocracy4/comments/static/comments/CommentBox.jsx:170
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
 #: adhocracy4/comments/static/comments/CommentForm.jsx:48
-#: adhocracy4.js:87
 msgid "Your comment here"
 msgstr "Το σχόλιό σας εδώ"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
-#: adhocracy4.js:87
 msgid "save changes"
 msgstr "αποθηκεύστε τις αλλαγές"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
-#: adhocracy4.js:87
 msgid "cancel"
 msgstr "Ματαίωση"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
 #: adhocracy4/comments/static/comments/CommentForm.jsx:51
-#: adhocracy4.js:87
 msgid "post"
 msgstr "Θέση"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
 #: adhocracy4/comments/static/comments/CommentForm.jsx:57
-#: adhocracy4.js:87
 msgid "Please login to comment"
 msgstr "Παρακαλούμε συνδεθείτε για να σχολιάσετε"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
 #: adhocracy4/comments/static/comments/CommentForm.jsx:63
-#: adhocracy4.js:87
 msgid "The currently active phase doesn't allow to comment."
 msgstr "Η τρέχουσα ενεργή φάση δεν επιτρέπει την παρατήρηση."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
-#: adhocracy4.js:87
 msgid "Edit"
 msgstr "Επεξεργασία"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
-#: adhocracy4.js:87
 msgid "Report"
 msgstr "Κανω ΑΝΑΦΟΡΑ"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
 #: adhocracy4/follows/static/follows/FollowButton.jsx:51
-#: adhocracy4.js:87
 msgid "Not following"
 msgstr "Δεν ακολουθείτε"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
 #: adhocracy4/follows/static/follows/FollowButton.jsx:52
-#: adhocracy4.js:87
 msgid "Never be notified."
 msgstr "Μην ειδοποιείτε ποτέ."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
 #: adhocracy4/follows/static/follows/FollowButton.jsx:53
-#: adhocracy4.js:87
 msgid "Following"
 msgstr "ΕΠΟΜΕΝΟ"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
 #: adhocracy4/follows/static/follows/FollowButton.jsx:54
-#: adhocracy4.js:87
 msgid "Receive email notifications about this project."
 msgstr ""
 "Λάβετε ειδοποιήσεις μέσω ηλεκτρονικού ταχυδρομείου σχετικά με αυτό το έργο."
@@ -222,14 +191,12 @@ msgstr ""
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
-#: adhocracy4.js:87
 msgid "Unfollow"
 msgstr "Απαγορεύεται η παρακολούθηση"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: adhocracy4/follows/static/follows/FollowButton.jsx:61
 #: euth/follows/static/follows/FollowButton.jsx:48
-#: adhocracy4.js:87
 msgid "Follow"
 msgstr "Ακολουθηστε"
 
@@ -237,67 +204,56 @@ msgstr "Ακολουθηστε"
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
-#: adhocracy4.js:87
 msgid "remove"
 msgstr "αφαιρώ"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
 #: adhocracy4/polls/static/polls/PollManagement.jsx:188
-#: adhocracy4.js:87
 msgid "The poll has been updated."
 msgstr "Η δημοσκόπηση έχει ενημερωθεί."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
 #: adhocracy4/polls/static/polls/PollManagement.jsx:205
-#: adhocracy4.js:87
 msgid "The poll could not be updated."
 msgstr "Η δημοσκόπηση δεν ήταν δυνατή η ενημέρωση."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
 #: adhocracy4/polls/static/polls/PollManagement.jsx:246
-#: adhocracy4.js:87
 msgid "Add a new question"
 msgstr "Προσθέστε μια νέα ερώτηση"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
 #: adhocracy4/polls/static/polls/PollManagement.jsx:252
-#: adhocracy4.js:87
 msgid "Save"
 msgstr "Αποθηκεύσετε"
 
 #: adhocracy4/polls/static/polls/Question.jsx:51
 #: adhocracy4/polls/static/polls/Question.jsx:51
-#: adhocracy4.js:87
 msgid "Vote counted"
 msgstr "Η καταμέτρηση της ψηφοφορίας"
 
 #: adhocracy4/polls/static/polls/Question.jsx:61
 #: adhocracy4/polls/static/polls/Question.jsx:61
-#: adhocracy4.js:87
 msgid "Vote has not been counted due to a server error."
 msgstr "Η ψηφοφορία δεν έχει υπολογιστεί λόγω σφάλματος διακομιστή."
 
 #: adhocracy4/polls/static/polls/Question.jsx:108
 #: adhocracy4/polls/static/polls/Question.jsx:108
-#: adhocracy4.js:87
 msgid "Vote"
 msgstr "Ψήφος"
 
 #: adhocracy4/polls/static/polls/Question.jsx:114
 #: adhocracy4/polls/static/polls/Question.jsx:114
-#: adhocracy4.js:87
 msgid "Please login to vote"
 msgstr "Παρακαλώ συνδεθείτε για να ψηφίσετε"
 
 #: adhocracy4/polls/static/polls/Question.jsx:136
 #: adhocracy4/polls/static/polls/Question.jsx:136
-#: adhocracy4.js:87
 msgid "Multiple answers are possible for this question"
 msgstr "Πολλές απαντήσεις είναι δυνατές για αυτήν την ερώτηση"
 
 #: adhocracy4/polls/static/polls/Question.jsx:141
 #: adhocracy4/polls/static/polls/Question.jsx:141
-#: adhocracy4.js:87
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "ψήφους"
@@ -305,49 +261,41 @@ msgstr[1] "ψήφους"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
-#: adhocracy4.js:87
 msgid "To poll"
 msgstr "Για δημοσκόπηση"
 
 #: adhocracy4/polls/static/polls/Question.jsx:145
 #: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4.js:87
 msgid "Change vote"
 msgstr "Αλλαγή ψηφοφορίας"
 
 #: adhocracy4/polls/static/polls/Question.jsx:149
 #: adhocracy4/polls/static/polls/Question.jsx:149
-#: adhocracy4.js:87
 msgid "Show preliminary results"
 msgstr "Εμφάνιση προκαταρκτικών αποτελεσμάτων"
 
 #: adhocracy4/polls/static/polls/Question.jsx:177
 #: adhocracy4/polls/static/polls/Question.jsx:177
-#: adhocracy4.js:87
 msgid "Your choice"
 msgstr "Επιλογή σου"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:15
-#: adhocracy4.js:87
 msgid "Question"
 msgstr "Ερώτηση"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:37
-#: adhocracy4.js:87
 msgid "Users can select more than one answer."
 msgstr "Οι χρήστες μπορούν να επιλέξουν περισσότερες από μία απαντήσεις."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:45
-#: adhocracy4.js:87
 msgid "Choice"
 msgstr "Επιλογή"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:67
-#: adhocracy4.js:87
 msgid "Add a new choice"
 msgstr "Προσθέστε μια νέα επιλογή"
 
@@ -355,7 +303,6 @@ msgstr "Προσθέστε μια νέα επιλογή"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:76
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:79
-#: adhocracy4.js:87
 msgid "Move up"
 msgstr "Μετακινήστε επάνω"
 
@@ -363,31 +310,26 @@ msgstr "Μετακινήστε επάνω"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:85
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:88
-#: adhocracy4.js:87
 msgid "Move down"
 msgstr "Μετακινηθείτε προς τα κάτω"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
-#: adhocracy4.js:87
 msgid "Thank you! We are taking care of it."
 msgstr "Ευχαριστώ! Την φροντίζουμε."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
 #: adhocracy4/reports/static/reports/ReportModal.jsx:65
-#: adhocracy4.js:87
 msgid "Your message"
 msgstr "Το μήνυμά σου"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
 #: adhocracy4/reports/static/reports/ReportModal.jsx:77
-#: adhocracy4.js:87
 msgid "Send Report"
 msgstr "Αποστολή αναφοράς"
 
 #: adhocracy4/static/Alert.jsx:10
 #: adhocracy4/static/Alert.jsx:11
-#: adhocracy4.js:44
 msgid "Close"
 msgstr "Κλείσιμο"
 
@@ -396,43 +338,35 @@ msgid "Please set all values for your project."
 msgstr "Ορίστε όλες τις τιμές για το έργο σας."
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
-#: adhocracy4.js:87
 msgid "Remove"
 msgstr "Αφαιρώ"
 
 #: euth/documents/static/documents/Paragraph.jsx:68
 #: euth/documents/static/documents/ParagraphBox.jsx:224
-#: adhocracy4.js:87
 msgid "add a new paragraph"
 msgstr "προσθέστε μια νέα παράγραφο"
 
 #: euth/documents/static/documents/Paragraph.jsx:79
-#: adhocracy4.js:87
 msgid "Headline:"
 msgstr "Επικεφαλίδα:"
 
 #: euth/documents/static/documents/Paragraph.jsx:93
-#: adhocracy4.js:87
 msgid "Paragraph:"
 msgstr "Παράγραφος:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
-#: adhocracy4.js:87
 msgid "Your document has been updated."
 msgstr "Το έγγραφό σας έχει ενημερωθεί."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
-#: adhocracy4.js:87
 msgid "Your document has been saved."
 msgstr "Το έγγραφό σας έχει αποθηκευτεί."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
-#: adhocracy4.js:87
 msgid "Title:"
 msgstr "Τίτλος:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:241
-#: adhocracy4.js:87
 msgid "save"
 msgstr "αποθηκεύσετε"
 
@@ -441,11 +375,6 @@ msgstr "αποθηκεύσετε"
 
 #~ msgid "Your message here"
 #~ msgstr "Το μήνυμά σας εδώ"
-
-#~ msgid "view %s reply"
-#~ msgid_plural "view %s replies"
-#~ msgstr[0] "βλέπε %s απαντήσεις"
-#~ msgstr[1] "βλέπε %s απαντήσεις"
 
 #~ msgid "Offline Phase"
 #~ msgstr "Φάση εκτός σύνδεσης"
