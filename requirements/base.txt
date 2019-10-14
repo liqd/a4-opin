@@ -9,7 +9,7 @@ django-countries==5.5
 django-sites==0.10
 django-parler==2.0
 feedparser==5.2.1
-micawber==0.5.0
+micawber==0.5.1
 pyuca==1.2
 raven==6.10.0
 wagtail==2.6.2
