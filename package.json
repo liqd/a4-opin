@@ -33,7 +33,7 @@
     "prop-types": "15.7.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",
-    "react-flip-move": "3.0.3",
+    "react-flip-move": "3.0.4",
     "sass-loader": "8.0.0",
     "slick-carousel": "1.8.1",
     "style-loader": "1.0.0",
