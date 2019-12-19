@@ -39,7 +39,7 @@
     "style-loader": "1.0.2",
     "terser-webpack-plugin": "2.3.1",
     "typeahead.js": "0.11.1",
-    "webpack": "4.41.3",
+    "webpack": "4.41.4",
     "webpack-cli": "3.3.10",
     "webpack-merge": "4.2.2"
   },
