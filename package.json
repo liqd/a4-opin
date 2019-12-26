@@ -36,7 +36,7 @@
     "react-flip-move": "3.0.4",
     "sass-loader": "8.0.0",
     "slick-carousel": "1.8.1",
-    "style-loader": "1.0.2",
+    "style-loader": "1.1.2",
     "terser-webpack-plugin": "2.3.1",
     "typeahead.js": "0.11.1",
     "webpack": "4.41.4",
