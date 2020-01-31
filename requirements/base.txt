@@ -18,7 +18,7 @@ whitenoise==4.1.4
 # Inherited a4-core requirements
 bleach==3.1.0
 Django==2.2.9 # pyup: <2.3
-django-allauth==0.40.0
+django-allauth==0.41.0
 django-autoslug==1.9.6
 django-background-tasks==1.2.0
 django-ckeditor==5.7.1
