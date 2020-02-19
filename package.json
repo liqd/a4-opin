@@ -17,7 +17,7 @@
     "copy-webpack-plugin": "5.1.1",
     "css-loader": "3.4.2",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
-    "file-loader": "4.3.0",
+    "file-loader": "5.1.0",
     "flatpickr": "4.6.3",
     "immutability-helper": "3.0.1",
     "jquery": "3.4.1",
