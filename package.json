@@ -2,10 +2,10 @@
   "name": "euth_wagtail",
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
-    "@babel/core": "7.8.4",
+    "@babel/core": "7.8.6",
     "@babel/plugin-transform-modules-commonjs": "7.8.3",
     "@babel/plugin-transform-runtime": "7.8.3",
-    "@babel/preset-env": "7.8.4",
+    "@babel/preset-env": "7.8.6",
     "@babel/preset-react": "7.8.3",
     "@babel/runtime": "7.8.4",
     "@fortawesome/fontawesome-free": "5.12.1",
