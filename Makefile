@@ -18,7 +18,7 @@ help:
 	@echo "  make fixtures        -- load example data"
 	@echo "  make server	      -- start a dev server"
 	@echo "  make watch           -- start a dev server and rebuild js and css files on changes"
-	@echo "  make background      -- start a dev server, rebuild js and css files on changes, and start background processes"
+	@echo "  make background      -- start background processes"
 	@echo "  make test            -- tests on exiting database"
 	@echo "  make test-lastfailed -- run test that failed last"
 	@echo "  make test-clean      -- test on new database"
@@ -60,10 +60,7 @@ watch:
 
 .PHONY: background
 background:
-	trap 'kill %1; kill %2' KILL; \
-	npm run watch & \
-	$(VIRTUAL_ENV)/bin/python3 manage.py process_tasks & \
-	$(VIRTUAL_ENV)/bin/python3 manage.py runserver 8001
+	$(VIRTUAL_ENV)/bin/python3 manage.py process_tasks
 
 .PHONY: test
 test:
