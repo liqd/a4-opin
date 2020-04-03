@@ -1,7 +1,6 @@
 var PropTypes = require('prop-types')
 var React = require('react')
 var ReactDOM = require('react-dom')
-// var $ = require('jquery')
 
 class LanguageSwitch extends React.Component {
   constructor (props) {
@@ -11,14 +10,25 @@ class LanguageSwitch extends React.Component {
     }
   }
 
-  switchLanguage (e) {
+  addLanguage (e) {
     var languageCode = e.target.textContent
     var index = this.state.activeLanguages.indexOf(languageCode)
     var newActiveLanguages = this.state.activeLanguages.concat([])
     if (index === -1) {
       // adding language
       newActiveLanguages.push(languageCode)
-    } else {
+    }
+
+    this.setState({
+      activeLanguages: newActiveLanguages
+    })
+  }
+
+  removeLanguage (e) {
+    var languageCode = e.target.textContent
+    var index = this.state.activeLanguages.indexOf(languageCode)
+    var newActiveLanguages = this.state.activeLanguages.concat([])
+    if (index !== -1) {
       // removing language
       newActiveLanguages.splice(index, 1)
     }
@@ -26,20 +36,6 @@ class LanguageSwitch extends React.Component {
     this.setState({
       activeLanguages: newActiveLanguages
     })
-    //, function () {
-    //   var checkbox = $('#' + languageCode + '_language-switch')
-    //   // language was active
-    //   if (!checkbox.is(':checked')) {
-    //     $(this.refs.checkboxList).find(':checked').first().next('a').tab('show')
-    //   } else {
-    //     checkbox.next('a').tab('show')
-    //   }
-    // })
-  }
-
-  componentDidMount () {
-    // $(this.refs.toggleButton).dropdown()
-    // $(this.refs.checkboxList).find('.a').tab()
   }
 
   render () {
@@ -70,10 +66,29 @@ class LanguageSwitch extends React.Component {
           </button>
           <ul className="dropdown-menu">
             {
-              this.props.languages.map(languageCode => {
+              this.props.languages.map((languageCode, i) => {
+                return (
+                  <span key={languageCode}>
+                    {this.state.activeLanguages.indexOf(languageCode) === -1 &&
+                      <li key={languageCode}>
+                        <button type="button" onClick={this.addLanguage.bind(this)}>{languageCode}</button>
+                      </li>}
+                  </span>
+                )
+              })
+            }
+          </ul>
+        </div>
+        <div className="dropdown">
+          <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
+            <i className="fa fa-minus" />
+          </button>
+          <ul className="dropdown-menu">
+            {
+              this.state.activeLanguages.map(languageCode => {
                 return (
                   <li key={languageCode}>
-                    <button type="button" onClick={this.switchLanguage.bind(this)}>{languageCode}</button>
+                    <button type="button" onClick={this.removeLanguage.bind(this)}>{languageCode}</button>
                   </li>
                 )
               })
