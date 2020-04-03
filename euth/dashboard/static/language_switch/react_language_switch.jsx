@@ -1,7 +1,7 @@
 var PropTypes = require('prop-types')
 var React = require('react')
 var ReactDOM = require('react-dom')
-var $ = require('jquery')
+// var $ = require('jquery')
 
 class LanguageSwitch extends React.Component {
   constructor (props) {
@@ -19,25 +19,27 @@ class LanguageSwitch extends React.Component {
       // adding language
       newActiveLanguages.push(languageCode)
     } else {
+      // removing language
       newActiveLanguages.splice(index, 1)
     }
 
     this.setState({
       activeLanguages: newActiveLanguages
-    }, function () {
-      var $checkbox = $('#' + languageCode + '_language-switch')
-      // language was active
-      if (!$checkbox.is(':checked')) {
-        $(this.refs.checkboxList).find(':checked').first().next('a').tab('show')
-      } else {
-        $checkbox.next('a').tab('show')
-      }
     })
+    //, function () {
+    //   var checkbox = $('#' + languageCode + '_language-switch')
+    //   // language was active
+    //   if (!checkbox.is(':checked')) {
+    //     $(this.refs.checkboxList).find(':checked').first().next('a').tab('show')
+    //   } else {
+    //     checkbox.next('a').tab('show')
+    //   }
+    // })
   }
 
   componentDidMount () {
-    $(this.refs.toggleButton).dropdown()
-    $(this.refs.checkboxList).find('.a').tab()
+    // $(this.refs.toggleButton).dropdown()
+    // $(this.refs.checkboxList).find('.a').tab()
   }
 
   render () {
