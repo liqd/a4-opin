@@ -81,7 +81,7 @@ class OrganisationForm(forms.ModelForm):
         """
         return [field for field in self if '__' not in field.html_name]
 
-    def prefiled_languages(self):
+    def prefilled_languages(self):
         """
         Return languages tabs that need to be displayed.
         """
