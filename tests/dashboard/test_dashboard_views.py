@@ -244,7 +244,7 @@ def test_dashboard_update_organisation(client, organisation):
 
     response = client.get(url)
     form = response.context_data['form']
-    assert form.prefiled_languages() == ['en']
+    assert form.prefilled_languages() == ['en']
     assert len(form.untranslated()) == 9
     assert len(form.translated()) == 10
     assert form.translated()[0][0] == 'en'
