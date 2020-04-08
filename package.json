@@ -3,6 +3,7 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "@babel/core": "7.9.0",
+    "@babel/compat-data": "7.8.0",
     "@babel/plugin-transform-modules-commonjs": "7.9.0",
     "@babel/plugin-transform-runtime": "7.9.0",
     "@babel/preset-env": "7.9.0",
