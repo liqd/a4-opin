@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import euth.maps.fields
+import adhocracy4.maps.fields
 
 
 class Migration(migrations.Migration):
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='AreaSettings',
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
-                ('polygon', euth.maps.fields.MultiPolygonField()),
+                ('polygon', adhocracy4.maps.fields.MultiPolygonField()),
                 ('module', models.OneToOneField(to='a4modules.Module', related_name='areasettings_settings', on_delete=models.CASCADE)),
             ],
             options={
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='MapIdea',
             fields=[
                 ('idea_ptr', models.OneToOneField(serialize=False, auto_created=True, primary_key=True, parent_link=True, to='euth_ideas.Idea', on_delete=models.CASCADE)),
-                ('point', euth.maps.fields.PointField()),
+                ('point', adhocracy4.maps.fields.PointField()),
             ],
             options={
                 'abstract': False,
