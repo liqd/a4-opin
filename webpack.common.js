@@ -50,6 +50,10 @@ module.exports = {
       'typeahead.js/dist/typeahead.jquery.min.js',
       './euth/users/static/users/js/user_search.js'
     ],
+    flatpickr: [
+      'flatpickr/dist/flatpickr.min.js',
+      'flatpickr/dist/flatpickr.min.css'
+    ],
     leaflet: [
       'leaflet',
       'leaflet/dist/leaflet.css',
@@ -78,9 +82,14 @@ module.exports = {
       'leaflet-draw/dist/leaflet.draw.css',
       'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_polygon.js'
     ],
-    flatpickr: [
-      'flatpickr/dist/flatpickr.min.js',
-      'flatpickr/dist/flatpickr.min.css'
+    category_formset: [
+      'adhocracy4/adhocracy4/categories/assets/category_formset.js'
+    ],
+    image_uploader: [
+      'adhocracy4/adhocracy4/images/assets/image_uploader.js'
+    ],
+    select_dropdown_init: [
+      'adhocracy4/adhocracy4/categories/assets/select_dropdown_init.js'
     ]
   },
   output: {
