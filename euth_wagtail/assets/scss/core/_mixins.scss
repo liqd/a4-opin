@@ -4,7 +4,7 @@ $rem: true !default;
 $rem-px-only: false !default;
 
 @mixin rem-baseline($zoom: 100%) {
-    font-size: $zoom / 16px * $rem-baseline;
+    font-size: $zoom / 1rem * $rem-baseline;
 }
 
 @function rem-convert($to, $values...) {

@@ -37,7 +37,6 @@ module.exports = {
       '@fortawesome/fontawesome-free/scss/brands.scss',
       '@fortawesome/fontawesome-free/scss/regular.scss',
       '@fortawesome/fontawesome-free/scss/solid.scss',
-      'bootstrap-sass',
       'immutability-helper',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css',
@@ -154,7 +153,7 @@ module.exports = {
     // against the local directory.
     modules: [path.resolve('./node_modules')],
     alias: {
-      bootstrap: 'bootstrap-sass/assets/stylesheets/bootstrap',
+      bootstrap: 'bootstrap/scss/bootstrap',
       jquery$: 'jquery/dist/jquery.min.js',
       a4maps_common$: 'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_common.js'
     }
