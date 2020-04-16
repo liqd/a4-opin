@@ -62,4 +62,5 @@ media/
 .sass-cache
 
 # Static
-static/
+/static/
+/euth_wagtail/static
