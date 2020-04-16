@@ -1,5 +1,5 @@
 /* global $ */
-import 'bootstrap-sass'
+import 'bootstrap'
 
 $(function () {
   $('[data-toggle="popover"]').popover()

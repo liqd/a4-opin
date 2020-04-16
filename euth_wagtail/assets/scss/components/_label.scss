@@ -35,7 +35,7 @@
 }
 
 .label-secondary {
-    @include label-variant($brand-brand2);
+    // @include label-variant($brand-brand2);
     color: $black;
 }
 
