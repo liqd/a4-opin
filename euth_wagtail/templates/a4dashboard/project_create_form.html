@@ -6,7 +6,7 @@
 {% block dashboard_content %}
 <div class="container">
     <div class="dashboard-content row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 offset-md-2">
             <h1 class="dashboard-content-heading">{% trans "Create project based on" %} {{ view.blueprint.title }}</h1>
 
             {% for error in form.non_field_errors %}

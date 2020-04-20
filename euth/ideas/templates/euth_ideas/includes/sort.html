@@ -1,5 +1,5 @@
 {% load i18n %}
-<div class="dropdown sort-dropdown pull-right">
+<div class="dropdown sort-dropdown float-right">
     {% trans 'Sort by' %}
     <a id="drop" class="dropdown-toggle" type="button" data-toggle="dropdown"
         role="button" aria-haspopup="true" aria-expanded="false">
@@ -8,7 +8,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="drop">
         {% for sort, sort_name in view.sorts %}
-            <li>
+            <li class="dropdown-item">
                 {% if view.sort == sort %}
                     <a><strong>{{ sort_name }}</strong></a>
                 {% else %}

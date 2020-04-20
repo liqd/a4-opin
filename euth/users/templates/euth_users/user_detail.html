@@ -25,7 +25,7 @@
                     <h1 class="herounit-title">
                         {{ object.username }}
                     </h1>
-                    <div class="visible-xs herounit-meta">
+                    <div class="d-block d-sm-none herounit-meta">
                         {% if object.city or object.country %}
                             <p>
                                 <i class="fas fa-map-marker-alt"></i>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             {% if object.description %}
-                <div class="visible-xs">
+                <div class="d-block d-sm-none">
                     <strong>{% trans 'Bio' %}</strong>
                     <p class="bio">{{ object.description }}</p>
                 </div>

@@ -61,7 +61,7 @@ class LanguageSwitch extends React.Component {
           }
         </ul>
         <div className="dropdown">
-          <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
+          <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
             <i className="fa fa-plus" />
           </button>
           <ul className="dropdown-menu">
@@ -70,7 +70,7 @@ class LanguageSwitch extends React.Component {
                 return (
                   <span key={languageCode}>
                     {this.state.activeLanguages.indexOf(languageCode) === -1 &&
-                      <li key={languageCode}>
+                      <li className="dropdown-item" key={languageCode}>
                         <button type="button" onClick={this.addLanguage.bind(this)}>{languageCode}</button>
                       </li>}
                   </span>
@@ -80,14 +80,14 @@ class LanguageSwitch extends React.Component {
           </ul>
         </div>
         <div className="dropdown">
-          <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
+          <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
             <i className="fa fa-minus" />
           </button>
           <ul className="dropdown-menu">
             {
               this.state.activeLanguages.map(languageCode => {
                 return (
-                  <li key={languageCode}>
+                  <li className="dropdown-item" key={languageCode}>
                     <button type="button" onClick={this.removeLanguage.bind(this)}>{languageCode}</button>
                   </li>
                 )

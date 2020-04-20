@@ -4,17 +4,17 @@
 <div class="project-tile project-tile-{{ class }} {% if not project.image %} project-tile-no-image {% endif %}">
     <a href="{% url 'project-detail' project.slug %}" class="project-tile-image-link"
        style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}{% static "images/placeholder.png" %}{% endif %}');" {% if open_in_new_tab %}target="_blank"{% endif %}>
-        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}{% static "images/placeholder.png" %}{% endif %}" class="project-tile-image img-responsive">
+        <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}{% static "images/placeholder.png" %}{% endif %}" class="project-tile-image img-fluid">
 
         {% get_days project.days_left as days %}
         {% if project.is_archived %}
-        <p class="label label-archived">{% trans 'archived' %}</p>
+        <p class="badge badge-archived">{% trans 'archived' %}</p>
         {% elif not project.is_public %}
-        <p class="label label-private">{% trans 'private' %}</p>
+        <p class="badge badge-private">{% trans 'private' %}</p>
         {% elif project.has_finished %}
-        <p class="label label-finished">{% trans 'finished' %}</p>
+        <p class="badge badge-finished">{% trans 'finished' %}</p>
         {% elif days %}
-        <p class="label label-runningout">{{ days }}</p>
+        <p class="badge badge-runningout">{{ days }}</p>
         {% endif %}
     </a>
     <div class="project-tile-body">

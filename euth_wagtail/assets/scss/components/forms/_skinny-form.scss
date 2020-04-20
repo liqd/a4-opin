@@ -13,7 +13,7 @@
     }
 
     .form-control,
-    .control-label,
+    .col-form-label,
     .btn {
         @include rem(font-size, $font-size-small);
     }
@@ -40,7 +40,7 @@
         color: $brand-danger;
     }
 
-    .control-label {
+    .col-form-label {
         color: $gray-light;
         font-weight: normal;
     }

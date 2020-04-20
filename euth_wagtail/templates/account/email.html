@@ -13,17 +13,17 @@
         <div class="form-group {% if form.email.errors %}has-error {% endif %}">
             <label>{{ form.email.label }}</label>
             {% for emailaddress in user.emailaddress_set.all %}
-            <div class="checkbox">
+            <div class="checkbox form-check">
                 <label for="email_radio_{{forloop.counter}}" class="{% if emailaddress.primary %} primary_email{%endif%}">
                     <input id="email_radio_{{forloop.counter}}" type="radio" name="email" class="form-check-input" {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked"{%endif %} value="{{emailaddress.email}}">
                     {{ emailaddress.email }}
                     {% if emailaddress.primary %}
-                    <span class="label label-primary">{% trans "Primary" %}</span>
+                    <span class="badge badge-primary">{% trans "Primary" %}</span>
                     {% endif %}
                     {% if emailaddress.verified %}
-                    <span class="label label-success">{% trans "Verified" %}</span>
+                    <span class="badge badge-success">{% trans "Verified" %}</span>
                     {% else %}
-                    <span class="label label-default">{% trans "Unverified" %}</span>
+                    <span class="badge badge-default">{% trans "Unverified" %}</span>
                     {% endif %}
                 </label>
             </div>
@@ -44,7 +44,7 @@
         {% endif %}
 
         <div class="form-group">
-            <label class="control-label" for="{{ form.email.id_for_label }}">{% trans "Add another Email" %}</label>
+            <label class="col-form-label" for="{{ form.email.id_for_label }}">{% trans "Add another Email" %}</label>
             {{ form.email.errors }}
             {{ form.email|add_class:"form-control" }}
         </div>

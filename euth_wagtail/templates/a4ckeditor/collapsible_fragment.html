@@ -2,7 +2,7 @@
 
 <div class="accordion-content accordion">
     <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
+        <div class="card-header" role="tab" id="headingOne">
             <h3 class="accordion-title">
                 <a class="accordion-link collapsed" role="button" data-toggle="collapse" data-parent=".accordion-block" href="#collapse{{ id }}" aria-expanded="false" aria-controls="collapse{{ id }}">
                     {{ title | safe }}
@@ -11,7 +11,7 @@
             </h3>
         </div>
         <div id="collapse{{ id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ id }}">
-            <div class="panel-body">
+            <div class="card-body">
                 {{ body | richtext }}
             </div>
         </div>
