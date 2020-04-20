@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     'euth.follows',
     'euth.blueprints',
     'euth.contrib',
+    'euth.communitydebate'
 ]
 
 MIDDLEWARE = [

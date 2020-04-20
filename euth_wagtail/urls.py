@@ -23,6 +23,7 @@ from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
 from euth.blueprints import urls as blueprints_urls
+from euth.communitydebate import urls as communitydebate_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
@@ -102,6 +103,7 @@ urlpatterns += i18n_patterns(
     url(r'^sitemap-(?P<section>.+)\.xml$',
         wagtail_sitemap_views.sitemap,
         {'sitemaps': sitemaps}, name='sitemaps'),
+    url(r'^communitydebate/', include(communitydebate_urls)),
     url(r'', include(wagtail_urls)),
 )
 
