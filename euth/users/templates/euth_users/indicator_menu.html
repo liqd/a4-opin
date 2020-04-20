@@ -1,6 +1,6 @@
 {% load i18n thumbnail avatar %}
 
-<ul class="nav navbar-nav navbar-right user-indicator" id="user-indicator">
+<ul class="nav navbar-nav navbar-right ml-auto user-indicator" id="user-indicator">
     <li class="dropdown">
     {% if request.user.is_authenticated %}
         <div class="btngroup btngroup-primary">
@@ -13,22 +13,22 @@
             </a>
             <ul class="dropdown-menu">
                 {% if request.user.is_superuser %}
-                    <li>
+                    <li class="dropdown-item">
                         <a href="{% url 'admin:index' %}"><i class="far fa-hand-spock"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
                     </li>
                 {% endif %}
 
-                <li>
+                <li class="dropdown-item"class="dropdown-item">
                     <a href="{% url 'account-profile' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
 
                 {% for organisation in request.user.organisations %}
-                    <li><a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}">
+                    <li class="dropdown-item"><a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}">
                         <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20">
                         <span class="dropdown-text">{{ organisation.name }}</span>
                     </a></li>
                 {% endfor %}
-                <li>
+                <li class="dropdown-item">
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ redirect_field_value }}">
@@ -41,10 +41,10 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login / Register"%}<span class="caret"></span></span>
         </a>
         <ul class="dropdown-menu">
-            <li>
+            <li class="dropdown-item">
                 <a href="{% url 'account_login' %}?next={{ redirect_field_value|urlencode }}">{% trans "login" %}</a>
             </li>
-            <li>
+            <li class="dropdown-item">
                 <a href="{% url 'account_signup' %}?next={{ redirect_field_value|urlencode }}">{% trans "register" %}</a>
             </li>
         </ul>

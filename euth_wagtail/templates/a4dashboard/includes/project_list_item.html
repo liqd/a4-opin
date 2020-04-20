@@ -14,15 +14,15 @@
                 </h2>
                 <div class="dashboard-list-labels">
                     {% if project.has_finished %}
-                    <span class="label label-finished">{% trans "Finished" %}</span>
+                    <span class="badge badge-finished">{% trans "Finished" %}</span>
                     {% endif %}
                     {% if not project.is_public %}
-                    <span class="label label-private">{% trans 'private' %}</span>
+                    <span class="badge badge-private">{% trans 'private' %}</span>
                     {% endif %}
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="btn-group pull-right dashboard-list-actions" role="group" aria-label="project actions">
+                <div class="btn-group float-right dashboard-list-actions" role="group" aria-label="project actions">
                     <a href="{{ project.get_absolute_url }}" type="button" class="btn btn-gray btn-sm">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                         {% if project.is_draft %}
@@ -40,7 +40,7 @@
                       ...
                         </button>
                             <ul class="dropdown-menu">
-                            <li>
+                            <li class="dropdown-item">
                                 <form method="post" class="">
                                     {% csrf_token %}
                                     <input type="hidden" name="project_pk" value="{{ project.pk }}">
@@ -51,7 +51,7 @@
                                     </button>
                                 </form>
                             </li>
-                            <li>
+                            <li class="dropdown-item">
                                 <a href="#" class="dropdown-item u-fontweight-normal" data-toggle="modal" data-target="#project{{ project.pk }}DeleteModal">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                     {% trans 'delete' %}

@@ -16,7 +16,7 @@
         font-weight: bold;
     }
 
-    .label {
+    .badge {
         @include rem(padding-top, 3px);
         @include rem(margin-left, 10px);
     }

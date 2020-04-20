@@ -6,12 +6,12 @@
         {% get_days project.days_left as days %}
         <p>
             {% if not project.is_public %}
-                <span class="label label-private">{% trans 'private' %}</span>
+                <span class="badge badge-private">{% trans 'private' %}</span>
             {% endif %}
             {% if project.has_finished %}
-                <span class="label label-finished">{% trans 'finished' %}</span>
+                <span class="badge badge-finished">{% trans 'finished' %}</span>
             {% elif days %}
-                <span class="label label-runningout">{{ days }}</span>
+                <span class="badge badge-runningout">{{ days }}</span>
             {% endif %}
         </p>
         <h3 class="sans-serif"><a href="{% url 'project-detail' project.slug %}">{{ project }}</a></h3>

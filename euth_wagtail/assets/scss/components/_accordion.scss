@@ -6,7 +6,7 @@
         @include rem(margin-bottom, 9px);
     }
 
-    .panel-body {
+    .card-body {
         a {
             color: $brand-brand2;
         }
@@ -48,7 +48,7 @@
         }
     }
 
-    .panel-body {
+    .card-body {
         @include rem(padding-bottom, 50px);
         @include rem(font-size, $font-size-base);
         line-height: 1.75;
@@ -63,7 +63,7 @@
     background: transparent;
 
     .accordion-link,
-    .panel-body {
+    .card-body {
         background: $brand-brand1;
         color: #fff;
     }
@@ -95,7 +95,7 @@
         }
     }
 
-    .panel-body {
+    .card-body {
         @include rem(padding, 0 22px 22px 22px);
     }
 }

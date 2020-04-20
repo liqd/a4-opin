@@ -23,7 +23,7 @@
         line-height: 48px;
     }
 
-    .btn-default {
+    .btn-secondary {
         @include rem(font-size, 24px);
         @include rem(width, 48px);
         background: $brand-success;

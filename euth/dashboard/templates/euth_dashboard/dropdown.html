@@ -19,7 +19,7 @@
     {% if orgs %}
         <ul class="dropdown-menu" aria-labelledby="dLabel">
             {% for organisation in orgs %}
-                <li>
+                <li class="dropdown-item">
                     <a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}">{{ organisation.name }}</a>
                 </li>
             {% endfor %}

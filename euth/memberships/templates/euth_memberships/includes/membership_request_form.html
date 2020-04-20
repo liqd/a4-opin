@@ -20,7 +20,7 @@
                     <a href="{% url 'profile' form.instance.creator.username %}">
                         <img src="{% get_avatar form.instance.creator 'org_avatar_medium' %}" alt="" class="circled"> {{ form.instance.creator.username }}
                     </a>
-                    <span class="label label-subtle">{% trans 'Request' %}</span>
+                    <span class="badge badge-subtle">{% trans 'Request' %}</span>
                 </td>
                 <td>
                     <strong>{{ form.instance.creator.email }}</strong>

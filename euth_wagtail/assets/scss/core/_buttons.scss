@@ -157,7 +157,7 @@ span.btn-dark:focus {
     @extend .button;
     @include rem(border-radius, 0 0 25px 25px);
     @include rem(margin-top, $navbar-height);
-    @include rotate(90);
+    // @include rotate(90);
     border: 2px solid #fff;
     border-width: 0 2px 2px 2px;
     position: fixed;

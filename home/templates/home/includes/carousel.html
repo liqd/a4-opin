@@ -2,7 +2,7 @@
 
 <ul class="owl-carousel">
     <li class="carousel-item">
-        <figure class="carousel-image">{% image item.image fill-900x200 class="img-responsive" %}</figure>
+        <figure class="carousel-image">{% image item.image fill-900x200 class="img-fluid" %}</figure>
         <figcaption class="carousel-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta fugiat impedit molestiae placeat quas quidem rem similique ut voluptatem!
         </figcaption>
@@ -49,7 +49,7 @@
 <ul class="carousel">
     {% for item in carousel_items %}
         <li class="carousel-item">
-            <figure class="carousel-image">{% image item.image fill-900x200 class="img-responsive" %}</figure>
+            <figure class="carousel-image">{% image item.image fill-900x200 class="img-fluid" %}</figure>
             {% if block.text %}
             <figcaption class="carousel-text">
             {{ block.text }}

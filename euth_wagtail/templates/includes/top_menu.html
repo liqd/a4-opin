@@ -1,7 +1,7 @@
 {% load i18n url_translations wagtailcore_tags userindicator base_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 {% load_site_menu "topmenu" as top_menu_items %}
-<nav class="navbar navbar-default navbar-fixed-top main-menu" id="main-menu">
+<nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top main-menu" id="main-menu">
     <div class="container">
         <a class="navbar-brand" href="/{{ LANGUAGE_CODE }}/">Opin.me</a>
         <div class="navbar-header">
@@ -15,7 +15,7 @@
         <div id="navbar-collapse" class="navbar-collapse collapse">
             {% userindicator_menu %}
 
-            <ul class="nav navbar-nav navbar-right language-selector" id="language-selector">
+            <ul class="nav navbar-nav navbar-right ml-auto language-selector" id="language-selector">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }} <span class="caret"></span>
                     </a>
@@ -23,7 +23,7 @@
                     {% get_available_languages as languages %}
                     {% for lang_code, lang_name in languages %}
                         {% if lang_code != LANGUAGE_CODE %}
-                        <li>
+                        <li class="dropdown-item">
                             <a href="{% translate_url lang_code %}">{{ lang_code }}</a>
                         </li>
                         {% endif %}
@@ -31,9 +31,9 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right ml-auto">
                 {% for menuitem in top_menu_items %}
-                <li><a href="{{ menuitem.url }}"{% if request.path == menuitem.url %} class="is-active"{% endif %}>{{ menuitem.translated_menu_title }}</a></li>
+                <li class="nav-item"><a href="{{ menuitem.url }}" class="nav-link {% if request.path == menuitem.url %} is-active{% endif %}">{{ menuitem.translated_menu_title }}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -9,7 +9,7 @@
         <ul class="nav navbar-nav">
         {% include 'euth_dashboard/dropdown.html' with logo=view.organisation.logo title=view.organisation.name orgs=view.other_organisations_of_user%}
         </ul>
-         <ul class="dashboard-header-tabs nav nav-tabs pull-right" role="tablist">
+         <ul class="dashboard-header-tabs nav nav-tabs float-right" role="tablist">
              {% url 'a4dashboard:organisation-edit' organisation_slug=view.organisation.slug as organisation_edit_url %}
             <li role="presentation" class="dashboard-header-tab {% if not request.get_full_path == organisation_edit_url %} active {% endif %}"><a href="{% url 'a4dashboard:project-list' organisation_slug=view.organisation.slug %}" class="dashboard-header-link" aria-controls="projects" role="presentation" >{% trans 'Projects' %}</a></li>
             <li role="presentation" class="dashboard-header-tab {% if request.get_full_path == organisation_edit_url %} active {% endif %}"><a href="{{ organisation_edit_url }}" class="dashboard-header-link" aria-controls="organisation" role="presentation" >{% trans 'Organisation' %}</a></li>

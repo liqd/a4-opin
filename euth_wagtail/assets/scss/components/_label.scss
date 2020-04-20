@@ -1,4 +1,4 @@
-.label {
+.badge {
     @include rem(padding, 4px 10px);
     @include rem(font-size, $font-size-small);
     font-style: italic;
@@ -9,37 +9,37 @@
     line-height: 2;
 }
 
-.label-private {
+.badge-private {
     background-color: $brand-brand1;
     text-transform: uppercase;
 }
 
-.label-runningout {
+.badge-runningout {
     background-color: $brand-danger;
 }
 
-.label-finished {
+.badge-finished {
     background-color: $brand-brand2;
     color: $gray-darker;
     text-transform: uppercase;
 }
 
-.label-archived {
+.badge-archived {
     background-color: $gray;
     color: #fff;
     text-transform: uppercase;
 }
 
-.label-type {
+.badge-type {
     background-color: $black;
 }
 
-.label-secondary {
+.badge-secondary {
     // @include label-variant($brand-brand2);
     color: $black;
 }
 
-.label-xs {
+.badge-xs {
     @include rem(padding, 2px 4px);
     @include rem(margin-top, -1px);
     @include rem(font-size, 10px);
@@ -47,7 +47,7 @@
     line-height: 1;
 }
 
-.label-subtle {
+.badge-subtle {
     border-radius: 5px;
     text-transform: none;
     background-color: $gray-lighter;
