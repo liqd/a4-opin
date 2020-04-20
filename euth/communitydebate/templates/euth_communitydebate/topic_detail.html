@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n react_comments react_ratings thumbnail rules avatar %}
+
+{% block title %}{{ topic.name }}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="container-medium">
+        <div class="action-bar">
+            <nav class="navbar navbar-default navbar-static">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            {% trans 'back to project' %}</a>
+                    </li>
+                </ul>
+                {% has_perm 'euth_ideas.modify_idea' request.user idea as show_dropdown %}
+                {% if show_dropdown %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"> <i class="fa fa-ellipsis-h"
+                                                                          aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="drop">
+                            <li>
+                                <a href="">{% trans 'Edit' %}</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="">{% trans 'Delete' %}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                {% endif %}
+            </nav>
+        </div>
+
+        {% if topic.image %}
+        <img class="idea-image" src="{{ topic.image | thumbnail_url:'topic_image'}}" style="width: 100%;">
+        {% endif %}
+
+        <div class="idea-body">
+            <div class="idea-title">
+                <h1>{{ topic.name }}</h1>
+            </div>
+
+            <div class="avatar-small">
+                <span class="circled circled-xs" style="background-image: url({% get_avatar topic.creator 'avatar_small' %})"></span>
+                <a href="{% url 'profile' topic.creator.username %}" class="name">{{ topic.creator.username }}</a>
+                {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
+            </div>
+
+            {% if topic.category %}
+            <span class="label label-secondary label-xs">{{ topic.category }}</span>
+            {% endif %}
+
+            <div class="idea-description">
+                <p>{{ topic.description |safe }}</p>
+            </div>
+
+            <div class="idea-ratings">
+            </div>
+
+       </div>
+    </div>
+</div>
+
+{% endblock %}
