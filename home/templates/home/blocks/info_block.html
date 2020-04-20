@@ -15,7 +15,7 @@
         <div class="row">
              <div class="col-sm-5">
                  {% if self.image.width > 0 %}
-    	             {% image self.image width-900 class="info-box-image img-responsive info-img" %}
+    	             {% image self.image width-900 class="info-box-image img-fluid info-img" %}
     	         {% endif %}
             </div>
             <div class="col-sm-7">
@@ -43,7 +43,7 @@
             {% endif %}
 
     	    {% if self.image.width > 0 %}
-    	       {% image self.image width-900 class="info-box-image img-responsive info-img" %}
+    	       {% image self.image width-900 class="info-box-image img-fluid info-img" %}
     	    {% endif %}
 
             {% if self.text %}

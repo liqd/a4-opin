@@ -3,8 +3,8 @@
 {% image image original as originalImage %}
 
 <header class="herounit herounit-home">
-    <div class="herounit-image visible-lg visible-xl" style="background-image: url({{ originalImage.url }})"></div>
-    <div class="herounit-image visible-xs visible-sm visible-md" style="background-image: url({{ smallImage.url }})"></div>
+    <div class="herounit-image d-none d-lg-block" style="background-image: url({{ originalImage.url }})"></div>
+    <div class="herounit-image d-lg-none" style="background-image: url({{ smallImage.url }})"></div>
     <div class="container">
         <div class="container-narrow">
             <div class="herounit-header">

@@ -6,8 +6,8 @@
     <div class="action-bar">
         <nav class="navbar navbar-default navbar-static">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="{% url 'project-detail' paragraph.document.module.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project-detail' paragraph.document.module.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
                 </li>
             </ul>
         </nav>

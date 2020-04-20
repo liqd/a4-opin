@@ -6,7 +6,7 @@ xxx
                             {% if block.block_type == 'heading' %}
                                 <h1>{{ block }}</h1>
                             {% elif block.block_type == 'image' %}
-                                {% image block.value width-900 class="img-responsive" %}
+                                {% image block.value width-900 class="img-fluid" %}
                             {% else %}
                                <section class="block-{{ block.block_type }}">
                                    {{ block }}

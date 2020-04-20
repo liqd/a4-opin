@@ -16,7 +16,7 @@ body {
 
     .navbar-brand {
         @include rem(font-size, 14px);
-        @include text-hide;
+        // @include text-hide;
         background: url(../images/logo.png) no-repeat left center/contain;
         width: 47px;
 

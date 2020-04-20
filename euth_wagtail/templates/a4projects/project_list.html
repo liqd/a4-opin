@@ -30,7 +30,7 @@
                     {{ field }}
                 </div>
                 {% endif %}
-                <div class="col-xs-12 hidden-md hidden-lg hidden-sm projects-filter-{{ field.name }}">
+                <div class="d-sm-none projects-filter-{{ field.name }}">
                     {{ field }}
                 </div>
             {% endfor %}
@@ -54,12 +54,12 @@
 
             {% if is_paginated %}
             <div class="pagination-row">
-                <nav class="pull-right">
+                <nav class="float-right">
                     <ul class="pagination">
                     {% if page_obj.has_previous %}
-                        <li>
+                        <li class="page-item">
                         {% combined_url_parameter request.GET page=page_obj.previous_page_number as url_par %}
-                        <a href="{{ url_par }}" aria-label="Previous">
+                        <a class="page-link" href="{{ url_par }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -67,12 +67,14 @@
                     {% limited_paginator page_obj as page_range %}
                     {% for number in page_range %}
                     {% combined_url_parameter request.GET page=number as url_par %}
-                    <li><a href="{{ url_par }}" {% if page_obj.number == number %} class="page-current" {% endif %}>{{ number }}</a></li>
+                    <li class="page-item">
+                        <a href="{{ url_par }}" {% if page_obj.number == number %} class="page-link page-current" {% endif %}>{{ number }}</a>
+                    </li>
                     {% endfor %}
                     {% if page_obj.has_next %}
-                    <li>
+                    <li class="page-item">
                         {% combined_url_parameter request.GET page=page_obj.next_page_number as url_par %}
-                        <a href="{{ url_par }}" aria-label="Next">
+                        <a class="page-link" href="{{ url_par }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

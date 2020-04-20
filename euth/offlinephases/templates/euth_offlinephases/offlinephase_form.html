@@ -9,8 +9,8 @@
     <div class="action-bar">
         <nav class="navbar navbar-default navbar-static">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="{% url 'project-detail' object.module.project.slug %}?phase={{ object.phase.weight }}">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project-detail' object.module.project.slug %}?phase={{ object.phase.weight }}">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         {% trans 'back to project' %}
                         </a>
@@ -58,7 +58,7 @@
             {% getAllowedFileTypes as allowed_file_types %}
             <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
         {% for form in form.fileuploads %}
-            <div class="well">
+            <div class="card card-body">
             {% for field in form.visible_fields %}
             {% if field.name == 'title' or field.name == 'document' %}
             <div class="row">

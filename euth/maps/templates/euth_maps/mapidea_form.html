@@ -3,7 +3,7 @@
 
 {% block additional_fields %}
 <div class="form-group">
-    <label class="control-label" for="{{ form.point.id_for_label }}">{{ form.point.label }}</label>
+    <label class="col-form-label" for="{{ form.point.id_for_label }}">{{ form.point.label }}</label>
     <p class='form-help-text'>{{ form.point.help_text }}</p>
     {% if form.point.errors %}
         {{ form.point|add_class:"form-control form-error" }}
