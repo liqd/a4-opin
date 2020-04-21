@@ -1,21 +1,21 @@
 .commenting-text {
-    @include rem(margin-top, 80px);
+    margin-top: 80px;
 }
 
 .commenting-paragraph {
-    @include rem(margin-bottom, 40px);
+    margin-bottom: 40px;
 
     @media screen and (min-width: $screen-sm-min) {
         display: flex;
     }
 
     .btn-primary {
-        @include rem(margin-top, 10px);
+        margin-top: 10px;
 
         @media screen and (min-width: $screen-sm-min) {
             opacity: 0;
         }
-        @include rem(font-size, $font-size-base);
+        font-size: $font-size-base;
         transition: opacity 0.2s, color 0.2s, background 0.2s;
     }
 

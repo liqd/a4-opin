@@ -1,6 +1,6 @@
 .avatar-small {
-    @include rem(font-size, 14px);
-    @include rem(margin-top, 12px);
+    font-size: 14px;
+    margin-top: 12px;
     height: 31px;
 
     img {

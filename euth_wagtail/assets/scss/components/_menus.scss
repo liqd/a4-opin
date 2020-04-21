@@ -1,8 +1,8 @@
 body {
-    @include rem(padding-top, $navbar-height);
+    padding-top: $navbar-height;
 
     @media (max-width: $screen-sm-min) {
-        @include rem(padding-top, 60px);
+        padding-top: 60px;
     }
 }
 
@@ -15,14 +15,8 @@ body {
     }
 
     .navbar-brand {
-        @include rem(font-size, 14px);
-        // @include text-hide;
-        background: url(../images/logo.png) no-repeat left center/contain;
+        font-size: 14px;
         width: 47px;
-
-        .svgasimg & {
-            background-image: url(../images/logo.svg);
-        }
 
         @media (max-width: $screen-sm-min) {
             height: 60px;
@@ -32,10 +26,10 @@ body {
 
     .navbar-toggle {
         border: 0;
-        @include rem(padding, 8px);
+        padding: 8px;
 
         @media (max-width: $screen-sm-min) {
-            @include rem(margin, 15px 15px 15px 0);
+            margin: 15px 15px 15px 0;
         }
     }
 
@@ -78,7 +72,7 @@ body {
     }
 
     .dropdown-text {
-        @include rem(padding-left, 30px);
+        padding-left: 30px;
     }
 
     .logout-button-form {
@@ -89,7 +83,7 @@ body {
         width: 100%;
         border: 0;
         text-align: left;
-        @include rem(padding, 7px 0 7px 15px);
+        padding: 7px 0 7px 15px;
         background-color: transparent;
 
         &:hover {

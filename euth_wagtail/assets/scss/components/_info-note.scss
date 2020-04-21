@@ -1,8 +1,8 @@
 .infonote {
-    @include rem(padding, 20px);
-    @include rem(max-width, 530px);
-    @include rem(margin-bottom, 50px);
-    @include rem(margin-top, 140px);
+    padding: 20px;
+    max-width: 530px;
+    margin-bottom: 50px;
+    margin-top: 140px;
     background-color: $brand-brand1;
     color: #fff;
     text-align: center;
@@ -10,14 +10,14 @@
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.20);
 
     @media screen and (max-width: $screen-xs-max) {
-        @include rem(margin-top, 95px);
-        @include rem(margin-bottom, 50px);
+        margin-top: 95px;
+        margin-bottom: 50px;
     }
 
     img {
-        @include rem(width, 200px);
-        @include rem(margin-left, -100px);
-        @include rem(top, -110px);
+        width: 200px;
+        margin-left: -100px;
+        top: -110px;
         position: absolute;
         left: 50%;
     }

@@ -5,7 +5,7 @@
     border: 0;
 
     .modal-footer {
-        @include rem(padding, 60px 0);
+        padding: 60px 0;
         border: none;
         text-align: center;
     }
@@ -15,8 +15,8 @@
         font-weight: normal;
 
         &:before {
-            @include rem(height, 100px);
-            @include rem(margin-bottom, 40px);
+            height: 100px;
+            margin-bottom: 40px;
             background: url(/static/images/attention.svg) no-repeat center top;
             background-size: contain;
             content: "";
@@ -26,7 +26,7 @@
     }
 
     .modal-body.success {
-        @include rem(padding-bottom, 80px);
+        padding-bottom: 80px;
 
         .modal-title:before {
             content: none;
@@ -78,7 +78,7 @@
 }
 
 .report-message {
-    @include rem(margin-top, 80px);
+    margin-top: 80px;
 }
 
 .modal.permission {

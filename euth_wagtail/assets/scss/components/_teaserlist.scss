@@ -1,8 +1,8 @@
 .teaserlist-item {
     position: relative;
     min-height: 200px;
-    @include rem(padding-top, 50px);
-    @include rem(margin-bottom, 10px);
+    padding-top: 50px;
+    margin-bottom: 10px;
 
     background-size: cover;
     background-position: 50% 50%;
@@ -44,7 +44,7 @@
     position: relative;
     z-index: 1;
 
-    @include rem(padding, 0 20px 20px);
+    padding: 0 20px 20px;
 
 
     &,
@@ -54,17 +54,17 @@
     }
 
     h3 {
-        @include rem(margin-bottom, 5px);
+        margin-bottom: 5px;
     }
 
     .avatar {
-        @include rem(margin-top, 15px);
+        margin-top: 15px;
         margin-bottom: 0;
     }
 }
 
 .teaserlist-actions {
     position: absolute;
-    @include rem(right, 25px);
-    @include rem(bottom, 20px);
+    right: 25px;
+    bottom: 20px;
 }

@@ -41,39 +41,39 @@ $rem-px-only: false !default;
     }
 }
 
-@mixin rem($properties, $values...) {
-    @if type-of($properties) == "map" {
-        @each $property in map-keys($properties) {
-            @include rem($property, map-get($properties, $property));
-        }
-    }
-
-    @else {
-        @each $property in $properties {
-            @if $rem or $rem-px-only {
-                #{$property}: rem-convert(px, $values...);
-            }
-
-            @if not $rem-px-only {
-                #{$property}: rem-convert(rem, $values...);
-            }
-        }
-    }
-}
-
-// @mixin rotate($degrees) {
-//     -webkit-transform: rotate(#{$degrees}deg);
-//     -moz-transform: rotate(#{$degrees}deg);
-//     -ms-transform: rotate(#{$degrees}deg);
-//     -o-transform: rotate(#{$degrees}deg);
-//     transform: rotate(#{$degrees}deg);
+// @mixin rem($properties, $values...) {
+//     @if type-of($properties) == "map" {
+//         @each $property in map-keys($properties) {
+//             $property, map-get($properties, $property);
+//         }
+//     }
 //
-//     filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
-//     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
-//     zoom: 1;
+//     @else {
+//         @each $property in $properties {
+//             @if $rem or $rem-px-only {
+//                 #{$property}: rem-convert(px, $values...);
+//             }
+//
+//             @if not $rem-px-only {
+//                 #{$property}: rem-convert(rem, $values...);
+//             }
+//         }
+//     }
 // }
 
-@mixin aspect-ratio($width, $height) {
+@mixin rotate($degrees) {
+    -webkit-transform: rotate(#{$degrees}deg);
+    -moz-transform: rotate(#{$degrees}deg);
+    -ms-transform: rotate(#{$degrees}deg);
+    -o-transform: rotate(#{$degrees}deg);
+    transform: rotate(#{$degrees}deg);
+
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+    zoom: 1;
+}
+
+@mixin aspect-ratio($width: $height) {
     position: relative;
 
     &:before {

@@ -1,18 +1,18 @@
 .document-form {
     .btn {
-        @include rem(padding, 8px 12px);
-        @include rem(margin-bottom, 20px);
+        padding: 8px 12px;
+        margin-bottom: 20px;
     }
 
     section {
-        @include rem(margin-bottom, 22px);
+        margin-bottom: 22px;
     }
 
     .submit-button {
-        @include rem(margin-top, 100px);
+        margin-top: 100px;
     }
 
     .entry i {
-        @include rem(padding, 7px);
+        padding: 7px;
     }
 }

@@ -7,14 +7,14 @@ nav .pagination {
     }
 
     a {
-        @include rem(margin-left, 4px);
-        @include rem(padding, 10px 15px 10px 16px);
+        margin-left: 4px;
+        padding: 10px 15px 10px 16px;
         color: $gray-darker;
         background-color: $gray-lighter;
         border: none;
         border-radius: 0;
         font-weight: bold;
-        @include rem(font-size, 14px);
+        font-size: 14px;
 
         &:hover,
         &:focus {
@@ -22,8 +22,8 @@ nav .pagination {
         }
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(margin-left, 3px);
-            @include rem(padding, 9px 13px 9px 13px);
+            margin-left: 3px;
+            padding: 9px 13px 9px 13px;
         }
     }
 }

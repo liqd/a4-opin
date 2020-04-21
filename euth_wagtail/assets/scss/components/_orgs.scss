@@ -10,7 +10,7 @@
 
 .org-grid {
     .col-sm-6 {
-        @include rem(padding, 0 10px 20px 10px);
+        padding: 0 10px 20px 10px;
     }
 
     .col-sm-6:nth-child(3n+1) {
@@ -49,16 +49,16 @@
 }
 
 .org-title {
-    @include rem(padding-top, 80px);
+    padding-top: 80px;
 }
 
 .org-tile-body {
-    @include rem(padding, 30px 50px 58px);
+    padding: 30px 50px 58px;
     min-height: 290px;
 }
 
 .org-tile-image-link {
-    @include aspect-ratio(35, 26);
+    // @include aspect-ratio(35, 26);
     background-color: $brand-brand1;
     background-repeat: no-repeat;
     background-size: cover;
@@ -93,8 +93,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        @include rem(margin-left, -75px);
-        @include rem(margin-top, -75px);
+        margin-left: -75px;
+        margin-top: -75px;
         width: 150px;
         height: 150px;
         border-radius: 100px;
@@ -109,7 +109,7 @@
 
 .org-badge-title,
 .herounit-location {
-    @include rem(font-size, $font-size-medium);
-    @include rem(font-size, 20px);
+    font-size: $font-size-medium;
+    font-size: 20px;
     margin: 0;
 }

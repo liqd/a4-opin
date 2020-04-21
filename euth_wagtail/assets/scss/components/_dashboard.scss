@@ -45,8 +45,8 @@
 
 .dashboard-header-logo {
     display: inline-block;
-    @include rem(width, 30px);
-    @include rem(height, 30px);
+    width: 30px;
+    height: 30px;
     img {
         border-radius: 50%;
     }

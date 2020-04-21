@@ -2,7 +2,7 @@
 .dropdown-menu > li > button {
     border-bottom: 2px solid $gray-lighter;
     width: 100%;
-    @include rem(padding, 7px 15px);
+    padding: 7px 15px;
     text-align: left;
 }
 

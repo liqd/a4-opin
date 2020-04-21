@@ -1,7 +1,7 @@
 .blueprint-list {
     display: flex;
     flex-wrap: wrap;
-    @include rem(margin, 0 -15px);
+    margin: 0 -15px;
 
     .blueprint-tile {
         flex-basis: 30%;
@@ -19,23 +19,23 @@
 }
 
 .blueprint-tile {
-    @include rem(padding-top, 30px);
+    padding-top: 30px;
     border: solid 1px $gray-light;
     background-color: $brand-brand5;
     display: flex;
-    @include rem(margin, 13px 1.5%);
+    margin: 13px 1.5%;
     flex-direction: column;
 
     > h2 {
         text-align: center;
-        @include rem(padding, 15px 0);
+        padding: 15px 0;
         margin: 0 0 0 0;
         color: #fff;
     }
 
     .blueprint-image {
-        @include rem(height, 173px);
-        @include rem(width, 260px);
+        height: 173px;
+        width: 260px;
     }
 }
 
@@ -62,65 +62,65 @@
     .btn-link {
         display: block;
         margin: auto;
-        @include rem(padding, 10px 0);
+        padding: 10px 0;
         font-weight: bold;
     }
 }
 
 .border-bottom {
     border-bottom: 1px solid $gray-light;
-    @include rem(padding, 20px 0);
+    padding: 20px 0;
 }
 
 .dst-modal-infopage {
     h4 {
-        @include rem(margin-bottom, 20px);
+        margin-bottom: 20px;
     }
 
     .modal-content {
-        @include rem(width, 570px);
+        width: 570px;
     }
 
     .blueprint-modal-image {
         border: 0;
         margin: 0;
-        @include rem(padding-top, 30px);
+        padding-top: 30px;
         background-color: $brand-brand5;
         display: flex;
         flex-direction: column;
 
         > h2 {
             text-align: center;
-            @include rem(padding, 15px 0);
+            padding: 15px 0;
             margin: 0 0 0 0;
             color: #fff;
         }
 
         > .blueprint-image {
-            @include rem(height, 173px);
-            @include rem(width, 260px);
+            height: 173px;
+            width: 260px;
             display: block;
             margin: auto;
         }
     }
 
     .blueprint-description > p {
-        @include rem(margin-bottom, 20px);
-        @include rem(margin-left, 35px);
-        @include rem(margin-right, 35px);
+        margin-bottom: 20px;
+        margin-left: 35px;
+        margin-right: 35px;
     }
 
     .blueprint-phases .list-unstyled {
         display: inline-block;
 
         .phase-description {
-            @include rem(width, 400px);
+            width: 400px;
             display: flex;
         }
 
         .icon {
             flex: 0 0 auto;
-            @include rem(margin-right, 10px);
+            margin-right: 10px;
             align-self: center;
         }
 
@@ -148,8 +148,8 @@
 
     .blueprint-project {
         .project-tile {
-            @include rem(width, 285px);
-            @include rem(margin-left, 143px);
+            width: 285px;
+            margin-left: 143px;
         }
     }
 
@@ -165,17 +165,17 @@
             display: block;
             margin: auto;
             color: $brand-brand6;
-            @include rem(font-size, 36px);
+            font-size: 36px;
             font-weight: bold;
-            @include rem(padding-top, 8px);
-            @include rem(padding-bottom, 8px);
-            @include rem(margin-bottom, 10px);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
     }
 
     .blueprint-guidelines {
         .inspirations {
-            @include rem(padding-left, 160px);
+            padding-left: 160px;
             text-align: left;
         }
 
@@ -190,12 +190,12 @@
     color: #fff;
 
     > img {
-        @include rem(height, 173px);
-        @include rem(width, 260px);
+        height: 173px;
+        width: 260px;
     }
 
     > h2 {
-        @include rem(padding, 0 15px);
+        padding: 0 15px;
     }
 }
 
@@ -204,7 +204,7 @@
         margin: 0;
     }
 
-    @include rem(padding, 15px);
+    padding: 15px;
     flex-grow: 1;
 }
 
@@ -241,7 +241,7 @@
         }
 
         > .blueprint-phases {
-            @include rem(padding-top, 10px);
+            padding-top: 10px;
         }
     }
 }
@@ -281,7 +281,7 @@
 }
 
 h2.dst-lightbox-banner {
-    @include rem(padding, 24px 0);
+    padding: 24px 0;
     margin: 0 -15px; /* work arround boostrap grid */
     background-color: $brand-brand3;
     color: #fff;
@@ -305,13 +305,13 @@ h2.dst-lightbox-banner {
         }
 
         .dropdown-text {
-            @include rem(padding-left, 10px);
+            padding-left: 10px;
         }
     }
 }
 
 .dst-result-layout {
     .blueprint-list {
-        @include rem(margin, 20px 0);
+        margin: 20px 0;
     }
 }

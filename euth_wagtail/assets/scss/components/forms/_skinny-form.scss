@@ -1,5 +1,6 @@
 .skinny-form {
-    @include rem(margin, 55px auto 40px);
+    margin: 55px auto 40px;
+
     @extend .col-md-4;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     float: none;
@@ -15,7 +16,7 @@
     .form-control,
     .col-form-label,
     .btn {
-        @include rem(font-size, $font-size-small);
+        font-size: $font-size-small;
     }
 
     .form-control {
@@ -46,7 +47,7 @@
     }
 
     .errorlist {
-        @include rem(font-size, $font-size-small);
+        font-size: $font-size-small;
         color: $brand-danger;
         list-style-type: none;
         margin: 0;
@@ -55,7 +56,7 @@
 }
 
 .skinny-form-header {
-    @include rem(padding-top, 200px);
+    padding-top: 200px;
     background: $brand-brand1 url('/static/images/logo.svg') no-repeat center 40%;
     background-size: 35%;
 
@@ -101,5 +102,5 @@
 }
 
 .skinny-form-inner {
-    @include rem(padding, 40px);
+    padding: 40px;
 }

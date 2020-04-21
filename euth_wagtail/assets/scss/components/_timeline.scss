@@ -1,13 +1,13 @@
 .timeline {
     background-color: $gray-dark;
-    @include rem(padding, 10px 0 0);
+    padding: 10px 0 0;
     text-align: center;
 
     .text-uppercase {
         display: inline-block;
         vertical-align: middle;
-        @include rem(margin-right, 10px);
-        @include rem(font-size, 12px);
+        margin-right: 10px;
+        font-size: 12px;
         font-weight: bold;
         color: #fff;
     }
@@ -21,20 +21,20 @@
     }
 
     .timeline-phase {
-        @include rem(margin, 0 15px 0 0);
+        margin: 0 15px 0 0;
         float: left;
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(margin-right, 10px);
+            margin-right: 10px;
         }
     }
 
     .timeline-arrow {
         color: $gray;
-        @include rem(margin-right, 10px);
+        margin-right: 10px;
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(margin-right, 5px);
+            margin-right: 5px;
         }
     }
 
@@ -43,8 +43,8 @@
         background-color: transparent;
         border: 2px solid $brand-brand2;
         padding: 0;
-        @include rem(margin-right, 15px);
-        @include rem(margin-bottom, 3px);
+        margin-right: 15px;
+        margin-bottom: 3px;
         border-radius: 50%;
         height: 17px;
         width: 17px;
@@ -74,6 +74,6 @@
 
     .popover {
         pointer-events: none;
-        @include rem(margin-top, -18px);
+        margin-top: -18px;
     }
 }

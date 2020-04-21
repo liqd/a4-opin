@@ -1,20 +1,20 @@
 .comment-box {
-    @include rem(margin, 0 134px 0 134px);
-    @include rem(padding-top, 35px);
+    margin: 0 134px 0 134px;
+    padding-top: 35px;
 
     & .comments_login {
-        @include rem(margin-top, 30px);
+        margin-top: 30px;
     }
 
     & textarea {
         border: 1px solid $gray;
         border-radius: 0;
-        @include rem(font-size, 14px);
+        font-size: 14px;
     }
 
     & textarea:focus {
         border-radius: 0;
-        @include rem(font-size, 14px);
+        font-size: 14px;
     }
 
     @media (max-width: $screen-sm-min) {
@@ -23,7 +23,7 @@
 }
 
 .comment {
-    @include rem(margin-bottom, 50px);
+    margin-bottom: 50px;
     @include clearfix;
 
     .comment-author {
@@ -32,14 +32,14 @@
         text-align: justify;
         font-weight: bold;
         display: inline-block;
-        @include rem(font-size, $font-size-base);
+        font-size: $font-size-base;
 
         a {
             vertical-align: bottom;
         }
 
         span {
-            @include rem(margin-left, 10px);
+            margin-left: 10px;
         }
     }
 
@@ -48,14 +48,14 @@
         color: $gray;
         font-family: $font-family-sans-serif;
         text-align: justify;
-        @include rem(font-size, $font-size-base);
+        font-size: $font-size-base;
     }
 
     .comment-text {
         font-family: $font-family-sans-serif;
-        @include rem(font-size, $font-size-base);
-        @include rem(line-height, 1.6);
-        @include rem(margin-bottom, 10px);
+        font-size: $font-size-base;
+        line-height: 1.6;
+        margin-bottom: 10px;
         color: $black;
         white-space: pre-line;
     }
@@ -67,7 +67,7 @@
     & .comment-answer-button {
         float: left;
 
-        @include rem(padding, 7px 14px);
+        padding: 7px 14px;
         @include button-hover-background($brand-primary);
     }
 
@@ -75,12 +75,12 @@
         font-weight: bold;
 
         i {
-            @include rem(margin-right, .5em);
+            margin-right: .5em;
         }
     }
 
     & .general-form {
-        @include rem(margin-bottom, 88px);
+        margin-bottom: 88px;
     }
 
     & .navbar-right {
@@ -102,11 +102,11 @@
 
         & .dropdown li a,
         & .dropdown li button {
-            @include rem(padding, 10px);
+            padding: 10px;
             margin: 0;
 
             font-family: $font-family-sans-serif;
-            @include rem(font-size, 14px);
+            font-size: 14px;
             line-height: 1.6;
             text-align: center;
             font-weight: bold;
@@ -124,7 +124,7 @@
     }
 
     & .action-bar {
-        @include rem(margin-bottom, 10px);
+        margin-bottom: 10px;
 
         & .rating {
             float: left;
@@ -137,9 +137,9 @@
 }
 
 .comment-submission-date {
-    @include rem(margin-left, 10px);
+    margin-left: 10px;
     display: inline-block;
     margin-right: 5px;
     vertical-align: baseline;
-    @include rem(font-size, $font-size-small);
+    font-size: $font-size-small;
 }

@@ -1,6 +1,6 @@
 .radio-action {
     float: left;
-    @include rem(margin-right, 20px);
+    margin-right: 20px;
 
     input {
         display: none;
@@ -12,13 +12,13 @@
 
     &:before {
         display: block;
-        @include rem(width, 35px);
-        @include rem(height, 35px);
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         font-family: "Font Awesome 5 Free", sans-serif;
         font-weight: 900;
-        @include rem(line-height, 30px);
-        @include rem(font-size, 16px);
+        line-height: 30px;
+        font-size: 16px;
         text-align: center;
     }
 
