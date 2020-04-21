@@ -105,7 +105,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules\/(?!(adhocracy4|bootstrap)\/).*/, // exclude all dependencies but adhocracy4
+        exclude: /node_modules\/(?!(adhocracy4)\/).*/, // exclude all dependencies but adhocracy4
         loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
@@ -137,11 +137,17 @@ module.exports = {
       },
       {
         test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]'
+        }
       },
       {
         test: /\.svg$|\.png$/,
-        loader: 'file-loader?name=images/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]'
+        }
       }
     ]
   },
@@ -153,7 +159,7 @@ module.exports = {
     // against the local directory.
     modules: [path.resolve('./node_modules')],
     alias: {
-      bootstrap: 'bootstrap/scss/bootstrap',
+      bootstrap$: 'bootstrap/dist/js/bootstrap.bundle.min.js',
       jquery$: 'jquery/dist/jquery.min.js',
       a4maps_common$: 'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_common.js'
     }
@@ -161,7 +167,9 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery'
     }),
     new webpack.optimize.SplitChunksPlugin({
       name: 'vendor',
