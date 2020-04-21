@@ -1,8 +1,50 @@
 @import "../fonts/fontcustom/fontcustom.css";
 
+// Core variables and mixins
+@import "~bootstrap/scss/functions";
+@import "core/bootstrap-variables";
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+//
+// // Reset and dependencies
+// // @import "node_modules/bootstrap/scss/normalize";
+// // @import "node_modules/bootstrap/scss/print";
+// // @import "~bootstrap/glyphicons";
+//
+// // Core CSS
+// @import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/tables";
+// @import "~bootstrap/scss/forms";
+// @import "~bootstrap/scss/buttons";
+//
+// // Components
+// @import "~bootstrap/scss/dropdown";
+// @import "~bootstrap/scss/button-group";
+// @import "~bootstrap/scss/input-group";
+// @import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/navbar";
+//
+// // @import "~bootstrap/breadcrumbs";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/badge";
+// @import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/list-group";
+// @import "~bootstrap/scss/close";
+//
+// // Components w/ JavaScript
+// @import "~bootstrap/scss/modal";
+// //@import "~bootstrap/tooltip";
+// @import "~bootstrap/scss/popover";
+//
+// // Utility classes
+// @import "~bootstrap/scss/utilities";
+
 // Core
 @import "core/fonts";
-@import "core/bootstrap";
 @import "core/mixins";
 @import "core/type";
 @import "core/containers";
