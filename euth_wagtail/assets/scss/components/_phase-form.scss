@@ -60,8 +60,8 @@
 }
 
 .single-phase {
-    @include rem(margin-top, 20px);
-    @include rem (padding, 0 20px 20px);
+    margin-top: 20px;
+    padding: 0 20px 20px;
 }
 
 .phasefrom-collapse-top {

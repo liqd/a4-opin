@@ -1,6 +1,6 @@
 .info-block {
     .button {
-        @include rem(margin-top, 25px);
+        margin-top: 25px;
     }
 
     .container-inner {
@@ -16,6 +16,6 @@
     }
 
     .info-box-image {
-        @include rem(margin, 0 auto 35px);
+        margin: 0 auto 35px;
     }
 }

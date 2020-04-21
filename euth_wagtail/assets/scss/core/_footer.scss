@@ -1,6 +1,6 @@
 .footer {
     @extend .main-menu;
-    @include rem(margin-top, 200px);
+    margin-top: 200px;
 
     a {
         padding-top: 0;
@@ -12,7 +12,7 @@
         float: right;
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(padding, 10px 0);
+            padding: 10px 0;
             border-top: 1px solid $hr-border;
             border-bottom: 1px solid $hr-border;
             overflow: hidden;
@@ -23,14 +23,14 @@
 
     .footer-item {
         float: left;
-        @include rem(margin-left, 8px);
+        margin-left: 8px;
 
         @media screen and (max-width: $screen-xs-max) {
             float: none;
         }
 
         a {
-            @include rem(padding, 5px 0);
+            padding: 5px 0;
         }
     }
 
@@ -42,17 +42,17 @@
 }
 
 .footer-disclaimer {
-    @include rem(min-height, $footer-height);
-    @include rem(margin-top, 20px);
+    min-height: $footer-height;
+    margin-top: 20px;
     float: left;
     width: 100%;
 
     .footer-disclaimer-logo {
         max-width: 33%;
-        @include rem(margin-bottom, 20px);
+        margin-bottom: 20px;
 
         @media (min-width: $screen-sm-min) {
-            @include rem(margin-right, 40px);
+            margin-right: 40px;
             margin-bottom: 0;
             float: left;
             max-width: 80px;
@@ -69,7 +69,7 @@
     padding: 0;
 
     @media screen and (max-width: $screen-sm-max) {
-        @include rem(margin-bottom, 20px);
+        margin-bottom: 20px;
     }
 
     &,
@@ -78,11 +78,11 @@
     }
 
     li {
-        @include rem(margin-right, 8px);
+        margin-right: 8px;
         list-style: none;
 
         a {
-            @include rem(font-size, 24px);
+            font-size: 24px;
             display: block;
             padding: 0;
         }

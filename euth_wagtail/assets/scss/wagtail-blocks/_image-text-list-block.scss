@@ -1,9 +1,9 @@
 .image-text-list-block {
-    @include rem(padding, 20px 0 20px 0);
+    padding: 20px 0 20px 0;
 }
 
 .image-text-list-block-item {
-    @include rem(padding, 10px 0 10px 0);
+    padding: 10px 0 10px 0;
 
     span {
         line-height: 1.3;

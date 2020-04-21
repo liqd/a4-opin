@@ -1,10 +1,10 @@
 .tabs {
     background-color: $brand-brand2;
     @include clearfix;
-    @include rem(margin-top, 20px);
+    margin-top: 20px;
 
     @media screen and (max-width: $screen-xs-max) {
-        @include rem(padding-top, 10px);
+        padding-top: 10px;
     }
 
     .herounit + &,
@@ -54,14 +54,14 @@
     }
 
     .dropdown-menu {
-        @include rem(margin-left, -100px);
-        @include rem(width, 200px);
+        margin-left: -100px;
+        width: 200px;
         left: 50%;
     }
 }
 
 .tab-panel {
-    @include rem(margin, 53px 0 86px);
+    margin: 53px 0 86px;
 
     .js & {
         display: none;
@@ -74,17 +74,17 @@
     > h3,
     .idea-list > h2,
     .tab-panel-title {
-        @include rem(font-size, $font-size-large);
-        @include rem(margin, 0 0 12px);
+        font-size: $font-size-large;
+        margin: 0 0 12px;
         text-transform: uppercase;
     }
 
     .tab-panel-times {
-        @include rem(font-size, $font-size-small);
+        font-size: $font-size-small;
     }
 
     .tab-panel-description {
-        @include rem(font-size, $font-size-medium);
+        font-size: $font-size-medium;
         line-height: 1.56;
 
         .idea-list {

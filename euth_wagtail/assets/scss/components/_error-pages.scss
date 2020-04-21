@@ -1,5 +1,5 @@
 .error-banner {
-    @include rem(margin-top, 90px);
+    margin-top: 90px;
     background-color: $brand-brand2;
     border: solid 8px $brand-brand3;
     position: relative;
@@ -39,32 +39,32 @@
     }
 
     h1 {
-        @include rem(font-size, 100px);
-        @include rem(margin, 0);
+        font-size: 100px;
+        margin: 0;
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(font-size, 80px);
+            font-size: 80px;
         }
     }
 
     h2 {
-        @include rem(font-size, 55px);
-        @include rem(margin, 0);
+        font-size: 55px;
+        margin: 0;
 
         @media screen and (max-width: $screen-xs-max) {
-            @include rem(font-size, 35px);
+            font-size: 35px;
         }
     }
 }
 
 .error-info {
-    @include rem(margin-top, 60px);
+    margin-top: 60px;
     font-weight: bold;
-    @include rem(font-size, 18px);
+    font-size: 18px;
 
     .button {
         background-color: $brand-brand1;
         color: white;
-        @include rem(margin-top, 30px);
+        margin-top: 30px;
     }
 }

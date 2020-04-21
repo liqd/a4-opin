@@ -5,16 +5,16 @@ button {
 }
 
 .button {
-    @include rem(border-radius, 25px);
-    @include rem(font-size, $font-size-medium);
-    @include rem(padding, 10px 20px);
+    border-radius: 25px;
+    font-size: $font-size-medium;
+    padding: 10px 20px;
     background: $brand-brand2;
     color: $gray-darker;
     display: inline-block;
     font-weight: bold;
     text-transform: uppercase;
 
-    transition: color 0.2s, background 0.2s;
+    transition: (color 0.2s, background 0.2s);
 
     &:focus,
     &:hover {
@@ -37,14 +37,14 @@ button {
 }
 
 .btn {
-    @include rem(padding, 10px 20px);
+    padding: 10px 20px;
     border: 0;
     font-weight: bold;
     transition: color 0.2s, background 0.2s;
 }
 
 .btn-sm {
-    @include rem(padding, 7px 15px);
+    padding: 7px 15px;
 }
 
 .btn-hover-primary {
@@ -106,7 +106,7 @@ span.btn-dark:focus {
 .btn-gray {
     background-color: $gray-lighter;
     color: $gray-darker;
-    @include rem(font-size, 12px);
+    font-size: 12px;
 
     &.btn-primary i {
         color: $gray-darker;
@@ -122,7 +122,7 @@ span.btn-dark:focus {
 .btn-ghost {
     border: 1px solid currentColor;
     background: transparent;
-    @include rem(padding, 10px);
+    padding: 10px;
 
     &.btn-primary {
         color: $brand-primary;
@@ -131,7 +131,7 @@ span.btn-dark:focus {
         &:focus,
         &:active {
             background: transparent;
-            color: darken($brand-primary, 20%)
+            color: darken($brand-primary, 20%);
         }
     }
 }
@@ -140,7 +140,7 @@ span.btn-dark:focus {
     border-radius: 25px;
     background-color: #fff;
     color: $brand-brand1;
-    @include rem(font-size, $font-size-small);
+    font-size: $font-size-small;
 
     .fa-link {
         margin-right: 10px;
@@ -155,15 +155,16 @@ span.btn-dark:focus {
 
 .base-button {
     border-radius: 0;
-    @include rem(padding, 14px 57px 14px 57px);
-    @include rem(font-size, 12px);
-    @include rem(letter-spacing, -0.2px);
+    padding: 14px 57px 14px 57px;
+    font-size: 12px;
+    letter-spacing: -0.2px;
     font-weight: bold;
     font-family: $font-family-sans-serif;
 }
 
 .submit-button {
-    @include rem(font-size, $font-size-base);
+    font-size: $font-size-base;
+
     @extend .btn;
     @extend .btn-primary;
     @extend .base-button;
@@ -214,7 +215,7 @@ span.btn-dark:focus {
     }
 
     > * {
-        @include rem(margin-left, 1px);
+        margin-left: 1px;
         float: left;
     }
 
@@ -258,7 +259,7 @@ span.btn-dark:focus {
 
 .btn--light {
     @extend .btn-gray;
-    @include rem(font-size, $font-size-small);
+    font-size: $font-size-small;
 }
 
 .btn--attached-top {

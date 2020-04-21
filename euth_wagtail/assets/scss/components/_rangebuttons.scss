@@ -1,11 +1,11 @@
 .rangebuttons {
     list-style: none;
     padding-left: 0;
-    @include rem(margin-top, 20px);
+    margin-top: 20px;
 }
 
 .rangebuttons-item {
-    @include rem(padding-bottom, 40px);
+    padding-bottom: 40px;
     position: relative;
 
     input[type="radio"] {
@@ -83,6 +83,6 @@
 .rangebuttons-itemlabel {
     display: block;
     overflow: hidden;
-    @include rem(padding-left, 10px);
+    padding-left: 10px;
     font-weight: 400;
 }

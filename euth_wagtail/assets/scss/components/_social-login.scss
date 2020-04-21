@@ -1,18 +1,18 @@
 .socialaccounts {
-    @include rem(margin-top, -20px);
+    margin-top: -20px;
 }
 
 .socialaccount_providers {
-    @include rem(padding, 10px 0 50px);
+    padding: 10px 0 50px;
     list-style: none;
 
     .skinny-form & {
-        @include rem(padding, 10px 50px 50px);
+        padding: 10px 50px 50px;
     }
 
     li {
         display: inline-block;
-        @include rem(margin-bottom, 0.3em);
+        margin-bottom: 0.3em;
         max-width: 50%;
     }
 }
@@ -58,5 +58,5 @@
 }
 
 .connections-form button {
-    @include rem(margin-top, 10px);
+    margin-top: 10px;
 }

@@ -1,14 +1,14 @@
 .block-title,
 .page-title {
-    @include rem(font-size, $font-size-xlarge);
-    @include rem(margin, 0 0 25px 0);
+    font-size: $font-size-xlarge;
+    margin: 0 0 25px 0;
     text-align: center;
 }
 
 .block,
 .block-inner {
-    @include rem(padding, $block-vpadding 0);
-    @include rem(font-size, $font-size-medium);
+    padding: $block-vpadding 0;
+    font-size: $font-size-medium;
     line-height: 1.4;
     text-align: center;
 
@@ -37,7 +37,7 @@
 
     &.m-highlight-purple {
         background: #3c487d;
-        @include rem(padding, 140px 0);
+        padding: 140px 0;
 
         img {
             max-width: 100%;
@@ -83,24 +83,24 @@
 }
 
 .block + .page-body {
-    @include rem(margin-top, -$block-vpadding);
+    margin-top: -$block-vpadding;
 }
 
 .block-inner {
     padding: 0;
 
     img {
-        @include rem(margin, 20px 0);
+        margin: 20px 0;
     }
 }
 
 .block-image {
-    @include rem(padding-bottom, $block-vpadding);
+    padding-bottom: $block-vpadding;
     text-align: center;
 }
 
 .rich-text {
-    @include rem(padding-bottom, $block-vpadding);
+    padding-bottom: $block-vpadding;
     text-align: left;
 
     h2,
@@ -109,13 +109,13 @@
     h5,
     h6 {
         @extend .block-title;
-        @include rem(font-size, $font-size-large);
-        @include rem(margin, 0 0 $font-size-large);
+        font-size: $font-size-large;
+        margin: 0 0 $font-size-large;
         text-align: center;
     }
 
     p {
-        @include rem(margin, 0 0 $font-size-large);
+        margin: 0 0 $font-size-large;
     }
 }
 

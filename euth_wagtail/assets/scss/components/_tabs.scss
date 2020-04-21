@@ -1,7 +1,7 @@
 .nav-tabs {
     background-color: $gray-lighter;
     border-bottom: 0;
-    @include rem(padding-top, 10px);
+    padding-top: 10px;
 
     > li {
         > a {
@@ -17,7 +17,7 @@
     }
 
     > li:first-child {
-        @include rem(margin-left, 10px);
+        margin-left: 10px;
     }
 
     > li.active {

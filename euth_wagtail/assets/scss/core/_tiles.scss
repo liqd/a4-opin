@@ -1,31 +1,31 @@
 %tile {
-    @include rem(margin, 0 13px 13px 0);
+    margin: 0 13px 13px 0;
     box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: left;
 }
 
 %tile-title {
-    @include rem(font-size, $font-size-medium);
-    @include rem(margin, 0 0 10px);
+    font-size: $font-size-medium;
+    margin: 0 0 10px;
     line-height: 1.2;
     text-align: left;
 }
 
 %tile-teaser-text {
-    @include rem(font-size, $font-size-small);
-    @include rem(margin-bottom, 10px);
+    font-size: $font-size-small;
+    margin-bottom: 10px;
     line-height: 1.571428571;
     margin-bottom: 0;
 }
 
 %tile-org {
-    @include rem(font-size, $font-size-small);
-    @include rem(margin, 25px 0 0);
+    font-size: $font-size-small;
+    margin: 25px 0 0;
     font-weight: normal;
 
     img.project-tile-org-avatar {
-        @include rem(margin-right, 9px);
+        margin-right: 9px;
         float: left;
         width: auto;
         height: 30px;
@@ -33,7 +33,7 @@
 }
 
 %tile-location {
-    @include rem(margin-bottom, 10px);
+    margin-bottom: 10px;
     font-size: $font-size-small;
     display: block;
     text-align: center;
@@ -50,8 +50,8 @@ $tile-list-thumbnail-size: 120px;
 }
 
 .tile-image-link {
-    @include rem(height, $tile-list-thumbnail-size);
-    @include rem(width, $tile-list-thumbnail-size);
+    height: $tile-list-thumbnail-size;
+    width: $tile-list-thumbnail-size;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

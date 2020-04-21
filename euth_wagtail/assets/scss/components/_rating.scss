@@ -1,6 +1,7 @@
 .rating-button {
-    @include rem(padding, 7px 14px);
-    @extends .btn;
+    @extend .btn;
+
+    padding: 7px 14px;
 
     background: transparent;
     border: 1px solid currentColor;
@@ -20,6 +21,7 @@
 }
 
 .rating-up {
+
     @include button-hover-background($brand-success);
 
     &.is-selected {
@@ -41,7 +43,7 @@
 
 .rating-down {
     @include button-hover-background($brand-danger);
-    @include rem(margin, 0 10px);
+    margin: 0 10px;
 
     &.is-selected {
         background-color: $brand-danger;

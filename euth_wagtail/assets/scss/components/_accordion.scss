@@ -3,7 +3,7 @@
     background: #f4f4f4;
 
     .panel {
-        @include rem(margin-bottom, 9px);
+        margin-bottom: 9px;
     }
 
     .card-body {
@@ -14,7 +14,7 @@
 
     .accordion-title {
         margin: 0;
-        @include rem(padding, 5px 0);
+        padding: 5px 0;
         text-align: center;
 
         i {
@@ -25,8 +25,8 @@
     }
 
     .accordion-link {
-        @include rem(font-size, $font-size-small);
-        @include rem(padding, 20px 20px);
+        font-size: $font-size-small;
+        padding: 20px 20px;
         position: relative;
         color: $gray-darker;
         display: block;
@@ -49,13 +49,13 @@
     }
 
     .card-body {
-        @include rem(padding-bottom, 50px);
-        @include rem(font-size, $font-size-base);
+        padding-bottom: 50px;
+        font-size: $font-size-base;
         line-height: 1.75;
     }
 
     .rich-text {
-        @include rem(padding-bottom, 10px);
+        padding-bottom: 10px;
     }
 }
 
@@ -84,8 +84,8 @@
     }
 
     .accordion-link {
-        @include rem(font-size, $font-size-medium);
-        @include rem(padding, 15px 50px 12px 15px);
+        font-size: $font-size-medium;
+        padding: 15px 50px 12px 15px;
         border: 1px solid $brand-brand1;
         position: relative;
         color: #fff;
@@ -96,6 +96,6 @@
     }
 
     .card-body {
-        @include rem(padding, 0 22px 22px 22px);
+        padding: 0 22px 22px 22px;
     }
 }

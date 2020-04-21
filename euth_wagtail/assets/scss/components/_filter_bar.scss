@@ -7,7 +7,6 @@
         margin-right: 13px;
     }
 
-
     .btn {
         background-color: white;
         border: solid 1px $gray-light;
@@ -38,7 +37,7 @@
 
     .filter {
         float: left;
-        margin-right: rem(10px);
+        margin-right: 10px;
     }
 
     .ordering {
@@ -68,10 +67,10 @@
 
     .search-filter-input {
         color: $gray-dark;
-        padding: rem(11px) rem(20px);
+        padding: 11px 20px;
         border: 1px solid $gray-light;
         border-right: none;
-        min-width: rem(270px);
+        min-width: 270px;
         width: 100%;
     }
 

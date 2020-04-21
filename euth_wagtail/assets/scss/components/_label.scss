@@ -1,9 +1,9 @@
 .badge {
-    @include rem(padding, 4px 10px);
-    @include rem(font-size, $font-size-small);
+    padding: 4px 10px;
+    font-size: $font-size-small;
     font-style: italic;
     text-transform: uppercase;
-    @include rem(letter-spacing, -0.2px);
+    letter-spacing: -0.2px;
     border-radius: 100px;
     font-weight: bold;
     line-height: 2;
@@ -35,14 +35,14 @@
 }
 
 .badge-secondary {
-    // @include label-variant($brand-brand2);
+    // @include label-variant($brand-brand2;
     color: $black;
 }
 
 .badge-xs {
-    @include rem(padding, 2px 4px);
-    @include rem(margin-top, -1px);
-    @include rem(font-size, 10px);
+    padding: 2px 4px;
+    margin-top: -1px;
+    font-size: 10px;
     border-radius: 2px;
     line-height: 1;
 }
@@ -52,8 +52,8 @@
     text-transform: none;
     background-color: $gray-lighter;
     color: $gray-darker;
-    @include rem(font-size, 10px);
-    @include rem(padding, 2px 4px);
+    font-size: 10px;
+    padding: 2px 4px;
     font-weight: 600;
     font-style: normal;
 }

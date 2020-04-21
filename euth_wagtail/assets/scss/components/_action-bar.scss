@@ -2,14 +2,14 @@
     li {
         a,
         button {
-            @include rem(padding, 10px);
+            padding: 10px;
             text-align: center;
         }
     }
 }
 
 .custom-dropdown-menu {
-    @include rem(border-radius, 3px);
+    border-radius: 3px;
     border: solid 1px $gray;
 
     .divider {
@@ -21,11 +21,11 @@
         a,
         button {
             text-transform: uppercase;
-            @include rem(font-size, 12px);
-            @include rem(letter-spacing, -0.2px);
+            font-size: 12px;
+            letter-spacing: -0.2px;
             font-family: $font-family-sans-serif;
             color: $black;
-            @include rem(font-size, 12px);
+            font-size: 12px;
             border-bottom: 0;
         }
     }
@@ -38,7 +38,7 @@
         margin: 0;
 
         li a {
-            @include rem(padding, 35px 15px 35px 0);
+            padding: 35px 15px 35px 0;
         }
     }
 
@@ -66,8 +66,8 @@
 
         .navbar-nav .open .dropdown-menu {
             position: absolute;
-            @include rem(top, 80px);
-            @include rem(left, -80px);
+            top: 80px;
+            left: -80px;
             background-color: #fff;
         }
     }

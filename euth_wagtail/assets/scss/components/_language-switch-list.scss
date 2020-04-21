@@ -23,8 +23,8 @@
     a {
         color: $black;
         background-color: $gray-lighter;
-        @include rem(padding, 10px 13px);
-        @include rem(margin-right, 2px);
+        padding: 10px 13px;
+        margin-right: 2px;
 
         &:focus,
         &:hover {
@@ -43,7 +43,7 @@
 }
 
 .language-switch-list .dropdown-toggle {
-    @include rem(padding, 10px 15px);
+    padding: 10px 15px;
     background-color: $gray-lighter;
 }
 

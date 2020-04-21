@@ -3,7 +3,7 @@
 
     input {
         @extend .form-control;
-        @include rem(padding-right, 20px);
+        padding-right: 20px;
         width: 100%;
     }
 }
@@ -17,8 +17,8 @@
 
     & ~ .category-formset__delete-label {
         position: absolute;
-        @include rem(right, 7px);
-        @include rem(top, 7px);
+        right: 7px;
+        top: 7px;
         color: $gray;
     }
 

@@ -17,8 +17,8 @@
     }
 
     .badge {
-        @include rem(padding-top, 3px);
-        @include rem(margin-left, 10px);
+        padding-top: 3px;
+        margin-left: 10px;
     }
 }
 
@@ -26,7 +26,7 @@
     border-radius: 0;
     background: $brand-info;
     border-bottom: 0;
-    @include rem(font-size, 12px);
+    font-size: 12px;
 }
 
 .popover-content {

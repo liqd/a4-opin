@@ -1,9 +1,9 @@
 .general-form {
-    @include rem(margin-bottom, 40px);
+    margin-bottom: 40px;
 
     label {
-        @include rem(font-size, 14px);
-        @include rem(height, 16px);
+        font-size: 14px;
+        height: 16px;
         font-weight: bold;
         font-family: $font-family-sans-serif;
         color: $black;
@@ -16,7 +16,7 @@
 
     .input-group-btn .btn,
     .form-control {
-        @include rem(min-height, 48px);
+        min-height: 48px;
         border-radius: 0;
     }
 
@@ -42,7 +42,7 @@
     }
 
     .errorbar {
-        @include rem(padding, 0.5em);
+        padding: 0.5em;
 
         color: $brand-danger;
         background-color: #fff;
@@ -57,7 +57,7 @@
     }
 
     .infobar {
-        @include rem(padding, 0.5em);
+        padding: 0.5em;
 
         color: $gray;
         background-color: #fff;

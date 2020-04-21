@@ -3,8 +3,8 @@
 
     .slick-prev,
     .slick-next {
-        @include rem(font-size, 40px);
-        @include rem(margin-top, -20px);
+        font-size: 40px;
+        margin-top: -20px;
         position: absolute;
         top: 50%;
         z-index: 1;
@@ -20,11 +20,11 @@
     }
 
     .slick-prev {
-        @include rem(left, -70px);
+        left: -70px;
     }
 
     .slick-next {
-        @include rem(right, -70px);
+        right: -70px;
     }
 
     &:hover {
@@ -54,7 +54,7 @@
 
     .slick-list {
         overflow: visible;
-        @include rem(padding, 20px 0 30px);
+        padding: 20px 0 30px;
 
         @media (max-width: $screen-md-min) {
             overflow: hidden;
@@ -71,7 +71,7 @@
 
     .slick-dots {
         list-style: none;
-        @include rem(margin-bottom, 15px);
+        margin-bottom: 15px;
         padding-left: 0;
         overflow: hidden;
 

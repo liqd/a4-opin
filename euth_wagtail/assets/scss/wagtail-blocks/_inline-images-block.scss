@@ -8,7 +8,7 @@
 }
 
 .inline-images-block-col {
-    @include rem(padding-bottom, $block-vpadding);
+    padding-bottom: $block-vpadding;
 
     .img-container {
         display: inline-block;
@@ -25,8 +25,8 @@
     }
 
     .inline-images-text {
-        @include rem(font-size, $font-size-large);
-        @include rem(margin-top, 30px);
+        font-size: $font-size-large;
+        margin-top: 30px;
         color: $brand-brand1;
         font-family: $headings-font-family;
     }
