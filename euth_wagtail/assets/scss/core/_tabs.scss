@@ -1,6 +1,5 @@
 .tabs {
     background-color: $brand-brand2;
-    @include clearfix;
     margin-top: 20px;
 
     @media screen and (max-width: $screen-xs-max) {
@@ -25,7 +24,7 @@
         list-style-type: none;
     }
 
-    li.active a {
+    li a.active {
         background: #fff;
         color: $brand-brand1;
         box-shadow: 0 -9px 10px 3px rgba(0, 0, 0, 0.1);
