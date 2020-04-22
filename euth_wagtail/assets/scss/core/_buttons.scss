@@ -153,32 +153,6 @@ span.btn-dark:focus {
     }
 }
 
-.feedback-button {
-    @extend .button;
-    @include rem(border-radius, 0 0 25px 25px);
-    @include rem(margin-top, $navbar-height);
-    @include rotate(90);
-    border: 2px solid #fff;
-    border-width: 0 2px 2px 2px;
-    position: fixed;
-    background: $brand-brand1;
-    color: #fff;
-    right: 0;
-    transform-origin: 100% 0;
-    top: 40%;
-    z-index: 401;
-
-    &:hover,
-    &:focus {
-        background-color: darken($brand-brand1, 10%);
-        color: $gray-lighter;
-    }
-
-    @media (max-width: $screen-sm-min) {
-        display: none;
-    }
-}
-
 .base-button {
     border-radius: 0;
     @include rem(padding, 14px 57px 14px 57px);
