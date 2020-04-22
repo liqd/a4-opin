@@ -22,7 +22,7 @@ module.exports = {
   entry: {
     adhocracy4: [
       './euth_wagtail/assets/scss/all.scss',
-      './euth/contrib/static/js/app.js'
+      './euth_wagtail/assets/js/app.js'
     ],
     datepicker: [
       './euth_wagtail/assets/js/init-picker.js',
@@ -136,7 +136,7 @@ module.exports = {
         ]
       },
       {
-        test: /fonts\/.*\.(svg|woff2?|ttf|eot)(\?.*)?$/,
+        test: /(fonts|files)\/.*\.(svg|woff2?|ttf|eot|otf)(\?.*)?$/,
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]'
