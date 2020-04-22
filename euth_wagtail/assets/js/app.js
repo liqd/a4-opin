@@ -5,7 +5,7 @@ import 'bootstrap'
 import './euth_wagtail'
 
 import {
-  comments as ReactComments,
+  comments_async as ReactCommentsAsync,
   polls as ReactPolls,
   ratings as ReactRatings,
   widget as ReactWidget
@@ -17,7 +17,7 @@ import * as ReactLanguageSwitch from '../../../euth/dashboard/static/language_sw
 import * as ReactUserList from '../../../euth/dashboard/static/user_list/react_user_list.jsx'
 
 function init () {
-  ReactWidget.initialise('a4', 'comment', ReactComments.renderComment)
+  ReactWidget.initialise('a4', 'comment_async', ReactCommentsAsync.renderComment)
   ReactWidget.initialise('a4', 'ratings', ReactRatings.renderRatings)
   ReactWidget.initialise('a4', 'polls', ReactPolls.renderPolls)
   ReactWidget.initialise('a4', 'poll-management', ReactPolls.renderPollManagement)

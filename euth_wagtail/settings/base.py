@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'adhocracy4.modules',
     'adhocracy4.categories',
     'adhocracy4.comments',
+    'adhocracy4.comments_async',
     'adhocracy4.maps',
     'adhocracy4.filters',
     'adhocracy4.rules',
