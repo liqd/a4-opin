@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail rules avatar %}
+{% load i18n react_comments_async react_ratings thumbnail rules avatar %}
 
 {% block title %}{{idea.name}}{% endblock %}
 {% block content %}
@@ -64,7 +64,7 @@
                 {% react_ratings idea %}
             </div>
 
-            {% react_comments idea %}
+            {% react_comments_async idea %}
         </div>
     </div>
 </div>

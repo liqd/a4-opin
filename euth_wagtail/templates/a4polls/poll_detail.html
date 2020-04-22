@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load react_polls react_comments %}
+{% load react_polls react_comments_async %}
 
 {% block phase_content %}
     <div class="container">
@@ -10,7 +10,7 @@
                 {% endfor %}
             </div>
 
-            {% react_comments object %}
+            {% react_comments_async object %}
         </div>
     </div>
 {% endblock %}
