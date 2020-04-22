@@ -12,10 +12,11 @@
             </ul>
         </nav>
     </div>
-<h1>{{ paragraph.name }}</h1>
-<p>{{ paragraph.text | safe }}</p>
+    <h1>{{ paragraph.name }}</h1>
+    <p>{{ paragraph.text | safe }}</p>
 
-{% react_comments_async paragraph %}
-
+    <div>
+        {% react_comments_async paragraph %}
+    </div>
 </div>
 {% endblock %}

@@ -24,7 +24,9 @@
     </article>
 
     {% if object %}
-    {% react_comments_async object %}
+    <div>
+        {% react_comments_async object %}
+    </div>
     {% endif %}
 
 </div>
