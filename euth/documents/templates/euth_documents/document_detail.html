@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load i18n react_comments %}
+{% load i18n react_comments_async %}
 
 {% block phase_content %}
 <div>
@@ -24,7 +24,7 @@
     </article>
 
     {% if object %}
-    {% react_comments object %}
+    {% react_comments_async object %}
     {% endif %}
 
 </div>

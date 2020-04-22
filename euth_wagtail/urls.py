@@ -16,7 +16,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
-from adhocracy4.comments.api import CommentViewSet
+from adhocracy4.comments_async.api import CommentViewSet
 from adhocracy4.polls.api import PollViewSet, VoteViewSet
 from adhocracy4.polls.routers import QuestionDefaultRouter
 from adhocracy4.ratings.api import RatingViewSet

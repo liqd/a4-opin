@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail%}
+{% load i18n react_comments_async react_ratings thumbnail%}
 
 {% block content %}
 <div class="container-narrow">
@@ -15,7 +15,7 @@
 <h1>{{ paragraph.name }}</h1>
 <p>{{ paragraph.text | safe }}</p>
 
-{% react_comments paragraph %}
+{% react_comments_async paragraph %}
 
 </div>
 {% endblock %}
