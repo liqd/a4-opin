@@ -55,6 +55,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
 $link-hover-decoration: none !default;
 
+$spacer: 1rem !default;
 
 //== Typography
 //
@@ -133,14 +134,14 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 $padding-base-vertical:     0.5rem !default;
 $padding-base-horizontal:   1rem !default;
 
-$padding-large-vertical:    1rem !default;
-$padding-large-horizontal:  1rem !default;
+$padding-large-vertical:    0.5rem !default;
+$padding-large-horizontal:  0.5rem !default;
 
-$padding-small-vertical:    0.5rem !default;
-$padding-small-horizontal:  1rem !default;
+$padding-small-vertical:    0.25rem !default;
+$padding-small-horizontal:  0.5rem !default;
 
-$padding-xs-vertical:       0.3rem !default;
-$padding-xs-horizontal:     0.5rem !default;
+$padding-xs-vertical:       0.1rem !default;
+$padding-xs-horizontal:     0.25rem !default;
 
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;
