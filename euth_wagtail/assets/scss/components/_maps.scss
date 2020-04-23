@@ -14,7 +14,7 @@
 
         .idea-meta-item {
             margin-right: 10px;
-            font-size: 16px;
+            font-size: $font-size-base;
             font-style: normal;
             font-stretch: normal;
             color: $gray-darker;
@@ -28,7 +28,7 @@
     }
 
     .maps-popups-popup-name {
-        font-size: 16px;
+        font-size: $font-size-base;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
@@ -88,7 +88,7 @@
         margin-top: 5px;
         text-align: center;
         border-radius: 15px;
-        font-size: 12px;
+        font-size: $font-size-small;
         background-color: $brand-brand1;
         color: #fff;
         line-height: 30px;
