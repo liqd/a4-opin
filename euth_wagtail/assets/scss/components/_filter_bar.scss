@@ -7,6 +7,12 @@
         margin-right: 13px;
     }
 
+    label {
+        font-weight: bold;
+        display: inline-block;
+        max-width: 100%;
+    }
+
     .btn {
         background-color: white;
         border: solid 1px $gray-light;
@@ -81,12 +87,8 @@
         }
     }
 
-    .col-xs-12 {
-        padding: 0;
-
-        .filter-element {
-            width: 100%;
-        }
+    .filter-element {
+        width: 100%;
     }
 }
 
