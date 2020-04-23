@@ -21,11 +21,11 @@
         a,
         button {
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: $font-size-small;
             letter-spacing: -0.2px;
             font-family: $font-family-sans-serif;
             color: $black;
-            font-size: 12px;
+            font-size: $font-size-small;
             border-bottom: 0;
         }
     }

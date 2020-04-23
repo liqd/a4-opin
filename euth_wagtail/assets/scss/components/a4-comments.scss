@@ -253,12 +253,12 @@
     & textarea {
         border: 1px solid $gray;
         border-radius: 0;
-        font-size: 14px;
+        font-size: $font-size-small;
     }
 
     & textarea:focus {
         border-radius: 0;
-        font-size: 14px;
+        font-size: $font-size-small;
     }
 
     @media (max-width: $screen-sm-min) {
@@ -350,7 +350,7 @@
             margin: 0;
 
             font-family: $font-family-sans-serif;
-            font-size: 14px;
+            font-size: $font-size-small;
             line-height: 1.6;
             text-align: center;
             font-weight: bold;

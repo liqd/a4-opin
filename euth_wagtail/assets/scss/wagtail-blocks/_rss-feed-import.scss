@@ -7,7 +7,7 @@
 
     .rss-feed-entry-date {
         color: $black;
-        font-size: 14px;
+        font-size: $font-size-small;
         font-weight: bold;
         text-align: justify;
     }
@@ -21,7 +21,7 @@
     }
 
     p {
-        font-size: 14px;
+        font-size: $font-size-small;
         line-height: 1.6;
         letter-spacing: -0.2px;
         text-align: justify;
