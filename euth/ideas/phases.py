@@ -13,7 +13,7 @@ class IssuePhase(phases.PhaseContent):
     name = _('Issue phase')
     description = _('Add new ideas.')
     module_name = _('ideas collection')
-    icon = 'lightbulb-o'
+    icon = 'far fa-lightbulb'
 
     features = {
         'crud': (models.Idea,),
@@ -28,7 +28,7 @@ class CollectPhase(phases.PhaseContent):
     name = _('Collect phase')
     description = _('Add new ideas and comment them.')
     module_name = _('ideas collection')
-    icon = 'lightbulb-o'
+    icon = 'far fa-lightbulb'
 
     features = {
         'crud': (models.Idea,),
@@ -44,7 +44,7 @@ class RatingPhase(phases.PhaseContent):
     name = _('Rating phase')
     module_name = _('ideas collection')
     description = _('Get quantative feeback by rating the collected ideas.')
-    icon = 'chevron-up'
+    icon = 'fas fa-chevron-up'
 
     features = {
         'rate': (models.Idea,)
@@ -60,7 +60,7 @@ class FeedbackPhase(phases.PhaseContent):
     description = _('Get feedback for collected ideas through rates and '
                     'comments.')
     module_name = _('ideas collection')
-    icon = 'comment-o'
+    icon = 'far fa-comment'
 
     features = {
         'rate': (models.Idea,),
@@ -76,7 +76,7 @@ class UniversalPhase(phases.PhaseContent):
     name = _('Universal phase')
     module_name = _('ideas collection')
     description = _('Use all features of the idea collection.')
-    icon = 'lightbulb-o'
+    icon = 'far fa-lightbulb'
 
     features = {
         'crud': (models.Idea,),

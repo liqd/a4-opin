@@ -13,7 +13,7 @@ class IssuePhase(phases.PhaseContent):
     name = _('Issue Phase')
     description = _('Add, comment and rate new ideas on a map.')
     module_name = _('ideas collection')
-    icon = 'map-o'
+    icon = 'far fa-map'
 
     features = {
         'crud': (models.MapIdea,),
@@ -30,7 +30,7 @@ class CollectPhase(phases.PhaseContent):
     name = _('Collect Phase')
     description = _('Add and comment new ideas on a map.')
     module_name = _('ideas collection')
-    icon = 'map-o'
+    icon = 'far fa-map'
 
     features = {
         'crud': (models.MapIdea,),
@@ -47,7 +47,7 @@ class RatingPhase(phases.PhaseContent):
     description = _('Get quantative feeback by rating the collected '
                     'ideas on a map.')
     module_name = _('ideas collection')
-    icon = 'chevron-up'
+    icon = 'fas fa-chevron-up'
 
     features = {
         'rate': (models.MapIdea,),
