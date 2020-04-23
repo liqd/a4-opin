@@ -17,11 +17,11 @@
             <div class="filter-bar">
             {% for field in view.filter.form %}
             {% if field.name != 'ordering' %}
-            <div class="filter hidden-xs projects-filter-{{ field.name }}">
+            <div class="filter d-none d-sm-block projects-filter-{{ field.name }}">
                 {{ field }}
             </div>
             {% else %}
-            <div class="ordering hidden-xs projects-filter-{{ field.name }}">
+            <div class="ordering d-none d-sm-block projects-filter-{{ field.name }}">
                 {{ field }}
             </div>
             {% endif %}
