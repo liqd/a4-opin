@@ -20,11 +20,12 @@
             <div id="navbar-collapse" class="navbar-collapse collapse">
                 {% userindicator_menu %}
 
-                <ul class="nav navbar-nav navbar-right ml-auto language-selector order-md-2" id="language-selector">
+                <ul class="nav navbar-nav navbar-right ml-auto language-selector order-md-2 px-3" id="language-selector">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }} <span class="caret"></span>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ LANGUAGE_CODE }}
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-right">
                         {% get_available_languages as languages %}
                         {% for lang_code, lang_name in languages %}
                             {% if lang_code != LANGUAGE_CODE %}
@@ -38,7 +39,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right ml-auto order-md-1">
                     {% for menuitem in top_menu_items %}
-                    <li class="nav-item"><a href="{{ menuitem.url }}" class="nav-link {% if request.path == menuitem.url %} is-active{% endif %}">{{ menuitem.translated_menu_title }}</a></li>
+                    <li class="nav-item"><a href="{{ menuitem.url }}" class="nav-link px-3 {% if request.path == menuitem.url %} is-active{% endif %}">{{ menuitem.translated_menu_title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

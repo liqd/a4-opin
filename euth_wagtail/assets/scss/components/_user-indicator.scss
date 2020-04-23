@@ -38,7 +38,7 @@
 
 @media screen and (min-width: $grid-float-breakpoint) {
     .user-indicator .btngroup {
-        margin-top: $navbar-padding-vertical / 2;
+        margin-top: 0.4*$spacer;
     }
 
     .user-indicator .btngroup > a {
