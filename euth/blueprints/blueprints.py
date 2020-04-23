@@ -4,6 +4,7 @@ from enum import Enum, unique
 from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.polls import phases as poll_phases
+from euth.communitydebate import phases as communitydebate_phases
 from euth.documents import phases as documents_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
@@ -69,6 +70,12 @@ class Aim(Enum):
         _('Work together with other people on a text document.'),
         [_('Draft or revise statutes, articles, charters etc.'),
          _('Involve different authors in writing a shared text')]
+    )
+    communitydebate = (
+        'communitydebate',
+        _('Find and debate topics and questions.'),
+        [_('Do this.'),
+         _('Do that.')]
     )
 
     def __new__(cls, value, label, examples):
@@ -319,7 +326,26 @@ blueprints = [
          ),
          complexity=COMPLEXITY_VECTOR_E,
          type=BlueprintNames.a4_poll.name
-     ))
+     )),
+    (BlueprintNames.communitydebate.value,
+     Blueprint(
+         title=_('Community debate'),
+         description=_('Collect topics and questions to discuss, '
+                       'debate and prioritize them.'),
+         content=[
+             communitydebate_phases.DebatePhase(),
+         ],
+         image='images/brainstorming.png',
+         settings_model=None,
+         requirements=Requirements(
+             aims=[Aim.communitydebate],
+             results=[Result.both],
+             experience=Experience.no_projects,
+             motivation=Motivation.not_found
+         ),
+         complexity=COMPLEXITY_VECTOR_AC,
+         type=BlueprintNames.communitydebate.name
+     )),
 ]
 
 
@@ -330,5 +356,6 @@ fallbacks = {
     Aim.design_place: BlueprintNames.map_brainstorming.value,
     Aim.run_survey: BlueprintNames.a4_poll.value,
     Aim.run_competition: BlueprintNames.agenda_setting.value,
-    Aim.work_document: BlueprintNames.commenting_text.value
+    Aim.work_document: BlueprintNames.commenting_text.value,
+    Aim.communitydebate: BlueprintNames.communitydebate.value
 }

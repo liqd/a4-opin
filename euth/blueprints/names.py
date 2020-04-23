@@ -9,3 +9,4 @@ class BlueprintNames(Enum):
     agenda_setting = 'agenda-setting'
     commenting_text = 'commenting-text'
     a4_poll = 'a4-poll'
+    communitydebate = 'communitydebate'
