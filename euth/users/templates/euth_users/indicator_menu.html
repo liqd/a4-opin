@@ -3,15 +3,15 @@
 <ul class="nav navbar-nav navbar-right ml-auto user-indicator order-md-12" id="user-indicator">
     <li class="dropdown">
     {% if request.user.is_authenticated %}
-        <div class="btngroup btngroup-primary">
+        <div class="btngroup btngroup-primary ml-3">
             <a href="{% url 'profile' request.user.username %}" class="btn userindicator-profile">
                 <span class="circled circled-xs" style="background-image: url({% get_avatar request.user 'org_avatar_small' %});"></span>
                 {{ request.user.username }}
             </a>
             <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-right">
                 {% if request.user.is_superuser %}
                     <li class="dropdown-item">
                         <a href="{% url 'admin:index' %}"><i class="far fa-hand-spock"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
@@ -28,7 +28,7 @@
                         <span class="dropdown-text">{{ organisation.name }}</span>
                     </a></li>
                 {% endfor %}
-                <li class="dropdown-item">
+                <li class="dropdown-item p-0">
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ redirect_field_value }}">
@@ -38,7 +38,7 @@
             </ul>
         </div>
     {% else %}
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login / Register"%}<span class="caret"></span></span>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login / Register"%}<i class="fa fa-caret-down" aria-hidden="true"></i></span>
         </a>
         <ul class="dropdown-menu">
             <li class="dropdown-item">
