@@ -9,12 +9,12 @@
             <nav class="navbar navbar-default navbar-static">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="">
+                        <a href="{% url 'project-detail' topic.project.slug %}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             {% trans 'back to project' %}</a>
                     </li>
                 </ul>
-                {% has_perm 'euth_ideas.modify_idea' request.user idea as show_dropdown %}
+                {% has_perm 'euth_communitydebate.modify_topic' request.user topic as show_dropdown %}
                 {% if show_dropdown %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
