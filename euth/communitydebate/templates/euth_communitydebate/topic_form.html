@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load widget_tweaks i18n thumbnail base_tags %}
+
+{% block title %}{% trans 'Create a new topic' %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="action-bar">
+        <nav class="navbar navbar-default navbar-static">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    {% if mode == 'create' %}
+    <div class="black-divider">
+        {% trans 'create new topic for this project'%}
+    </div>
+    {% elif mode == 'update' %}
+    <div class="black-divider">
+        {% trans 'update topic'%}
+    </div>
+    {% endif %}
+    <div class="proposals-project">
+        <h3 class="sans-serif">
+            {{ project.name }}
+        </h3>
+        <p class="project-tile-teaser">{{ project.description | truncatechars:185 }}</p>
+        <div class="avatar-small">
+            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
+            <div class="name">{{ project.organisation }}</div>
+        </div>
+    </div>
+    <div class="general-form">
+        <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            <div class="form-group">
+                <label class="col-form-label" for="{{ form.name.id_for_label }}">{% trans 'Title of the topic'%}</label>
+                {% if form.name.errors %}
+                    {{ form.name|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.name|add_class:"form-control"}}
+                {% endif %}
+                {{ form.name.errors }}
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
+                {% if form.name.errors %}
+                    {{ form.description|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.description|add_class:"form-control"}}
+                {% endif %}
+                {{ form.description.errors }}
+            </div>
+            {% if form.show_categories %}
+            <div class="form-group">
+                <label class="col-form-label" for="{{ form.category.id_for_label }}">{% trans 'Category'%}</label>
+                {% if form.category.errors %}
+                    {{ form.category|add_class:"form-control form-error" }}
+                {% else %}
+                    {{ form.category|add_class:"form-control"}}
+                {% endif %}
+                {{ form.category.errors }}
+            </div>
+            {% endif %}
+
+            {% block additional_fields %}{% endblock %}
+            {% block post_form %}
+            <div class="row button-row">
+                <div class="col-xs-6 col-sm-2">
+                    <button type="submit" class="submit-button">{% trans 'post'%}</button>
+                </div>
+                <div class="col-xs-6">
+                    {% if mode == 'create' %}
+                    <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                    {% elif mode == 'update' %}
+                    <a href="{% url 'topic-detail' topic.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endblock %}
+        </form>
+    </div>
+</div>
+{% endblock %}

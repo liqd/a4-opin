@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n react_comments react_ratings thumbnail rules avatar %}
+{% load i18n react_comments_async react_ratings thumbnail rules avatar %}
 
 {% block title %}{{ topic.name }}{% endblock %}
 {% block content %}
@@ -8,27 +8,27 @@
         <div class="action-bar">
             <nav class="navbar navbar-default navbar-static">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{% url 'project-detail' topic.project.slug %}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'project-detail' topic.project.slug %}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             {% trans 'back to project' %}</a>
                     </li>
                 </ul>
                 {% has_perm 'euth_communitydebate.modify_topic' request.user topic as show_dropdown %}
                 {% if show_dropdown %}
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="dropdown">
                         <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false"> <i class="fa fa-ellipsis-h"
                                                                           aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="drop">
-                            <li>
-                                <a href="">{% trans 'Edit' %}</a>
+                            <li class="dropdown-item">
+                                <a href="{% url 'topic-update' slug=topic.slug %}">{% trans 'Edit' %}</a>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="">{% trans 'Delete' %}</a>
+                            <li class="dropdown-item">
+                                <a href="" data-toggle="modal" data-target="#myModal">{% trans 'Delete' %}</a>
                             </li>
                         </ul>
                     </li>
@@ -49,11 +49,11 @@
             <div class="avatar-small">
                 <span class="circled circled-xs" style="background-image: url({% get_avatar topic.creator 'avatar_small' %})"></span>
                 <a href="{% url 'profile' topic.creator.username %}" class="name">{{ topic.creator.username }}</a>
-                {% if author_is_moderator %} <span class="label label-subtle">{% trans 'Moderator' %}</span> {% endif %}
+                {% if author_is_moderator %} <span class="badge badge-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
 
             {% if topic.category %}
-            <span class="label label-secondary label-xs">{{ topic.category }}</span>
+            <span class="badge badge-secondary label-xs">{{ topic.category }}</span>
             {% endif %}
 
             <div class="idea-description">
@@ -61,10 +61,16 @@
             </div>
 
             <div class="idea-ratings">
+                {% react_ratings topic %}
             </div>
 
+            <div class="mt-5">
+                {% react_comments_async topic %}
+            </div>
        </div>
     </div>
 </div>
+
+{% include "euth_communitydebate/includes/modal.html" with topic=topic %}
 
 {% endblock %}
