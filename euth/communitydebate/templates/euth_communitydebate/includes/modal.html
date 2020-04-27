@@ -1,0 +1,28 @@
+{% load i18n %}
+{% trans "Are you sure you want to delete" as question %}
+
+<div role="dialog" aria-labelledby="myModalLabel" id="myModal" class="modal fade">
+    <div role="document" class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Abort" class="close">
+                    <i aria-hidden="true" class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title">{{ question }} {{ topic.name }}?</h3>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <form method="POST" id="topic_delete" action="{% url 'topic-delete' topic.slug %}">
+                        {% csrf_token %}
+                    </form>
+                    <button type="submit" form="topic_delete" class="submit-button">{% trans 'delete'%}</button>
+                </div>
+                <div class="row">
+                    <button type="button" data-dismiss="modal" class="cancel-button">{% trans 'abort'%}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

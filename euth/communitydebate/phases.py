@@ -19,4 +19,5 @@ class DebatePhase(phases.PhaseContent):
         'crud': (models.Topic,),
     }
 
+
 phases.content.register(DebatePhase())
