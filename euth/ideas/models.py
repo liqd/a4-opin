@@ -2,6 +2,7 @@ from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
+from django.urls import reverse
 
 from adhocracy4 import transforms
 from adhocracy4.categories.fields import CategoryField
@@ -44,5 +45,4 @@ class Idea(module_models.Item):
         super(Idea, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        from django.urls import reverse
         return reverse('idea-detail', args=[str(self.slug)])
