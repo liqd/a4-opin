@@ -427,6 +427,12 @@ A4_COMMENTABLES = (
     ('a4polls', 'poll')
 )
 
+A4_COMMENT_CATEGORIES = (
+    ('sug', _('suggestion')),
+    ('not', _('note')),
+    ('que', _('question'))
+)
+
 A4_RATEABLES = (
     ('euth_communitydebate', 'topic'),
     ('euth_ideas', 'idea'),
