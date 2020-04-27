@@ -2,10 +2,11 @@
     border-radius: 0;
 }
 
-.dropdown-item {
+.dropdown-item,
+.dropdown-menu li {
     border-bottom: 2px solid $gray-lighter;
     width: 100%;
-    padding: 0.5$spacer $spacer;
+    padding: 0.5*$spacer $spacer;
     text-align: left;
 }
 
