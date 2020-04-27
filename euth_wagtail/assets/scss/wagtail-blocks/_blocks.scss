@@ -1,6 +1,5 @@
 .block-title,
 .page-title {
-    font-size: $font-size-xlarge;
     margin: 0 0 25px 0;
     text-align: center;
 }
@@ -109,9 +108,6 @@
     h5,
     h6 {
         @extend .block-title;
-        font-size: $font-size-large;
-        margin: 0 0 $font-size-large;
-        text-align: center;
     }
 
     p {

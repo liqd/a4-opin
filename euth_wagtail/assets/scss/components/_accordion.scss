@@ -2,8 +2,14 @@
     text-align: left;
     background: #f4f4f4;
 
-    .panel {
+    .card {
         margin-bottom: 9px;
+        border-radius: 0;
+    }
+
+    .card-header {
+        padding: 0;
+        background-color: inherit;
     }
 
     .card-body {
@@ -86,7 +92,7 @@
     .accordion-link {
         font-size: $font-size-medium;
         padding: 15px 50px 12px 15px;
-        border: 1px solid $brand-brand1;
+        // border: 1px solid $brand-brand1;
         position: relative;
         color: #fff;
 
