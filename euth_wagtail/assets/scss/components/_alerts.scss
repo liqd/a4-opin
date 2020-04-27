@@ -1,9 +1,17 @@
+.alert {
+    border-radius: 0;
+}
+
 .alert-text {
     text-align: center;
 }
 
 .alert--danger {
     @extend .alert-danger;
+}
+
+.alert--info {
+    @extend .alert-info;
 }
 
 .alert--success {
