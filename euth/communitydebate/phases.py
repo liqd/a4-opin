@@ -17,6 +17,8 @@ class DebatePhase(phases.PhaseContent):
 
     features = {
         'crud': (models.Topic,),
+        'comment': (models.Topic,),
+        'rate': (models.Topic,),
     }
 
 
