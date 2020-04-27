@@ -15,3 +15,19 @@
     width: 100%;
     height: 100%;
 }
+
+.richtext-image.full-width {
+    min-width: 100%;
+}
+
+.richtext-image.left {
+    max-width: 65%;
+    float: left;
+    margin-right: $spacer;
+}
+
+.richtext-image.right {
+    max-width: 65%;
+    float: right;
+    margin-left: $spacer;
+}
