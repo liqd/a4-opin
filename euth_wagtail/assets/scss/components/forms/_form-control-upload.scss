@@ -23,10 +23,11 @@
         line-height: 48px;
     }
 
-    .btn-secondary {
+    .btn-secondary,
+    .btn-default {
         font-size: 24px;
         width: 48px;
-        background: $brand-success;
+        background-color: $brand-success;
         border: 0;
         color: #fff;
         padding: 0;

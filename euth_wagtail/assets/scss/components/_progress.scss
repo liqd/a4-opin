@@ -2,6 +2,8 @@
     list-style: none;
     padding-left: 0;
     overflow: hidden;
+    height: auto;
+    background-color: inherit; 
 
     > li {
         padding: 4px 10px;
