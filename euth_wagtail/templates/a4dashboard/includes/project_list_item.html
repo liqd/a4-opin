@@ -40,23 +40,23 @@
                       ...
                         </button>
                             <ul class="dropdown-menu">
-                            <li class="dropdown-item">
-                                <form method="post" class="">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="project_pk" value="{{ project.pk }}">
-                                    <button type="submit" name="duplicate" value="{{ project }}"
-                                            class="">
-                                        <i class="far fa-copy" aria-hidden="true"></i>
-                                        {% trans 'Duplicate' %}
-                                    </button>
-                                </form>
-                            </li>
-                            <li class="dropdown-item">
-                                <a href="#" class="dropdown-item u-fontweight-normal" data-toggle="modal" data-target="#project{{ project.pk }}DeleteModal">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                    {% trans 'delete' %}
-                                </a>
-                            </li>
+                                <li class="dropdown-item">
+                                    <form method="post" class="">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="project_pk" value="{{ project.pk }}">
+                                        <button type="submit" name="duplicate" value="{{ project }}"
+                                                class="">
+                                            <i class="far fa-copy" aria-hidden="true"></i>
+                                            {% trans 'Duplicate' %}
+                                        </button>
+                                    </form>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-item u-fontweight-normal" data-toggle="modal" data-target="#project{{ project.pk }}DeleteModal">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                        {% trans 'delete' %}
+                                    </a>
+                                </li>
                             </ul>
                     </div>
                 </div>

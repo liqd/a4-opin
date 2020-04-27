@@ -4,7 +4,6 @@ $bootstrap-sass-asset-helper: false !default;
 // Variables
 // --------------------------------------------------
 
-
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -23,11 +22,16 @@ $brand-brand4:          #ef3789; // Pink
 $brand-brand5:          #3c487d; // Purple
 $brand-brand6:          #ffd102; // Yellow
 
+$primary:               $brand-brand1 !default;
 $brand-primary:         $brand-brand1 !default;
-$brand-success:         #7ed321 !default;
-$brand-info:            #41a9e0 !default;
-$brand-warning:         $brand-brand2 !default;
-$brand-danger:          #e01431 !default;
+$success:               #7ed321 !default;
+$brand-success:         $success !default;
+$info:                  #41a9e0 !default;
+$brand-info:            $info !default;
+$warning:               $brand-brand2 !default;
+$brand-warning:         $warning !default;
+$danger:                #e01431 !default;
+$brand-danger:          $danger !default;
 
 $black:                 $gray-darker;
 
