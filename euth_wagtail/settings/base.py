@@ -412,11 +412,13 @@ A4_MAP_BOUNDING_BOX = [
 A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
 
 A4_CATEGORIZABLE = (
+    ('euth_communitydebate', 'topic'),
     ('euth_ideas', 'idea'),
     ('euth_maps', 'mapidea')
 )
 
 A4_COMMENTABLES = (
+    ('euth_communitydebate', 'topic'),
     ('euth_ideas', 'idea'),
     ('euth_maps', 'mapidea'),
     ('euth_documents', 'paragraph'),
@@ -426,12 +428,14 @@ A4_COMMENTABLES = (
 )
 
 A4_RATEABLES = (
+    ('euth_communitydebate', 'topic'),
     ('euth_ideas', 'idea'),
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
 )
 
 A4_REPORTABLES = (
+    ('euth_communitydebate', 'topic'),
     ('euth_ideas', 'ideas'),
     ('euth_maps', 'mapidea'),
     ('a4comments', 'comment'),
