@@ -1,7 +1,7 @@
 {% load i18n wagtailimages_tags static %}
 <section class="panel-group accordion accordion-content accordion-block block" role="tablist" aria-multiselectable="true">
     {% for item in self.accordion_items %}
-    <div class="panel panel-default">
+    <div class="card card-default">
         <div class="card-header" role="tab" id="headingOne">
             <h3 class="accordion-title">
                 <a class="accordion-link collapsed" role="button" data-toggle="collapse" data-parent=".accordion-block" href="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
