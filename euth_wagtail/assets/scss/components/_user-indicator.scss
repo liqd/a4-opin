@@ -13,10 +13,8 @@
     .inner {
         border: 2px solid $brand-brand1;
         display: block;
-        left: 0;
         padding: 10px;
-        position: absolute;
-        top: 15px;
+        position: relative;
         white-space: nowrap;
 
         @media (max-width: $screen-sm-min) {
