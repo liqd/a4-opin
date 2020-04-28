@@ -8,7 +8,7 @@ from . import models
 class TopicForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
     class Meta:
         model = models.Topic
-        fields = ['name', 'description', 'category']
+        fields = ['name', 'description', 'image', 'category']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
