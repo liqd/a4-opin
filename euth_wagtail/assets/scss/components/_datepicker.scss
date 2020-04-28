@@ -19,19 +19,17 @@
 
     margin-left: -1px;
 
-    &:last-child {
-        border-top-right-radius: 0.3em;
-        border-bottom-right-radius: 0.3em;
-    }
-
     @extend .btn;
     @extend .btn--light;
+
+    padding: 7px;
 
     span:first-child {
         display: inline;
 
         &:before {
             font-family: "Font Awesome 5 Free", sans-serif;
+            font-size: $font-size-large;
             font-weight: 300; // for light, formerly -o
             content: '\f133'; // calendar
         }
@@ -107,7 +105,7 @@
         border: none;
 
         background: $brand-primary;
-        color: $brand-primary;
+        color: $white;
         box-shadow: none;
         text-shadow: none;
     }
