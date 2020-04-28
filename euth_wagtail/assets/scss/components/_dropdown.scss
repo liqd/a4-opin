@@ -1,9 +1,9 @@
 .dropdown-menu {
     border-radius: 0;
+    padding: 0;
 }
 
-.dropdown-item,
-.dropdown-menu li {
+.dropdown-item {
     border-bottom: 2px solid $gray-lighter;
     width: 100%;
     padding: 0.5*$spacer $spacer;
@@ -11,5 +11,5 @@
 }
 
 .dropdown-menu > :last-child > a {
-    padding-bottom: $spacer;
+    margin-bottom: $spacer;
 }
