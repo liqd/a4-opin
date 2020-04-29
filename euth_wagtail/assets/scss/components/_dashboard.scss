@@ -1,6 +1,10 @@
 .dashboard-header {
     background-color: $brand-brand5;
-    padding-top: 30px;
+    padding-top: 2*$spacer;
+
+    .navbar-brand {
+        margin-top: -(1.5*$spacer);
+    }
 
     .dropdown {
         color: white;

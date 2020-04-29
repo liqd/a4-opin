@@ -1,12 +1,20 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n thumbnail %}
 
 {% block title %}"{{ view.organisation.name }}" {% trans "Dashboard" %} &mdash; {{ block.super }}{% endblock %}
 
 {% block content %}
 <nav class="nav navbar-default dashboard-header">
     <div class="container">
-        <div class="navbar-nav float-left">
+        <div class="navbar-nav float-left flex-row">
+            <a class="navbar-brand" href="{{ view.organisation.get_absolute_url }}">
+            {% if view.organisation.logo %}
+                  <img src="{{ view.organisation.logo|thumbnail_url:'avatar_small' }}" alt="{{ organisation.name }}">
+              {% else %}
+                  <i class="fas fa-home pt-1 mt-3" aria-label="{{ organisation.name }} {% trans 'Home' %}"></i>
+            {% endif %}
+            </a>
+
         {% include 'euth_dashboard/dropdown.html' with logo=view.organisation.logo title=view.organisation.name orgs=view.other_organisations_of_user%}
         </div>
          <ul class="dashboard-header-tabs nav nav-tabs float-right" role="tablist">

@@ -1,13 +1,9 @@
-{% load thumbnail avatar %}
+{% load thumbnail avatar project_tags i18n rules static %}
 
 <div class="dropdown">
     <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-        {% if logo %}
-            <span class="dashboard-header-logo">
-                <img src="{{ logo|thumbnail_url:'avatar_small' }}" alt="">
-            </span>
-        {% elif is_user %}
+        {% if is_user %}
             <span class="circled"
                   style="background-image: url({% get_avatar request.user 'avatar_small' %});"></span>
         {% endif %}
