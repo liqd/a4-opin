@@ -4,7 +4,7 @@
 {% block dashboard_content %}
 <div class="dashboard-content">
     <div class="row">
-        <div class="col-md-3 dashboard-left-nav">
+        <div class="col-md-3 dashboard-left-nav js-selector-update-dashboard">
             <h2 class="dashboard-left-nav-header">{% trans 'Project' %}: {{ project.name }}</h2>
             <div class="list-group">
                 {% for item in dashboard_menu.project %}
@@ -38,7 +38,7 @@
             {% block dashboard_project_content %}{% endblock %}
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 js-selector-update-dashboard">
             {% include "a4dashboard/includes/progress.html" with value=project_progress.valid max=project_progress.required project=project %}
             {% include "a4dashboard/includes/preview.html" with project=project %}
         </div>
