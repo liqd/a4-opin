@@ -24,6 +24,9 @@
     </article>
 
     {% if object %}
+    <div class="black-divider">
+        {% trans 'Comments'%}
+    </div>
     <div>
         {% react_comments_async object %}
     </div>

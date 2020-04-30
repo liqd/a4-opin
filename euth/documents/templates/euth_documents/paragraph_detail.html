@@ -14,7 +14,9 @@
     </div>
     <h1>{{ paragraph.name }}</h1>
     <p>{{ paragraph.text | safe }}</p>
-
+    <div class="black-divider">
+        {% trans 'Comments'%}
+    </div>
     <div>
         {% react_comments_async paragraph %}
     </div>

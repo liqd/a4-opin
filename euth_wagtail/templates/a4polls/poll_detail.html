@@ -1,5 +1,5 @@
 {% extends 'euth_projects/project_detail.html' %}
-{% load react_polls react_comments_async %}
+{% load react_polls i18n react_comments_async %}
 
 {% block phase_content %}
     <div class="container">
@@ -8,6 +8,9 @@
                 {% for question in question_list %}
                     {% react_polls question %}
                 {% endfor %}
+            </div>
+            <div class="black-divider">
+                {% trans 'Comments'%}
             </div>
             <div>
             {% react_comments_async object %}
