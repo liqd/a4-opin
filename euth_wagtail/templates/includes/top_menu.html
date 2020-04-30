@@ -2,32 +2,36 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% load_site_menu "topmenu" as top_menu_items %}
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top main-menu">
+<nav class="navbar navbar-expand-sm navbar-light fixed-top main-menu">
     <div class="container">
 
-        <a class="navbar-brand" href="/{{ LANGUAGE_CODE }}/">
-            <img
-                class="navbar-brand-logo"
-                alt="Opin"
-                src="{% static 'images/logo.svg' %}"
-            >
-        </a>
-        <div class="navbar-header navbar-nav navbar-right ml-auto">
+      <div class="navbar__mobile">
+          <div class="navbar-brand">
+              <a href="/{{ LANGUAGE_CODE }}/">
+                  <img
+                      class="navbar-brand-logo"
+                      alt="Opin"
+                      src="{% static 'images/logo.svg' %}"
+                  >
+              </a>
+          </div>
 
-        <button
-          class="btn btn-ghost navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar-collapse"
-          aria-controls="navbar-collapse"
-          aria-expanded="false"
-          aria-label="{% trans 'Toggle navigation' %}">
-          <i class="fas fa-bars"></i>
-        </button>
+          <button
+            class="btn navbar-toggler ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-collapse"
+            aria-controls="navbar-collapse"
+            aria-expanded="false"
+            aria-label="{% trans 'Toggle navigation' %}">
+            <i class="fas fa-bars"></i>
+          </button>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
+      </div>
 
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse navbar-nav navbar-right ml-sm-auto" id="navbar-collapse">
+
+            <ul class="navbar-nav ml-sm-auto">
               {% userindicator_menu %}
 
               <li class="nav-item dropdown order-sm-2 px-3" id="language-selector"">

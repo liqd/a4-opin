@@ -1,3 +1,4 @@
+
 :target:before {
     content: "";
     display: block;
@@ -15,40 +16,33 @@
         padding: 10px;
         position: relative;
         white-space: nowrap;
-
-        @media (max-width: $screen-sm-min) {
-            border: none;
-            display: inline-block;
-            padding: 0;
-            position: static;
-        }
     }
+}
 
-    @media (max-width: $screen-sm-min) {
-        margin-left: 0;
-    }
+.user-indicator .btngroup .dropdown-item {
+    border-bottom: none;
+    width: 100%;
 }
 
 .user-indicator .btngroup > a {
     height: 45px;
 }
 
-@media screen and (min-width: $grid-float-breakpoint) {
-    .user-indicator .btngroup {
-        margin-top: 0.4*$spacer;
-    }
-
-    .user-indicator .btngroup > a {
-        display: block;
-        height: 50px;
-        padding: $navbar-padding-vertical / 2 10px;
-    }
-}
-
 .user-indicator a.btn {
     background-color: $brand-brand5;
     color: #fff;
     min-width: 45px;
+}
+
+.user-indicator > li > a {
+    margin-left: 0;
+}
+
+.user-indicator > li > a > .inner {
+    border: none;
+    display: inline-block;
+    position: static;
+    padding-left: $spacer;
 }
 
 .user-indicator .circled {
@@ -61,29 +55,44 @@
 }
 
 .user-indicator .dropdown-menu {
-    max-height: 80vh;
-    overflow-y: auto;
+    width: 100%;
+    border-radius: 0;
+    background: #fff;
 }
 
-@media screen and (max-width: $screen-sm-max) {
-    .user-indicator .btngroup {
-        display: flex;
-        flex-wrap: wrap;
+.user-indicator .btngroup {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-indicator .userindicator-profile {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.user-indicator .dropdown-toggle {
+    flex-grow: 0;
+}
+
+@media screen and (min-width: $screen-xs-min) {
+    .user-indicator > .btngroup,
+    .user-indicator > .dropdown {
+        margin-top: 0.4*$spacer;
     }
 
-    .user-indicator .userindicator-profile {
-        flex-grow: 1;
-        text-align: left;
+    .user-indicator .btngroup > a {
+        display: block;
+        height: 50px;
+        padding: $navbar-padding-vertical / 2 10px;
     }
 
-    .user-indicator .dropdown-toggle {
-        flex-grow: 0;
+    .user-indicator > li > a > .inner {
+        padding: 0;
     }
 
-    .user-indicator .btngroup .dropdown-menu {
-        width: 100%;
-        border-radius: 0;
-        background: #fff;
-        margin-left: 0;
+    .user-indicator .dropdown-menu {
+        width: auto;
+        max-height: 80vh;
+        overflow-y: auto;
     }
 }
