@@ -31,23 +31,27 @@
 
                 {% if item.type %}
                 <li class="{% if item.id == view.project.active_phase.id %}active{% endif %} timeline-phase">
+
+                      <button type="button"
+                      class="dot"
+                      data-toggle="popover"
+                      title="{% trans 'Phase' %}
+                        {% if item.id == view.project.active_phase.id %}
+                          <div class='label label-secondary label-xs float-right'>{% trans 'Active phase' %}</div>
+                        {% endif %}"
+                      data-trigger="hover | click"
+                      data-html="true"
+                      data-placement="top"
+                      id="button-phase-{{ forloop.counter }}"
+                      data-content="
+                      <p class='small'>{{ item.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ item.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
+                      <h4>{{ item.name }}</h4>
+                    </button>
+
                     {% if item.id in ids or item.id == view.project.active_phase.id %}
-                    <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
-                    {% endif %}
+                    -                    <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
+                    -                    {% endif %}
 
-                    <div class="dot"
-                         title="{% trans "Phase" %}
-                         {% if item.id == view.project.active_phase.id %}
-                             <div class='label label-secondary label-xs float-right'>{% trans 'Active phase' %}</div>
-                         {% endif %}"
-                         data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
-                         id="button-phase-{{ forloop.counter }}"
-                         data-content="
-                                <p class='small'>{{ item.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ item.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
-                                <h4>{{ item.name }}</h4>
-                            "></div>
-
-                    {% if item.id in ids or item.id == view.project.active_phase.id %}</a>{% endif %}
 
                     {% if not forloop.last and items|length > 1 %}
                         <span class="timeline-arrow fa fa-caret-right"></span>
