@@ -26,7 +26,7 @@ class UserSearch {
   }
 
   renderSuggestions (context) {
-    const avatar = context.avatar ? context.avatar : context.default_avatar
+    const avatar = context.avatar ? context.avatar : context.avatar_fallback
     return (
       `<div>
         <img src="${avatar}" alt="" class="circled"> ${context.username}

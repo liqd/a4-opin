@@ -28,3 +28,11 @@
         }
     }
 }
+
+.user-avatar {
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    shape-outside: circle();
+}

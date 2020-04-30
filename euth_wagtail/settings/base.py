@@ -329,6 +329,7 @@ THUMBNAIL_ALIASES = {
         'idea_thumbnail': {'size': (240, 240), 'crop': 'smart'},
         'map_thumbnail': {'size': (400, 200), 'crop': 'smart'},
         'organisation_thumbnail': {'size': (740, 540), 'crop': 'smart'},
+        'avatar': {'size': (60, 60), 'crop': 'smart'},
         'avatar_small': {'size': (60, 60), 'crop': 'smart'},
         'org_avatar_small': {'size': (60, 60), 'crop': 'scale'},
         'org_avatar_medium': {'size': (200, 200), 'crop': 'scale'},

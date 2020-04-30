@@ -9,4 +9,4 @@ def get_avatar(user, size_alias):
     if user.avatar:
         return thumbnail_url(user.avatar, size_alias)
     else:
-        return user.default_avatar
+        return user.avatar_fallback

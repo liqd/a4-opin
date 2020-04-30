@@ -92,7 +92,7 @@ UserList.propTypes = {
       username: PropTypes.string,
       email: PropTypes.string,
       avatar: PropTypes.string,
-      default_avatar: PropTypes.string
+      avatar_fallback: PropTypes.string
     })
   ),
   listenTo: PropTypes.string,

@@ -18,11 +18,11 @@
                 {% if show_dropdown %}
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="dropdown">
-                        <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false"> <i class="fa fa-ellipsis-h"
-                                                                          aria-hidden="true"></i>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                           <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="drop">
+                        <ul class="dropdown-menu">
                             <li class="dropdown-item">
                                 <a href="{% url 'topic-update' slug=topic.slug %}">{% trans 'Edit' %}</a>
                             </li>
