@@ -4,12 +4,14 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
 
+from adhocracy4 import transforms
 from adhocracy4.categories.fields import CategoryField
 from adhocracy4.comments import models as comment_models
 from adhocracy4.images import fields
-from adhocracy4.models import query
+from adhocracy4.models import base, query
 from adhocracy4.modules import models as module_models
 from adhocracy4.ratings import models as rating_models
+from euth.offlinephases import validators as offlinephases_validators
 
 
 class TopicQuerySet(query.RateableQuerySet, query.CommentableQuerySet):
@@ -38,5 +40,21 @@ class Topic(module_models.Item):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        self.description = transforms.clean_html_field(
+            self.description)
+        super(Topic, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('topic-detail', args=[str(self.slug)])
+
+
+class TopicFileUpload(base.TimeStampedModel):
+    title = models.CharField(max_length=256)
+    document = models.FileField(
+        upload_to='communitydebate/documents',
+        validators=[offlinephases_validators.validate_file_type_and_size])
+    topic = models.ForeignKey(
+        Topic,
+        on_delete=models.CASCADE
+    )

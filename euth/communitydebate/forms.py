@@ -1,6 +1,7 @@
 from django import forms
 
 from adhocracy4.categories import forms as category_forms
+from euth.offlinephases import widgets as offlinephase_widgets
 
 from . import models
 
@@ -13,3 +14,13 @@ class TopicForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['category'].empty_label = '---'
+
+
+class TopicFileUploadForm(forms.ModelForm):
+
+    class Meta:
+        model = models.TopicFileUpload
+        fields = ['title', 'document']
+        widgets = {
+            'document': offlinephase_widgets.FileUploadWidget()
+        }

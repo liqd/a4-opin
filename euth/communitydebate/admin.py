@@ -8,3 +8,4 @@ class TopicAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Topic, TopicAdmin)
+admin.site.register(models.TopicFileUpload)
