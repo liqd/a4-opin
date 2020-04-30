@@ -62,6 +62,20 @@
             <div class="idea-ratings">
                 {% react_ratings topic %}
             </div>
+
+            <div class="idea-description">
+                {% if upload_files.count > 0 %}
+                <h4>{% trans 'Downloads' %}</h4>
+                <ul>
+                {% for fileupload in upload_files %}
+                <li>
+                <a target="_blank" href="{{ fileupload.document.url }}">{{ fileupload.title }}</a>
+                </li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+
+            </div>
             <div class="black-divider">
                 {% trans 'Comments'%}
             </div>
