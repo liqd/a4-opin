@@ -62,7 +62,7 @@
     "polylint.sh": "0.0.4",
     "stylelint": "13.3.3",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-declaration-strict-value": "1.4.2"
+    "stylelint-declaration-strict-value": "1.4.3"
   },
   "license": "AGPL-3.0+",
   "scripts": {
