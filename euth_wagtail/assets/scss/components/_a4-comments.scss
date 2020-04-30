@@ -5,12 +5,12 @@
     }
 }
 
+.a4-comments__textarea,
 .a4-comments__textarea--big,
 .a4-comments__textarea--small {
     width: 100%;
     overflow: hidden;
     max-height: 400px;
-    min-height: 100px;
 }
 
 //comments and debate comments have different sized text boxes

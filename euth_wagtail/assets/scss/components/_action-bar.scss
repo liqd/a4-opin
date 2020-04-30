@@ -46,6 +46,11 @@
         padding: 0.5*$spacer 0;
     }
 
+    .navbar-right .dropdown {
+        position: absolute;
+        background-color: white;
+    }
+
     @media (max-width: $screen-sm-min) {
         .navbar-nav {
             float: left;
@@ -61,7 +66,7 @@
             margin-right: -15px;
         }
 
-        .navbar-right .dropdown-menu {
+        .navbar-right .dropdown {
             position: absolute;
             right: 0;
             left: auto;

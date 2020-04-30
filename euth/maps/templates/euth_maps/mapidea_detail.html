@@ -27,11 +27,11 @@
                 {% if show_dropdown %}
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="dropdown">
-                        <a id="drop" href="#" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false"> <i class="fa fa-ellipsis-h"
-                                                                          aria-hidden="true"></i>
+                        <a href="#" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="drop">
+                        <ul class="dropdown-menu">
                             <li class="dropdown-item">
                                 <a href="{% url 'map-idea-update' object.slug %}">{% trans 'Edit' %}</a>
                             </li>

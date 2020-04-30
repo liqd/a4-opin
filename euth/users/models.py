@@ -56,6 +56,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name=_('Send me email notifications'),
         default=True,
         help_text=GET_NOTIFICATIONS_HELP)
+
     _avatar = fields.ConfiguredImageField(
         'avatar',
         upload_to='users/images',
@@ -169,7 +170,7 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
             return self._avatar
 
     @property
-    def default_avatar(self):
+    def avatar_fallback(self):
         id = self.pk % 6
         return static('images/penguin_{}.png'.format(id))
 
