@@ -1,9 +1,9 @@
 {% load i18n thumbnail avatar %}
 
-<ul class="nav navbar-nav navbar-right ml-auto user-indicator order-md-12" id="user-indicator">
+<ul class="nav navbar-nav navbar-right ml-auto user-indicator order-sm-12" id="user-indicator">
     <li class="dropdown">
     {% if request.user.is_authenticated %}
-        <div class="btngroup btngroup-primary ml-3">
+        <div class="btngroup btngroup-primary ml-sm-3">
             <a href="{% url 'profile' request.user.username %}" class="btn userindicator-profile">
                 <span class="circled circled-xs" style="background-image: url({% get_avatar request.user 'org_avatar_small' %});"></span>
                 {{ request.user.username }}

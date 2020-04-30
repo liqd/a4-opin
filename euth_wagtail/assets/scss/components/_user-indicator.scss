@@ -65,7 +65,7 @@
     overflow-y: auto;
 }
 
-@media screen and (max-width: $screen-xs-max) {
+@media screen and (max-width: $screen-sm-max) {
     .user-indicator .btngroup {
         display: flex;
         flex-wrap: wrap;
