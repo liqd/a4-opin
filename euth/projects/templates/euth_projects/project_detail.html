@@ -32,6 +32,10 @@
                 {% if item.type %}
                 <li class="{% if item.id == view.project.active_phase.id %}active{% endif %} timeline-phase">
 
+                  {% if item.id in ids or item.id == view.project.active_phase.id %}
+                  <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
+                  {% endif %}
+
                       <button type="button"
                       class="dot"
                       data-toggle="popover"
@@ -39,19 +43,19 @@
                         {% if item.id == view.project.active_phase.id %}
                           <div class='label label-secondary label-xs float-right'>{% trans 'Active phase' %}</div>
                         {% endif %}"
-                      data-trigger="hover | click"
+                      data-trigger="hover | focus"
                       data-html="true"
                       data-placement="top"
                       id="button-phase-{{ forloop.counter }}"
                       data-content="
                       <p class='small'>{{ item.start_date|date:"SHORT_DATETIME_FORMAT" }} - {{ item.end_date|date:"SHORT_DATETIME_FORMAT" }}</p>
-                      <h4>{{ item.name }}</h4>
+                      <h4>{{ item.name }}</h4>"
+                      >
                     </button>
 
                     {% if item.id in ids or item.id == view.project.active_phase.id %}
-                    -                    <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
-                    -                    {% endif %}
-
+                    </a>
+                    {% endif %}
 
                     {% if not forloop.last and items|length > 1 %}
                         <span class="timeline-arrow fa fa-caret-right"></span>
@@ -62,15 +66,19 @@
                 {% else %}
                 <li class="timeline-phase">
                     <a href="{% url 'offlineevent-detail' pk=item.id %}">
-
-                        <div class="dot"
-                         title="{% trans "Event" %}"
-                         data-toggle="popover" data-html="true" data-trigger="hover" data-placement="auto top"
+                        <button class="dot"
+                          type="button"
+                         title="{% trans 'Event' %}"
+                         data-toggle="popover"
+                         data-html="true"
+                         data-trigger="hover | click | focus"
+                         data-placement="top"
                          id="button-phase-{{ forloop.counter }}"
                          data-content="
                                 <p class='small'>{{ item.date|date:"SHORT_DATETIME_FORMAT" }}</p>
                                 <h4>{{ item.name }}</h4>
-                            "></div>
+                            ">
+                        </button>
                     </a>
 
                     {% if not forloop.last and items|length > 1 %}

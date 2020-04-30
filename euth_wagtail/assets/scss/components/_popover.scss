@@ -22,7 +22,7 @@
     }
 }
 
-.popover-title {
+.popover-header {
     border-radius: 0;
     background: $brand-info;
     border-bottom: 0;
@@ -36,7 +36,7 @@
     }
 }
 
-.popover.top > .arrow,
-.popover.top > .arrow:after {
+.bs-popover-top > .arrow,
+.bs-popover-top > .arrow:after {
     border-top-color: $brand-brand1;
 }

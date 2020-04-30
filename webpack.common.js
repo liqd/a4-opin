@@ -42,9 +42,6 @@ module.exports = {
       'slick-carousel/slick/slick.css',
       './euth_wagtail/assets/js/modernizr-custom.js'
     ],
-    timeline_popover: [
-      './euth/projects/static/euth_projects/timeline-popover.js'
-    ],
     user_search: [
       'typeahead.js/dist/typeahead.jquery.min.js',
       './euth/users/static/users/js/user_search.js'
