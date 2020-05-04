@@ -1,7 +1,7 @@
 from django import forms
 
 from adhocracy4.categories import forms as category_forms
-from euth.offlinephases import widgets as offlinephase_widgets
+from euth.contrib import widgets
 
 from . import models
 
@@ -22,5 +22,5 @@ class TopicFileUploadForm(forms.ModelForm):
         model = models.TopicFileUpload
         fields = ['title', 'document']
         widgets = {
-            'document': offlinephase_widgets.FileUploadWidget()
+            'document': widgets.FileUploadWidget()
         }

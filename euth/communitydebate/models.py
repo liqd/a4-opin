@@ -11,7 +11,7 @@ from adhocracy4.images import fields
 from adhocracy4.models import base, query
 from adhocracy4.modules import models as module_models
 from adhocracy4.ratings import models as rating_models
-from euth.offlinephases import validators as offlinephases_validators
+from euth.contrib import validators
 
 
 class TopicQuerySet(query.RateableQuerySet, query.CommentableQuerySet):
@@ -53,7 +53,7 @@ class TopicFileUpload(base.TimeStampedModel):
     title = models.CharField(max_length=256)
     document = models.FileField(
         upload_to='communitydebate/documents',
-        validators=[offlinephases_validators.validate_file_type_and_size])
+        validators=[validators.validate_file_type_and_size])
     topic = models.ForeignKey(
         Topic,
         on_delete=models.CASCADE

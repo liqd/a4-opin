@@ -6,10 +6,9 @@ import autoslug.fields
 import ckeditor_uploader.fields
 from django.conf import settings
 from django.db import migrations, models
-import django.db.models.deletion
 import django.utils.timezone
 import euth.offlinephases.models
-import euth.offlinephases.validators
+import euth.contrib.validators
 
 
 class Migration(migrations.Migration):
@@ -44,7 +43,8 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
                 ('modified', models.DateTimeField(blank=True, editable=False, null=True)),
                 ('title', models.CharField(max_length=256)),
-                ('document', models.FileField(upload_to=euth.offlinephases.models.document_path, validators=[euth.offlinephases.validators.validate_file_type_and_size])),
+                ('document', models.FileField(upload_to=euth.offlinephases.models.document_path, validators=[
+                    euth.contrib.validators.validate_file_type_and_size])),
                 ('offlineevent', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='euth_offlinephases.OfflineEvent')),
             ],
             options={

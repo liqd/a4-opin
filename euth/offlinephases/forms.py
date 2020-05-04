@@ -2,8 +2,9 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.forms.fields import DateTimeField
+from euth.contrib import widgets
 
-from . import models, widgets
+from . import models
 
 
 class OfflineEventForm(forms.ModelForm):
