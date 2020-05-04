@@ -10,8 +10,7 @@ from adhocracy4.comments import models as comment_models
 from adhocracy4.models import base
 from adhocracy4.phases import models as phase_models
 from adhocracy4.projects import models as project_models
-
-from . import validators
+from euth.contrib import validators
 
 
 class Offlinephase(base.TimeStampedModel):

@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import euth.offlinephases.validators
+import euth.contrib.validators
 
 
 class Migration(migrations.Migration):
@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='offlineeventfileupload',
             name='document',
-            field=models.FileField(upload_to='offlineevents/documents', validators=[euth.offlinephases.validators.validate_file_type_and_size]),
+            field=models.FileField(upload_to='offlineevents/documents', validators=[
+                euth.contrib.validators.validate_file_type_and_size]),
         ),
     ]

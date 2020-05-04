@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import euth.offlinephases.validators
+import euth.contrib.validators
 import euth.offlinephases.models
 import ckeditor_uploader.fields
 
@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='fileupload',
             name='document',
-            field=models.FileField(upload_to=euth.offlinephases.models.document_path, validators=[euth.offlinephases.validators.validate_file_type_and_size]),
+            field=models.FileField(upload_to=euth.offlinephases.models.document_path, validators=[
+                euth.contrib.validators.validate_file_type_and_size]),
         ),
         migrations.AlterField(
             model_name='offlinephase',
