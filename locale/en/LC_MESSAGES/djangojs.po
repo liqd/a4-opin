@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-07 15:00+0100\n"
+"PO-Revision-Date: 2016-10-19 13:43+0000\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2019\n"
+"Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
+msgid "Insert Collapsible Item"
+msgstr "Insert Collapsible Item"
+
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+msgid "Title"
+msgstr "Title"
+
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
+msgid "Body text"
+msgstr ""
+
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+msgid "Collapsible element"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+msgid "hide one reply"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:26
+#, javascript-format
+msgid "hide %s replies"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+msgid "view one reply"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:28
+#, javascript-format
+msgid "view %s replies"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:128
+msgid "Do you really want to delete this comment?"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:130
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:19
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:93
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:96
+msgid "Delete"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:131
+#: adhocracy4/static/Modal.jsx:49
+msgid "Abort"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:144
+msgid "Latest edit on"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:149
+msgid "Moderator"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:156
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
+msgid ""
+"You want to report this content? Your message will be sent to the "
+"moderation. The moderation will look at the reported content. The content "
+"will be deleted if it does not meet our discussion rules (netiquette)."
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:179
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:26
+msgid "Answer"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/Comment.jsx:218
+msgid "Your reply here"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentBox.jsx:167
+msgid "comment"
+msgid_plural "comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: adhocracy4/comments/static/comments/CommentBox.jsx:170
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:38
+#: adhocracy4/comments/static/comments/CommentForm.jsx:48
+msgid "Your comment here"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:41
+msgid "save changes"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:43
+msgid "cancel"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentForm.jsx:51
+msgid "post"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentForm.jsx:57
+msgid "Please login to comment"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentForm.jsx:63
+msgid "The currently active phase doesn't allow to comment."
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:16
+msgid "Edit"
+msgstr ""
+
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:22
+msgid "Report"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:51
+msgid "Not following"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:52
+msgid "Never be notified."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:53
+msgid "Following"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:54
+msgid "Receive email notifications about this project."
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: euth/follows/static/follows/FollowButton.jsx:48
+msgid "Unfollow"
+msgstr ""
+
+#: adhocracy4/follows/static/follows/FollowButton.jsx:61
+#: euth/follows/static/follows/FollowButton.jsx:48
+msgid "Follow"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:24
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:27
+msgid "remove"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/PollManagement.jsx:188
+msgid "The poll has been updated."
+msgstr ""
+
+#: adhocracy4/polls/static/polls/PollManagement.jsx:205
+msgid "The poll could not be updated."
+msgstr ""
+
+#: adhocracy4/polls/static/polls/PollManagement.jsx:246
+msgid "Add a new question"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/PollManagement.jsx:252
+msgid "Save"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:51
+msgid "Vote counted"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:61
+msgid "Vote has not been counted due to a server error."
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:108
+msgid "Vote"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:114
+msgid "Please login to vote"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:136
+msgid "Multiple answers are possible for this question"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:141
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:142
+msgid "To poll"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:145
+msgid "Change vote"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:149
+msgid "Show preliminary results"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/Question.jsx:177
+msgid "Your choice"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:15
+msgid "Question"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:37
+msgid "Users can select more than one answer."
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:45
+msgid "Choice"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:67
+msgid "Add a new choice"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:76
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:79
+msgid "Move up"
+msgstr ""
+
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:85
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:88
+msgid "Move down"
+msgstr ""
+
+#: adhocracy4/reports/static/reports/ReportModal.jsx:57
+msgid "Thank you! We are taking care of it."
+msgstr ""
+
+#: adhocracy4/reports/static/reports/ReportModal.jsx:65
+msgid "Your message"
+msgstr ""
+
+#: adhocracy4/reports/static/reports/ReportModal.jsx:77
+msgid "Send Report"
+msgstr ""
+
+#: adhocracy4/static/Alert.jsx:10 adhocracy4/static/Alert.jsx:11
+msgid "Close"
+msgstr ""
+
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+msgid "Please set all values for your project."
+msgstr ""
+
+#: euth/dashboard/static/user_list/react_user_list.jsx:81
+msgid "Remove"
+msgstr ""
+
+#: euth/documents/static/documents/Paragraph.jsx:68
+#: euth/documents/static/documents/ParagraphBox.jsx:224
+msgid "add a new paragraph"
+msgstr ""
+
+#: euth/documents/static/documents/Paragraph.jsx:79
+msgid "Headline:"
+msgstr ""
+
+#: euth/documents/static/documents/Paragraph.jsx:93
+msgid "Paragraph:"
+msgstr ""
+
+#: euth/documents/static/documents/ParagraphBox.jsx:126
+msgid "Your document has been updated."
+msgstr ""
+
+#: euth/documents/static/documents/ParagraphBox.jsx:156
+msgid "Your document has been saved."
+msgstr ""
+
+#: euth/documents/static/documents/ParagraphBox.jsx:187
+msgid "Title:"
+msgstr ""
+
+#: euth/documents/static/documents/ParagraphBox.jsx:241
+msgid "save"
+msgstr ""
+
+#~ msgid "Are you sure you want to report this item?"
+#~ msgstr ""
+
+#~ msgid "Your message here"
+#~ msgstr ""
+
+#~ msgid "view %s reply"
+#~ msgid_plural "view %s replies"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Offline Phase"
+#~ msgstr ""
+
+#~ msgid "add offline phase"
+#~ msgstr ""
