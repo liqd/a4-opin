@@ -24,3 +24,10 @@ class TopicFileUploadForm(forms.ModelForm):
         widgets = {
             'document': widgets.FileUploadWidget()
         }
+
+
+TopicFileUploadFormset = forms.inlineformset_factory(models.Topic,
+                                                     models.TopicFileUpload,
+                                                     TopicFileUploadForm,
+                                                     extra=1, max_num=3,
+                                                     can_delete=True)

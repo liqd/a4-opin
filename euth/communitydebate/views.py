@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.db import transaction
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import ugettext as _
@@ -13,7 +12,6 @@ from euth.projects import mixins as prj_mixins
 from . import forms
 from . import models as communitydebate_models
 from .filters import TopicFilterSet
-from .mixins import TopicFormMixin
 
 
 class TopicListView(prj_mixins.ProjectPhaseMixin,
@@ -45,8 +43,7 @@ class TopicDetailView(generic.DetailView):
         return context
 
 
-class TopicCreateView(PermissionRequiredMixin, generic.CreateView,
-                      TopicFormMixin):
+class TopicCreateView(PermissionRequiredMixin, generic.CreateView):
     model = communitydebate_models.Topic
     form_class = forms.TopicForm
     permission_required = 'euth_communitydebate.propose_topic'
@@ -70,7 +67,7 @@ class TopicCreateView(PermissionRequiredMixin, generic.CreateView,
         context['project'] = self.project
         context['mode'] = 'create'
         if not upload_forms:
-            upload_forms = self.empty_upload_formset()
+            upload_forms = forms.TopicFileUploadFormset()
         context['upload_forms'] = upload_forms
         return context
 
@@ -87,31 +84,24 @@ class TopicCreateView(PermissionRequiredMixin, generic.CreateView,
     def post(self, request, *args, **kwargs):
         self.object = None
         form = self.get_form()
-        upload_forms = self.filled_upload_formset(request)
-        if form.is_valid() and upload_forms.is_valid():
-            response = self.form_valid(form)
-            self._process_upload_formdata(upload_forms)
-            messages.add_message(request,
-                                 messages.SUCCESS,
-                                 _('Topic '
-                                   'successfully created'))
-
-        else:
-            response = render(request,
-                              self.template_name,
-                              self.get_context_data(upload_forms=upload_forms))
-        return response
-
-    def _process_upload_formdata(self, upload_forms):
-        with transaction.atomic():
-            instances = upload_forms.save(commit=False)
-            for instance in instances:
-                instance.topic = self.object
-                instance.save()
+        if form.is_valid():
+            topic = form.save(commit=False)
+            upload_forms = forms.TopicFileUploadFormset(request.POST,
+                                                        request.FILES,
+                                                        instance=topic)
+            if upload_forms.is_valid():
+                response = self.form_valid(form)
+                upload_forms.save()
+                messages.add_message(request,
+                                     messages.SUCCESS,
+                                     _('Topic '
+                                       'successfully created'))
+                return response
+        return render(request, self.template_name,
+                      self.get_context_data(upload_forms=upload_forms))
 
 
-class TopicUpdateView(PermissionRequiredMixin, generic.UpdateView,
-                      TopicFormMixin):
+class TopicUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = communitydebate_models.Topic
     form_class = forms.TopicForm
     permission_required = 'euth_communitydebate.modify_topic'
@@ -130,10 +120,8 @@ class TopicUpdateView(PermissionRequiredMixin, generic.UpdateView,
         context['project'] = self.object.project
         context['mode'] = 'update'
         if not upload_forms:
-            queryset = \
-                communitydebate_models.TopicFileUpload.\
-                objects.filter(topic=self.get_object())
-            upload_forms = self.update_upload_formset(queryset)
+            upload_forms = forms.TopicFileUploadFormset(
+                instance=self.get_object())
         context['upload_forms'] = upload_forms
         return context
 
@@ -144,10 +132,12 @@ class TopicUpdateView(PermissionRequiredMixin, generic.UpdateView,
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
-        upload_forms = self.filled_upload_formset(request)
+        upload_forms = forms.TopicFileUploadFormset(request.POST,
+                                                    request.FILES,
+                                                    instance=self.object)
         if upload_forms.is_valid() and form.is_valid():
             response = self.form_valid(form)
-            self._process_upload_formdata(upload_forms)
+            upload_forms.save()
             messages.add_message(request,
                                  messages.SUCCESS,
                                  _('Topic successfully '
@@ -157,15 +147,6 @@ class TopicUpdateView(PermissionRequiredMixin, generic.UpdateView,
                               self.template_name,
                               self.get_context_data(upload_forms=upload_forms))
         return response
-
-    def _process_upload_formdata(self, upload_forms):
-        with transaction.atomic():
-            instances = upload_forms.save(commit=False)
-            for obj in upload_forms.deleted_objects:
-                obj.delete()
-            for instance in instances:
-                instance.topic = self.object
-                instance.save()
 
 
 class TopicDeleteView(PermissionRequiredMixin, generic.DeleteView):
