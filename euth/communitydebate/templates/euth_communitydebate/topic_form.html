@@ -1,7 +1,14 @@
 {% extends "base.html" %}
-{% load widget_tweaks i18n thumbnail base_tags form_tags %}
+{% load static widget_tweaks i18n thumbnail base_tags form_tags %}
 
-{% block title %}{% trans 'Create a new topic' %}{% endblock %}
+{% block title %}
+{% if mode == 'create' %}
+{% trans 'Create a new topic' %}
+{% elif mode == 'update' %}
+{% trans 'Update topic' %}
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="action-bar">
@@ -37,7 +44,6 @@
         <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
             {% csrf_token %}
             {{ form.media }}
-            {{ upload_forms.management_form }}
             <div class="form-group">
                 <label class="col-form-label" for="{{ form.name.id_for_label }}">{% trans 'Title of the topic'%}</label>
                 {% if form.name.errors %}
@@ -68,55 +74,33 @@
                 {{ form.image.errors }}
             </div>
 
-    {% with upload_forms.max_num as fileupload_max %}
-    <h3>{% trans 'Downloads' %}</h3>
-    {% getAllowedFileTypes as allowed_file_types %}
-    <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
-    {% for form in upload_forms %}
-    <div class="card card-body">
-        {% for field in form.visible_fields %}
-        {% if field.name == 'title' or field.name == 'document' %}
-            <div class="form-group {% if field.errors %} has-error{% endif %}">
-                <label>
-                    {{ field.label }}
-                </label>
-                {% if field.errors %}
-                    {{ field|add_class:"form-control form-error" }}
-                {% else %}
-                    {{ field|add_class:"form-control"}}
-                {% endif %}
-                {{ field.errors }}
-            </div>
-        {% endif %}
-        {% endfor %}
+            <h3>{% trans 'Downloads' %}</h3>
+         <div class="js-formset category-formset"
+         data-prefix="{{ upload_forms.prefix }}">
 
-        {% if form.instance.id %}
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="form-group {% if form.DELETE.errors %} has-error{% endif %}">
-                    <label>
-                        {{ form.DELETE.label }}
-                    </label>
-                    {% if form.DELETE.errors %}
-                        {{ form.DELETE|add_class:"form-control form-error" }}
-                    {% else %}
-                        {{ form.DELETE|add_class:"form-control"}}
-                    {% endif %}
-                    {{ form.DELETE.errors }}
+            {% with upload_forms.max_num as fileupload_max %}
+            {% getAllowedFileTypes as allowed_file_types %}
+            {{ upload_forms.management_form }}
+            <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
+            {% for form in upload_forms %}
+                {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=form %}
+            {% endfor %}
+            {% endwith %}
+            <div class="js-form-template category-formset__template">
+                {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=upload_forms.empty_form %}
+            </div>
+
+
+            <div class="category-formset__btn">
+                <button class="btn btn--secondary btn--small btn--full js-add-form" type="button">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                {% trans 'Upload another document' %}
+                </button>
+                <div id="error-max-num-forms">
                 </div>
             </div>
-        </div>
-        {% endif %}
-        {% if forloop.last and forloop.counter < fileupload_max %}
-        <p class='form-help-text'>{% trans 'You can add additional files after saving the current file.' %}</p>
-        {% endif %}
-        {% for hidden in form.hidden_fields %}
-        {{ hidden }}
-        {% endfor %}
-    </div>
-    {% endfor %}
-    {% endwith %}
 
+        </div>
 
             {% if form.show_categories %}
             <div class="form-group">
