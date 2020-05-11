@@ -15,6 +15,9 @@ class TopicForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['category'].empty_label = '---'
 
+    class Media:
+        js = ('fileupload_formset.js',)
+
 
 class TopicFileUploadForm(forms.ModelForm):
 
