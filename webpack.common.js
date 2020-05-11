@@ -86,7 +86,11 @@ module.exports = {
     ],
     select_dropdown_init: [
       'adhocracy4/adhocracy4/categories/assets/select_dropdown_init.js'
-    ]
+    ],
+    fileupload_formset: [
+      './euth/communitydebate/static/js/fileupload_formset.js'
+    ],
+
   },
   output: {
     libraryTarget: 'this',
