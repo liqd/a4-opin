@@ -64,7 +64,7 @@ background:
 
 .PHONY: test
 test:
-	$(VIRTUAL_ENV)/bin/py.test --reuse-db --no-migrations
+	$(VIRTUAL_ENV)/bin/py.test --reuse-db
 
 .PHONY: test-lastfailed
 test-lastfailed:
@@ -73,7 +73,6 @@ test-lastfailed:
 .PHONY: test-clean
 test-clean:
 	if [ -f test_db.sqlite3 ]; then rm test_db.sqlite3; fi
-	find media -iname 'example_*.jpg' -exec rm {} \+
 	$(VIRTUAL_ENV)/bin/py.test
 
 .PHONY: coverage
