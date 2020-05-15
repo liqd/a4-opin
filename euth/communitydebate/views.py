@@ -27,7 +27,7 @@ class TopicListView(prj_mixins.ProjectPhaseMixin,
             .annotate_comment_count()
 
 
-class TopicDetailView(generic.DetailView):
+class TopicDetailView(PermissionRequiredMixin, generic.DetailView):
     model = communitydebate_models.Topic
     queryset = \
         communitydebate_models.Topic.objects\
