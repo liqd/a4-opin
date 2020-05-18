@@ -1,5 +1,6 @@
 .a4-comments__commentbox__form,
-.a4-comments__child--list {
+.a4-comments__child--list,
+.a4-comments__comment {
     fieldset {
         margin-bottom: $spacer;
     }
@@ -82,15 +83,19 @@
 }
 
 .a4-comments__action-bar {
-    padding: 0.5*$spacer 0;
-    display: contents;
-    justify-content: space-between;
+    @media screen and (min-width: $screen-md-min) {
+        padding: 0.5*$spacer 0;
+        display: contents;
+        justify-content: space-between;
+    }
 }
 
 .a4-comments__action-bar__btn {
     margin-left: 0.2*$spacer !important;
+}
 
-    // @extend .btn--small;
+.a4-comments__action-bar__btn:last-child {
+    padding-right: 0; // to allign it with other elements
 }
 
 .a4-comments__border--highlighted {
@@ -108,7 +113,6 @@
 }
 
 .a4-comments__owner {
-    // background-color: $bg-light;
     border-top: solid 0.5rem $gray-lighter;
 }
 
