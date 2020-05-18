@@ -48,6 +48,10 @@
 
     .modal-body {
         padding: 0 60px 0 60px;
+
+        .input-group {
+            padding-bottom: 30px;
+        }
     }
 
     .close {
@@ -97,4 +101,8 @@
 
 .loading {
     cursor: wait;
+}
+
+.modal-url-bar-button {
+    padding: 0.375*$spacer 0.75*$spacer; // reset to bootstrap
 }

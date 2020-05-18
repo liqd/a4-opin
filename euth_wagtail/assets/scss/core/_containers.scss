@@ -11,6 +11,8 @@
 
 .container-medium {
     @extend .col-md-10;
+
+    padding: 0;
 }
 
 body {
