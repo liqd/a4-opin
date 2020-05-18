@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+from rules.contrib.views import PermissionRequiredMixin
 
 from adhocracy4.dashboard import mixins
 from adhocracy4.projects.mixins import ProjectMixin
@@ -12,10 +13,10 @@ from . import forms, models
 from .mixins import OfflineEventFormMixin
 
 
-class OfflineEventDetailView(
-    generic.DetailView
-):
+class OfflineEventDetailView(PermissionRequiredMixin,
+                             generic.DetailView):
     model = models.OfflineEvent
+    permission_required = 'euth_offlinephases.view_offlineevent'
 
     @property
     def project(self):
