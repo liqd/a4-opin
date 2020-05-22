@@ -86,8 +86,10 @@ $(document).ready(function () {
     ]
   })
 
-  $('.form-control-file').change(function () {
-    var string = $(this).val().match(/[^\\/]+$/)[0]
-    $(this).parent().find('.form-control-file-dummy').val(string)
-  })
+  $('.form-control-file').change(showFileName)
 })
+
+export function showFileName () {
+  var string = $(this).val().match(/[^\\/]+$/)[0]
+  $(this).parent().find('.form-control-file-dummy').val(string)
+}
