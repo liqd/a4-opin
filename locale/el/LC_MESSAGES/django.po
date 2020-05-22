@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
@@ -81,7 +81,7 @@ msgstr "Νέο Έργο"
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
-#: euth/projects/templates/euth_projects/project_detail.html:42
+#: euth/projects/templates/euth_projects/project_detail.html:38
 msgid "Phase"
 msgstr "Φάση"
 
@@ -315,7 +315,7 @@ msgstr "Επεξεργασία κατηγοριών"
 #: adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45
 #: adhocracy4/exports/mixins.py:150
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:123
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "Κατηγορία"
@@ -388,7 +388,7 @@ msgstr "Επεξεργαστείτε τις βασικές ρυθμίσεις"
 #: adhocracy4/dashboard/dashboard.py:23
 #: euth/memberships/templates/euth_memberships/invite_base.html:10
 #: euth/memberships/templates/euth_memberships/request_detail.html:10
-#: euth/projects/templates/euth_projects/project_detail.html:100
+#: euth/projects/templates/euth_projects/project_detail.html:96
 msgid "Information"
 msgstr "Πληροφορίες"
 
@@ -398,7 +398,7 @@ msgstr "Επεξεργασία πληροφοριών έργου"
 
 #: adhocracy4/dashboard/dashboard.py:33
 #: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html:8
-#: euth/projects/templates/euth_projects/project_detail.html:102
+#: euth/projects/templates/euth_projects/project_detail.html:98
 msgid "Result"
 msgstr "Αποτέλεσμα"
 
@@ -457,7 +457,7 @@ msgid "Only invited users can participate (private)."
 msgstr "Μόνο προσκεκλημένοι χρήστες μπορούν να συμμετέχουν (ιδιωτικά)."
 
 #: adhocracy4/dashboard/forms.py:79
-#: euth/projects/templates/euth_projects/project_detail.html:113
+#: euth/projects/templates/euth_projects/project_detail.html:109
 msgid "Contact for questions"
 msgstr "Επικοινωνία για ερωτήσεις"
 
@@ -489,7 +489,7 @@ msgid "Address"
 msgstr "Διεύθυνση"
 
 #: adhocracy4/dashboard/forms.py:103
-#: euth/projects/templates/euth_projects/project_detail.html:121
+#: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Telephone"
 msgstr "Τηλέφωνο"
 
@@ -497,14 +497,14 @@ msgstr "Τηλέφωνο"
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
-#: euth/projects/templates/euth_projects/project_detail.html:125
+#: euth/projects/templates/euth_projects/project_detail.html:121
 #: euth_wagtail/templates/account/login.html:36
 #: euth_wagtail/templates/account/password_reset.html:26
 msgid "Email"
 msgstr "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ"
 
 #: adhocracy4/dashboard/forms.py:107
-#: euth/projects/templates/euth_projects/project_detail.html:130
+#: euth/projects/templates/euth_projects/project_detail.html:126
 msgid "Website"
 msgstr "Δικτυακός τόπος"
 
@@ -770,7 +770,7 @@ msgid "seconds"
 msgstr "δευτερολέπτων"
 
 #: adhocracy4/phases/models.py:71
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:51
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
 #: euth/ideas/templates/euth_ideas/idea_form.html:50
 #: euth/offlinephases/models.py:54
 msgid "Description"
@@ -1561,7 +1561,7 @@ msgid "abort"
 msgstr "αμβλώνω"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:11
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
 #: euth/documents/templates/euth_documents/paragraph_detail.html:10
 #: euth/ideas/templates/euth_ideas/idea_detail.html:14
 #: euth/ideas/templates/euth_ideas/idea_form.html:11
@@ -1585,7 +1585,7 @@ msgid "Moderator"
 msgstr "Μεσολαβητής"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:68
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:72
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:77
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
@@ -1593,23 +1593,27 @@ msgstr "Μεσολαβητής"
 msgid "Downloads"
 msgstr "Λήψεις"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:4
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:6
 msgid "Create a new topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:19
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:8
+msgid "Update topic"
+msgstr ""
+
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:23
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:42
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:74
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:84
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
@@ -1620,22 +1624,18 @@ msgstr ""
 "Μπορείτε να ανεβάσετε το μέγιστο των %(fileupload_max)sεγγράφων. Οι "
 "επιτρεπόμενες μορφές είναι%(allowed_file_types)s."
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:111
-#: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
-msgid "You can add additional files after saving the current file."
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:97
+msgid "Upload another document"
 msgstr ""
-"Μπορείτε να προσθέσετε επιπλέον αρχεία μετά την αποθήκευση του τρέχοντος "
-"αρχείου."
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:121
 #: euth/ideas/templates/euth_ideas/idea_form.html:85
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "Θέση"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:141
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:143
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:125
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:127
 #: euth/ideas/templates/euth_ideas/idea_form.html:89
 #: euth/ideas/templates/euth_ideas/idea_form.html:91
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
@@ -1652,15 +1652,15 @@ msgstr ""
 msgid "No topics found"
 msgstr ""
 
-#: euth/communitydebate/views.py:96
+#: euth/communitydebate/views.py:97
 msgid "Topic successfully created"
 msgstr ""
 
-#: euth/communitydebate/views.py:153
+#: euth/communitydebate/views.py:143
 msgid "Topic successfully updated"
 msgstr ""
 
-#: euth/communitydebate/views.py:173
+#: euth/communitydebate/views.py:154
 msgid "Your topic has been deleted"
 msgstr ""
 
@@ -2080,6 +2080,13 @@ msgstr "Δεν έχει ακόμη δοθεί τεκμηρίωση"
 msgid "Add event"
 msgstr "Προσθήκη συμβάντος"
 
+#: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
+msgid "You can add additional files after saving the current file."
+msgstr ""
+"Μπορείτε να προσθέσετε επιπλέον αρχεία μετά την αποθήκευση του τρέχοντος "
+"αρχείου."
+
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:4
 msgid "Offlineevents"
 msgstr "Εκδηλώσεις εκτός σύνδεσης"
@@ -2108,11 +2115,11 @@ msgstr "Επεξεργασία περιεχομένου offlinephase"
 msgid "update offlinephase"
 msgstr "ενημέρωση offlinephase"
 
-#: euth/offlinephases/views.py:86 euth/offlinephases/views.py:151
+#: euth/offlinephases/views.py:87 euth/offlinephases/views.py:152
 msgid "Offline events have been updated"
 msgstr "Τα συμβάντα εκτός σύνδεσης έχουν ενημερωθεί"
 
-#: euth/offlinephases/views.py:168
+#: euth/offlinephases/views.py:169
 msgid "The offline event has been deleted"
 msgstr "Το συμβάν εκτός σύνδεσης έχει διαγραφεί"
 
@@ -2217,44 +2224,44 @@ msgstr "με"
 msgid "edit"
 msgstr "επεξεργασία"
 
-#: euth/projects/templates/euth_projects/project_detail.html:16
+#: euth/projects/templates/euth_projects/project_detail.html:12
 msgid "This project is in not published yet."
 msgstr "Το έργο αυτό δεν έχει ακόμη δημοσιευθεί."
 
-#: euth/projects/templates/euth_projects/project_detail.html:26
+#: euth/projects/templates/euth_projects/project_detail.html:22
 msgid "Timeline"
 msgstr "Χρονοδιάγραμμα"
 
-#: euth/projects/templates/euth_projects/project_detail.html:44
+#: euth/projects/templates/euth_projects/project_detail.html:40
 msgid "Active phase"
 msgstr "Ενεργή φάση"
 
-#: euth/projects/templates/euth_projects/project_detail.html:71
+#: euth/projects/templates/euth_projects/project_detail.html:67
 msgid "Event"
 msgstr "Εκδήλωση"
 
-#: euth/projects/templates/euth_projects/project_detail.html:101
+#: euth/projects/templates/euth_projects/project_detail.html:97
 msgid "Participation"
 msgstr "Συμμετοχή"
 
-#: euth/projects/templates/euth_projects/project_detail.html:109
+#: euth/projects/templates/euth_projects/project_detail.html:105
 msgid "info"
 msgstr "πληροφορίες"
 
-#: euth/projects/templates/euth_projects/project_detail.html:142
+#: euth/projects/templates/euth_projects/project_detail.html:138
 msgid "Welcome!"
 msgstr "Καλως ΗΡΘΑΤΕ!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:143
+#: euth/projects/templates/euth_projects/project_detail.html:139
 msgid "This project has not started yet!"
 msgstr "Αυτό το έργο δεν έχει ξεκινήσει ακόμα!"
 
+#: euth/projects/templates/euth_projects/project_detail.html:145
 #: euth/projects/templates/euth_projects/project_detail.html:149
-#: euth/projects/templates/euth_projects/project_detail.html:153
 msgid "Thanks for participating!"
 msgstr "Ευχαριστώ που συμμετείχατε!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:150
+#: euth/projects/templates/euth_projects/project_detail.html:146
 msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
@@ -2262,7 +2269,7 @@ msgstr ""
 "Αυτή η φάση έχει ήδη τελειώσει. Ευχαριστώ πολύ όλους για τη συμμετοχή σας "
 "στο έργο! Η επόμενη φάση θα ξεκινήσει σύντομα."
 
-#: euth/projects/templates/euth_projects/project_detail.html:154
+#: euth/projects/templates/euth_projects/project_detail.html:150
 msgid ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
@@ -2270,15 +2277,15 @@ msgstr ""
 "Αυτό το έργο έχει ήδη τελειώσει. Ευχαριστώ πολύ όλους για τη συμμετοχή σας "
 "στο έργο!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:166
+#: euth/projects/templates/euth_projects/project_detail.html:162
 msgid "This phase ends in"
 msgstr "Αυτή η φάση τελειώνει"
 
-#: euth/projects/templates/euth_projects/project_detail.html:174
+#: euth/projects/templates/euth_projects/project_detail.html:170
 msgid "(Your Timezone: "
 msgstr "(Η ζώνη ώρας σας:"
 
-#: euth/projects/templates/euth_projects/project_detail.html:192
+#: euth/projects/templates/euth_projects/project_detail.html:188
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
@@ -2286,7 +2293,7 @@ msgstr ""
 "Ο εκκινητής δεν έχει παράσχει ακόμη πληροφορίες για το αναμενόμενο "
 "αποτέλεσμα του έργου."
 
-#: euth/projects/templates/euth_projects/project_detail.html:205
+#: euth/projects/templates/euth_projects/project_detail.html:201
 msgid "other projects from this organisation"
 msgstr "άλλα έργα από αυτήν την οργάνωση"
 

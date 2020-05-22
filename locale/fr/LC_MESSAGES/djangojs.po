@@ -9,15 +9,16 @@
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Albers <katharina.albers@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
+"Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -582,6 +583,10 @@ msgstr "Fermer"
 msgid "Please set all values for your project."
 msgstr "Veuillez répondre à toutes les questions en fonction de votre projet. "
 
+#: euth/communitydebate/static/js/fileupload_formset.js:29
+msgid "Maximum number of upload documents reached."
+msgstr ""
+
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
 #: adhocracy4.js:1
 msgid "Remove"
@@ -635,12 +640,12 @@ msgstr "Voulez-vous vraiment signaler cet élément? "
 #: adhocracy4.js:1
 #, javascript-format
 msgid "hide %s replies"
-msgstr ""
+msgstr "masquer %s les réponses"
 
 #: adhocracy4.js:1
 #, javascript-format
 msgid "view %s replies"
-msgstr ""
+msgstr "voir %s les réponses"
 
 #: adhocracy4.js:1
 msgid "Your message here"

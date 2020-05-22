@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -85,7 +85,7 @@ msgstr "Nyt projekt"
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
-#: euth/projects/templates/euth_projects/project_detail.html:42
+#: euth/projects/templates/euth_projects/project_detail.html:38
 msgid "Phase"
 msgstr "Fase"
 
@@ -314,7 +314,7 @@ msgstr "Rediger kategorier"
 #: adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45
 #: adhocracy4/exports/mixins.py:150
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:123
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "Kategori"
@@ -387,7 +387,7 @@ msgstr "Rediger grundlæggende indstillinger"
 #: adhocracy4/dashboard/dashboard.py:23
 #: euth/memberships/templates/euth_memberships/invite_base.html:10
 #: euth/memberships/templates/euth_memberships/request_detail.html:10
-#: euth/projects/templates/euth_projects/project_detail.html:100
+#: euth/projects/templates/euth_projects/project_detail.html:96
 msgid "Information"
 msgstr "Information "
 
@@ -397,7 +397,7 @@ msgstr "Rediger projektoplysninger"
 
 #: adhocracy4/dashboard/dashboard.py:33
 #: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html:8
-#: euth/projects/templates/euth_projects/project_detail.html:102
+#: euth/projects/templates/euth_projects/project_detail.html:98
 msgid "Result"
 msgstr "Resultat"
 
@@ -456,7 +456,7 @@ msgid "Only invited users can participate (private)."
 msgstr "Kun inviterede brugere kan deltage (privat). "
 
 #: adhocracy4/dashboard/forms.py:79
-#: euth/projects/templates/euth_projects/project_detail.html:113
+#: euth/projects/templates/euth_projects/project_detail.html:109
 msgid "Contact for questions"
 msgstr "Kontakt for spørgsmål"
 
@@ -487,7 +487,7 @@ msgid "Address"
 msgstr "Adresse"
 
 #: adhocracy4/dashboard/forms.py:103
-#: euth/projects/templates/euth_projects/project_detail.html:121
+#: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Telephone"
 msgstr "Telefon"
 
@@ -495,14 +495,14 @@ msgstr "Telefon"
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
-#: euth/projects/templates/euth_projects/project_detail.html:125
+#: euth/projects/templates/euth_projects/project_detail.html:121
 #: euth_wagtail/templates/account/login.html:36
 #: euth_wagtail/templates/account/password_reset.html:26
 msgid "Email"
 msgstr "E-mail"
 
 #: adhocracy4/dashboard/forms.py:107
-#: euth/projects/templates/euth_projects/project_detail.html:130
+#: euth/projects/templates/euth_projects/project_detail.html:126
 msgid "Website"
 msgstr "Internet side"
 
@@ -764,7 +764,7 @@ msgid "seconds"
 msgstr "Sekunder"
 
 #: adhocracy4/phases/models.py:71
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:51
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
 #: euth/ideas/templates/euth_ideas/idea_form.html:50
 #: euth/offlinephases/models.py:54
 msgid "Description"
@@ -1549,7 +1549,7 @@ msgid "abort"
 msgstr "Afbryd"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:11
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
 #: euth/documents/templates/euth_documents/paragraph_detail.html:10
 #: euth/ideas/templates/euth_ideas/idea_detail.html:14
 #: euth/ideas/templates/euth_ideas/idea_form.html:11
@@ -1573,7 +1573,7 @@ msgid "Moderator"
 msgstr "Ordstyrer/mødeleder/moderator"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:68
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:72
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:77
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
@@ -1581,23 +1581,27 @@ msgstr "Ordstyrer/mødeleder/moderator"
 msgid "Downloads"
 msgstr "Downloadede filer"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:4
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:6
 msgid "Create a new topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:19
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:8
+msgid "Update topic"
+msgstr ""
+
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:23
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:42
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
 msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:74
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:84
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
@@ -1608,20 +1612,18 @@ msgstr ""
 "Du kan maksimalt uploade %(fileupload_max)sdokumenter. De tilladte formater "
 "er %(allowed_file_types)s. "
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:111
-#: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
-msgid "You can add additional files after saving the current file."
-msgstr "Du kan tilføje yderligere filer efter at have gemt den aktuelle fil. "
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:97
+msgid "Upload another document"
+msgstr ""
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:121
 #: euth/ideas/templates/euth_ideas/idea_form.html:85
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "Indsend/post/Slå op"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:141
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:143
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:125
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:127
 #: euth/ideas/templates/euth_ideas/idea_form.html:89
 #: euth/ideas/templates/euth_ideas/idea_form.html:91
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
@@ -1638,15 +1640,15 @@ msgstr ""
 msgid "No topics found"
 msgstr ""
 
-#: euth/communitydebate/views.py:96
+#: euth/communitydebate/views.py:97
 msgid "Topic successfully created"
 msgstr ""
 
-#: euth/communitydebate/views.py:153
+#: euth/communitydebate/views.py:143
 msgid "Topic successfully updated"
 msgstr ""
 
-#: euth/communitydebate/views.py:173
+#: euth/communitydebate/views.py:154
 msgid "Your topic has been deleted"
 msgstr ""
 
@@ -2060,6 +2062,11 @@ msgstr "Der er endnu ikke uploadet nogen dokumentation "
 msgid "Add event"
 msgstr "Tilføj event"
 
+#: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
+msgid "You can add additional files after saving the current file."
+msgstr "Du kan tilføje yderligere filer efter at have gemt den aktuelle fil. "
+
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:4
 msgid "Offlineevents"
 msgstr "Offlineevents"
@@ -2088,11 +2095,11 @@ msgstr "Rediger offline fase indhold"
 msgid "update offlinephase"
 msgstr "Opdater offline fase"
 
-#: euth/offlinephases/views.py:86 euth/offlinephases/views.py:151
+#: euth/offlinephases/views.py:87 euth/offlinephases/views.py:152
 msgid "Offline events have been updated"
 msgstr "Offlinehændelser er blevet opdateret"
 
-#: euth/offlinephases/views.py:168
+#: euth/offlinephases/views.py:169
 msgid "The offline event has been deleted"
 msgstr "Offline-begivenheden er blevet slettet"
 
@@ -2196,44 +2203,44 @@ msgstr "af"
 msgid "edit"
 msgstr "rediger"
 
-#: euth/projects/templates/euth_projects/project_detail.html:16
+#: euth/projects/templates/euth_projects/project_detail.html:12
 msgid "This project is in not published yet."
 msgstr "Dette projekt er endnu ikke offentliggjort."
 
-#: euth/projects/templates/euth_projects/project_detail.html:26
+#: euth/projects/templates/euth_projects/project_detail.html:22
 msgid "Timeline"
 msgstr "Tidslinje "
 
-#: euth/projects/templates/euth_projects/project_detail.html:44
+#: euth/projects/templates/euth_projects/project_detail.html:40
 msgid "Active phase"
 msgstr "Aktiv fase"
 
-#: euth/projects/templates/euth_projects/project_detail.html:71
+#: euth/projects/templates/euth_projects/project_detail.html:67
 msgid "Event"
 msgstr "Begivenhed"
 
-#: euth/projects/templates/euth_projects/project_detail.html:101
+#: euth/projects/templates/euth_projects/project_detail.html:97
 msgid "Participation"
 msgstr "Deltagelse"
 
-#: euth/projects/templates/euth_projects/project_detail.html:109
+#: euth/projects/templates/euth_projects/project_detail.html:105
 msgid "info"
 msgstr "Info"
 
-#: euth/projects/templates/euth_projects/project_detail.html:142
+#: euth/projects/templates/euth_projects/project_detail.html:138
 msgid "Welcome!"
 msgstr "Velkommen!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:143
+#: euth/projects/templates/euth_projects/project_detail.html:139
 msgid "This project has not started yet!"
 msgstr "Dette projekt er ikke begyndt endnu!"
 
+#: euth/projects/templates/euth_projects/project_detail.html:145
 #: euth/projects/templates/euth_projects/project_detail.html:149
-#: euth/projects/templates/euth_projects/project_detail.html:153
 msgid "Thanks for participating!"
 msgstr "Tak for din deltagelse!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:150
+#: euth/projects/templates/euth_projects/project_detail.html:146
 msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
@@ -2241,7 +2248,7 @@ msgstr ""
 "Denne fase er allerede afsluttet. Mange tak til alle for at tage del i "
 "projektet! Den næste fase vil begynde inden længe. "
 
-#: euth/projects/templates/euth_projects/project_detail.html:154
+#: euth/projects/templates/euth_projects/project_detail.html:150
 msgid ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
@@ -2249,15 +2256,15 @@ msgstr ""
 "Dette projekt er allerede afsluttet. Mange tak til alle, der deltog i "
 "projektet! "
 
-#: euth/projects/templates/euth_projects/project_detail.html:166
+#: euth/projects/templates/euth_projects/project_detail.html:162
 msgid "This phase ends in"
 msgstr "Denne fase slutter om"
 
-#: euth/projects/templates/euth_projects/project_detail.html:174
+#: euth/projects/templates/euth_projects/project_detail.html:170
 msgid "(Your Timezone: "
 msgstr "(Din tidszone:"
 
-#: euth/projects/templates/euth_projects/project_detail.html:192
+#: euth/projects/templates/euth_projects/project_detail.html:188
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
@@ -2265,7 +2272,7 @@ msgstr ""
 "Initiativtageren har ikke stillet information om projektets forventede "
 "udfald til rådighed endnu. "
 
-#: euth/projects/templates/euth_projects/project_detail.html:205
+#: euth/projects/templates/euth_projects/project_detail.html:201
 msgid "other projects from this organisation"
 msgstr "Andre projekter fra denne organisation "
 

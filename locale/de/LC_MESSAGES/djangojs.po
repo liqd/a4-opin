@@ -7,15 +7,16 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
+# Katharina Albers <katharina.albers@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: SabineJulia <sabine.lebek@liqd.de>, 2018\n"
+"Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -223,86 +224,86 @@ msgstr "Melden"
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 msgid "Choose categories for your comment"
-msgstr ""
+msgstr "Wähle mindestens eine Kategorie"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Entry successfully created"
-msgstr ""
+msgstr "Beitrag erstellt"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Read more..."
-msgstr ""
+msgstr "Weiterlesen..."
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Read less"
-msgstr ""
+msgstr "Weniger anzeigen"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Share"
-msgstr ""
+msgstr "Teilen"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid " Report"
-msgstr ""
+msgstr "Melden"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #, javascript-format
 msgid "1 comment"
 msgid_plural "%s comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 Kommentar"
+msgstr[1] "%s Kommentare"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:40
 msgid "hide comments"
-msgstr ""
+msgstr "Kommentare verbergen"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 msgctxt "verb"
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:286
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:286
 msgid "Share link"
-msgstr ""
+msgstr "Link teilen"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:325
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:325
 msgid "Categories: "
-msgstr ""
+msgstr "Kategorien:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
-msgstr ""
+msgstr "Neueste"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
-msgstr ""
+msgstr "Meiste Zustimmung"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
-msgstr ""
+msgstr "Meiste Ablehnung"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
-msgstr ""
+msgstr "Meiste Antworten"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
-msgstr ""
+msgstr "Zuletzt diskutiert"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
@@ -311,7 +312,7 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:543
 msgid "all"
-msgstr ""
+msgstr "alle"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:503
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
@@ -322,19 +323,19 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
 msgid "Write contribution"
-msgstr ""
+msgstr "Beitrag verfassen"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
 msgid "Search contributions"
-msgstr ""
+msgstr "Beiträge durchsuchen"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 msgid "Clear search"
-msgstr ""
+msgstr "Suche aufheben"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
@@ -581,6 +582,10 @@ msgstr "Schließen"
 msgid "Please set all values for your project."
 msgstr "Bitte fülle alle Werte für dein Projekt aus."
 
+#: euth/communitydebate/static/js/fileupload_formset.js:29
+msgid "Maximum number of upload documents reached."
+msgstr ""
+
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
 #: adhocracy4.js:1
 msgid "Remove"
@@ -634,12 +639,12 @@ msgstr "Bist du sicher, dass du diesen Inhalt melden willst?"
 #: adhocracy4.js:1
 #, javascript-format
 msgid "hide %s replies"
-msgstr ""
+msgstr "Ausblenden %s Antworten"
 
 #: adhocracy4.js:1
 #, javascript-format
 msgid "view %s replies"
-msgstr ""
+msgstr "Zeigen %s Antworten"
 
 #: adhocracy4.js:1
 msgid "Your message here"
