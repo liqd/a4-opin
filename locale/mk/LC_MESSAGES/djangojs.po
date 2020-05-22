@@ -8,15 +8,16 @@
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Albers <katharina.albers@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
+"Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -583,6 +584,10 @@ msgstr "Затвори"
 msgid "Please set all values for your project."
 msgstr "Ве молиме поставете ги сите вредности за вашиот проект."
 
+#: euth/communitydebate/static/js/fileupload_formset.js:29
+msgid "Maximum number of upload documents reached."
+msgstr ""
+
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
 #: adhocracy4.js:1
 msgid "Remove"
@@ -636,12 +641,12 @@ msgstr "Дали сте сигурни дека сакате да го приј�
 #: adhocracy4.js:1
 #, javascript-format
 msgid "hide %s replies"
-msgstr ""
+msgstr "скриј %s одговори"
 
 #: adhocracy4.js:1
 #, javascript-format
 msgid "view %s replies"
-msgstr ""
+msgstr "погледнете %s одговори"
 
 #: adhocracy4.js:1
 msgid "Your message here"

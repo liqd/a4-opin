@@ -5,7 +5,7 @@
 #
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
-# Anita Molka <anita.molka@razvoj.si>, 2017
+# Anita Molka <anita.molka@razvoj.si>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 #
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
@@ -51,8 +51,10 @@ msgstr "Zložljivi element"
 #, javascript-format
 msgid "hide one reply"
 msgid_plural "hide %s replies"
-msgstr[0] "skriti en odgovor"
-msgstr[1] "skrij %s odgovore"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
 #: adhocracy4/comments/static/comments/Comment.jsx:25
@@ -60,8 +62,10 @@ msgstr[1] "skrij %s odgovore"
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
-msgstr[0] "si oglejte en odgovor"
-msgstr[1] "prikaži %s odgovore"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:9
@@ -592,6 +596,10 @@ msgstr "Zapri"
 msgid "Please set all values for your project."
 msgstr "Prosimo, da nastaviš vse vrednosti svojega projekta."
 
+#: euth/communitydebate/static/js/fileupload_formset.js:29
+msgid "Maximum number of upload documents reached."
+msgstr ""
+
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
 #: adhocracy4.js:1
 msgid "Remove"
@@ -645,12 +653,12 @@ msgstr "Ali si prepričan/a, da želiš prijaviti to vsebino?"
 #: adhocracy4.js:1
 #, javascript-format
 msgid "hide %s replies"
-msgstr ""
+msgstr "skrij %sodgovore"
 
 #: adhocracy4.js:1
 #, javascript-format
 msgid "view %s replies"
-msgstr ""
+msgstr "prikaži %s odgovore"
 
 #: adhocracy4.js:1
 msgid "Your message here"

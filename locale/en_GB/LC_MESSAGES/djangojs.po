@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 14:58+0200\n"
+"POT-Creation-Date: 2020-05-22 13:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -446,6 +446,10 @@ msgstr "Close"
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
 msgstr "Please set all values for your project."
+
+#: euth/communitydebate/static/js/fileupload_formset.js:29
+msgid "Maximum number of upload documents reached."
+msgstr "Maximum number of upload documents reached."
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81 adhocracy4.js:1
 msgid "Remove"
