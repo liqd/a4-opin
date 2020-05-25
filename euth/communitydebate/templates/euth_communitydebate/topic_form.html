@@ -117,10 +117,10 @@
             {% block additional_fields %}{% endblock %}
             {% block post_form %}
             <div class="row button-row">
-                <div class="col-xs-6 col-sm-2">
+                <div class="col-6 col-sm-2">
                     <button type="submit" class="submit-button">{% trans 'post'%}</button>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-6">
                     {% if mode == 'create' %}
                     <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
                     {% elif mode == 'update' %}
