@@ -21,10 +21,10 @@
         <h2 class="project-tile-title"><a href="{% url 'project-detail' project.slug %}" {% if open_in_new_tab %}target="_blank"{% endif %}>{{ project }}</a></h2>
         <p class="project-tile-teaser">{{ project.description|truncatechars:200 }}</p>
         <div class="row project-tile-org">
-            <div class="col-md-2 col-sm-2 col-xs-2 project-tile-org-image">
+            <div class="col-md-2 col-2 project-tile-org-image">
                 <img src="{{ project.organisation.logo|thumbnail_url:'org_avatar_medium' }}" class="project-tile-org-avatar" height="30" width="30" />
             </div>
-            <a href="{% url 'organisation-detail' project.organisation.slug %}" class="col-md-10 col-sm-10 col-xs-10 project-tile-org-name" {% if open_in_new_tab %}target="_blank"{% endif %}>{{ project.organisation.name }}</a>
+            <a href="{% url 'organisation-detail' project.organisation.slug %}" class="col-10 project-tile-org-name" {% if open_in_new_tab %}target="_blank"{% endif %}>{{ project.organisation.name }}</a>
         </div>
     </div>
 </div>
