@@ -43,4 +43,8 @@ import { showFileName } from '../../../../euth_wagtail/assets/js/euth_wagtail';
       new DynamicFormSet($formsets.eq(i))
     )
   })
+
+  $(document).ready(function () {
+    document.getElementById('id_topicfileupload_set-TOTAL_FORMS').setAttribute('autocomplete', 'off')
+  })
 })
