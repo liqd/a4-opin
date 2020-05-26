@@ -38,6 +38,12 @@
     margin-left: 0;
 }
 
+.user-indicator {
+    .dropdown-item > a:active {
+        color: #fff !important;
+    }
+}
+
 .user-indicator > li > a > .inner {
     border: none;
     display: inline-block;
