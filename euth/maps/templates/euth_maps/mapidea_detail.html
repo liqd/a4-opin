@@ -45,9 +45,6 @@
             </nav>
         </div>
 
-        {% if object.image %}
-        <img class="idea-image" src="{{ object.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
-        {% endif %}
 
 
         <div class="idea-body">
@@ -60,15 +57,25 @@
                 <a href="{% url 'profile' object.creator.username %}" class="name">{{ object.creator.username }}</a>
                 {% if author_is_moderator %} <span class="badge badge-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
-
-            <div class="idea-description">
-                <p>{{ object.description |safe }}</p>
+            <div class="row">
+              <div class="{% if idea.image %}col-md-6{% else %}col{% endif %}">
+                  <div class="idea-description">
+                      <p>{{ object.description |safe }}</p>
+                  </div>
+              </div>
+              {% if object.image %}
+                  <div class=col-md-6>
+                      <img class="idea-image" src="{{ object.image | thumbnail_url:'idea_image'}}">
+                  </div>
+              {% endif %}
             </div>
 
             {% map_display_point object.point object.module.areasettings_settings.polygon %}
 
-            <div class="idea-ratings">
-                {% react_ratings object %}
+            <div class="row mt-3">
+                <div class="col">
+                    {% react_ratings object %}
+                </div>
             </div>
             <div class="black-divider">
                 {% trans 'Comments'%}

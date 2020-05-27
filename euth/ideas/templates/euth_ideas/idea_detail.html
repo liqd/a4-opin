@@ -36,31 +36,37 @@
             </nav>
         </div>
 
-        {% if idea.image %}
-        <img class="idea-image" src="{{ idea.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
-        {% endif %}
-
         <div class="idea-body">
             <div class="idea-title">
                 <h1>{{ idea.name }}</h1>
             </div>
-
             <div class="avatar-small">
                 <span class="circled circled-xs" style="background-image: url({% get_avatar idea.creator 'avatar_small' %})"></span>
                 <a href="{% url 'profile' idea.creator.username %}" class="name">{{ idea.creator.username }}</a>
                 {% if author_is_moderator %} <span class="badge badge-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
+            <div class="row">
+                <div class="{% if idea.image %}col-md-6{% else %}col{% endif %}">
 
-            {% if idea.category %}
-            <span class="badge badge-secondary label-xs">{{ idea.category }}</span>
-            {% endif %}
+                    {% if idea.category %}
+                    <span class="badge badge-secondary label-xs">{{ idea.category }}</span>
+                    {% endif %}
 
-            <div class="idea-description">
-                <p>{{ idea.description |safe }}</p>
+                    <div class="idea-description">
+                        <p>{{ idea.description |safe }}</p>
+                    </div>
+                </div>
+                {% if idea.image %}
+                  <div class=col-md-6>
+                      <img class="idea-image" src="{{ idea.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
+                  </div>
+                {% endif %}
             </div>
 
-            <div class="idea-ratings">
-                {% react_ratings idea %}
+            <div class="row">
+                <div class="col">
+                    {% react_ratings idea %}
+                </div>
             </div>
             <div class="black-divider">
                 {% trans 'Comments'%}

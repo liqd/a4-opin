@@ -66,12 +66,22 @@
             <div class="form-group">
                 <div class="input-group form-control-upload row">
                     <div class="col-sm-8 col-md-9">
-                        <label>Upload a picture</label>
-                        <p class="text-warning">Please make sure the image is at least 800x200 px in dimensions and at most 5 MB in file size.</p>
+                        <label>{% trans 'Upload a picture'%}</label>
+                        {% if form.image.help_text %}
+                        <p><i>{{ form.image.help_text }}</i></p>
+                        {% endif %}
                         {{ form.image|add_class:"form-control form-control-file"}}
                     </div>
                 </div>
                 {{ form.image.errors }}
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    {{ form.right_of_use|add_class:"form-check-input" }}
+                    <label class="form-check-label">{{ form.right_of_use.label }}</label>
+                </div>
+                {{ form.right_of_use.errors }}
             </div>
 
             <h3>{% trans 'Downloads' %}</h3>

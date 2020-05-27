@@ -316,7 +316,7 @@ IMAGE_ALIASES = {
     'heroimage': {'min_resolution': (1300, 600)},
     'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
     'avatar': {'min_resolution': (200, 200)},
-    'idea_image': {'min_resolution': (800, 200)},
+    'idea_image': {'min_resolution': (400, 200)},
     'tileimage': {'min_resolution': (500, 300)},
 }
 
@@ -325,7 +325,7 @@ THUMBNAIL_ALIASES = {
         'heroimage': {'size': (1500, 500), 'crop': 'smart'},
         'heroimage_preview': {'size': (880, 220), 'crop': 'smart'},
         'project_thumbnail': {'size': (520, 330), 'crop': 'smart'},
-        'idea_image': {'size': (800, 0), 'crop': 'scale'},
+        'idea_image': {'size': (400, 0), 'crop': 'scale'},
         'idea_thumbnail': {'size': (240, 240), 'crop': 'smart'},
         'map_thumbnail': {'size': (400, 200), 'crop': 'smart'},
         'organisation_thumbnail': {'size': (740, 540), 'crop': 'smart'},

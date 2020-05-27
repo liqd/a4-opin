@@ -3,11 +3,14 @@ from django.utils.translation import ugettext as _
 
 from adhocracy4.categories import forms as category_forms
 from adhocracy4.maps import widgets
+from euth.contrib.mixins import ImageRightOfUseMixin
 
 from . import models
 
 
-class MapIdeaForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
+class MapIdeaForm(category_forms.CategorizableFieldMixin,
+                  ImageRightOfUseMixin,
+                  forms.ModelForm):
 
     class Meta:
         model = models.MapIdea

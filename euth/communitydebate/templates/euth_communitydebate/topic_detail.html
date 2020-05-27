@@ -36,10 +36,6 @@
             </nav>
         </div>
 
-        {% if topic.image %}
-        <img class="idea-image" src="{{ topic.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
-        {% endif %}
-
         <div class="idea-body">
             <div class="idea-title">
                 <h1>{{ topic.name }}</h1>
@@ -51,31 +47,44 @@
                 {% if author_is_moderator %} <span class="badge badge-subtle">{% trans 'Moderator' %}</span> {% endif %}
             </div>
 
-            {% if topic.category %}
-            <span class="badge badge-secondary label-xs">{{ topic.category }}</span>
-            {% endif %}
+            <div class="row">
+                <div class="{% if topic.image %}col-md-6{% else %}col{% endif %}">
 
-            <div class="idea-description">
-                <p>{{ topic.description |safe }}</p>
-            </div>
+                    {% if topic.category %}
+                    <span class="badge badge-secondary label-xs">{{ topic.category }}</span>
+                    {% endif %}
 
-            <div class="idea-ratings">
-                {% react_ratings topic %}
-            </div>
+                    <div class="idea-description">
+                        <p>{{ topic.description |safe }}</p>
+                    </div>
 
-            <div class="idea-description">
-                {% if upload_files.count > 0 %}
-                <h4>{% trans 'Downloads' %}</h4>
-                <ul>
-                {% for fileupload in upload_files %}
-                <li>
-                <a target="_blank" href="{{ fileupload.document.url }}">{{ fileupload.title }}</a>
-                </li>
-                {% endfor %}
-                </ul>
+                    {% if upload_files.count > 0 %}
+                    <div class="idea-description">
+                        <h4>{% trans 'Downloads' %}</h4>
+                        <ul>
+                        {% for fileupload in upload_files %}
+                        <li>
+                        <a target="_blank" href="{{ fileupload.document.url }}">{{ fileupload.title }}</a>
+                        </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if topic.image %}
+                <div class=col-md-6>
+                    <img class="idea-image" src="{{ topic.image | thumbnail_url:'idea_image'}}" style="width: 100%;">
+                  </div>
                 {% endif %}
-
             </div>
+
+            <div class="row">
+                <div class="col">
+                    {% react_ratings topic %}
+                </div>
+            </div>
+
             <div class="black-divider">
                 {% trans 'Comments'%}
             </div>
