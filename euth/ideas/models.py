@@ -3,6 +3,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4 import transforms
 from adhocracy4.categories.fields import CategoryField
@@ -25,6 +26,10 @@ class Idea(module_models.Item):
         'idea_image',
         upload_to='ideas/images',
         blank=True,
+        help_prefix=_(
+            'Please make sure the image is at least 400x200 px in '
+            'dimensions and at most 5 MB in file size.'
+        ),
     )
     ratings = GenericRelation(rating_models.Rating,
                               related_query_name='idea',

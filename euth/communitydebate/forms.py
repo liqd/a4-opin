@@ -2,11 +2,15 @@ from django import forms
 
 from adhocracy4.categories import forms as category_forms
 from euth.contrib import widgets
+from euth.contrib.mixins import ImageRightOfUseMixin
 
 from . import models
 
 
-class TopicForm(category_forms.CategorizableFieldMixin, forms.ModelForm):
+class TopicForm(category_forms.CategorizableFieldMixin,
+                ImageRightOfUseMixin,
+                forms.ModelForm):
+
     class Meta:
         model = models.Topic
         fields = ['name', 'description', 'image', 'category']

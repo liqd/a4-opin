@@ -1,6 +1,6 @@
 .idea-image {
     width: 100%;
-    margin-bottom: 20px;
+    margin: 2*$spacer 0;
 }
 
 .idea-title {
@@ -19,7 +19,7 @@
 }
 
 .idea-description {
-    margin: 43px 0 85px 0;
+    margin: 2*$spacer 0;
 
     p {
         font-family: $font-family-sans-serif;
