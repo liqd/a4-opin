@@ -9,7 +9,7 @@
     "@babel/preset-env": "7.10.4",
     "@babel/preset-react": "7.10.4",
     "@babel/runtime": "7.10.4",
-    "@fortawesome/fontawesome-free": "5.13.0",
+    "@fortawesome/fontawesome-free": "5.13.1",
     "adhocracy4": "github:liqd/adhocracy4#698cdeba66e10ba204866c93f31c115c50a2790e",
     "autoprefixer": "9.8.5",
     "axios": "0.19.2",
