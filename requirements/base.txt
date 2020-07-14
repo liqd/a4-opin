@@ -12,6 +12,7 @@ feedparser==5.2.1
 micawber==0.5.1
 pyuca==1.2
 raven==6.10.0
+Unidecode==1.1.1 # needed by django-autoslug for cyrillic fields
 wagtail==2.7.3 # pyup: <2.8
 whitenoise==5.1.0
 
