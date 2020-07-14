@@ -180,8 +180,8 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new CopyWebpackPlugin([
-      {
+    new CopyWebpackPlugin({
+      patterns: [{
         from: './euth_wagtail/assets/images/*',
         to: 'images/',
         flatten: true
@@ -195,7 +195,7 @@ module.exports = {
         from: './euth_wagtail/assets/category_icons/**/*',
         to: 'category_icons/icons/',
         flatten: true
-      }
-    ])
+      }]
+    })
   ]
 }
