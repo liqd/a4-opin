@@ -167,7 +167,7 @@ class OfflineEventDeleteView(ProjectMixin,
                              generic.DeleteView):
     model = models.OfflineEvent
     success_message = _('The offline event has been deleted')
-    permission_required = ''
+    permission_required = 'a4projects.change_project'
     template_name = 'euth_offlinephases/offlineevent_confirm_delete.html'
     get_context_from_object = True
 
