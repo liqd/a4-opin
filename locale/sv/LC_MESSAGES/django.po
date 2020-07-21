@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Gaël Dubus <dubus@kth.se>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -19,13 +19,12 @@ msgstr ""
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
 "In this section, you can create\n"
@@ -37,23 +36,18 @@ msgstr ""
 "till en av dem. På så sätt kan innehållet klassificeras."
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
-#: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
 msgid "Add category"
 msgstr "Lägg till Kategori"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:4
 msgid "Dashboard"
 msgstr "instrumentbräda"
 
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:5
 msgid "Project Settings"
 msgstr "Projektinställningar"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
-#: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:15
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard_project.html:33
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:15
@@ -61,8 +55,6 @@ msgstr "Projektinställningar"
 msgid "Missing fields for publication"
 msgstr "Saknade fält för publicering"
 
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
-#: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_module.html:18
 #: adhocracy4/dashboard/templates/a4dashboard/base_form_project.html:18
 #: euth_wagtail/templates/a4dashboard/base_form_module.html:18
@@ -73,15 +65,11 @@ msgstr "Spara"
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:9
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:4
 #: euth_wagtail/templates/a4dashboard/project_list.html:11
 msgid "New Project"
 msgstr "Nytt projekt"
 
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:19
 #: euth/projects/templates/euth_projects/project_detail.html:38
@@ -89,17 +77,13 @@ msgid "Phase"
 msgstr "Fas"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
-#: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:23
 msgid "Select"
 msgstr "Välj"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
-#: adhocracy4/dashboard/templates/a4dashboard/includes/form_field.html:6
 msgid "Missing field for publication"
 msgstr "Saknas fält för publicering"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
@@ -108,36 +92,28 @@ msgstr "Förhandsvisning"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
-#: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "View"
 msgstr "Se"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:16
 #, python-format
 msgid "%(value)s from %(max)s"
 msgstr "%(value)s från %(max)s  "
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:17
 msgid "required fields for publication"
 msgstr "obligatoriska fält för publicering"
 
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:27
 msgid "Publish"
 msgstr "Publicera"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
-#: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 msgid "Unpublish"
 msgstr "Avpublicera"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:4
@@ -145,7 +121,6 @@ msgstr "Avpublicera"
 msgid "Create project based on"
 msgstr "Skapa ett projekt baserat på"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:23
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:26
 msgid ""
@@ -156,12 +131,10 @@ msgstr ""
 "redigera ditt projekt och så småningom publicera det."
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: euth_wagtail/templates/a4dashboard/project_create_form.html:29
 msgid "Create draft"
 msgstr "Skapa utkast"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:27
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:6
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:14
@@ -169,8 +142,6 @@ msgstr "Skapa utkast"
 msgid "Cancel"
 msgstr "Annullera"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:7
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:23
@@ -181,12 +152,10 @@ msgid "Projects"
 msgstr "Projekt"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:24
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:24
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:17
 msgid "Finished"
 msgstr "Färdiga"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
@@ -195,7 +164,6 @@ msgstr "Färdiga"
 msgid "private"
 msgstr "privat"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:27
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
@@ -209,25 +177,20 @@ msgid "Edit"
 msgstr "Redigera"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
 msgid "Duplicate"
 msgstr "Duplicera"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
 msgstr "Vi kunde inte hitta några projekt."
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: adhocracy4/dashboard/filter.py:11
-#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:69
+#: adhocracy4/dashboard/filter.py:11 euth/contrib/filters.py:69
 msgid "Search"
 msgstr "Söka"
 
-#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
@@ -237,24 +200,17 @@ msgstr "Detta fält är obligatoriskt"
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:14
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
 msgid "Remove category"
 msgstr "Ta bort kategori"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 msgid "Remove the picture"
 msgstr "Ta bort bilden"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 msgid "Upload a picture"
 msgstr "Ladda upp en bild"
 
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:19
 msgid ""
 "\n"
@@ -267,7 +223,6 @@ msgstr ""
 "längst ner på den där sidan."
 
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
 msgid ""
 "In this section, you can create\n"
 "labels. If you create any, each contribution can be assigned\n"
@@ -278,26 +233,22 @@ msgstr ""
 "till en eller flera av dem. På så sätt kan innehållet klassificeras."
 
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 msgid "Add label"
 msgstr "Lägg till etikett"
 
-#: adhocracy4/polls/templates/a4polls/poll_404.html:8
 #: adhocracy4/polls/templates/a4polls/poll_404.html:8
 msgid ""
 "Participation is not possible at the moment. The poll has not been set up "
 "yet."
 msgstr ""
-"Deltagande är inte möjlig för tillfället. Undersökningen har inte ställts in "
-"ännu."
+"Deltagande är inte möjlig för tillfället. Undersökningen har inte ställts in"
+" ännu."
 
-#: adhocracy4/polls/templates/a4polls/poll_404.html:15
 #: adhocracy4/polls/templates/a4polls/poll_404.html:15
 msgid "Setup the poll by adding questions and answers in the dashboard."
 msgstr ""
 "Ställ in enkätet genom att lägga till frågor och svar i instrumentpanelen."
 
-#: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 #: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 msgid "Edit poll"
 msgstr "Redig pollen"
@@ -310,17 +261,14 @@ msgstr "Kategorier"
 msgid "Edit categories"
 msgstr "Redigera kategorier"
 
-#: adhocracy4/categories/fields.py:12
-#: adhocracy4/categories/filters.py:16
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins.py:150
+#: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:16
+#: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins.py:150
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 #: euth/ideas/templates/euth_ideas/idea_form.html:71
 msgid "Category"
 msgstr "Kategori"
 
-#: adhocracy4/categories/forms.py:38
-#: adhocracy4/labels/forms.py:14
+#: adhocracy4/categories/forms.py:38 adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "Kategori namn"
 
@@ -333,8 +281,7 @@ msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: adhocracy4/comments/models.py:54
-#: adhocracy4/exports/mixins.py:122
+#: adhocracy4/comments/models.py:54 adhocracy4/exports/mixins.py:122
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:80
 #: euth/documents/templates/euth_documents/document_detail.html:28
 #: euth/documents/templates/euth_documents/paragraph_detail.html:18
@@ -433,8 +380,7 @@ msgstr "Redigera områdena inställningar"
 msgid "Archived"
 msgstr "arkiveras"
 
-#: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
 msgid "All"
 msgstr "Alla"
 
@@ -474,8 +420,7 @@ msgstr ""
 msgid "More contact possibilities"
 msgstr "Fler kontaktmöjligheter"
 
-#: adhocracy4/dashboard/forms.py:98
-#: adhocracy4/phases/models.py:69
+#: adhocracy4/dashboard/forms.py:98 adhocracy4/phases/models.py:69
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
@@ -506,8 +451,7 @@ msgstr "Epost"
 msgid "Website"
 msgstr "Hemsida"
 
-#: adhocracy4/dashboard/forms.py:135
-#: adhocracy4/phases/models.py:77
+#: adhocracy4/dashboard/forms.py:135 adhocracy4/phases/models.py:77
 msgid "End date"
 msgstr "Slutdatum"
 
@@ -515,8 +459,7 @@ msgstr "Slutdatum"
 msgid "End time"
 msgstr "Sluttid"
 
-#: adhocracy4/dashboard/forms.py:141
-#: adhocracy4/phases/models.py:75
+#: adhocracy4/dashboard/forms.py:141 adhocracy4/phases/models.py:75
 msgid "Start date"
 msgstr "Startdatum"
 
@@ -580,18 +523,15 @@ msgstr "Negativa betyg"
 msgid "Comment count"
 msgstr "Kommentarräkning"
 
-#: adhocracy4/exports/mixins.py:163
-#: adhocracy4/labels/dashboard.py:13
+#: adhocracy4/exports/mixins.py:163 adhocracy4/labels/dashboard.py:13
 msgid "Labels"
 msgstr "Etiketter"
 
-#: adhocracy4/exports/mixins.py:175
-#: euth/exports/mixins.py:10
+#: adhocracy4/exports/mixins.py:175 euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "Plats (längd)"
 
-#: adhocracy4/exports/mixins.py:177
-#: euth/exports/mixins.py:12
+#: adhocracy4/exports/mixins.py:177 euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "Plats (Latitude)"
 
@@ -625,8 +565,7 @@ msgstr "{image_name} upphovsrätt"
 msgid "Copyright shown in the {image_name}."
 msgstr "Upphovsrätten som visas i {image_name}."
 
-#: adhocracy4/images/validators.py:20
-#: euth/contrib/validators.py:20
+#: adhocracy4/images/validators.py:20 euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Filformatet stöds inte. Formaten som stöds är {}."
 
@@ -662,8 +601,7 @@ msgstr "Redigera etiketter"
 msgid "Label"
 msgstr "märka"
 
-#: adhocracy4/maps/admin.py:14
-#: adhocracy4/maps/models.py:11
+#: adhocracy4/maps/admin.py:14 adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Polygon"
 
@@ -713,41 +651,35 @@ msgid ""
 "detail pages. It should briefly state the goal of the module in max. 512 "
 "chars."
 msgstr ""
-"Den här korta beskrivningen visas på modulens huvud och projektdetaljer. Det "
-"bör kortfattat ange målet för modulen i max. 512 tecken."
+"Den här korta beskrivningen visas på modulens huvud och projektdetaljer. Det"
+" bör kortfattat ange målet för modulen i max. 512 tecken."
 
-#: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/modules/models.py:184 adhocracy4/projects/models.py:578
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "dag"
 
-#: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/modules/models.py:184 adhocracy4/projects/models.py:578
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "dagar"
 
-#: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/modules/models.py:185 adhocracy4/projects/models.py:579
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "timme"
 
-#: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/modules/models.py:185 adhocracy4/projects/models.py:579
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "timmar"
 
-#: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/modules/models.py:186 adhocracy4/projects/models.py:580
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "minut"
 
-#: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/modules/models.py:186 adhocracy4/projects/models.py:580
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "minuter"
@@ -773,8 +705,7 @@ msgstr "Beskrivning"
 msgid "End date can not be smallerthan the start date."
 msgstr "Slutdatumet får inte vara tidigare än startdatumet."
 
-#: adhocracy4/polls/dashboard.py:14
-#: euth/blueprints/blueprints.py:311
+#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:311
 msgid "Poll"
 msgstr "Enkät"
 
@@ -830,8 +761,8 @@ msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
 msgstr ""
-"Telefonnummer kan bara innehålla siffror, mellanslag och följande tecken: -, "
-"+, (,). Det måste ligga mellan 8 och 20 tecken långt."
+"Telefonnummer kan bara innehålla siffror, mellanslag och följande tecken: -,"
+" +, (,). Det måste ligga mellan 8 och 20 tecken långt."
 
 #: adhocracy4/projects/models.py:48
 msgid "Postal address"
@@ -850,9 +781,9 @@ msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
-"Leta reda på ditt projekt. Klicka inuti det markerade området eller skriv in "
-"en adress för att ställa in markören. En inställd markör kan släpas när den "
-"trycks in."
+"Leta reda på ditt projekt. Klicka inuti det markerade området eller skriv in"
+" en adress för att ställa in markören. En inställd markör kan släpas när den"
+" trycks in."
 
 #: adhocracy4/projects/models.py:89
 msgid "Administrative district"
@@ -889,12 +820,12 @@ msgstr "Beskrivning av ditt projekt"
 #: adhocracy4/projects/models.py:200
 msgid ""
 "This description should tell participants what the goal of the project is, "
-"how the project’s participation will look like. It will be always visible in "
-"the „Info“ tab on your project’s page."
+"how the project’s participation will look like. It will be always visible in"
+" the „Info“ tab on your project’s page."
 msgstr ""
-"Den här beskrivningen bör informera deltagarna om vad projektets mål är, hur "
-"deltagandet i projektet kommer att se ut. Den kommer alltid att vara synlig "
-"i fliken „Info“ på ditt projekts sida."
+"Den här beskrivningen bör informera deltagarna om vad projektets mål är, hur"
+" deltagandet i projektet kommer att se ut. Den kommer alltid att vara synlig"
+" i fliken „Info“ på ditt projekts sida."
 
 #: adhocracy4/projects/models.py:208
 msgid "Results of your project"
@@ -902,8 +833,8 @@ msgstr "Resultat av ditt projekt"
 
 #: adhocracy4/projects/models.py:209
 msgid ""
-"Here you should explain what the expected outcome of the project will be and "
-"how you are planning to use the results. If the project is finished you "
+"Here you should explain what the expected outcome of the project will be and"
+" how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 msgstr ""
 "Här ska du förklara vad projektets förväntade resultat kommer att bli och "
@@ -920,12 +851,11 @@ msgid ""
 "invited users. Teasers for your project including title and short "
 "description will always be visible to everyone"
 msgstr ""
-"Ange om projektet ska vara offentligt eller endast tillgängligt för inbjudna "
-"användare. Teasers för ditt projekt inklusive titel och kort beskrivning "
+"Ange om projektet ska vara offentligt eller endast tillgängligt för inbjudna"
+" användare. Teasers för ditt projekt inklusive titel och kort beskrivning "
 "kommer alltid att vara synliga för alla"
 
-#: adhocracy4/projects/models.py:225
-#: adhocracy4/projects/models.py:231
+#: adhocracy4/projects/models.py:225 adhocracy4/projects/models.py:231
 #: euth/organisations/models.py:36
 msgid "Header image"
 msgstr "Rubrikbild"
@@ -934,8 +864,7 @@ msgstr "Rubrikbild"
 msgid "The image will be shown as a decorative background image."
 msgstr "Bilden kommer att visas som dekorativ bakgrundsbild."
 
-#: adhocracy4/projects/models.py:234
-#: adhocracy4/projects/models.py:241
+#: adhocracy4/projects/models.py:234 adhocracy4/projects/models.py:241
 msgid "Tile image"
 msgstr "Brickans bild"
 
@@ -1040,8 +969,8 @@ msgstr "Din profil"
 
 #: euth/accounts/templates/euth_accounts/profile_form.html:10
 msgid ""
-"The information you give in your profile will be shown to all users of OPIN."
-"me."
+"The information you give in your profile will be shown to all users of "
+"OPIN.me."
 msgstr ""
 "Den information du ger i din profil visas för alla användare av OPIN.me."
 
@@ -1233,11 +1162,11 @@ msgstr "Brainstorming"
 
 #: euth/blueprints/blueprints.py:190 euth/blueprints/blueprints.py:209
 msgid ""
-"Collect ideas, questions and input concerning a problem or a question from a "
-"wide array of people."
+"Collect ideas, questions and input concerning a problem or a question from a"
+" wide array of people."
 msgstr ""
-"Samla idéer, frågor och input från ett brett spektrum av människor kring ett "
-"problem eller en fråga."
+"Samla idéer, frågor och input från ett brett spektrum av människor kring ett"
+" problem eller en fråga."
 
 #: euth/blueprints/blueprints.py:208
 msgid "Spatial Brainstorming"
@@ -1289,8 +1218,8 @@ msgstr ""
 #: euth/blueprints/blueprints.py:312
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members. Via the OPIN polling app for iOS and"
+" Android these polls are also accessible on smartphones."
 msgstr ""
 "Kör anpassningsbara, flerstegsundersökningar på OPIN för att få detaljerade "
 "åsikter från allmänheten eller från dina medlemmar om ämnen. Via OPIN:s "
@@ -1319,7 +1248,8 @@ msgstr ""
 
 #: euth/blueprints/forms.py:38
 msgid ""
-"How motivated are your participants to take part in a  participative process?"
+"How motivated are your participants to take part in a  participative "
+"process?"
 msgstr "Hur motiverade är dina deltagare att delta i en deltagarprocess?"
 
 #: euth/blueprints/forms.py:46
@@ -1463,13 +1393,13 @@ msgid ""
 "The questions below help us to estimate the effort you will have to invest "
 "to make your project a success!"
 msgstr ""
-"Frågorna nedan hjälper oss att uppskatta den satsning du måste investera för "
-"att göra ditt projekt till en framgång!"
+"Frågorna nedan hjälper oss att uppskatta den satsning du måste investera för"
+" att göra ditt projekt till en framgång!"
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html:9
 msgid ""
-"With the following questions we want to get more detailed information to see "
-"which process on OPIN fits best."
+"With the following questions we want to get more detailed information to see"
+" which process on OPIN fits best."
 msgstr ""
 "Med följande frågor vill vi få mer detaljerad information för att se vilken "
 "process på OPIN som passar bäst."
@@ -1693,8 +1623,10 @@ msgid "description"
 msgstr "beskrivning"
 
 #: euth/dashboard/forms.py:24
-msgid "More info about the organisation / Short text for organisation overview"
-msgstr "Mer info om organisationen / Kort text för överblick över organisation"
+msgid ""
+"More info about the organisation / Short text for organisation overview"
+msgstr ""
+"Mer info om organisationen / Kort text för överblick över organisation"
 
 #: euth/dashboard/forms.py:38
 msgid "The title of your organisation"
@@ -1988,13 +1920,11 @@ msgstr "Avslå"
 #, python-format
 msgid ""
 "\n"
-"            This is a private project. You have applied for a membership on "
-"%(date)s. Your request is awaiting moderation.\n"
+"            This is a private project. You have applied for a membership on %(date)s. Your request is awaiting moderation.\n"
 "            "
 msgstr ""
 "\n"
-"            Detta är ett privat projekt. Du ansökte om medlemskap %(date)s. "
-"Din förfrågan väntar på moderering.\n"
+"            Detta är ett privat projekt. Du ansökte om medlemskap %(date)s. Din förfrågan väntar på moderering.\n"
 "            "
 
 #: euth/memberships/templates/euth_memberships/request_detail.html:24
@@ -2244,8 +2174,8 @@ msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
 msgstr ""
-"Denna fas är redan över. Tack så mycket till alla för att delta i projektet! "
-"Nästa fas börjar snart."
+"Denna fas är redan över. Tack så mycket till alla för att delta i projektet!"
+" Nästa fas börjar snart."
 
 #: euth/projects/templates/euth_projects/project_detail.html:150
 msgid ""
@@ -2268,8 +2198,8 @@ msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr ""
-"Initiatören har ännu inte lämnat information om det förväntade resultatet av "
-"projektet."
+"Initiatören har ännu inte lämnat information om det förväntade resultatet av"
+" projektet."
 
 #: euth/projects/templates/euth_projects/project_detail.html:201
 msgid "other projects from this organisation"
@@ -2315,7 +2245,8 @@ msgstr "En användare med det användarnamnet finns redan."
 
 #: euth/users/models.py:20
 msgid ""
-"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ only."
+"Required. 60 characters or fewer. Letters, digits, spaces and @/./+/-/_ "
+"only."
 msgstr ""
 "Krävs. 60 tecken eller färre. Bokstäver, siffror, mellanslag och @/./+/-/_ "
 "bara."
@@ -2603,8 +2534,8 @@ msgid ""
 "In just three minutes you'll find out which process suits your needs. It's "
 "easy."
 msgstr ""
-"På bara tre minuter får du reda på vilken process som passar dina behov. Det "
-"är enkelt."
+"På bara tre minuter får du reda på vilken process som passar dina behov. Det"
+" är enkelt."
 
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:26
 msgid "Choose template"
@@ -2684,8 +2615,8 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-"Vänligen bekräfta att <a href=\"mailto:%(email)s\">%(email)s</a> är en e-"
-"postadress för användaren %(user_display)s."
+"Vänligen bekräfta att <a href=\"mailto:%(email)s\">%(email)s</a> är en "
+"e-postadress för användaren %(user_display)s."
 
 #: euth_wagtail/templates/account/email_confirm.html:25
 msgid "Activate account"
@@ -2694,8 +2625,8 @@ msgstr "Aktivera konto"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Den här länken för e-postbekräftelse har löpt ut eller är ogiltig. Vänligen "
 "<a href=\"%(email_url)s\">utfärda en ny begäran om e-postbekräftelse</a>."
@@ -2774,8 +2705,8 @@ msgstr "Dålig Token"
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
-"a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+"reset</a>."
 msgstr ""
 "Lösenordsåterställningslänken var ogiltig, möjligen för att den redan har "
 "använts.  Vänligen be om en <a href=\"%(passwd_reset_url)s\">ny "
@@ -2806,13 +2737,11 @@ msgstr "Registrera ett konto"
 #, python-format
 msgid ""
 "\n"
-"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank"
-"\">terms of use</a>.\n"
+"                I accept the <a href=\"%(terms_of_use_url)s\" target=\"blank\">terms of use</a>.\n"
 "                "
 msgstr ""
 "\n"
-"                Jag accepterar <a href=\"%(terms_of_use_url)s\" target="
-"\"blank\">användarvillkoren</a>.\n"
+"                Jag accepterar <a href=\"%(terms_of_use_url)s\" target=\"blank\">användarvillkoren</a>.\n"
 "                "
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html:6
@@ -2835,14 +2764,15 @@ msgid ""
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
 msgstr ""
-"Vi har skickat ett e-mail till dig för verifiering. Följ den tillhandahållna "
-"länken för att slutföra registreringsprocessen. Vänligen kontakta oss om du "
-"inte fått det inom några minuter."
+"Vi har skickat ett e-mail till dig för verifiering. Följ den tillhandahållna"
+" länken för att slutföra registreringsprocessen. Vänligen kontakta oss om du"
+" inte fått det inom några minuter."
 
 #: euth_wagtail/templates/email_base.html:75
 #: euth_wagtail/templates/email_base.txt:10
 msgid "OPIN.me is an online platform for youth participation operated by"
-msgstr "OPIN.me är en online plattform för deltagande av ungdomar som drivs av"
+msgstr ""
+"OPIN.me är en online plattform för deltagande av ungdomar som drivs av"
 
 #: euth_wagtail/templates/includes/footer.html:7
 msgid "Connect with us"
@@ -2856,7 +2786,8 @@ msgstr ""
 msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
-msgstr "Du kan logga in på ditt konto med någon av följande tredjepartskonton:"
+msgstr ""
+"Du kan logga in på ditt konto med någon av följande tredjepartskonton:"
 
 #: euth_wagtail/templates/socialaccount/connections.html:36
 msgid ""
@@ -2873,15 +2804,10 @@ msgstr "Lägga till ett 3:epartskonto"
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
-"%(site_name)s but the connected emailaddress of this account is already in "
-"use on this platform. You can either login with this emailaddress and "
-"connect your account to %(provider_name)s or fill in the form underneath. "
+"%(site_name)s but the connected emailaddress of this account is already in use on this platform. You can either login with this emailaddress and connect your account to %(provider_name)s or fill in the form underneath. "
 msgstr ""
 "Du är på väg att använda ditt %(provider_name)s konto för att logga in till\n"
-"%(site_name)s men den anslutna e-postadressen till det här kontot används "
-"redan på denna plattform. Du kan antingen logga in med den här e-"
-"postadressen och ansluta ditt konto till %(provider_name)s eller fylla i "
-"formuläret nedan."
+"%(site_name)s men den anslutna e-postadressen till det här kontot används redan på denna plattform. Du kan antingen logga in med den här e-postadressen och ansluta ditt konto till %(provider_name)s eller fylla i formuläret nedan."
 
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:17
 #: euth_wagtail/templates/socialaccount/snippets/provider_list.html:18
@@ -2921,11 +2847,11 @@ msgstr "Innehåll"
 #~ msgstr "Projektet är framgångsrikt opublicerat."
 
 #~ msgid ""
-#~ "Exclude this project from all listings by default. You can still access "
-#~ "this project by using filters."
+#~ "Exclude this project from all listings by default. You can still access this"
+#~ " project by using filters."
 #~ msgstr ""
-#~ "Uteslut det här projektet från alla standardlistor. Du kan fortfarande "
-#~ "komma åt det här projektet genom att använda filter."
+#~ "Uteslut det här projektet från alla standardlistor. Du kan fortfarande komma"
+#~ " åt det här projektet genom att använda filter."
 
 #~ msgid "Topic and location"
 #~ msgstr "Ämne och plats"
@@ -2952,15 +2878,15 @@ msgstr "Innehåll"
 #~ msgid ""
 #~ "This project has received funding from the European Union's Horizon 2020 "
 #~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
+#~ "website reflects only the author's view and the Research Executive Agency or"
+#~ " European Commission is not responsible for any use that may be made of the "
+#~ "information it contains."
 #~ msgstr ""
 #~ "Detta projekt har erhållit finansiering från Europeiska Unionens Horizon "
-#~ "2020-ramprogram för forskning och innovation enligt bidragsavtal nr "
-#~ "649594. Denna webbplats återspeglar enbart författarens synpunkter. "
-#~ "Varken genomförandeorganet för forskning eller Europeiska kommissionen är "
-#~ "ansvariga för användningen av någon del av informationen den innehåller."
+#~ "2020-ramprogram för forskning och innovation enligt bidragsavtal nr 649594. "
+#~ "Denna webbplats återspeglar enbart författarens synpunkter. Varken "
+#~ "genomförandeorganet för forskning eller Europeiska kommissionen är ansvariga"
+#~ " för användningen av någon del av informationen den innehåller."
 
 #~ msgid ""
 #~ "In this section, you can create\n"
@@ -3002,13 +2928,13 @@ msgstr "Innehåll"
 #~ msgstr "Ladda ner svar"
 
 #~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
+#~ "This short description will appear on the header of the module and project "
+#~ "detail pages. It should briefly state the goal of the module in max. 250 "
+#~ "chars."
 #~ msgstr ""
 #~ "Den här korta beskrivningen kommer att visas i rubriken på modulens och "
-#~ "projektets detalsidor. Den bör kortfattat ange målet för modulen i max. "
-#~ "250 tecken."
+#~ "projektets detalsidor. Den bör kortfattat ange målet för modulen i max. 250 "
+#~ "tecken."
 
 #~ msgid "Location"
 #~ msgstr "Plats"
