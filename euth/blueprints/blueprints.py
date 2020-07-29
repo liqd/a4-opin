@@ -74,8 +74,9 @@ class Aim(Enum):
     communitydebate = (
         'communitydebate',
         _('Find and debate topics and questions.'),
-        [_('Do this.'),
-         _('Do that.')]
+        [_('Start a discussion and moderate it'),
+         _('Participants can upload documents to deepen the exchange '
+           'and share information')]
     )
 
     def __new__(cls, value, label, examples):
