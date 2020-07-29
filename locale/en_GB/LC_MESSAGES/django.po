@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 13:22+0200\n"
+"POT-Creation-Date: 2020-07-29 16:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,6 +201,8 @@ msgid "Remove the picture"
 msgstr "Remove the picture"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
+#: euth/ideas/templates/euth_ideas/idea_form.html:61
 msgid "Upload a picture"
 msgstr "Upload a picture"
 
@@ -256,8 +258,8 @@ msgstr "Edit categories"
 
 #: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins.py:150
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
-#: euth/ideas/templates/euth_ideas/idea_form.html:71
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
+#: euth/ideas/templates/euth_ideas/idea_form.html:80
 msgid "Category"
 msgstr "Category"
 
@@ -275,11 +277,11 @@ msgid "Comment"
 msgstr "Comment"
 
 #: adhocracy4/comments/models.py:54 adhocracy4/exports/mixins.py:122
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:80
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:28
 #: euth/documents/templates/euth_documents/paragraph_detail.html:18
-#: euth/ideas/templates/euth_ideas/idea_detail.html:66
-#: euth/maps/templates/euth_maps/mapidea_detail.html:74
+#: euth/ideas/templates/euth_ideas/idea_detail.html:72
+#: euth/maps/templates/euth_maps/mapidea_detail.html:81
 #: euth_wagtail/templates/a4polls/poll_detail.html:13
 msgid "Comments"
 msgstr "Comments"
@@ -689,7 +691,7 @@ msgstr "seconds"
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
-#: euth/ideas/templates/euth_ideas/idea_form.html:50
+#: euth/ideas/templates/euth_ideas/idea_form.html:51
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Description"
@@ -698,7 +700,7 @@ msgstr "Description"
 msgid "End date can not be smallerthan the start date."
 msgstr "End date can not be smallerthan the start date."
 
-#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:311
+#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:312
 msgid "Poll"
 msgstr "Poll"
 
@@ -1002,7 +1004,7 @@ msgstr "Discuss existing concepts or plans"
 msgid "Develop solutions for existing problems"
 msgstr "Develop solutions for existing problems"
 
-#: euth/blueprints/blueprints.py:48 euth/blueprints/blueprints.py:268
+#: euth/blueprints/blueprints.py:48 euth/blueprints/blueprints.py:269
 msgid "Agenda Setting"
 msgstr "Agenda Setting"
 
@@ -1051,110 +1053,114 @@ msgid "Find and debate topics and questions."
 msgstr "Find and debate topics and questions."
 
 #: euth/blueprints/blueprints.py:77
-msgid "Do this."
-msgstr "Do this."
+msgid "Start a discussion and moderate it"
+msgstr "Start a discussion and moderate it"
 
 #: euth/blueprints/blueprints.py:78
-msgid "Do that."
-msgstr "Do that."
+msgid ""
+"Participants can upload documents to deepen the exchange and share "
+"information"
+msgstr ""
+"Participants can upload documents to deepen the exchange and share "
+"information"
 
-#: euth/blueprints/blueprints.py:91
+#: euth/blueprints/blueprints.py:92
 msgid "Collection of commented ideas"
 msgstr "Collection of commented ideas"
 
-#: euth/blueprints/blueprints.py:92
+#: euth/blueprints/blueprints.py:93
 msgid "Majority vote"
 msgstr "Majority vote"
 
-#: euth/blueprints/blueprints.py:93
+#: euth/blueprints/blueprints.py:94
 msgid "Both"
 msgstr "Both"
 
-#: euth/blueprints/blueprints.py:98
+#: euth/blueprints/blueprints.py:99
 msgid "More than 5 participative projects"
 msgstr "More than 5 participative projects"
 
-#: euth/blueprints/blueprints.py:99
+#: euth/blueprints/blueprints.py:100
 msgid "More than 2 participative projects"
 msgstr "More than 2 participative projects"
 
-#: euth/blueprints/blueprints.py:100
+#: euth/blueprints/blueprints.py:101
 msgid "1-2 participative projects"
 msgstr "1-2 participative projects"
 
-#: euth/blueprints/blueprints.py:101
+#: euth/blueprints/blueprints.py:102
 msgid "I have no experiences in organising participative projects"
 msgstr "I have no experiences in organising participative projects"
 
-#: euth/blueprints/blueprints.py:106
+#: euth/blueprints/blueprints.py:107
 msgid "High motivation"
 msgstr "High motivation"
 
-#: euth/blueprints/blueprints.py:107
+#: euth/blueprints/blueprints.py:108
 msgid "Medium motivation"
 msgstr "Medium motivation"
 
-#: euth/blueprints/blueprints.py:108
+#: euth/blueprints/blueprints.py:109
 msgid "Low motivation"
 msgstr "Low motivation"
 
-#: euth/blueprints/blueprints.py:109
+#: euth/blueprints/blueprints.py:110
 msgid "No motivation"
 msgstr "No motivation"
 
-#: euth/blueprints/blueprints.py:110
+#: euth/blueprints/blueprints.py:111
 msgid "I don't know."
 msgstr "I don't know."
 
-#: euth/blueprints/blueprints.py:122
+#: euth/blueprints/blueprints.py:123
 msgid "1-2 weeks"
 msgstr "1-2 weeks"
 
-#: euth/blueprints/blueprints.py:123
+#: euth/blueprints/blueprints.py:124
 msgid "2-4 weeks"
 msgstr "2-4 weeks"
 
-#: euth/blueprints/blueprints.py:124
+#: euth/blueprints/blueprints.py:125
 msgid "more than 4 weeks"
 msgstr "more than 4 weeks"
 
-#: euth/blueprints/blueprints.py:129
+#: euth/blueprints/blueprints.py:130
 msgid "Local"
 msgstr "Local"
 
-#: euth/blueprints/blueprints.py:130
+#: euth/blueprints/blueprints.py:131
 msgid "Regional"
 msgstr "Regional"
 
-#: euth/blueprints/blueprints.py:131
+#: euth/blueprints/blueprints.py:132
 msgid "National or international"
 msgstr "National or international"
 
-#: euth/blueprints/blueprints.py:135
+#: euth/blueprints/blueprints.py:136
 msgid "Very easy to access"
 msgstr "Very easy to access"
 
-#: euth/blueprints/blueprints.py:136
+#: euth/blueprints/blueprints.py:137
 msgid "Easy to access"
 msgstr "Easy to access"
 
-#: euth/blueprints/blueprints.py:137
+#: euth/blueprints/blueprints.py:138
 msgid "Hard to access"
 msgstr "Hard to access"
 
-#: euth/blueprints/blueprints.py:138
+#: euth/blueprints/blueprints.py:139
 msgid "Very hard to access"
 msgstr "Very hard to access"
 
-#: euth/blueprints/blueprints.py:139
+#: euth/blueprints/blueprints.py:140
 msgid "I don't know"
 msgstr "I don't know"
 
-#: euth/blueprints/blueprints.py:189
+#: euth/blueprints/blueprints.py:190
 msgid "Brainstorming"
 msgstr "Brainstorming"
 
-#: euth/blueprints/blueprints.py:190 euth/blueprints/blueprints.py:209
+#: euth/blueprints/blueprints.py:191 euth/blueprints/blueprints.py:210
 msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
@@ -1162,23 +1168,23 @@ msgstr ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
 
-#: euth/blueprints/blueprints.py:208
+#: euth/blueprints/blueprints.py:209
 msgid "Spatial Brainstorming"
 msgstr "Spatial Brainstorming"
 
-#: euth/blueprints/blueprints.py:227
+#: euth/blueprints/blueprints.py:228
 msgid "Idea Challenge"
 msgstr "Idea Challenge"
 
-#: euth/blueprints/blueprints.py:228
+#: euth/blueprints/blueprints.py:229
 msgid "Run a challenge and find the best ideas to solve a particular problem."
 msgstr "Run a challenge and find the best ideas to solve a particular problem."
 
-#: euth/blueprints/blueprints.py:247
+#: euth/blueprints/blueprints.py:248
 msgid "Spatial Idea Challenge"
 msgstr "Spatial Idea Challenge"
 
-#: euth/blueprints/blueprints.py:248
+#: euth/blueprints/blueprints.py:249
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
@@ -1186,7 +1192,7 @@ msgstr ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
 
-#: euth/blueprints/blueprints.py:269
+#: euth/blueprints/blueprints.py:270
 msgid ""
 "You can involve everyone in planning a meeting. Collect ideas for an "
 "upcoming event and let your participants vote on the topics you want to "
@@ -1196,11 +1202,11 @@ msgstr ""
 "upcoming event and let your participants vote on the topics you want to "
 "tackle."
 
-#: euth/blueprints/blueprints.py:290
+#: euth/blueprints/blueprints.py:291
 msgid "Text Review"
 msgstr "Text Review"
 
-#: euth/blueprints/blueprints.py:291
+#: euth/blueprints/blueprints.py:292
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
@@ -1208,7 +1214,7 @@ msgstr ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
 
-#: euth/blueprints/blueprints.py:312
+#: euth/blueprints/blueprints.py:313
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members. Via the OPIN polling app for iOS and "
@@ -1218,11 +1224,11 @@ msgstr ""
 "topics from the public or your members. Via the OPIN polling app for iOS and "
 "Android these polls are also accessible on smartphones."
 
-#: euth/blueprints/blueprints.py:332
+#: euth/blueprints/blueprints.py:333
 msgid "Community debate"
 msgstr "Community debate"
 
-#: euth/blueprints/blueprints.py:333
+#: euth/blueprints/blueprints.py:334
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr "Collect topics and questions to discuss, debate and prioritize them."
 
@@ -1486,14 +1492,14 @@ msgstr "back to project"
 msgid "Delete"
 msgstr "Delete"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:51
-#: euth/ideas/templates/euth_ideas/idea_detail.html:51
-#: euth/maps/templates/euth_maps/mapidea_detail.html:61
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:47
+#: euth/ideas/templates/euth_ideas/idea_detail.html:46
+#: euth/maps/templates/euth_maps/mapidea_detail.html:58
 msgid "Moderator"
 msgstr "Moderator"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:68
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:77
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:63
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:87
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
@@ -1521,7 +1527,7 @@ msgstr "update topic"
 msgid "Title of the topic"
 msgstr "Title of the topic"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:84
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
@@ -1532,20 +1538,20 @@ msgstr ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
 "are %(allowed_file_types)s. "
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:97
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 msgid "Upload another document"
 msgstr "Upload another document"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:121
-#: euth/ideas/templates/euth_ideas/idea_form.html:85
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
+#: euth/ideas/templates/euth_ideas/idea_form.html:94
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "post"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:125
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:127
-#: euth/ideas/templates/euth_ideas/idea_form.html:89
-#: euth/ideas/templates/euth_ideas/idea_form.html:91
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:135
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
+#: euth/ideas/templates/euth_ideas/idea_form.html:98
+#: euth/ideas/templates/euth_ideas/idea_form.html:100
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
@@ -1593,6 +1599,24 @@ msgstr "all"
 #: euth/contrib/filters.py:64
 msgid "Country"
 msgstr "Country"
+
+#: euth/contrib/mixins.py:4
+msgid ""
+"I hereby confirm that the copyrights for this photo are with me or that I "
+"have received rights of use from the author. I also confirm that the privacy "
+"rights of depicted third persons are not violated. "
+msgstr ""
+"I hereby confirm that the copyrights for this photo are with me or that I "
+"have received rights of use from the author. I also confirm that the privacy "
+"rights of depicted third persons are not violated. "
+
+#: euth/contrib/mixins.py:25
+msgid ""
+"You want to upload an image. Please check that you have the right of use for "
+"the image."
+msgstr ""
+"You want to upload an image. Please check that you have the right of use for "
+"the image."
 
 #: euth/contrib/validators.py:26
 msgid "File should be at most {} MB"
@@ -1679,6 +1703,14 @@ msgstr "Created"
 msgid "Ideas with comments"
 msgstr "Ideas with comments"
 
+#: euth/ideas/models.py:30
+msgid ""
+"Please make sure the image is at least 400x200 px in dimensions and at most "
+"5 MB in file size."
+msgstr ""
+"Please make sure the image is at least 400x200 px in dimensions and at most "
+"5 MB in file size."
+
 #: euth/ideas/phases.py:13
 msgid "Issue phase"
 msgstr "Issue phase"
@@ -1737,7 +1769,7 @@ msgstr "create new proposal for this project"
 msgid "update idea"
 msgstr "update idea"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:41
+#: euth/ideas/templates/euth_ideas/idea_form.html:42
 msgid "Title of the proposal"
 msgstr "Title of the proposal"
 
@@ -1758,7 +1790,7 @@ msgstr "Your Idea has been deleted"
 msgid "MapIdeas with comments"
 msgstr "MapIdeas with comments"
 
-#: euth/maps/forms.py:22
+#: euth/maps/forms.py:25
 msgid "Please locate your proposal on the map."
 msgstr "Please locate your proposal on the map."
 
@@ -2824,6 +2856,12 @@ msgstr "Download guidelines"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contents"
+
+#~ msgid "Do this."
+#~ msgstr "Do this."
+
+#~ msgid "Do that."
+#~ msgstr "Do that."
 
 #~ msgid "Comment"
 #~ msgstr "Comment"
