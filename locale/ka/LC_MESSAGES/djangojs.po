@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Luca Thüer <l.thueer@liqd.net>, 2018
@@ -10,46 +10,52 @@
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Albers <katharina.albers@gmail.com>, 2020
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 13:22+0200\n"
+"POT-Creation-Date: 2020-07-29 16:31+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "დასაშვები ნივთი მოათავსეთ"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "სათაური"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "სხეულის ტექსტი"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "დასაშვები ელემენტი"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:23 adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:23
+#: adhocracy4/comments/static/comments/Comment.jsx:23
 #, javascript-format
 msgid "hide one reply"
 msgid_plural "hide %s replies"
 msgstr[0] "ერთი პასუხი დამალა"
 msgstr[1] "პასუხების %s დამალვა"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:25 adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4/comments/static/comments/Comment.jsx:25
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
@@ -57,16 +63,22 @@ msgstr[0] "ერთი პასუხი ნახეთ"
 msgstr[1] "პასუხების %s ნახვა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:9 adhocracy4.js:1
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:9
+#: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:9
 msgid "Answer"
 msgstr "პასუხი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:410
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:31
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:410
 msgid "Your reply here"
 msgstr "თქვენი პასუხი აქ"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:32
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:279
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:279
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
@@ -81,19 +93,22 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:256
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:96
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:256
 msgid "Moderator"
 msgstr "მოდერატორი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:251
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:105
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:251
 msgid "Latest edit on"
 msgstr "ბოლოს რედაქტირებული"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:147
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:232
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/Comment.jsx:147
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:232
 msgid "Do you really want to delete this comment?"
 msgstr "ნამდვილად გსურთ ამ კომენტარის წაშლა?"
 
@@ -101,7 +116,12 @@ msgstr "ნამდვილად გსურთ ამ კომენტა
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:234
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:14 adhocracy4.js:1
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:14
+#: adhocracy4/comments/static/comments/Comment.jsx:148
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:234
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:14
 msgid "Delete"
 msgstr "წაშლა"
 
@@ -109,16 +129,23 @@ msgstr "წაშლა"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:235
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
-#: adhocracy4/static/Modal.jsx:59 adhocracy4.js:1
+#: adhocracy4/static/Modal.jsx:59
+#: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:235
+#: adhocracy4/comments_async/static/modals/modal.jsx:58
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "გაუქმება"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:165
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34 adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentBox.jsx:165
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 msgid "Your comment here"
 msgstr "თქვენი კომენტარი აქ"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:168 adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentBox.jsx:168
+#: adhocracy4/comments/static/comments/CommentBox.jsx:168
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "კომენტარები"
@@ -127,71 +154,87 @@ msgstr[1] "კომენტარები"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
 msgid "save changes"
 msgstr "ცვლილებების შენახვა"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
 msgid "cancel"
 msgstr "უარყოფა"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
 msgid "post"
 msgstr "პოსტი"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:118
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentForm.jsx:38
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:118
 msgid "Please login to comment"
 msgstr "კომენტარის დასატოვებლად გაიარეთ ავტორიზაცია"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:124
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentForm.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:124
 msgid "The currently active phase doesn't allow to comment."
 msgstr "ამჟამად აქტიური ფაზა კომენტარს არ აკეთებს."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
 msgid "Edit"
 msgstr "რედაქტირება"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
-#: adhocracy4.js:1
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 msgid "Report"
 msgstr "მოხსენება"
 
+#: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 msgid "Choose categories for your comment"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Entry successfully created"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Read more..."
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Read less"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Share"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid " Report"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #, javascript-format
 msgid "1 comment"
@@ -200,42 +243,54 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:40
 msgid "hide comments"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 msgctxt "verb"
 msgid "Comment"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:286
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:286
 msgid "Share link"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:325
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:325
 msgid "Categories: "
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:543
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:543
@@ -246,26 +301,36 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:503
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
 msgid "Write contribution"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
 msgid "Search contributions"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 msgid "Clear search"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
 msgid "display: "
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:562
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:562
 msgid "sorted by: "
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
 msgid "entry"
 msgid_plural "entries"
@@ -273,47 +338,58 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] ""
 msgstr[1] ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Filters"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Show filters"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide Filters"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide filters"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:105
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:105
 msgid " characters"
 msgstr ""
 
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
 msgid "Comment"
 msgstr ""
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 msgid "Recommend comment"
 msgstr ""
 
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 msgid "Is recommended"
 msgstr ""
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 msgid "Submit"
 msgstr ""
 
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 msgid ""
 "Thanks for the feedback. It will be checked by the moderators as soon as "
@@ -322,95 +398,120 @@ msgstr ""
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:71
 #: adhocracy4/reports/static/reports/ReportModal.jsx:61
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:71
+#: adhocracy4/reports/static/reports/ReportModal.jsx:61
 msgid "Your message"
 msgstr "ქვენი შეტყობინება"
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:84
-#: adhocracy4/reports/static/reports/ReportModal.jsx:62 adhocracy4.js:1
+#: adhocracy4/reports/static/reports/ReportModal.jsx:62
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:84
+#: adhocracy4/reports/static/reports/ReportModal.jsx:62
 msgid "Send Report"
 msgstr "ანგარიშის გაგზავნა"
 
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 msgid "Copy"
 msgstr ""
 
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 msgid "Copied"
 msgstr ""
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:27
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
 msgid "You will no longer be updated via email."
 msgstr ""
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
+#: adhocracy4/follows/static/follows/FollowButton.jsx:29
 msgid "You will be updated via email."
 msgstr ""
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
-#: euth/follows/static/follows/FollowButton.jsx:48 adhocracy4.js:1
+#: adhocracy4/follows/static/follows/FollowButton.jsx:63
+#: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
 msgstr "გაყოლა"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:64 adhocracy4.js:1
+#: adhocracy4/follows/static/follows/FollowButton.jsx:64
+#: adhocracy4/follows/static/follows/FollowButton.jsx:64
 msgid "Following"
 msgstr "შემდეგ"
 
+#: adhocracy4/polls/static/polls/ChoiceForm.jsx:6
 #: adhocracy4/polls/static/polls/ChoiceForm.jsx:6
 msgid "remove"
 msgstr "ამოიღე"
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:179
+#: adhocracy4/polls/static/polls/PollManagement.jsx:179
 msgid "The poll has been updated."
 msgstr "გამოკითხვა განახლდა."
 
+#: adhocracy4/polls/static/polls/PollManagement.jsx:180
 #: adhocracy4/polls/static/polls/PollManagement.jsx:180
 msgid "The poll could not be updated."
 msgstr "გამოკითხვა ვერ მოხერხდა."
 
 #: adhocracy4/polls/static/polls/PollManagement.jsx:216
+#: adhocracy4/polls/static/polls/PollManagement.jsx:216
 msgid "Add a new question"
 msgstr "ახალი შეკითხვა"
 
+#: adhocracy4/polls/static/polls/PollManagement.jsx:217
 #: adhocracy4/polls/static/polls/PollManagement.jsx:217
 msgid "Save"
 msgstr "გადარჩენა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:9
+#: adhocracy4/polls/static/polls/Question.jsx:9
 msgid "Your choice"
 msgstr "ენი არჩევანი"
 
+#: adhocracy4/polls/static/polls/Question.jsx:10
 #: adhocracy4/polls/static/polls/Question.jsx:10
 msgid "Multiple answers are possible for this question"
 msgstr "ამ კითხვაზე შესაძლებელია მრავალი პასუხი"
 
 #: adhocracy4/polls/static/polls/Question.jsx:36
+#: adhocracy4/polls/static/polls/Question.jsx:36
 msgid "Vote counted"
 msgstr "ხმის დათვლა"
 
+#: adhocracy4/polls/static/polls/Question.jsx:37
 #: adhocracy4/polls/static/polls/Question.jsx:37
 msgid "Vote has not been counted due to a server error."
 msgstr "ხმის დათვლა ვერ მოხერხდა სერვერის შეცდომის გამო."
 
 #: adhocracy4/polls/static/polls/Question.jsx:104
+#: adhocracy4/polls/static/polls/Question.jsx:104
 msgid "Vote"
 msgstr "ხმის მიცემა"
 
+#: adhocracy4/polls/static/polls/Question.jsx:105
 #: adhocracy4/polls/static/polls/Question.jsx:105
 msgid "Please login to vote"
 msgstr "გთხოვთ, ხელახლა შესვლა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
+#: adhocracy4/polls/static/polls/Question.jsx:140
 msgid "To poll"
 msgstr "გამოკითხვაში"
 
+#: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "ხმის მიცემა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:145
+#: adhocracy4/polls/static/polls/Question.jsx:145
 msgid "Show preliminary results"
 msgstr "წინასწარი შედეგების ჩვენება"
 
+#: adhocracy4/polls/static/polls/Question.jsx:157
 #: adhocracy4/polls/static/polls/Question.jsx:157
 msgid "vote"
 msgid_plural "votes"
@@ -418,34 +519,41 @@ msgstr[0] "ხმა"
 msgstr[1] "ხმა"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:8
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:8
 msgid "Question"
 msgstr "კითხვა"
 
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:10
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:10
 msgid "Users can select more than one answer."
 msgstr "მომხმარებელს შეუძლია აირჩიოს ერთზე მეტი პასუხი."
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:11
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:11
 msgid "Add a new choice"
 msgstr "ახალი არჩევანის დამატება"
 
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:12
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:12
 msgid "Move up"
 msgstr "გადაადგილება"
 
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:13
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:13
 msgid "Move down"
 msgstr "გადატანა ქვემოთ"
 
+#: adhocracy4/polls/static/polls/QuestionForm.jsx:54
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:54
 msgid "Choice"
 msgstr "არჩევანი"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:60
+#: adhocracy4/reports/static/reports/ReportModal.jsx:60
 msgid "Thank you! We are taking care of it."
 msgstr "მადლობთ! ჩვენ ზრუნავს მასზე."
 
-#: adhocracy4/static/Alert.jsx:5 adhocracy4.js:1
+#: adhocracy4/static/Alert.jsx:5
 msgid "Close"
 msgstr "დახურვა"
 
@@ -453,76 +561,67 @@ msgstr "დახურვა"
 msgid "Please set all values for your project."
 msgstr "გთხოვთ, დააყენოთ ყველა მნიშვნელობა თქვენი პროექტისთვის."
 
-#: euth/communitydebate/static/js/fileupload_formset.js:29
+#: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
 msgstr ""
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81 adhocracy4.js:1
+#: euth/dashboard/static/user_list/react_user_list.jsx:81
 msgid "Remove"
 msgstr "ამოღება"
 
 #: euth/documents/static/documents/Paragraph.jsx:69
-#: euth/documents/static/documents/ParagraphBox.jsx:226 adhocracy4.js:1
+#: euth/documents/static/documents/ParagraphBox.jsx:226
 msgid "add a new paragraph"
 msgstr "დაამატეთ ახალი პუნქტი"
 
-#: euth/documents/static/documents/Paragraph.jsx:82 adhocracy4.js:1
+#: euth/documents/static/documents/Paragraph.jsx:82
 msgid "Headline:"
 msgstr "სათაური:"
 
-#: euth/documents/static/documents/Paragraph.jsx:98 adhocracy4.js:1
+#: euth/documents/static/documents/Paragraph.jsx:98
 msgid "Paragraph:"
 msgstr "პუნქტი:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:126 adhocracy4.js:1
+#: euth/documents/static/documents/ParagraphBox.jsx:126
 msgid "Your document has been updated."
 msgstr "თქვენი დოკუმენტი განახლდა:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:156 adhocracy4.js:1
+#: euth/documents/static/documents/ParagraphBox.jsx:156
 msgid "Your document has been saved."
 msgstr "თქვენი დოკუმენტი შენახულია."
 
-#: euth/documents/static/documents/ParagraphBox.jsx:187 adhocracy4.js:1
+#: euth/documents/static/documents/ParagraphBox.jsx:187
 msgid "Title:"
 msgstr "სათაური:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243 adhocracy4.js:1
+#: euth/documents/static/documents/ParagraphBox.jsx:243
 msgid "save"
 msgstr "გადარჩენა"
 
-#: euth/follows/static/follows/FollowButton.jsx:48 adhocracy4.js:1
+#: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "დაუცველი"
 
-#: adhocracy4.js:1
-msgid "Are you sure you want to report this item?"
-msgstr "ნამდვილად გსურთ ამ საკითხზე მოხსენება?"
+#~ msgid "Are you sure you want to report this item?"
+#~ msgstr "ნამდვილად გსურთ ამ საკითხზე მოხსენება?"
 
-#: adhocracy4.js:1
-#, javascript-format
-msgid "hide %s replies"
-msgstr "პასუხების %s დამალვა"
+#~ msgid "hide %s replies"
+#~ msgstr "პასუხების %s დამალვა"
 
-#: adhocracy4.js:1
-#, javascript-format
-msgid "view %s replies"
-msgstr "პასუხების %s ნახვა"
+#~ msgid "view %s replies"
+#~ msgstr "პასუხების %s ნახვა"
 
-#: adhocracy4.js:1
-msgid "Your message here"
-msgstr "თქვენი შეტყობინება აქ"
+#~ msgid "Your message here"
+#~ msgstr "თქვენი შეტყობინება აქ"
 
-#: adhocracy4.js:1
-msgid "Not following"
-msgstr "არ არის შემდეგი"
+#~ msgid "Not following"
+#~ msgstr "არ არის შემდეგი"
 
-#: adhocracy4.js:1
-msgid "Never be notified."
-msgstr "არასოდეს ეცნობება."
+#~ msgid "Never be notified."
+#~ msgstr "არასოდეს ეცნობება."
 
-#: adhocracy4.js:1
-msgid "Receive email notifications about this project."
-msgstr "ამ პროექტის შესახებ ელფოსტის შეტყობინებების მიღება."
+#~ msgid "Receive email notifications about this project."
+#~ msgstr "ამ პროექტის შესახებ ელფოსტის შეტყობინებების მიღება."
 
 #~ msgid "Offline Phase"
 #~ msgstr "ხაზგარეშე ფაზა"
