@@ -90,6 +90,9 @@ module.exports = {
     fileupload_formset: [
       './euth/communitydebate/static/js/fileupload_formset.js'
     ],
+    blueprintsuggest: [
+      './euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js'
+    ],
 
   },
   output: {

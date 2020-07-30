@@ -1,4 +1,4 @@
-/* global jQuery django */
+/* global django */
 (function ($) {
   var blueprintsuggest = {
     init: function () {
