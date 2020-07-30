@@ -11,7 +11,7 @@
     "@babel/runtime": "7.10.5",
     "@fortawesome/fontawesome-free": "5.14.0",
     "adhocracy4": "github:liqd/adhocracy4#opin-v3.9",
-    "autoprefixer": "9.8.5",
+    "autoprefixer": "9.8.6",
     "axios": "0.19.2",
     "babel-loader": "8.1.0",
     "bootstrap": "4.5.0",
