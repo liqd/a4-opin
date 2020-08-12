@@ -14,7 +14,7 @@ install:
 - pip install coveralls
 script:
 - python manage.py collectstatic > /dev/null
-- py.test --cov --no-migrations
+- py.test --cov --nomigrations
 - python manage.py makemigrations --dry-run --check --noinput
 after_success:
 - coveralls
