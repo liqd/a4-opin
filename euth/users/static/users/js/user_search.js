@@ -12,6 +12,7 @@ class UserSearch {
       minLength: 1
     }, {
       name: 'users',
+      limit: 100,
       source: this.findMatches,
       display: this.getDisplay,
       templates: {

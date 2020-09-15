@@ -6,6 +6,9 @@
     background-color: #fff;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
     right: 0;
+    min-height: 300px;
+    max-height: 400px;
+    overflow-y: auto
 }
 
 .tt-hint {
