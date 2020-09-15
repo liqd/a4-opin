@@ -54,7 +54,9 @@
 
 .org-tile-body {
     padding: 30px 50px 58px;
-    min-height: 290px;
+    min-height: 400px;
+    max-height: 400px;
+    padding-top: 50%;
 }
 
 .org-tile-image-link {
@@ -83,7 +85,7 @@
         margin: 0;
         left: 50%;
         position: absolute;
-        top: 50%;
+        top: 25%;
         transform: translate(-50%, -50%);
     }
 
@@ -92,7 +94,7 @@
         display: block;
         position: absolute;
         left: 50%;
-        top: 50%;
+        top: 25%;
         margin-left: -75px;
         margin-top: -75px;
         width: 150px;
