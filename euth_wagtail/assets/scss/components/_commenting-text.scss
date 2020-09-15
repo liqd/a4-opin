@@ -4,6 +4,7 @@
 
 .commenting-paragraph {
     margin-bottom: 40px;
+    word-wrap: break-word;
 
     @media screen and (min-width: $screen-sm-min) {
         display: flex;
