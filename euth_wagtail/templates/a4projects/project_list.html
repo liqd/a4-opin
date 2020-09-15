@@ -54,7 +54,7 @@
 
             {% if is_paginated %}
             <div class="pagination-row">
-                <nav class="float-right">
+                <nav>
                     <ul class="pagination">
                     {% if page_obj.has_previous %}
                         <li class="page-item">
@@ -68,7 +68,7 @@
                     {% for number in page_range %}
                     {% combined_url_parameter request.GET page=number as url_par %}
                     <li class="page-item">
-                        <a href="{{ url_par }}" {% if page_obj.number == number %} class="page-link page-current" {% endif %}>{{ number }}</a>
+                        <a href="{{ url_par }}" class="page-link {% if page_obj.number == number %} page-current {% endif %}" >{{ number }}</a>
                     </li>
                     {% endfor %}
                     {% if page_obj.has_next %}

@@ -31,5 +31,5 @@ nav .pagination {
 .pagination-row {
     @extend .row;
     margin-right: 13px;
+    justify-content: flex-end;
 }
-
