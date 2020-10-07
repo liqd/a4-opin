@@ -23,6 +23,7 @@ class DateInput(widgets.DateInput):
     format_index = 0
 
     def render(self, name, value, attrs=None, renderer=None):
+
         if attrs:
             format = formats.get_format(
                 self.format_key
@@ -35,10 +36,6 @@ class DateInput(widgets.DateInput):
             if hasattr(self, 'additional_attrs'):
                 attrs.update(self.additional_attrs)
 
-            if value:
-                attrs.update({
-                    'data-default-date': self._format_value(value)
-                })
         input = mark_safe(super().render(name, value, attrs))
 
         return input
