@@ -1,4 +1,5 @@
 import collections
+from datetime import date
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
@@ -59,3 +60,12 @@ class ProfileForm(forms.ModelForm):
             pass
 
         return username
+
+    def clean_birthdate(self):
+        birthday = self.cleaned_data['birthdate']
+        if birthday:
+            today = date.today()
+            if birthday > today:
+                raise forms.ValidationError(_('You are not yet born. Please '
+                                              'enter a date in the past.'))
+        return birthday
