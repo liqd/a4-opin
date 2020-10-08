@@ -44,7 +44,7 @@
     "typeahead.js": "0.11.1",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "webpack-merge": "5.1.4"
+    "webpack-merge": "5.2.0"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
