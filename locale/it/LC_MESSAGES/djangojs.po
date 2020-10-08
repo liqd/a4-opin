@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-29 16:31+0200\n"
+"POT-Creation-Date: 2020-10-08 13:32+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
@@ -46,6 +46,7 @@ msgstr "Elemento pieghevole"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:23
+#: adhocracy4.js:1
 #, javascript-format
 msgid "hide one reply"
 msgid_plural "hide %s replies"
@@ -54,6 +55,7 @@ msgstr[1] "nascondi le %s risposte"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
 #: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4.js:1
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
@@ -64,6 +66,7 @@ msgstr[1] "guarda le %s risposte"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:9
 #: adhocracy4/comments/static/comments/Comment.jsx:30
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:9
+#: adhocracy4.js:1
 msgid "Answer"
 msgstr "Risposta"
 
@@ -71,6 +74,7 @@ msgstr "Risposta"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:410
 #: adhocracy4/comments/static/comments/Comment.jsx:31
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:410
+#: adhocracy4.js:1
 msgid "Your reply here"
 msgstr "La tua risposta qui"
 
@@ -93,6 +97,7 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:256
 #: adhocracy4/comments/static/comments/Comment.jsx:96
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:256
+#: adhocracy4.js:1
 msgid "Moderator"
 msgstr "Moderatore"
 
@@ -100,6 +105,7 @@ msgstr "Moderatore"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:251
 #: adhocracy4/comments/static/comments/Comment.jsx:105
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:251
+#: adhocracy4.js:1
 msgid "Latest edit on"
 msgstr "Ultima modifica su"
 
@@ -107,6 +113,7 @@ msgstr "Ultima modifica su"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:232
 #: adhocracy4/comments/static/comments/Comment.jsx:147
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:232
+#: adhocracy4.js:1
 msgid "Do you really want to delete this comment?"
 msgstr "Vuoi veramente cancellare questo commento?"
 
@@ -120,6 +127,7 @@ msgstr "Vuoi veramente cancellare questo commento?"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:234
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:14
+#: adhocracy4.js:1
 msgid "Delete"
 msgstr "Elimina"
 
@@ -132,6 +140,7 @@ msgstr "Elimina"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:235
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
+#: adhocracy4.js:1
 msgid "Abort"
 msgstr "abortire"
 
@@ -139,11 +148,13 @@ msgstr "abortire"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 #: adhocracy4/comments/static/comments/CommentBox.jsx:165
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4.js:1
 msgid "Your comment here"
 msgstr "Il tuo commento qui"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
+#: adhocracy4.js:1
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Commenti"
@@ -155,6 +166,7 @@ msgstr[1] "Commenti"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
+#: adhocracy4.js:1
 msgid "save changes"
 msgstr "Salva I Cambiamenti"
 
@@ -164,29 +176,33 @@ msgstr "Salva I Cambiamenti"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
+#: adhocracy4.js:1
 msgid "cancel"
 msgstr "Annulla"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:107
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:107
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
+#: adhocracy4.js:1
 msgid "post"
 msgstr "inviare"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:118
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:118
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
+#: adhocracy4.js:1
 msgid "Please login to comment"
 msgstr "Effettua il login per commentare"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:124
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:124
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
+#: adhocracy4.js:1
 msgid "The currently active phase doesn't allow to comment."
 msgstr "La fase attualmente attiva non consente di commentare."
 
@@ -194,11 +210,13 @@ msgstr "La fase attualmente attiva non consente di commentare."
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
+#: adhocracy4.js:1
 msgid "Edit"
 msgstr "modificare"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
+#: adhocracy4.js:1
 msgid "Report"
 msgstr "rapporto"
 
@@ -362,13 +380,13 @@ msgstr ""
 msgid "Hide filters"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:105
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 msgid " characters"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:109
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 msgid "Comment"
 msgstr ""
 
@@ -405,6 +423,7 @@ msgstr "Il tuo messaggio"
 #: adhocracy4/reports/static/reports/ReportModal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:84
 #: adhocracy4/reports/static/reports/ReportModal.jsx:62
+#: adhocracy4.js:1
 msgid "Send Report"
 msgstr "Spedisci il rapporto"
 
@@ -431,11 +450,13 @@ msgstr ""
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:1
 msgid "Follow"
 msgstr "Seguire"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
+#: adhocracy4.js:1
 msgid "Following"
 msgstr "A seguire"
 
@@ -552,6 +573,7 @@ msgid "Thank you! We are taking care of it."
 msgstr "Grazie! Ci stiamo occupando di questo."
 
 #: adhocracy4/static/Alert.jsx:5
+#: adhocracy4.js:1
 msgid "Close"
 msgstr "Vicino"
 
@@ -564,62 +586,80 @@ msgid "Maximum number of upload documents reached."
 msgstr ""
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: adhocracy4.js:1
 msgid "Remove"
 msgstr "Rimuovere"
 
 #: euth/documents/static/documents/Paragraph.jsx:69
 #: euth/documents/static/documents/ParagraphBox.jsx:226
+#: adhocracy4.js:1
 msgid "add a new paragraph"
 msgstr "aggiungi un nuovo paragrafo"
 
 #: euth/documents/static/documents/Paragraph.jsx:82
+#: adhocracy4.js:1
 msgid "Headline:"
 msgstr "Titolo:"
 
 #: euth/documents/static/documents/Paragraph.jsx:98
+#: adhocracy4.js:1
 msgid "Paragraph:"
 msgstr "Paragrafo:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
+#: adhocracy4.js:1
 msgid "Your document has been updated."
 msgstr "Il tuo documento è stato aggiornato"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
+#: adhocracy4.js:1
 msgid "Your document has been saved."
 msgstr "Il tuo documento è stato salvato."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
+#: adhocracy4.js:1
 msgid "Title:"
 msgstr "titolo"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:243
+#: adhocracy4.js:1
 msgid "save"
 msgstr "salvare"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
+#: adhocracy4.js:1
 msgid "Unfollow"
 msgstr "Smetti"
 
-#~ msgid "Are you sure you want to report this item?"
-#~ msgstr "Sei sicuro di voler segnalare questo articolo?"
+#: adhocracy4.js:1
+msgid "Are you sure you want to report this item?"
+msgstr "Sei sicuro di voler segnalare questo articolo?"
 
-#~ msgid "hide %s replies"
-#~ msgstr "nascondi le %s risposte"
+#: adhocracy4.js:1
+#, javascript-format
+msgid "hide %s replies"
+msgstr "nascondi le %s risposte"
 
-#~ msgid "view %s replies"
-#~ msgstr "guarda le %s risposte"
+#: adhocracy4.js:1
+#, javascript-format
+msgid "view %s replies"
+msgstr "guarda le %s risposte"
 
-#~ msgid "Your message here"
-#~ msgstr "Il tuo messaggio qui"
+#: adhocracy4.js:1
+msgid "Your message here"
+msgstr "Il tuo messaggio qui"
 
-#~ msgid "Not following"
-#~ msgstr "Non seguire"
+#: adhocracy4.js:1
+msgid "Not following"
+msgstr "Non seguire"
 
-#~ msgid "Never be notified."
-#~ msgstr "Non essere mai informato"
+#: adhocracy4.js:1
+msgid "Never be notified."
+msgstr "Non essere mai informato"
 
-#~ msgid "Receive email notifications about this project."
-#~ msgstr "Ricevi notifiche via email su questo progetto."
+#: adhocracy4.js:1
+msgid "Receive email notifications about this project."
+msgstr "Ricevi notifiche via email su questo progetto."
 
 #~ msgid "Offline Phase"
 #~ msgstr "Fase offline"
