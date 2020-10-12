@@ -91,7 +91,6 @@
 
 .idea-comments-count {
     font-size: 14;
-    line-height: 1.6;
     letter-spacing: -0.2px;
     text-align: justify;
     line-height: 1.8;
@@ -200,7 +199,7 @@
         height: $tile-list-thumbnail-size;
         width: $tile-list-thumbnail-size;
         background: $brand-success;
-        color: #fff;
+        color: $body-bg;
         float: left;
 
         @media (max-width: $screen-xs) {

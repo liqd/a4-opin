@@ -4,6 +4,31 @@
     text-align: center;
 }
 
+.block-inner {
+    padding: 0;
+
+    img {
+        margin: 20px 0;
+    }
+}
+
+.rich-text {
+    padding-bottom: $block-vpadding;
+    text-align: left;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @extend .block-title;
+    }
+
+    p {
+        margin: 0 0 $font-size-large;
+    }
+}
+
 .block,
 .block-inner {
     padding: $block-vpadding 0;
@@ -15,7 +40,7 @@
     &.m-boxed,
     & input,
     & textarea {
-        color: #fff;
+        color: $body-bg;
     }
 
     &.m-highlight {
@@ -31,7 +56,7 @@
     }
 
     &.m-accent {
-        background-color: #f3f3f3;
+        background-color: $gray-lighter;
     }
 
     &.m-highlight-purple {
@@ -52,7 +77,7 @@
         a,
         & {
             text-align: left;
-            color: #fff;
+            color: $body-bg;
         }
 
         .more {
@@ -85,34 +110,9 @@
     margin-top: -$block-vpadding;
 }
 
-.block-inner {
-    padding: 0;
-
-    img {
-        margin: 20px 0;
-    }
-}
-
 .block-image {
     padding-bottom: $block-vpadding;
     text-align: center;
-}
-
-.rich-text {
-    padding-bottom: $block-vpadding;
-    text-align: left;
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @extend .block-title;
-    }
-
-    p {
-        margin: 0 0 $font-size-large;
-    }
 }
 
 .m-clear {

@@ -41,13 +41,13 @@
 
     :checked + &.accept:before {
         background-color: $brand-success;
-        color: #fff;
+        color: $body-bg;
     }
 
     :checked + &.decline:before,
     :checked + &.delete:before {
         background-color: $brand-danger;
-        color: #fff;
+        color: $body-bg;
     }
 }
 

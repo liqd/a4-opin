@@ -9,7 +9,7 @@
         margin-right: 10px;
         font-size: $font-size-small;
         font-weight: bold;
-        color: #fff;
+        color: $body-bg;
     }
 
     ul {
@@ -17,6 +17,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
+
         @include clearfix;
     }
 
@@ -61,15 +62,15 @@
 
     .dot:hover,
     .dot:focus {
-        transform: scale(1.25)
-    }
-
-    li:last-child .dot {
-        margin-right: 0;
+        transform: scale(1.25);
     }
 
     .active .dot {
         background: $brand-brand2;
+    }
+
+    li:last-child .dot {
+        margin-right: 0;
     }
 
     .popover {

@@ -2,10 +2,12 @@
 .poll {
     padding-top: 1em;
 }
+
 .poll__rows {
     padding-top: 1em;
     padding-bottom: 1em;
 }
+
 .poll-row {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     padding: 0.5em;
@@ -15,10 +17,12 @@
     input[type="checkbox"]:checked + span {
         font-weight: bold;
     }
+
     input[type="radio"]:checked + span {
         font-weight: bold;
     }
 }
+
 .poll__actions {
     margin-bottom: 1em;
 }
@@ -27,6 +31,7 @@
     position: absolute;
     right: 0;
 }
+
 .poll-row__radio,
 .poll-row__number,
 .poll-row__label {
@@ -35,7 +40,7 @@
 }
 
 .poll-row__bar {
-    background-color: #ffd102;
+    background-color: $brand-brand6;
     position: absolute;
     top: 0;
     bottom: 0;

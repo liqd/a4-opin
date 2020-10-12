@@ -12,12 +12,12 @@
 .badge-private {
     background-color: $brand-brand1;
     text-transform: uppercase;
-    color: #fff;
+    color: $body-bg;
 }
 
 .badge-runningout {
     background-color: $brand-danger;
-    color: #fff;
+    color: $body-bg;
 }
 
 .badge-finished {
@@ -28,7 +28,7 @@
 
 .badge-archived {
     background-color: $gray;
-    color: #fff;
+    color: $body-bg;
     text-transform: uppercase;
 }
 

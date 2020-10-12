@@ -103,7 +103,7 @@ $rem-px-only: false !default;
 }
 
 @mixin button-hover-background($hover-color) {
-    background: #fff;
+    background: $body-bg;
 
     border: 1px solid $hover-color;
     -webkit-appearance: none;
@@ -113,7 +113,7 @@ $rem-px-only: false !default;
 
     &:hover,
     &:focus {
-        color: #fff;
+        color: $body-bg;
         border-color: $hover-color;
         background: $hover-color;
     }

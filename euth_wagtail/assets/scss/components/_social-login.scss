@@ -19,7 +19,7 @@
 
 .socialaccount_provider {
     background: $brand-brand1;
-    color: #fff;
+    color: $body-bg;
     font-size: 0.8em;
 
     &:after {
@@ -34,7 +34,7 @@
     }
 
     &.google {
-        background: #d34836;
+        background: $gplus;
     }
 
     &.google:after {
@@ -42,7 +42,7 @@
     }
 
     &.facebook {
-        background-color: #3b5998;
+        background-color: $facebook;
     }
 
     &.facebook:after {

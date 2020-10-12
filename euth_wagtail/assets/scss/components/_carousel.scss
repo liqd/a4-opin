@@ -51,7 +51,6 @@
         display: flex;
     }
 
-
     .slick-list {
         overflow: visible;
         padding: 20px 0 30px;
@@ -81,7 +80,7 @@
         }
 
         button {
-            background-color: #fff;
+            background-color: $body-bg;
             border: 0;
             font-size: 0;
             display: block;

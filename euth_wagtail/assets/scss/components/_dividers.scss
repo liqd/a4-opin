@@ -9,7 +9,7 @@
 .black-divider {
     @extend %divider;
     background: $black;
-    color: #fff;
+    color: $body-bg;
 }
 
 .gray-divider {

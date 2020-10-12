@@ -4,10 +4,10 @@
     margin-bottom: 50px;
     margin-top: 140px;
     background-color: $brand-brand1;
-    color: #fff;
+    color: $body-bg;
     text-align: center;
     position: relative;
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 
     @media screen and (max-width: $screen-xs-max) {
         margin-top: 95px;

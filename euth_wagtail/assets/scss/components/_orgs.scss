@@ -70,7 +70,7 @@
     &:after {
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;
-        border-bottom: 25px solid #fff;
+        border-bottom: 25px solid $body-bg;
         bottom: 0;
         content: " ";
         height: 0;
@@ -100,7 +100,7 @@
         width: 150px;
         height: 150px;
         border-radius: 100px;
-        background-color: #fff;
+        background-color: $body-bg;
         border: solid 4px #f3f3f3;
     }
 

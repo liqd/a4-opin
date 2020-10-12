@@ -20,16 +20,14 @@
         transition: opacity 0.2s, color 0.2s, background 0.2s;
     }
 
-    &:hover {
-        .comment-count:before {
-            background-color: $brand-primary;
-            width: 4px;
-            left: -2px;
-        }
+    &:hover.comment-count:before {
+        background-color: $brand-primary;
+        width: 4px;
+        left: -2px;
+    }
 
-        .btn-primary {
-            opacity: 1;
-        }
+    &:hover.btn-primary {
+        opacity: 1;
     }
 }
 
@@ -53,7 +51,7 @@
         bottom: 0;
         left: 0;
         width: 1px;
-        background-color: #297fb4;
+        background-color: $primary;
 
         transition: width 0.15s, left 0.15s;
 

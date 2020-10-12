@@ -1,6 +1,6 @@
 .accordion {
     text-align: left;
-    background: #f4f4f4;
+    background: $gray-lighter;
 
     .card {
         margin-bottom: 9px;
@@ -13,6 +13,10 @@
     }
 
     .card-body {
+        padding-bottom: 50px;
+        font-size: $font-size-base;
+        line-height: 1.75;
+
         a {
             color: $brand-brand2;
         }
@@ -50,14 +54,8 @@
         &.collapsed {
             border-color: $gray-light;
             background: transparent;
-            color: #000;
+            color: $gray-base;
         }
-    }
-
-    .card-body {
-        padding-bottom: 50px;
-        font-size: $font-size-base;
-        line-height: 1.75;
     }
 
     .rich-text {
@@ -71,7 +69,19 @@
     .accordion-link,
     .card-body {
         background: $brand-brand1;
-        color: #fff;
+        color: $body-bg;
+    }
+
+    .accordion-link {
+        font-size: $font-size-medium;
+        padding: 15px 50px 12px 15px;
+        // border: 1px solid $brand-brand1;
+        position: relative;
+        color: $body-bg;
+
+        &[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
     }
 
     .accordion-title {
@@ -80,24 +90,12 @@
 
         .accordion-link {
             &.collapsed:hover {
-                color: #000;
+                color: $gray-base;
             }
         }
 
         a:hover {
-            color: #fff;
-        }
-    }
-
-    .accordion-link {
-        font-size: $font-size-medium;
-        padding: 15px 50px 12px 15px;
-        // border: 1px solid $brand-brand1;
-        position: relative;
-        color: #fff;
-
-        &[aria-expanded="true"] i {
-            transform: rotate(180deg);
+            color: $body-bg;
         }
     }
 

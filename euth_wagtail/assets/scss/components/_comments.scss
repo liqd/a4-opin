@@ -24,6 +24,7 @@
 
 .comment {
     margin-bottom: 50px;
+
     @include clearfix;
 
     .comment-author {
@@ -68,6 +69,7 @@
         float: left;
 
         padding: 7px 14px;
+
         @include button-hover-background($brand-primary);
     }
 
@@ -75,7 +77,7 @@
         font-weight: bold;
 
         i {
-            margin-right: .5em;
+            margin-right: 0.5em;
         }
     }
 
@@ -100,6 +102,10 @@
     & .nav {
         padding: 0;
 
+        & .open a {
+            background-color: transparent;
+        }
+
         & .dropdown li a,
         & .dropdown li button {
             padding: 10px;
@@ -112,7 +118,6 @@
             font-weight: bold;
         }
 
-        & .open a,
         & .open a:hover,
         & .open a:focus {
             background-color: transparent;
@@ -123,16 +128,16 @@
         }
     }
 
+    & .rating {
+        float: left;
+    }
+
     & .action-bar {
         margin-bottom: 10px;
 
         & .rating {
             float: left;
         }
-    }
-
-    & .rating {
-        float: left;
     }
 }
 

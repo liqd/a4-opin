@@ -36,6 +36,102 @@
     margin-bottom: 30px;
 }
 
+.herounit-description {
+    padding: 0 70px;
+    line-height: 1.63;
+    margin-bottom: 15px;
+    font-weight: 600;
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding: 0;
+    }
+}
+
+.herounit-title {
+    color: $body-bg;
+    font-size: $font-size-xlarge;
+    margin: 0 0 10px 0;
+
+    &:after {
+        background: rgba(0, 0, 0, 0.5);
+        content: '\A';
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $screen-md-max) {
+        padding: 0 40px;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+        font-size: $font-size-large;
+        padding: 0 10px;
+    }
+}
+
+.herounit-link {
+    font-weight: 600;
+
+    & a {
+        color: $body-bg;
+    }
+}
+
+.herounit-links {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    a {
+        font-size: 24px;
+        color: $body-bg;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
+}
+
+.herounit-link > a:hover {
+    color: $gray-light;
+}
+
+.herounit-profile > .herounit-links {
+    @media screen and (min-width: $screen-sm-min) {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    a {
+        font-size: $font-size-medium;
+    }
+}
+
+.herounit-header {
+    color: $body-bg;
+    position: relative;
+    z-index: 1;
+
+    .button {
+        margin-top: 13px;
+    }
+
+    a:not(.button) {
+        color: $body-bg;
+
+        &:hover {
+            color: $gray-light;
+        }
+    }
+}
+
 .herounit-profile {
     padding: 80px 0 0;
     align-items: flex-start;
@@ -66,7 +162,7 @@
 
     .circled {
         float: left;
-        background-color: #fff;
+        background-color: $body-bg;
 
         @media screen and (max-width: $screen-xs-max) {
             float: none;
@@ -87,17 +183,6 @@
         padding: 0;
     }
 
-    .herounit-links {
-        @media screen and (min-width: $screen-sm-min) {
-            text-align: left;
-            margin-bottom: 0;
-        }
-
-        a {
-            font-size: $font-size-medium;
-        }
-    }
-
     .herounit-meta {
         width: 230px;
         margin: 0 auto;
@@ -110,7 +195,7 @@
 
     .bio,
     strong {
-        color: #fff;
+        color: $body-bg;
     }
 
     .slick-track {
@@ -118,7 +203,6 @@
         align-items: center;
     }
 }
-
 
 .herounit-blue {
     background: $brand-brand1;
@@ -167,7 +251,7 @@
     width: 90px;
     height: 90px;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: $body-bg;
     border-radius: 50%;
     position: relative;
 
@@ -204,49 +288,6 @@
     left: 0;
 }
 
-.herounit-header {
-    color: #fff;
-    position: relative;
-    z-index: 1;
-
-    .button {
-        margin-top: 13px;
-    }
-
-    a:not(.button) {
-        color: #fff;
-
-        &:hover {
-            color: $gray-light;
-        }
-    }
-}
-
-.herounit-title {
-    font-size: $font-size-xlarge;
-    margin: 0 0 10px 0;
-
-    @media screen and (max-width: $screen-md-max) {
-        padding: 0 40px;
-    }
-
-    @media screen and (max-width: $screen-xs) {
-        font-size: $font-size-large;
-        padding: 0 10px;
-    }
-}
-
-.herounit-description {
-    padding: 0 70px;
-    line-height: 1.63;
-    margin-bottom: 15px;
-    font-weight: 600;
-
-    @media screen and (max-width: $screen-sm-max) {
-        padding: 0;
-    }
-}
-
 .herounit-home {
     border: solid 5px $brand-brand3;
 
@@ -264,59 +305,12 @@
     }
 }
 
-.herounit-title {
-    color: #fff;
-    margin-bottom: 10px;
-
-    &:after {
-        background: rgba(0, 0, 0, 0.5);
-        content: '\A';
-        left: 0;
-        margin: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-}
-
-.herounit-link {
-    font-weight: 600;
-}
-
-.herounit-link a {
-    color: #fff;
-
-    &:hover {
-        color: $gray-light;
-    }
-}
-
-
 .herounit-video {
     .close {
         position: absolute;
         top: -25px;
         right: -20px;
         font-size: 30px;
-    }
-}
-
-.herounit-links {
-    list-style: none;
-    padding-left: 0;
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        font-size: 24px;
-        color: #fff;
-
-        &:hover {
-            color: $gray-light;
-        }
     }
 }
 
