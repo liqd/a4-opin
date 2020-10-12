@@ -1,6 +1,7 @@
 from adhocracy4 import phases
 
-from . import apps, views
+from . import apps
+from . import views
 
 
 class FakePhase0(phases.PhaseContent):

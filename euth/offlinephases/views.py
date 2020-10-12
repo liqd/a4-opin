@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.db import transaction
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
@@ -9,7 +10,8 @@ from rules.contrib.views import PermissionRequiredMixin
 from adhocracy4.dashboard import mixins
 from adhocracy4.projects.mixins import ProjectMixin
 
-from . import forms, models
+from . import forms
+from . import models
 from .mixins import OfflineEventFormMixin
 
 

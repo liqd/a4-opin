@@ -1,4 +1,5 @@
-from django.contrib import admin, auth
+from django.contrib import admin
+from django.contrib import auth
 from django.utils.translation import ugettext_lazy as _
 
 from . import models

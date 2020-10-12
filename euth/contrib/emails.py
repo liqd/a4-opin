@@ -2,7 +2,8 @@ from email.mime.image import MIMEImage
 
 from django.contrib.staticfiles import finders
 
-from adhocracy4.emails.mixins import Email, SyncEmailMixin
+from adhocracy4.emails.mixins import Email
+from adhocracy4.emails.mixins import SyncEmailMixin
 
 
 class OpinEmail(SyncEmailMixin, Email):

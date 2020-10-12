@@ -1,7 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 
-from adhocracy4.filters.filters import (DefaultsFilterSet,
-                                        DistinctOrderingFilter, FreeTextFilter)
+from adhocracy4.filters.filters import DefaultsFilterSet
+from adhocracy4.filters.filters import DistinctOrderingFilter
+from adhocracy4.filters.filters import FreeTextFilter
 from adhocracy4.projects.models import Project
 from euth.contrib import filters as contrib_filters
 

@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from rest_framework import permissions, viewsets
+from rest_framework import permissions
+from rest_framework import viewsets
 
 from adhocracy4.projects.models import Project
 from euth.contrib.api.permissions import IsInitiatorOrSuperUser

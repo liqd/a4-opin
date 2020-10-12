@@ -2,8 +2,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from adhocracy4.categories import filters as cat_filters
 from adhocracy4.filters import widgets
-from adhocracy4.filters.filters import (DefaultsFilterSet,
-                                        DistinctOrderingFilter)
+from adhocracy4.filters.filters import DefaultsFilterSet
+from adhocracy4.filters.filters import DistinctOrderingFilter
 from euth.ideas.models import Idea
 
 ORDERING_CHOICES = [

@@ -1,5 +1,8 @@
 from django.db.models.functions import Lower
-from rest_framework import filters, permissions, serializers, viewsets
+from rest_framework import filters
+from rest_framework import permissions
+from rest_framework import serializers
+from rest_framework import viewsets
 
 from .models import User
 from .serializers import UserSerializer

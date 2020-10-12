@@ -3,7 +3,8 @@ from rest_framework import serializers
 from adhocracy4.modules.models import Module
 
 from . import validators
-from .models import Document, Paragraph
+from .models import Document
+from .models import Paragraph
 
 
 class ParagraphSerializer(serializers.Serializer):

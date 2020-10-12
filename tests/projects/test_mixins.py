@@ -7,8 +7,10 @@ from freezegun import freeze_time
 
 from adhocracy4.projects import models
 from euth.projects import mixins
-from tests.apps.fakeprojects.phases import FakePhase0, FakePhase1
-from tests.apps.fakeprojects.views import FakePhase0View, FakePhase1View
+from tests.apps.fakeprojects.phases import FakePhase0
+from tests.apps.fakeprojects.phases import FakePhase1
+from tests.apps.fakeprojects.views import FakePhase0View
+from tests.apps.fakeprojects.views import FakePhase1View
 
 
 @pytest.fixture

@@ -1,5 +1,6 @@
 from django.core.cache import cache
-from micawber.providers import Provider, ProviderRegistry
+from micawber.providers import Provider
+from micawber.providers import ProviderRegistry
 
 oembed_providers = ProviderRegistry(cache)
 

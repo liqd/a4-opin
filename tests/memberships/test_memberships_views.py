@@ -3,7 +3,8 @@ from django.core import mail
 from django.urls import reverse
 
 from euth.memberships import models
-from tests.helpers import redirect_target, templates_used
+from tests.helpers import redirect_target
+from tests.helpers import templates_used
 
 
 @pytest.mark.django_db

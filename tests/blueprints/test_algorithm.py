@@ -1,7 +1,8 @@
 import itertools
 
 from euth.blueprints import blueprints as b
-from euth.blueprints.views import compute_time_needed, filter_blueprints
+from euth.blueprints.views import compute_time_needed
+from euth.blueprints.views import filter_blueprints
 from tests.blueprints import testdata
 
 test_blueprints = [

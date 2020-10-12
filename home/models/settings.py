@@ -1,6 +1,7 @@
 from django.db import models
 from wagtail.admin import edit_handlers
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.models import BaseSetting
+from wagtail.contrib.settings.models import register_setting
 
 from euth.blueprints.names import BlueprintNames
 
