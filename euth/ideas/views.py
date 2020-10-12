@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.utils.translation import ugettext as _
 from django.views import generic
@@ -77,7 +78,7 @@ class IdeaCreateView(PermissionRequiredMixin, generic.CreateView):
 
     def dispatch(self, *args, **kwargs):
         mod_slug = self.kwargs[self.slug_url_kwarg]
-        self.module = Module.objects.get(slug=mod_slug)
+        self.module = get_object_or_404(Module, slug=mod_slug)
         self.project = self.module.project
         return super().dispatch(*args, **kwargs)
 
