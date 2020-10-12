@@ -1,5 +1,11 @@
 VIRTUAL_ENV ?= venv
 SOURCE_DIRS = euth euth_wagtail home tests
+ARGUMENTS=$(filter-out $(firstword $(MAKECMDGOALS)), $(MAKECMDGOALS))
+
+SED = sed
+ifneq (, $(shell command -v gsed))
+	SED = gsed
+endif
 
 .PHONY: all
 all: help
@@ -24,6 +30,8 @@ help:
 	@echo "  make test-clean      -- test on new database"
 	@echo "  make coverage        -- write coverage report to dir htmlcov"
 	@echo "  make lint            -- lint javascript and python, check for missing migrations"
+	@echo "  make lint-quick      -- lint all files staged in git"
+	@echo "  make lint-python-files	-- lint all python files files staged in git"
 	@echo "  make po              -- create new po files from the source"
 	@echo "  make mo              -- create new mo files from the translated po files"
 	@echo "  make tx-mo           -- pull from transifex and create new mo files from the translated po files"
@@ -87,17 +95,25 @@ lint:
 	npm run lint --silent ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
-.PHONY: check-migrations
-check-migrations:
+.PHONY: lint-quick
+lint-quick:
 	EXIT_STATUS=0; \
+	npm run lint-staged ||  EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/python manage.py makemigrations --dry-run --check --noinput || EXIT_STATUS=$$?; \
+	exit $${EXIT_STATUS}
+
+.PHONY: lint-python-files
+lint-python-files:
+	EXIT_STATUS=0; \
+	$(VIRTUAL_ENV)/bin/isort --df -c $(ARGUMENTS) || EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/bin/flake8 $(ARGUMENTS) || EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
 .PHONY: po
 po:
 	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d djangojs
 	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d django
-	sed -i 's%#: .*/adhocracy4%#: adhocracy4%' locale/*/LC_MESSAGES/django*.po
+	$(SED) -i 's%#: .*/adhocracy4%#: adhocracy4%' locale/*/LC_MESSAGES/django*.po
 	msgen locale/en_GB/LC_MESSAGES/django.po -o locale/en_GB/LC_MESSAGES/django.po
 	msgen locale/en_GB/LC_MESSAGES/djangojs.po -o locale/en_GB/LC_MESSAGES/djangojs.po
 
