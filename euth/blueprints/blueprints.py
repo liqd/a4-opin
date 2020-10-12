@@ -1,5 +1,6 @@
 from collections import namedtuple
-from enum import Enum, unique
+from enum import Enum
+from enum import unique
 
 from django.utils.translation import ugettext_lazy as _
 

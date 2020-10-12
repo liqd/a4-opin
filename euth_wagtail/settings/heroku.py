@@ -1,5 +1,6 @@
 import os
-from urllib.parse import unquote, urlparse
+from urllib.parse import unquote
+from urllib.parse import urlparse
 
 from .base import *
 

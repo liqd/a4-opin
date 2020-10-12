@@ -3,7 +3,8 @@ import pyuca
 from django.utils.translation import ugettext_lazy as _
 from django_countries import Countries
 
-from adhocracy4.filters import filters, widgets
+from adhocracy4.filters import filters
+from adhocracy4.filters import widgets
 from adhocracy4.projects import models
 
 

@@ -2,8 +2,9 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django_countries import fields as countries_fields
-from parler.models import (TranslatableManager, TranslatableModel,
-                           TranslatedFields)
+from parler.models import TranslatableManager
+from parler.models import TranslatableModel
+from parler.models import TranslatedFields
 
 from adhocracy4.images import fields
 from adhocracy4.models import base

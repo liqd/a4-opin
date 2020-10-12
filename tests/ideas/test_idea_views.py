@@ -2,7 +2,9 @@ import pytest
 from django.urls import reverse
 from freezegun import freeze_time
 
-from euth.ideas import models, phases, views
+from euth.ideas import models
+from euth.ideas import phases
+from euth.ideas import views
 from tests.helpers import redirect_target
 
 

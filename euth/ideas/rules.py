@@ -1,14 +1,15 @@
 import rules
 from rules.predicates import is_superuser
 
-from adhocracy4.modules.predicates import (is_context_initiator,
-                                           is_context_member,
-                                           is_context_moderator, is_owner,
-                                           is_public_context)
-from adhocracy4.phases.predicates import (phase_allows_add,
-                                          phase_allows_change,
-                                          phase_allows_comment,
-                                          phase_allows_rate)
+from adhocracy4.modules.predicates import is_context_initiator
+from adhocracy4.modules.predicates import is_context_member
+from adhocracy4.modules.predicates import is_context_moderator
+from adhocracy4.modules.predicates import is_owner
+from adhocracy4.modules.predicates import is_public_context
+from adhocracy4.phases.predicates import phase_allows_add
+from adhocracy4.phases.predicates import phase_allows_change
+from adhocracy4.phases.predicates import phase_allows_comment
+from adhocracy4.phases.predicates import phase_allows_rate
 
 from .models import Idea
 

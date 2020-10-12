@@ -1,4 +1,5 @@
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ValidationError
 from django.forms.fields import Field
 
 from euth.users.forms import User

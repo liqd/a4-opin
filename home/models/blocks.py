@@ -3,7 +3,8 @@ from wagtail.embeds import blocks as embed_blocks
 from wagtail.images import blocks as image_blocks
 from wagtail.snippets import blocks as snippet_blocks
 
-from .snippets import PageCollection, RSSImport
+from .snippets import PageCollection
+from .snippets import RSSImport
 
 
 class RSSImportBlock(core_blocks.StructBlock):

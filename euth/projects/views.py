@@ -10,7 +10,8 @@ from adhocracy4.projects import models as prj_models
 from adhocracy4.projects.mixins import ProjectMixin
 from adhocracy4.projects.models import Project
 
-from . import filters, forms
+from . import filters
+from . import forms
 
 
 class ProjectListView(filter_views.FilteredListView):

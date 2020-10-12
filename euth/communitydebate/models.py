@@ -8,7 +8,8 @@ from adhocracy4 import transforms
 from adhocracy4.categories.fields import CategoryField
 from adhocracy4.comments import models as comment_models
 from adhocracy4.images import fields
-from adhocracy4.models import base, query
+from adhocracy4.models import base
+from adhocracy4.models import query
 from adhocracy4.modules import models as module_models
 from adhocracy4.ratings import models as rating_models
 from euth.contrib import validators

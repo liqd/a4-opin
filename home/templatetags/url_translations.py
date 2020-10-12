@@ -1,6 +1,7 @@
 from django import template
 from django.http import Http404
-from django.urls import resolve, reverse
+from django.urls import resolve
+from django.urls import reverse
 from django.utils import translation
 
 register = template.Library()

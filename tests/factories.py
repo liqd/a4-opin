@@ -3,7 +3,8 @@ from io import BytesIO
 import factory
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
-from django.core.files import base, images
+from django.core.files import base
+from django.core.files import images
 from PIL import Image
 
 from adhocracy4.test import factories

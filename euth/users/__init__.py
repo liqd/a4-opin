@@ -1,4 +1,5 @@
-from django.urls import Resolver404, resolve
+from django.urls import Resolver404
+from django.urls import resolve
 from django.utils.http import is_safe_url
 
 default_app_config = 'euth.users.apps.Config'

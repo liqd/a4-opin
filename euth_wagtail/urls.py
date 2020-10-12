@@ -1,6 +1,7 @@
 from ckeditor_uploader import views as ck_views
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.conf.urls import url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
@@ -17,7 +18,8 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
 from adhocracy4.comments_async.api import CommentViewSet
-from adhocracy4.polls.api import PollViewSet, VoteViewSet
+from adhocracy4.polls.api import PollViewSet
+from adhocracy4.polls.api import VoteViewSet
 from adhocracy4.polls.routers import QuestionDefaultRouter
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet

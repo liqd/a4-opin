@@ -5,7 +5,8 @@ from rules.contrib import views as rules_views
 
 from euth.dashboard.mixins import DashboardBaseMixin
 
-from . import blueprints, forms
+from . import blueprints
+from . import forms
 
 
 def custom_round(x):
