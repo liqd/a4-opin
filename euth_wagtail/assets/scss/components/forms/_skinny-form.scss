@@ -78,7 +78,7 @@
         > a {
             border: 0;
             border-radius: 0;
-            color: #fff;
+            color: $body-bg;
         }
 
         > a:hover,
@@ -97,7 +97,7 @@
 
         &.active a:hover,
         &.active a:focus {
-            background: #fff;
+            background: $body-bg;
         }
     }
 }

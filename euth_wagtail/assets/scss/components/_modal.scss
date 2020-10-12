@@ -1,3 +1,32 @@
+.modal-content > .modal-title {
+    font-family: $font-family-sans-serif;
+    font-weight: normal;
+
+    &:before {
+        height: 100px;
+        margin-bottom: 40px;
+        background: url(/static/images/attention.svg) no-repeat center top;
+        background-size: contain;
+        content: "";
+        display: block;
+        width: 100%;
+    }
+}
+
+.modal.permission {
+    .modal-title:before {
+        content: none;
+    }
+
+    .modal-title .fa,
+    .modal-title .fas,
+    .modal-title .far {
+        display: block;
+        text-align: center;
+        font-size: 100px;
+    }
+}
+
 .modal-content {
     border-radius: 0;
     text-align: center;
@@ -8,21 +37,6 @@
         padding: 60px 0;
         border: none;
         text-align: center;
-    }
-
-    .modal-title {
-        font-family: $font-family-sans-serif;
-        font-weight: normal;
-
-        &:before {
-            height: 100px;
-            margin-bottom: 40px;
-            background: url(/static/images/attention.svg) no-repeat center top;
-            background-size: contain;
-            content: "";
-            display: block;
-            width: 100%;
-        }
     }
 
     .modal-body.success {
@@ -77,26 +91,12 @@
 }
 
 .modal-backdrop {
-    background-color: #0076ae;
+    background-color: $primary;
     opacity: 0.9;
 }
 
 .report-message {
     margin-top: 80px;
-}
-
-.modal.permission {
-    .modal-title:before {
-        content: none;
-    }
-
-    .modal-title .fa,
-    .modal-title .fas,
-    .modal-title .far {
-        display: block;
-        text-align: center;
-        font-size: 100px;
-    }
 }
 
 .loading {

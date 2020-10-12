@@ -2,6 +2,7 @@
     position: relative;
     // @include clearfix();
 }
+
 .alert-info {
     margin-bottom: 2px;
 }
@@ -29,7 +30,7 @@
         width: 48px;
         background-color: $brand-success;
         border: 0;
-        color: #fff;
+        color: $body-bg;
         padding: 0;
     }
 
@@ -38,7 +39,7 @@
         width: 48px;
         background: $brand-danger;
         border: 0;
-        color: #fff;
+        color: $body-bg;
         padding: 0;
     }
 

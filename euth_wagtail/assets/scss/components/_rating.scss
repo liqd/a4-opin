@@ -12,7 +12,7 @@
 
     i {
         display: inline-block;
-        margin-right: .5em;
+        margin-right: 0.5em;
     }
 
     &.is-read-only {
@@ -21,13 +21,12 @@
 }
 
 .rating-up {
-
     @include button-hover-background($brand-success);
 
     &.is-selected {
         background-color: $brand-success;
         border-color: $brand-success;
-        color: #fff;
+        color: $body-bg;
     }
 
     &:disabled {
@@ -48,7 +47,7 @@
     &.is-selected {
         background-color: $brand-danger;
         border-color: $brand-danger;
-        color: #fff;
+        color: $body-bg;
     }
 
     &:disabled {

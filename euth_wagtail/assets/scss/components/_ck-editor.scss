@@ -29,7 +29,7 @@
     a.cke_button_disabled:active,
     a.cke_button_on {
         box-shadow: none;
-        background: darken(#fff, 1%);
+        background: darken($body-bg, 1%);
     }
 
     a.cke_button_on:hover,

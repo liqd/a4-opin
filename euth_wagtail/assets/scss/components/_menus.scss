@@ -3,7 +3,7 @@ body {
 }
 
 .main-menu {
-    background: #fff;
+    background: $body-bg;
     min-height: 60px;
 
     .navbar-brand {
@@ -40,7 +40,7 @@ body {
 
     a,
     button {
-        color: #000;
+        color: $gray-base;
         font-weight: bold;
         text-transform: uppercase;
     }
@@ -51,11 +51,24 @@ body {
 
     .dropdown-menu {
         border-width: 0;
+        padding-bottom: 0;
     }
 
     .dropdown a,
     .dropdown button {
         font-weight: bold;
+    }
+
+    .logout-button-form button {
+        width: 100%;
+        border: 0;
+        text-align: left;
+        padding: 0.5*$spacer 0 0.5*$spacer $spacer;
+        background-color: transparent;
+
+        &:hover {
+            color: $brand-brand1;
+        }
     }
 
     .dropdown-menu.show a.dropdown-toggle,
@@ -69,28 +82,12 @@ body {
         }
     }
 
-    .dropdown-menu {
-        padding-bottom: 0;
-    }
-
     .dropdown-text {
         padding-left: $spacer;
     }
 
     .logout-button-form {
         background-color: $gray-lighter;
-    }
-
-    .logout-button-form button {
-        width: 100%;
-        border: 0;
-        text-align: left;
-        padding: 0.5*$spacer 0 0.5*$spacer $spacer;
-        background-color: transparent;
-
-        &:hover {
-            color: $brand-brand1;
-        }
     }
 
     @media (min-width: $screen-sm-min) {

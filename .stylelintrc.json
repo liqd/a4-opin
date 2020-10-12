@@ -15,7 +15,6 @@
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": "single",
-    "no-duplicate-selectors": true,
     "selector-max-specificity": "1,3,1",
 
     "at-rule-empty-line-before": [ "always", {
@@ -34,7 +33,7 @@
     }],
 
     "indentation": 4,
-    "max-nesting-depth": 2,
+    "max-nesting-depth": 3,
 
     "scale-unlimited/declaration-strict-value": ["/color/", {
       "ignoreKeywords": ["inherit", "transparent"]

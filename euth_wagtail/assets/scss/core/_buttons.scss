@@ -25,13 +25,13 @@ button {
 
     &.button-alt {
         background: transparent;
-        border: 1px solid #fff;
-        color: #fff;
+        border: 1px solid $body-bg;
+        color: $body-bg;
 
         &:focus,
         &:hover {
-            background: #fff;
-            color: #000;
+            background: $body-bg;
+            color: $gray-base;
         }
     }
 }
@@ -60,7 +60,6 @@ button {
     @include button-hover-text($brand-success);
 }
 
-
 .btn-dark {
     background-color: $gray-dark;
 
@@ -73,7 +72,7 @@ button {
 
 .btn-dark-blue {
     background-color: $brand-brand5;
-    color: #fff;
+    color: $body-bg;
 
     &:hover,
     &:focus {
@@ -101,7 +100,7 @@ button {
 span.btn-dark:hover,
 span.btn-dark:focus {
     background-color: $black;
-    color: #fff;
+    color: $body-bg;
 }
 
 .btn-gray {
@@ -139,7 +138,7 @@ span.btn-dark:focus {
 
 .button-white {
     border-radius: 25px;
-    background-color: #fff;
+    background-color: $body-bg;
     color: $brand-brand1;
     font-size: $font-size-small;
 
@@ -149,7 +148,7 @@ span.btn-dark:focus {
 
     &:hover,
     &:focus {
-        background-color: #f4f4f4;
+        background-color: $gray-lighter;
         color: darken($brand-brand1, 10%);
     }
 }
@@ -170,7 +169,7 @@ span.btn-dark:focus {
     @extend .btn-primary;
     @extend .base-button;
     background-color: $brand-brand1;
-    padding: 10px 20px
+    padding: 10px 20px;
 }
 
 .cancel-button {
@@ -207,7 +206,6 @@ span.btn-dark:focus {
         }
     }
 }
-
 
 .btngroup {
     display: inline-block;

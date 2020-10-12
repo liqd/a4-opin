@@ -25,7 +25,6 @@
             letter-spacing: -0.2px;
             font-family: $font-family-sans-serif;
             color: $black;
-            font-size: $font-size-small;
             border-bottom: 0;
         }
     }
@@ -44,11 +43,19 @@
 
     .navbar {
         padding: 0.5*$spacer 0;
+
+        li .dropdown-menu {
+            @extend .custom-dropdown-menu;
+        }
+    }
+
+    .dropdown {
+        @extend .custom-dropdown;
     }
 
     .navbar-right .dropdown {
         position: absolute;
-        background-color: white;
+        background-color: $body-bg;
     }
 
     @media (max-width: $screen-sm-min) {
@@ -70,24 +77,14 @@
             position: absolute;
             right: 0;
             left: auto;
-            background-color: white;
+            background-color: $body-bg;
         }
 
         .navbar-nav .show .dropdown-menu {
             position: absolute;
             top: 80px;
             left: -80px;
-            background-color: #fff;
-        }
-    }
-
-    .dropdown {
-        @extend .custom-dropdown;
-    }
-
-    .navbar {
-        li .dropdown-menu {
-            @extend .custom-dropdown-menu;
+            background-color: $body-bg;
         }
     }
 

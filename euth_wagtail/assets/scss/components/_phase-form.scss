@@ -5,7 +5,7 @@
     position: relative;
 
     .form-control {
-        background-color: white;
+        background-color: $body-bg;
     }
 
     h5 {
@@ -40,6 +40,10 @@
     }
 }
 
+.phasefrom-collapse-top {
+    position: relative;
+}
+
 .phaseform-offline-phase {
     margin-left: 0;
 
@@ -62,8 +66,4 @@
 .single-phase {
     margin-top: 20px;
     padding: 0 20px 20px;
-}
-
-.phasefrom-collapse-top {
-    position: relative;
 }

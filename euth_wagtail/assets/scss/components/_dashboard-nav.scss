@@ -1,5 +1,4 @@
 .dashboard-left-nav {
-
     .list-group {
         background-color: $gray-lighter;
         padding: 10px 10px 20px 10px;
@@ -14,7 +13,7 @@
     }
 
     .active {
-        background-color: white;
+        background-color: $body-bg;
         border-left: 2px solid $brand-primary;
         color: $brand-primary;
     }
@@ -22,7 +21,6 @@
 
 .dashboard-left-nav-header {
     font-size: 20px;
-    margin-bottom: 26px;
     background-color: $gray-lighter;
     margin: 0;
     padding: 15px 15px 15px 10px;

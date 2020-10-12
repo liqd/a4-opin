@@ -3,7 +3,7 @@
     padding-left: 0;
     overflow: hidden;
     height: auto;
-    background-color: inherit; 
+    background-color: inherit;
 
     > li {
         padding: 4px 10px;
@@ -20,10 +20,6 @@
             margin-left: 0;
         }
 
-        &:first-child:before {
-            content: none;
-        }
-
         &:before {
             content: '';
             position: absolute;
@@ -35,11 +31,15 @@
             bottom: 0;
             margin: auto;
         }
+
+        &:first-child:before {
+            content: none;
+        }
     }
 
     > .active {
         background-color: $brand-brand1;
-        color: #fff;
+        color: $body-bg;
     }
 }
 

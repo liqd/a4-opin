@@ -1,3 +1,25 @@
+.blueprint-tile {
+    padding-top: 30px;
+    border: solid 1px $gray-light;
+    background-color: $brand-brand5;
+    display: flex;
+    margin: 13px 1.5%;
+    flex-direction: column;
+
+    > h2 {
+        text-align: center;
+        padding: 15px 0;
+        margin: 0 0 0 0;
+        color: $body-bg;
+        font-size: $font-size-large;
+    }
+
+    .blueprint-image {
+        height: 173px;
+        width: 260px;
+    }
+}
+
 .blueprint-list {
     display: flex;
     flex-wrap: wrap;
@@ -18,41 +40,19 @@
     }
 }
 
-.blueprint-tile {
-    padding-top: 30px;
-    border: solid 1px $gray-light;
-    background-color: $brand-brand5;
-    display: flex;
-    margin: 13px 1.5%;
-    flex-direction: column;
-
-    > h2 {
-        text-align: center;
-        padding: 15px 0;
-        margin: 0 0 0 0;
-        color: #fff;
-        font-size: $font-size-large;
-    }
-
-    .blueprint-image {
-        height: 173px;
-        width: 260px;
-    }
-}
-
 .blueprint-description {
-    background-color: #fff;
+    background-color: $body-bg;
     padding: 1em;
 }
 
 .blueprint-phases {
-    background-color: #fff;
+    background-color: $body-bg;
     flex-grow: 1;
     padding: 0 1em;
 }
 
 .blueprint-footer {
-    background-color: #fff;
+    background-color: $body-bg;
     text-align: center;
     padding: 1em;
 
@@ -71,6 +71,53 @@
 .border-bottom {
     border-bottom: 1px solid $gray-light;
     padding: 20px 0;
+}
+
+.dst-tile {
+    @extend .blueprint-tile;
+    color: $body-bg;
+
+    > img {
+        height: 173px;
+        width: 260px;
+    }
+
+    > h2 {
+        padding: 0 15px;
+    }
+}
+
+.dst-lightbox {
+    margin-top: 80px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    padding-bottom: 24px;
+
+    h2 {
+        text-align: center;
+    }
+
+    .dst-lightbox-progress {
+        position: relative;
+        min-height: 40px;
+
+        .progress {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    .blueprint-tile {
+        padding: 0;
+
+        .blueprint-image {
+            margin: auto;
+        }
+
+        > .blueprint-phases {
+            padding-top: 10px;
+        }
+    }
 }
 
 .dst-modal-infopage {
@@ -94,7 +141,7 @@
             text-align: center;
             padding: 15px 0;
             margin: 0 0 0 0;
-            color: #fff;
+            color: $body-bg;
         }
 
         > .blueprint-image {
@@ -186,20 +233,6 @@
     }
 }
 
-.dst-tile {
-    @extend .blueprint-tile;
-    color: #fff;
-
-    > img {
-        height: 173px;
-        width: 260px;
-    }
-
-    > h2 {
-        padding: 0 15px;
-    }
-}
-
 .dst-description {
     > h3 {
         margin: 0;
@@ -212,39 +245,6 @@
 .dst-footer {
     text-align: center;
     padding: 1em;
-}
-
-.dst-lightbox {
-    margin-top: 80px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    padding-bottom: 24px;
-
-    h2 {
-        text-align: center;
-    }
-
-    .dst-lightbox-progress {
-        position: relative;
-        min-height: 40px;
-
-        .progress {
-            margin-bottom: 0;
-            position: absolute;
-            bottom: 0;
-        }
-    }
-
-    .blueprint-tile {
-        padding: 0;
-
-        .blueprint-image {
-            margin: auto;
-        }
-
-        > .blueprint-phases {
-            padding-top: 10px;
-        }
-    }
 }
 
 .dst-lightbox-header {
@@ -285,18 +285,18 @@ h2.dst-lightbox-banner {
     padding: 24px 0;
     margin: 0 -15px; /* work arround boostrap grid */
     background-color: $brand-brand3;
-    color: #fff;
+    color: $body-bg;
 }
 
 .dashboard-form-buttons {
     .dropdown-toggle {
-        border-left: solid 1px #fff;
+        border-left: solid 1px $body-bg;
     }
 
     .dropdown-menu {
         .btn-hover-primary,
         .btn-hover-danger {
-            background-color: #fff;
+            background-color: $body-bg;
         }
 
         .btn {

@@ -4,7 +4,7 @@
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
-    background: #fff center center / cover;
+    background: $body-bg center center / cover;
 }
 
 .circled-xs {
@@ -19,5 +19,5 @@
 
 .bio {
     font-style: italic;
-    color: $gray
+    color: $gray;
 }

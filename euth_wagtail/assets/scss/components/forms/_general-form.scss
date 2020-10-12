@@ -1,3 +1,11 @@
+.form-control {
+    &,
+    &:focus {
+        background: transparent;
+        box-shadow: none;
+    }
+}
+
 .general-form {
     margin-bottom: 40px;
 
@@ -24,7 +32,7 @@
         display: block;
         position: relative;
         background-color: $brand-danger;
-        color: #fff;
+        color: $body-bg;
         font-weight: 600;
         text-align: right;
         padding: 4px 8px 4px 28px;
@@ -45,7 +53,7 @@
         padding: 0.5em;
 
         color: $brand-danger;
-        background-color: #fff;
+        background-color: $body-bg;
         border: solid 2px $brand-danger;
 
         &:before {
@@ -60,7 +68,7 @@
         padding: 0.5em;
 
         color: $gray;
-        background-color: #fff;
+        background-color: $body-bg;
         border: solid 2px $gray;
 
         &:before {
@@ -82,21 +90,14 @@
     @extend p;
 }
 
-.form-control {
-    &,
-    &:focus {
-        background: transparent;
-        box-shadow: none;
-    }
-}
-
 .form-check__label {
     margin-bottom: 1em;
 }
 
 .flatpickr-input[readonly] {
-    background-color: #fff;
+    background-color: $body-bg;
 }
+
 .input-group {
     width: 100%;
 }

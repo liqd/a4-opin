@@ -7,14 +7,15 @@
     }
 
     .dropdown {
-        color: white;
+        color: $body-bg;
     }
 
     .nav-tabs {
         background-color: transparent;
+
         li {
             a {
-                color: white;
+                color: $body-bg;
             }
 
             a:hover {
@@ -25,7 +26,7 @@
 }
 
 .dashboard-header-indicator {
-    color: white;
+    color: $body-bg;
     padding: 1px 7px 2px 7px;
 }
 
@@ -40,17 +41,18 @@
 
     &.active {
         border-top: 5px solid $brand-brand2;
+
         &.dashboard-header-link {
             color: $black !important;
         }
     }
 }
 
-
 .dashboard-header-logo {
     display: inline-block;
     width: 30px;
     height: 30px;
+
     img {
         border-radius: 50%;
     }

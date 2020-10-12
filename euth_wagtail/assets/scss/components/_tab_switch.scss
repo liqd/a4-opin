@@ -3,7 +3,7 @@
     justify-content: center;
     display: flex;
     border-bottom: 2px solid $brand-primary;
-    background-color: #fff;
+    background-color: $body-bg;
 
     li {
         margin-bottom: -2px;

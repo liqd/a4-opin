@@ -1,11 +1,4 @@
 nav .pagination {
-    li:last-child,
-    li:first-child {
-        a {
-            border-radius: 0;
-        }
-    }
-
     a {
         margin-left: 4px;
         padding: 10px 15px 10px 16px;
@@ -24,6 +17,13 @@ nav .pagination {
         @media screen and (max-width: $screen-xs-max) {
             margin-left: 3px;
             padding: 9px 13px 9px 13px;
+        }
+    }
+
+    li:last-child,
+    li:first-child {
+        a {
+            border-radius: 0;
         }
     }
 }

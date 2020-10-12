@@ -29,38 +29,15 @@
             float: none;
         }
 
-        a {
-            padding: 5px 0;
-        }
+        // a {
+        //     padding: 5px 0;
+        // }
     }
 
     @media screen and (max-width: $screen-sm-max) {
         .container-narrow {
             padding: 0;
         }
-    }
-}
-
-.footer-disclaimer {
-    min-height: $footer-height;
-    margin-top: 20px;
-    float: left;
-    width: 100%;
-
-    .footer-disclaimer-logo {
-        max-width: 33%;
-        margin-bottom: 20px;
-
-        @media (min-width: $screen-sm-min) {
-            margin-right: 40px;
-            margin-bottom: 0;
-            float: left;
-            max-width: 80px;
-        }
-    }
-
-    .footer-disclaimer-text {
-        overflow: hidden;
     }
 }
 
@@ -88,28 +65,51 @@
         }
 
         &.facebook a {
-            color: #3b589b;
+            color: $facebook;
         }
 
         &.twitter a {
-            color: #5ea9dd;
+            color: $twitter;
         }
 
         &.gplus a {
-            color: #dd4b39;
+            color: $gplus;
         }
 
         &.linkedin a {
-            color: #0086bf;
+            color: $linkedin;
         }
 
         &.euth a {
-            color: #106cb6;
+            color: $primary;
             margin-top: -4px;
         }
     }
 
     @media (max-width: $screen-sm-min) {
         width: 100%;
+    }
+}
+
+.footer-disclaimer {
+    min-height: $footer-height;
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+
+    .footer-disclaimer-logo {
+        max-width: 33%;
+        margin-bottom: 20px;
+
+        @media (min-width: $screen-sm-min) {
+            margin-right: 40px;
+            margin-bottom: 0;
+            float: left;
+            max-width: 80px;
+        }
+    }
+
+    .footer-disclaimer-text {
+        overflow: hidden;
     }
 }

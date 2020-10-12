@@ -25,12 +25,12 @@
     }
 
     li a.active {
-        background: #fff;
+        background: $body-bg;
         color: $brand-brand1;
         box-shadow: 0 -9px 10px 3px rgba(0, 0, 0, 0.1);
 
         @media screen and (max-width: $screen-xs-max) {
-            box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.10);
+            box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1);
         }
     }
 

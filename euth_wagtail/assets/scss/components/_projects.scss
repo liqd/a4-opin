@@ -2,6 +2,15 @@
     float: left;
 }
 
+.project-tile-image-link {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    display: block;
+    position: relative;
+    box-sizing: content-box;
+}
+
 .project-tile {
     @extend %tile;
     min-height: 490px;
@@ -93,15 +102,6 @@
 .project-tile-image {
     visibility: hidden;
     height: 171px;
-}
-
-.project-tile-image-link {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    display: block;
-    position: relative;
-    box-sizing: content-box;
 }
 
 .project-tile-org {

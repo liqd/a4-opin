@@ -14,7 +14,7 @@
     }
 
     .btn {
-        background-color: white;
+        background-color: $body-bg;
         border: solid 1px $gray-light;
     }
 
@@ -81,6 +81,8 @@
     }
 
     .filter-element {
+        width: 100%;
+
         .dropdown-menu {
             max-height: 300px;
             overflow-x: hidden;
@@ -92,10 +94,6 @@
             padding: 0.5*$spacer $spacer;
             text-align: left;
         }
-    }
-
-    .filter-element {
-        width: 100%;
     }
 
     .btn-group {
