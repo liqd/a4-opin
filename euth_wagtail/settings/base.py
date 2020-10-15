@@ -289,6 +289,8 @@ PARLER_LANGUAGES = {
     1:[{'code': language_code } for language_code, language in LANGUAGES]
 }
 
+PARLER_ENABLE_CACHING = False
+
 # fixtures
 
 FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
