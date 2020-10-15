@@ -33,7 +33,7 @@
         ></div>
 
         {% for lang_code, fields in form.translated %}
-        <div class="language-switch-panel {% if forloop.first %}active{% endif %}" id="{{ lang_code }}_language_panel">
+        <div class="language-switch-panel {% if lang_code == form.get_initial_active_tab %}active{% endif %}" id="{{ lang_code }}_language_panel">
             {% for field in fields %}
             <div class="form-group{% if field.errors %} has-error{% endif %}">
                 <label for="{{field.id_for_label}}">{{ field.label }}</label>
