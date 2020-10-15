@@ -10,6 +10,7 @@
     text-align: left;
 }
 
-.dropdown-menu > :last-child > a {
-    margin-bottom: $spacer;
-}
+// commenting out to test on dev as seems un-needed
+// .dropdown-menu > :last-child > a {
+//     margin-bottom: $spacer;
+// }

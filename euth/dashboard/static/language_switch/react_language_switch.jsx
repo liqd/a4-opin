@@ -90,11 +90,11 @@ class LanguageSwitch extends React.Component {
                     type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
                     checked={this.state.activeLanguages.indexOf(languageCode) !== -1} readOnly
                   />
-                  <a
+                  <button
                     href={'#' + languageCode + '_language_panel'} className={'language-switch btn ' + (languageCode === this.state.activeTab ? 'active' : '')}
                     data-toggle="tab" onClick={this.activateTab.bind(this)}
                   >{languageCode}
-                  </a>
+                  </button>
                 </li>
               )
             })
@@ -136,14 +136,14 @@ class LanguageSwitch extends React.Component {
                 this.state.activeLanguages.map(languageCode => {
                   return (
                     <span key={languageCode}>
-                      <a
+                      <button
                         className="dropdown-item"
                         href={languageCode === this.state.activeTab ? '#' + this.getNewActiveTab(languageCode) + '_language_panel' : ''}
                         data-toggle="tab"
                         onClick={this.removeLanguage.bind(this)}
                         key={languageCode}
                       >{languageCode}
-                      </a>
+                      </button>
                     </span>
                   )
                 })

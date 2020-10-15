@@ -20,7 +20,7 @@
         display: inline-block;
     }
 
-    a {
+    button {
         color: $black;
         background-color: $gray-lighter;
         padding: 10px 13px;
@@ -32,7 +32,7 @@
         }
     }
 
-    .active a {
+    .active button {
         background-color: $brand-brand1;
         color: #fff;
     }
@@ -45,6 +45,7 @@
 .language-switch-list .dropdown-toggle {
     padding: 10px 15px;
     background-color: $gray-lighter;
+    color: $black;
 }
 
 .language-switch {
