@@ -88,10 +88,14 @@ class OrganisationForm(forms.ModelForm):
         languages = [lang for lang in self.languages
                      if lang in self.data
                      or self.instance.has_translation(lang)]
-        # always provide english
-        if 'en' not in languages:
-            languages.insert(0, 'en')
         return languages
+
+    def get_initial_active_tab(self):
+        active_languages = self.prefilled_languages()
+        if len(active_languages) > 0:
+            return active_languages[0]
+        else:
+            return 'en'
 
     def save(self, commit=True):
         instance = super().save(commit=commit)
