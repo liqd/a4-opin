@@ -106,6 +106,27 @@ def test_create_view(client, phase, user):
 @pytest.mark.django_db
 @pytest.mark.parametrize('phase__type',
                          [phases.DebatePhase().identifier])
+def test_create_view_invalid_form(client, phase, user):
+    module = phase.module
+    with freeze_time(phase.start_date):
+        url = reverse('topic-create', kwargs={'slug': module.slug})
+        client.login(username=user.email, password='password')
+        response = client.get(url)
+        assert response.status_code == 200
+        form_data = {'name': 'Topp',
+                     'topicfileupload_set-TOTAL_FORMS': '1',
+                     'topicfileupload_set-INITIAL_FORMS': '0',
+                     'topicfileupload_set-MAX_NUM_FORMS': '3',
+                     }
+        response = client.post(url, form_data)
+        assert response.status_code == 200
+        assert 'This field is required'.encode() in response.content
+        assert models.Topic.objects.all().count() == 0
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize('phase__type',
+                         [phases.DebatePhase().identifier])
 def test_update_view(client, phase, topic, topic_file_upload_factory):
     topic.module = phase.module
     topic.save()
