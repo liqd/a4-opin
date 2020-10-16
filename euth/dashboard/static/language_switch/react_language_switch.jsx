@@ -11,14 +11,6 @@ class LanguageSwitch extends React.Component {
     }
   }
 
-  componentDidMount () {
-    window.addEventListener('load', this.handleLoad)
-  }
-
-  handleLoad () {
-    location.hash = ''
-  }
-
   getInitialActiveTab () {
     if (this.props.activeLanguages.length > 0) {
       return this.props.activeLanguages[0]
@@ -110,14 +102,14 @@ class LanguageSwitch extends React.Component {
                 return (
                   <span key={languageCode}>
                     {this.state.activeLanguages.indexOf(languageCode) === -1 &&
-                      <a
+                      <button
                         href={'#' + languageCode + '_language_panel'}
                         className="dropdown-item"
                         data-toggle="tab"
                         onClick={this.addLanguage.bind(this)}
                         key={languageCode}
                       >{languageCode}
-                      </a>}
+                      </button>}
                   </span>
 
                 )
