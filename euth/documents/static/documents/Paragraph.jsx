@@ -112,37 +112,38 @@ class Paragraph extends React.Component {
               </div>
             </div>
           </div>
+
           <div className="col-sm-3 comment-count">
             <div className="action-bar">
-              {this.props.moveParagraphUp
+              {this.props.moveParagraphUp /* eslint-disable indent, react/jsx-indent */
                 ? <button
-                  className="btn btn-hover-primary"
-                  onClick={this.up.bind(this)}
-                  type="button"
-                /* eslint-disable-line */ >
-                  <i className="fa fa-chevron-up" />
-                </button> // eslint-disable-line
+                    className="btn btn-hover-primary"
+                    onClick={this.up.bind(this)}
+                    type="button"
+                  >
+                    <i className="fa fa-chevron-up" />
+                  </button>
                 : <button
-                  className="btn btn-hover-primary"
-                  type="button"
-                /* eslint-disable-line */ >
-                  <i className="fa fa-chevron-up" />
-                </button> /* eslint-disable-line */ }
+                    className="btn btn-hover-primary"
+                    type="button"
+                  >
+                    <i className="fa fa-chevron-up" />
+                  </button>}
               {this.props.moveParagraphDown
                 ? <button
-                  className="btn btn-hover-primary"
-                  onClick={this.down.bind(this)}
-                  type="button"
-                /* eslint-disable-line */>
-                  <i className="fa fa-chevron-down" />
-                </button> // eslint-disable-line
+                    className="btn btn-hover-primary"
+                    onClick={this.down.bind(this)}
+                    type="button"
+                  >
+                    <i className="fa fa-chevron-down" />
+                  </button>
                 : <button
-                  className="btn btn-hover-primary"
-                  disabled="true"
-                  type="button"
-                /* eslint-disable-line */ >
-                  <i className="fa fa-chevron-down" />
-                </button> /* eslint-disable-line */ }
+                    className="btn btn-hover-primary"
+                    disabled="true"
+                    type="button"
+                  >
+                    <i className="fa fa-chevron-down" />
+                  </button> /* eslint-enable indent, react/jsx-indent */}
               <button
                 className="btn btn-hover-danger"
                 onClick={this.delete.bind(this)}
