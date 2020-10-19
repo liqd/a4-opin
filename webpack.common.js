@@ -92,7 +92,7 @@ module.exports = {
     ],
     blueprintsuggest: [
       './euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js'
-    ],
+    ]
 
   },
   output: {
@@ -125,16 +125,17 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-                url: url => !url.startsWith('/')
+              url: url => !url.startsWith('/')
             }
           },
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: [
-                require('autoprefixer')
-              ]
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
             }
           },
           {
