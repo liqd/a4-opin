@@ -2,14 +2,16 @@ import pytest
 from django.core import mail
 from django.urls import reverse
 
+from adhocracy4.projects.enums import Access
 from euth.memberships import models
 from tests.helpers import redirect_target
 from tests.helpers import templates_used
 
 
 @pytest.mark.django_db
-@pytest.mark.parametrize('project__is_public', [False])
 def test_detail_private_project(client, project, user):
+    project.access = Access.PRIVATE
+    project.save()
     project_url = reverse('project-detail', args=[project.slug])
     response = client.get(project_url)
     assert response.status_code == 302
@@ -56,9 +58,10 @@ def test_detail_draft_project(client, project, user):
     assert response.context_data['view'].project == project
 
 
-@pytest.mark.parametrize('project__is_public', [False])
 @pytest.mark.django_db
 def test_create_request(client, project, user):
+    project.access = Access.PRIVATE
+    project.save()
     url = reverse('memberships-request', kwargs={'project_slug': project.slug})
     response = client.get(url)
     assert redirect_target(response) == 'account_login'

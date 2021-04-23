@@ -1,5 +1,7 @@
 from django import template
 
+from adhocracy4.projects.enums import Access
+
 register = template.Library()
 
 
@@ -7,7 +9,7 @@ register = template.Library()
 def get_class(project):
     if project.is_archived:
         return 'archived'
-    elif not project.is_public:
+    elif project.access == Access.PRIVATE:
         return 'private'
     elif project.has_finished:
         return 'finished'

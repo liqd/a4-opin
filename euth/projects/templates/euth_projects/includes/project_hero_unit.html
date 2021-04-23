@@ -9,7 +9,7 @@
 
                 {% get_days project.days_left as days %}
                 <p>
-                    {% if not project.is_public %}
+                    {% if project.is_private %}
                     <span class="badge badge-private">{% trans 'private' %}</span>
                     {% endif %}
                     {% if project.is_archived %}

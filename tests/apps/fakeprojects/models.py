@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from adhocracy4.projects.enums import Access
+
 
 class FakeProject():
     """
@@ -8,7 +10,7 @@ class FakeProject():
     """
     name = 'fake projects name'
     active_phase = None
-    is_public = False
+    access = Access.PRIVATE
 
     def has_member(self, user):
         return True

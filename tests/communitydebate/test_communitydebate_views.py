@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 from freezegun import freeze_time
 
+from adhocracy4.projects.enums import Access
 from euth.communitydebate import models
 from euth.communitydebate import phases
 from euth.communitydebate import views
@@ -44,10 +45,8 @@ def test_detail_view(client, topic, topic_file_upload_factory):
 
 
 @pytest.mark.django_db
-@pytest.mark.parametrized('topic__module__project__is_public',
-                          [False])
 def test_detail_view_private(client, topic, user):
-    topic.module.project.is_public = False
+    topic.module.project.access = Access.PRIVATE
     topic.module.project.save()
     url = reverse('topic-detail', kwargs={'slug': topic.slug})
     response = client.get(url)

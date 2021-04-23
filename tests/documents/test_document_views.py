@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 
 from adhocracy4.comments.models import Comment
+from adhocracy4.projects.enums import Access
 from euth.exports import mixins
 from tests.helpers import redirect_target
 
@@ -18,7 +19,8 @@ def test_paragraph_detail_view(client, paragraph):
 
 @pytest.mark.django_db
 def test_paragraph_private_detail_view(client, paragraph_factory, user):
-    paragraph = paragraph_factory(document__module__project__is_public=False)
+    paragraph = paragraph_factory(
+        document__module__project__access=Access.PRIVATE)
 
     url = reverse('paragraph-detail', kwargs={
         'pk': paragraph.pk

@@ -10,7 +10,7 @@
     "@babel/preset-react": "7.12.1",
     "@babel/runtime": "7.12.1",
     "@fortawesome/fontawesome-free": "5.15.1",
-    "adhocracy4": "github:liqd/adhocracy4#opin-v3.10.3",
+    "adhocracy4": "github:liqd/adhocracy4#ced1aa4db1bf993a9db82a133c1a3ac1b64acbd1",
     "axios": "0.20.0",
     "babel-loader": "8.1.0",
     "bootstrap": "4.5.3",
