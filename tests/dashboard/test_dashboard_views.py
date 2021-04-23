@@ -4,6 +4,7 @@ from django.core import mail
 from django.urls import reverse
 from parler.utils.context import switch_language
 
+from adhocracy4.projects.enums import Access
 from adhocracy4.projects.models import Project
 from tests.helpers import redirect_target
 
@@ -83,7 +84,8 @@ def test_initiator_edit_project(client, phase):
 
     client.post(url, {
         'name': 'Project name',
-        'description': 'Project info'
+        'description': 'Project info',
+        'access': Access.PUBLIC.value
     })
 
     project = Project.objects.get(id=project.id)
