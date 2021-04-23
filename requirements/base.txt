@@ -5,33 +5,33 @@ git+git://github.com/liqd/adhocracy4.git@opin-v3.10.3#egg=adhocracy4
 bcrypt==3.2.0
 brotli==1.0.9
 django-cloudflare-push==0.2.0
-django-countries==6.1.3
+django-countries==7.1
 django-sites==0.10
 django-parler==2.2
-feedparser==6.0.1
-micawber==0.5.1
+feedparser==6.0.2
+micawber==0.5.3
 pyuca==1.2
 raven==6.10.0
-Unidecode==1.1.1 # needed by django-autoslug for cyrillic fields
+Unidecode==1.2.0 # needed by django-autoslug for cyrillic fields
 wagtail==2.7.4 # pyup: <2.8
 whitenoise==5.2.0
 
 # Inherited a4-core requirements
-bleach==3.2.1
+bleach==3.3.0
 Django==2.2.20 # pyup: <2.3
-django-allauth==0.42.0
+django-allauth==0.44.0
 django-autoslug==1.9.8
 django-background-tasks==1.2.5
 django-ckeditor==6.0.0
 django-filter==2.4.0
 django-multiselectfield==0.1.12
 django-widget-tweaks==1.4.8
-djangorestframework==3.12.1
-easy-thumbnails==2.7
+djangorestframework==3.12.4
+easy-thumbnails==2.7.1
 html5lib==1.1
 jsonfield==3.1.0
 psycopg2-binary==2.8.6
 python-dateutil==2.8.1
-python-magic==0.4.18
+python-magic==0.4.22
 rules==2.2
-XlsxWriter==1.3.6
+XlsxWriter==1.3.8
