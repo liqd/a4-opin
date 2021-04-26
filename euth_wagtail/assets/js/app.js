@@ -1,11 +1,11 @@
 /* global location */
 
-import 'bootstrap'
+import 'bootstrap' // load bootstrap components
 
 import './euth_wagtail'
 
 import {
-  comments_async as ReactCommentsAsync,
+  commentsAsync as ReactCommentsAsync,
   polls as ReactPolls,
   ratings as ReactRatings,
   widget as ReactWidget
@@ -21,6 +21,7 @@ function init () {
   ReactWidget.initialise('a4', 'ratings', ReactRatings.renderRatings)
   ReactWidget.initialise('a4', 'polls', ReactPolls.renderPolls)
   ReactWidget.initialise('a4', 'poll-management', ReactPolls.renderPollManagement)
+
   ReactWidget.initialise('euth', 'document', ReactParagraphs.renderParagraphs)
   ReactWidget.initialise('euth', 'follows', ReactFollows.renderFollow)
   ReactWidget.initialise('euth', 'userlist', ReactUserList.renderUserList)
