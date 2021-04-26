@@ -46,7 +46,7 @@
     "webpack-merge": "5.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "10.1.0",
+    "autoprefixer": "10.2.5",
     "babel-eslint": "10.1.0",
     "eslint": "7.16.0",
     "eslint-config-standard": "14.1.1",
