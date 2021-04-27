@@ -4,6 +4,7 @@ import 'bootstrap' // load bootstrap components
 
 import './euth_wagtail'
 
+// expose react components
 import {
   commentsAsync as ReactCommentsAsync,
   polls as ReactPolls,
