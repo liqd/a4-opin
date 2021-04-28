@@ -15,7 +15,7 @@
     "babel-loader": "8.2.2",
     "bootstrap": "4.5.3",
     "classnames": "2.2.6",
-    "copy-webpack-plugin": "6.2.1",
+    "copy-webpack-plugin": "6.4.1",
     "css-loader": "5.2.4",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
     "file-loader": "6.2.0",
