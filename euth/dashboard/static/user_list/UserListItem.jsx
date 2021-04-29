@@ -6,7 +6,7 @@ var UserListItem = function (props) {
     <tr>
       <td>
         <a href={`/profile/${props.user.username}`}>
-          <Avatar src={props.user.avatar} fallback={props.user.default_avatar} /> {props.user.username}
+          <Avatar src={props.user.avatar} fallback={props.user.avatar_fallback} /> {props.user.username}
         </a>
       </td>
       <td>
