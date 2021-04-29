@@ -11,6 +11,8 @@
                 <p>
                     {% if project.is_private %}
                     <span class="badge badge-private">{% trans 'private' %}</span>
+                    {% elif project.is_semipublic %}
+                    <span class="badge badge-private">{% trans 'semi-public' %}</span>
                     {% endif %}
                     {% if project.is_archived %}
                     <span class="badge badge-archived">{% trans 'archived' %}</span>

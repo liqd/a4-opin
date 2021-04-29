@@ -16,8 +16,10 @@
                     {% if project.has_finished %}
                     <span class="badge badge-finished">{% trans "Finished" %}</span>
                     {% endif %}
-                    {% if not project.is_public %}
+                    {% if project.is_private %}
                     <span class="badge badge-private">{% trans 'private' %}</span>
+                    {% elif project.is_semipublic %}
+                    <span class="badge badge-private">{% trans 'semi-public' %}</span>
                     {% endif %}
                 </div>
             </div>

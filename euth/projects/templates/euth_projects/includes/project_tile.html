@@ -9,8 +9,10 @@
         {% get_days project.days_left as days %}
         {% if project.is_archived %}
         <p class="badge badge-archived">{% trans 'archived' %}</p>
-        {% elif not project.is_public %}
+        {% elif project.is_private %}
         <p class="badge badge-private">{% trans 'private' %}</p>
+        {% elif project.is_semipublic %}
+        <p class="badge badge-private">{% trans 'semi-public' %}</p>
         {% elif project.has_finished %}
         <p class="badge badge-finished">{% trans 'finished' %}</p>
         {% elif days %}
