@@ -9,7 +9,7 @@ You are invited to join the project “{{ invite.project.name }}” on <i>{{ sit
 {% endblock  %}
 
 {% block content %}
-You were invited as a member of this private project by the user <i>{{ invite.creator.username }}</i>. Private projects allow participants to discuss and decide on topics in an invite-only group of people.  If you want to join the project, please visit the project by clicking the {% if part_type == "txt" %}link{% else %}button{% endif %} below.
+{% if invite.project.is_semipublic %}You were invited as a member of this semi-public project by the user <i>{{ invite.creator.username }}</i>. Semi-public projects are visible for all users, but only participants are allowed to discuss and decide on topics in an invite-only group of people.  {% else %}You were invited as a member of this private project by the user <i>{{ invite.creator.username }}</i>. Private projects allow participants to discuss and decide on topics in an invite-only group of people. {% endif %}If you want to join the project, please visit the project by clicking the {% if part_type == "txt" %}link{% else %}button{% endif %} below.
 {% endblock %}
 
 {% block cta_url %}{{ email.get_host }}{{ invite.get_absolute_url }}{% endblock %}

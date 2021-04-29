@@ -13,7 +13,7 @@ class MembershipRequestComponent(DashboardComponent):
     label = _('Members')
 
     def is_effective(self, project_or_module):
-        return project_or_module.is_private
+        return project_or_module.is_private or project_or_module.is_semipublic
 
     def get_base_url(self, project):
         return reverse('a4dashboard:members', kwargs={
@@ -34,7 +34,7 @@ class MembershipInvitesComponent(DashboardComponent):
     label = _('Invited Members')
 
     def is_effective(self, project_or_module):
-        return project_or_module.is_private
+        return project_or_module.is_private or project_or_module.is_semipublic
 
     def get_base_url(self, project):
         return reverse('a4dashboard:invites', kwargs={
