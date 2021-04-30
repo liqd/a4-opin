@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-08 13:32+0200\n"
+"POT-Creation-Date: 2021-04-30 14:04+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
@@ -83,7 +83,7 @@ msgstr "Nov projekt"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
-#: euth/projects/templates/euth_projects/includes/project_list_item.html:19
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:21
 #: euth/projects/templates/euth_projects/project_detail.html:38
 msgid "Phase"
 msgstr "Faza"
@@ -99,19 +99,19 @@ msgid "Missing field for publication"
 msgstr "Manjkajoče polje za objavo"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:39
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:39
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "Preview"
 msgstr "Predogled"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:41
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:41
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:33
 msgid "View"
 msgstr "Pogled"
 
@@ -188,6 +188,13 @@ msgstr "Končano"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
+#: adhocracy4/projects/enums.py:14
+msgid "semipublic"
+msgstr ""
+
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
+#: adhocracy4/projects/enums.py:15
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
 #: euth/projects/templates/euth_projects/includes/project_tile.html:13
@@ -195,8 +202,8 @@ msgstr "Končano"
 msgid "private"
 msgstr "zasebno"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:27
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html:36
@@ -204,18 +211,18 @@ msgstr "zasebno"
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:13
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:21
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:36
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:38
 msgid "Edit"
 msgstr "Uredi"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:52
 msgid "Duplicate"
 msgstr "Podvoji"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
 msgstr "Nobenih projektov nismo našli."
@@ -223,7 +230,7 @@ msgstr "Nobenih projektov nismo našli."
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
 #: adhocracy4/dashboard/filter.py:11
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:69
+#: euth/contrib/filters.py:70
 msgid "Search"
 msgstr "Išči"
 
@@ -447,20 +454,20 @@ msgstr "Ne"
 msgid "Yes"
 msgstr "Ja"
 
-#: adhocracy4/dashboard/forms.py:74
+#: adhocracy4/dashboard/forms.py:76
 msgid "All users can participate (public)."
 msgstr "Udeležijo se lahko vsi uporabniki (javno)."
 
-#: adhocracy4/dashboard/forms.py:75
+#: adhocracy4/dashboard/forms.py:78
 msgid "Only invited users can participate (private)."
 msgstr "Udeležijo se lahko le povabljeni uporabniki (zasebno)."
 
-#: adhocracy4/dashboard/forms.py:83
+#: adhocracy4/dashboard/forms.py:86
 #: euth/projects/templates/euth_projects/project_detail.html:109
 msgid "Contact for questions"
 msgstr "Kontakt za vprašanja"
 
-#: adhocracy4/dashboard/forms.py:84
+#: adhocracy4/dashboard/forms.py:87
 msgid ""
 "Please name a contact person. The user will then know who is carrying out "
 "this project and to whom they can address possible questions. The contact "
@@ -470,11 +477,11 @@ msgstr ""
 "se lahko obrnejo na morebitna vprašanja. Kontaktna oseba bo prikazana na "
 "zavihku z informacijami na strani projekta."
 
-#: adhocracy4/dashboard/forms.py:89
+#: adhocracy4/dashboard/forms.py:92
 msgid "More contact possibilities"
 msgstr "Več možnosti za stik"
 
-#: adhocracy4/dashboard/forms.py:102
+#: adhocracy4/dashboard/forms.py:105
 #: adhocracy4/phases/models.py:69
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
@@ -482,16 +489,16 @@ msgstr "Več možnosti za stik"
 msgid "Name"
 msgstr "Ime"
 
-#: adhocracy4/dashboard/forms.py:104
+#: adhocracy4/dashboard/forms.py:107
 msgid "Address"
 msgstr "Naslov"
 
-#: adhocracy4/dashboard/forms.py:107
+#: adhocracy4/dashboard/forms.py:110
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Telephone"
 msgstr "Telefon"
 
-#: adhocracy4/dashboard/forms.py:109
+#: adhocracy4/dashboard/forms.py:112
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -501,26 +508,26 @@ msgstr "Telefon"
 msgid "Email"
 msgstr "Elektronska pošta"
 
-#: adhocracy4/dashboard/forms.py:111
+#: adhocracy4/dashboard/forms.py:114
 #: euth/projects/templates/euth_projects/project_detail.html:126
 msgid "Website"
 msgstr "Spletna stran"
 
-#: adhocracy4/dashboard/forms.py:141
+#: adhocracy4/dashboard/forms.py:144
 #: adhocracy4/phases/models.py:77
 msgid "End date"
 msgstr "Datum zaključka"
 
-#: adhocracy4/dashboard/forms.py:141
+#: adhocracy4/dashboard/forms.py:144
 msgid "End time"
 msgstr "Konec časa"
 
-#: adhocracy4/dashboard/forms.py:147
+#: adhocracy4/dashboard/forms.py:150
 #: adhocracy4/phases/models.py:75
 msgid "Start date"
 msgstr "Datum pričetka"
 
-#: adhocracy4/dashboard/forms.py:147
+#: adhocracy4/dashboard/forms.py:150
 msgid "Start time"
 msgstr "Čas začetka"
 
@@ -717,54 +724,56 @@ msgstr ""
 "projektu. Na kratko mora navesti cilj modula v maks. 512 znakov."
 
 #: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:577
+#: adhocracy4/projects/models.py:586
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "dan"
 
 #: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:577
+#: adhocracy4/projects/models.py:586
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "dnevi"
 
 #: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/projects/models.py:587
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "ura"
 
 #: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/projects/models.py:587
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "ure"
 
 #: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/projects/models.py:588
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "minuta"
 
 #: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/projects/models.py:588
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "minute"
 
 #: adhocracy4/modules/models.py:187
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/projects/models.py:589
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "sekunda"
 
 #: adhocracy4/modules/models.py:187
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/modules/models.py:198
+#: adhocracy4/projects/models.py:589
+#: adhocracy4/projects/models.py:600
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "sekunde"
 
-#: adhocracy4/phases/forms.py:21
+#: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
 
@@ -779,8 +788,13 @@ msgstr "Opis"
 msgid "End date can not be before start date."
 msgstr ""
 
+#: adhocracy4/phases/models.py:100
+#: adhocracy4/phases/models.py:104
+msgid "Either both or no date has to be set."
+msgstr ""
+
 #: adhocracy4/polls/dashboard.py:14
-#: euth/blueprints/blueprints.py:312
+#: euth/blueprints/blueprints.py:313
 msgid "Poll"
 msgstr "Anketa"
 
@@ -831,7 +845,11 @@ msgstr "Slike"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: adhocracy4/projects/models.py:41
+#: adhocracy4/projects/enums.py:13
+msgid "public"
+msgstr ""
+
+#: adhocracy4/projects/models.py:43
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
@@ -839,19 +857,19 @@ msgstr ""
 "Telefonske številke lahko vsebujejo samo številke, presledke in naslednje "
 "znake: -, +, (,). Dolžina mora biti od 8 do 20 znakov."
 
-#: adhocracy4/projects/models.py:47
+#: adhocracy4/projects/models.py:49
 msgid "Postal address"
 msgstr "poštni naslov"
 
-#: adhocracy4/projects/models.py:56
+#: adhocracy4/projects/models.py:58
 msgid "Contact person"
 msgstr "Kontaktna oseba"
 
-#: adhocracy4/projects/models.py:76
+#: adhocracy4/projects/models.py:78
 msgid "Can your project be located on the map?"
 msgstr "Ali se lahko vaš projekt nahaja na zemljevidu?"
 
-#: adhocracy4/projects/models.py:77
+#: adhocracy4/projects/models.py:79
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -860,15 +878,15 @@ msgstr ""
 "naslov, da nastavite oznako. Oznako nastavitve lahko povlečete, ko jo "
 "pritisnete."
 
-#: adhocracy4/projects/models.py:88
+#: adhocracy4/projects/models.py:90
 msgid "Administrative district"
 msgstr "Upravno okrožje"
 
-#: adhocracy4/projects/models.py:172
+#: adhocracy4/projects/models.py:174
 msgid "Title of your project"
 msgstr "Naslov tvojega projekta"
 
-#: adhocracy4/projects/models.py:173
+#: adhocracy4/projects/models.py:175
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -876,11 +894,11 @@ msgstr ""
 "Ta naslov bo viden na oglasnih karticah in na vrhu projektne informacijske "
 "strani. Dolg naj bo največ 120 znakov."
 
-#: adhocracy4/projects/models.py:189
+#: adhocracy4/projects/models.py:191
 msgid "Short description of your project"
 msgstr "Kratek opis tvojega projekta"
 
-#: adhocracy4/projects/models.py:190
+#: adhocracy4/projects/models.py:192
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -888,11 +906,11 @@ msgstr ""
 "Ta kratek opis bo viden na naslovnici projekta in v teaser - oglasu. V njem "
 "na kratko opišeš cilj projekta z največ 250 znaki."
 
-#: adhocracy4/projects/models.py:198
+#: adhocracy4/projects/models.py:200
 msgid "Description of your project"
 msgstr "Opis tvojega projekta"
 
-#: adhocracy4/projects/models.py:199
+#: adhocracy4/projects/models.py:201
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -902,11 +920,11 @@ msgstr ""
 "sodelovanje na projektu. Vedno bo viden v zavihku  »Info« na tvoji projektni "
 "strani."
 
-#: adhocracy4/projects/models.py:207
+#: adhocracy4/projects/models.py:209
 msgid "Results of your project"
 msgstr "Rezultati tvojega projekta"
 
-#: adhocracy4/projects/models.py:208
+#: adhocracy4/projects/models.py:210
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -915,32 +933,22 @@ msgstr ""
 "Tukaj pojasniš, kakšen bo pričakovan rezultat projekta in kako nameravaš "
 "uporabiti rezultate. Če je projekt končan, dodaj povzetek rezultatov."
 
-#: adhocracy4/projects/models.py:215
+#: adhocracy4/projects/models.py:218
 msgid "Access to the project"
 msgstr "Dostop do projekta"
 
-#: adhocracy4/projects/models.py:216
-msgid ""
-"Please indicate whether this project should be public or restricted to "
-"invited users. Teasers for your project including title and short "
-"description will always be visible to everyone"
-msgstr ""
-"Prosimo navedi, če bi naj projekt bil javen ali le za povabljene uporabnike. "
-"Oglasi za tvoje projekte vključno z naslovom in kratkim opisom bodo vedno "
-"vidni za vse."
-
-#: adhocracy4/projects/models.py:224
+#: adhocracy4/projects/models.py:223
 #: adhocracy4/projects/models.py:230
-#: euth/organisations/models.py:36
+#: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Slika naslovnice"
 
-#: adhocracy4/projects/models.py:226
+#: adhocracy4/projects/models.py:225
 msgid "The image will be shown as a decorative background image."
 msgstr "Slika bo prikazana kot dekorativno ozadje."
 
 #: adhocracy4/projects/models.py:233
-#: adhocracy4/projects/models.py:240
+#: adhocracy4/projects/models.py:241
 msgid "Tile image"
 msgstr "Sličica ikone"
 
@@ -948,21 +956,21 @@ msgstr "Sličica ikone"
 msgid "The image will be shown in the project tile."
 msgstr "Sličica bo prikazana v projektni ikoni."
 
-#: adhocracy4/projects/models.py:253
+#: adhocracy4/projects/models.py:254
 msgid "Project is archived"
 msgstr "Projekt je arhiviran."
 
-#: adhocracy4/projects/models.py:254
+#: adhocracy4/projects/models.py:255
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
 msgstr ""
 
-#: adhocracy4/projects/models.py:259
+#: adhocracy4/projects/models.py:260
 msgid "Project topics"
 msgstr "Teme projekta"
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:261
 msgid "Add topics to your project."
 msgstr "Dodajte teme svojemu projektu."
 
@@ -991,21 +999,25 @@ msgstr ""
 msgid "Report"
 msgstr "Prijavi"
 
-#: euth/accounts/forms.py:26
+#: euth/accounts/forms.py:27
 msgid "Basic Info"
 msgstr "Osnovne Informacije"
 
-#: euth/accounts/forms.py:30
+#: euth/accounts/forms.py:31
 msgid "Personal Info"
 msgstr "Osebne Informacije"
 
-#: euth/accounts/forms.py:38
+#: euth/accounts/forms.py:39
 msgid "Ways to connect with you"
 msgstr "Načini povezave s teboj"
 
-#: euth/accounts/forms.py:44
+#: euth/accounts/forms.py:45
 msgid "Notifications"
 msgstr "Obvestila"
+
+#: euth/accounts/forms.py:69
+msgid "You are not yet born. Please enter a date in the past."
+msgstr ""
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -1058,191 +1070,191 @@ msgstr ""
 msgid "Save changes"
 msgstr "Shrani spremembe."
 
-#: euth/accounts/views.py:23
+#: euth/accounts/views.py:24
 msgid "Your profile was successfully updated."
 msgstr "Tvoj profil je bil uspešno posodobljen."
 
-#: euth/blueprints/blueprints.py:36
+#: euth/blueprints/blueprints.py:37
 msgid "Create and collect new ideas or visions."
 msgstr "Ustvari in zberi nove ideje ali vizije."
 
-#: euth/blueprints/blueprints.py:37 euth/blueprints/blueprints.py:54
+#: euth/blueprints/blueprints.py:38 euth/blueprints/blueprints.py:55
 msgid "(Urban) planning processes"
 msgstr "(Urbani) načrtovalni procesi"
 
-#: euth/blueprints/blueprints.py:38
+#: euth/blueprints/blueprints.py:39
 msgid "Develop concepts or guiding principles"
 msgstr "Razvij koncepte ali vodilna načela."
 
-#: euth/blueprints/blueprints.py:42
+#: euth/blueprints/blueprints.py:43
 msgid "Gather feedback on a topic and discuss it in greater detail."
 msgstr ""
 "Zberi povratne informacije na določeno temo in o njej razpravljaj bolj "
 "podrobno."
 
-#: euth/blueprints/blueprints.py:43
+#: euth/blueprints/blueprints.py:44
 msgid "Discuss existing concepts or plans"
 msgstr "Razpravljaj o obstoječih konceptih ali načrtih"
 
-#: euth/blueprints/blueprints.py:44
+#: euth/blueprints/blueprints.py:45
 msgid "Develop solutions for existing problems"
 msgstr "Razvij rešitve za obstoječe probleme"
 
-#: euth/blueprints/blueprints.py:48 euth/blueprints/blueprints.py:269
+#: euth/blueprints/blueprints.py:49 euth/blueprints/blueprints.py:270
 msgid "Agenda Setting"
 msgstr "Določitev dnevnega reda"
 
-#: euth/blueprints/blueprints.py:49
+#: euth/blueprints/blueprints.py:50
 msgid "Set the agenda of an event, a process, a project etc."
 msgstr "Določi dnevni red dogodka, procesa, projekta, itd."
 
-#: euth/blueprints/blueprints.py:53
+#: euth/blueprints/blueprints.py:54
 msgid "Design a place."
 msgstr "Oblikuj prostor."
 
-#: euth/blueprints/blueprints.py:55
+#: euth/blueprints/blueprints.py:56
 msgid "Small scale design projects, e.g. renew your premises"
 msgstr "Oblikovalski projekti manjšega obsega, n.p. obnovi svoje prostore"
 
-#: euth/blueprints/blueprints.py:59
+#: euth/blueprints/blueprints.py:60
 msgid "Learn about what people like most."
 msgstr "Preveri, kaj je ljudem najbolj všeč."
 
-#: euth/blueprints/blueprints.py:60
+#: euth/blueprints/blueprints.py:61
 msgid "Opinion polls, majority votes etc."
 msgstr "Mnenjske raziskave, večinski glasovi, itd."
 
-#: euth/blueprints/blueprints.py:64
+#: euth/blueprints/blueprints.py:65
 msgid "Run a competition."
 msgstr "Izvedi tekmovanje."
 
-#: euth/blueprints/blueprints.py:65
+#: euth/blueprints/blueprints.py:66
 msgid "All sorts of competitions, like idea contests etc."
 msgstr "Vse vrste tekmovanj, kot so idejna tekmovanja, itd."
 
-#: euth/blueprints/blueprints.py:70
+#: euth/blueprints/blueprints.py:71
 msgid "Work together with other people on a text document."
 msgstr "Sodeluj z drugimi ljudmi na besedilnem dokumentu."
 
-#: euth/blueprints/blueprints.py:71
+#: euth/blueprints/blueprints.py:72
 msgid "Draft or revise statutes, articles, charters etc."
 msgstr "Pripravi osnutke ali revidiraj statute, članke, listine, itd."
 
-#: euth/blueprints/blueprints.py:72
+#: euth/blueprints/blueprints.py:73
 msgid "Involve different authors in writing a shared text"
 msgstr "Vpleti različne avtorje, da pišejo besedilo v skupni rabi"
 
-#: euth/blueprints/blueprints.py:76
+#: euth/blueprints/blueprints.py:77
 msgid "Find and debate topics and questions."
 msgstr ""
 
-#: euth/blueprints/blueprints.py:77
+#: euth/blueprints/blueprints.py:78
 msgid "Start a discussion and moderate it"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:78
+#: euth/blueprints/blueprints.py:79
 msgid ""
 "Participants can upload documents to deepen the exchange and share "
 "information"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:92
+#: euth/blueprints/blueprints.py:93
 msgid "Collection of commented ideas"
 msgstr "Zbirka komentiranih idej"
 
-#: euth/blueprints/blueprints.py:93
+#: euth/blueprints/blueprints.py:94
 msgid "Majority vote"
 msgstr "Večinski glas"
 
-#: euth/blueprints/blueprints.py:94
+#: euth/blueprints/blueprints.py:95
 msgid "Both"
 msgstr "Oboje"
 
-#: euth/blueprints/blueprints.py:99
+#: euth/blueprints/blueprints.py:100
 msgid "More than 5 participative projects"
 msgstr "Več kot 5 participativnih projektov"
 
-#: euth/blueprints/blueprints.py:100
+#: euth/blueprints/blueprints.py:101
 msgid "More than 2 participative projects"
 msgstr "Več kot 2 participativna projekta"
 
-#: euth/blueprints/blueprints.py:101
+#: euth/blueprints/blueprints.py:102
 msgid "1-2 participative projects"
 msgstr "1-2 participativna projekta"
 
-#: euth/blueprints/blueprints.py:102
+#: euth/blueprints/blueprints.py:103
 msgid "I have no experiences in organising participative projects"
 msgstr "Nimam nobenih izkušenj z organiziranjem participativnih projektov"
 
-#: euth/blueprints/blueprints.py:107
+#: euth/blueprints/blueprints.py:108
 msgid "High motivation"
 msgstr "Visoka motivacija"
 
-#: euth/blueprints/blueprints.py:108
+#: euth/blueprints/blueprints.py:109
 msgid "Medium motivation"
 msgstr "Srednja motivacija"
 
-#: euth/blueprints/blueprints.py:109
+#: euth/blueprints/blueprints.py:110
 msgid "Low motivation"
 msgstr "Nizka motivacija"
 
-#: euth/blueprints/blueprints.py:110
+#: euth/blueprints/blueprints.py:111
 msgid "No motivation"
 msgstr "Brez motivacije"
 
-#: euth/blueprints/blueprints.py:111
+#: euth/blueprints/blueprints.py:112
 msgid "I don't know."
 msgstr "Ne vem."
 
-#: euth/blueprints/blueprints.py:123
+#: euth/blueprints/blueprints.py:124
 msgid "1-2 weeks"
 msgstr "1-2 tedna"
 
-#: euth/blueprints/blueprints.py:124
+#: euth/blueprints/blueprints.py:125
 msgid "2-4 weeks"
 msgstr "2-4 tedne"
 
-#: euth/blueprints/blueprints.py:125
+#: euth/blueprints/blueprints.py:126
 msgid "more than 4 weeks"
 msgstr "več kot 4 tedne"
 
-#: euth/blueprints/blueprints.py:130
+#: euth/blueprints/blueprints.py:131
 msgid "Local"
 msgstr "Lokalno"
 
-#: euth/blueprints/blueprints.py:131
+#: euth/blueprints/blueprints.py:132
 msgid "Regional"
 msgstr "Regionalno"
 
-#: euth/blueprints/blueprints.py:132
+#: euth/blueprints/blueprints.py:133
 msgid "National or international"
 msgstr "Državno ali mednarodno"
 
-#: euth/blueprints/blueprints.py:136
+#: euth/blueprints/blueprints.py:137
 msgid "Very easy to access"
 msgstr "Zelo enostaven dostop"
 
-#: euth/blueprints/blueprints.py:137
+#: euth/blueprints/blueprints.py:138
 msgid "Easy to access"
 msgstr "Enostaven dostop"
 
-#: euth/blueprints/blueprints.py:138
+#: euth/blueprints/blueprints.py:139
 msgid "Hard to access"
 msgstr "Težak dostop"
 
-#: euth/blueprints/blueprints.py:139
+#: euth/blueprints/blueprints.py:140
 msgid "Very hard to access"
 msgstr "Zelo težak dostop"
 
-#: euth/blueprints/blueprints.py:140
+#: euth/blueprints/blueprints.py:141
 msgid "I don't know"
 msgstr "Ne vem"
 
-#: euth/blueprints/blueprints.py:190
+#: euth/blueprints/blueprints.py:191
 msgid "Brainstorming"
 msgstr "Možganska nevihta"
 
-#: euth/blueprints/blueprints.py:191 euth/blueprints/blueprints.py:210
+#: euth/blueprints/blueprints.py:192 euth/blueprints/blueprints.py:211
 msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
@@ -1250,23 +1262,23 @@ msgstr ""
 "Zberi ideje, vprašanja in vnose povezane s težavo ali vprašanjem, od "
 "širokega nabora ljudi."
 
-#: euth/blueprints/blueprints.py:209
+#: euth/blueprints/blueprints.py:210
 msgid "Spatial Brainstorming"
 msgstr "Prostorska možganska nevihta"
 
-#: euth/blueprints/blueprints.py:228
+#: euth/blueprints/blueprints.py:229
 msgid "Idea Challenge"
 msgstr "Idejni izziv"
 
-#: euth/blueprints/blueprints.py:229
+#: euth/blueprints/blueprints.py:230
 msgid "Run a challenge and find the best ideas to solve a particular problem."
 msgstr "Izvedi izziv in poišči najboljše ideje za rešitev določene težave."
 
-#: euth/blueprints/blueprints.py:248
+#: euth/blueprints/blueprints.py:249
 msgid "Spatial Idea Challenge"
 msgstr "Prostorski idejni izziv"
 
-#: euth/blueprints/blueprints.py:249
+#: euth/blueprints/blueprints.py:250
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
@@ -1274,7 +1286,7 @@ msgstr ""
 "Izvedi izziv povezan z določenim območjem ali prostorom v tvoji skupnosti in "
 "poišči najboljše ideje za rešitev določenih težav."
 
-#: euth/blueprints/blueprints.py:270
+#: euth/blueprints/blueprints.py:271
 msgid ""
 "You can involve everyone in planning a meeting. Collect ideas for an "
 "upcoming event and let your participants vote on the topics you want to "
@@ -1283,11 +1295,11 @@ msgstr ""
 "Pri načrtovanju sestanka lahko vpleš vse. Zberi ideje za prihajajoči dogodek "
 "in prepusti udeležencem, da glasujejo o temah s katerimi se bodo spoprijeli."
 
-#: euth/blueprints/blueprints.py:291
+#: euth/blueprints/blueprints.py:292
 msgid "Text Review"
 msgstr "Pregled Besedila"
 
-#: euth/blueprints/blueprints.py:292
+#: euth/blueprints/blueprints.py:293
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
@@ -1296,7 +1308,7 @@ msgstr ""
 "idealno za razpravo o dokumentih stališč ali izjav o poslanstvu, s "
 "številnimi ljudmi naenkrat."
 
-#: euth/blueprints/blueprints.py:313
+#: euth/blueprints/blueprints.py:314
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members. Via the OPIN polling app for iOS and "
@@ -1306,11 +1318,11 @@ msgstr ""
 "mnenja na teme iz javnosti ali od vaših članov. Z OPIN anketno aplikacijo za "
 "iOS in Android so te ankete dostopne tudi na pametnih telefonih."
 
-#: euth/blueprints/blueprints.py:333
+#: euth/blueprints/blueprints.py:334
 msgid "Community debate"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:334
+#: euth/blueprints/blueprints.py:335
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr ""
 
@@ -1516,7 +1528,7 @@ msgid "Learn More"
 msgstr "Preberi več"
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
-#: euth/organisations/filters.py:10 euth/projects/filters.py:9
+#: euth/organisations/filters.py:11 euth/projects/filters.py:10
 msgid "Most Recent"
 msgstr "Najnovejši"
 
@@ -1528,21 +1540,21 @@ msgstr "Najbolj Komentirani"
 msgid "Most Support"
 msgstr "Najbolj Podprti"
 
-#: euth/communitydebate/filters.py:18 euth/contrib/filters.py:37
+#: euth/communitydebate/filters.py:18 euth/contrib/filters.py:38
 #: euth/ideas/filters.py:17
 #: euth/ideas/templates/euth_ideas/includes/sort.html:3
 msgid "Sort by"
 msgstr "Razvrsti po"
 
-#: euth/communitydebate/phases.py:13
+#: euth/communitydebate/phases.py:15
 msgid "Debate phase"
 msgstr ""
 
-#: euth/communitydebate/phases.py:14
+#: euth/communitydebate/phases.py:16
 msgid "Add topics and debate them."
 msgstr ""
 
-#: euth/communitydebate/phases.py:15
+#: euth/communitydebate/phases.py:17
 msgid "communitydebate"
 msgstr ""
 
@@ -1554,8 +1566,8 @@ msgstr "Ali si prepričan/a, da želiš izbrisati?"
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:20
 #: euth/ideas/templates/euth_ideas/includes/modal.html:20
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:57
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:77
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:59
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
 msgid "delete"
 msgstr "izbriši"
 
@@ -1644,7 +1656,7 @@ msgstr "objavi"
 #: euth/ideas/templates/euth_ideas/idea_form.html:100
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:80
 msgid "cancel"
 msgstr "prekliči"
 
@@ -1660,33 +1672,33 @@ msgstr ""
 msgid "Topic successfully created"
 msgstr ""
 
-#: euth/communitydebate/views.py:143
+#: euth/communitydebate/views.py:146
 msgid "Topic successfully updated"
 msgstr ""
 
-#: euth/communitydebate/views.py:154
+#: euth/communitydebate/views.py:157
 msgid "Your topic has been deleted"
 msgstr ""
 
-#: euth/contrib/filters.py:11
+#: euth/contrib/filters.py:12
 msgid "status"
 msgstr "status"
 
-#: euth/contrib/filters.py:15 euth/users/models.py:51
+#: euth/contrib/filters.py:16 euth/users/models.py:51
 msgid "active"
 msgstr "aktiven"
 
-#: euth/contrib/filters.py:16
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:16
+#: euth/contrib/filters.py:17
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:18
 #: euth/projects/templates/euth_projects/includes/project_tile.html:11
 msgid "archived"
 msgstr "arhiviran"
 
-#: euth/contrib/filters.py:17
+#: euth/contrib/filters.py:18
 msgid "all"
 msgstr "vsi"
 
-#: euth/contrib/filters.py:64
+#: euth/contrib/filters.py:65
 msgid "Country"
 msgstr "Država"
 
@@ -1707,7 +1719,7 @@ msgstr ""
 msgid "File should be at most {} MB"
 msgstr "Datoteka naj bo največ  {} MB."
 
-#: euth/contrib/widgets.py:63
+#: euth/contrib/widgets.py:60
 msgid "Select a file from your local folder."
 msgstr "Naloži sliko iz svojega lokalnega diska."
 
@@ -1736,23 +1748,23 @@ msgstr "Ime tvoje organizacije"
 msgid "Documents with comments"
 msgstr "Dokumenti s komentarji"
 
-#: euth/documents/phases.py:17
+#: euth/documents/phases.py:19
 msgid "Create document phase"
 msgstr "Ustvari fazo dokumenta"
 
-#: euth/documents/phases.py:18 euth/documents/phases.py:37
+#: euth/documents/phases.py:20 euth/documents/phases.py:39
 msgid "commenting text"
 msgstr "komentiranje besedila"
 
-#: euth/documents/phases.py:19
+#: euth/documents/phases.py:21
 msgid "Create text for the project."
 msgstr "Ustvari besedilo za projekt."
 
-#: euth/documents/phases.py:36
+#: euth/documents/phases.py:38
 msgid "Comment phase"
 msgstr "Faza komentiranja"
 
-#: euth/documents/phases.py:38
+#: euth/documents/phases.py:40
 msgid "Collect comments for the text."
 msgstr "Zberi komentarje za besedilo."
 
@@ -1768,7 +1780,7 @@ msgstr "Moderatorji pravkar ustvarjajo dokument."
 msgid "Document for that module already exists"
 msgstr "Za ta modul že obstaja dokument."
 
-#: euth/exports/dashboard.py:12
+#: euth/exports/dashboard.py:14
 msgid "Export Excel"
 msgstr "Izvozi Excel"
 
@@ -1794,52 +1806,52 @@ msgid ""
 "5 MB in file size."
 msgstr ""
 
-#: euth/ideas/phases.py:13
+#: euth/ideas/phases.py:15
 msgid "Issue phase"
 msgstr "Objavi fazo"
 
-#: euth/ideas/phases.py:14
+#: euth/ideas/phases.py:16
 msgid "Add new ideas."
 msgstr "Dodaj nove ideje."
 
-#: euth/ideas/phases.py:15 euth/ideas/phases.py:30 euth/ideas/phases.py:45
-#: euth/ideas/phases.py:62 euth/ideas/phases.py:77 euth/maps/phases.py:15
-#: euth/maps/phases.py:32 euth/maps/phases.py:49
+#: euth/ideas/phases.py:17 euth/ideas/phases.py:32 euth/ideas/phases.py:47
+#: euth/ideas/phases.py:64 euth/ideas/phases.py:79 euth/maps/phases.py:17
+#: euth/maps/phases.py:34 euth/maps/phases.py:51
 msgid "ideas collection"
 msgstr "zbirka idej"
 
-#: euth/ideas/phases.py:28
+#: euth/ideas/phases.py:30
 msgid "Collect phase"
 msgstr "Faza zbiranja"
 
-#: euth/ideas/phases.py:29
+#: euth/ideas/phases.py:31
 msgid "Add new ideas and comment them."
 msgstr "Dodaj nove ideje ter jih komentiraj."
 
-#: euth/ideas/phases.py:44
+#: euth/ideas/phases.py:46
 msgid "Rating phase"
 msgstr "Faza ocenjevanja"
 
-#: euth/ideas/phases.py:46
+#: euth/ideas/phases.py:48
 msgid "Get quantative feeback by rating the collected ideas."
 msgstr ""
 "Pridobi kvantitativne povratne informacije z ocenjevanjem zbranih idej."
 
-#: euth/ideas/phases.py:59
+#: euth/ideas/phases.py:61
 msgid "Feedback phase"
 msgstr "Faza zbiranja povratnih informacij"
 
-#: euth/ideas/phases.py:60
+#: euth/ideas/phases.py:62
 msgid "Get feedback for collected ideas through rates and comments."
 msgstr ""
 "Pridobi povratne informacije za zbrane ideje s pomočjo stopenj in "
 "komentarjev."
 
-#: euth/ideas/phases.py:76
+#: euth/ideas/phases.py:78
 msgid "Universal phase"
 msgstr "Univerzalna faza"
 
-#: euth/ideas/phases.py:78
+#: euth/ideas/phases.py:80
 msgid "Use all features of the idea collection."
 msgstr "Uporabi vse funkcije zbirke idej."
 
@@ -1868,7 +1880,7 @@ msgstr "Ustvari Predlog"
 msgid "No proposals found"
 msgstr "Najdenih ni bilo nobenih predlogov"
 
-#: euth/ideas/views.py:107
+#: euth/ideas/views.py:108
 msgid "Your Idea has been deleted"
 msgstr "Tvoja ideja je bila izbrisana"
 
@@ -1892,27 +1904,27 @@ msgstr ""
 "Klikni znotraj označenega območja, da postaviš oznako. Primi, povleci ter "
 "spusti oznako za spremembo lokacije."
 
-#: euth/maps/phases.py:13
+#: euth/maps/phases.py:15
 msgid "Issue Phase"
 msgstr "Objavi fazo"
 
-#: euth/maps/phases.py:14
+#: euth/maps/phases.py:16
 msgid "Add, comment and rate new ideas on a map."
 msgstr "Dodaj, komentiraj ter oceni nove ideje na zemljevidu."
 
-#: euth/maps/phases.py:30
+#: euth/maps/phases.py:32
 msgid "Collect Phase"
 msgstr "Faza zbiranja"
 
-#: euth/maps/phases.py:31
+#: euth/maps/phases.py:33
 msgid "Add and comment new ideas on a map."
 msgstr "Dodaj ter komentiraj nove ideje na zemljevidu. "
 
-#: euth/maps/phases.py:46
+#: euth/maps/phases.py:48
 msgid "Rating Phase"
 msgstr "Faza ocenjevanja"
 
-#: euth/maps/phases.py:47
+#: euth/maps/phases.py:49
 msgid "Get quantative feeback by rating the collected ideas on a map."
 msgstr ""
 "Pridobi kvantitativne povratne informacije z ocenjevanjem zbranih idej iz "
@@ -1922,13 +1934,13 @@ msgstr ""
 msgid "view on list"
 msgstr "pregled seznama"
 
-#: euth/memberships/dashboard.py:12
+#: euth/memberships/dashboard.py:13
 #: euth/memberships/templates/euth_memberships/dashboard_members.html:5
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:3
 msgid "Members"
 msgstr "Člani"
 
-#: euth/memberships/dashboard.py:33
+#: euth/memberships/dashboard.py:34
 #: euth/memberships/templates/euth_memberships/dashboard_invites.html:5
 msgid "Invited Members"
 msgstr "Vabljeni člani"
@@ -2060,7 +2072,7 @@ msgstr "Povabljeni so bili pozivi"
 msgid "Project membership requests have been updated"
 msgstr "Zahteve za članstvo v projektu so bile posodobljene"
 
-#: euth/offlinephases/dashboard.py:12
+#: euth/offlinephases/dashboard.py:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:10
 msgid "Offline Events"
 msgstr "Dogodki brez povezave"
@@ -2133,27 +2145,27 @@ msgstr "Urejaj vsebino fazebrezspletnepovezave"
 msgid "update offlinephase"
 msgstr "Posodobi fazobrezspletnepovezave"
 
-#: euth/offlinephases/views.py:87 euth/offlinephases/views.py:152
+#: euth/offlinephases/views.py:89 euth/offlinephases/views.py:154
 msgid "Offline events have been updated"
 msgstr "Dogodki brez povezave so bili posodobljeni"
 
-#: euth/offlinephases/views.py:169
+#: euth/offlinephases/views.py:171
 msgid "The offline event has been deleted"
 msgstr "Dogodek brez povezave je bil izbrisan"
 
-#: euth/organisations/filters.py:11 euth/projects/filters.py:10
+#: euth/organisations/filters.py:12 euth/projects/filters.py:11
 msgid "Alphabetical"
 msgstr "Po abecedi"
 
-#: euth/organisations/models.py:21
+#: euth/organisations/models.py:22
 msgid "title"
 msgstr "Naslov"
 
-#: euth/organisations/models.py:38
+#: euth/organisations/models.py:39
 msgid "The image sets the atmosphere for your organisation page."
 msgstr "Slika določi atmosfero tvoje organizacijske strani."
 
-#: euth/organisations/models.py:46
+#: euth/organisations/models.py:47
 msgid "The official logo of your organisation."
 msgstr "Uradni logotip tvoje organizacije."
 
@@ -2213,7 +2225,7 @@ msgstr "Poišči organizacijo"
 msgid "Organisation successfully updated."
 msgstr "Organizacija uspešno posodobljena."
 
-#: euth/projects/dashboard.py:12
+#: euth/projects/dashboard.py:13
 #: euth/projects/templates/euth_projects/dashboard_moderators.html:5
 msgid "Moderators"
 msgstr "Moderatorji"
@@ -2227,17 +2239,37 @@ msgstr ""
 msgid "Search for username"
 msgstr "Poiščite uporabniško ime"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:18
-#: euth/projects/templates/euth_projects/includes/project_list_item.html:12
+#: euth/projects/overwrites.py:8
+msgid "Only invited users can see content and can participate (private)."
+msgstr ""
+
+#: euth/projects/overwrites.py:10
+msgid "All users can see content and can participate (public)."
+msgstr ""
+
+#: euth/projects/overwrites.py:12
+msgid ""
+"All users can see content, only invited users can participate (semi-public)."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
+msgid "semi-public"
+msgstr ""
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:14
+#: euth/projects/templates/euth_projects/includes/project_tile.html:17
 msgid "finished"
 msgstr "dokončano"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:26
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:28
 msgid "by"
 msgstr "s/z"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:36
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:38
 msgid "edit"
 msgstr "uredi"
 
@@ -2302,13 +2334,24 @@ msgstr "Ta faza se zaključi"
 msgid "(Your Timezone: "
 msgstr "(tvoj časovni pas:"
 
-#: euth/projects/templates/euth_projects/project_detail.html:188
+#: euth/projects/templates/euth_projects/project_detail.html:184
+msgid ""
+"This project is not publicly visible. Only invited users can see content and "
+"actively participate."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/project_detail.html:191
+msgid ""
+"This project is publicly visible. Invited users can actively participate."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
 msgstr "Pobudnik še ni pripravil informacij o željenih izidih projekta."
 
-#: euth/projects/templates/euth_projects/project_detail.html:201
+#: euth/projects/templates/euth_projects/project_detail.html:215
 msgid "other projects from this organisation"
 msgstr "drugi projekti te organizacije"
 
@@ -2324,16 +2367,16 @@ msgstr "tedni"
 msgid "and"
 msgstr "in"
 
-#: euth/projects/views.py:55
+#: euth/projects/views.py:56
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
 msgstr "Projekt '%(name)s' je bil uspešno izbrisan."
 
-#: euth/users/admin.py:10
+#: euth/users/admin.py:11
 msgid "Permissions"
 msgstr "Dovoljenja"
 
-#: euth/users/admin.py:11
+#: euth/users/admin.py:12
 msgid "Important dates"
 msgstr "Pomembni datumi"
 
@@ -2568,15 +2611,15 @@ msgstr "Gruzijščina"
 msgid "Macedonian"
 msgstr "Makedonščina"
 
-#: euth_wagtail/settings/base.py:432
+#: euth_wagtail/settings/base.py:434
 msgid "suggestion"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:435
 msgid "note"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:434
+#: euth_wagtail/settings/base.py:436
 msgid "question"
 msgstr ""
 
@@ -2588,21 +2631,21 @@ msgstr "Za dostop do te strani nimaš dovoljenja."
 msgid "This page couldn’t be found."
 msgstr "Te strani ni bilo mogoče najti."
 
-#: euth_wagtail/templates/500.html:21
+#: euth_wagtail/templates/500.html:20
 #: euth_wagtail/templates/base_errors.html:13
 msgid "Error"
 msgstr "Napaka"
 
-#: euth_wagtail/templates/500.html:27
+#: euth_wagtail/templates/500.html:26
 #: euth_wagtail/templates/base_errors.html:19
 msgid "Sorry, something went wrong."
 msgstr "Oprosti, prišlo je do težave."
 
-#: euth_wagtail/templates/500.html:28
+#: euth_wagtail/templates/500.html:27
 msgid "Internal server error."
 msgstr "Napaka internega strežnika."
 
-#: euth_wagtail/templates/500.html:29
+#: euth_wagtail/templates/500.html:28
 #: euth_wagtail/templates/base_errors.html:21
 msgid "Get back to OPIN.ME"
 msgstr "Pojdi nazaj na OPIN.ME"
@@ -2651,7 +2694,7 @@ msgstr "Izberi osnutek"
 msgid "use this template"
 msgstr "uporabi osnutek"
 
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:74
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
 msgstr "Ali ste prepričani, da želite izbrisati projekt '%(project_name)s'?"
@@ -2942,6 +2985,15 @@ msgstr "Prenesite navodila"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Vsebina"
+
+#~ msgid ""
+#~ "Please indicate whether this project should be public or restricted to "
+#~ "invited users. Teasers for your project including title and short "
+#~ "description will always be visible to everyone"
+#~ msgstr ""
+#~ "Prosimo navedi, če bi naj projekt bil javen ali le za povabljene "
+#~ "uporabnike. Oglasi za tvoje projekte vključno z naslovom in kratkim "
+#~ "opisom bodo vedno vidni za vse."
 
 #~ msgid "End date can not be smallerthan the start date."
 #~ msgstr "Datum zaključka ne more biti pred datumom pričetka."

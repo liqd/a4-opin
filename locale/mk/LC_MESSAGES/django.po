@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-08 13:32+0200\n"
+"POT-Creation-Date: 2021-04-30 14:04+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
@@ -84,7 +84,7 @@ msgstr "Нов проект"
 
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
 #: adhocracy4/dashboard/templates/a4dashboard/blueprint_list.html:17
-#: euth/projects/templates/euth_projects/includes/project_list_item.html:19
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:21
 #: euth/projects/templates/euth_projects/project_detail.html:38
 msgid "Phase"
 msgstr "Фаза"
@@ -100,19 +100,19 @@ msgid "Missing field for publication"
 msgstr "Недостасува поле за објавување"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:39
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:7
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:36
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:29
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:39
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
 msgid "Preview"
 msgstr "Преглед"
 
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:41
 #: adhocracy4/dashboard/templates/a4dashboard/includes/preview.html:9
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:38
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:41
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:17
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:31
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:33
 msgid "View"
 msgstr "Погледнете"
 
@@ -189,6 +189,13 @@ msgstr "Завршено"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
+#: adhocracy4/projects/enums.py:14
+msgid "semipublic"
+msgstr ""
+
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
+#: adhocracy4/projects/enums.py:15
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:13
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:9
 #: euth/projects/templates/euth_projects/includes/project_tile.html:13
@@ -196,8 +203,8 @@ msgstr "Завршено"
 msgid "private"
 msgstr "лично"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:45
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:27
 #: euth/ideas/templates/euth_ideas/idea_detail.html:27
 #: euth/maps/templates/euth_maps/mapidea_detail.html:36
@@ -205,18 +212,18 @@ msgstr "лично"
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:13
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:21
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:36
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:38
 msgid "Edit"
 msgstr "Измени"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:54
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:50
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:52
 msgid "Duplicate"
 msgstr "Дупликат"
 
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
-#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:62
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
+#: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
 msgstr "Ние не можевме да најдеме какви било проекти."
@@ -224,7 +231,7 @@ msgstr "Ние не можевме да најдеме какви било пр�
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
 #: adhocracy4/dashboard/filter.py:11
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: euth/contrib/filters.py:69
+#: euth/contrib/filters.py:70
 msgid "Search"
 msgstr "Пребарување"
 
@@ -449,20 +456,20 @@ msgstr "Не"
 msgid "Yes"
 msgstr "Да"
 
-#: adhocracy4/dashboard/forms.py:74
+#: adhocracy4/dashboard/forms.py:76
 msgid "All users can participate (public)."
 msgstr "Сите корисници можат да учествуваат (јавно)."
 
-#: adhocracy4/dashboard/forms.py:75
+#: adhocracy4/dashboard/forms.py:78
 msgid "Only invited users can participate (private)."
 msgstr "Само поканети корисници можат да учествуваат (приватно)."
 
-#: adhocracy4/dashboard/forms.py:83
+#: adhocracy4/dashboard/forms.py:86
 #: euth/projects/templates/euth_projects/project_detail.html:109
 msgid "Contact for questions"
 msgstr "Контакт за прашања"
 
-#: adhocracy4/dashboard/forms.py:84
+#: adhocracy4/dashboard/forms.py:87
 msgid ""
 "Please name a contact person. The user will then know who is carrying out "
 "this project and to whom they can address possible questions. The contact "
@@ -472,11 +479,11 @@ msgstr ""
 "овој проект и на кого можат да ги решаваат можните прашања. Контакт лицето "
 "ќе биде прикажано во табулаторот за информации на страната на проектот."
 
-#: adhocracy4/dashboard/forms.py:89
+#: adhocracy4/dashboard/forms.py:92
 msgid "More contact possibilities"
 msgstr "Повеќе можности за контакт"
 
-#: adhocracy4/dashboard/forms.py:102
+#: adhocracy4/dashboard/forms.py:105
 #: adhocracy4/phases/models.py:69
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
@@ -484,16 +491,16 @@ msgstr "Повеќе можности за контакт"
 msgid "Name"
 msgstr "Име"
 
-#: adhocracy4/dashboard/forms.py:104
+#: adhocracy4/dashboard/forms.py:107
 msgid "Address"
 msgstr "Адреса"
 
-#: adhocracy4/dashboard/forms.py:107
+#: adhocracy4/dashboard/forms.py:110
 #: euth/projects/templates/euth_projects/project_detail.html:117
 msgid "Telephone"
 msgstr "Телефон"
 
-#: adhocracy4/dashboard/forms.py:109
+#: adhocracy4/dashboard/forms.py:112
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -503,26 +510,26 @@ msgstr "Телефон"
 msgid "Email"
 msgstr "Е-пошта"
 
-#: adhocracy4/dashboard/forms.py:111
+#: adhocracy4/dashboard/forms.py:114
 #: euth/projects/templates/euth_projects/project_detail.html:126
 msgid "Website"
 msgstr "Веб-страница"
 
-#: adhocracy4/dashboard/forms.py:141
+#: adhocracy4/dashboard/forms.py:144
 #: adhocracy4/phases/models.py:77
 msgid "End date"
 msgstr "Крајна дата"
 
-#: adhocracy4/dashboard/forms.py:141
+#: adhocracy4/dashboard/forms.py:144
 msgid "End time"
 msgstr "Крај време"
 
-#: adhocracy4/dashboard/forms.py:147
+#: adhocracy4/dashboard/forms.py:150
 #: adhocracy4/phases/models.py:75
 msgid "Start date"
 msgstr "Почетен датум"
 
-#: adhocracy4/dashboard/forms.py:147
+#: adhocracy4/dashboard/forms.py:150
 msgid "Start time"
 msgstr "Започнете време"
 
@@ -722,54 +729,56 @@ msgstr ""
 "512 знаци."
 
 #: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:577
+#: adhocracy4/projects/models.py:586
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "ден"
 
 #: adhocracy4/modules/models.py:184
-#: adhocracy4/projects/models.py:577
+#: adhocracy4/projects/models.py:586
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "дена"
 
 #: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/projects/models.py:587
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "час"
 
 #: adhocracy4/modules/models.py:185
-#: adhocracy4/projects/models.py:578
+#: adhocracy4/projects/models.py:587
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "часа"
 
 #: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/projects/models.py:588
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "минута"
 
 #: adhocracy4/modules/models.py:186
-#: adhocracy4/projects/models.py:579
+#: adhocracy4/projects/models.py:588
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "минути"
 
 #: adhocracy4/modules/models.py:187
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/projects/models.py:589
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "второ"
 
 #: adhocracy4/modules/models.py:187
-#: adhocracy4/projects/models.py:580
+#: adhocracy4/modules/models.py:198
+#: adhocracy4/projects/models.py:589
+#: adhocracy4/projects/models.py:600
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "секунди"
 
-#: adhocracy4/phases/forms.py:21
+#: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
 
@@ -784,8 +793,13 @@ msgstr "Опис"
 msgid "End date can not be before start date."
 msgstr ""
 
+#: adhocracy4/phases/models.py:100
+#: adhocracy4/phases/models.py:104
+msgid "Either both or no date has to be set."
+msgstr ""
+
 #: adhocracy4/polls/dashboard.py:14
-#: euth/blueprints/blueprints.py:312
+#: euth/blueprints/blueprints.py:313
 msgid "Poll"
 msgstr "Анкета"
 
@@ -836,7 +850,11 @@ msgstr "Слики"
 msgid "Contact"
 msgstr "Контакт"
 
-#: adhocracy4/projects/models.py:41
+#: adhocracy4/projects/enums.py:13
+msgid "public"
+msgstr ""
+
+#: adhocracy4/projects/models.py:43
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
@@ -844,19 +862,19 @@ msgstr ""
 "Телефонските броеви можат да содржат само цифри, празни места и следните "
 "знаци: -, +, (,). Треба да биде долга помеѓу 8 и 20 карактери."
 
-#: adhocracy4/projects/models.py:47
+#: adhocracy4/projects/models.py:49
 msgid "Postal address"
 msgstr "поштенска адреса"
 
-#: adhocracy4/projects/models.py:56
+#: adhocracy4/projects/models.py:58
 msgid "Contact person"
 msgstr "Лице за контакт"
 
-#: adhocracy4/projects/models.py:76
+#: adhocracy4/projects/models.py:78
 msgid "Can your project be located on the map?"
 msgstr "Дали вашиот проект може да се наоѓа на мапата?"
 
-#: adhocracy4/projects/models.py:77
+#: adhocracy4/projects/models.py:79
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -865,15 +883,15 @@ msgstr ""
 "адреса за да го поставите маркерот. Поставен маркер може да се влече кога ќе "
 "се притисне."
 
-#: adhocracy4/projects/models.py:88
+#: adhocracy4/projects/models.py:90
 msgid "Administrative district"
 msgstr "Административна област"
 
-#: adhocracy4/projects/models.py:172
+#: adhocracy4/projects/models.py:174
 msgid "Title of your project"
 msgstr "Наслов на вашиот проект"
 
-#: adhocracy4/projects/models.py:173
+#: adhocracy4/projects/models.py:175
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -881,11 +899,11 @@ msgstr ""
 "Овој наслов ќе сe појави на почетната картичка и на почетокот на страницата "
 "со детали за проектот. Не треба да биде подолг од 120 знаци"
 
-#: adhocracy4/projects/models.py:189
+#: adhocracy4/projects/models.py:191
 msgid "Short description of your project"
 msgstr "Краток опис за вашиот проект"
 
-#: adhocracy4/projects/models.py:190
+#: adhocracy4/projects/models.py:192
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -894,11 +912,11 @@ msgstr ""
 "картичка. Треба накратко да се прикаже целта на проектот со максимум 250 "
 "знаци."
 
-#: adhocracy4/projects/models.py:198
+#: adhocracy4/projects/models.py:200
 msgid "Description of your project"
 msgstr "Опис на твојот проект"
 
-#: adhocracy4/projects/models.py:199
+#: adhocracy4/projects/models.py:201
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -908,11 +926,11 @@ msgstr ""
 "изгледа учеството во проектот. Ќе биде секогаш видлив во „Инфо“ јазичето на "
 "вашата страна за проектот."
 
-#: adhocracy4/projects/models.py:207
+#: adhocracy4/projects/models.py:209
 msgid "Results of your project"
 msgstr "Резултати од вашиот проект"
 
-#: adhocracy4/projects/models.py:208
+#: adhocracy4/projects/models.py:210
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -922,32 +940,22 @@ msgstr ""
 "ги искористите резултатите. Ако проектот е завршен треба да додадете краток "
 "преглед на резултатите."
 
-#: adhocracy4/projects/models.py:215
+#: adhocracy4/projects/models.py:218
 msgid "Access to the project"
 msgstr "Пристап до проектот"
 
-#: adhocracy4/projects/models.py:216
-msgid ""
-"Please indicate whether this project should be public or restricted to "
-"invited users. Teasers for your project including title and short "
-"description will always be visible to everyone"
-msgstr ""
-"Ве молиме наведете дали овој проект треба да биде јавен или ограничен на "
-"поканети корисници. Линкови за вашиот проект, вклучувајќи наслов и краток "
-"опис секогаш ќе бидат видливи за сите"
-
-#: adhocracy4/projects/models.py:224
+#: adhocracy4/projects/models.py:223
 #: adhocracy4/projects/models.py:230
-#: euth/organisations/models.py:36
+#: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Главна слика"
 
-#: adhocracy4/projects/models.py:226
+#: adhocracy4/projects/models.py:225
 msgid "The image will be shown as a decorative background image."
 msgstr "Сликата ќе биде прикажана како декоративна позадина."
 
 #: adhocracy4/projects/models.py:233
-#: adhocracy4/projects/models.py:240
+#: adhocracy4/projects/models.py:241
 msgid "Tile image"
 msgstr "Плочка слика"
 
@@ -955,21 +963,21 @@ msgstr "Плочка слика"
 msgid "The image will be shown in the project tile."
 msgstr "Сликата ќе биде прикажана во плочката на проектот."
 
-#: adhocracy4/projects/models.py:253
+#: adhocracy4/projects/models.py:254
 msgid "Project is archived"
 msgstr "Проектот е архивиран"
 
-#: adhocracy4/projects/models.py:254
+#: adhocracy4/projects/models.py:255
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
 msgstr ""
 
-#: adhocracy4/projects/models.py:259
+#: adhocracy4/projects/models.py:260
 msgid "Project topics"
 msgstr "Проектни теми"
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:261
 msgid "Add topics to your project."
 msgstr "Додајте теми во вашиот проект."
 
@@ -996,21 +1004,25 @@ msgstr ""
 msgid "Report"
 msgstr "Пријави"
 
-#: euth/accounts/forms.py:26
+#: euth/accounts/forms.py:27
 msgid "Basic Info"
 msgstr "Основни информации"
 
-#: euth/accounts/forms.py:30
+#: euth/accounts/forms.py:31
 msgid "Personal Info"
 msgstr "Лични информации"
 
-#: euth/accounts/forms.py:38
+#: euth/accounts/forms.py:39
 msgid "Ways to connect with you"
 msgstr "Начини да се поврзете со вас"
 
-#: euth/accounts/forms.py:44
+#: euth/accounts/forms.py:45
 msgid "Notifications"
 msgstr "Известувања"
+
+#: euth/accounts/forms.py:69
+msgid "You are not yet born. Please enter a date in the past."
+msgstr ""
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -1063,190 +1075,190 @@ msgstr ""
 msgid "Save changes"
 msgstr "Зачувајги промените"
 
-#: euth/accounts/views.py:23
+#: euth/accounts/views.py:24
 msgid "Your profile was successfully updated."
 msgstr "Твојот профил е успешно надграден."
 
-#: euth/blueprints/blueprints.py:36
+#: euth/blueprints/blueprints.py:37
 msgid "Create and collect new ideas or visions."
 msgstr "Креирај и собира нови идеи или визии."
 
-#: euth/blueprints/blueprints.py:37 euth/blueprints/blueprints.py:54
+#: euth/blueprints/blueprints.py:38 euth/blueprints/blueprints.py:55
 msgid "(Urban) planning processes"
 msgstr "(Урбани) процеси на планирање"
 
-#: euth/blueprints/blueprints.py:38
+#: euth/blueprints/blueprints.py:39
 msgid "Develop concepts or guiding principles"
 msgstr "Развијат концепти или водечки принципи"
 
-#: euth/blueprints/blueprints.py:42
+#: euth/blueprints/blueprints.py:43
 msgid "Gather feedback on a topic and discuss it in greater detail."
 msgstr ""
 "Соберете повратни информации за некоја тема и разговарајте со нив подетално."
 
-#: euth/blueprints/blueprints.py:43
+#: euth/blueprints/blueprints.py:44
 msgid "Discuss existing concepts or plans"
 msgstr "Разговараат за постоечките концепти или планови"
 
-#: euth/blueprints/blueprints.py:44
+#: euth/blueprints/blueprints.py:45
 msgid "Develop solutions for existing problems"
 msgstr "Развијат решенија за постојните проблеми"
 
-#: euth/blueprints/blueprints.py:48 euth/blueprints/blueprints.py:269
+#: euth/blueprints/blueprints.py:49 euth/blueprints/blueprints.py:270
 msgid "Agenda Setting"
 msgstr "Поставување агенда"
 
-#: euth/blueprints/blueprints.py:49
+#: euth/blueprints/blueprints.py:50
 msgid "Set the agenda of an event, a process, a project etc."
 msgstr "Поставете ја агендата на некој настан, процес, проект итн."
 
-#: euth/blueprints/blueprints.py:53
+#: euth/blueprints/blueprints.py:54
 msgid "Design a place."
 msgstr "Дизајн место."
 
-#: euth/blueprints/blueprints.py:55
+#: euth/blueprints/blueprints.py:56
 msgid "Small scale design projects, e.g. renew your premises"
 msgstr "Проекти за мали проекти, на пр. обнови вашите простории"
 
-#: euth/blueprints/blueprints.py:59
+#: euth/blueprints/blueprints.py:60
 msgid "Learn about what people like most."
 msgstr "Дознајте што најмногу им се допаѓа на луѓето."
 
-#: euth/blueprints/blueprints.py:60
+#: euth/blueprints/blueprints.py:61
 msgid "Opinion polls, majority votes etc."
 msgstr "Анкетите за јавното мислење, мнозинството гласови итн."
 
-#: euth/blueprints/blueprints.py:64
+#: euth/blueprints/blueprints.py:65
 msgid "Run a competition."
 msgstr "Стартувај натпревар."
 
-#: euth/blueprints/blueprints.py:65
+#: euth/blueprints/blueprints.py:66
 msgid "All sorts of competitions, like idea contests etc."
 msgstr "Сите видови на натпревари, како натпревари за идеи итн."
 
-#: euth/blueprints/blueprints.py:70
+#: euth/blueprints/blueprints.py:71
 msgid "Work together with other people on a text document."
 msgstr "Работете заедно со други луѓе на текстуален документ."
 
-#: euth/blueprints/blueprints.py:71
+#: euth/blueprints/blueprints.py:72
 msgid "Draft or revise statutes, articles, charters etc."
 msgstr "Изготвува или ревидира статути, статии, повелби итн."
 
-#: euth/blueprints/blueprints.py:72
+#: euth/blueprints/blueprints.py:73
 msgid "Involve different authors in writing a shared text"
 msgstr "Вклучете различни автори во пишување споделен текст"
 
-#: euth/blueprints/blueprints.py:76
+#: euth/blueprints/blueprints.py:77
 msgid "Find and debate topics and questions."
 msgstr ""
 
-#: euth/blueprints/blueprints.py:77
+#: euth/blueprints/blueprints.py:78
 msgid "Start a discussion and moderate it"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:78
+#: euth/blueprints/blueprints.py:79
 msgid ""
 "Participants can upload documents to deepen the exchange and share "
 "information"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:92
+#: euth/blueprints/blueprints.py:93
 msgid "Collection of commented ideas"
 msgstr "Колекција на коментирани идеи"
 
-#: euth/blueprints/blueprints.py:93
+#: euth/blueprints/blueprints.py:94
 msgid "Majority vote"
 msgstr "Мнозинство гласа"
 
-#: euth/blueprints/blueprints.py:94
+#: euth/blueprints/blueprints.py:95
 msgid "Both"
 msgstr "И двете"
 
-#: euth/blueprints/blueprints.py:99
+#: euth/blueprints/blueprints.py:100
 msgid "More than 5 participative projects"
 msgstr "Повеќе од 5 учеснички проекти"
 
-#: euth/blueprints/blueprints.py:100
+#: euth/blueprints/blueprints.py:101
 msgid "More than 2 participative projects"
 msgstr "Повеќе од 2 учеснички проекти"
 
-#: euth/blueprints/blueprints.py:101
+#: euth/blueprints/blueprints.py:102
 msgid "1-2 participative projects"
 msgstr "1-2 партиципативни проекти"
 
-#: euth/blueprints/blueprints.py:102
+#: euth/blueprints/blueprints.py:103
 msgid "I have no experiences in organising participative projects"
 msgstr "Немам искуство во организирање на партиципативни проекти"
 
-#: euth/blueprints/blueprints.py:107
+#: euth/blueprints/blueprints.py:108
 msgid "High motivation"
 msgstr "Висока мотивација"
 
-#: euth/blueprints/blueprints.py:108
+#: euth/blueprints/blueprints.py:109
 msgid "Medium motivation"
 msgstr "Средна мотивација"
 
-#: euth/blueprints/blueprints.py:109
+#: euth/blueprints/blueprints.py:110
 msgid "Low motivation"
 msgstr "Ниска мотивација"
 
-#: euth/blueprints/blueprints.py:110
+#: euth/blueprints/blueprints.py:111
 msgid "No motivation"
 msgstr "Нема мотивација"
 
-#: euth/blueprints/blueprints.py:111
+#: euth/blueprints/blueprints.py:112
 msgid "I don't know."
 msgstr "Не знам."
 
-#: euth/blueprints/blueprints.py:123
+#: euth/blueprints/blueprints.py:124
 msgid "1-2 weeks"
 msgstr "1-2 недели"
 
-#: euth/blueprints/blueprints.py:124
+#: euth/blueprints/blueprints.py:125
 msgid "2-4 weeks"
 msgstr "2-4 недели"
 
-#: euth/blueprints/blueprints.py:125
+#: euth/blueprints/blueprints.py:126
 msgid "more than 4 weeks"
 msgstr "повеќе од 4 недели"
 
-#: euth/blueprints/blueprints.py:130
+#: euth/blueprints/blueprints.py:131
 msgid "Local"
 msgstr "Локален"
 
-#: euth/blueprints/blueprints.py:131
+#: euth/blueprints/blueprints.py:132
 msgid "Regional"
 msgstr "Регионален"
 
-#: euth/blueprints/blueprints.py:132
+#: euth/blueprints/blueprints.py:133
 msgid "National or international"
 msgstr "Национално или меѓународно"
 
-#: euth/blueprints/blueprints.py:136
+#: euth/blueprints/blueprints.py:137
 msgid "Very easy to access"
 msgstr "Многу лесен за пристап"
 
-#: euth/blueprints/blueprints.py:137
+#: euth/blueprints/blueprints.py:138
 msgid "Easy to access"
 msgstr "Лесен за пристап"
 
-#: euth/blueprints/blueprints.py:138
+#: euth/blueprints/blueprints.py:139
 msgid "Hard to access"
 msgstr "Тешко за пристап"
 
-#: euth/blueprints/blueprints.py:139
+#: euth/blueprints/blueprints.py:140
 msgid "Very hard to access"
 msgstr "Многу тешко за пристап"
 
-#: euth/blueprints/blueprints.py:140
+#: euth/blueprints/blueprints.py:141
 msgid "I don't know"
 msgstr "Не знам"
 
-#: euth/blueprints/blueprints.py:190
+#: euth/blueprints/blueprints.py:191
 msgid "Brainstorming"
 msgstr "Брејнсторминг"
 
-#: euth/blueprints/blueprints.py:191 euth/blueprints/blueprints.py:210
+#: euth/blueprints/blueprints.py:192 euth/blueprints/blueprints.py:211
 msgid ""
 "Collect ideas, questions and input concerning a problem or a question from a "
 "wide array of people."
@@ -1254,24 +1266,24 @@ msgstr ""
 "Собери идеи, прашања и влез во врска со проблем или прашање од широк спектар "
 "на луѓе."
 
-#: euth/blueprints/blueprints.py:209
+#: euth/blueprints/blueprints.py:210
 msgid "Spatial Brainstorming"
 msgstr "Просторно мозочен удар"
 
-#: euth/blueprints/blueprints.py:228
+#: euth/blueprints/blueprints.py:229
 msgid "Idea Challenge"
 msgstr "Идеја предизвик"
 
-#: euth/blueprints/blueprints.py:229
+#: euth/blueprints/blueprints.py:230
 msgid "Run a challenge and find the best ideas to solve a particular problem."
 msgstr ""
 "Испратете предизвик и најдете најдобрите идеи за решавање на одреден проблем."
 
-#: euth/blueprints/blueprints.py:248
+#: euth/blueprints/blueprints.py:249
 msgid "Spatial Idea Challenge"
 msgstr "Проблем со просторна идеја"
 
-#: euth/blueprints/blueprints.py:249
+#: euth/blueprints/blueprints.py:250
 msgid ""
 "Run a challenge concerning a certain area or space in your community and "
 "find the best ideas to solve a particular problem."
@@ -1279,7 +1291,7 @@ msgstr ""
 "Извршете предизвик за одредена област или простор во вашата заедница и "
 "пронајдете ги најдобрите идеи за решавање на одреден проблем."
 
-#: euth/blueprints/blueprints.py:270
+#: euth/blueprints/blueprints.py:271
 msgid ""
 "You can involve everyone in planning a meeting. Collect ideas for an "
 "upcoming event and let your participants vote on the topics you want to "
@@ -1289,11 +1301,11 @@ msgstr ""
 "претстојниот настан и нека вашите учесници гласаат за теми кои сакате да ги "
 "решите."
 
-#: euth/blueprints/blueprints.py:291
+#: euth/blueprints/blueprints.py:292
 msgid "Text Review"
 msgstr "Текст преглед"
 
-#: euth/blueprints/blueprints.py:292
+#: euth/blueprints/blueprints.py:293
 msgid ""
 "Let participants discuss individual paragraphs of a text. This is ideal for "
 "discussing position papers or a mission statements with many people."
@@ -1301,7 +1313,7 @@ msgstr ""
 "Нека учесниците дискутираат за поединечни ставови на текстот. Ова е идеално "
 "за дискутирање на позициони документи или изјави за мисија со многу луѓе."
 
-#: euth/blueprints/blueprints.py:313
+#: euth/blueprints/blueprints.py:314
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members. Via the OPIN polling app for iOS and "
@@ -1311,11 +1323,11 @@ msgstr ""
 "од јавноста или од вашите членови. Преку OPIN апликацијата за анкети за iOS "
 "и Android, овие анкети се достапни и на паметни телефони."
 
-#: euth/blueprints/blueprints.py:333
+#: euth/blueprints/blueprints.py:334
 msgid "Community debate"
 msgstr ""
 
-#: euth/blueprints/blueprints.py:334
+#: euth/blueprints/blueprints.py:335
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr ""
 
@@ -1510,7 +1522,7 @@ msgid "Learn More"
 msgstr "Научи повеќе"
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
-#: euth/organisations/filters.py:10 euth/projects/filters.py:9
+#: euth/organisations/filters.py:11 euth/projects/filters.py:10
 msgid "Most Recent"
 msgstr "Најнови"
 
@@ -1522,21 +1534,21 @@ msgstr "Повеќето коментари"
 msgid "Most Support"
 msgstr "Повеќето поддршка"
 
-#: euth/communitydebate/filters.py:18 euth/contrib/filters.py:37
+#: euth/communitydebate/filters.py:18 euth/contrib/filters.py:38
 #: euth/ideas/filters.py:17
 #: euth/ideas/templates/euth_ideas/includes/sort.html:3
 msgid "Sort by"
 msgstr "Подреди според"
 
-#: euth/communitydebate/phases.py:13
+#: euth/communitydebate/phases.py:15
 msgid "Debate phase"
 msgstr ""
 
-#: euth/communitydebate/phases.py:14
+#: euth/communitydebate/phases.py:16
 msgid "Add topics and debate them."
 msgstr ""
 
-#: euth/communitydebate/phases.py:15
+#: euth/communitydebate/phases.py:17
 msgid "communitydebate"
 msgstr ""
 
@@ -1548,8 +1560,8 @@ msgstr "Дали сте сигурни дека сакате да избрише
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:20
 #: euth/ideas/templates/euth_ideas/includes/modal.html:20
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:57
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:77
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:59
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
 msgid "delete"
 msgstr "Избриши"
 
@@ -1638,7 +1650,7 @@ msgstr "пост"
 #: euth/ideas/templates/euth_ideas/idea_form.html:100
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:80
 msgid "cancel"
 msgstr "Откажи"
 
@@ -1654,33 +1666,33 @@ msgstr ""
 msgid "Topic successfully created"
 msgstr ""
 
-#: euth/communitydebate/views.py:143
+#: euth/communitydebate/views.py:146
 msgid "Topic successfully updated"
 msgstr ""
 
-#: euth/communitydebate/views.py:154
+#: euth/communitydebate/views.py:157
 msgid "Your topic has been deleted"
 msgstr ""
 
-#: euth/contrib/filters.py:11
+#: euth/contrib/filters.py:12
 msgid "status"
 msgstr "статус"
 
-#: euth/contrib/filters.py:15 euth/users/models.py:51
+#: euth/contrib/filters.py:16 euth/users/models.py:51
 msgid "active"
 msgstr "активно"
 
-#: euth/contrib/filters.py:16
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:16
+#: euth/contrib/filters.py:17
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:18
 #: euth/projects/templates/euth_projects/includes/project_tile.html:11
 msgid "archived"
 msgstr "архивирани"
 
-#: euth/contrib/filters.py:17
+#: euth/contrib/filters.py:18
 msgid "all"
 msgstr "сите"
 
-#: euth/contrib/filters.py:64
+#: euth/contrib/filters.py:65
 msgid "Country"
 msgstr "Земја"
 
@@ -1701,7 +1713,7 @@ msgstr ""
 msgid "File should be at most {} MB"
 msgstr "Датотеката треба да биде најмногу {} MB"
 
-#: euth/contrib/widgets.py:63
+#: euth/contrib/widgets.py:60
 msgid "Select a file from your local folder."
 msgstr "Изберете датотека од вашата локална папка."
 
@@ -1731,23 +1743,23 @@ msgstr "Наслов на вашата организација"
 msgid "Documents with comments"
 msgstr "Документи со коментари"
 
-#: euth/documents/phases.py:17
+#: euth/documents/phases.py:19
 msgid "Create document phase"
 msgstr "Креирај документ фаза"
 
-#: euth/documents/phases.py:18 euth/documents/phases.py:37
+#: euth/documents/phases.py:20 euth/documents/phases.py:39
 msgid "commenting text"
 msgstr "Коментирање на текст"
 
-#: euth/documents/phases.py:19
+#: euth/documents/phases.py:21
 msgid "Create text for the project."
 msgstr "Направете текст за проектот."
 
-#: euth/documents/phases.py:36
+#: euth/documents/phases.py:38
 msgid "Comment phase"
 msgstr "Фаза на коментар"
 
-#: euth/documents/phases.py:38
+#: euth/documents/phases.py:40
 msgid "Collect comments for the text."
 msgstr "Собери коментари за текстот."
 
@@ -1763,7 +1775,7 @@ msgstr "Модераторите во моментот креираат доку
 msgid "Document for that module already exists"
 msgstr "Документот за тој модул веќе постои."
 
-#: euth/exports/dashboard.py:12
+#: euth/exports/dashboard.py:14
 msgid "Export Excel"
 msgstr "Ексел Ексел"
 
@@ -1789,51 +1801,51 @@ msgid ""
 "5 MB in file size."
 msgstr ""
 
-#: euth/ideas/phases.py:13
+#: euth/ideas/phases.py:15
 msgid "Issue phase"
 msgstr "Фаза на прашања"
 
-#: euth/ideas/phases.py:14
+#: euth/ideas/phases.py:16
 msgid "Add new ideas."
 msgstr "Додади нови идеи."
 
-#: euth/ideas/phases.py:15 euth/ideas/phases.py:30 euth/ideas/phases.py:45
-#: euth/ideas/phases.py:62 euth/ideas/phases.py:77 euth/maps/phases.py:15
-#: euth/maps/phases.py:32 euth/maps/phases.py:49
+#: euth/ideas/phases.py:17 euth/ideas/phases.py:32 euth/ideas/phases.py:47
+#: euth/ideas/phases.py:64 euth/ideas/phases.py:79 euth/maps/phases.py:17
+#: euth/maps/phases.py:34 euth/maps/phases.py:51
 msgid "ideas collection"
 msgstr "Збир на идеи"
 
-#: euth/ideas/phases.py:28
+#: euth/ideas/phases.py:30
 msgid "Collect phase"
 msgstr "Фаза на собирање"
 
-#: euth/ideas/phases.py:29
+#: euth/ideas/phases.py:31
 msgid "Add new ideas and comment them."
 msgstr "Додади нови идеи и коментирај ги."
 
-#: euth/ideas/phases.py:44
+#: euth/ideas/phases.py:46
 msgid "Rating phase"
 msgstr "Фаза на рангирање"
 
-#: euth/ideas/phases.py:46
+#: euth/ideas/phases.py:48
 msgid "Get quantative feeback by rating the collected ideas."
 msgstr ""
 "Добиј квантитативни повратни информации преку рангирање на собраните идеи."
 
-#: euth/ideas/phases.py:59
+#: euth/ideas/phases.py:61
 msgid "Feedback phase"
 msgstr "Фаза на повратни информации"
 
-#: euth/ideas/phases.py:60
+#: euth/ideas/phases.py:62
 msgid "Get feedback for collected ideas through rates and comments."
 msgstr ""
 "Добиј повратни информации за собраните идеи преку рангирање и коментари."
 
-#: euth/ideas/phases.py:76
+#: euth/ideas/phases.py:78
 msgid "Universal phase"
 msgstr "Универзална фаза"
 
-#: euth/ideas/phases.py:78
+#: euth/ideas/phases.py:80
 msgid "Use all features of the idea collection."
 msgstr "Искористи ги сите карактеристики од збирот на идеи."
 
@@ -1862,7 +1874,7 @@ msgstr "Креирај предлог"
 msgid "No proposals found"
 msgstr "Не се пронајдени предлози"
 
-#: euth/ideas/views.py:107
+#: euth/ideas/views.py:108
 msgid "Your Idea has been deleted"
 msgstr "Твојата идеја е избришана"
 
@@ -1886,27 +1898,27 @@ msgstr ""
 "Кликнете во означената област за да поставите маркер. Повлечете и пуштете "
 "маркер за да го смените местото."
 
-#: euth/maps/phases.py:13
+#: euth/maps/phases.py:15
 msgid "Issue Phase"
 msgstr "Фаза на прашања"
 
-#: euth/maps/phases.py:14
+#: euth/maps/phases.py:16
 msgid "Add, comment and rate new ideas on a map."
 msgstr "Додајте, коментирајте и ставете нови идеи на карта."
 
-#: euth/maps/phases.py:30
+#: euth/maps/phases.py:32
 msgid "Collect Phase"
 msgstr "Собери фаза"
 
-#: euth/maps/phases.py:31
+#: euth/maps/phases.py:33
 msgid "Add and comment new ideas on a map."
 msgstr "Додајте и коментирајте нови идеи на мапа."
 
-#: euth/maps/phases.py:46
+#: euth/maps/phases.py:48
 msgid "Rating Phase"
 msgstr "Рејтинг фаза"
 
-#: euth/maps/phases.py:47
+#: euth/maps/phases.py:49
 msgid "Get quantative feeback by rating the collected ideas on a map."
 msgstr ""
 "Добијте квантитативни повратни информации со оценка на собраните идеи на "
@@ -1916,13 +1928,13 @@ msgstr ""
 msgid "view on list"
 msgstr "поглед на листата"
 
-#: euth/memberships/dashboard.py:12
+#: euth/memberships/dashboard.py:13
 #: euth/memberships/templates/euth_memberships/dashboard_members.html:5
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:3
 msgid "Members"
 msgstr "Членови"
 
-#: euth/memberships/dashboard.py:33
+#: euth/memberships/dashboard.py:34
 #: euth/memberships/templates/euth_memberships/dashboard_invites.html:5
 msgid "Invited Members"
 msgstr "Поканети членови"
@@ -2054,7 +2066,7 @@ msgstr "Поканите се испратени"
 msgid "Project membership requests have been updated"
 msgstr "Барањата за членство во проектот се ажурирани"
 
-#: euth/offlinephases/dashboard.py:12
+#: euth/offlinephases/dashboard.py:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_list.html:10
 msgid "Offline Events"
 msgstr "Офлајн Настани"
@@ -2129,27 +2141,27 @@ msgstr "Уредете ја офлајн содржината"
 msgid "update offlinephase"
 msgstr "ажурирајте offlinephase"
 
-#: euth/offlinephases/views.py:87 euth/offlinephases/views.py:152
+#: euth/offlinephases/views.py:89 euth/offlinephases/views.py:154
 msgid "Offline events have been updated"
 msgstr "Надвор од мрежа настани се ажурирани"
 
-#: euth/offlinephases/views.py:169
+#: euth/offlinephases/views.py:171
 msgid "The offline event has been deleted"
 msgstr "Настанот офлајн е избришан"
 
-#: euth/organisations/filters.py:11 euth/projects/filters.py:10
+#: euth/organisations/filters.py:12 euth/projects/filters.py:11
 msgid "Alphabetical"
 msgstr "Алфабетски"
 
-#: euth/organisations/models.py:21
+#: euth/organisations/models.py:22
 msgid "title"
 msgstr "Наслов"
 
-#: euth/organisations/models.py:38
+#: euth/organisations/models.py:39
 msgid "The image sets the atmosphere for your organisation page."
 msgstr "Сликата ја поставува атмосферата за вашата организација страница."
 
-#: euth/organisations/models.py:46
+#: euth/organisations/models.py:47
 msgid "The official logo of your organisation."
 msgstr "Официјалното лого на вашата организација."
 
@@ -2209,7 +2221,7 @@ msgstr "Пребарај за организација"
 msgid "Organisation successfully updated."
 msgstr "Организацијата е успешно надградена."
 
-#: euth/projects/dashboard.py:12
+#: euth/projects/dashboard.py:13
 #: euth/projects/templates/euth_projects/dashboard_moderators.html:5
 msgid "Moderators"
 msgstr "Модератори"
@@ -2223,17 +2235,37 @@ msgstr ""
 msgid "Search for username"
 msgstr "Пребарај за корисничко име"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:18
-#: euth/projects/templates/euth_projects/includes/project_list_item.html:12
+#: euth/projects/overwrites.py:8
+msgid "Only invited users can see content and can participate (private)."
+msgstr ""
+
+#: euth/projects/overwrites.py:10
+msgid "All users can see content and can participate (public)."
+msgstr ""
+
+#: euth/projects/overwrites.py:12
+msgid ""
+"All users can see content, only invited users can participate (semi-public)."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
+msgid "semi-public"
+msgstr ""
+
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
+#: euth/projects/templates/euth_projects/includes/project_list_item.html:14
+#: euth/projects/templates/euth_projects/includes/project_tile.html:17
 msgid "finished"
 msgstr "завршено"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:26
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:28
 msgid "by"
 msgstr "од"
 
-#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:36
+#: euth/projects/templates/euth_projects/includes/project_hero_unit.html:38
 msgid "edit"
 msgstr "Измени"
 
@@ -2298,7 +2330,18 @@ msgstr "Оваа фаза завршува"
 msgid "(Your Timezone: "
 msgstr "(Вашата временска зона:"
 
-#: euth/projects/templates/euth_projects/project_detail.html:188
+#: euth/projects/templates/euth_projects/project_detail.html:184
+msgid ""
+"This project is not publicly visible. Only invited users can see content and "
+"actively participate."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/project_detail.html:191
+msgid ""
+"This project is publicly visible. Invited users can actively participate."
+msgstr ""
+
+#: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
 "The initiator hasn’t provided information on the expected outcome of the "
 "project yet."
@@ -2306,7 +2349,7 @@ msgstr ""
 "Иницијаторот нема обезбедено информации за очекуваниот исход на проектот "
 "се’уште."
 
-#: euth/projects/templates/euth_projects/project_detail.html:201
+#: euth/projects/templates/euth_projects/project_detail.html:215
 msgid "other projects from this organisation"
 msgstr "други проекти од оваа организација"
 
@@ -2322,16 +2365,16 @@ msgstr "недели"
 msgid "and"
 msgstr "и"
 
-#: euth/projects/views.py:55
+#: euth/projects/views.py:56
 #, python-format
 msgid "Project '%(name)s' was deleted successfully."
 msgstr "Проектот '%(name)s' беше успешно избришан."
 
-#: euth/users/admin.py:10
+#: euth/users/admin.py:11
 msgid "Permissions"
 msgstr "Дозволи"
 
-#: euth/users/admin.py:11
+#: euth/users/admin.py:12
 msgid "Important dates"
 msgstr "Важни датуми"
 
@@ -2565,15 +2608,15 @@ msgstr "Грузиски"
 msgid "Macedonian"
 msgstr "Македонски"
 
-#: euth_wagtail/settings/base.py:432
+#: euth_wagtail/settings/base.py:434
 msgid "suggestion"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:435
 msgid "note"
 msgstr ""
 
-#: euth_wagtail/settings/base.py:434
+#: euth_wagtail/settings/base.py:436
 msgid "question"
 msgstr ""
 
@@ -2585,21 +2628,21 @@ msgstr "Не Ви е дозволено да пристапите на оваа 
 msgid "This page couldn’t be found."
 msgstr "Оваа страница не можеше да се најде."
 
-#: euth_wagtail/templates/500.html:21
+#: euth_wagtail/templates/500.html:20
 #: euth_wagtail/templates/base_errors.html:13
 msgid "Error"
 msgstr "Грешка"
 
-#: euth_wagtail/templates/500.html:27
+#: euth_wagtail/templates/500.html:26
 #: euth_wagtail/templates/base_errors.html:19
 msgid "Sorry, something went wrong."
 msgstr "Извини, нешто тргна наопаку."
 
-#: euth_wagtail/templates/500.html:28
+#: euth_wagtail/templates/500.html:27
 msgid "Internal server error."
 msgstr "Внатрешна серверска грешка."
 
-#: euth_wagtail/templates/500.html:29
+#: euth_wagtail/templates/500.html:28
 #: euth_wagtail/templates/base_errors.html:21
 msgid "Get back to OPIN.ME"
 msgstr "Вратете се на OPIN.ME"
@@ -2648,7 +2691,7 @@ msgstr "Изберете дефиниција"
 msgid "use this template"
 msgstr "Искористи го овој примерок"
 
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:72
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:74
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
 msgstr ""
@@ -2938,6 +2981,15 @@ msgstr "Упатства за преземање"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Содржина"
+
+#~ msgid ""
+#~ "Please indicate whether this project should be public or restricted to "
+#~ "invited users. Teasers for your project including title and short "
+#~ "description will always be visible to everyone"
+#~ msgstr ""
+#~ "Ве молиме наведете дали овој проект треба да биде јавен или ограничен на "
+#~ "поканети корисници. Линкови за вашиот проект, вклучувајќи наслов и краток "
+#~ "опис секогаш ќе бидат видливи за сите"
 
 #~ msgid "End date can not be smallerthan the start date."
 #~ msgstr "Крајниот датум не може да биде помал од датумот на почеток."
