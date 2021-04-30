@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-08 13:32+0200\n"
+"POT-Creation-Date: 2021-04-30 14:04+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -50,7 +50,6 @@ msgstr "Sammenfoldeligt element"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:23
-#: adhocracy4.js:1
 #, javascript-format
 msgid "hide one reply"
 msgid_plural "hide %s replies"
@@ -59,7 +58,6 @@ msgstr[1] "skjul %s svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
 #: adhocracy4/comments/static/comments/Comment.jsx:25
-#: adhocracy4.js:1
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
@@ -70,23 +68,21 @@ msgstr[1] "se %s svar"
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:9
 #: adhocracy4/comments/static/comments/Comment.jsx:30
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:9
-#: adhocracy4.js:1
 msgid "Answer"
 msgstr "Svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:410
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:408
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:410
-#: adhocracy4.js:1
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:408
 msgid "Your reply here"
 msgstr "Tast dit svar her"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:279
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:283
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:279
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:283
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -98,53 +94,48 @@ msgstr ""
 "slettes, hvis det ikke overholder vores diskussionsregler (netiquette)."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:256
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:256
-#: adhocracy4.js:1
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 msgid "Moderator"
 msgstr "Ordstyrer/Mødeleder/Mægler/Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:251
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:255
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:251
-#: adhocracy4.js:1
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:255
 msgid "Latest edit on"
 msgstr "Sidste udgave af"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:232
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:236
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:232
-#: adhocracy4.js:1
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:236
 msgid "Do you really want to delete this comment?"
 msgstr "Er du sikker på, at du vil slette kommentaren?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:234
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:14
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:234
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 #: adhocracy4/polls/static/polls/QuestionForm.jsx:14
-#: adhocracy4.js:1
 msgid "Delete"
 msgstr "Slet"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:235
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:239
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:235
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:239
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
-#: adhocracy4.js:1
 msgid "Abort"
 msgstr "Afbryd"
 
@@ -152,13 +143,11 @@ msgstr "Afbryd"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 #: adhocracy4/comments/static/comments/CommentBox.jsx:165
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
-#: adhocracy4.js:1
 msgid "Your comment here"
 msgstr "Skriv din kommentar her"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
-#: adhocracy4.js:1
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Kommentarer"
@@ -170,7 +159,6 @@ msgstr[1] "Kommentarer"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
-#: adhocracy4.js:1
 msgid "save changes"
 msgstr "Gem ændringer"
 
@@ -180,7 +168,6 @@ msgstr "Gem ændringer"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
-#: adhocracy4.js:1
 msgid "cancel"
 msgstr "Annuller"
 
@@ -190,7 +177,6 @@ msgstr "Annuller"
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:107
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
-#: adhocracy4.js:1
 msgid "post"
 msgstr "Post/Beskeder/Send/Slå op"
 
@@ -198,31 +184,34 @@ msgstr "Post/Beskeder/Send/Slå op"
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
-#: adhocracy4.js:1
 msgid "Please login to comment"
 msgstr "Log ind for at kommentere"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:129
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
-#: adhocracy4.js:1
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:129
 msgid "The currently active phase doesn't allow to comment."
 msgstr ""
 "Det er ikke muligt at kommentere i denne fase/Denne side tillader ikke "
 "kommentarer"
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
+msgid "Only invited users can actively participate."
+msgstr ""
+
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
-#: adhocracy4.js:1
 msgid "Edit"
 msgstr "Rediger"
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
-#: adhocracy4.js:1
 msgid "Report"
 msgstr "Reporter/Anmeld"
 
@@ -231,57 +220,57 @@ msgstr "Reporter/Anmeld"
 msgid "Choose categories for your comment"
 msgstr "Vælg kategorier til din kommentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 msgid "Entry successfully created"
 msgstr "Indgang med succes oprettet"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Read more..."
 msgstr "Læs mere..."
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Read less"
 msgstr "Læs mindre"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Share"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid " Report"
 msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
+msgid "hide comments"
+msgstr ""
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #, javascript-format
 msgid "1 comment"
 msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:40
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:40
-msgid "hide comments"
-msgstr ""
-
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 msgctxt "verb"
 msgid "Comment"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:286
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:286
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:290
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:290
 msgid "Share link"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:325
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:325
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:329
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:329
 msgid "Categories: "
 msgstr ""
 
@@ -312,10 +301,10 @@ msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:543
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:543
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
 msgid "all"
 msgstr ""
 
@@ -330,59 +319,59 @@ msgstr ""
 msgid "Write contribution"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:525
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
 msgid "Search contributions"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
 msgid "Clear search"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:535
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
 msgid "display: "
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:562
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:562
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
 msgid "sorted by: "
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Filters"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Show filters"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide Filters"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide filters"
 msgstr ""
 
@@ -429,7 +418,6 @@ msgstr "Din besked"
 #: adhocracy4/reports/static/reports/ReportModal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:84
 #: adhocracy4/reports/static/reports/ReportModal.jsx:62
-#: adhocracy4.js:1
 msgid "Send Report"
 msgstr "Send rapport"
 
@@ -456,13 +444,11 @@ msgstr ""
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: euth/follows/static/follows/FollowButton.jsx:48
-#: adhocracy4.js:1
 msgid "Follow"
 msgstr "Følg"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
-#: adhocracy4.js:1
 msgid "Following"
 msgstr "Følger"
 
@@ -579,7 +565,6 @@ msgid "Thank you! We are taking care of it."
 msgstr "Tak skal du have! Vi tager os af det."
 
 #: adhocracy4/static/Alert.jsx:5
-#: adhocracy4.js:1
 msgid "Close"
 msgstr "Tæt"
 
@@ -592,80 +577,62 @@ msgid "Maximum number of upload documents reached."
 msgstr ""
 
 #: euth/dashboard/static/user_list/react_user_list.jsx:81
-#: adhocracy4.js:1
 msgid "Remove"
 msgstr "Fjern"
 
 #: euth/documents/static/documents/Paragraph.jsx:69
 #: euth/documents/static/documents/ParagraphBox.jsx:226
-#: adhocracy4.js:1
 msgid "add a new paragraph"
 msgstr "Tilføj nyt afsnit"
 
 #: euth/documents/static/documents/Paragraph.jsx:82
-#: adhocracy4.js:1
 msgid "Headline:"
 msgstr "Overskrift:"
 
 #: euth/documents/static/documents/Paragraph.jsx:98
-#: adhocracy4.js:1
 msgid "Paragraph:"
 msgstr "Afsnit:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:126
-#: adhocracy4.js:1
 msgid "Your document has been updated."
 msgstr "Dit dokument er blevet opdateret."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:156
-#: adhocracy4.js:1
 msgid "Your document has been saved."
 msgstr "Dit dokument er blevet gemt."
 
 #: euth/documents/static/documents/ParagraphBox.jsx:187
-#: adhocracy4.js:1
 msgid "Title:"
 msgstr "Titel:"
 
 #: euth/documents/static/documents/ParagraphBox.jsx:243
-#: adhocracy4.js:1
 msgid "save"
 msgstr "Gem"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
-#: adhocracy4.js:1
 msgid "Unfollow"
 msgstr "Følg ikke længere"
 
-#: adhocracy4.js:1
-msgid "Are you sure you want to report this item?"
-msgstr "Er du sikker på, at du vil anmelde dette indhold?"
+#~ msgid "Are you sure you want to report this item?"
+#~ msgstr "Er du sikker på, at du vil anmelde dette indhold?"
 
-#: adhocracy4.js:1
-#, javascript-format
-msgid "hide %s replies"
-msgstr "skjul %s svar"
+#~ msgid "hide %s replies"
+#~ msgstr "skjul %s svar"
 
-#: adhocracy4.js:1
-#, javascript-format
-msgid "view %s replies"
-msgstr "se %s svar"
+#~ msgid "view %s replies"
+#~ msgstr "se %s svar"
 
-#: adhocracy4.js:1
-msgid "Your message here"
-msgstr "Skriv din besked her"
+#~ msgid "Your message here"
+#~ msgstr "Skriv din besked her"
 
-#: adhocracy4.js:1
-msgid "Not following"
-msgstr "Følger ikke"
+#~ msgid "Not following"
+#~ msgstr "Følger ikke"
 
-#: adhocracy4.js:1
-msgid "Never be notified."
-msgstr "Bliv aldrig meddelt"
+#~ msgid "Never be notified."
+#~ msgstr "Bliv aldrig meddelt"
 
-#: adhocracy4.js:1
-msgid "Receive email notifications about this project."
-msgstr "Modtag e-mail notifikationer omkring dette projekt "
+#~ msgid "Receive email notifications about this project."
+#~ msgstr "Modtag e-mail notifikationer omkring dette projekt "
 
 #~ msgid "Offline Phase"
 #~ msgstr "Offline fase"
