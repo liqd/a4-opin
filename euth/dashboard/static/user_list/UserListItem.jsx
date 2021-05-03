@@ -1,7 +1,7 @@
-var React = require('react')
-var PropTypes = require('prop-types')
+const React = require('react')
+const PropTypes = require('prop-types')
 
-var UserListItem = function (props) {
+const UserListItem = function (props) {
   return (
     <tr>
       <td>
@@ -26,7 +26,7 @@ UserListItem.propTypes = {
   user: PropTypes.object
 }
 
-var Avatar = function (props) {
+const Avatar = function (props) {
   const avatar = props.src ? props.src : props.fallback
   return <img src={avatar} alt="" className="circled" />
 }

@@ -1,4 +1,4 @@
-var $ = require('jquery')
+const $ = require('jquery')
 
 class UserSearch {
   constructor (typeaheadElem) {
@@ -47,8 +47,8 @@ class UserSearch {
 
   selectHandler (event, context) {
     if (window.adhocracy4 && window.adhocracy4.userList && window.adhocracy4.userList[this.identifier]) {
-      var listeningComponents = window.adhocracy4.userList[this.identifier]
-      for (var i = 0; i < listeningComponents.length; i++) {
+      const listeningComponents = window.adhocracy4.userList[this.identifier]
+      for (let i = 0; i < listeningComponents.length; i++) {
         const userList = listeningComponents[i]
         userList.add(context).done((data, status) => {
           if (status !== 'success') {
@@ -62,11 +62,11 @@ class UserSearch {
 }
 
 $(function () {
-  var typeaheadElems = document.querySelectorAll('.typeahead')
-  var length = typeaheadElems.length
-  var userSearchs = []
-  for (var i = 0; i < length; i++) {
-    var elem = typeaheadElems[i]
+  const typeaheadElems = document.querySelectorAll('.typeahead')
+  const length = typeaheadElems.length
+  const userSearchs = []
+  for (let i = 0; i < length; i++) {
+    const elem = typeaheadElems[i]
     userSearchs.push(new UserSearch(elem))
   }
 })

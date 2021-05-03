@@ -1,20 +1,20 @@
 window.jQuery(document).ready(function () {
-  var $ = window.jQuery
-  var L = window.L
-  var polygon = window.polygon
-  var point = window.point
-  var baseurl = window.baseurl
-  var initial = 0
+  const $ = window.jQuery
+  const L = window.L
+  const polygon = window.polygon
+  const point = window.point
+  const baseurl = window.baseurl
+  let initial = 0
 
-  var basemap = baseurl + '{z}/{x}/{y}.png'
-  var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, { attribution: osmAttrib })
-  var map = new L.Map('map', { scrollWheelZoom: false, zoomControl: false })
+  const basemap = baseurl + '{z}/{x}/{y}.png'
+  const osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  const baselayer = L.tileLayer(basemap, { attribution: osmAttrib })
+  const map = new L.Map('map', { scrollWheelZoom: false, zoomControl: false })
   baselayer.addTo(map)
 
   map.on('zoomend', function () {
-    var currentZoom = map.getZoom()
-    var minZoom = map.getMinZoom()
+    const currentZoom = map.getZoom()
+    const minZoom = map.getMinZoom()
 
     if (currentZoom > minZoom) {
       if (initial === 1) {
@@ -26,14 +26,14 @@ window.jQuery(document).ready(function () {
     }
   })
 
-  var polygonStyle = {
+  const polygonStyle = {
     color: '#0076ae',
     weight: 2,
     opacity: 1,
     fillOpacity: 0.2
   }
 
-  var basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
+  const basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
   basePolygon.on('dblclick', function (event) {
     map.zoomIn()
   })
@@ -45,7 +45,7 @@ window.jQuery(document).ready(function () {
   map.options.minZoom = map.getZoom()
   initial = 1
 
-  var customOptions =
+  const customOptions =
     {
       className: 'maps-popups',
       closeButton: false
@@ -58,7 +58,7 @@ window.jQuery(document).ready(function () {
     return '<div class="maps-popups-popup-image"></div>'
   }
 
-  var icon = L.icon({
+  const icon = L.icon({
     iconUrl: '/static/images/map_pin_01_2x.png',
     shadowUrl: '/static/images/map_shadow_01_2x.png',
     iconSize: [30, 45],
@@ -70,8 +70,8 @@ window.jQuery(document).ready(function () {
 
   L.geoJson(point, {
     pointToLayer: function (feature, latlng) {
-      var marker = L.marker(latlng, { icon: icon }).addTo(map)
-      var popupContent = getImage(feature) +
+      const marker = L.marker(latlng, { icon: icon }).addTo(map)
+      const popupContent = getImage(feature) +
                         '<div class="maps-popups-popup-meta">' +
                             '<span class="idea-upvotes idea-meta-item">' +
                             feature.properties.positive_rating_count + ' <i class="fa fa-chevron-up" aria-hidden="true"></i>' +

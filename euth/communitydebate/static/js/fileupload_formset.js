@@ -5,11 +5,11 @@ import { showFileName } from '../../../../euth_wagtail/assets/js/euth_wagtail';
   document.addEventListener('a4.embed.ready', init, false)
 })(function () {
   // Dynamically add subforms to a formset.
-  var $formsets = $('.js-formset')
-  var PLACEHOLDER = /__prefix__/g
-  var dynamicFormSets = []
+  const $formsets = $('.js-formset')
+  const PLACEHOLDER = /__prefix__/g
+  const dynamicFormSets = []
 
-  var DynamicFormSet = function ($formset) {
+  const DynamicFormSet = function ($formset) {
     this.$formset = $formset
     this.$formTemplate = this.$formset.find('.js-form-template')
     this.prefix = this.$formset.data('prefix')
@@ -22,14 +22,14 @@ import { showFileName } from '../../../../euth_wagtail/assets/js/euth_wagtail';
 
   DynamicFormSet.prototype.addForm = function () {
     if (this.total < this.maxNum) {
-      var id = this.total
+      const id = this.total
       this.total += 1
       this.$totalInput.val(this.total)
-      var newForm = getNewForm(this.$formTemplate, id)
+      const newForm = getNewForm(this.$formTemplate, id)
       $(newForm).insertBefore(this.$formTemplate)
       document.getElementById(this.prefix + '-' + id.toString() + '-document').addEventListener('change', showFileName, false)
     } else {
-      var text = django.gettext('Maximum number of upload documents reached.')
+      const text = django.gettext('Maximum number of upload documents reached.')
       $('#error-max-num-forms').html('<ul class="errorlist"><li>' + text + '</li></ul>')
     }
   }

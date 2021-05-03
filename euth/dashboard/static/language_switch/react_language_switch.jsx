@@ -1,10 +1,13 @@
-var PropTypes = require('prop-types')
-var React = require('react')
-var ReactDOM = require('react-dom')
+const PropTypes = require('prop-types')
+const React = require('react')
+const ReactDOM = require('react-dom')
 
 class LanguageSwitch extends React.Component {
   constructor (props) {
     super(props)
+    this.checkboxListRef = React.createRef()
+    this.toggleButtonRef = React.createRef()
+
     this.state = {
       activeLanguages: this.props.activeLanguages,
       activeTab: this.getInitialActiveTab()
@@ -20,8 +23,8 @@ class LanguageSwitch extends React.Component {
   }
 
   getNewActiveTab (removedLanguage) {
-    var index = this.state.activeLanguages.indexOf(removedLanguage)
-    var newActiveLanguages = this.state.activeLanguages.concat([])
+    const index = this.state.activeLanguages.indexOf(removedLanguage)
+    const newActiveLanguages = this.state.activeLanguages.concat([])
     if (index !== -1) {
       newActiveLanguages.splice(index, 1)
     }
@@ -33,14 +36,14 @@ class LanguageSwitch extends React.Component {
   }
 
   activateTab (e) {
-    var languageCode = e.target.textContent
+    const languageCode = e.target.textContent
     this.setState({ activeTab: languageCode })
   }
 
   addLanguage (e) {
-    var languageCode = e.target.textContent
-    var index = this.state.activeLanguages.indexOf(languageCode)
-    var newActiveLanguages = this.state.activeLanguages.concat([])
+    const languageCode = e.target.textContent
+    const index = this.state.activeLanguages.indexOf(languageCode)
+    const newActiveLanguages = this.state.activeLanguages.concat([])
     if (index === -1) {
       // adding language
       newActiveLanguages.push(languageCode)
@@ -53,9 +56,9 @@ class LanguageSwitch extends React.Component {
   }
 
   removeLanguage (e) {
-    var languageCode = e.target.textContent
-    var index = this.state.activeLanguages.indexOf(languageCode)
-    var newActiveLanguages = this.state.activeLanguages.concat([])
+    const languageCode = e.target.textContent
+    const index = this.state.activeLanguages.indexOf(languageCode)
+    const newActiveLanguages = this.state.activeLanguages.concat([])
     if (index !== -1) {
       // removing language
       newActiveLanguages.splice(index, 1)
@@ -73,7 +76,7 @@ class LanguageSwitch extends React.Component {
   render () {
     return (
       <div>
-        <ul className="checkbox-list" ref="checkboxList">
+        <ul className="checkbox-list" ref={this.checkboxListRef}>
           {
             this.props.languages.map((languageCode, i) => {
               return (
@@ -93,7 +96,7 @@ class LanguageSwitch extends React.Component {
           }
         </ul>
         <div className="dropdown ml-5">
-          <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
+          <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref={this.toggleButtonRef}>
             <i className="fa fa-plus" />
           </button>
           <div className="dropdown-menu">
@@ -120,7 +123,7 @@ class LanguageSwitch extends React.Component {
 
         {this.state.activeLanguages.length > 1 &&
           <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref="toggleButton">
+            <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref={this.toggleButtonRef}>
               <i className="fa fa-minus" />
             </button>
             <div className="dropdown-menu">

@@ -1,14 +1,14 @@
 function createMap (L, baseurl, name) {
-  var basemap = baseurl + '{z}/{x}/{y}.png'
-  var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
-  var map = new L.Map('map_' + name, { scrollWheelZoom: false, zoomControl: false })
+  const basemap = baseurl + '{z}/{x}/{y}.png'
+  const osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  const baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
+  const map = new L.Map('map_' + name, { scrollWheelZoom: false, zoomControl: false })
   baselayer.addTo(map)
   return map
 }
 
 function createMarker ($, L, newlatln, oldlatln, basePolygon, map, name) {
-  var icon = L.icon({
+  const icon = L.icon({
     iconUrl: '/static/images/map_pin_01_2x.png',
     shadowUrl: '/static/images/map_shadow_01_2x.png',
     iconSize: [30, 45],
@@ -18,14 +18,14 @@ function createMarker ($, L, newlatln, oldlatln, basePolygon, map, name) {
     popupAnchor: [0, -45]
   })
 
-  var marker = L.marker(newlatln, { draggable: true, icon: icon }).addTo(map)
+  const marker = L.marker(newlatln, { draggable: true, icon: icon }).addTo(map)
   marker.on('dragend', function () {
-    var markerInsidePolygon = false
+    let markerInsidePolygon = false
     basePolygon.getLayers().forEach(function (each) {
       if (isMarkerInsidePolygon(marker, each)) {
         markerInsidePolygon = true
         oldlatln = marker.getLatLng()
-        var shape = marker.toGeoJSON()
+        const shape = marker.toGeoJSON()
         $('#id_' + name).val(JSON.stringify(shape))
       }
     })
@@ -37,18 +37,18 @@ function createMarker ($, L, newlatln, oldlatln, basePolygon, map, name) {
 }
 
 function isMarkerInsidePolygon (marker, poly) {
-  var polyPoints = poly.getLatLngs()
-  var x = marker.getLatLng().lat
-  var y = marker.getLatLng().lng
+  const polyPoints = poly.getLatLngs()
+  const x = marker.getLatLng().lat
+  const y = marker.getLatLng().lng
 
-  var inside = false
-  for (var i = 0, j = polyPoints.length - 1; i < polyPoints.length; j = i++) {
-    var xi = polyPoints[i].lat
-    var yi = polyPoints[i].lng
-    var xj = polyPoints[j].lat
-    var yj = polyPoints[j].lng
+  let inside = false
+  for (let i = 0, j = polyPoints.length - 1; i < polyPoints.length; j = i++) {
+    const xi = polyPoints[i].lat
+    const yi = polyPoints[i].lng
+    const xj = polyPoints[j].lat
+    const yj = polyPoints[j].lng
 
-    var intersect = ((yi > y) !== (yj > y)) &&
+    const intersect = ((yi > y) !== (yj > y)) &&
         (x < (xj - xi) * (y - yi) / (yj - yi) + xi)
     if (intersect) inside = !inside
   }
@@ -56,34 +56,34 @@ function isMarkerInsidePolygon (marker, poly) {
 }
 
 window.jQuery(document).ready(function () {
-  var $ = window.jQuery
-  var L = window.L
-  var name = window.name
-  var polygon = window.polygon
-  var point = window.point
-  var baseurl = window.baseurl
-  var map = createMap(L, baseurl, name)
+  const $ = window.jQuery
+  const L = window.L
+  const name = window.name
+  const polygon = window.polygon
+  const point = window.point
+  const baseurl = window.baseurl
+  const map = createMap(L, baseurl, name)
 
-  var polygonStyle = {
+  const polygonStyle = {
     color: '#0076ae',
     weight: 2,
     opacity: 1,
     fillOpacity: 0.2
   }
 
-  var basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
+  const basePolygon = L.geoJson(polygon, { style: polygonStyle }).addTo(map)
   map.fitBounds(basePolygon)
   map.options.minZoom = map.getZoom()
   L.control.zoom({
     position: 'topleft'
   }).addTo(map)
 
-  var marker
+  let marker
 
   if (point) {
     L.geoJson(point, {
       pointToLayer: function (feature, newlatlng) {
-        var oldlatlng = newlatlng
+        const oldlatlng = newlatlng
         marker = createMarker($, L, newlatlng, oldlatlng, basePolygon, map, name)
         return marker
       }
@@ -92,9 +92,9 @@ window.jQuery(document).ready(function () {
 
   basePolygon.on('click', function (event) {
     if (typeof marker === 'undefined') {
-      var oldlatlng = event.latlng
+      const oldlatlng = event.latlng
       marker = createMarker($, L, event.latlng, oldlatlng, basePolygon, map, name)
-      var shape = marker.toGeoJSON()
+      const shape = marker.toGeoJSON()
       $('#id_' + name).val(JSON.stringify(shape))
     }
   })

@@ -1,11 +1,11 @@
-var api = require('adhocracy4').api
-var Paragraph = require('./Paragraph.jsx')
-var PropTypes = require('prop-types')
-var React = require('react')
-var ReactDOM = require('react-dom')
-var update = require('immutability-helper')
-var django = require('django')
-var FlipMove = require('react-flip-move').default
+const api = require('adhocracy4').api
+const Paragraph = require('./Paragraph.jsx')
+const PropTypes = require('prop-types')
+const React = require('react')
+const ReactDOM = require('react-dom')
+const update = require('immutability-helper')
+const django = require('django')
+const FlipMove = require('react-flip-move').default
 
 class ParagraphBox extends React.Component {
   constructor (props) {
@@ -33,13 +33,13 @@ class ParagraphBox extends React.Component {
      *
      *  Prefix to prevent collisions with real database keys;
      */
-    var paragraphKey = 'local_' + (this.state.maxParagraphKey + 1)
+    const paragraphKey = 'local_' + (this.state.maxParagraphKey + 1)
     this.setState({ maxParagraphKey: this.state.maxParagraphKey + 1 })
     return paragraphKey
   }
 
   getNewParagraph (name, text) {
-    var newParagraph = {}
+    const newParagraph = {}
     newParagraph.name = name
     newParagraph.text = text
     newParagraph.paragraph_key = this.getNextParagraphKey()
@@ -47,15 +47,15 @@ class ParagraphBox extends React.Component {
   }
 
   deleteParagraph (index) {
-    var newArray = update(this.state.paragraphs, { $splice: [[index, 1]] })
+    const newArray = update(this.state.paragraphs, { $splice: [[index, 1]] })
     this.setState({
       paragraphs: newArray
     })
   }
 
   moveParagraphUp (index) {
-    var paragraph = this.state.paragraphs[index]
-    var paragraphs = update(this.state.paragraphs, {
+    const paragraph = this.state.paragraphs[index]
+    const paragraphs = update(this.state.paragraphs, {
       $splice: [[index, 1], [index - 1, 0, paragraph]]
     })
     this.setState({
@@ -64,8 +64,8 @@ class ParagraphBox extends React.Component {
   }
 
   moveParagraphDown (index) {
-    var paragraph = this.state.paragraphs[index]
-    var paragraphs = update(this.state.paragraphs, {
+    const paragraph = this.state.paragraphs[index]
+    const paragraphs = update(this.state.paragraphs, {
       $splice: [[index, 1], [index + 1, 0, paragraph]]
     })
     this.setState({
@@ -74,16 +74,16 @@ class ParagraphBox extends React.Component {
   }
 
   addParagraphBeforeIndex (index) {
-    var newParagraph = this.getNewParagraph('', '')
-    var newArray = update(this.state.paragraphs, { $splice: [[index, 0, newParagraph]] })
+    const newParagraph = this.getNewParagraph('', '')
+    const newArray = update(this.state.paragraphs, { $splice: [[index, 0, newParagraph]] })
     this.setState({
       paragraphs: newArray
     })
   }
 
   appendParagraph () {
-    var newParagraph = this.getNewParagraph('', '')
-    var newArray = update(this.state.paragraphs, { $push: [newParagraph] })
+    const newParagraph = this.getNewParagraph('', '')
+    const newArray = update(this.state.paragraphs, { $push: [newParagraph] })
     this.setState({
       paragraphs: newArray
     })
@@ -91,12 +91,12 @@ class ParagraphBox extends React.Component {
 
   updateParagraphName (index, name) {
     // deliberatly not call setState, because otherwise jkEditor reload/flicker
-    this.state.paragraphs[index].name = name
+    this.state.paragraphs[index].name = name /* eslint-disable-line */
   }
 
   updateParagraphText (index, text) {
     // deliberatly not call setState, because otherwise jkEditor reload/flicker
-    this.state.paragraphs[index].text = text
+    this.state.paragraphs[index].text = text /* eslint-disable-line */
   }
 
   submitDocument (e) {
@@ -111,7 +111,7 @@ class ParagraphBox extends React.Component {
   }
 
   updateDocument (id) {
-    var submitData = {
+    const submitData = {
       urlReplaces: { moduleId: this.props.module }
     }
     submitData.name = this.state.name
@@ -140,7 +140,7 @@ class ParagraphBox extends React.Component {
   }
 
   createDocument () {
-    var submitData = {
+    const submitData = {
       urlReplaces: { moduleId: this.props.module }
     }
     submitData.name = this.state.name
@@ -234,7 +234,8 @@ class ParagraphBox extends React.Component {
                   {this.state.successMessage}
                 </p>
               </div>
-            </div> : null /* eslint-disable-line */ }
+            </div> /* eslint-disable-line */
+            : null}
           <button
             id="submit-button"
             className="btn btn-primary"
