@@ -72,7 +72,8 @@
     "build": "webpack --config ./webpack.dev.js --mode development",
     "watch": "webpack --config ./webpack.dev.js --watch --mode development",
     "lint": "eslint euth euth_wagtail/assets --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "browserslist": "last 3 versions, ie >= 11",
   "husky": {
