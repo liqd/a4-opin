@@ -219,18 +219,15 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{
         from: './euth_wagtail/assets/images/*',
-        to: 'images/',
-        flatten: true
+        to: 'images/[name][ext]'
       },
       {
         from: './euth_wagtail/assets/icons/*',
-        to: 'icons/',
-        flatten: true
+        to: 'icons/[name][ext]'
       },
       {
         from: './euth_wagtail/assets/category_icons/**/*',
-        to: 'category_icons/icons/',
-        flatten: true
+        to: 'category_icons/icons/[name][ext]'
       }]
     })
   ]
