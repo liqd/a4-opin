@@ -6,11 +6,11 @@
   // Dynamically add more subforms to a formset.
   // Removing subforms is not (yet) supported)
 
-  var $formsets = $('.js-formset')
-  var PLACEHOLDER = /__prefix__/g
-  var dynamicFormSets = []
+  const $formsets = $('.js-formset')
+  const PLACEHOLDER = /__prefix__/g
+  const dynamicFormSets = []
 
-  var DynamicFormSet = function ($formset) {
+  const DynamicFormSet = function ($formset) {
     this.$formset = $formset
     this.$formTemplate = this.$formset.find('.js-form-template')
     this.prefix = this.$formset.data('prefix')
@@ -25,7 +25,7 @@
     if (this.id + 1 < this.maxNum) {
       this.id += 1
       this.$totalInput.val(this.id + 1)
-      var newForm = getNewForm(this.$formTemplate, this.id)
+      const newForm = getNewForm(this.$formTemplate, this.id)
       this.$formTemplate.before(newForm)
     }
   }

@@ -1,6 +1,6 @@
-var React = require('react')
-var django = require('django')
-var PropTypes = require('prop-types')
+const React = require('react')
+const django = require('django')
+const PropTypes = require('prop-types')
 
 class Paragraph extends React.Component {
   add () {
@@ -20,43 +20,43 @@ class Paragraph extends React.Component {
   }
 
   handleNameChange (e) {
-    var index = this.props.index
-    var text = e.target.value
+    const index = this.props.index
+    const text = e.target.value
     this.props.updateParagraphName(index, text)
   }
 
   ckEditorDestroy (id) {
-    var editor = window.CKEDITOR.instances[id]
+    const editor = window.CKEDITOR.instances[id]
     editor.destroy()
   }
 
   ckEditorCreate (id) {
-    var editor = window.CKEDITOR.replace(id, this.props.config)
+    const editor = window.CKEDITOR.replace(id, this.props.config)
     editor.on('change', function (e) {
-      var text = e.editor.getData()
-      var index = this.props.index
+      const text = e.editor.getData()
+      const index = this.props.index
       this.props.updateParagraphText(index, text)
     }.bind(this))
     editor.setData(this.props.paragraph.text)
   }
 
-  componentWillUpdate () {
-    var id = 'id_paragraphs-' + this.props.id + '-text'
+  UNSAFE_componentWillUpdate () {
+    const id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorDestroy(id)
   }
 
   componentDidUpdate () {
-    var id = 'id_paragraphs-' + this.props.id + '-text'
+    const id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
   }
 
   componentDidMount () {
-    var id = 'id_paragraphs-' + this.props.id + '-text'
+    const id = 'id_paragraphs-' + this.props.id + '-text'
     this.ckEditorCreate(id)
   }
 
   render () {
-    var ckEditorToolbarsHeight = 60 // measured on example editor
+    const ckEditorToolbarsHeight = 60 // measured on example editor
     return (
       <div>
         <div className="row">
@@ -89,9 +89,9 @@ class Paragraph extends React.Component {
                 defaultValue={this.props.paragraph.name}
                 onChange={this.handleNameChange.bind(this)}
               />
-              {this.props.errors && this.props.errors.name ? <ul className="errorlist">
-                <li>{this.props.errors.name[0]}</li>
-              </ul> : null /* eslint-disable-line */ }
+              {this.props.errors && this.props.errors.name
+                ? <ul className="errorlist"><li>{this.props.errors.name[0]}</li></ul>
+                : null}
               <label
                 htmlFor={'id_paragraphs-' + this.props.id + '-text'}
               >
@@ -106,9 +106,9 @@ class Paragraph extends React.Component {
                   id={'id_paragraphs-' + this.props.id + '-text'}
                   style={{ height: this.props.config.height + ckEditorToolbarsHeight }}
                 />
-                {this.props.errors && this.props.errors.text ? <ul className="errorlist">
-                  <li>{this.props.errors.text[0]}</li>
-                </ul> : null /* eslint-disable-line */ }
+                {this.props.errors && this.props.errors.text
+                  ? <ul className="errorlist"><li>{this.props.errors.text[0]}</li></ul>
+                  : null /* eslint-disable-line */ }
               </div>
             </div>
           </div>

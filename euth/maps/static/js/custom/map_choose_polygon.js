@@ -1,8 +1,8 @@
 function createMap (L, baseurl, name) {
-  var basemap = baseurl + '{z}/{x}/{y}.png'
-  var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  var baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
-  var map = new L.Map('map_' + name, { scrollWheelZoom: false, zoomControl: true, minZoom: 2 })
+  const basemap = baseurl + '{z}/{x}/{y}.png'
+  const osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  const baselayer = L.tileLayer(basemap, { maxZoom: 18, attribution: osmAttrib })
+  const map = new L.Map('map_' + name, { scrollWheelZoom: false, zoomControl: true, minZoom: 2 })
   baselayer.addTo(map)
   return map
 }
@@ -19,23 +19,23 @@ function getBasePolygon (L, polygon, bbox) {
 }
 
 window.jQuery(document).ready(function () {
-  var $ = window.jQuery
-  var L = window.L
-  var name = window.name
-  var polygon = window.polygon
-  var bbox = window.bbox
-  var baseurl = window.baseurl
-  var map = createMap(L, baseurl, name)
-  var mapVisible = $('#map_' + name).width() !== 0
+  const $ = window.jQuery
+  const L = window.L
+  const name = window.name
+  const polygon = window.polygon
+  const bbox = window.bbox
+  const baseurl = window.baseurl
+  const map = createMap(L, baseurl, name)
+  let mapVisible = $('#map_' + name).width() !== 0
 
-  var polygonStyle = {
+  const polygonStyle = {
     color: '#0076ae',
     weight: 2,
     opacity: 1,
     fillOpacity: 0.2
   }
 
-  var drawnItems
+  let drawnItems
   if (polygon) {
     drawnItems = L.geoJson(polygon, {
       style: polygonStyle
@@ -74,19 +74,19 @@ window.jQuery(document).ready(function () {
   }))
 
   map.on(L.Draw.Event.CREATED, function (event) {
-    var layer = event.layer
+    const layer = event.layer
     drawnItems.addLayer(layer)
-    var shape = drawnItems.toGeoJSON()
+    const shape = drawnItems.toGeoJSON()
     $('#id_' + name).val(JSON.stringify(shape))
   })
 
   map.on(L.Draw.Event.EDITED, function (event) {
-    var shape = drawnItems.toGeoJSON()
+    const shape = drawnItems.toGeoJSON()
     $('#id_' + name).val(JSON.stringify(shape))
   })
 
   map.on(L.Draw.Event.DELETED, function (event) {
-    var shape = drawnItems.toGeoJSON()
+    const shape = drawnItems.toGeoJSON()
     $('#id_' + name).val(JSON.stringify(shape))
   })
 

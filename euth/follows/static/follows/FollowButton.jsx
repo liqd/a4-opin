@@ -1,7 +1,7 @@
-var api = require('adhocracy4').api
-var django = require('django')
-var PropTypes = require('prop-types')
-var React = require('react')
+const api = require('adhocracy4').api
+const django = require('django')
+const PropTypes = require('prop-types')
+const React = require('react')
 
 class FollowButton extends React.Component {
   constructor (props) {

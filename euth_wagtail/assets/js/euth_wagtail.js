@@ -90,6 +90,6 @@ $(document).ready(function () {
 })
 
 export function showFileName () {
-  var string = $(this).val().match(/[^\\/]+$/)[0]
+  const string = $(this).val().match(/[^\\/]+$/)[0]
   $(this).parent().find('.form-control-file-dummy').val(string)
 }

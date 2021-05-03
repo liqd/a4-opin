@@ -1,10 +1,10 @@
-var $ = require('jquery')
-var cookie = require('js-cookie')
-var django = require('django')
-var PropTypes = require('prop-types')
-var React = require('react')
-var ReactDOM = require('react-dom')
-var UserListItem = require('./UserListItem.jsx')
+const $ = require('jquery')
+const cookie = require('js-cookie')
+const django = require('django')
+const PropTypes = require('prop-types')
+const React = require('react')
+const ReactDOM = require('react-dom')
+const UserListItem = require('./UserListItem.jsx')
 
 $(function () {
   $.ajaxSetup({
@@ -15,6 +15,7 @@ $(function () {
 class UserList extends React.Component {
   constructor (props) {
     super(props)
+    this.userlistRef = React.createRef()
 
     this.state = {
       users: props.users,
@@ -46,12 +47,12 @@ class UserList extends React.Component {
   }
 
   submitHandler (e) {
-    var checkedUsers = this.refs.userlist.querySelectorAll(':checked')
-    var idsToBeActedOn = Array.prototype.map.call(checkedUsers,
+    const checkedUsers = this.userlistRef.querySelectorAll(':checked')
+    const idsToBeActedOn = Array.prototype.map.call(checkedUsers,
       user => parseInt(user.dataset.userid)
     )
     // create new array
-    var users = this.state.users.concat([])
+    let users = this.state.users.concat([])
     if (e.target.value === 'remove') {
       // filter out users whose id is in idsToBeActedOn
       users = users.filter(user => idsToBeActedOn.indexOf(user.id) === -1)
@@ -60,11 +61,11 @@ class UserList extends React.Component {
   }
 
   render () {
-    var userList = this.state.users.map(user => {
+    const userList = this.state.users.map(user => {
       return <UserListItem key={user.id} user={user} />
     })
     return (
-      <div ref="userlist">
+      <div ref={this.userlistRef}>
         <table className="table table-hover">
           <thead>
             <tr>

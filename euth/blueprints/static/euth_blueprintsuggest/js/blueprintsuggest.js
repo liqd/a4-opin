@@ -1,6 +1,6 @@
 /* global django */
 (function ($) {
-  var blueprintsuggest = {
+  const blueprintsuggest = {
     init: function () {
       $('.js-continue').on('click', this.clickContinueHandler.bind(this))
       $('.js-back').on('click', this.clickBackHandler)
@@ -11,22 +11,23 @@
       /*
        * Ensure that for each group of radio buttons in $tab at least one is checked.
        */
-      var $radioButtons = $tab.find('input[type=radio]')
-      var radioButtonsByName = {}
+      const $radioButtons = $tab.find('input[type=radio]')
+      const radioButtonsByName = {}
       $radioButtons.map(function () {
-        var $this = $(this)
-        var name = $this.attr('name')
+        const $this = $(this)
+        const name = $this.attr('name')
 
         if (!Object.prototype.hasOwnProperty.call(radioButtonsByName, name)) {
           radioButtonsByName[name] = $()
+        } else {
+          radioButtonsByName[name] = radioButtonsByName[name].add($this)
         }
-
-        radioButtonsByName[name] = radioButtonsByName[name].add($this)
+        return radioButtonsByName[name]
       })
 
-      for (var key in radioButtonsByName) {
+      for (const key in radioButtonsByName) {
         if (Object.prototype.hasOwnProperty.call(radioButtonsByName, key)) {
-          var $inputs = radioButtonsByName[key]
+          const $inputs = radioButtonsByName[key]
           if (!$inputs.filter(':checked').length) {
             return false
           }
@@ -37,9 +38,9 @@
     },
 
     clickContinueHandler: function (e) {
-      var $this = $(e.target)
-      var $tab = $this.parents('.tab-pane')
-      var isValid = this.validate($tab)
+      const $this = $(e.target)
+      const $tab = $this.parents('.tab-pane')
+      const isValid = this.validate($tab)
 
       // remove old errorlist
       $tab.find('.errorlist').remove()
@@ -55,9 +56,9 @@
     },
 
     clickSendHandler: function (e) {
-      var $this = $(e.target)
-      var $tab = $this.parents('.tab-pane')
-      var isValid = this.validate($tab)
+      const $this = $(e.target)
+      const $tab = $this.parents('.tab-pane')
+      const isValid = this.validate($tab)
 
       // remove old errorlist
       $tab.find('.errorlist').remove()
@@ -73,12 +74,12 @@
     },
 
     getErrorElement: function () {
-      var text = django.gettext('Please set all values for your project.')
+      const text = django.gettext('Please set all values for your project.')
       return '<ul class="errorlist"><li>' + text + '</li></ul>'
     },
 
     clickBackHandler: function () {
-      var $tab = $(this).parents('.tab-pane')
+      const $tab = $(this).parents('.tab-pane')
       $tab.removeClass('active').prev().addClass('active')
     }
   }
