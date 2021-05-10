@@ -8,15 +8,16 @@
 # Anita Molka <anita.molka@razvoj.si>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +203,7 @@ msgstr "Trenutno aktivna faza ne dopušča komentiranja."
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 msgid "Only invited users can actively participate."
-msgstr ""
+msgstr "Samo povabljeni uporabniki lahko aktivno sodelujejo."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
@@ -219,37 +220,37 @@ msgstr "Poročaj"
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 msgid "Choose categories for your comment"
-msgstr ""
+msgstr "Izberite kategorije za svoj komentar"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 msgid "Entry successfully created"
-msgstr ""
+msgstr "Vnos uspešno ustvarjen"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Read more..."
-msgstr ""
+msgstr "Preberi več..."
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Read less"
-msgstr ""
+msgstr "Preberite manj"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Share"
-msgstr ""
+msgstr "Share"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid " Report"
-msgstr ""
+msgstr "Prijavi"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "hide comments"
-msgstr ""
+msgstr "skrij komentarje"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
@@ -265,42 +266,42 @@ msgstr[3] ""
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 msgctxt "verb"
 msgid "Comment"
-msgstr ""
+msgstr "Komentiraj"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:290
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:290
 msgid "Share link"
-msgstr ""
+msgstr "Povezava za skupno rabo"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:329
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:329
 msgid "Categories: "
-msgstr ""
+msgstr "Kategorije:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
-msgstr ""
+msgstr "Najnovejše"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
-msgstr ""
+msgstr "Največ glasov"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
-msgstr ""
+msgstr "Največ glasov proti"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
-msgstr ""
+msgstr "Največ odgovorov"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
-msgstr ""
+msgstr "Zadnja razprava"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
@@ -309,7 +310,7 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
 msgid "all"
-msgstr ""
+msgstr "vse"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:503
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
@@ -320,92 +321,92 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
 msgid "Write contribution"
-msgstr ""
+msgstr "Napišite prispevek"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
 msgid "Search contributions"
-msgstr ""
+msgstr "Iskanje prispevkov"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
 msgid "Clear search"
-msgstr ""
+msgstr "Počisti iskanje"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
 msgid "display: "
-msgstr ""
+msgstr "zaslon:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
 msgid "sorted by: "
-msgstr ""
+msgstr "razvrščeno po:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 msgid "entry"
 msgid_plural "entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "vstop"
+msgstr[1] "vnosi"
+msgstr[2] "vstop"
+msgstr[3] "vnosi"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 msgid "entry found for "
 msgid_plural "entries found for "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "vnos najden za"
+msgstr[1] "vnos najden za"
+msgstr[2] "vnos najden za"
+msgstr[3] "najdenih vnosov za"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Filters"
-msgstr ""
+msgstr "Filtri"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Show filters"
-msgstr ""
+msgstr "Pokaži filtre"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide Filters"
-msgstr ""
+msgstr "Skrij filtre"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide filters"
-msgstr ""
+msgstr "Skrij filtre"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 msgid " characters"
-msgstr ""
+msgstr "znakov"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 msgid "Comment"
-msgstr ""
+msgstr "Komentiraj"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 msgid "Recommend comment"
-msgstr ""
+msgstr "Priporočite komentar"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 msgid "Is recommended"
-msgstr ""
+msgstr "Priporočljivo"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 msgid "Submit"
-msgstr ""
+msgstr "Pošlji"
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
@@ -413,6 +414,8 @@ msgid ""
 "Thanks for the feedback. It will be checked by the moderators as soon as "
 "possible."
 msgstr ""
+"Hvala za povratne informacije. Moderatorji ga bodo preverili v najkrajšem "
+"možnem času."
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:71
 #: adhocracy4/reports/static/reports/ReportModal.jsx:61
@@ -431,22 +434,22 @@ msgstr "Pošlji poročilo"
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 msgid "Copy"
-msgstr ""
+msgstr "Kopirati"
 
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 msgid "Copied"
-msgstr ""
+msgstr "Kopirano"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
 msgid "You will no longer be updated via email."
-msgstr ""
+msgstr "Ne boste več posodobljeni po e-pošti."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
 msgid "You will be updated via email."
-msgstr ""
+msgstr "Posodobljeni boste po e-pošti."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
@@ -516,21 +519,21 @@ msgstr "Prosimo, prijavite se za glasovanje"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
-msgstr "Anketirati"
+msgid "Show preliminary results"
+msgstr "Prikaži predhodne rezultate"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "Spremeni glasovanje"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
-msgstr "Prikaži predhodne rezultate"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
+msgstr "Anketirati"
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "glasov"
@@ -577,15 +580,15 @@ msgstr "Hvala vam! Skrbimo za to."
 msgid "Close"
 msgstr "Zapri"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr "Prosimo, da nastaviš vse vrednosti svojega projekta."
 
 #: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
-msgstr ""
+msgstr "Doseženo največje število dokumentov za nalaganje."
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr "Odstrani"
 
@@ -614,37 +617,10 @@ msgstr "Tvoj dokument je bil shranjen."
 msgid "Title:"
 msgstr "Naslov:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr "shrani"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Prenehaj slediti"
-
-#~ msgid "Are you sure you want to report this item?"
-#~ msgstr "Ali si prepričan/a, da želiš prijaviti to vsebino?"
-
-#~ msgid "hide %s replies"
-#~ msgstr "skrij %sodgovore"
-
-#~ msgid "view %s replies"
-#~ msgstr "prikaži %s odgovore"
-
-#~ msgid "Your message here"
-#~ msgstr "Vpišite svoje sporočilo"
-
-#~ msgid "Not following"
-#~ msgstr "Ne sledim"
-
-#~ msgid "Never be notified."
-#~ msgstr "Ne želim biti obveščen/a."
-
-#~ msgid "Receive email notifications about this project."
-#~ msgstr "O tem projektu želim prejemati obvestila preko spletne pošte."
-
-#~ msgid "Offline Phase"
-#~ msgstr "Offline faza"
-
-#~ msgid "add offline phase"
-#~ msgstr "dodaj offline fazo"

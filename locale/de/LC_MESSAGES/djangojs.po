@@ -5,19 +5,19 @@
 #
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
-# Katharina Albers <katharina.albers@gmail.com>, 2020
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2020
+# Katharina Lindenlaub, 2020
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2020\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr "Die derzeit aktive Phase erlaubt keine Kommentierung."
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 msgid "Only invited users can actively participate."
-msgstr ""
+msgstr "Nur eingeladene Benutzer können aktiv teilnehmen."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
@@ -507,21 +507,21 @@ msgstr "Bitte einloggen um abzustimmen"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
-msgstr "Zur Umfrage"
+msgid "Show preliminary results"
+msgstr "Vorläufige Ergebnisse anzeigen"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "Abstimmung ändern"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
-msgstr "Vorläufige Ergebnisse anzeigen"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
+msgstr "Zur Umfrage"
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "Abstimmungen"
@@ -566,7 +566,7 @@ msgstr "Vielen Dank! Wir kümmern uns darum.."
 msgid "Close"
 msgstr "Schließen"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr "Bitte fülle alle Werte für dein Projekt aus."
 
@@ -574,7 +574,7 @@ msgstr "Bitte fülle alle Werte für dein Projekt aus."
 msgid "Maximum number of upload documents reached."
 msgstr "Maximale Anzahl der hochgeladenen Dokumente erreicht. "
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -603,37 +603,10 @@ msgstr "Dein Dokument wurde gespeichert."
 msgid "Title:"
 msgstr "Titel:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr "speichern"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Entfolgen"
-
-#~ msgid "Are you sure you want to report this item?"
-#~ msgstr "Bist du sicher, dass du diesen Inhalt melden willst?"
-
-#~ msgid "hide %s replies"
-#~ msgstr "Ausblenden %s Antworten"
-
-#~ msgid "view %s replies"
-#~ msgstr "Zeigen %s Antworten"
-
-#~ msgid "Your message here"
-#~ msgstr "Verfasse deine Nachricht hier"
-
-#~ msgid "Not following"
-#~ msgstr "Nicht folgen"
-
-#~ msgid "Never be notified."
-#~ msgstr "Nie benachrichtigen"
-
-#~ msgid "Receive email notifications about this project."
-#~ msgstr "Emailbenachrichtigungen über dieses Projekt erhalten"
-
-#~ msgid "Offline Phase"
-#~ msgstr "Phase: offline Event "
-
-#~ msgid "add offline phase"
-#~ msgstr "Phase für offline Event hinzufügen"

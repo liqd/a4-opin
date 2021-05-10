@@ -6,18 +6,19 @@
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Gaël Dubus <dubus@kth.se>, 2018
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:20+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +191,7 @@ msgstr "Färdiga"
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/projects/enums.py:14
 msgid "semipublic"
-msgstr ""
+msgstr "halvpublik"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
@@ -340,7 +341,7 @@ msgstr "Kategori ikon"
 #: adhocracy4/comments/models.py:53
 msgctxt "noun"
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: adhocracy4/comments/models.py:54
 #: adhocracy4/exports/mixins.py:123
@@ -375,15 +376,15 @@ msgstr "okänd användare"
 
 #: adhocracy4/comments_async/serializers.py:58
 msgid "Please choose one or more categories."
-msgstr ""
+msgstr "Välj en eller flera kategorier."
 
 #: adhocracy4/dashboard/components/forms/views.py:22
 msgid "The project has been updated."
-msgstr ""
+msgstr "Projektet har uppdaterats."
 
 #: adhocracy4/dashboard/components/forms/views.py:47
 msgid "The module has been updated."
-msgstr ""
+msgstr "Modulen har uppdaterats."
 
 #: adhocracy4/dashboard/dashboard.py:13
 msgid "Basic settings"
@@ -551,7 +552,7 @@ msgstr "Projektet är redan publicerat"
 
 #: adhocracy4/dashboard/views.py:176
 msgid "Project cannot be published. No module is added."
-msgstr ""
+msgstr "Projektet kan inte publiceras. Ingen modul har lagts till."
 
 #: adhocracy4/dashboard/views.py:191
 msgid "Project cannot be published. Required fields are missing."
@@ -563,7 +564,7 @@ msgstr "Projektet kan inte publiceras."
 
 #: adhocracy4/dashboard/views.py:211
 msgid "the project has been published."
-msgstr ""
+msgstr "projektet har publicerats."
 
 #: adhocracy4/dashboard/views.py:216
 msgid "Project is already unpublished"
@@ -571,7 +572,7 @@ msgstr "Projektet är redan opublicerat"
 
 #: adhocracy4/dashboard/views.py:225
 msgid "the project has been unpublished."
-msgstr ""
+msgstr "projektet har inte publicerats."
 
 #: adhocracy4/exports/mixins.py:18
 msgid "Link"
@@ -777,7 +778,7 @@ msgstr "sekunder"
 
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
-msgstr ""
+msgstr "Faser kan inte köras samtidigt och måste följa efter varandra."
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
@@ -788,12 +789,12 @@ msgstr "Beskrivning"
 
 #: adhocracy4/phases/models.py:95
 msgid "End date can not be before start date."
-msgstr ""
+msgstr "Slutdatum kan inte vara före startdatum."
 
 #: adhocracy4/phases/models.py:100
 #: adhocracy4/phases/models.py:104
 msgid "Either both or no date has to be set."
-msgstr ""
+msgstr "Antingen båda eller inget datum måste anges."
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -849,7 +850,7 @@ msgstr "Kontakta"
 
 #: adhocracy4/projects/enums.py:13
 msgid "public"
-msgstr ""
+msgstr "offentlig"
 
 #: adhocracy4/projects/models.py:43
 msgid ""
@@ -968,6 +969,8 @@ msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
 msgstr ""
+"Arkiverade projekt visas inte i projektöversikten. För projektinitiatorer är "
+"de fortfarande synliga i instrumentpanelen."
 
 #: adhocracy4/projects/models.py:260
 msgid "Project topics"
@@ -990,11 +993,11 @@ msgstr "ett par timmar kvar"
 
 #: adhocracy4/projects/utils.py:45
 msgid "{}. Online Participation"
-msgstr ""
+msgstr "{}. Online-deltagande"
 
 #: adhocracy4/projects/utils.py:54
 msgid "Online Participation"
-msgstr ""
+msgstr "Online-deltagande"
 
 #: adhocracy4/reports/templatetags/react_reports.py:29
 msgid "Report"
@@ -1018,7 +1021,7 @@ msgstr "Aviseringar"
 
 #: euth/accounts/forms.py:69
 msgid "You are not yet born. Please enter a date in the past."
-msgstr ""
+msgstr "Du är ännu inte född. Ange ett datum tidigare."
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -1145,17 +1148,19 @@ msgstr "Involvera olika deltagare för att skriva en gemensam text"
 
 #: euth/blueprints/blueprints.py:77
 msgid "Find and debate topics and questions."
-msgstr ""
+msgstr "Hitta och debattera ämnen och frågor."
 
 #: euth/blueprints/blueprints.py:78
 msgid "Start a discussion and moderate it"
-msgstr ""
+msgstr "Starta en diskussion och moderera den"
 
 #: euth/blueprints/blueprints.py:79
 msgid ""
 "Participants can upload documents to deepen the exchange and share "
 "information"
 msgstr ""
+"Deltagare kan ladda upp dokument för att fördjupa utbytet och dela "
+"information"
 
 #: euth/blueprints/blueprints.py:93
 msgid "Collection of commented ideas"
@@ -1321,11 +1326,12 @@ msgstr ""
 
 #: euth/blueprints/blueprints.py:334
 msgid "Community debate"
-msgstr ""
+msgstr "Gemenskapsdebatt"
 
 #: euth/blueprints/blueprints.py:335
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr ""
+"Samla ämnen och frågor för att diskutera, debattera och prioritera dem."
 
 #: euth/blueprints/forms.py:23
 msgid "What is the desired outcome of the project?"
@@ -1540,15 +1546,15 @@ msgstr "Sortera efter"
 
 #: euth/communitydebate/phases.py:15
 msgid "Debate phase"
-msgstr ""
+msgstr "Debattfas"
 
 #: euth/communitydebate/phases.py:16
 msgid "Add topics and debate them."
-msgstr ""
+msgstr "Lägg till ämnen och diskutera dem."
 
 #: euth/communitydebate/phases.py:17
 msgid "communitydebate"
-msgstr ""
+msgstr "communitydebatt"
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:2
 #: euth/ideas/templates/euth_ideas/includes/modal.html:2
@@ -1603,23 +1609,23 @@ msgstr "Nedladdningar"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:6
 msgid "Create a new topic"
-msgstr ""
+msgstr "Skapa ett nytt ämne"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:8
 msgid "Update topic"
-msgstr ""
+msgstr "Uppdatera ämnet"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
-msgstr ""
+msgstr "skapa ett nytt ämne för detta projekt"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
-msgstr ""
+msgstr "uppdatera ämnet"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
-msgstr ""
+msgstr "Ämnesrubrik"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
@@ -1634,7 +1640,7 @@ msgstr ""
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 msgid "Upload another document"
-msgstr ""
+msgstr "Ladda upp ett annat dokument"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
 #: euth/ideas/templates/euth_ideas/idea_form.html:94
@@ -1654,23 +1660,23 @@ msgstr "annullera"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_list.html:12
 msgid "Create Topic"
-msgstr ""
+msgstr "Skapa ämne"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_list.html:45
 msgid "No topics found"
-msgstr ""
+msgstr "Inga ämnen hittades"
 
 #: euth/communitydebate/views.py:97
 msgid "Topic successfully created"
-msgstr ""
+msgstr "Ämnet har skapats"
 
 #: euth/communitydebate/views.py:146
 msgid "Topic successfully updated"
-msgstr ""
+msgstr "Ämnet har uppdaterats"
 
 #: euth/communitydebate/views.py:157
 msgid "Your topic has been deleted"
-msgstr ""
+msgstr "Ditt ämne har tagits bort"
 
 #: euth/contrib/filters.py:12
 msgid "status"
@@ -1700,12 +1706,16 @@ msgid ""
 "have received rights of use from the author. I also confirm that the privacy "
 "rights of depicted third persons are not violated. "
 msgstr ""
+"Jag bekräftar härmed att upphovsrätten till detta foto är hos mig eller att "
+"jag har fått nyttjanderätt från författaren. Jag bekräftar också att "
+"integritetsrättigheterna för avbildade tredje personer inte kränks."
 
 #: euth/contrib/mixins.py:25
 msgid ""
 "You want to upload an image. Please check that you have the right of use for "
 "the image."
 msgstr ""
+"Du vill ladda upp en bild. Kontrollera att du har rätt att använda bilden."
 
 #: euth/contrib/validators.py:26
 msgid "File should be at most {} MB"
@@ -1796,6 +1806,7 @@ msgid ""
 "Please make sure the image is at least 400x200 px in dimensions and at most "
 "5 MB in file size."
 msgstr ""
+"Se till att bilden är minst 400x200 px i mått och högst 5 MB i filstorlek."
 
 #: euth/ideas/phases.py:15
 msgid "Issue phase"
@@ -2231,23 +2242,25 @@ msgstr "Sök efter användarnamn"
 
 #: euth/projects/overwrites.py:8
 msgid "Only invited users can see content and can participate (private)."
-msgstr ""
+msgstr "Endast inbjudna användare kan se innehåll och kan delta (privat)."
 
 #: euth/projects/overwrites.py:10
 msgid "All users can see content and can participate (public)."
-msgstr ""
+msgstr "Alla användare kan se innehåll och kan delta (offentligt)."
 
 #: euth/projects/overwrites.py:12
 msgid ""
 "All users can see content, only invited users can participate (semi-public)."
 msgstr ""
+"Alla användare kan se innehåll, endast inbjudna användare kan delta (semi-"
+"offentliga)."
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
 msgid "semi-public"
-msgstr ""
+msgstr "halvpublik"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:14
@@ -2329,11 +2342,14 @@ msgid ""
 "This project is not publicly visible. Only invited users can see content and "
 "actively participate."
 msgstr ""
+"Detta projekt är inte offentligt synligt. Endast inbjudna användare kan se "
+"innehåll och delta aktivt."
 
 #: euth/projects/templates/euth_projects/project_detail.html:191
 msgid ""
 "This project is publicly visible. Invited users can actively participate."
 msgstr ""
+"Detta projekt är offentligt synligt. Inbjudna användare kan delta aktivt."
 
 #: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
@@ -2605,15 +2621,15 @@ msgstr "Makedonska"
 
 #: euth_wagtail/settings/base.py:434
 msgid "suggestion"
-msgstr ""
+msgstr "förslag"
 
 #: euth_wagtail/settings/base.py:435
 msgid "note"
-msgstr ""
+msgstr "notera"
 
 #: euth_wagtail/settings/base.py:436
 msgid "question"
-msgstr ""
+msgstr "fråga"
 
 #: euth_wagtail/templates/403.html:6
 msgid "You are not allowed to access this page."
@@ -2644,7 +2660,7 @@ msgstr "Gå tillbaka till OPIN.ME"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:14
 msgid "Home"
-msgstr ""
+msgstr "Hem"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:26
 msgid "Organisation"
@@ -2922,7 +2938,7 @@ msgstr "Anslut med oss"
 
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Växla navigering"
 
 #: euth_wagtail/templates/socialaccount/connections.html:12
 msgid ""
@@ -2976,269 +2992,3 @@ msgstr "Hämta riktlinjer"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Innehåll"
-
-#~ msgid ""
-#~ "Please indicate whether this project should be public or restricted to "
-#~ "invited users. Teasers for your project including title and short "
-#~ "description will always be visible to everyone"
-#~ msgstr ""
-#~ "Ange om projektet ska vara offentligt eller endast tillgängligt för "
-#~ "inbjudna användare. Teasers för ditt projekt inklusive titel och kort "
-#~ "beskrivning kommer alltid att vara synliga för alla"
-
-#~ msgid "End date can not be smallerthan the start date."
-#~ msgstr "Slutdatumet får inte vara tidigare än startdatumet."
-
-#~ msgid "Comment"
-#~ msgstr "Kommentar"
-
-#~ msgid "Project successfully updated."
-#~ msgstr "Projektet har uppdaterats."
-
-#~ msgid "Module successfully updated."
-#~ msgstr "Modul med framgång uppdaterad."
-
-#~ msgid "Project successfully published."
-#~ msgstr "Projekt framgångsrikt publicerat."
-
-#~ msgid "Project successfully unpublished."
-#~ msgstr "Projektet är framgångsrikt opublicerat."
-
-#~ msgid ""
-#~ "Exclude this project from all listings by default. You can still access "
-#~ "this project by using filters."
-#~ msgstr ""
-#~ "Uteslut det här projektet från alla standardlistor. Du kan fortfarande "
-#~ "komma åt det här projektet genom att använda filter."
-
-#~ msgid "Topic and location"
-#~ msgstr "Ämne och plats"
-
-#~ msgid "Location of your Project"
-#~ msgstr "Platsen för ditt projekt"
-
-#~ msgid "Project topic"
-#~ msgstr "Projektämne"
-
-#~ msgid "Contact details"
-#~ msgstr "Kontaktuppgifter"
-
-#~ msgid "This is the help text."
-#~ msgstr "Detta är hjälptexten."
-
-#~ msgid ""
-#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-#~ "allowed."
-#~ msgstr ""
-#~ "Telefonnummer måste anges i formatet: '+999999999'. Upp till 15 siffror "
-#~ "tillåtna."
-
-#~ msgid ""
-#~ "This project has received funding from the European Union's Horizon 2020 "
-#~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
-#~ msgstr ""
-#~ "Detta projekt har erhållit finansiering från Europeiska Unionens Horizon "
-#~ "2020-ramprogram för forskning och innovation enligt bidragsavtal nr "
-#~ "649594. Denna webbplats återspeglar enbart författarens synpunkter. "
-#~ "Varken genomförandeorganet för forskning eller Europeiska kommissionen är "
-#~ "ansvariga för användningen av någon del av informationen den innehåller."
-
-#~ msgid ""
-#~ "In this section, you can create\n"
-#~ "categories. If you create any, users must assign their contributions\n"
-#~ "to one of them. This way, content can be classified."
-#~ msgstr ""
-#~ "I det här avsnittet kan du skapa kategorier. Om du skapar något måste "
-#~ "användarna tilldela sina bidrag till en av dem. På så sätt kan innehållet "
-#~ "klassificeras."
-
-#~ msgid "Flashpollsettings"
-#~ msgstr "Flashpollsettings"
-
-#~ msgid "Edit flashpollsettings"
-#~ msgstr "Redigera flashpollsettings"
-
-#~ msgid "Answers and Export"
-#~ msgstr "Svar och Exportera"
-
-#~ msgid "Flashpoll ID"
-#~ msgstr "Flashpoll-ID"
-
-#~ msgid "Flashpoll Phase"
-#~ msgstr "Flashpoll Fas"
-
-#~ msgid "Initiate a Mobile polling process."
-#~ msgstr "Initiera en Mobilundersökningsprocess"
-
-#~ msgid "mobile polling"
-#~ msgstr "mobilundersökning"
-
-#~ msgid "Poll: Questions"
-#~ msgstr "Undersökning: Frågor"
-
-#~ msgid "Poll: Location"
-#~ msgstr "Undersökning: Plats"
-
-#~ msgid "Download Answers"
-#~ msgstr "Ladda ner svar"
-
-#~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
-#~ msgstr ""
-#~ "Den här korta beskrivningen kommer att visas i rubriken på modulens och "
-#~ "projektets detalsidor. Den bör kortfattat ange målet för modulen i max. "
-#~ "250 tecken."
-
-#~ msgid "Location"
-#~ msgstr "Plats"
-
-#~ msgid "Project settings"
-#~ msgstr "Projektinställningar"
-
-#~ msgid "Information for your participants"
-#~ msgstr "Information om dina deltagare"
-
-#~ msgid "It should be max. 80 characters long."
-#~ msgstr "Det ska vara max. 80 tecken långt."
-
-#~ msgid "It should be max. 300 characters long."
-#~ msgstr "Det ska vara max. 300 tecken långt."
-
-#~ msgid "Your timezone: {}"
-#~ msgstr "Din tidszon: {}"
-
-#~ msgid "End time can not be smaller than the start time."
-#~ msgstr "Sluttiden får inte vara mindre än starttiden."
-
-#~ msgid "Archived projects are read-only."
-#~ msgstr "Arkiverade projekt är skrivskyddade."
-
-#~ msgid "Organisation settings"
-#~ msgstr "Organisationsinställningar"
-
-#~ msgid "Organisation information"
-#~ msgstr "Organisationsinformation"
-
-#~ msgid "Create new project from one of the templates"
-#~ msgstr "Skapa nytt projekt ur en av mallarna"
-
-#~ msgid "back to project list"
-#~ msgstr "Tillbaka till projektlistan"
-
-#~ msgid "add offline phase"
-#~ msgstr "lägga till en offline fas"
-
-#~ msgid "of Phase "
-#~ msgstr "av Fas"
-
-#~ msgid "edit documentation"
-#~ msgstr "redigera dokumentation"
-
-#~ msgid "add category"
-#~ msgstr "lägg till kategori"
-
-#~ msgid "Edit your organisation information"
-#~ msgstr "Redigera din organisationsinformation"
-
-#~ msgid "Unable to submit form. Please fix the errors."
-#~ msgstr "Det gick inte att skicka formuläret. Var vänlig och åtgärda felen."
-
-#~ msgid "This project is archived."
-#~ msgstr "Det här projektet är arkiverat."
-
-#~ msgid "save draft"
-#~ msgstr "spara utkast"
-
-#~ msgid "save and publish"
-#~ msgstr "spara och publicera"
-
-#~ msgid "unpublish"
-#~ msgstr "avpublicera"
-
-#~ msgid "Invite users to project"
-#~ msgstr "Bjuda in användare till projektet"
-
-#~ msgid "create project"
-#~ msgstr "skapa projekt"
-
-#~ msgid "view project"
-#~ msgstr "se projekt"
-
-#~ msgid "download module"
-#~ msgstr "ladda ner modul"
-
-#~ msgid "archive project"
-#~ msgstr "arkivera projekt"
-
-#~ msgid "unarchive project"
-#~ msgstr "avarkivera projekt"
-
-#~ msgid "Manage users of"
-#~ msgstr "Hantera användare av"
-
-#~ msgid "Manage moderators of"
-#~ msgstr "Hantera moderatorer av"
-
-#~ msgid "invite users"
-#~ msgstr "bjuda in användare"
-
-#~ msgid "There are no invites, requests or users in this project yet."
-#~ msgstr ""
-#~ "Det finns inga inbjudningar, förfrågningar eller användare i det här "
-#~ "projektet ännu."
-
-#~ msgid "Project succesfully created."
-#~ msgstr "Projektet har skapats."
-
-#~ msgid "New project based on"
-#~ msgstr "Nya projekt baserade på"
-
-#~ msgid "Change settings for"
-#~ msgstr "Ändra inställningar för"
-
-#~ msgid "Project has been archived."
-#~ msgstr "Projektet har arkiverats."
-
-#~ msgid "Your project has been deleted."
-#~ msgstr "Ditt projekt har raderats."
-
-#~ msgid "Invitations successfully sent."
-#~ msgstr "Inbjudningarna har skickats."
-
-#~ msgid "User request successfully updated."
-#~ msgstr "Användarförfrågan uppdaterad."
-
-#~ msgid "Phase "
-#~ msgstr "Fas"
-
-#~ msgid "of Phase: "
-#~ msgstr "av Fas:"
-
-#~ msgid "Result "
-#~ msgstr "Resultat"
-
-#~ msgid "Offlinephase"
-#~ msgstr "Offlinefas"
-
-#~ msgid "Add offline phases to your online participation."
-#~ msgstr "Lägg till offlinefaser till ditt online deltagande."
-
-#~ msgid "offlinephase"
-#~ msgstr "offlinefas"
-
-#~ msgid "Edit documentation"
-#~ msgstr "Redigera dokumentation"
-
-#~ msgid "Most recent"
-#~ msgstr "Senaste"
-
-#~ msgid "Popularity"
-#~ msgstr "Popularitet"
-
-#~ msgid "Find your Organisation"
-#~ msgstr "Hitta din Organisation"
