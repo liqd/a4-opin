@@ -6,19 +6,20 @@
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # SabineJulia <sabine.lebek@liqd.de>, 2018
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # David Jinjikhadze <david.jinjikhadze@gmail.com>, 2020
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:20+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: David Jinjikhadze <david.jinjikhadze@gmail.com>, 2020\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -191,7 +192,7 @@ msgstr "დასრულდა"
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/projects/enums.py:14
 msgid "semipublic"
-msgstr ""
+msgstr "ნახევრად საჯარო "
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
@@ -776,7 +777,7 @@ msgstr "წამი"
 
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
-msgstr ""
+msgstr "ფაზები ვერ იმუშავებს ერთდროულად და უნდა მიჰყვეს ერთმანეთს. "
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
@@ -787,12 +788,12 @@ msgstr "აღწერა"
 
 #: adhocracy4/phases/models.py:95
 msgid "End date can not be before start date."
-msgstr ""
+msgstr "დასრულების თარიღი არ შეიძლება იყოს დაწყების თარიღამდე. "
 
 #: adhocracy4/phases/models.py:100
 #: adhocracy4/phases/models.py:104
 msgid "Either both or no date has to be set."
-msgstr ""
+msgstr "ან ორივე არ უნდა დადგეს თარიღი. "
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -848,7 +849,7 @@ msgstr "კონტაქტი"
 
 #: adhocracy4/projects/enums.py:13
 msgid "public"
-msgstr ""
+msgstr "საზოგადოებრივი"
 
 #: adhocracy4/projects/models.py:43
 msgid ""
@@ -1019,7 +1020,7 @@ msgstr "შეტყობინებები"
 
 #: euth/accounts/forms.py:69
 msgid "You are not yet born. Please enter a date in the past."
-msgstr ""
+msgstr "თქვენ ჯერ არ ხართ დაბადებული. გთხოვთ შეიყვანოთ თარიღი წარსულში."
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -2246,22 +2247,28 @@ msgstr "მომხმარებლის სახელი ძიება"
 #: euth/projects/overwrites.py:8
 msgid "Only invited users can see content and can participate (private)."
 msgstr ""
+"მხოლოდ მოწვეულ მომხმარებლებს შეუძლიათ შინაარსის ნახვა და მონაწილეობის მიღება "
+"(პირადი)."
 
 #: euth/projects/overwrites.py:10
 msgid "All users can see content and can participate (public)."
 msgstr ""
+"ყველა მომხმარებელს შეუძლია დაინახოს შინაარსი და შეუძლია მიიღოს მონაწილეობა "
+"(საჯარო)."
 
 #: euth/projects/overwrites.py:12
 msgid ""
 "All users can see content, only invited users can participate (semi-public)."
 msgstr ""
+"ყველა მომხმარებელს შეუძლია დაინახოს შინაარსი, მხოლოდ მოწვეულ მომხმარებლებს "
+"შეუძლიათ მონაწილეობა (ნახევრად საჯარო). "
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
 msgid "semi-public"
-msgstr ""
+msgstr "ნახევრად საჯარო "
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:14
@@ -2341,11 +2348,14 @@ msgid ""
 "This project is not publicly visible. Only invited users can see content and "
 "actively participate."
 msgstr ""
+"ეს პროექტი საჯაროდ არ ჩანს. მხოლოდ მოწვეულ მომხმარებლებს შეუძლიათ ნახონ "
+"შინაარსი და აქტიურად მიიღონ მონაწილეობა. "
 
 #: euth/projects/templates/euth_projects/project_detail.html:191
 msgid ""
 "This project is publicly visible. Invited users can actively participate."
 msgstr ""
+"ეს პროექტი საჯაროდ ჩანს. მოწვეულ მომხმარებლებს შეუძლიათ აქტიური მონაწილეობა."
 
 #: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
@@ -2986,273 +2996,3 @@ msgstr "ჩამოტვირთვა სახელმძღვანე�
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "შინაარსი"
-
-#~ msgid ""
-#~ "Please indicate whether this project should be public or restricted to "
-#~ "invited users. Teasers for your project including title and short "
-#~ "description will always be visible to everyone"
-#~ msgstr ""
-#~ "გთხოვთ მიუთითოთ თუ არა ეს პროექტი საჯარო ან შეზღუდული მომხმარებლებისთვის. "
-#~ "თქვენს პროექტს, მათ შორის სათაური და მოკლე აღწერა, ყველასთვის ყოველთვის "
-#~ "გამოჩნდება"
-
-#~ msgid "End date can not be smallerthan the start date."
-#~ msgstr "დასასრულის თარიღი არ უნდა იყოს უფრო მცირე, ვიდრე დაწყების თარიღი."
-
-#~ msgid "Do this."
-#~ msgstr "გააკეთე ის"
-
-#~ msgid "Do that."
-#~ msgstr "გააკეთე ეს"
-
-#~ msgid "Comment"
-#~ msgstr "კომენტარი"
-
-#~ msgid "Project successfully updated."
-#~ msgstr "პროექტი წარმატებით განახლდა."
-
-#~ msgid "Module successfully updated."
-#~ msgstr "მოდული წარმატებით განახლდა."
-
-#~ msgid "Project successfully published."
-#~ msgstr "პროექტი წარმატებით გამოქვეყნდა."
-
-#~ msgid "Project successfully unpublished."
-#~ msgstr "პროექტი წარმატებით გამოუქვეყნებელია."
-
-#~ msgid ""
-#~ "Exclude this project from all listings by default. You can still access "
-#~ "this project by using filters."
-#~ msgstr ""
-#~ "გამორიცხეთ ეს პროექტი ყველა სიიდან ყველა სიიდან. ამ პროექტს ფილტრების "
-#~ "გამოყენება შეგიძლიათ."
-
-#~ msgid "Topic and location"
-#~ msgstr "თემა და ადგილმდებარეობა"
-
-#~ msgid "Location of your Project"
-#~ msgstr "თქვენი პროექტის ადგილმდებარეობა"
-
-#~ msgid "Project topic"
-#~ msgstr "პროექტის თემა"
-
-#~ msgid "Contact details"
-#~ msgstr "აკონტაქტო ინფორმაცია"
-
-#~ msgid "This is the help text."
-#~ msgstr "ეს არის დახმარების ტექსტი."
-
-#~ msgid ""
-#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-#~ "allowed."
-#~ msgstr ""
-#~ "ტელეფონის ნომერი უნდა შეიყვანოთ ფორმატში: '+999999999'. დაშვებულია 15 "
-#~ "ციფრი."
-
-#~ msgid ""
-#~ "This project has received funding from the European Union's Horizon 2020 "
-#~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
-#~ msgstr ""
-#~ "ეს პროექტი დაფინანსებულია ევროკავშირის ჰორიზონტის 2020 კვლევისა და "
-#~ "ინოვაციების პროგრამის დაფინანსებით, რომელიც არ არის 649594. ამ ვებ-"
-#~ "გვერდზე ასახულია მხოლოდ ავტორის ხედვა და კვლევის აღმასრულებელი სააგენტო "
-#~ "ან ევროკომისია არ არის პასუხისმგებელი ნებისმიერი სახის გამოყენების "
-#~ "შესახებ, შეიცავს."
-
-#~ msgid ""
-#~ "In this section, you can create\n"
-#~ "categories. If you create any, users must assign their contributions\n"
-#~ "to one of them. This way, content can be classified."
-#~ msgstr ""
-#~ "ამ სექციაში, თქვენ შეგიძლიათ შექმნათ\n"
-#~ "კატეგორიები. თუ თქვენ შექმნით ნებისმიერ მომხმარებელს, მომხმარებელი უნდა "
-#~ "მიანიჭოს მათ წვლილს\n"
-#~ "ერთი მათგანი. ამ გზით, შინაარსი შეიძლება კლასიფიცირებული იყოს."
-
-#~ msgid "Flashpollsettings"
-#~ msgstr "Flashpoll პარამეტრები"
-
-#~ msgid "Edit flashpollsettings"
-#~ msgstr "Flashpoll პარამეტრების რედაქტირება"
-
-#~ msgid "Answers and Export"
-#~ msgstr "პასუხები და ექსპორტი"
-
-#~ msgid "Flashpoll ID"
-#~ msgstr "Flashpoll ID"
-
-#~ msgid "Flashpoll Phase"
-#~ msgstr "Flashpoll-ის ფაზა"
-
-#~ msgid "Initiate a Mobile polling process."
-#~ msgstr "მობილური კენჭისყრის დაწყება"
-
-#~ msgid "mobile polling"
-#~ msgstr "მობილური კენჭისყრა"
-
-#~ msgid "Poll: Questions"
-#~ msgstr "გამოკითხვა: კითხვები"
-
-#~ msgid "Poll: Location"
-#~ msgstr "გამოკითხვა: საიდან"
-
-#~ msgid "Download Answers"
-#~ msgstr "ჩამოტვირთეთ პასუხები"
-
-#~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
-#~ msgstr ""
-#~ "ეს მოკლე აღწერა გამოჩნდება მოდულის სათაურში და პროექტის დეტალურ "
-#~ "გვერდებზე. მოკლედ უნდა აღინიშნოს მაქსიმალური მოდულის მიზანი. 250 სიმბოლო."
-
-#~ msgid "Location"
-#~ msgstr "მდებარეობა"
-
-#~ msgid "Project settings"
-#~ msgstr "პროექტის პარამეტრები"
-
-#~ msgid "Information for your participants"
-#~ msgstr "ინფორმაცია თქვენი მონაწილეებისათვის"
-
-#~ msgid "It should be max. 80 characters long."
-#~ msgstr "ეს უნდა იყოს მაქსიმალური. 80 სიმბოლო."
-
-#~ msgid "It should be max. 300 characters long."
-#~ msgstr "ეს უნდა იყოს მაქსიმალური. 300 სიმბოლო."
-
-#~ msgid "Your timezone: {}"
-#~ msgstr "ჩვენი დროის სარტყელი: {}"
-
-#~ msgid "End time can not be smaller than the start time."
-#~ msgstr "დასრულების თარიღი არ უნდა იყოს იმაზე ნაკლები ვიდრე დაწყების თრიღია"
-
-#~ msgid "Archived projects are read-only."
-#~ msgstr "არქივირებული პროექტები მხოლოდ კითხვადია."
-
-#~ msgid "Organisation settings"
-#~ msgstr "ორგანიზაციის პარამეტრები"
-
-#~ msgid "Organisation information"
-#~ msgstr "ორგანიზაციის ინფორმაცია"
-
-#~ msgid "Create new project from one of the templates"
-#~ msgstr "ახალი პროექტის შექმნა ერთ-ერთი შაბლონით"
-
-#~ msgid "back to project list"
-#~ msgstr "პროექტის სიაში დაბრუნება"
-
-#~ msgid "add offline phase"
-#~ msgstr "დაამატეთ ხაზგარეშე ფაზა"
-
-#~ msgid "of Phase "
-#~ msgstr "ფაზის"
-
-#~ msgid "edit documentation"
-#~ msgstr "რედაქტირება"
-
-#~ msgid "add category"
-#~ msgstr "დაამატეთ კატეგორია"
-
-#~ msgid "Edit your organisation information"
-#~ msgstr "რედაქტირება გაუკეთეთ თქვენი ორგანიზაციის ინფორმაციას"
-
-#~ msgid "Unable to submit form. Please fix the errors."
-#~ msgstr "ფორმის წარდგენა შეუძლებელია. გთხოვთ, შეცვალოთ შეცდომები."
-
-#~ msgid "This project is archived."
-#~ msgstr "ეს პროექტი დაარქივებულია."
-
-#~ msgid "save draft"
-#~ msgstr "შეინახეთ მონახაზი"
-
-#~ msgid "save and publish"
-#~ msgstr "შენახვა და გამოქვეყნება"
-
-#~ msgid "unpublish"
-#~ msgstr "გაუქმება"
-
-#~ msgid "Invite users to project"
-#~ msgstr "მოიწვიეთ მომხმარებლების პროექტი"
-
-#~ msgid "create project"
-#~ msgstr "შექმნა პროექტი"
-
-#~ msgid "view project"
-#~ msgstr "ნახვის პროექტი"
-
-#~ msgid "download module"
-#~ msgstr "ჩამოტვირთვა მოდული"
-
-#~ msgid "archive project"
-#~ msgstr "არქივი პროექტი"
-
-#~ msgid "unarchive project"
-#~ msgstr "არაგეგმური პროექტი"
-
-#~ msgid "Manage users of"
-#~ msgstr "მომხმარებლების მართვა"
-
-#~ msgid "Manage moderators of"
-#~ msgstr "მოდერატორების მართვა"
-
-#~ msgid "invite users"
-#~ msgstr "მოიწვიეთ მომხმარებლები"
-
-#~ msgid "There are no invites, requests or users in this project yet."
-#~ msgstr "ამ პროექტში არ არის მოწვევა, მოთხოვნა ან მომხმარებელი."
-
-#~ msgid "Project succesfully created."
-#~ msgstr "პროექტები წარმატებით შეიქმნა."
-
-#~ msgid "New project based on"
-#~ msgstr "ახალი პროექტი დაფუძნებულია"
-
-#~ msgid "Change settings for"
-#~ msgstr "პარამეტრების შეცვლა"
-
-#~ msgid "Project has been archived."
-#~ msgstr "პროექტი არქივშია."
-
-#~ msgid "Your project has been deleted."
-#~ msgstr "თქვენი პროექტი წაიშალა."
-
-#~ msgid "Invitations successfully sent."
-#~ msgstr "მოსაწვევები წარმატებით გაიგზავნა."
-
-#~ msgid "User request successfully updated."
-#~ msgstr "მომხმარებლის მოთხოვნა წარმატებით განახლება."
-
-#~ msgid "Phase "
-#~ msgstr "ფაზა"
-
-#~ msgid "of Phase: "
-#~ msgstr "ფაზის:"
-
-#~ msgid "Result "
-#~ msgstr "შედეგი"
-
-#~ msgid "Offlinephase"
-#~ msgstr "Offlinephase"
-
-#~ msgid "Add offline phases to your online participation."
-#~ msgstr "ხაზგარეშე ფაზების ჩართვა თქვენი ონლაინ მონაწილეობით."
-
-#~ msgid "offlinephase"
-#~ msgstr "ხაზგარეშე"
-
-#~ msgid "Edit documentation"
-#~ msgstr "დოკუმენტაციის რედაქტირება"
-
-#~ msgid "Most recent"
-#~ msgstr "უახლესი"
-
-#~ msgid "Popularity"
-#~ msgstr "პოპულარობა"
-
-#~ msgid "Find your Organisation"
-#~ msgstr "იპოვეთ თქვენი ორგანიზაცია"

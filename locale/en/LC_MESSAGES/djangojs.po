@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2020\n"
 "Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
@@ -498,7 +498,7 @@ msgstr ""
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
+msgid "Show preliminary results"
 msgstr ""
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
@@ -506,13 +506,13 @@ msgstr ""
 msgid "Change vote"
 msgstr ""
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
 msgstr ""
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] ""
@@ -557,7 +557,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr ""
 
@@ -565,7 +565,7 @@ msgstr ""
 msgid "Maximum number of upload documents reached."
 msgstr ""
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr ""
 
@@ -594,7 +594,7 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr ""
 

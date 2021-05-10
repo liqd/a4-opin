@@ -7,19 +7,19 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Josefine Jakobsen <jbj@tekno.dk>, 2018
 # Lucas Larsen <lul@tekno.dk>, 2018
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2020
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:20+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2020\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -192,7 +192,7 @@ msgstr "Færdig"
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/projects/enums.py:14
 msgid "semipublic"
-msgstr ""
+msgstr "halvoffentlig"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
@@ -779,7 +779,7 @@ msgstr "Sekunder"
 
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
-msgstr ""
+msgstr "Faser kan ikke køre samtidig og skal følge efter hinanden."
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
@@ -790,12 +790,12 @@ msgstr "Beskrivelse"
 
 #: adhocracy4/phases/models.py:95
 msgid "End date can not be before start date."
-msgstr ""
+msgstr "Slutdatoen kan ikke ligge før startdatoen."
 
 #: adhocracy4/phases/models.py:100
 #: adhocracy4/phases/models.py:104
 msgid "Either both or no date has to be set."
-msgstr ""
+msgstr "Der skal enten fastsættes en dato for begge dele eller ingen dato."
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -851,7 +851,7 @@ msgstr "Kontakt"
 
 #: adhocracy4/projects/enums.py:13
 msgid "public"
-msgstr ""
+msgstr "offentlig"
 
 #: adhocracy4/projects/models.py:43
 msgid ""
@@ -1021,7 +1021,7 @@ msgstr "Notifikationer"
 
 #: euth/accounts/forms.py:69
 msgid "You are not yet born. Please enter a date in the past."
-msgstr ""
+msgstr "Du er endnu ikke født. Indtast venligst en dato i fortiden."
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -1152,13 +1152,15 @@ msgstr "Find og debatter emner og spørgsmål."
 
 #: euth/blueprints/blueprints.py:78
 msgid "Start a discussion and moderate it"
-msgstr ""
+msgstr "Start en diskussion og moderer den"
 
 #: euth/blueprints/blueprints.py:79
 msgid ""
 "Participants can upload documents to deepen the exchange and share "
 "information"
 msgstr ""
+"Deltagerne kan uploade dokumenter for at uddybe udvekslingen og dele "
+"oplysninger"
 
 #: euth/blueprints/blueprints.py:93
 msgid "Collection of commented ideas"
@@ -1705,12 +1707,17 @@ msgid ""
 "have received rights of use from the author. I also confirm that the privacy "
 "rights of depicted third persons are not violated. "
 msgstr ""
+"Jeg bekræfter hermed, at jeg har ophavsretten til dette billede, eller at "
+"jeg har modtaget brugsrettigheder fra ophavsmanden. Jeg bekræfter også, at "
+"de afbildede tredjemænds ret til privatlivets fred ikke krænkes. "
 
 #: euth/contrib/mixins.py:25
 msgid ""
 "You want to upload an image. Please check that you have the right of use for "
 "the image."
 msgstr ""
+"Du ønsker at uploade et billede. Kontroller venligst, at du har brugsretten "
+"til billedet."
 
 #: euth/contrib/validators.py:26
 msgid "File should be at most {} MB"
@@ -1802,6 +1809,8 @@ msgid ""
 "Please make sure the image is at least 400x200 px in dimensions and at most "
 "5 MB in file size."
 msgstr ""
+"Sørg for, at billedet er mindst 400x200 px stort og højst 5 MB i "
+"filstørrelse."
 
 #: euth/ideas/phases.py:15
 msgid "Issue phase"
@@ -2235,23 +2244,25 @@ msgstr "Søg efter brugernavn"
 
 #: euth/projects/overwrites.py:8
 msgid "Only invited users can see content and can participate (private)."
-msgstr ""
+msgstr "Kun inviterede brugere kan se indholdet og kan deltage (privat)."
 
 #: euth/projects/overwrites.py:10
 msgid "All users can see content and can participate (public)."
-msgstr ""
+msgstr "Alle brugere kan se indholdet og kan deltage (offentligt)."
 
 #: euth/projects/overwrites.py:12
 msgid ""
 "All users can see content, only invited users can participate (semi-public)."
 msgstr ""
+"Alle brugere kan se indholdet, men kun inviterede brugere kan deltage "
+"(halvoffentligt)."
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
 msgid "semi-public"
-msgstr ""
+msgstr "halvoffentlig"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:14
@@ -2333,11 +2344,14 @@ msgid ""
 "This project is not publicly visible. Only invited users can see content and "
 "actively participate."
 msgstr ""
+"Dette projekt er ikke offentligt synligt. Kun inviterede brugere kan se "
+"indholdet og deltage aktivt."
 
 #: euth/projects/templates/euth_projects/project_detail.html:191
 msgid ""
 "This project is publicly visible. Invited users can actively participate."
 msgstr ""
+"This project is publicly visible. Invited users can actively participate."
 
 #: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
@@ -2979,279 +2993,3 @@ msgstr "Download retningslinjer"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Indhold"
-
-#~ msgid ""
-#~ "Please indicate whether this project should be public or restricted to "
-#~ "invited users. Teasers for your project including title and short "
-#~ "description will always be visible to everyone"
-#~ msgstr ""
-#~ "Indiker venligst om dette projekt bør være offentligt eller begrænset til "
-#~ "inviterede brugere. Appetitvækkere for dit projekt, inklusiv titel og en "
-#~ "kort beskrivelse, vil altid være synligt for alle"
-
-#~ msgid "End date can not be smallerthan the start date."
-#~ msgstr "Slutdatoen kan ikke være før startdatoen "
-
-#~ msgid "Do this."
-#~ msgstr "Start en diskussion og moderer den."
-
-#~ msgid "Do that."
-#~ msgstr ""
-#~ "Participants can upload documents to deepen the exchange and share "
-#~ "information."
-
-#~ msgid "Comment"
-#~ msgstr "Kommentar"
-
-#~ msgid "Project successfully updated."
-#~ msgstr "Projektet er nu opdateret"
-
-#~ msgid "Module successfully updated."
-#~ msgstr "Modul med succes opdateret."
-
-#~ msgid "Project successfully published."
-#~ msgstr "Projekt med succes offentliggjort."
-
-#~ msgid "Project successfully unpublished."
-#~ msgstr "Projekt med succes upubliceret."
-
-#~ msgid ""
-#~ "Exclude this project from all listings by default. You can still access "
-#~ "this project by using filters."
-#~ msgstr ""
-#~ "Udeluk dette projekt fra alle lister og oversigter som "
-#~ "standardindstilling. Du kan stadig tilgå dette projekt ved at benytte "
-#~ "filtre."
-
-#~ msgid "Topic and location"
-#~ msgstr "Emne og placering"
-
-#~ msgid "Location of your Project"
-#~ msgstr "Placering af dit projekt"
-
-#~ msgid "Project topic"
-#~ msgstr "Projekt emne"
-
-#~ msgid "Contact details"
-#~ msgstr "Kontaktoplysninger"
-
-#~ msgid "This is the help text."
-#~ msgstr "Dette er hjælpeteksten."
-
-#~ msgid ""
-#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-#~ "allowed."
-#~ msgstr ""
-#~ "Telefonnummer skal indtastes i formatet: '+999999999'. Op til 15 cifre "
-#~ "tilladt."
-
-#~ msgid ""
-#~ "This project has received funding from the European Union's Horizon 2020 "
-#~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
-#~ msgstr ""
-#~ "Dette projekt har modtaget finansiering fra den Europæiske Unions Horizon "
-#~ "2020 forsknings- og innovationsprogram under grant agreement nr. 649594. "
-#~ "Denne hjemmeside afspejler kun forfatterens holdning, og "
-#~ "Forvaltningsorganet for Forskning eller Europa-Kommissionen er ikke "
-#~ "ansvarlig for ethvert brug, der måske gøres på baggrund af de "
-#~ "informationer det indeholder. "
-
-#~ msgid ""
-#~ "In this section, you can create\n"
-#~ "categories. If you create any, users must assign their contributions\n"
-#~ "to one of them. This way, content can be classified."
-#~ msgstr ""
-#~ "I dette afsnit kan du oprette kategorier. Hvis du opretter nogen, skal "
-#~ "brugerne tildele deres bidrag til en af dem. På den måde kan indhold "
-#~ "klassificeres."
-
-#~ msgid "Flashpollsettings"
-#~ msgstr "Flashpollsettings"
-
-#~ msgid "Edit flashpollsettings"
-#~ msgstr "Rediger flashpollsettings"
-
-#~ msgid "Answers and Export"
-#~ msgstr "Svar og Eksport"
-
-#~ msgid "Flashpoll ID"
-#~ msgstr "Flashpoll ID"
-
-#~ msgid "Flashpoll Phase"
-#~ msgstr "Flashpoll fase"
-
-#~ msgid "Initiate a Mobile polling process."
-#~ msgstr "Start en mobil stemmeafgivningsproces. "
-
-#~ msgid "mobile polling"
-#~ msgstr "Mobil stemmeafgivning"
-
-#~ msgid "Poll: Questions"
-#~ msgstr "Opinionsundersøgelse: Spørgsmål "
-
-#~ msgid "Poll: Location"
-#~ msgstr "Opinionsundersøgelse: Sted"
-
-#~ msgid "Download Answers"
-#~ msgstr "Download svar"
-
-#~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
-#~ msgstr ""
-#~ "Denne korte beskrivelse vil figurere i sidehovedet til modul- og "
-#~ "projektdetaljesiderne. Den bør kortfattet fremsætte modulets formål med "
-#~ "maksimalt 250 anslag."
-
-#~ msgid "Location"
-#~ msgstr "Sted"
-
-#~ msgid "Project settings"
-#~ msgstr "Projektindstillinger"
-
-#~ msgid "Information for your participants"
-#~ msgstr "Information til dine deltagere"
-
-#~ msgid "It should be max. 80 characters long."
-#~ msgstr "Dette bør maks. fylde 80 tegn"
-
-#~ msgid "It should be max. 300 characters long."
-#~ msgstr "Dette bør maks. fylde 300 tegn"
-
-#~ msgid "Your timezone: {}"
-#~ msgstr "Din tidszone: {} "
-
-#~ msgid "End time can not be smaller than the start time."
-#~ msgstr "Sluttidspunktet kan ikke være før starttidspunktet."
-
-#~ msgid "Archived projects are read-only."
-#~ msgstr "Gemte projekter er skrivebeskyttede."
-
-#~ msgid "Organisation settings"
-#~ msgstr "Organisationsindstillinger "
-
-#~ msgid "Organisation information"
-#~ msgstr "Information om organisationen"
-
-#~ msgid "Create new project from one of the templates"
-#~ msgstr "Skab nyt projekt ud fra en af skabelonerne "
-
-#~ msgid "back to project list"
-#~ msgstr "Tilbage til projektlisten "
-
-#~ msgid "add offline phase"
-#~ msgstr "Tilføj offline fase "
-
-#~ msgid "of Phase "
-#~ msgstr "Fra fase"
-
-#~ msgid "edit documentation"
-#~ msgstr "Rediger dokumentation "
-
-#~ msgid "add category"
-#~ msgstr "tilføj kategori"
-
-#~ msgid "Edit your organisation information"
-#~ msgstr "Rediger din organisationsinformation "
-
-#~ msgid "Unable to submit form. Please fix the errors."
-#~ msgstr "Formularen kan ikke indsendes. Ret venligst fejlene. "
-
-#~ msgid "This project is archived."
-#~ msgstr "Dette projekt er gemt. "
-
-#~ msgid "save draft"
-#~ msgstr "Gem udkast "
-
-#~ msgid "save and publish"
-#~ msgstr "Gem og offentliggør "
-
-#~ msgid "unpublish"
-#~ msgstr "fjern offentliggørelse"
-
-#~ msgid "Invite users to project"
-#~ msgstr "Inviter brugere til projektet"
-
-#~ msgid "create project"
-#~ msgstr "Opret projekt"
-
-#~ msgid "view project"
-#~ msgstr "se projekt"
-
-#~ msgid "download module"
-#~ msgstr "download modul "
-
-#~ msgid "archive project"
-#~ msgstr "Gem projekt"
-
-#~ msgid "unarchive project"
-#~ msgstr "Gem ikke længere projekt"
-
-#~ msgid "Manage users of"
-#~ msgstr "Administrer brugere af"
-
-#~ msgid "Manage moderators of"
-#~ msgstr "Administrer moderatorer af"
-
-#~ msgid "invite users"
-#~ msgstr "Inviter brugere"
-
-#~ msgid "There are no invites, requests or users in this project yet."
-#~ msgstr ""
-#~ "Der er ingen invitationer, anmodninger eller brugere i dette projekt "
-#~ "endnu."
-
-#~ msgid "Project succesfully created."
-#~ msgstr "Projektet er nu oprettet"
-
-#~ msgid "New project based on"
-#~ msgstr "Nyt projekt baseret på"
-
-#~ msgid "Change settings for"
-#~ msgstr "Ændre indstillinger for "
-
-#~ msgid "Project has been archived."
-#~ msgstr "Projektet er gemt."
-
-#~ msgid "Your project has been deleted."
-#~ msgstr "Dit projekt er blevet slettet"
-
-#~ msgid "Invitations successfully sent."
-#~ msgstr "Invitationerne er blevet sendt. "
-
-#~ msgid "User request successfully updated."
-#~ msgstr "Brugeranmodninger er nu opdateret. "
-
-#~ msgid "Phase "
-#~ msgstr "Fase"
-
-#~ msgid "of Phase: "
-#~ msgstr "fra Fase:"
-
-#~ msgid "Result "
-#~ msgstr "Resultat"
-
-#~ msgid "Offlinephase"
-#~ msgstr "Offline fase "
-
-#~ msgid "Add offline phases to your online participation."
-#~ msgstr "Tilføj offline faser til din online deltagelse "
-
-#~ msgid "offlinephase"
-#~ msgstr "Offline fase"
-
-#~ msgid "Edit documentation"
-#~ msgstr "Rediger dokumentation "
-
-#~ msgid "Most recent"
-#~ msgstr "Seneste"
-
-#~ msgid "Popularity"
-#~ msgstr "Popularitet "
-
-#~ msgid "Find your Organisation"
-#~ msgstr "Find din organisation "

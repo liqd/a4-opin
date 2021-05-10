@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,18 +388,18 @@ msgid "Please login to vote"
 msgstr "Please login to vote"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
-msgstr "To poll"
+msgid "Show preliminary results"
+msgstr "Show preliminary results"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "Change vote"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
-msgstr "Show preliminary results"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
+msgstr "To poll"
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "vote"
@@ -437,7 +437,7 @@ msgstr "Thank you! We are taking care of it."
 msgid "Close"
 msgstr "Close"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr "Please set all values for your project."
 
@@ -445,7 +445,7 @@ msgstr "Please set all values for your project."
 msgid "Maximum number of upload documents reached."
 msgstr "Maximum number of upload documents reached."
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr "Remove"
 
@@ -474,7 +474,7 @@ msgstr "Your document has been saved."
 msgid "Title:"
 msgstr "Title:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr "save"
 

@@ -5,22 +5,23 @@
 #
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # Yves Müller <yves.mueller@liqd.de>, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Albers <katharina.albers@gmail.com>, 2020
+# Katharina Lindenlaub, 2020
 # Katharina Matzkeit <k.matzkeit+transifex@liqd.net>, 2020
 # David Jinjikhadze <david.jinjikhadze@gmail.com>, 2020
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: David Jinjikhadze <david.jinjikhadze@gmail.com>, 2020\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -199,7 +200,7 @@ msgstr "ამჟამად აქტიური ფაზა კომენ
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 msgid "Only invited users can actively participate."
-msgstr ""
+msgstr "მხოლოდ მოწვეულ მომხმარებლებს შეუძლიათ აქტიური მონაწილეობა. "
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
@@ -253,8 +254,8 @@ msgstr "კომენტარების დამალვა"
 #, javascript-format
 msgid "1 comment"
 msgid_plural "%s comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 კომენტარი "
+msgstr[1] "%s კომენტარები"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
@@ -343,15 +344,15 @@ msgstr "დალაგებული"
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 msgid "entry"
 msgid_plural "entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შესვლა "
+msgstr[1] "ჩანაწერები "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 msgid "entry found for "
 msgid_plural "entries found for "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ჩანაწერი ნაპოვნია "
+msgstr[1] "ნაპოვნია მასალა "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
@@ -507,21 +508,21 @@ msgstr "გთხოვთ, ხელახლა შესვლა"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
-msgstr "გამოკითხვაში"
+msgid "Show preliminary results"
+msgstr "წინასწარი შედეგების ჩვენება"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "ხმის მიცემა"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
-msgstr "წინასწარი შედეგების ჩვენება"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
+msgstr "გამოკითხვაში"
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "ხმა"
@@ -566,7 +567,7 @@ msgstr "მადლობთ! ჩვენ ზრუნავს მასზ�
 msgid "Close"
 msgstr "დახურვა"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr "გთხოვთ, დააყენოთ ყველა მნიშვნელობა თქვენი პროექტისთვის."
 
@@ -574,7 +575,7 @@ msgstr "გთხოვთ, დააყენოთ ყველა მნი�
 msgid "Maximum number of upload documents reached."
 msgstr "ასატვირთი დოკუმენტების მაქსიმალური რაოდენობა"
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr "ამოღება"
 
@@ -603,37 +604,10 @@ msgstr "თქვენი დოკუმენტი შენახული�
 msgid "Title:"
 msgstr "სათაური:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr "გადარჩენა"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "დაუცველი"
-
-#~ msgid "Are you sure you want to report this item?"
-#~ msgstr "ნამდვილად გსურთ ამ საკითხზე მოხსენება?"
-
-#~ msgid "hide %s replies"
-#~ msgstr "პასუხების %s დამალვა"
-
-#~ msgid "view %s replies"
-#~ msgstr "პასუხების %s ნახვა"
-
-#~ msgid "Your message here"
-#~ msgstr "თქვენი შეტყობინება აქ"
-
-#~ msgid "Not following"
-#~ msgstr "არ არის შემდეგი"
-
-#~ msgid "Never be notified."
-#~ msgstr "არასოდეს ეცნობება."
-
-#~ msgid "Receive email notifications about this project."
-#~ msgstr "ამ პროექტის შესახებ ელფოსტის შეტყობინებების მიღება."
-
-#~ msgid "Offline Phase"
-#~ msgstr "ხაზგარეშე ფაზა"
-
-#~ msgid "add offline phase"
-#~ msgstr "დაამატეთ ხაზგარეშე ფაზა"

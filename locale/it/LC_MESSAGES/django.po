@@ -7,15 +7,16 @@
 # Marie-Kathrin <m.siemer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:20+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +189,7 @@ msgstr "Finito"
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:27
 #: adhocracy4/projects/enums.py:14
 msgid "semipublic"
-msgstr ""
+msgstr "semipubblico"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:30
@@ -337,7 +338,7 @@ msgstr "Icona categoria"
 #: adhocracy4/comments/models.py:53
 msgctxt "noun"
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 #: adhocracy4/comments/models.py:54
 #: adhocracy4/exports/mixins.py:123
@@ -372,15 +373,15 @@ msgstr "utente sconosciuto"
 
 #: adhocracy4/comments_async/serializers.py:58
 msgid "Please choose one or more categories."
-msgstr ""
+msgstr "Si prega di scegliere una o più categorie."
 
 #: adhocracy4/dashboard/components/forms/views.py:22
 msgid "The project has been updated."
-msgstr ""
+msgstr "Il progetto è stato aggiornato."
 
 #: adhocracy4/dashboard/components/forms/views.py:47
 msgid "The module has been updated."
-msgstr ""
+msgstr "Il modulo è stato aggiornato."
 
 #: adhocracy4/dashboard/dashboard.py:13
 msgid "Basic settings"
@@ -550,6 +551,7 @@ msgstr "Il progetto è già stato pubblicato"
 #: adhocracy4/dashboard/views.py:176
 msgid "Project cannot be published. No module is added."
 msgstr ""
+"Il progetto non può essere pubblicato. Non viene aggiunto alcun modulo."
 
 #: adhocracy4/dashboard/views.py:191
 msgid "Project cannot be published. Required fields are missing."
@@ -561,7 +563,7 @@ msgstr "Il progetto non può essere pubblicato."
 
 #: adhocracy4/dashboard/views.py:211
 msgid "the project has been published."
-msgstr ""
+msgstr "il progetto è stato pubblicato."
 
 #: adhocracy4/dashboard/views.py:216
 msgid "Project is already unpublished"
@@ -569,7 +571,7 @@ msgstr "Il progetto è già inedito"
 
 #: adhocracy4/dashboard/views.py:225
 msgid "the project has been unpublished."
-msgstr ""
+msgstr "il progetto non è stato pubblicato."
 
 #: adhocracy4/exports/mixins.py:18
 msgid "Link"
@@ -780,6 +782,8 @@ msgstr "secondi"
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
+"Le fasi non possono essere eseguite allo stesso tempo e devono seguire l'una "
+"dopo l'altra."
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
@@ -790,12 +794,12 @@ msgstr "Descrizione"
 
 #: adhocracy4/phases/models.py:95
 msgid "End date can not be before start date."
-msgstr ""
+msgstr "La data di fine non può essere precedente alla data di inizio."
 
 #: adhocracy4/phases/models.py:100
 #: adhocracy4/phases/models.py:104
 msgid "Either both or no date has to be set."
-msgstr ""
+msgstr "Either both or no date has to be set."
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -851,7 +855,7 @@ msgstr "Contatto"
 
 #: adhocracy4/projects/enums.py:13
 msgid "public"
-msgstr ""
+msgstr "pubblico"
 
 #: adhocracy4/projects/models.py:43
 msgid ""
@@ -971,6 +975,8 @@ msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
 msgstr ""
+"I progetti archiviati non vengono mostrati nella panoramica del progetto. "
+"Per gli iniziatori del progetto sono ancora visibili nella dashboard."
 
 #: adhocracy4/projects/models.py:260
 msgid "Project topics"
@@ -993,11 +999,11 @@ msgstr "sono rimaste poche ore"
 
 #: adhocracy4/projects/utils.py:45
 msgid "{}. Online Participation"
-msgstr ""
+msgstr "{}. Partecipazione online"
 
 #: adhocracy4/projects/utils.py:54
 msgid "Online Participation"
-msgstr ""
+msgstr "Partecipazione online"
 
 #: adhocracy4/reports/templatetags/react_reports.py:29
 msgid "Report"
@@ -1021,7 +1027,7 @@ msgstr "notifiche"
 
 #: euth/accounts/forms.py:69
 msgid "You are not yet born. Please enter a date in the past."
-msgstr ""
+msgstr "Non sei ancora nato. Si prega di inserire una data nel passato."
 
 #: euth/accounts/templates/euth_accounts/base_account.html:22
 #: euth/users/templates/euth_users/indicator_menu.html:22
@@ -1148,17 +1154,19 @@ msgstr "Coinvolgere diversi autori nello scrivere un testo condiviso"
 
 #: euth/blueprints/blueprints.py:77
 msgid "Find and debate topics and questions."
-msgstr ""
+msgstr "Find and debate topics and questions."
 
 #: euth/blueprints/blueprints.py:78
 msgid "Start a discussion and moderate it"
-msgstr ""
+msgstr "Iniziare una discussione e moderarla"
 
 #: euth/blueprints/blueprints.py:79
 msgid ""
 "Participants can upload documents to deepen the exchange and share "
 "information"
 msgstr ""
+"I partecipanti possono caricare documenti per approfondire lo scambio e "
+"condividere informazioni"
 
 #: euth/blueprints/blueprints.py:93
 msgid "Collection of commented ideas"
@@ -1326,11 +1334,13 @@ msgstr ""
 
 #: euth/blueprints/blueprints.py:334
 msgid "Community debate"
-msgstr ""
+msgstr "Dibattito comunitario"
 
 #: euth/blueprints/blueprints.py:335
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr ""
+"Raccogliete argomenti e domande da discutere, discutete e date loro la "
+"priorità."
 
 #: euth/blueprints/forms.py:23
 msgid "What is the desired outcome of the project?"
@@ -1544,15 +1554,15 @@ msgstr "Ordina per"
 
 #: euth/communitydebate/phases.py:15
 msgid "Debate phase"
-msgstr ""
+msgstr "Fase del dibattito"
 
 #: euth/communitydebate/phases.py:16
 msgid "Add topics and debate them."
-msgstr ""
+msgstr "Aggiungere argomenti e discuterli."
 
 #: euth/communitydebate/phases.py:17
 msgid "communitydebate"
-msgstr ""
+msgstr "dibattito comunitario"
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:2
 #: euth/ideas/templates/euth_ideas/includes/modal.html:2
@@ -1607,23 +1617,23 @@ msgstr "download"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:6
 msgid "Create a new topic"
-msgstr ""
+msgstr "Creare un nuovo argomento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:8
 msgid "Update topic"
-msgstr ""
+msgstr "Aggiornare l'argomento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
-msgstr ""
+msgstr "creare un nuovo argomento per questo progetto"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
-msgstr ""
+msgstr "argomento di aggiornamento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
-msgstr ""
+msgstr "Titolo dell'argomento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
@@ -1638,7 +1648,7 @@ msgstr ""
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 msgid "Upload another document"
-msgstr ""
+msgstr "Carica un altro documento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
 #: euth/ideas/templates/euth_ideas/idea_form.html:94
@@ -1658,23 +1668,23 @@ msgstr "Annulla"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_list.html:12
 msgid "Create Topic"
-msgstr ""
+msgstr "Creare un argomento"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_list.html:45
 msgid "No topics found"
-msgstr ""
+msgstr "Nessun argomento trovato"
 
 #: euth/communitydebate/views.py:97
 msgid "Topic successfully created"
-msgstr ""
+msgstr "Argomento creato con successo"
 
 #: euth/communitydebate/views.py:146
 msgid "Topic successfully updated"
-msgstr ""
+msgstr "Argomento aggiornato con successo"
 
 #: euth/communitydebate/views.py:157
 msgid "Your topic has been deleted"
-msgstr ""
+msgstr "Il tuo argomento è stato cancellato"
 
 #: euth/contrib/filters.py:12
 msgid "status"
@@ -1704,12 +1714,17 @@ msgid ""
 "have received rights of use from the author. I also confirm that the privacy "
 "rights of depicted third persons are not violated. "
 msgstr ""
+"Confermo che i diritti d'autore di questa foto sono miei o che ho ricevuto i "
+"diritti d'uso dall'autore. Confermo anche che i diritti di privacy di terze "
+"persone ritratte non sono violati. "
 
 #: euth/contrib/mixins.py:25
 msgid ""
 "You want to upload an image. Please check that you have the right of use for "
 "the image."
 msgstr ""
+"Vuoi caricare un'immagine. Controlla di avere il diritto di utilizzo "
+"dell'immagine."
 
 #: euth/contrib/validators.py:26
 msgid "File should be at most {} MB"
@@ -1802,6 +1817,8 @@ msgid ""
 "Please make sure the image is at least 400x200 px in dimensions and at most "
 "5 MB in file size."
 msgstr ""
+"Per favore, assicurati che l'immagine sia almeno 400x200 px in dimensioni e "
+"al massimo 5 MB in dimensione del file."
 
 #: euth/ideas/phases.py:15
 msgid "Issue phase"
@@ -2239,22 +2256,27 @@ msgstr "Cerca nome utente"
 #: euth/projects/overwrites.py:8
 msgid "Only invited users can see content and can participate (private)."
 msgstr ""
+"Solo gli utenti invitati possono vedere il contenuto e possono partecipare "
+"(privato)."
 
 #: euth/projects/overwrites.py:10
 msgid "All users can see content and can participate (public)."
 msgstr ""
+"Tutti gli utenti possono vedere i contenuti e possono partecipare (pubblico)."
 
 #: euth/projects/overwrites.py:12
 msgid ""
 "All users can see content, only invited users can participate (semi-public)."
 msgstr ""
+"Tutti gli utenti possono vedere i contenuti, solo gli utenti invitati "
+"possono partecipare (semi-pubblico)."
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:15
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:11
 #: euth/projects/templates/euth_projects/includes/project_tile.html:15
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:22
 msgid "semi-public"
-msgstr ""
+msgstr "semi-pubblico"
 
 #: euth/projects/templates/euth_projects/includes/project_hero_unit.html:20
 #: euth/projects/templates/euth_projects/includes/project_list_item.html:14
@@ -2336,11 +2358,15 @@ msgid ""
 "This project is not publicly visible. Only invited users can see content and "
 "actively participate."
 msgstr ""
+"Questo progetto non è visibile pubblicamente. Solo gli utenti invitati "
+"possono vedere il contenuto e partecipare attivamente."
 
 #: euth/projects/templates/euth_projects/project_detail.html:191
 msgid ""
 "This project is publicly visible. Invited users can actively participate."
 msgstr ""
+"Questo progetto è visibile pubblicamente. Gli utenti invitati possono "
+"partecipare attivamente."
 
 #: euth/projects/templates/euth_projects/project_detail.html:202
 msgid ""
@@ -2613,15 +2639,15 @@ msgstr "macedone"
 
 #: euth_wagtail/settings/base.py:434
 msgid "suggestion"
-msgstr ""
+msgstr "suggerimento"
 
 #: euth_wagtail/settings/base.py:435
 msgid "note"
-msgstr ""
+msgstr "nota"
 
 #: euth_wagtail/settings/base.py:436
 msgid "question"
-msgstr ""
+msgstr "domanda"
 
 #: euth_wagtail/templates/403.html:6
 msgid "You are not allowed to access this page."
@@ -2652,7 +2678,7 @@ msgstr "Torna a OPIN.ME"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:14
 msgid "Home"
-msgstr ""
+msgstr "Casa"
 
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:26
 msgid "Organisation"
@@ -2930,7 +2956,7 @@ msgstr "Mettiti in comunicazione con noi"
 
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Allineare la navigazione"
 
 #: euth_wagtail/templates/socialaccount/connections.html:12
 msgid ""
@@ -2985,268 +3011,3 @@ msgstr "Scarica le linee guida"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contenuto"
-
-#~ msgid ""
-#~ "Please indicate whether this project should be public or restricted to "
-#~ "invited users. Teasers for your project including title and short "
-#~ "description will always be visible to everyone"
-#~ msgstr ""
-#~ "Indicare se questo progetto deve essere pubblico o limitato agli utenti "
-#~ "invitati. I teaser per il tuo progetto inclusi titolo e breve descrizione "
-#~ "saranno sempre visibili a tutti."
-
-#~ msgid "End date can not be smallerthan the start date."
-#~ msgstr "La data di fine non può essere inferiore alla data di inizio."
-
-#~ msgid "Comment"
-#~ msgstr "Commento"
-
-#~ msgid "Project successfully updated."
-#~ msgstr "Progetto aggiornato con successo."
-
-#~ msgid "Module successfully updated."
-#~ msgstr "Modulo aggiornato con successo."
-
-#~ msgid "Project successfully published."
-#~ msgstr "Progetto pubblicato con successo."
-
-#~ msgid "Project successfully unpublished."
-#~ msgstr "Progetto non pubblicato correttamente."
-
-#~ msgid ""
-#~ "Exclude this project from all listings by default. You can still access "
-#~ "this project by using filters."
-#~ msgstr ""
-#~ "Escludere questo progetto da tutti gli elenchi per impostazione "
-#~ "predefinita. Puoi ancora accedere a questo progetto usando i filtri."
-
-#~ msgid "Topic and location"
-#~ msgstr "Argomento e posizione"
-
-#~ msgid "Location of your Project"
-#~ msgstr "Posizione del tuo progetto"
-
-#~ msgid "Project topic"
-#~ msgstr "Argomento del progetto"
-
-#~ msgid "Contact details"
-#~ msgstr "Dettagli del contatto"
-
-#~ msgid "This is the help text."
-#~ msgstr "Questo è il testo di aiuto."
-
-#~ msgid ""
-#~ "Phone number must be entered in the format: '+999999999'. Up to 15 digits "
-#~ "allowed."
-#~ msgstr ""
-#~ "Il numero di telefono deve essere inserito nel formato: '+999999999'. "
-#~ "Sono consentite fino a 15 cifre."
-
-#~ msgid ""
-#~ "This project has received funding from the European Union's Horizon 2020 "
-#~ "research and innovation programme under grant agreement No 649594. This "
-#~ "website reflects only the author's view and the Research Executive Agency "
-#~ "or European Commission is not responsible for any use that may be made of "
-#~ "the information it contains."
-#~ msgstr ""
-#~ "Questo progetto ha ricevuto finanziamenti dal programma di ricerca e "
-#~ "innovazione Horizon 2020 dell'Unione europea nell'ambito della "
-#~ "convenzione di finanziamento n. 649594. Questo sito web riflette solo il "
-#~ "punto di vista dell'autore e l'Agenzia esecutiva per la ricerca o la "
-#~ "Commissione europea non è responsabile per l'uso che potrebbe essere "
-#~ "fatto delle informazioni contiene."
-
-#~ msgid ""
-#~ "In this section, you can create\n"
-#~ "categories. If you create any, users must assign their contributions\n"
-#~ "to one of them. This way, content can be classified."
-#~ msgstr ""
-#~ "In questa sezione, puoi creare\n"
-#~ "categorie. Se ne crei uno, gli utenti devono assegnare i loro contributi\n"
-#~ "a uno di loro In questo modo, il contenuto può essere classificato."
-
-#~ msgid "Flashpollsettings"
-#~ msgstr "Impostazioni di Flashpoll"
-
-#~ msgid "Edit flashpollsettings"
-#~ msgstr "Modifica le impostazioni di Flashpoll"
-
-#~ msgid "Answers and Export"
-#~ msgstr "Risposte ed esportazione"
-
-#~ msgid "Flashpoll ID"
-#~ msgstr "ID FlashPoll"
-
-#~ msgid "Flashpoll Phase"
-#~ msgstr "Fase dei flashpoll"
-
-#~ msgid "Initiate a Mobile polling process."
-#~ msgstr "Avvia un processo di polling mobile."
-
-#~ msgid "mobile polling"
-#~ msgstr "sondaggio mobile"
-
-#~ msgid "Poll: Questions"
-#~ msgstr "Sondaggio: domande"
-
-#~ msgid "Poll: Location"
-#~ msgstr "Sondaggio: posizione"
-
-#~ msgid "Download Answers"
-#~ msgstr "Scarica risposte"
-
-#~ msgid ""
-#~ "This short description will appear on the header of the module and "
-#~ "project detail pages. It should briefly state the goal of the module in "
-#~ "max. 250 chars."
-#~ msgstr ""
-#~ "Questa breve descrizione apparirà sull'intestazione del modulo e sulle "
-#~ "pagine dei dettagli del progetto. Dovrebbe indicare brevemente "
-#~ "l'obiettivo del modulo in max. 250 caratteri."
-
-#~ msgid "Location"
-#~ msgstr "Posizione"
-
-#~ msgid "Project settings"
-#~ msgstr "Impostazioni del progetto"
-
-#~ msgid "Information for your participants"
-#~ msgstr "Informazioni per i tuoi partecipanti"
-
-#~ msgid "It should be max. 80 characters long."
-#~ msgstr "Dovrebbe essere max. 80 caratteri."
-
-#~ msgid "It should be max. 300 characters long."
-#~ msgstr "Dovrebbe essere max. 300 caratteri."
-
-#~ msgid "Your timezone: {}"
-#~ msgstr "Il tuo fuso orario: {}"
-
-#~ msgid "End time can not be smaller than the start time."
-#~ msgstr "L'ora di fine non può essere inferiore all'ora di inizio."
-
-#~ msgid "Archived projects are read-only."
-#~ msgstr "I progetti archiviati sono di sola lettura."
-
-#~ msgid "Organisation settings"
-#~ msgstr "Impostazioni dell'organizzazione"
-
-#~ msgid "Organisation information"
-#~ msgstr "Informazioni sull'organizzazione"
-
-#~ msgid "Create new project from one of the templates"
-#~ msgstr "Crea un nuovo progetto da uno dei modelli"
-
-#~ msgid "back to project list"
-#~ msgstr "torna all'elenco dei progetti"
-
-#~ msgid "add offline phase"
-#~ msgstr "aggiungi fase offline"
-
-#~ msgid "of Phase "
-#~ msgstr "di fase"
-
-#~ msgid "edit documentation"
-#~ msgstr "modifica documentazione"
-
-#~ msgid "add category"
-#~ msgstr "Aggiungi categoria"
-
-#~ msgid "Edit your organisation information"
-#~ msgstr "Modifica le informazioni sulla tua organizzazione"
-
-#~ msgid "Unable to submit form. Please fix the errors."
-#~ msgstr "Impossibile inviare il modulo. Correggi gli errori."
-
-#~ msgid "This project is archived."
-#~ msgstr "Questo progetto è archiviato."
-
-#~ msgid "save draft"
-#~ msgstr "salva la bozza"
-
-#~ msgid "save and publish"
-#~ msgstr "salva e pubblica"
-
-#~ msgid "unpublish"
-#~ msgstr "non pubblicato"
-
-#~ msgid "Invite users to project"
-#~ msgstr "Invita gli utenti a proiettare"
-
-#~ msgid "create project"
-#~ msgstr "creare un progetto"
-
-#~ msgid "view project"
-#~ msgstr "guarda il progetto"
-
-#~ msgid "download module"
-#~ msgstr "modulo di download"
-
-#~ msgid "archive project"
-#~ msgstr "progetto di archivio"
-
-#~ msgid "unarchive project"
-#~ msgstr "progetto non archiviato"
-
-#~ msgid "Manage users of"
-#~ msgstr "Gestisci utenti di"
-
-#~ msgid "Manage moderators of"
-#~ msgstr "Gestisci i moderatori di"
-
-#~ msgid "invite users"
-#~ msgstr "invita gli utenti"
-
-#~ msgid "There are no invites, requests or users in this project yet."
-#~ msgstr "Non ci sono ancora inviti, richieste o utenti in questo progetto."
-
-#~ msgid "Project succesfully created."
-#~ msgstr "Progetto creato con successo."
-
-#~ msgid "New project based on"
-#~ msgstr "Nuovo progetto basato su"
-
-#~ msgid "Change settings for"
-#~ msgstr "Cambia le impostazioni per"
-
-#~ msgid "Project has been archived."
-#~ msgstr "Il progetto è stato archiviato."
-
-#~ msgid "Your project has been deleted."
-#~ msgstr "Il tuo progetto è stato cancellato."
-
-#~ msgid "Invitations successfully sent."
-#~ msgstr "Inviti inviati con successo."
-
-#~ msgid "User request successfully updated."
-#~ msgstr "Richiesta dell'utente con successo aggiornata."
-
-#~ msgid "Phase "
-#~ msgstr "Fase"
-
-#~ msgid "of Phase: "
-#~ msgstr "della fase:"
-
-#~ msgid "Result "
-#~ msgstr "Risultato"
-
-#~ msgid "Offlinephase"
-#~ msgstr "Offlinephase"
-
-#~ msgid "Add offline phases to your online participation."
-#~ msgstr "Aggiungi fasi offline alla tua partecipazione online."
-
-#~ msgid "offlinephase"
-#~ msgstr "offlinephase"
-
-#~ msgid "Edit documentation"
-#~ msgstr "Modifica la documentazione"
-
-#~ msgid "Most recent"
-#~ msgstr "Piu recente"
-
-#~ msgid "Popularity"
-#~ msgstr "Popolarità"
-
-#~ msgid "Find your Organisation"
-#~ msgstr "Trova la tua organizzazione"

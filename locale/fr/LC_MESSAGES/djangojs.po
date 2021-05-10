@@ -6,19 +6,20 @@
 # Translators:
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, 2017
-# Luca Thüer <l.thueer@liqd.net>, 2018
+# Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Albers <katharina.albers@gmail.com>, 2020
+# Katharina Lindenlaub, 2020
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 14:04+0200\n"
+"POT-Creation-Date: 2021-05-10 09:19+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Albers <katharina.albers@gmail.com>, 2020\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +198,7 @@ msgstr "La phase actuelle ne vous permet pas de commenter. "
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 msgid "Only invited users can actively participate."
-msgstr ""
+msgstr "Seuls les utilisateurs invités peuvent participer activement."
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
@@ -214,86 +215,86 @@ msgstr "Signaler"
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 msgid "Choose categories for your comment"
-msgstr ""
+msgstr "Choisissez des catégories pour votre commentaire"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 msgid "Entry successfully created"
-msgstr ""
+msgstr "Entrée créée avec succès"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Read more..."
-msgstr ""
+msgstr "Lire la suite..."
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Read less"
-msgstr ""
+msgstr "Lire la suite"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Share"
-msgstr ""
+msgstr "Partager"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid " Report"
-msgstr ""
+msgstr "Rapport"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "hide comments"
-msgstr ""
+msgstr "cacher les commentaires"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #, javascript-format
 msgid "1 comment"
 msgid_plural "%s comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 Commentaire"
+msgstr[1] "%s commentaires"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 msgctxt "verb"
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:290
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:290
 msgid "Share link"
-msgstr ""
+msgstr "Lien de partage"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:329
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:329
 msgid "Categories: "
-msgstr ""
+msgstr "Etiquette:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
-msgstr ""
+msgstr "Le plus récent"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
-msgstr ""
+msgstr "Le plus de votes positifs"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
-msgstr ""
+msgstr "Le plus de votes négatifs"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
-msgstr ""
+msgstr "La plupart des réponses"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
-msgstr ""
+msgstr "Dernière discussion"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
@@ -302,7 +303,7 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
 msgid "all"
-msgstr ""
+msgstr "tous"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:503
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
@@ -313,88 +314,88 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
 msgid "Write contribution"
-msgstr ""
+msgstr "Contribution écrite"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
 msgid "Search contributions"
-msgstr ""
+msgstr "Recherche de contributions"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
 msgid "Clear search"
-msgstr ""
+msgstr "Recherche claire"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
 msgid "display: "
-msgstr ""
+msgstr "affichage : "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
 msgid "sorted by: "
-msgstr ""
+msgstr "Classer par"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
 msgid "entry"
 msgid_plural "entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "entrée"
+msgstr[1] "entrées"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
 msgid "entry found for "
 msgid_plural "entries found for "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "entrée trouvées pour "
+msgstr[1] "entrées trouvées pour "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Filters"
-msgstr ""
+msgstr "Filtres"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
 msgid "Show filters"
-msgstr ""
+msgstr "Afficher les filtres"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide Filters"
-msgstr ""
+msgstr "Masquer les filtres"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
 msgid "Hide filters"
-msgstr ""
+msgstr "Masquer les filtres"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 msgid " characters"
-msgstr ""
+msgstr "caractères"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 msgid "Recommend comment"
-msgstr ""
+msgstr "Recommander le commentaire"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 msgid "Is recommended"
-msgstr ""
+msgstr "Est recommandé"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
@@ -402,6 +403,8 @@ msgid ""
 "Thanks for the feedback. It will be checked by the moderators as soon as "
 "possible."
 msgstr ""
+"Merci de votre réaction. Il sera vérifié par les modérateurs dès que "
+"possible."
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:71
 #: adhocracy4/reports/static/reports/ReportModal.jsx:61
@@ -420,22 +423,22 @@ msgstr "Signaler ce post"
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 msgid "Copy"
-msgstr ""
+msgstr "Copie"
 
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 msgid "Copied"
-msgstr ""
+msgstr "Copié"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
 msgid "You will no longer be updated via email."
-msgstr ""
+msgstr "Vous ne serez plus informé par courrier électronique."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
 msgid "You will be updated via email."
-msgstr ""
+msgstr "Vous serez informé par e-mail."
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
@@ -505,21 +508,21 @@ msgstr "Veuillez vous connecter pour voter"
 
 #: adhocracy4/polls/static/polls/Question.jsx:140
 #: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "To poll"
-msgstr "Pour sonder"
+msgid "Show preliminary results"
+msgstr "Afficher les résultats préliminaires"
 
 #: adhocracy4/polls/static/polls/Question.jsx:142
 #: adhocracy4/polls/static/polls/Question.jsx:142
 msgid "Change vote"
 msgstr "Changer de vote"
 
-#: adhocracy4/polls/static/polls/Question.jsx:145
-#: adhocracy4/polls/static/polls/Question.jsx:145
-msgid "Show preliminary results"
-msgstr "Afficher les résultats préliminaires"
+#: adhocracy4/polls/static/polls/Question.jsx:143
+#: adhocracy4/polls/static/polls/Question.jsx:143
+msgid "To poll"
+msgstr "Pour sonder"
 
-#: adhocracy4/polls/static/polls/Question.jsx:157
-#: adhocracy4/polls/static/polls/Question.jsx:157
+#: adhocracy4/polls/static/polls/Question.jsx:161
+#: adhocracy4/polls/static/polls/Question.jsx:161
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] "votes"
@@ -564,15 +567,15 @@ msgstr "Merci ! Nous nous en occupons."
 msgid "Close"
 msgstr "Fermer"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
 msgid "Please set all values for your project."
 msgstr "Veuillez répondre à toutes les questions en fonction de votre projet. "
 
 #: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
-msgstr ""
+msgstr "Le nombre maximum de documents à télécharger est atteint."
 
-#: euth/dashboard/static/user_list/react_user_list.jsx:81
+#: euth/dashboard/static/user_list/react_user_list.jsx:82
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -601,38 +604,10 @@ msgstr "Votre document a été sauvegardé. "
 msgid "Title:"
 msgstr "Titre:"
 
-#: euth/documents/static/documents/ParagraphBox.jsx:243
+#: euth/documents/static/documents/ParagraphBox.jsx:244
 msgid "save"
 msgstr "Enregistrer"
 
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Se désabonner"
-
-#~ msgid "Are you sure you want to report this item?"
-#~ msgstr "Voulez-vous vraiment signaler cet élément? "
-
-#~ msgid "hide %s replies"
-#~ msgstr "masquer %s les réponses"
-
-#~ msgid "view %s replies"
-#~ msgstr "voir %s les réponses"
-
-#~ msgid "Your message here"
-#~ msgstr "Laissez votre message"
-
-#~ msgid "Not following"
-#~ msgstr "Ne pas suivre"
-
-#~ msgid "Never be notified."
-#~ msgstr "Ne jamais être notifié."
-
-#~ msgid "Receive email notifications about this project."
-#~ msgstr "Recevoir des notifications par email pour ce projet."
-
-#~ msgid "Offline Phase"
-#~ msgstr "Activité en présentiel"
-
-#~ msgid "add offline phase"
-#~ msgstr ""
-#~ "Ajouter une activité en présentiel (réunion, conférence de consensus etc.)"
