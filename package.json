@@ -16,7 +16,7 @@
     "bootstrap": "4.6.0",
     "classnames": "2.3.1",
     "copy-webpack-plugin": "8.1.1",
-    "css-loader": "5.2.4",
+    "css-loader": "5.2.5",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
     "file-loader": "6.2.0",
     "flatpickr": "4.6.9",
