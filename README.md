@@ -1,6 +1,7 @@
 # CMS for EUTH Project
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/liqd/a4-opin.svg)](https://greenkeeper.io/)
+![Build Status](https://github.com/liqd/a4-opin/actions/workflows/django.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/liqd/a4-opin/badge.svg?branch=master)](https://coveralls.io/github/liqd/a4-opin?branch=master)
 
 ## Requires
 
