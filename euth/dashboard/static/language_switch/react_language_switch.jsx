@@ -95,7 +95,7 @@ class LanguageSwitch extends React.Component {
             })
           }
         </ul>
-        <div className="dropdown ml-5">
+        <div className="dropdown ms-5">
           <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" ref={this.toggleButtonRef}>
             <i className="fa fa-plus" />
           </button>

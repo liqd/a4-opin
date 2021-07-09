@@ -5,7 +5,7 @@
         <a class="dst-lightbox-button" href="{% url 'a4dashboard:blueprint-list' view.kwargs.organisation_slug %}">
             <i class="fa fa-chevron-left"></i> {% trans 'Cancel' %}
         </a>
-        <div class="dst-lightbox-info float-right">{% trans 'Decision support tool' %}</div>
+        <div class="dst-lightbox-info float-end">{% trans 'Decision support tool' %}</div>
     </div>
     <h2 class="mt-3">{% trans 'What do you want to do in your participation project?' %}</h2>
     <div class="row dst-lightbox-entry">
@@ -39,7 +39,7 @@
 
         <div class="col-md-4">
             <button type="button"
-                    class="btn btn-primary float-right js-continue">{% trans 'Proceed' %}
+                    class="btn btn-primary float-end js-continue">{% trans 'Proceed' %}
             </button>
         </div>
     </div>

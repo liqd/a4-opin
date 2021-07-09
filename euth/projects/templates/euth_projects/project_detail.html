@@ -37,7 +37,7 @@
                       data-bs-toggle="popover"
                       title="{% trans 'Phase' %}
                         {% if item.id == view.project.active_phase.id %}
-                          <div class='label label-secondary label-xs float-right'>{% trans 'Active phase' %}</div>
+                          <div class='label label-secondary label-xs float-end'>{% trans 'Active phase' %}</div>
                         {% endif %}"
                       data-bs-trigger="hover | focus"
                       data-bs-html="true"
@@ -181,14 +181,14 @@
             {% if view.project.is_private %}
             <div class="container-narrow">
                 <p style="font-size: 0.8rem; text-align: justify">
-                    <i class="fas fa-lock pr-2" aria-hidden="true"></i>{% trans 'This project is not publicly visible. Only invited users can see content and actively participate.' %}
+                    <i class="fas fa-lock pe-2" aria-hidden="true"></i>{% trans 'This project is not publicly visible. Only invited users can see content and actively participate.' %}
                 </p>
             </div>
 
             {% elif view.project.is_semipublic %}
             <div class="container-narrow">
                 <p style="font-size: 0.8rem; text-align: justify">
-                    <i class="fas fa-eye pr-2" aria-hidden="true"></i>{% trans 'This project is publicly visible. Invited users can actively participate.' %}
+                    <i class="fas fa-eye pe-2" aria-hidden="true"></i>{% trans 'This project is publicly visible. Invited users can actively participate.' %}
                 </p>
             </div>
             {% endif %}
