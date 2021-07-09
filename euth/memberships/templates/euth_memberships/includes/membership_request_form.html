@@ -32,7 +32,7 @@
                         {{ radio.tag }}
                         <label for="{{ radio.id_for_label }}"
                                class="{{ radio.choice_label|lower }} radio-label">
-                            <span class="radio-text sr-only">{{ radio.choice_label }}</span>
+                            <span class="radio-text visually-hidden">{{ radio.choice_label }}</span>
                         </label>
                     </div>
                     {% endfor %}

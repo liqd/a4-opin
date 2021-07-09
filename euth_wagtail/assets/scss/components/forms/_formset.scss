@@ -18,7 +18,7 @@
 }
 
 .formset__delete {
-    @include sr-only(;
+    @include visually-hidden(;
 
     & ~ .formset__delete-label {
         position: absolute;
