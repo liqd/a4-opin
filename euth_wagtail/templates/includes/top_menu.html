@@ -17,7 +17,7 @@
           </div>
 
           <button
-            class="btn navbar-toggler ml-auto"
+            class="btn navbar-toggler ms-auto"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbar-collapse"
@@ -29,15 +29,15 @@
 
       </div>
 
-        <div class="collapse navbar-collapse navbar-nav navbar-right ml-sm-auto" id="navbar-collapse">
+        <div class="collapse navbar-collapse navbar-nav navbar-right ms-sm-auto" id="navbar-collapse">
 
-            <ul class="navbar-nav ml-sm-auto">
+            <ul class="navbar-nav ms-sm-auto">
               {% userindicator_menu %}
 
               <li class="nav-item dropdown order-sm-2 px-3" id="language-selector"">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ LANGUAGE_CODE }}
-                    <i class="fa fa-caret-down pl-1" aria-hidden="true"></i>
+                    <i class="fa fa-caret-down ps-1" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% get_available_languages as languages %}
