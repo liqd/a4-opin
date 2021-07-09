@@ -27,7 +27,7 @@
                 {% if show_dropdown %}
                 <ul class="nav navbar-nav navbar-right ml-auto">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" role="button"
+                        <a href="#" data-bs-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                         </a>
@@ -36,7 +36,7 @@
                                 <a href="{% url 'map-idea-update' object.slug %}">{% trans 'Edit' %}</a>
                             </li>
                             <li class="dropdown-item">
-                                <a href="" data-toggle="modal" data-target="#myModal">{% trans 'Delete' %}</a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#myModal">{% trans 'Delete' %}</a>
                             </li>
                         </ul>
                     </li>
