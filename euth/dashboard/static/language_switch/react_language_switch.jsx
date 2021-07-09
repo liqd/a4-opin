@@ -87,7 +87,7 @@ class LanguageSwitch extends React.Component {
                   />
                   <button
                     href={'#' + languageCode + '_language_panel'} className={'language-switch btn ' + (languageCode === this.state.activeTab ? 'active' : '')}
-                    data-toggle="tab" onClick={this.activateTab.bind(this)}
+                    data-bs-toggle="tab" onClick={this.activateTab.bind(this)}
                   >{languageCode}
                   </button>
                 </li>
@@ -96,7 +96,7 @@ class LanguageSwitch extends React.Component {
           }
         </ul>
         <div className="dropdown ml-5">
-          <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref={this.toggleButtonRef}>
+          <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" ref={this.toggleButtonRef}>
             <i className="fa fa-plus" />
           </button>
           <div className="dropdown-menu">
@@ -108,7 +108,7 @@ class LanguageSwitch extends React.Component {
                       <button
                         href={'#' + languageCode + '_language_panel'}
                         className="dropdown-item"
-                        data-toggle="tab"
+                        data-bs-toggle="tab"
                         onClick={this.addLanguage.bind(this)}
                         key={languageCode}
                       >{languageCode}
@@ -123,7 +123,7 @@ class LanguageSwitch extends React.Component {
 
         {this.state.activeLanguages.length > 1 &&
           <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" ref={this.toggleButtonRef}>
+            <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" ref={this.toggleButtonRef}>
               <i className="fa fa-minus" />
             </button>
             <div className="dropdown-menu">
@@ -134,7 +134,7 @@ class LanguageSwitch extends React.Component {
                       <button
                         className="dropdown-item"
                         href={languageCode === this.state.activeTab ? '#' + this.getNewActiveTab(languageCode) + '_language_panel' : ''}
-                        data-toggle="tab"
+                        data-bs-toggle="tab"
                         onClick={this.removeLanguage.bind(this)}
                         key={languageCode}
                       >{languageCode}

@@ -7,7 +7,7 @@
 <nav class="tabs">
     <div class="container">
         <ul>
-            <li class="col-md-4 offset-md-4 active"><a href="#information" data-toggle="tab" class="tab">{% trans "Information" %}</a></li>
+            <li class="col-md-4 offset-md-4 active"><a href="#information" data-bs-toggle="tab" class="tab">{% trans "Information" %}</a></li>
         </ul>
     </div>
 </nav>
@@ -21,13 +21,13 @@
     {% else %}
         <p class="alert alert-info text-center">This is a private project. In order to see its content you have to ask the owner for permission to join.</p>
         <div class="center-wrapper">
-            <a href="#myModal" class="btn btn-primary" data-toggle="modal">{% trans 'request membership' %}</a>
+            <a href="#myModal" class="btn btn-primary" data-bs-toggle="modal">{% trans 'request membership' %}</a>
         </div>
         <div role="dialog" aria-labelledby="myModalLabel" id="myModal" class="modal fade permission">
             <div role="document" class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" data-dismiss="modal" aria-label="Abort" class="close">
+                        <button type="button" data-bs-dismiss="modal" aria-label="Abort" class="close">
                             <i aria-hidden="true" class="fa fa-times"></i>
                         </button>
                     </div>
@@ -42,7 +42,7 @@
                             </form>
                         </div>
                         <div class="row">
-                            <button type="button" data-dismiss="modal" class="btn btn-secondary">{% trans 'Abort'%}</button>
+                            <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">{% trans 'Abort'%}</button>
                         </div>
                     </div>
                 </div>

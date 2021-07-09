@@ -90,7 +90,7 @@ window.jQuery(document).ready(function () {
     $('#id_' + name).val(JSON.stringify(shape))
   })
 
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
     if (!mapVisible) {
       map.invalidateSize().fitBounds(getBasePolygon(L, polygon, bbox))
       mapVisible = true
