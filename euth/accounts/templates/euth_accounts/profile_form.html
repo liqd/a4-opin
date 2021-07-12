@@ -21,12 +21,12 @@
                                         {% if field.help_text %}
                                             <p class='form-help-text'>{{ field.help_text }}</p>
                                         {% endif %}
-                                        <label>
+                                        <label class="form-label">
                                             {% render_field field %}
                                             {{ field.label }}
                                         </label>
                                     {% else %}
-                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
                                         {% if field.help_text %}
                                             <p class='form-help-text'>{{ field.help_text }}</p>
                                         {% endif %}

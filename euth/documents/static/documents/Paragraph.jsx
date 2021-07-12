@@ -77,6 +77,7 @@ class Paragraph extends React.Component {
           <div className="col-sm-9 paragraph">
             <div className="form-group">
               <label
+                className="form-label"
                 htmlFor={'id_paragraphs-' + this.props.id + '-name'}
               >
                 {django.gettext('Headline:')}
@@ -93,6 +94,7 @@ class Paragraph extends React.Component {
                 ? <ul className="errorlist"><li>{this.props.errors.name[0]}</li></ul>
                 : null}
               <label
+                className="form-label"
                 htmlFor={'id_paragraphs-' + this.props.id + '-text'}
               >
                 {django.gettext('Paragraph:')}
