@@ -8,21 +8,21 @@
     {% csrf_token %}
     {{ upload_forms.management_form }}
     <div class="form-group">
-        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        <label class="form-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
         <p class='form-help-text'>{{ form.name.help_text }}</p>
         {{ form.name|add_class:'form-control' }}
         {{ form.name.errors }}
     </div>
 
     <div class="form-group">
-        <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+        <label class="form-label" for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
         <p class='form-help-text'>{{ form.description.help_text }}</p>
         {{ form.description|add_class:'form-control' }}
         {{ form.description.errors }}
     </div>
 
     <div class="form-group">
-        <label for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>
+        <label class="form-label" for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>
         <p class='form-help-text'>{{ form.date.help_text }}</p>
         {{ form.date|add_class:'form-control' }}
         {{ form.date.errors }}
@@ -39,7 +39,7 @@
         {% for field in form.visible_fields %}
         {% if field.name == 'title' or field.name == 'document' %}
             <div class="form-group {% if field.errors %} has-error{% endif %}">
-                <label>
+                <label class="form-label">
                     {{ field.label }}
                 </label>
                 {% if field.errors %}
@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="form-group {% if form.DELETE.errors %} has-error{% endif %}">
-                    <label>
+                    <label class="form-label">
                         {{ form.DELETE.label }}
                     </label>
                     {% if form.DELETE.errors %}

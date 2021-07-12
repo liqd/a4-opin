@@ -8,3 +8,8 @@
 @import "forms/poll-radio";
 @import "forms/questionform";
 @import "forms/widget-radioselect";
+
+// was part of bs4, but not 5 anymore
+.form-group {
+    margin-bottom: 1rem;
+}

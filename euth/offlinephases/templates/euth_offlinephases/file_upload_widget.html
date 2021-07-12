@@ -3,12 +3,12 @@
         {{ text_input }}
         <span class="input-group-btn">
             {% if has_file_set and not is_required %}
-            <label for="{{ checkbox_id }}" class="btn btn-danger"
+            <label for="{{ checkbox_id }}" class="form-label btn btn-danger"
                    title="{% trans 'Remove the file' %}">
                 <i class="fas fa-trash-alt"></i>
             </label>
             {% else %}
-            <label for="{{ name }}" class="btn btn-secondary" title="{% trans  'Upload a file' %}">
+            <label for="{{ name }}" class="form-label btn btn-secondary" title="{% trans  'Upload a file' %}">
                 <i class="fas fa-cloud-upload-alt"></i>
             </label>
             {% endif  %}
