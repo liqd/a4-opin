@@ -219,7 +219,7 @@ class ParagraphBox extends React.Component {
           <div className="row">
             <div className="col-md-9">
               <button
-                className="btn btn-hover-success btn-block"
+                className="btn btn-hover-success btn-wide"
                 onClick={this.appendParagraph.bind(this)}
                 type="button"
               >
