@@ -5,29 +5,29 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top main-menu">
     <div class="container">
 
-      <div class="navbar__mobile">
-          <div class="navbar-brand">
-              <a href="/{{ LANGUAGE_CODE }}/">
-                  <img
+        <div class="navbar__mobile">
+            <div class="navbar-brand">
+                <a href="/{{ LANGUAGE_CODE }}/">
+                    <img
                       class="navbar-brand-logo"
                       alt="Opin"
                       src="{% static 'images/logo.svg' %}"
-                  >
-              </a>
-          </div>
+                      >
+                </a>
+            </div>
 
-          <button
-            class="btn navbar-toggler ms-auto"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbar-collapse"
-            aria-controls="navbar-collapse"
-            aria-expanded="false"
-            aria-label="{% trans 'Toggle navigation' %}">
-            <i class="fas fa-bars"></i>
-          </button>
+            <button
+              class="btn navbar-toggler ms-auto"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbar-collapse"
+              aria-controls="navbar-collapse"
+              aria-expanded="false"
+              aria-label="{% trans 'Toggle navigation' %}">
+              <i class="fas fa-bars"></i>
+            </button>
 
-      </div>
+        </div>
 
         <div class="collapse navbar-collapse navbar-nav navbar-right ms-sm-auto" id="navbar-collapse">
 
@@ -52,7 +52,6 @@
               <li class="nav-item"><a href="{{ menuitem.url }}" class="nav-link px-3 {% if request.path == menuitem.url %} is-active{% endif %}">{{ menuitem.translated_menu_title }}</a></li>
               {% endfor %}
             </ul>
-        </div>
         </div>
     </div>
 </nav>
