@@ -5,9 +5,7 @@
     <div class="container">
         <div class="container-medium">
             <div class="question-list">
-                {% for question in question_list %}
-                    {% react_polls question %}
-                {% endfor %}
+                {% react_polls poll %}
             </div>
             <div class="black-divider">
                 {% trans 'Comments'%}
