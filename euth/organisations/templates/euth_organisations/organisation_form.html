@@ -25,11 +25,13 @@
             {% endfor %}
         </div>
         {% endfor %}
+
         <div class="language-switch-list"
              id="language-switch-list"
              data-euth-widget="language-switch"
              data-languages="{{ form.languages|join:' ' }}"
              data-active-languages="{{ form.prefilled_languages|join:' ' }}"
+             data-language-dict="{{ language_dict }}"
         ></div>
 
         {% for lang_code, fields in form.translated %}
