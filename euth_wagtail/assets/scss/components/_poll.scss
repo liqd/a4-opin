@@ -1,52 +1,147 @@
-//Poll
+//Poll - old styles
+// .poll {
+//     padding-top: 1em;
+// }
+
+// .poll__rows {
+//     display: flex;
+//     flex-direction: column;
+//     padding-top: 1em;
+//     padding-bottom: 1em;
+// }
+
+// .poll-row {
+//     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+//     padding: 0.5em;
+//     margin-bottom: 1em;
+//     position: relative;
+
+//     input[type="checkbox"]:checked + span {
+//         font-weight: bold;
+//     }
+
+//     input[type="radio"]:checked + span {
+//         font-weight: bold;
+//     }
+// }
+
+// .poll__actions {
+//     margin-bottom: 1em;
+// }
+
+// .poll-row__number {
+//     position: absolute;
+//     right: 0;
+// }
+
+// .poll-row__radio,
+// .poll-row__number,
+// .poll-row__label {
+//     display: inline-block;
+//     margin-right: 0.5em;
+// }
+
+// .poll-row__bar {
+//     background-color: $brand-brand6;
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     z-index: -1;
+//     width: 0;
+//     min-width: 0.4em;
+
+//     transition: width 0.3s;
+
+//     @media print {
+//         border: 1px solid $gray;
+//     }
+// }
+
+// .poll-row__bar--highlight {
+//     background-color: red;
+// }
+
+// ################################
+// styling copied from meinBerlin #
+// ################################
+
+// standard size from radio.scss
+$checkbox-size: 20px;
+
 .poll {
-    padding-top: 1em;
+    padding: 1.5*$spacer;
+
+    background-color: $body-bg;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+
+//PollQuestion/s
+.poll-row {
+    position: relative;
+    z-index: 1;
+    padding: 0.2*$spacer 0;
+    margin-bottom: 0.5*$spacer;
+    display: flex;
+
+    @include clearfix;
+
+    &--answered {
+        left: 2*$spacer;
+    }
+    //FIXME
+    .input-group__input {
+        margin-left: $checkbox-size + 7px !important;
+        margin-top: 0.5*$spacer;
+        width: auto;
+    }
+}
+
+.poll-row.radio {
+    flex-direction: column;
 }
 
 .poll__rows {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-bottom: $spacer;
+    border-bottom: 1px solid $border-color;
 }
 
-.poll-row {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    padding: 0.5em;
-    margin-bottom: 1em;
-    position: relative;
+.poll__actions > :last-child {
+    margin-top: 0.5*$spacer;
+    display: block;
 
-    input[type="checkbox"]:checked + span {
-        font-weight: bold;
-    }
-
-    input[type="radio"]:checked + span {
-        font-weight: bold;
-    }
+    //@media (min-width: $breakpoint) {
+    //    display: inline-block;
+    //}
 }
 
-.poll__actions {
-    margin-bottom: 1em;
-}
-
-.poll-row__number {
-    position: absolute;
-    right: 0;
-}
-
-.poll-row__radio,
 .poll-row__number,
-.poll-row__label {
+.poll-row__label,
+.poll-row__radio {
     display: inline-block;
-    margin-right: 0.5em;
+    margin: 0;
+    margin-right: 0.2*$spacer;
 }
 
+.poll-row__container {
+    position: relative;
+}
+
+.pollquestionlist-container {
+    border: 1px solid $border-color;
+}
+
+// RESULTS
 .poll-row__bar {
-    background-color: $brand-brand6;
+    //background-color: $bg-secondary;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
+    border-radius: 0.3em;
     z-index: -1;
     width: 0;
     min-width: 0.4em;
@@ -54,10 +149,236 @@
     transition: width 0.3s;
 
     @media print {
-        border: 1px solid $gray;
+        border: 1px solid $border-color;
     }
 }
 
-// .poll-row__bar--highlight {
-//     background-color: red;
-// }
+.poll-row__bar--highlight {
+    //background-color: $brand-primary-tint;
+    max-width: 96% !important;
+}
+
+.poll-row__chosen {
+    color: $gray-lighter;
+    border: 3px solid $gray-lighter;
+    border-radius: 1rem;
+    padding: 0.2*$spacer;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0.2*$spacer;
+}
+
+.poll-row__number {
+    padding-left: 0.5*$spacer;
+    min-width: 5em;
+    font-weight: bold;
+}
+
+//EditPollQuestions/EditPollOpenQuestions
+.editpoll__help-text,
+.poll__help-text {
+    color: $gray-lighter;
+    margin-top: -0.7*$spacer;
+    margin-bottom: 0.5*$spacer;
+}
+
+.editpoll__help-text {
+    color: $gray-lighter;
+    margin-top: -0.7em;
+    margin-bottom: 0.5em;
+}
+
+.editpoll__actions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.editpoll__menu-container {
+    margin: 0.25*$spacer 0;
+
+    & > * {
+        width: 100%;
+    }
+}
+
+.questionform__actions {
+    text-align: right;
+}
+
+.editpoll__question-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.editpoll__question-button {
+    margin: 0.5*$spacer 0;
+}
+
+//FIXME
+.submenu-item__first {
+    //border-color: $brand-secondary;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:hover {
+        //border-color: $brand-secondary;
+        //background-color: $bg-secondary;
+    }
+}
+
+.editpoll__questions {
+    font-size: 0.875rem;
+}
+
+.editpoll__question-container {
+    display: block;
+    margin-bottom: $spacer;
+}
+
+.editpoll__question--border {
+    margin-bottom: $spacer / 2;
+    //padding: $padding;
+    border: 1px solid $border-color;
+    //border-radius: ($padding / 2);
+}
+
+.submenu-item__last {
+    border-top: 0;
+    //border-color: $brand-secondary;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &:hover {
+        //border-color: $brand-secondary;
+        //background-color: $bg-secondary;
+    }
+}
+
+.editpoll__menu-container--override {
+    margin: 0 1rem;
+}
+
+//FIXME
+
+/*
+@media (min-width: $breakpoint) {
+    .editpoll__question-container {
+        @include clearfix;
+    }
+
+    .editpoll__question {
+        @include grid-span(9, 0);
+    }
+
+    .editpoll__question-actions {
+        @include grid-span(3, 9);
+    }
+
+    .editpoll__actions-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .editpoll__menu-container > * {
+        width: inherit;
+    }
+
+    .editpoll__menu-container--override {
+        margin: 0;
+    }
+
+    .editpoll__question-buttons {
+        flex-direction: row;
+    }
+
+    .editpoll__question-button {
+        margin: 0;
+        margin-right: 0.5*$spacer;
+    }
+
+    .questionform-divider {
+        border-top: 1px solid $border-color;
+        margin: 1.5*$spacer;
+    }
+}
+*/
+
+.poll-slider {
+    position: relative;
+    //background-color: $bg-secondary;
+    margin-bottom: 0.5*$spacer;
+
+    //slick overwrites - nested for specificity
+    .slick-prev,
+    .slick-next {
+        position: absolute;
+        top: revert;
+        bottom: 0;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: $brand-primary;
+        z-index: 1; //for when tile links overlap
+
+        &:before {
+            color: $body-bg;
+            opacity: 1;
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 900;
+            //font-size: $font-size-xl;
+            line-height: 1.3rem;
+        }
+    }
+
+    .slick-prev {
+        left: revert !important;
+        right: 4*$spacer !important;
+    }
+
+    .slick-next {
+        right: 1.5*$spacer !important;
+    }
+
+    .slick-prev:before {
+        content: '\f104'; // angle-left
+    }
+
+    .slick-next:before {
+        content: '\f105'; // angle-right
+    }
+
+    // Ensure centermode works
+    .slick-slide {
+        height: auto;
+        position: relative;
+    }
+
+    .slick-track {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+}
+
+.poll-slider__item {
+    padding: $spacer;
+}
+
+.poll-slider__answer {
+    padding-bottom: $spacer;
+}
+
+.poll-slider__count {
+    color: $gray-lighter;
+    position: absolute;
+    bottom: $spacer;
+    left: $spacer;
+
+    //@media (min-width: $breakpoint) {
+    //    left: revert;
+    //    right: 4*$spacer;
+    //}
+}
