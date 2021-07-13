@@ -114,8 +114,11 @@ span.btn-dark:focus {
 
     &:hover,
     &:focus {
-        color: $list-group-link-hover-color;
-        background-color: $list-group-hover-bg;
+        // Fix me: use variables for colours! As these two variables are
+        // only used here and we do not have the exact same color in the
+        // variables, using these for now.
+        color: #555;
+        background-color: #f5f5f5;
     }
 }
 
