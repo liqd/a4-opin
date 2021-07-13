@@ -14,18 +14,17 @@
             <ul class="dropdown-menu dropdown-menu-right">
                 {% if request.user.is_superuser %}
                     <li class="dropdown-item">
-                        <a href="{% url 'admin:index' %}"><i class="far fa-hand-spock"></i> <span class="dropdown-text">{% trans "Admin" %}</span></a>
+                        <a href="{% url 'admin:index' %}"><i class="far fa-hand-spock"></i><span class="dropdown-text">{% trans "Admin" %}</span></a>
                     </li>
                 {% endif %}
 
                 <li class="dropdown-item"class="dropdown-item">
-                    <a href="{% url 'account-profile' %}"><i class="fa fa-cog"></i> <span class="dropdown-text">{% trans "Account Settings" %}</span></a>
+                    <a href="{% url 'account-profile' %}"><i class="fa fa-cog"></i><span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
 
                 {% for organisation in request.user.organisations %}
                     <li class="dropdown-item"><a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}">
-                        <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20">
-                        <span class="dropdown-text">{{ organisation.name }}</span>
+                        <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20"><span class="dropdown-text">{{ organisation.name }}</span>
                     </a></li>
                 {% endfor %}
                 <li class="dropdown-item p-0">
