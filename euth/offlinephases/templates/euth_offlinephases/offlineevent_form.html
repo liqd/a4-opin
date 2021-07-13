@@ -35,7 +35,7 @@
     {% getAllowedFileTypes as allowed_file_types %}
     <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
     {% for form in upload_forms %}
-    <div class="card card-body">
+    <div class="card card-body form-group">
         {% for field in form.visible_fields %}
         {% if field.name == 'title' or field.name == 'document' %}
             <div class="form-group {% if field.errors %} has-error{% endif %}">

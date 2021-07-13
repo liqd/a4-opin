@@ -34,8 +34,3 @@ document.addEventListener('DOMContentLoaded', init, false)
 export function getCurrentPath () {
   return location.pathname
 }
-
-// enabling bootstrap popovers
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
