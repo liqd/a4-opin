@@ -126,6 +126,12 @@ module.exports = {
         './euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js'
       ],
       dependOn: 'adhocracy4'
+    },
+    popover_init: {
+      import: [
+        './euth_wagtail/assets/js/popover_init.js'
+      ],
+      dependOn: 'adhocracy4'
     }
   },
   output: {

@@ -32,7 +32,7 @@
                   <a href="{% url 'project-detail' slug=view.project.slug %}?phase={{ item.weight }}">
                   {% endif %}
 
-                      <button type="button"
+                    <button type="button"
                       class="dot"
                       data-bs-toggle="popover"
                       title="{% trans 'Phase' %}
@@ -225,4 +225,9 @@
 {% endif %}
 
 
+{% endblock %}
+
+<!-- must load in order to populate the modal with blueprint list -->
+{% block extra_js %}
+    <script src="{% static 'popover_init.js' %}"></script>
 {% endblock %}
