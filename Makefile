@@ -32,6 +32,7 @@ help:
 	@echo "  make lint            -- lint javascript and python, check for missing migrations"
 	@echo "  make lint-quick      -- lint all files staged in git"
 	@echo "  make lint-python-files	-- lint all python files files staged in git"
+	@echo "  make lint-fix      	-- fix linting for all js files staged in git"
 	@echo "  make po              -- create new po files from the source"
 	@echo "  make mo              -- create new mo files from the translated po files"
 	@echo "  make tx-mo           -- pull from transifex and create new mo files from the translated po files"
@@ -90,9 +91,10 @@ coverage:
 .PHONY: lint
 lint:
 	EXIT_STATUS=0; \
-	$(VIRTUAL_ENV)/bin/isort -rc -c $(SOURCE_DIRS) --diff ||  EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/bin/isort -c $(SOURCE_DIRS) --diff ||  EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/flake8 $(SOURCE_DIRS) --exclude migrations,settings ||  EXIT_STATUS=$$?; \
 	npm run lint --silent ||  EXIT_STATUS=$$?; \
+	$(VIRTUAL_ENV)/bin/python manage.py makemigrations --dry-run --check --noinput || EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
 .PHONY: lint-quick
@@ -107,6 +109,12 @@ lint-python-files:
 	EXIT_STATUS=0; \
 	$(VIRTUAL_ENV)/bin/isort --df -c $(ARGUMENTS) || EXIT_STATUS=$$?; \
 	$(VIRTUAL_ENV)/bin/flake8 $(ARGUMENTS) || EXIT_STATUS=$$?; \
+	exit $${EXIT_STATUS}
+
+.PHONY: lint-fix
+lint-fix:
+	EXIT_STATUS=0; \
+	npm run lint-fix --exclude node_modules ||  EXIT_STATUS=$$?; \
 	exit $${EXIT_STATUS}
 
 .PHONY: po
