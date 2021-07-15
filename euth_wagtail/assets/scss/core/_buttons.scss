@@ -136,23 +136,6 @@ span.btn-dark:focus {
     }
 }
 
-.button-white {
-    border-radius: 25px;
-    background-color: $body-bg;
-    color: $brand-brand1;
-    font-size: $font-size-small;
-
-    .fa-link {
-        margin-right: 10px;
-    }
-
-    &:hover,
-    &:focus {
-        background-color: $gray-lighter;
-        color: darken($brand-brand1, 10%);
-    }
-}
-
 .base-button {
     border-radius: 0;
     padding: 14px 57px 14px 57px;
