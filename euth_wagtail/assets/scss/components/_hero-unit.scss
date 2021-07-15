@@ -288,32 +288,6 @@
     left: 0;
 }
 
-.herounit-home {
-    border: solid 5px $brand-brand3;
-
-    .herounit-title:before {
-        height: 107px;
-        margin-bottom: 10px;
-        background: url(../images/logo-white.png) no-repeat center top;
-        background-size: contain;
-        display: block;
-        content: " ";
-    }
-
-    .svgasimg .herounit-title:before {
-        background-image: url(../images/logo-white.svg);
-    }
-}
-
-.herounit-video {
-    .btn-close {
-        position: absolute;
-        top: -25px;
-        right: -20px;
-        font-size: 30px;
-    }
-}
-
 .herounit-location {
     @media screen and (max-width: $screen-xs) {
         font-size: $font-size-small;

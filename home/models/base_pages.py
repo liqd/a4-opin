@@ -49,8 +49,6 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         help_text="The Image that is shown on top of the page"
     )
 
-    videoplayer_url = models.URLField()
-
     # Body
     block_types = [
         ('image', image_blocks.ImageChooserBlock(icon="image")),
@@ -74,7 +72,6 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
         image_edit_handlers.ImageChooserPanel('image'),
-        edit_handlers.FieldPanel('videoplayer_url'),
     ]
 
     content_panels = [
