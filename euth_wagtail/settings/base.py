@@ -116,7 +116,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'euth.contrib.middleware.TimezoneMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
