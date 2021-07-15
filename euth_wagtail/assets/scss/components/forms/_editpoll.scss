@@ -1,0 +1,94 @@
+//questionorms
+
+.editpoll__question {
+    label {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .form-check {
+        padding-left: 0;
+    }
+}
+
+.editpoll__question-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.editpoll__question--border {
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border-top: solid 1px lightgrey;
+}
+
+.editpoll__actions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.editpoll__menu-container {
+    margin: 0.25*$spacer 0;
+
+    & > * {
+        width: 100%;
+    }
+}
+
+.editpoll__btns--question {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.editpoll__btn--question {
+    margin: 0.5*$spacer 0;
+}
+
+.editpoll__question-container {
+    display: block;
+    margin-bottom: $spacer;
+    position: relative;
+}
+
+.editpoll__menu-container--override {
+    margin: 0 $spacer;
+}
+
+@media screen and (min-width: $screen-md-min) {
+    .editpoll__question-container {
+        @include clearfix;
+    }
+
+    .editpoll__actions-container {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        border-top: 1px solid $border-color;
+        padding-top: 2rem;
+    }
+
+    .editpoll__menu-container > * {
+        width: inherit;
+    }
+
+    .editpoll__menu-container--override {
+        margin: 0;
+    }
+
+    .editpoll__btns--question {
+        flex-direction: row;
+    }
+
+    .editpoll__btn--question {
+        margin: 0;
+        margin-right: 0.5*$spacer;
+    }
+}
