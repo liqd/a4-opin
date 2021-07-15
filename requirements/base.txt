@@ -13,7 +13,7 @@ micawber==0.5.3
 pyuca==1.2
 raven==6.10.0
 Unidecode==1.2.0 # needed by django-autoslug for cyrillic fields
-wagtail==2.7.4 # pyup: <2.8
+wagtail==2.11.8 # pyup: <2.12
 whitenoise==5.2.0
 
 # Inherited a4-core requirements
