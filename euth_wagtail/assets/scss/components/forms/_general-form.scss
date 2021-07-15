@@ -100,10 +100,11 @@
 
 .input-group {
     width: 100%;
+    flex-wrap: nowrap;
 }
 
 .input-group__input {
-    width: 90%;
+    width: 92%;
     padding: 5px;
     vertical-align: middle;
 }

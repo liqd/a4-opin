@@ -20,6 +20,8 @@
 
 .alert__close {
     @extend .btn-close;
+    float: right;
+    line-height: $spacer;
 }
 
 .alert-top {

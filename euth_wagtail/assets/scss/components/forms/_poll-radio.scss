@@ -1,6 +1,6 @@
 //Polls radio styles
 
-.radio__input {
+.poll-row__radio {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -52,7 +52,7 @@ $checkbox-size: 25px;
     }
 }
 
-.radio__input:checked + .radio__text:after {
+.poll-row__radio:checked + .radio__text:after {
     content: '\f00c'; // check
     transform: scale(1);
     opacity: 1;
