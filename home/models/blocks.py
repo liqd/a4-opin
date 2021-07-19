@@ -54,6 +54,13 @@ class CallToActionBlock(core_blocks.StructBlock):
     link_text = core_blocks.TextBlock(required=False)
 
 
+class ImageTextCTABlock(core_blocks.StructBlock):
+    title = core_blocks.CharBlock(classname="full title", required=False)
+    image = image_blocks.ImageChooserBlock(required=False)
+    text = core_blocks.RichTextBlock(required=False)
+    button = CallToActionBlock(required=False)
+
+
 class InfoBlock(core_blocks.StructBlock):
 
     title = core_blocks.CharBlock(classname="full title", required=False)
@@ -103,6 +110,24 @@ class ColumnBlock(core_blocks.StructBlock):
         template = 'home/blocks/column_block.html'
         icon = 'grip'
         label = 'Column Block'
+
+
+# 3 column block with an optional button/link for each col,
+# Call-to-action block can have up to 3 big CTA btn
+class ColumnCTABlock(core_blocks.StructBlock):
+    column_count = core_blocks.ChoiceBlock(choices=[
+        ('12', 'One column'),
+        ('6', 'Two columns'),
+        ('4', 'Three columns')
+    ], icon='cup', required=False, help_text='')
+
+    column = core_blocks.ListBlock(
+        ImageTextCTABlock(label='Column CTA')
+    )
+
+    class Meta:
+        template = 'home/blocks/column_cta_block.html'
+        icon = 'grip'
 
 
 class HighlitedColumnBlock(core_blocks.StructBlock):

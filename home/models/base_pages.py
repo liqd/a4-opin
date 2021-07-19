@@ -58,6 +58,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('rss_feed', blocks.RSSImportBlock()),
         ('column_block', blocks.ColumnBlock()),
         ('highlighted_column_block', blocks.HighlitedColumnBlock()),
+        ('column_cta_block', blocks.ColumnCTABlock()),
 
     ]
 
@@ -141,6 +142,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('image_text_block_list', blocks.ImageTextBlockList()),
         ('rss_feed', blocks.RSSImportBlock()),
         ('highlighted_column_block', blocks.HighlitedColumnBlock()),
+        ('column_cta_block', blocks.ColumnCTABlock()),
     ]
 
     body = translations.TranslatedField(
