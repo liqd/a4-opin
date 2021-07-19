@@ -200,7 +200,7 @@
         <div class="container-narrow">
             <div class="tab-panel-description project usercontent">
                 {% trans 'The initiator hasn’t provided information on the expected outcome of the project yet.' as no_results %}
-                {{ view.project.result |default:no_results|safe|linebreaks }}
+                {{ view.project.result | default:no_results | safe | linebreaks | transform_collapsibles | richtext }}
             </div>
         </div>
     </article>
