@@ -32,6 +32,7 @@ class ManualsIndex(Page, metaclass=translations.TranslatedPageMetaclass):
         ('wide_image', blocks.WideImageBlock(icon="image")),
         ('images', blocks.InlineImagesBlock(icon="image")),
         ('image_text_block_list', blocks.ImageTextBlockList()),
+        ('highlighted_column_block', blocks.HighlitedColumnBlock()),
     ]
 
     body = translations.TranslatedField(
@@ -187,6 +188,7 @@ class ManualsDetailPage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('video_block', blocks.VideoBlock()),
         ('image', image_blocks.ImageChooserBlock(icon="image")),
         ('accordion_block', blocks.AccordionBlock(icon="collapse-down")),
+        ('highlighted_column_block', blocks.HighlitedColumnBlock()),
     ]
 
     body = translations.TranslatedField(

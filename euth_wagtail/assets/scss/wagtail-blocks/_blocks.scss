@@ -61,7 +61,7 @@
 
     &.m-highlight-purple {
         background: #3c487d;
-        padding: 140px 0;
+        // padding: 140px 0; why?
 
         img {
             max-width: 100%;
@@ -76,7 +76,7 @@
         h3,
         a,
         & {
-            text-align: left;
+            // text-align: left;
             color: $body-bg;
         }
 
@@ -117,4 +117,34 @@
 
 .m-clear {
     clear: left;
+}
+
+.m-highlight-purple,
+.m-highlight {
+    color: $body-bg;
+}
+
+.m-highlight-purple {
+    background: #3c487d;
+}
+
+.m-highlight {
+    background: $brand-brand1;
+}
+
+.block-highlighted_column_block {
+    position: relative;
+}
+
+.m-before,
+.m-after {
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.m-after {
+    right: 0;
 }

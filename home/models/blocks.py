@@ -101,8 +101,38 @@ class ColumnBlock(core_blocks.StructBlock):
 
     class Meta:
         template = 'home/blocks/column_block.html'
-        icon = 'placeholder'
+        icon = 'grip'
         label = 'Column Block'
+
+
+class HighlitedColumnBlock(core_blocks.StructBlock):
+
+    title_col1 = core_blocks.CharBlock(classname="full title", required=False)
+    text_col1 = core_blocks.RichTextBlock(required=False)
+    button_col1 = CallToActionBlock(required=False)
+    highlight_col1 = core_blocks.ChoiceBlock(choices=[
+        ('highlight', 'Highlight (blue)'),
+        ('highlight-purple', 'Highlight (purple)')
+    ], icon='cup',
+        required=False,
+        help_text='Choose background colour of block'
+    )
+
+    title_col2 = core_blocks.CharBlock(classname="full title", required=False)
+    text_col2 = core_blocks.RichTextBlock(required=False)
+    button_col2 = CallToActionBlock(required=False)
+    highlight_col2 = core_blocks.ChoiceBlock(choices=[
+        ('highlight', 'Highlight (blue)'),
+        ('highlight-purple', 'Highlight (purple)')
+    ], icon='cup',
+        required=False,
+        help_text='Choose background colour of block'
+    )
+
+    class Meta:
+        template = 'home/blocks/highlighted_column_block.html'
+        icon = 'grip'
+        label = 'Highlighted Column Block'
 
 
 class VideoBlock(core_blocks.StructBlock):

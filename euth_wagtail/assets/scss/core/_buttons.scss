@@ -134,6 +134,17 @@ span.btn-dark:focus {
             color: darken($brand-primary, 20%);
         }
     }
+
+    &.btn-light {
+        color: $body-bg;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: transparent;
+            background-color: darken($brand-primary, 20%);
+        }
+    }
 }
 
 .base-button {
