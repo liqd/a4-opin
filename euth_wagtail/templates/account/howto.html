@@ -1,0 +1,14 @@
+{% load contrib_tags %}
+<div class="howto__container">
+  <div class="howto-carousel__container">
+    <div class="howto-carousel">
+      {% get_howto_items as howto_items %}
+      {% for hi in howto_items %}
+      {% include './howto_item.html' with howto_item=hi %}
+      {% endfor %}
+      <!-- {% for project in projects %}
+      {% include "euth_projects/includes/project_tile.html" with project=project %}
+      {% endfor %} -->
+    </div>
+</div>
+</div>

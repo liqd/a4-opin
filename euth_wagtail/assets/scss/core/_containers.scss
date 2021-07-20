@@ -15,6 +15,19 @@
     padding: 0;
 }
 
+.account__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account__container--left {
+    width: 50%;
+}
+
+.account__container--right {
+    width: 50%;
+}
+
 body {
     overflow-x: hidden;
 }
@@ -22,4 +35,18 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width: $screen-sm) {
+    .account__container {
+        flex-direction: column;
+    }
+
+    .account__container--left {
+        width: 100%;
+    }
+
+    .account__container--right {
+        width: 100%;
+    }
 }

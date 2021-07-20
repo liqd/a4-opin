@@ -5,109 +5,114 @@
 {% block title %}{% trans 'Register an account' %}{% endblock %}
 
 {% block content %}
-<div class="container">
-<div class="skinny-form">
-    <header class="skinny-form-header">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">{% trans "login" %}</a></li>
-            <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">{% trans "register" %}</a></li>
-        </ul>
-    </header>
+<div class="account__container">
+    <div class="account__container--left">
+        <div class="skinny-form">
+            <header class="skinny-form-header">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">{% trans "login" %}</a></li>
+                    <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">{% trans "register" %}</a></li>
+                </ul>
+            </header>
 
-    {% block form %}
-    <form class="skinny-form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
-    {% endblock %}
+            {% block form %}
+            <form class="skinny-form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
+            {% endblock %}
 
-        {% csrf_token %}
+                {% csrf_token %}
 
-        {% block help_text %}
-        {% endblock %}
+                {% block help_text %}
+                {% endblock %}
 
-        {% if form.non_field_errors %}
-        <div class="form-errors">
-        {% for error in form.non_field_errors %}
-        <p class="alert alert-danger">{{ error }}</p>
-        {% endfor %}
+                {% if form.non_field_errors %}
+                <div class="form-errors">
+                {% for error in form.non_field_errors %}
+                <p class="alert alert-danger">{{ error }}</p>
+                {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.username.id_for_label }}">Username</label>
+                    {% if form.username.errors %}
+                        {{ form.username|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.username|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.email.id_for_label }}">Email</label>
+                    {% if form.email.errors %}
+                        {{ form.email|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.email|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.email.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.password1.id_for_label }}">Password</label>
+                    {% if form.password1.errors %}
+                        {{ form.password1|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.password1|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.password1.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.password2.id_for_label }}">Password repeat</label>
+                    {% if form.password2.errors %}
+                        {{ form.password2|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.password2|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.password2.errors }}
+                </div>
+
+                <div class="form-group">
+                    {% if form.terms_of_use.errors %}
+                        {{ form.terms_of_use|add_class:"form-error" }}
+                    {% else %}
+                        {{ form.terms_of_use }}
+                    {% endif %}
+                    <label class="form-label col-form-label" for="{{ form.terms_of_use.id_for_label }}">
+                        {% blocktrans with terms_of_use_url="/terms-of-use" %}
+                        I accept the <a href="{{terms_of_use_url}}" target="blank">terms of use</a>.
+                        {% endblocktrans %}
+                    </label>
+                    {{ form.terms_of_use.errors }}
+                </div>
+
+                <input type="hidden" id="{{ form.timezone.id_for_label }}" name="timezone" value="" />
+
+                <button type="submit" value="Register" class="btn btn-primary">{% trans "register" %}</button>
+            </form>
+
+            {% block socialaccounts %}
+            <div class="socialaccounts">
+                {% get_providers as socialaccount_providers %}
+                {% if socialaccount_providers %}
+                <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
+                <div class="socialaccount_ballot">
+                    <ul class="socialaccount_providers">
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+            {% endblock %}
         </div>
-        {% endif %}
-
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-
-        <div class="form-group">
-            <label class="form-label col-form-label" for="{{ form.username.id_for_label }}">Username</label>
-            {% if form.username.errors %}
-                {{ form.username|add_class:"form-control form-error" }}
-            {% else %}
-                {{ form.username|add_class:"form-control"}}
-            {% endif %}
-            {{ form.username.errors }}
-        </div>
-
-        <div class="form-group">
-            <label class="form-label col-form-label" for="{{ form.email.id_for_label }}">Email</label>
-            {% if form.email.errors %}
-                {{ form.email|add_class:"form-control form-error" }}
-            {% else %}
-                {{ form.email|add_class:"form-control"}}
-            {% endif %}
-            {{ form.email.errors }}
-        </div>
-
-        <div class="form-group">
-            <label class="form-label col-form-label" for="{{ form.password1.id_for_label }}">Password</label>
-            {% if form.password1.errors %}
-                {{ form.password1|add_class:"form-control form-error" }}
-            {% else %}
-                {{ form.password1|add_class:"form-control"}}
-            {% endif %}
-            {{ form.password1.errors }}
-        </div>
-
-        <div class="form-group">
-            <label class="form-label col-form-label" for="{{ form.password2.id_for_label }}">Password repeat</label>
-            {% if form.password2.errors %}
-                {{ form.password2|add_class:"form-control form-error" }}
-            {% else %}
-                {{ form.password2|add_class:"form-control"}}
-            {% endif %}
-            {{ form.password2.errors }}
-        </div>
-
-        <div class="form-group">
-            {% if form.terms_of_use.errors %}
-                {{ form.terms_of_use|add_class:"form-error" }}
-            {% else %}
-                {{ form.terms_of_use }}
-            {% endif %}
-            <label class="form-label col-form-label" for="{{ form.terms_of_use.id_for_label }}">
-                {% blocktrans with terms_of_use_url="/terms-of-use" %}
-                I accept the <a href="{{terms_of_use_url}}" target="blank">terms of use</a>.
-                {% endblocktrans %}
-            </label>
-            {{ form.terms_of_use.errors }}
-        </div>
-
-        <input type="hidden" id="{{ form.timezone.id_for_label }}" name="timezone" value="" />
-
-        <button type="submit" value="Register" class="btn btn-primary">{% trans "register" %}</button>
-    </form>
-
-    {% block socialaccounts %}
-    <div class="socialaccounts">
-        {% get_providers as socialaccount_providers %}
-        {% if socialaccount_providers %}
-        <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
-        <div class="socialaccount_ballot">
-            <ul class="socialaccount_providers">
-                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-            </ul>
-        </div>
-        {% endif %}
     </div>
-    {% endblock %}
-</div>
+    <div class="account__container--right">
+        {% include "./howto.html" %}
+    </div>
 </div>
 {% block extra_js %}
     <script type="text/javascript" src="{% static "users/js/user_timezone.js" %}"></script>
