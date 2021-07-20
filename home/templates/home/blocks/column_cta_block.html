@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       {% for item in self.column %}
-      <div class="col-md">
+      <div class="col-md-{{self.column_count}}">
         {% if item.image.width > 0 %}
             {% image item.image width-730 class="info-box-image img-fluid info-img" %}
         {% endif %}

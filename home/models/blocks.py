@@ -27,11 +27,39 @@ class PageCollectionBlock(core_blocks.StructBlock):
         label = 'Page Collection'
 
 
+# Sub blocks
 class InlineImageBlock(core_blocks.StructBlock):
     image = image_blocks.ImageChooserBlock()
     internal_link = core_blocks.PageChooserBlock(required=False)
     external_link = core_blocks.URLBlock(required=False)
     link_text = core_blocks.TextBlock(required=False)
+
+
+class CallToActionBlock(core_blocks.StructBlock):
+    internal_link = core_blocks.PageChooserBlock(required=False)
+    external_link = core_blocks.URLBlock(required=False)
+    link_text = core_blocks.TextBlock(required=False)
+
+
+class ImageTextCTABlock(core_blocks.StructBlock):
+    title = core_blocks.CharBlock(classname="full title", required=False)
+    image = image_blocks.ImageChooserBlock(required=False)
+    text = core_blocks.RichTextBlock(required=False)
+    button = CallToActionBlock(required=False)
+
+
+class HighlightedImageTextCTABlock(core_blocks.StructBlock):
+    title = core_blocks.CharBlock(classname="full title", required=False)
+    text = core_blocks.RichTextBlock(required=False)
+    button = CallToActionBlock(required=False)
+    highlight = core_blocks.ChoiceBlock(choices=[
+        ('highlight', 'Highlight (blue)'),
+        ('highlight-purple', 'Highlight (purple)'),
+        ('highlight-green', 'Highlight (green)')
+    ], icon='cup',
+        required=False,
+        help_text='Choose background colour of block'
+    )
 
 
 class InlineImagesBlock(core_blocks.StructBlock):
@@ -48,19 +76,7 @@ class InlineImagesBlock(core_blocks.StructBlock):
         label = 'Inline Images Block'
 
 
-class CallToActionBlock(core_blocks.StructBlock):
-    internal_link = core_blocks.PageChooserBlock(required=False)
-    external_link = core_blocks.URLBlock(required=False)
-    link_text = core_blocks.TextBlock(required=False)
-
-
-class ImageTextCTABlock(core_blocks.StructBlock):
-    title = core_blocks.CharBlock(classname="full title", required=False)
-    image = image_blocks.ImageChooserBlock(required=False)
-    text = core_blocks.RichTextBlock(required=False)
-    button = CallToActionBlock(required=False)
-
-
+# single col with optional bg colour and formatting and allignment
 class InfoBlock(core_blocks.StructBlock):
 
     title = core_blocks.CharBlock(classname="full title", required=False)
@@ -93,6 +109,7 @@ class InfoBlock(core_blocks.StructBlock):
         label = 'Info Block'
 
 
+# 3 coloumn block with optional image
 class ColumnBlock(core_blocks.StructBlock):
     title_col1 = core_blocks.CharBlock(classname="full title", required=False)
     image_col1 = image_blocks.ImageChooserBlock(required=False)
@@ -112,52 +129,33 @@ class ColumnBlock(core_blocks.StructBlock):
         label = 'Column Block'
 
 
-# 3 column block with an optional button/link for each col,
-# Call-to-action block can have up to 3 big CTA btn
+# 1-3 column block with an optional image and CTA
 class ColumnCTABlock(core_blocks.StructBlock):
+    column = core_blocks.ListBlock(ImageTextCTABlock())
     column_count = core_blocks.ChoiceBlock(choices=[
-        ('12', 'One column'),
-        ('6', 'Two columns'),
-        ('4', 'Three columns')
+        ('4', 'three columns'),
+        ('6', 'two columns'),
+        ('12', 'one column'),
     ], icon='cup', required=False, help_text='')
-
-    column = core_blocks.ListBlock(
-        ImageTextCTABlock(label='Column CTA')
-    )
 
     class Meta:
         template = 'home/blocks/column_cta_block.html'
         icon = 'grip'
+        label = '1-3 Column CTA Block'
 
 
+# 1- 2 column block with an optional bg colour and CTA
 class HighlitedColumnBlock(core_blocks.StructBlock):
-
-    title_col1 = core_blocks.CharBlock(classname="full title", required=False)
-    text_col1 = core_blocks.RichTextBlock(required=False)
-    button_col1 = CallToActionBlock(required=False)
-    highlight_col1 = core_blocks.ChoiceBlock(choices=[
-        ('highlight', 'Highlight (blue)'),
-        ('highlight-purple', 'Highlight (purple)')
-    ], icon='cup',
-        required=False,
-        help_text='Choose background colour of block'
-    )
-
-    title_col2 = core_blocks.CharBlock(classname="full title", required=False)
-    text_col2 = core_blocks.RichTextBlock(required=False)
-    button_col2 = CallToActionBlock(required=False)
-    highlight_col2 = core_blocks.ChoiceBlock(choices=[
-        ('highlight', 'Highlight (blue)'),
-        ('highlight-purple', 'Highlight (purple)')
-    ], icon='cup',
-        required=False,
-        help_text='Choose background colour of block'
-    )
+    column = core_blocks.ListBlock(HighlightedImageTextCTABlock())
+    column_count = core_blocks.ChoiceBlock(choices=[
+        ('6', 'two columns'),
+        ('12', 'one column'),
+    ], icon='cup', required=False, help_text='')
 
     class Meta:
         template = 'home/blocks/highlighted_column_block.html'
         icon = 'grip'
-        label = 'Highlighted Column Block'
+        label = 'Highlighted 2 Column CTA Block'
 
 
 class VideoBlock(core_blocks.StructBlock):
