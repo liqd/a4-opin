@@ -87,6 +87,15 @@ $(document).ready(function () {
   })
 
   $('.form-control-file').change(showFileName)
+
+  $('.howto-carousel').slick({
+    dots: true,
+    infinite: false,
+    arrows: false,
+    cssEase: 'linear',
+    autoplay: true,
+    autoplaySpeed: 6000
+  })
 })
 
 export function showFileName () {

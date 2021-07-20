@@ -1,0 +1,110 @@
+.howto__container {
+    background:
+        linear-gradient(
+            122deg,
+            rgba(72, 196, 200, 1) 11%,
+            rgba(33, 109, 157, 1) 65%,
+            rgba(37, 117, 161, 1) 80%,
+            rgba(72, 168, 200, 1) 93%
+        );
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.howto-carousel__container {
+    padding-top: 6 * $spacer;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.howto-item__container {
+    color: $bright;
+    padding: 0 2 * $spacer;
+
+    & h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 3 * $spacer;
+    }
+
+    & h2 {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 4 * $spacer;
+        margin-bottom: $spacer;
+    }
+
+    & p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+img.howto-item__image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 300px;
+}
+
+// slick dots overwrites
+ul.slick-dots {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+    & > li {
+        position: relative;
+
+        & button {
+            font-size: 0;
+            margin: 0.25 * $spacer;
+
+            &:before {
+                content: "•";
+                font-size: 40px;
+                line-height: 20px;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 0;
+                left: 0;
+                text-align: center;
+                opacity: 0.5;
+                color: $bright;
+            }
+        }
+
+        & .slick-active {
+            & > button:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    & > li.slick-active {
+        & > button:before {
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: $screen-sm) {
+    img.howto-item__image {
+        width: 75%;
+        max-width: $screen-sm;
+    }
+}
+
+@media (max-width: $screen-xs) {
+    img.howto-item__image {
+        width: 100%;
+        max-width: $screen-xs;
+    }
+}
