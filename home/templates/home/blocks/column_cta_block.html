@@ -19,9 +19,9 @@
         {% endif %}
 
         {% if item.button.internal_link %}
-            <a class="button" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</a>
+            <a class="btn btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</a>
         {% elif item.button.external_link %}
-            <a class="button" href="{{ item.button.external_link }}">{{ item.button.link_text}}</a>
+            <a class="btn btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text}}</a>
         {% endif %}
       </div>
       {% endfor %}
