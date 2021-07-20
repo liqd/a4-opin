@@ -57,6 +57,10 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('news_block', blocks.NewsBlock()),
         ('rss_feed', blocks.RSSImportBlock()),
         ('column_block', blocks.ColumnBlock()),
+        ('highlighted_column_block', blocks.HighlitedColumnBlock()),
+        ('column_cta_block', blocks.ColumnCTABlock()),
+        ('tile_column_block', blocks.TileLinkColumnBlock()),
+
     ]
 
     body = translations.TranslatedField(
@@ -138,6 +142,9 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
         ('accordion_block', blocks.AccordionBlock(icon="collapse-down")),
         ('image_text_block_list', blocks.ImageTextBlockList()),
         ('rss_feed', blocks.RSSImportBlock()),
+        ('highlighted_column_block', blocks.HighlitedColumnBlock()),
+        ('column_cta_block', blocks.ColumnCTABlock()),
+        ('tile_column_block', blocks.TileLinkColumnBlock()),
     ]
 
     body = translations.TranslatedField(
