@@ -1,0 +1,30 @@
+{% load wagtailcore_tags wagtailimages_tags base_tags %}
+<div class="columns-cta-block block m-accent">
+  <div class="container">
+    <div class="row">
+      {% for item in self.column %}
+      <div class="col-md-{{self.column_count}}">
+        {% if item.image.width > 0 %}
+            {% image item.image width-730 class="info-box-image img-fluid info-img" %}
+        {% endif %}
+
+        {% if item.title %}
+        <h3 class="block-title">{{ item.title }}</h3>
+        {% endif %}
+
+        {% if item.text %}
+        <p class="block-body">
+          {{ item.text }}
+        </p>
+        {% endif %}
+
+        {% if item.button.internal_link %}
+            <a class="button" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</a>
+        {% elif item.button.external_link %}
+            <a class="button" href="{{ item.button.external_link }}">{{ item.button.link_text}}</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

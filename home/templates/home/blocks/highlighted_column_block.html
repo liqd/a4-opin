@@ -1,0 +1,85 @@
+{% load i18n wagtailcore_tags %}
+
+<!-- single column template checks to ensure doesn't dispay additional columns -->
+{% if self.column_count == "12" %}
+  {% for item in self.column %}
+    {% if forloop.counter <= 2 %}
+      {% if item.highlight == "highlight" %}
+        <div class="m-cover m-highlight"></div>
+      {% elif item.highlight == "highlight-purple" %}
+        <div class="m-cover m-highlight-purple"></div>
+      {% else %}
+        <div class="m-cover">
+      {% endif %}
+        <div class="container">
+          <div class="row">
+          {% if item.highlight == "highlight" %}
+            <div class="block col-12 m-highlight">
+          {% elif item.highlight == "highlight-purple" %}
+            <div class="block col-12 m-highlight-purple">
+          {% else %}
+            <div class="block col-12">
+          {% endif %}
+            {% if item.title %}
+              <h3 class="block-title">{{ item.title }}</h3>
+            {% endif %}
+            {% if item.text %}
+              <p class="block-body">
+                {{ item.text }}
+              </p>
+            {% endif %}
+            {% if item.button.internal_link %}
+              <button class="btn btn-light btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text }}</button>
+            {% elif item.button.external_link %}
+              <button class="btn btn-light btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text }}</button>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+<!-- 2 column template -->
+{% else %}
+  <div class="container">
+    <div class="row justify-content-between">
+      {% for item in self.column %}
+        {% if forloop.counter <= 3 %}
+
+          {% if item.highlight == "highlight" %}
+            {% if forloop.first %}
+              <div class="m-before m-highlight"></div>
+            {% else %}
+              <div class="m-after m-highlight"></div>
+            {% endif %}
+            <div class="block col-sm-5 m-highlight">
+          {% elif item.highlight == "highlight-purple" %}
+            {% if forloop.first %}
+              <div class="m-before m-highlight-purple"></div>
+            {% else %}
+              <div class="m-after m-highlight-purple"></div>
+            {% endif %}
+            <div class="block col-sm-5 m-highlight-purple">
+          {% else %}
+            <div class="block col-sm-5">
+          {% endif %}
+
+          {% if item.title %}
+            <h3 class="block-title">{{ item.title }}</h3>
+          {% endif %}
+          {% if item.text %}
+            <p class="block-body">
+              {{ item.text }}
+            </p>
+          {% endif %}
+          {% if item.button.internal_link %}
+            <button class="btn btn-light btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</button>
+          {% elif item.button.external_link %}
+            <button class="btn btn-light btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text}}</button>
+          {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
