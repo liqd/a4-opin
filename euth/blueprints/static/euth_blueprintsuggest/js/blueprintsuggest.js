@@ -19,12 +19,11 @@
 
         if (!Object.prototype.hasOwnProperty.call(radioButtonsByName, name)) {
           radioButtonsByName[name] = $()
-        } else {
-          radioButtonsByName[name] = radioButtonsByName[name].add($this)
         }
+        radioButtonsByName[name] = radioButtonsByName[name].add($this)
+
         return radioButtonsByName[name]
       })
-
       for (const key in radioButtonsByName) {
         if (Object.prototype.hasOwnProperty.call(radioButtonsByName, key)) {
           const $inputs = radioButtonsByName[key]
