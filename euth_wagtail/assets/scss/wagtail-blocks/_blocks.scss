@@ -49,10 +49,6 @@
         .button {
             @extend .button;
         }
-
-        a {
-            color: $brand-brand2;
-        }
     }
 
     &.m-accent {
@@ -102,6 +98,7 @@
 
         &.m-variation .container-inner {
             background: $gray-lighter;
+            color: $gray-dark;
         }
     }
 }
@@ -120,8 +117,13 @@
 }
 
 .m-highlight-purple,
-.m-highlight {
+.m-highlight,
+.m-highlight-green {
     color: $body-bg;
+
+    .btn-ghost {
+        color: $body-bg;
+    }
 }
 
 .m-highlight-purple {
@@ -132,32 +134,34 @@
     background: $brand-brand1;
 }
 
+.m-highlight-green {
+    background-color: $brand-brand3;
+}
+
 .block-highlighted_column_block {
     position: relative;
 }
 
 .m-before,
-.m-after {
-    position: absolute;
-    width: 50%;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-}
-
-.m-before {
-    left: 0;
-}
-
-.m-after {
-    right: 0;
-}
-
+.m-after,
 .m-cover {
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: -1;
+}
+
+.m-cover {
     right: 0;
     left: 0;
-    z-index: -1;
+}
+
+.m-before {
+    left: 0;
+    width: 50%;
+}
+
+.m-after {
+    right: 0;
+    width: 50%;
 }
