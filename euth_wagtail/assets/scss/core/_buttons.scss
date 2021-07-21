@@ -123,6 +123,12 @@ span.btn-dark:focus {
     border: 1px solid currentColor;
     background: transparent;
 
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
     &.btn-primary {
         color: $brand-primary;
 
@@ -136,13 +142,6 @@ span.btn-dark:focus {
 
     &.btn-light {
         color: $body-bg;
-
-        &:hover,
-        &:focus,
-        &:active {
-            background: transparent;
-            background-color: $gray;
-        }
     }
 }
 
