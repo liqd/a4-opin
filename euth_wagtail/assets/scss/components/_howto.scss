@@ -21,16 +21,16 @@
 }
 
 .howto-item__container {
-    color: $bright;
+    color: $body-bg;
     padding: 0 2 * $spacer;
 
-    & h1 {
+    & h2 {
         font-size: 24px;
         text-align: center;
         margin-bottom: 3 * $spacer;
     }
 
-    & h2 {
+    & h3 {
         font-size: 18px;
         text-align: center;
         margin-top: 4 * $spacer;
@@ -52,7 +52,7 @@ img.howto-item__image {
 }
 
 // slick dots overwrites
-ul.slick-dots {
+.howto-carousel > ul.slick-dots {
     margin: 0;
     padding: 0;
     display: flex;
@@ -77,7 +77,7 @@ ul.slick-dots {
                 left: 0;
                 text-align: center;
                 opacity: 0.5;
-                color: $bright;
+                color: $body-bg;
             }
         }
 
