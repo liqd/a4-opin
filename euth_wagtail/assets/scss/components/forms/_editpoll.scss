@@ -19,15 +19,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1;
 }
 
 .editpoll__question--border {
+    position: relative;
     padding-top: 2em;
     padding-bottom: 1em;
     margin-top: 1em;
     margin-bottom: 2em;
     border-top: solid 1px lightgrey;
+    z-index: 2;
 }
 
 .editpoll__actions-container {
@@ -57,6 +59,27 @@
     display: block;
     margin-bottom: $spacer;
     position: relative;
+
+    .errorlist {
+        display: block;
+        position: relative;
+        background-color: $brand-danger;
+        color: $body-bg;
+        font-weight: 600;
+        text-align: right;
+        padding: 4px 8px 4px 28px;
+        margin-top: 0;
+        list-style-type: none;
+
+        &:before {
+            display: inline;
+            position: absolute;
+            left: 8px;
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 900;
+            content: "\f071"; //exclamation-triangle
+        }
+    }
 }
 
 .editpoll__menu-container--override {
