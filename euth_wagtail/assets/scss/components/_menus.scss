@@ -18,10 +18,13 @@ body {
     }
 
     .navbar__mobile {
-        width: 100%;
         display: flex;
         justify-content: space-between;
-        border-bottom: 2px solid $gray-lighter;
+
+        @media screen and (max-width: $screen-xs) {
+            width: 100%;
+            border-bottom: 2px solid $gray-lighter;
+        }
     }
 
     .navbar-collapse.show,
