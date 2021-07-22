@@ -29,6 +29,18 @@
     }
 }
 
+.tile-block__tile {
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
+
+    a {
+        text-decoration: none;
+    }
+
+    .block-title {
+        font-size: $font-size-xlarge;
+    }
+}
+
 .block,
 .block-inner {
     padding: $block-vpadding 0;
