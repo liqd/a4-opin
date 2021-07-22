@@ -147,14 +147,6 @@
     margin-right: 15px;
     white-space: nowrap;
 
-    &.idea-upvotes i {
-        color: $brand-success;
-    }
-
-    &.idea-downvotes i {
-        color: $brand-danger;
-    }
-
     &:last-child {
         margin-right: 0;
     }
