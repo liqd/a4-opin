@@ -7,16 +7,18 @@
 {% block content %}
 <div class="account__container">
     <div class="account__container--left">
-        <div class="skinny-form">
-            <header class="skinny-form-header">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">{% trans "login" %}</a></li>
-                    <li role="presentation" class="active"><a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">{% trans "register" %}</a></li>
-                </ul>
+        <div class="general-form">
+            <header class="form-inner">
+                <h1>{% trans "register" %}</h1>
+                <p>
+                    I already have an account, 
+                    <a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">
+                        {% trans "login" %}
+                    </a>
+                </p>
             </header>
-
             {% block form %}
-            <form class="skinny-form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
+            <form class="form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
             {% endblock %}
 
                 {% csrf_token %}
@@ -92,7 +94,7 @@
 
                 <input type="hidden" id="{{ form.timezone.id_for_label }}" name="timezone" value="" />
 
-                <button type="submit" value="Register" class="btn btn-primary">{% trans "register" %}</button>
+                <button type="submit" value="Register" class="btn btn-ghost btn-wide">{% trans "register" %}</button>
             </form>
 
             {% block socialaccounts %}

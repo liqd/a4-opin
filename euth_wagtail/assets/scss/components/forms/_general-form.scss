@@ -78,6 +78,23 @@
             content: "\f05A "; //info-circle
         }
     }
+
+    header {
+        &.form-inner {
+            padding-top: 6rem;
+        }
+
+        & > h1 {
+            font-size: 24px;
+            text-transform: capitalize;
+        }
+    }
+
+    .form-inner {
+        padding: 2.5 * $spacer;
+        margin: 0 auto;
+        max-width: 30rem;
+    }
 }
 
 .form-help-text {
