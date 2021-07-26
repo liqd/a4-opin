@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static widget_tweaks socialaccount i18n%}
+{% load static widget_tweaks socialaccount i18n %}
 
 {% block title %}{% trans 'Register an account' %}{% endblock %}
 
@@ -11,7 +11,7 @@
             <header class="form-inner">
                 <h1>{% trans "register" %}</h1>
                 <p>
-                    I already have an account, 
+                    {% trans "I already have an account, " %}
                     <a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">
                         {% trans "login" %}
                     </a>

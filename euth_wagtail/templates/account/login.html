@@ -15,7 +15,7 @@
                 <header class="form-inner">
                     <h1>{% trans "login" %}</h1>
                     <p>
-                        I do not have an account, 
+                        {% trans "I do not have an account, " %}
                         <a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">
                             {% trans "register" %}
                         </a>
