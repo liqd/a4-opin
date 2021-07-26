@@ -130,14 +130,21 @@ $checkbox-size: 25px;
     align-items: center;
 }
 
+.poll__btn--link {
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
 .poll > .poll__btn--link {
     background-color: $brand-primary;
     color: $body-bg;
+    text-decoration: none;
 }
 
 .poll.poll__btn--wrapper > .poll__btn--link {
     background-color: $body-bg;
     color: $black;
+    text-decoration: underline;
 }
 
 .poll-row__chosen {
@@ -150,20 +157,16 @@ $checkbox-size: 25px;
 // Poll text answers
 
 .poll-slider__item {
-    padding: $spacer;
+    padding: $spacer $spacer (2*$spacer) $spacer;
 }
 
-.poll-slider__answer {
-    padding-bottom: $spacer;
-
-    i {
-        color: $gray;
-    }
+.poll-slider__answer > i {
+    color: $gray;
 }
 
 .poll-slider__count {
     position: absolute;
-    bottom: 0;
+    bottom: $spacer;
     left: $spacer;
 
     @media screen and (min-width: $screen-md-min) {
@@ -182,7 +185,7 @@ $checkbox-size: 25px;
     .slick-next {
         position: absolute;
         top: revert;
-        bottom: 0;
+        bottom: $spacer;
         text-align: center;
         width: 30px;
         height: 30px;
