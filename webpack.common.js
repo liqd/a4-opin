@@ -163,7 +163,16 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              url: url => !url.startsWith('/')
+              url: {
+                filter: (url, resourcePath) => {
+                  // only handle `/` urls, leave rest in code (pythong images to be left)
+                  if (!url.startsWith('/')) {
+                    return true
+                  } else {
+                    return false
+                  }
+                }
+              }
             }
           },
           {
@@ -183,16 +192,16 @@ module.exports = {
       },
       {
         test: /(fonts|files)\/.*\.(svg|woff2?|ttf|eot|otf)(\?.*)?$/,
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
         }
       },
       {
         test: /\.svg$|\.png$/,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
         }
       }
     ]
