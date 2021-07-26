@@ -29,6 +29,12 @@ $checkbox-size: 25px;
     position: relative;
 }
 
+.poll__char-counter {
+    color: $gray;
+    align-self: flex-end;
+    font-size: $font-size-small;
+}
+
 .poll-row {
     border: 1px solid $border-color;
     padding: 0.5*$spacer;
@@ -50,11 +56,21 @@ $checkbox-size: 25px;
     input[type="radio"]:checked + span {
         font-weight: bold;
     }
+
+    .form-control {
+        margin-left: 10px;
+        margin-top: 0.5*$spacer;
+        width: 98%;
+    }
+
+    .poll__char-counter {
+        padding-right: 10px;
+    }
 }
 
 .poll-row.radio {
     flex-direction: column;
-    display: inline-block;
+    display: flex;
 }
 
 .poll-row__number {
@@ -74,12 +90,6 @@ $checkbox-size: 25px;
     color: $gray;
     margin-top: -0.7*$spacer;
     margin-bottom: 0.5*$spacer;
-}
-
-.poll__char-counter {
-    color: $gray;
-    align-self: flex-end;
-    font-size: $font-size-small;
 }
 
 // RESULTS
