@@ -38,6 +38,7 @@ class LanguageSwitch extends React.Component {
   activateTab (e) {
     const languageCode = e.target.textContent
     this.setState({ activeTab: languageCode })
+    e.preventDefault()
   }
 
   addLanguage (e) {
@@ -76,18 +77,28 @@ class LanguageSwitch extends React.Component {
   render () {
     return (
       <div>
-        <ul className="checkbox-list" ref={this.checkboxListRef}>
+        <ul className="checkbox-list" ref={this.checkboxListRef} role="tablist">
           {
             this.props.languages.map((languageCode, i) => {
               return (
-                <li key={languageCode} className={languageCode === this.state.activeTab ? 'active' : ''}>
+                <li
+                  key={languageCode}
+                  role="presentation"
+                  className={languageCode === this.state.activeTab ? 'nav-item active' : 'nav-item'}
+                >
                   <input
-                    type="checkbox" name={languageCode} id={languageCode + '_language-switch'} value={languageCode}
+                    type="checkbox"
+                    name={languageCode}
+                    id={languageCode + '_language-switch'}
+                    value={languageCode}
                     checked={this.state.activeLanguages.indexOf(languageCode) !== -1} readOnly
                   />
                   <button
-                    href={'#' + languageCode + '_language_panel'} className={'language-switch btn ' + (languageCode === this.state.activeTab ? 'active' : '')}
-                    data-bs-toggle="tab" onClick={this.activateTab.bind(this)}
+                    href={'#' + languageCode + '_language_panel'}
+                    id={languageCode + '_language-switch-tab'}
+                    className={'language-switch btn ' + (languageCode === this.state.activeTab ? 'active' : '')}
+                    data-bs-toggle="tab"
+                    onClick={this.activateTab.bind(this)}
                   >{languageCode}
                   </button>
                 </li>
@@ -96,7 +107,12 @@ class LanguageSwitch extends React.Component {
           }
         </ul>
         <div className="dropdown ms-5">
-          <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" ref={this.toggleButtonRef}>
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            ref={this.toggleButtonRef}
+          >
             <i className="fa fa-plus" />
           </button>
           <div className="dropdown-menu">
@@ -145,6 +161,30 @@ class LanguageSwitch extends React.Component {
               }
             </div>
           </div>}
+        <div className="tab-content">
+          {this.props.languages.map((languageCode, i) => {
+            return (
+              <div
+                key={languageCode + '-panel'}
+                className={'tab-panel language-switch-panel  ' + (languageCode === this.state.activeTab ? 'active' : '')}
+                id={languageCode + '_language_panel'}
+                role="tabpanel"
+                aria-labelledby={languageCode + '_language_panel-tab'}
+              >
+                <div class="form-group">
+                  <label class="form-label" htmlFor={'id_' + languageCode + '__description_why'}>Description why are we part of OPIN</label>
+                  <textarea
+                    id={'id_' + languageCode + '__description_why'}
+                    className="form-control"
+                    cols="40"
+                    rows="10"
+                    placeholder={languageCode + ' content'}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }
