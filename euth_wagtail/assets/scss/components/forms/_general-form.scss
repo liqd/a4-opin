@@ -81,17 +81,17 @@
 
     header {
         &.form-inner {
-            padding-top: 6rem;
+            padding-top: 6 * $spacer;
         }
 
         & > h1 {
-            font-size: 24px;
+            font-size: $font-size-xlarge;
             text-transform: capitalize;
         }
     }
 
     .form-inner {
-        padding: 2.5 * $spacer;
+        padding: 1.25 * $spacer 2.5 * $spacer;
         margin: 0 auto;
         max-width: 30rem;
     }
