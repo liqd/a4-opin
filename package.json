@@ -71,7 +71,7 @@
     "lint": "eslint euth euth_wagtail/assets --ext .js,.jsx && stylelint 'euth_wagtail/assets/scss/**/*.scss' --syntax scss",
     "lint-staged": "lint-staged",
     "lint-fix": "eslint --fix --ext .js,.jsx .",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "browserslist": "last 3 versions, ie >= 11",
   "lint-staged": {
