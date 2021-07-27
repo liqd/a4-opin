@@ -2,6 +2,11 @@
 <div class="columns-cta-block block m-accent">
   <div class="container">
     <div class="row">
+      {% if self.title %}
+      <div class="col-12 block">
+          <h2 class="block-title">{{ self.title }}</h2>
+      </div>
+      {% endif %}
       {% for item in self.column %}
       <div class="col-md-{{self.column_count}}">
         {% if item.image.width > 0 %}

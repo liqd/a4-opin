@@ -51,6 +51,8 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
 
     # Body
     block_types = [
+        ('heading', core_blocks.CharBlock(classname="full title",
+                                          icon="title")),
         ('image', image_blocks.ImageChooserBlock(icon="image")),
         ('info_block', blocks.InfoBlock()),
         ('video_block', blocks.VideoBlock()),

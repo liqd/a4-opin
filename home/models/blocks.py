@@ -132,6 +132,9 @@ class ColumnBlock(core_blocks.StructBlock):
 # 4 col clickable tiles with option image and link
 # adding in list ensures only 4 can be added
 class TileLinkColumnBlock(core_blocks.StructBlock):
+    title = core_blocks.CharBlock(classname="full title", required=False)
+    sub_title = core_blocks.CharBlock(classname="subtitle title",
+                                      required=False)
     title_col1 = core_blocks.CharBlock(classname="full title", required=False)
     image_col1 = image_blocks.ImageChooserBlock(required=False)
     text_col1 = core_blocks.RichTextBlock(required=False)
@@ -164,6 +167,7 @@ class TileLinkColumnBlock(core_blocks.StructBlock):
 
 # 1-3 column block with an optional image and CTA
 class ColumnCTABlock(core_blocks.StructBlock):
+    title = core_blocks.CharBlock(classname="full title", required=False)
     column_count = core_blocks.ChoiceBlock(choices=[
         ('4', 'three columns'),
         ('6', 'two columns'),
