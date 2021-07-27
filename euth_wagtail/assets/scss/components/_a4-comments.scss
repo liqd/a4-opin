@@ -56,12 +56,21 @@
     align-content: flex-end;
 }
 
-.a4-comments__filters__search {
+.input-group.a4-comments__filters__search {
+    @extend .col-sm-6;
+    padding-left: 0;
     margin-bottom: 0.5*$spacer;
 
     @media screen and (min-width: $screen-md-min) {
         margin-bottom: 0;
     }
+}
+
+.a4-comments__filters__dropdown {
+    @extend .col-sm-3;
+
+    text-align: end;
+    padding-right: 0;
 }
 
 .a4-comments__filters__search-input {
@@ -133,7 +142,7 @@
 .a4-comments__moderator {
     font-size: $font-size-sm;
     font-style: italic;
-    color: $gray-light;
+    color: $gray;
 }
 
 .a4-comments__child--list {
@@ -191,9 +200,8 @@
     }
 }
 
-.a4-comments__category__text,
-.a4-comments__badge {
-    background-color: $gray-lighter;
+.a4-comments__category__text {
+    background-color: $gray;
     border-radius: 1rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -206,35 +214,38 @@
     display: inline-block;
 }
 
-// .a4-comments__badge {
-//     color: $gray-lighter;
-// }
-//
-// .a4-comments__category__input:checked {
-//     + .a4-comments__category__que {
-//         background-color: $blue-light;
-//     }
-//
-//     + .a4-comments__category__not {
-//         background-color: $purple-light;
-//     }
-//
-//     + .a4-comments__category__sug {
-//         background-color: $green-light;
-//     }
-// }
-//
-// .a4-comments__badge--que {
-//     background-color: $blue-light;
-// }
-//
-// .a4-comments__badge--not {
-//     background-color: $purple-light;
-// }
-//
-// .a4-comments__badge--sug {
-//     background-color: $green-light;
-// }
+.a4-comments__category__que,
+.a4-comments__badge--que {
+    background-color: $brand-brand1;
+}
+
+.a4-comments__category__not,
+.a4-comments__badge--not {
+    background-color: $brand-brand2;
+}
+
+.a4-comments__category__sug,
+.a4-comments__badge--sug {
+    background-color: $brand-brand3;
+}
+
+.a4-comments__badge {
+    margin-right: 0.2*$spacer;
+}
+
+.a4-comments__category__input:checked {
+    + .a4-comments__category__que {
+        background-color: $brand-brand1;
+    }
+
+    + .a4-comments__category__not {
+        background-color: $brand-brand2;
+    }
+
+    + .a4-comments__category__sug {
+        background-color: $brand-brand3;
+    }
+}
 
 .a4-comments__text--highlighted {
     border-left: solid 2px $brand-primary;
@@ -396,4 +407,29 @@
     margin-right: 5px;
     vertical-align: baseline;
     font-size: $font-size-small;
+}
+
+.a4-comments__filters__text,
+.a4-comments__filters__show-btn {
+    @extend .col-6;
+}
+
+.a4-comments__filters__text {
+    padding-left: 0;
+    margin-top: 0.5*$spacer;
+    color: $gray;
+}
+
+.a4-comments__filters__show-btn {
+    text-align: right;
+}
+
+.a4-comments__char-count {
+    color: $gray !important;
+    font-size: $font-size-small !important;
+    font-weight: normal !important;
+}
+
+.a4-comments__loading {
+    text-align: center;
 }

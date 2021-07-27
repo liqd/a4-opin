@@ -2,6 +2,11 @@ button {
     border: 0;
     background: transparent;
     appearance: none;
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
 }
 
 .button {
@@ -119,7 +124,8 @@ span.btn-dark:focus {
     }
 }
 
-.btn-ghost {
+.btn-ghost,
+.btn--transparent {
     border: 1px solid currentColor;
     background: transparent;
 

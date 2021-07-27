@@ -34,7 +34,7 @@
     border: 0;
 
     .modal-footer {
-        padding: 60px 0;
+        padding: 60px $spacer;
         border: none;
         text-align: center;
     }
@@ -105,4 +105,9 @@
 
 .modal-url-bar-button {
     padding: 0.375*$spacer 0.75*$spacer; // reset to bootstrap
+}
+
+.modal--close {
+    text-align: end;
+    margin-right: $spacer;
 }
