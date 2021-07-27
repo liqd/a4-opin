@@ -2,6 +2,17 @@
 <div class="columns-block block">
   <div class="container">
     <div class="row">
+      {% if self.title or self.sub_title %}
+      <div class="col-12 block">
+        {% if self.title %}
+          <h2 class="block-title">{{ self.title }}</h2>
+        {% endif %}
+        {% if self.title %}
+          <p class="block-sub-title">{{ self.sub_title }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
 
       <div class="col-lg-3 d-flex align-items-stretch">
         <div class="card tile-block__tile">
