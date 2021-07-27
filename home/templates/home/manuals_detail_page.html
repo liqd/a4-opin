@@ -16,30 +16,37 @@
     </header>
 
     {% include 'home/blocks/breadcrumb.html' with current_page=page %}
-
-    <div class="container">
-        <div class="row">
-            <div class="offset-sm-3 col-sm-9 col-md-6">
-                <section class="page-body">
-                {% for block in self.body %}
-                    {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' %}
-                    <div class="block-inner">
-                        {% if block.block_type == 'image' %}
-                             {% image block.value original class="img-fluid" %}
-                        {% elif block.block_type == 'heading' %}
-                            <h2>{{ block }}</h2>
-                        {% else %}
-                            {{ block }}
-                        {% endif %}
-                    </div>
-                    {% else %}
-                        {{ block }}
-                    {% endif %}
-                {% endfor %}
-                </section>
-            <div class="col-sm-9 col-md-6">
-        </div>
-    </div>
+    {% for block in self.body %}
+    <section class="page-body">
+    {% if block.block_type == 'highlighted_column_block' or block.block_type == 'column_cta_block' %}
+      <div class="block-highlighted_column_block">
+        {{ block }}
+      </div>
+    {% else %}
+      <div class="container">
+          <div class="row">
+            {% if block.block_type == 'heading' or block.block_type == 'paragraph' or block.block_type == 'rich_text' or block.block_type == 'image' or block.block_type == 'accordion_block' %}
+              <div class="offset-sm-3 col-sm-9 col-md-6">
+                  <div class="block-inner">
+                      {% if block.block_type == 'image' %}
+                           {% image block.value original class="img-fluid" %}
+                      {% elif block.block_type == 'heading' %}
+                          <h2>{{ block }}</h2>
+                      {% else %}
+                          {{ block }}
+                      {% endif %}
+                  </div>
+              </div>
+            {% else %}
+              <div class="col-12">
+                {{ block }}
+              </div>
+            {% endif %}
+          </div>
+      </div>
+    {% endif %}
+    </section>
+    {% endfor %}
 
 {% endblock %}
 
