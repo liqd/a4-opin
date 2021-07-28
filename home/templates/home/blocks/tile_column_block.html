@@ -1,4 +1,4 @@
-{% load wagtailimages_tags static %}
+{% load wagtailimages_tags static i18n %}
 <div class="columns-block block">
   <div class="container">
     <div class="row">
@@ -12,110 +12,209 @@
         {% endif %}
       </div>
       {% endif %}
+    </div>
 
+<!-- Mobile version -->
+      <div class="block-xs-carousel d-lg-none">
+            <div class="card tile-block__tile">
+            {% if self.internal_link_col1 %}
+              <a href="{{ self.internal_link_col1.url }}">
+            {% elif self.external_link_col1 %}
+              <a href="{{ self.external_link_col1 }}">
+            {% endif %}
 
-      <div class="col-lg-3 d-flex align-items-stretch">
-        <div class="card tile-block__tile">
-        {% if self.internal_link_col1 %}
-          <a href="{{ self.internal_link_col1.url }}">
-        {% elif self.external_link_col1 %}
-          <a href="{{ self.external_link_col1 }}">
-        {% endif %}
+              {% if self.image_col1 %}
+                {% image self.image_col1 fill-300x268 class="card-img-top" %}
+              {% else %}
+                <img src="{% static 'images/yellow-bg.png'%}" class="card-img-top" />
+              {% endif %}
 
-          {% if self.image_col1 %}
-            {% image self.image_col1 fill-300x268 class="card-img-top" %}
-          {% else %}
-            <img src="{% static 'images/yellow-bg.png'%}" class="card-img-top" />
+                <div class="card-body">
+                {% if self.title_col1 %}
+                  <h3 class="block-title">{{ self.title_col1 }}</h3>
+                {% endif %}
+                {% if self.text_col1 %}
+                  <span class="card-text text-muted">{{ self.text_col1 }}</span>
+                {% endif %}
+                </div>
+              </a>
+            </div>
+            <div class="card tile-block__tile">
+            {% if self.internal_link_col2 %}
+              <a href="{{ self.internal_link_col2.url }}">
+            {% elif self.external_link_col2 %}
+              <a href="{{ self.external_link_col1 }}">
+            {% endif %}
+
+              {% if self.image_col2 %}
+                {% image self.image_col2 fill-300x268 class="card-img-top" %}
+              {% else %}
+                <img src="{% static 'images/light-blue-bg.png'%}" class="card-img-top" />
+              {% endif %}
+
+                <div class="card-body">
+                {% if self.title_col2 %}
+                  <h3 class="block-title">{{ self.title_col2 }}</h3>
+                {% endif %}
+                {% if self.text_col2 %}
+                  <span class="card-text text-muted">{{ self.text_col2 }}</span>
+                {% endif %}
+                </div>
+              </a>
+            </div>
+            <div class="card tile-block__tile">
+            {% if self.internal_link_col3 %}
+              <a href="{{ self.internal_link_col3.url }}">
+            {% elif self.external_link_col3 %}
+              <a href="{{ self.external_link_col3 }}">
+            {% endif %}
+
+              {% if self.image_col3 %}
+                {% image self.image_col3 fill-300x268 class="card-img-top" %}
+              {% else %}
+                <img src="{% static 'images/pink-bg.png'%}" class="card-img-top" />
+              {% endif %}
+
+                <div class="card-body">
+                {% if self.title_col3 %}
+                  <h3 class="block-title">{{ self.title_col3 }}</h3>
+                {% endif %}
+                {% if self.text_col3 %}
+                  <span class="card-text text-muted">{{ self.text_col3 }}</span>
+                {% endif %}
+                </div>
+              </a>
+            </div>
+            <div class="card tile-block__tile">
+              {% if self.internal_link_col4 %}
+                <a href="{{ self.internal_link_col4.url }}">
+              {% elif self.external_link_col4 %}
+                <a href="{{ self.external_link_col4 }}">
+              {% endif %}
+
+              {% if self.image_col4 %}
+                {% image self.image_col4 fill-300x268 class="card-img-top" %}
+              {% else %}
+                <img src="{% static 'images/blue-bg.png'%}" class="card-img-top" />
+              {% endif %}
+
+                <div class="card-body">
+                {% if self.title_col4 %}
+                  <h3 class="block-title">{{ self.title_col4 }}</h3>
+                {% endif %}
+                {% if self.text_col4 %}
+                  <span class="card-text text-muted">{{ self.text_col4 }}</span>
+                {% endif %}
+                </div>
+              </a>
+            </div>
+          </div>
+
+<!-- Desktop version -->
+      <div class="row d-none d-lg-flex">
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="card tile-block__tile">
+          {% if self.internal_link_col1 %}
+            <a href="{{ self.internal_link_col1.url }}">
+          {% elif self.external_link_col1 %}
+            <a href="{{ self.external_link_col1 }}">
           {% endif %}
 
-            <div class="card-body">
-            {% if self.title_col1 %}
-              <h3 class="block-title">{{ self.title_col1 }}</h3>
+            {% if self.image_col1 %}
+              {% image self.image_col1 fill-300x268 class="card-img-top" %}
+            {% else %}
+              <img src="{% static 'images/yellow-bg.png'%}" class="card-img-top" />
             {% endif %}
-            {% if self.text_col1 %}
-              <span class="card-text text-muted">{{ self.text_col1 }}</span>
-            {% endif %}
-            </div>
-          </a>
+
+              <div class="card-body">
+              {% if self.title_col1 %}
+                <h3 class="block-title">{{ self.title_col1 }}</h3>
+              {% endif %}
+              {% if self.text_col1 %}
+                <span class="card-text text-muted">{{ self.text_col1 }}</span>
+              {% endif %}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 d-flex align-items-stretch">
-        <div class="card tile-block__tile">
-        {% if self.internal_link_col2 %}
-          <a href="{{ self.internal_link_col2.url }}">
-        {% elif self.external_link_col2 %}
-          <a href="{{ self.external_link_col1 }}">
-        {% endif %}
-
-          {% if self.image_col2 %}
-            {% image self.image_col2 fill-300x268 class="card-img-top" %}
-          {% else %}
-            <img src="{% static 'images/light-blue-bg.png'%}" class="card-img-top" />
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="card tile-block__tile">
+          {% if self.internal_link_col2 %}
+            <a href="{{ self.internal_link_col2.url }}">
+          {% elif self.external_link_col2 %}
+            <a href="{{ self.external_link_col1 }}">
           {% endif %}
 
-            <div class="card-body">
-            {% if self.title_col2 %}
-              <h3 class="block-title">{{ self.title_col2 }}</h3>
+            {% if self.image_col2 %}
+              {% image self.image_col2 fill-300x268 class="card-img-top" %}
+            {% else %}
+              <img src="{% static 'images/light-blue-bg.png'%}" class="card-img-top" />
             {% endif %}
-            {% if self.text_col2 %}
-              <span class="card-text text-muted">{{ self.text_col2 }}</span>
-            {% endif %}
-            </div>
-          </a>
+
+              <div class="card-body">
+              {% if self.title_col2 %}
+                <h3 class="block-title">{{ self.title_col2 }}</h3>
+              {% endif %}
+              {% if self.text_col2 %}
+                <span class="card-text text-muted">{{ self.text_col2 }}</span>
+              {% endif %}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-3 d-flex align-items-stretch">
-        <div class="card tile-block__tile">
-        {% if self.internal_link_col3 %}
-          <a href="{{ self.internal_link_col3.url }}">
-        {% elif self.external_link_col3 %}
-          <a href="{{ self.external_link_col3 }}">
-        {% endif %}
-
-          {% if self.image_col3 %}
-            {% image self.image_col3 fill-300x268 class="card-img-top" %}
-          {% else %}
-            <img src="{% static 'images/pink-bg.png'%}" class="card-img-top" />
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="card tile-block__tile">
+          {% if self.internal_link_col3 %}
+            <a href="{{ self.internal_link_col3.url }}">
+          {% elif self.external_link_col3 %}
+            <a href="{{ self.external_link_col3 }}">
           {% endif %}
 
-            <div class="card-body">
-            {% if self.title_col3 %}
-              <h3 class="block-title">{{ self.title_col3 }}</h3>
+            {% if self.image_col3 %}
+              {% image self.image_col3 fill-300x268 class="card-img-top" %}
+            {% else %}
+              <img src="{% static 'images/pink-bg.png'%}" class="card-img-top" />
             {% endif %}
-            {% if self.text_col3 %}
-              <span class="card-text text-muted">{{ self.text_col3 }}</span>
-            {% endif %}
-            </div>
-          </a>
+
+              <div class="card-body">
+              {% if self.title_col3 %}
+                <h3 class="block-title">{{ self.title_col3 }}</h3>
+              {% endif %}
+              {% if self.text_col3 %}
+                <span class="card-text text-muted">{{ self.text_col3 }}</span>
+              {% endif %}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 d-flex align-items-stretch">
-        <div class="card tile-block__tile">
-          {% if self.internal_link_col4 %}
-            <a href="{{ self.internal_link_col4.url }}">
-          {% elif self.external_link_col4 %}
-            <a href="{{ self.external_link_col4 }}">
-          {% endif %}
-
-          {% if self.image_col4 %}
-            {% image self.image_col4 fill-300x268 class="card-img-top" %}
-          {% else %}
-            <img src="{% static 'images/blue-bg.png'%}" class="card-img-top" />
-          {% endif %}
-
-            <div class="card-body">
-            {% if self.title_col4 %}
-              <h3 class="block-title">{{ self.title_col4 }}</h3>
+        <div class="col-lg-3 d-flex align-items-stretch">
+          <div class="card tile-block__tile">
+            {% if self.internal_link_col4 %}
+              <a href="{{ self.internal_link_col4.url }}">
+            {% elif self.external_link_col4 %}
+              <a href="{{ self.external_link_col4 }}">
             {% endif %}
-            {% if self.text_col4 %}
-              <span class="card-text text-muted">{{ self.text_col4 }}</span>
+
+            {% if self.image_col4 %}
+              {% image self.image_col4 fill-300x268 class="card-img-top" %}
+            {% else %}
+              <img src="{% static 'images/blue-bg.png'%}" class="card-img-top" />
             {% endif %}
-            </div>
-          </a>
+
+              <div class="card-body">
+              {% if self.title_col4 %}
+                <h3 class="block-title">{{ self.title_col4 }}</h3>
+              {% endif %}
+              {% if self.text_col4 %}
+                <span class="card-text text-muted">{{ self.text_col4 }}</span>
+              {% endif %}
+              </div>
+            </a>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
-</div>

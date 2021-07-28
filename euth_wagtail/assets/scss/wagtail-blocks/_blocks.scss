@@ -36,6 +36,10 @@
         text-decoration: none;
     }
 
+    .card-body {
+        padding: 2*$spacer $spacer 1.5*$spacer $spacer;
+    }
+
     .block-title {
         font-size: $font-size-xlarge;
     }
@@ -180,4 +184,35 @@
 .m-after {
     right: 0;
     width: 50%;
+}
+
+.block-xs-carousel {
+    .tile-block__tile {
+        margin: $spacer;
+        width: auto !important;
+    }
+
+    .slick-prev,
+    .slick-next {
+        font-size: 40px;
+        margin-top: -20px;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        background-color: transparent;
+        border: 0;
+    }
+
+    .slick-prev {
+        left: -20px;
+    }
+
+    .slick-next {
+        right: -20px;
+    }
+
+    .slick-prev.slick-disabled,
+    .slick-next.slick-disabled {
+        opacity: 0;
+    }
 }
