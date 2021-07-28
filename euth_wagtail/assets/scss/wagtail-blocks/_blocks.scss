@@ -158,8 +158,14 @@
     background-color: $brand-brand3;
 }
 
-.block-highlighted_column_block {
+.block.block-highlighted_column_block {
     position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @media screen and (min-width: $screen-md-min) {
+        padding: $block-vpadding 0;
+    }
 }
 
 .m-before,
