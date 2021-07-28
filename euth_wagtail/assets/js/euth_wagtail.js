@@ -62,30 +62,6 @@ $(document).ready(function () {
     ]
   })
 
-  $('.slider-xs').slick({
-    centerMode: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-    arrows: false,
-    centerPadding: 30,
-    mobileFirst: true,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 0,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 767,
-        settings: 'unslick'
-      }
-    ]
-  })
-
   $('.form-control-file').change(showFileName)
 
   $('.howto-carousel').slick({
@@ -95,6 +71,16 @@ $(document).ready(function () {
     cssEase: 'linear',
     autoplay: true,
     autoplaySpeed: 6000
+  })
+
+  $('.block-xs-carousel').slick({
+    dots: false,
+    infinite: false,
+    arrows: true,
+    cssEase: 'linear',
+    autoplay: false,
+    prevArrow: '<button class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slick-next"><i class="fa fa-chevron-right"></i></button>'
   })
 })
 
