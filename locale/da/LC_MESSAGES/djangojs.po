@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 09:19+0200\n"
+"POT-Creation-Date: 2021-07-29 11:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -65,9 +65,7 @@ msgstr[0] "se et svar"
 msgstr[1] "se %s svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:9
 #: adhocracy4/comments/static/comments/Comment.jsx:30
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:9
 msgid "Answer"
 msgstr "Svar"
 
@@ -118,12 +116,14 @@ msgstr "Er du sikker på, at du vil slette kommentaren?"
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:14
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:152
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:14
 msgid "Delete"
 msgstr "Slet"
 
@@ -454,112 +454,165 @@ msgstr "Følg"
 msgid "Following"
 msgstr "Følger"
 
-#: adhocracy4/polls/static/polls/ChoiceForm.jsx:6
-#: adhocracy4/polls/static/polls/ChoiceForm.jsx:6
+#: adhocracy4/polls/assets/EditPollChoice.jsx:9
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:69
+msgctxt "noun"
+msgid "Answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollChoice.jsx:27
+#: adhocracy4/polls/assets/EditPollChoice.jsx:33
 msgid "remove"
 msgstr "fjerne"
 
-#: adhocracy4/polls/static/polls/PollManagement.jsx:179
-#: adhocracy4/polls/static/polls/PollManagement.jsx:179
-msgid "The poll has been updated."
-msgstr "Undersøgelsen er blevet opdateret."
-
-#: adhocracy4/polls/static/polls/PollManagement.jsx:180
-#: adhocracy4/polls/static/polls/PollManagement.jsx:180
-msgid "The poll could not be updated."
-msgstr "Undersøgelsen kunne ikke opdateres."
-
-#: adhocracy4/polls/static/polls/PollManagement.jsx:216
-#: adhocracy4/polls/static/polls/PollManagement.jsx:216
-msgid "Add a new question"
-msgstr "Tilføj et nyt spørgsmål"
-
-#: adhocracy4/polls/static/polls/PollManagement.jsx:217
-#: adhocracy4/polls/static/polls/PollManagement.jsx:217
-msgid "Save"
-msgstr "Gemme"
-
-#: adhocracy4/polls/static/polls/Question.jsx:9
-#: adhocracy4/polls/static/polls/Question.jsx:9
-msgid "Your choice"
-msgstr "Dit valg"
-
-#: adhocracy4/polls/static/polls/Question.jsx:10
-#: adhocracy4/polls/static/polls/Question.jsx:10
-msgid "Multiple answers are possible for this question"
-msgstr "Flere svar er mulige for dette spørgsmål"
-
-#: adhocracy4/polls/static/polls/Question.jsx:36
-#: adhocracy4/polls/static/polls/Question.jsx:36
-msgid "Vote counted"
-msgstr "Stemmen tælles"
-
-#: adhocracy4/polls/static/polls/Question.jsx:37
-#: adhocracy4/polls/static/polls/Question.jsx:37
-msgid "Vote has not been counted due to a server error."
-msgstr "Afstemningen er ikke talt på grund af en serverfejl."
-
-#: adhocracy4/polls/static/polls/Question.jsx:104
-#: adhocracy4/polls/static/polls/Question.jsx:104
-msgid "Vote"
-msgstr "Stemme"
-
-#: adhocracy4/polls/static/polls/Question.jsx:105
-#: adhocracy4/polls/static/polls/Question.jsx:105
-msgid "Please login to vote"
-msgstr "Venligst log ind for at stemme"
-
-#: adhocracy4/polls/static/polls/Question.jsx:140
-#: adhocracy4/polls/static/polls/Question.jsx:140
-msgid "Show preliminary results"
-msgstr "Vis foreløbige resultater"
-
-#: adhocracy4/polls/static/polls/Question.jsx:142
-#: adhocracy4/polls/static/polls/Question.jsx:142
-msgid "Change vote"
-msgstr "Skift afstemning"
-
-#: adhocracy4/polls/static/polls/Question.jsx:143
-#: adhocracy4/polls/static/polls/Question.jsx:143
-msgid "To poll"
-msgstr "At afstemme"
-
-#: adhocracy4/polls/static/polls/Question.jsx:161
-#: adhocracy4/polls/static/polls/Question.jsx:161
-msgid "vote"
-msgid_plural "votes"
-msgstr[0] "stemmer"
-msgstr[1] "stemmer"
-
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:8
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:8
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:16
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:19
 msgid "Question"
 msgstr "Spørgsmål"
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:10
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:10
-msgid "Users can select more than one answer."
-msgstr "Brugere kan vælge mere end ét svar."
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:36
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:119
+#: adhocracy4/polls/assets/HelptextForm.jsx:11
+msgid "Explanation"
+msgstr ""
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:11
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:11
-msgid "Add a new choice"
-msgstr "Tilføj et nyt valg"
-
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:12
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:12
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:45
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:50
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:129
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:134
 msgid "Move up"
 msgstr "Flyt op"
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:13
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:13
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:57
+#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:62
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:141
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:146
 msgid "Move down"
 msgstr "Flyt ned"
 
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:54
-#: adhocracy4/polls/static/polls/QuestionForm.jsx:54
-msgid "Choice"
-msgstr "Valg"
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:46
+msgid "Participants can vote for more than one option (multiple choice)"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:61
+msgid "Participants can add their own answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:94
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:95
+msgid "Other"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestion.jsx:112
+msgid "New answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:163
+msgid "The poll has been updated."
+msgstr "Undersøgelsen er blevet opdateret."
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:177
+msgid "The poll could not be updated."
+msgstr "Undersøgelsen kunne ikke opdateres."
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:196
+msgid "New question"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:202
+msgid "Multiple choice question"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:207
+msgid "Open question"
+msgstr ""
+
+#: adhocracy4/polls/assets/EditPollQuestions.jsx:279
+msgid "Save"
+msgstr "Gemme"
+
+#: adhocracy4/polls/assets/PollQuestion.jsx:15
+msgid "Multiple answers are possible."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:13
+msgid "Your answer has been saved."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:18
+msgid ""
+"Your answer could not be saved due to a server error. Please try again later."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:23
+msgid "Your answer is invalid or empty. Please try again."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:41
+msgid "To poll"
+msgstr "At afstemme"
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:47
+msgid "Change answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:56
+msgid "Show preliminary results"
+msgstr "Vis foreløbige resultater"
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:135
+msgid "Submit answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:141
+msgid "Please login to answer"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:150
+msgid "Please enter your answer in this field."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:59
+msgid "Hide other answers"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:61
+msgid "Show other answers"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:75
+#, javascript-format
+msgid "%s participant gave 1 answer."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:77
+#: adhocracy4/polls/assets/PollResults.jsx:79
+#, javascript-format
+msgid "%s participant gave %s answers."
+msgid_plural "%s participants gave %s answers."
+msgstr[0] ""
+msgstr[1] ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:81
+msgid ""
+" For multiple choice questions the percentages may add up to more than 100%."
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:83
+#: adhocracy4/polls/assets/PollResults.jsx:92
+#, javascript-format
+msgid "1 person has answered."
+msgid_plural "%s people have answered."
+msgstr[0] ""
+msgstr[1] ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:94
+msgid "noone has answered this question"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollResults.jsx:127
+msgid "Your choice"
+msgstr "Dit valg"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:60
 #: adhocracy4/reports/static/reports/ReportModal.jsx:60
@@ -570,7 +623,7 @@ msgstr "Tak skal du have! Vi tager os af det."
 msgid "Close"
 msgstr "Tæt"
 
-#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:77
+#: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
 msgstr "Indstil venligst alle værdierne for dit projekt. "
 
@@ -587,11 +640,11 @@ msgstr "Fjern"
 msgid "add a new paragraph"
 msgstr "Tilføj nyt afsnit"
 
-#: euth/documents/static/documents/Paragraph.jsx:82
+#: euth/documents/static/documents/Paragraph.jsx:83
 msgid "Headline:"
 msgstr "Overskrift:"
 
-#: euth/documents/static/documents/Paragraph.jsx:98
+#: euth/documents/static/documents/Paragraph.jsx:100
 msgid "Paragraph:"
 msgstr "Afsnit:"
 
@@ -614,3 +667,38 @@ msgstr "Gem"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Følg ikke længere"
+
+#~ msgid "Add a new question"
+#~ msgstr "Tilføj et nyt spørgsmål"
+
+#~ msgid "Multiple answers are possible for this question"
+#~ msgstr "Flere svar er mulige for dette spørgsmål"
+
+#~ msgid "Vote counted"
+#~ msgstr "Stemmen tælles"
+
+#~ msgid "Vote has not been counted due to a server error."
+#~ msgstr "Afstemningen er ikke talt på grund af en serverfejl."
+
+#~ msgid "Vote"
+#~ msgstr "Stemme"
+
+#~ msgid "Please login to vote"
+#~ msgstr "Venligst log ind for at stemme"
+
+#~ msgid "Change vote"
+#~ msgstr "Skift afstemning"
+
+#~ msgid "vote"
+#~ msgid_plural "votes"
+#~ msgstr[0] "stemmer"
+#~ msgstr[1] "stemmer"
+
+#~ msgid "Users can select more than one answer."
+#~ msgstr "Brugere kan vælge mere end ét svar."
+
+#~ msgid "Add a new choice"
+#~ msgstr "Tilføj et nyt valg"
+
+#~ msgid "Choice"
+#~ msgstr "Valg"
