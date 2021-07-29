@@ -9,6 +9,7 @@
 .checkbox-list {
     padding-left: 0;
     margin-left: 0;
+    margin-bottom: $spacer;
     list-style: none;
     float: left;
 
@@ -30,11 +31,11 @@
         &:hover {
             color: $brand-brand1;
         }
-    }
 
-    .active button {
-        background-color: $brand-brand1;
-        color: $body-bg;
+        &.active {
+            background-color: $brand-brand1;
+            color: $body-bg;
+        }
     }
 }
 
