@@ -163,16 +163,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              url: {
-                filter: (url, resourcePath) => {
-                  // only handle `/` urls, leave rest in code (pythong images to be left)
-                  if (!url.startsWith('/')) {
-                    return true
-                  } else {
-                    return false
-                  }
-                }
-              }
+              url: url => !url.startsWith('/')
             }
           },
           {
