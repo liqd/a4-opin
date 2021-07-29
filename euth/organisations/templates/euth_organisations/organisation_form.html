@@ -32,22 +32,27 @@
              data-active-languages="{{ form.prefilled_languages|join:' ' }}"
         ></div>
 
-        {% for lang_code, fields in form.translated %}
-        <div class="language-switch-panel {% if lang_code == form.get_initial_active_tab %}active{% endif %}" id="{{ lang_code }}_language_panel">
-            {% for field in fields %}
-            <div class="form-group{% if field.errors %} has-error{% endif %}">
-                <label class="form-label" for="{{field.id_for_label}}">{{ field.label }}</label>
-                {% if field.help_text %}
-                <p><i>{{ field.help_text }}</i></p>
-                {% endif %}
-                {% render_field field class="form-control" %}
-                {% for error in field.errors %}
-                <span class="form-text">{{ error }}</span>
-                {% endfor %}
-            </div>
-            {% endfor %}
+        <div class="tab-content">
+          {% for lang_code, fields in form.translated %}
+          <div
+            class="language-switch-panel tab-pane fade {% if lang_code == form.get_initial_active_tab %}active show{% endif %}"
+            role="tabpanel"
+            id="{{ lang_code }}_language_panel">
+              {% for field in fields %}
+              <div class="form-group{% if field.errors %} has-error{% endif %}">
+                  <label class="form-label" for="{{field.id_for_label}}">{{ field.label }}</label>
+                  {% if field.help_text %}
+                  <p><i>{{ field.help_text }}</i></p>
+                  {% endif %}
+                  {% render_field field class="form-control" %}
+                  {% for error in field.errors %}
+                  <span class="form-text">{{ error }}</span>
+                  {% endfor %}
+              </div>
+              {% endfor %}
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
 
         <button type="submit" name="publish" class="btn btn-sm btn-primary">{% trans 'save changes' %}</button>
 
