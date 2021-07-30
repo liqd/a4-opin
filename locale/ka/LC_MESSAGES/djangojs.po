@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-29 11:35+0200\n"
+"POT-Creation-Date: 2021-07-30 13:37+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
@@ -71,17 +71,17 @@ msgid "Answer"
 msgstr "პასუხი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:408
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:408
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 msgid "Your reply here"
 msgstr "თქვენი პასუხი აქ"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:283
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:283
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -93,29 +93,29 @@ msgstr ""
 "აკმაყოფილებს ჩვენს სადისკუსიო წესებს()."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 msgid "Moderator"
 msgstr "მოდერატორი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:255
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:255
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 msgid "Latest edit on"
 msgstr "ბოლოს რედაქტირებული"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:236
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:236
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 msgid "Do you really want to delete this comment?"
 msgstr "ნამდვილად გსურთ ამ კომენტარის წაშლა?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
@@ -123,18 +123,18 @@ msgstr "ნამდვილად გსურთ ამ კომენტა
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 msgid "Delete"
 msgstr "წაშლა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:239
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:239
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
@@ -263,13 +263,13 @@ msgctxt "verb"
 msgid "Comment"
 msgstr "კომენტარი"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:290
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:290
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
 msgid "Share link"
 msgstr "ბმულის გაზიარება"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:329
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:329
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
 msgid "Categories: "
 msgstr "კატეგორიები"
 
@@ -300,10 +300,10 @@ msgstr "ბოლოს განხილული"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:544
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
 msgid "all"
 msgstr "ყველა"
 
@@ -318,59 +318,61 @@ msgstr "ყველა"
 msgid "Write contribution"
 msgstr "წვლილის შეტანა"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:522
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:526
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:519
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:519
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 msgid "Search contributions"
 msgstr "კონტრიბუციის ძებნა"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:524
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
 msgid "Clear search"
 msgstr "ძებნის გასუფთავება"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:536
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
 msgid "display: "
 msgstr "ჩვენება"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:563
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
 msgid "sorted by: "
 msgstr "დალაგებული"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:588
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] "შესვლა "
 msgstr[1] "ჩანაწერები "
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:592
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "ჩანაწერი ნაპოვნია "
 msgstr[1] "ნაპოვნია მასალა "
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
 msgid "Filters"
 msgstr "ფილტრები"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:596
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
 msgid "Show filters"
 msgstr "ფილტრების ჩვენება"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
 msgid "Hide Filters"
 msgstr "ფილტრების დამალვა"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:599
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
 msgid "Hide filters"
 msgstr "ფილტრების დამალვა"
 
@@ -553,61 +555,65 @@ msgstr "გამოკითხვაში"
 msgid "Change answer"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:56
-msgid "Show preliminary results"
-msgstr "წინასწარი შედეგების ჩვენება"
-
-#: adhocracy4/polls/assets/PollQuestions.jsx:135
+#: adhocracy4/polls/assets/PollQuestions.jsx:126
 msgid "Submit answer"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:141
+#: adhocracy4/polls/assets/PollQuestions.jsx:132
 msgid "Please login to answer"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:150
+#: adhocracy4/polls/assets/PollQuestions.jsx:142
+msgid "Show results"
+msgstr ""
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:148
+msgid "Show preliminary results"
+msgstr "წინასწარი შედეგების ჩვენება"
+
+#: adhocracy4/polls/assets/PollQuestions.jsx:169
 msgid "Please enter your answer in this field."
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:59
+#: adhocracy4/polls/assets/PollResults.jsx:65
 msgid "Hide other answers"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:61
+#: adhocracy4/polls/assets/PollResults.jsx:67
 msgid "Show other answers"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:75
+#: adhocracy4/polls/assets/PollResults.jsx:81
 #, javascript-format
 msgid "%s participant gave 1 answer."
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:77
-#: adhocracy4/polls/assets/PollResults.jsx:79
+#: adhocracy4/polls/assets/PollResults.jsx:83
+#: adhocracy4/polls/assets/PollResults.jsx:85
 #, javascript-format
 msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:81
+#: adhocracy4/polls/assets/PollResults.jsx:87
 msgid ""
 " For multiple choice questions the percentages may add up to more than 100%."
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:83
-#: adhocracy4/polls/assets/PollResults.jsx:92
+#: adhocracy4/polls/assets/PollResults.jsx:89
+#: adhocracy4/polls/assets/PollResults.jsx:98
 #, javascript-format
 msgid "1 person has answered."
 msgid_plural "%s people have answered."
 msgstr[0] ""
 msgstr[1] ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:94
+#: adhocracy4/polls/assets/PollResults.jsx:100
 msgid "noone has answered this question"
 msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:127
+#: adhocracy4/polls/assets/PollResults.jsx:132
 msgid "Your choice"
 msgstr "ენი არჩევანი"
 
