@@ -134,24 +134,33 @@ module.exports = {
       dependOn: 'adhocracy4'
     }
   },
+  // exposes exports of entry points
   output: {
-    libraryTarget: 'this',
-    library: '[name]',
+    library: {
+      name: '[name]',
+      type: 'this' // return value of entry point will be assigned this.
+    },
     path: path.resolve('./euth_wagtail/static'),
     publicPath: '/static/'
   },
   externals: {
     django: 'django'
   },
+  // enables assets property for loading
+  experiments: {
+    asset: true
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!(adhocracy4)\/).*/, // exclude all dependencies but adhocracy4
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
-          plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
+          }
         }
       },
       {
