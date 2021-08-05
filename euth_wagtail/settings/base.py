@@ -397,8 +397,6 @@ ACTIONABLE = [
     ('a4comments', 'Comment')
 ]
 
-GOOGLE_API_KEY = "AIzaSyC8kq3VbEzLA1xqe0ItRk-y4bgAg89h4Qc"
-
 A4_MAP_ATTRIBUTION = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 A4_MAP_BASEURL = 'https://{s}.tile.openstreetmap.org/'
 A4_MAP_BOUNDING_BOX = [
