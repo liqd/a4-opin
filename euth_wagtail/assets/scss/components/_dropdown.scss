@@ -8,6 +8,10 @@
     width: 100%;
     padding: 0.5*$spacer $spacer;
     text-align: left;
+
+    & > a {
+        text-decoration: none;
+    }
 }
 
 // commenting out to test on dev as seems un-needed
