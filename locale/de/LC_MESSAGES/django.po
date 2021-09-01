@@ -3143,28 +3143,3 @@ msgstr "Download Leitfaden"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Inhalt"
-
-#~ msgid "Address"
-#~ msgstr "Adresse"
-
-#~ msgid "Voting phase"
-#~ msgstr "Abstimmungsphase"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Führe Umfragen durch und diskutiere diese."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Pro Frage ist nur eine Stimme pro Benutzer*in erlaubt."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "Ich akzeptiere die <a href=\"%(terms_of_use_url)s\" target=\"blank"
-#~ "\">Nutzungsbedingungen</a>."
-
-#~ msgid "Play video"
-#~ msgstr "Video abspielen"

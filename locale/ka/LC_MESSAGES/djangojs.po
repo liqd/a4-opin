@@ -680,38 +680,3 @@ msgstr "გადარჩენა"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "დაუცველი"
-
-#~ msgid "Add a new question"
-#~ msgstr "ახალი შეკითხვა"
-
-#~ msgid "Multiple answers are possible for this question"
-#~ msgstr "ამ კითხვაზე შესაძლებელია მრავალი პასუხი"
-
-#~ msgid "Vote counted"
-#~ msgstr "ხმის დათვლა"
-
-#~ msgid "Vote has not been counted due to a server error."
-#~ msgstr "ხმის დათვლა ვერ მოხერხდა სერვერის შეცდომის გამო."
-
-#~ msgid "Vote"
-#~ msgstr "ხმის მიცემა"
-
-#~ msgid "Please login to vote"
-#~ msgstr "გთხოვთ, ხელახლა შესვლა"
-
-#~ msgid "Change vote"
-#~ msgstr "ხმის მიცემა"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "ხმა"
-#~ msgstr[1] "ხმა"
-
-#~ msgid "Users can select more than one answer."
-#~ msgstr "მომხმარებელს შეუძლია აირჩიოს ერთზე მეტი პასუხი."
-
-#~ msgid "Add a new choice"
-#~ msgstr "ახალი არჩევანის დამატება"
-
-#~ msgid "Choice"
-#~ msgstr "არჩევანი"

@@ -675,38 +675,3 @@ msgstr "spara"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Avfölj"
-
-#~ msgid "Add a new question"
-#~ msgstr "Lägg till en ny fråga"
-
-#~ msgid "Multiple answers are possible for this question"
-#~ msgstr "Flera svar är möjliga för denna fråga"
-
-#~ msgid "Vote counted"
-#~ msgstr "Rösta räknat"
-
-#~ msgid "Vote has not been counted due to a server error."
-#~ msgstr "Rösta har inte räknats på grund av ett serverfel."
-
-#~ msgid "Vote"
-#~ msgstr "Rösta"
-
-#~ msgid "Please login to vote"
-#~ msgstr "Vänligen logga in för att rösta"
-
-#~ msgid "Change vote"
-#~ msgstr "Ändra omröstning"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "röster"
-#~ msgstr[1] "röster"
-
-#~ msgid "Users can select more than one answer."
-#~ msgstr "Användare kan välja mer än ett svar."
-
-#~ msgid "Add a new choice"
-#~ msgstr "Lägg till ett nytt val"
-
-#~ msgid "Choice"
-#~ msgstr "Val"

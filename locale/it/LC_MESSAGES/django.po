@@ -3150,31 +3150,3 @@ msgstr "Scarica le linee guida"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contenuto"
-
-#~ msgid "Address"
-#~ msgstr "Indirizzo"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "Scelte vuote rilevate."
-
-#~ msgid "Voting phase"
-#~ msgstr "Fase di voto"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Vota e discuti il sondaggio."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Per ogni domanda è ammesso un solo voto per utente."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "Accetto i <a href=\"%(terms_of_use_url)s\" target=\"blank\"> termini di "
-#~ "utilizzo </a> ."
-
-#~ msgid "Play video"
-#~ msgstr "Riproduci video"

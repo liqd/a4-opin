@@ -675,38 +675,3 @@ msgstr "speichern"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Entfolgen"
-
-#~ msgid "Add a new question"
-#~ msgstr "Neue Frage hinzufügen"
-
-#~ msgid "Multiple answers are possible for this question"
-#~ msgstr "Bei dieser Frage gibt es mehrere Antwortmöglichkeiten "
-
-#~ msgid "Vote counted"
-#~ msgstr "Stimme wurde gezählt"
-
-#~ msgid "Vote has not been counted due to a server error."
-#~ msgstr "Stimme konnte nicht gezählt werden wegen eines Server Fehlers"
-
-#~ msgid "Vote"
-#~ msgstr "Abstimmen"
-
-#~ msgid "Please login to vote"
-#~ msgstr "Bitte einloggen um abzustimmen"
-
-#~ msgid "Change vote"
-#~ msgstr "Abstimmung ändern"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "Abstimmungen"
-#~ msgstr[1] "Abstimmungen"
-
-#~ msgid "Users can select more than one answer."
-#~ msgstr "Nutzer*innen können mehr als eine Antwort auswählen."
-
-#~ msgid "Add a new choice"
-#~ msgstr "Neue Antwortmöglichkeit hinzufügen"
-
-#~ msgid "Choice"
-#~ msgstr "Wahl"

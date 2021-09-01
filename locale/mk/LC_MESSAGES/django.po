@@ -3144,31 +3144,3 @@ msgstr "Упатства за преземање"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Содржина"
-
-#~ msgid "Address"
-#~ msgstr "Адреса"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "Откриени се празни избори."
-
-#~ msgid "Voting phase"
-#~ msgstr "Гласачка фаза"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Фрлајте гласови и дискутирајте за анкетата."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Само еден глас по прашање е дозволен по корисник."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "Го прифаќам <a href=\"%(terms_of_use_url)s\" target=\"blank\"> услови за "
-#~ "користење </a>."
-
-#~ msgid "Play video"
-#~ msgstr "Пуштете видео"

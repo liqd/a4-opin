@@ -3164,31 +3164,3 @@ msgstr "Instructions de téléchargement"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contenu"
-
-#~ msgid "Address"
-#~ msgstr "Adresse"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "Choix vides détectés."
-
-#~ msgid "Voting phase"
-#~ msgstr "Phase de vote"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Votez et discutez du scrutin."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Un seul vote par question est autorisé par utilisateur."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "J'accepte  <a href=\"%(terms_of_use_url)s\" target=\"blank\"> les "
-#~ "conditions d'utilisation </a>."
-
-#~ msgid "Play video"
-#~ msgstr "Lire la vidéo"
