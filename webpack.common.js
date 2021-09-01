@@ -216,7 +216,13 @@ module.exports = {
     ]
   },
   resolve: {
-    fallback: { path: require.resolve('path-browserify') },
+    fallback: {
+      // assert is polyfill of remark-gfm (comments markdown),
+      // functionality is not essential or explained and so doesn't
+      // require a new polyfill install, this can be reasssed in future
+      assert: false,
+      path: require.resolve('path-browserify')
+    },
     extensions: ['*', '.js', '.jsx', '.scss', '.css'],
     // when using `npm link`, dependencies are resolved against the linked
     // folder by default. This may result in dependencies being included twice.
