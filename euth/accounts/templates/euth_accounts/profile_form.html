@@ -30,7 +30,11 @@
                                         {% if field.help_text %}
                                             <p class='form-help-text'>{{ field.help_text }}</p>
                                         {% endif %}
-                                        {% render_field field class="form-control" %}
+                                        {% if field|widget_type == 'select' or field|widget_type == 'lazyselect'  %}
+                                            {% render_field field class="form-select" %}
+                                        {% else %}
+                                            {% render_field field class="form-control" %}
+                                        {% endif %}
                                     {% endif %}
                                     {% if field.errors %}
                                     <ul class="errorlist">
