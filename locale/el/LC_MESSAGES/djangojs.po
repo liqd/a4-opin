@@ -679,38 +679,3 @@ msgstr "αποθηκεύσετε"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Απαγορεύεται η παρακολούθηση"
-
-#~ msgid "Add a new question"
-#~ msgstr "Προσθέστε μια νέα ερώτηση"
-
-#~ msgid "Multiple answers are possible for this question"
-#~ msgstr "Πολλές απαντήσεις είναι δυνατές για αυτήν την ερώτηση"
-
-#~ msgid "Vote counted"
-#~ msgstr "Η καταμέτρηση της ψηφοφορίας"
-
-#~ msgid "Vote has not been counted due to a server error."
-#~ msgstr "Η ψηφοφορία δεν έχει υπολογιστεί λόγω σφάλματος διακομιστή."
-
-#~ msgid "Vote"
-#~ msgstr "Ψήφος"
-
-#~ msgid "Please login to vote"
-#~ msgstr "Παρακαλώ συνδεθείτε για να ψηφίσετε"
-
-#~ msgid "Change vote"
-#~ msgstr "Αλλαγή ψηφοφορίας"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "ψήφους"
-#~ msgstr[1] "ψήφους"
-
-#~ msgid "Users can select more than one answer."
-#~ msgstr "Οι χρήστες μπορούν να επιλέξουν περισσότερες από μία απαντήσεις."
-
-#~ msgid "Add a new choice"
-#~ msgstr "Προσθέστε μια νέα επιλογή"
-
-#~ msgid "Choice"
-#~ msgstr "Επιλογή"

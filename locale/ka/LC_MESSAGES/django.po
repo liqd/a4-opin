@@ -3137,31 +3137,3 @@ msgstr "ჩამოტვირთვა სახელმძღვანე�
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "შინაარსი"
-
-#~ msgid "Address"
-#~ msgstr "მისამართი"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "აღმოჩენილია ცარიელი არჩევანი."
-
-#~ msgid "Voting phase"
-#~ msgstr "კენჭისყრის ფაზა"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "მიცემული ხმები და განიხილა გამოკითხვა."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "თითო კითხვაზე მხოლოდ ერთი ხმა დასაშვებია."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "მე ვეთანხმები <a href=\"%(terms_of_use_url)s\" target=\"blank\"> "
-#~ "მოხმარების პირობები </a>."
-
-#~ msgid "Play video"
-#~ msgstr "ვიდეოს დაკვრა"

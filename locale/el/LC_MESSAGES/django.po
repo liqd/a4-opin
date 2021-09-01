@@ -3174,31 +3174,3 @@ msgstr "Κατεβάστε οδηγίες"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Περιεχόμενα"
-
-#~ msgid "Address"
-#~ msgstr "Διεύθυνση"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "Εντοπίστηκαν κενές επιλογές."
-
-#~ msgid "Voting phase"
-#~ msgstr "Φάση ψηφοφορίας"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Ψηφίστε και συζητήστε την ψηφοφορία."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Επιτρέπεται μόνο μία ψηφοφορία ανά ερώτηση ανά χρήστη."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "Αποδέχομαι τους <a href=\"%(terms_of_use_url)s\" target=\"blank\">όρους "
-#~ "χρήσης</a>."
-
-#~ msgid "Play video"
-#~ msgstr "Παίξε το βίντεο"

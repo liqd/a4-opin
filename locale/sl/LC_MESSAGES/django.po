@@ -3129,29 +3129,3 @@ msgstr "Prenesite navodila"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Vsebina"
-
-#~ msgid "Address"
-#~ msgstr "Naslov"
-
-#~ msgid "Voting phase"
-#~ msgstr "Faza glasovanja"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Glasujte in glasujte o anketi"
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Na uporabnika je dovoljen le en glas na vprašanje."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "                Sprejmem <a href=\"%(terms_of_use_url)s\" target=\"blank"
-#~ "\">pogoje uporabe</a>.\n"
-#~ "                "
-
-#~ msgid "Play video"
-#~ msgstr "Predvajaj posnetek"

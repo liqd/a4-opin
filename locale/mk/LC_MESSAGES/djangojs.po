@@ -682,38 +682,3 @@ msgstr "спаси"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Отстрани"
-
-#~ msgid "Add a new question"
-#~ msgstr "Додај ново прашање"
-
-#~ msgid "Multiple answers are possible for this question"
-#~ msgstr "За ова прашање се можни повеќе одговори"
-
-#~ msgid "Vote counted"
-#~ msgstr "Пребројувањето на гласовите"
-
-#~ msgid "Vote has not been counted due to a server error."
-#~ msgstr "Пребројувањето на гласовите"
-
-#~ msgid "Vote"
-#~ msgstr "Гласај"
-
-#~ msgid "Please login to vote"
-#~ msgstr "Ве молиме пријавете се за да гласате"
-
-#~ msgid "Change vote"
-#~ msgstr "Промени го гласањето"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "гласови"
-#~ msgstr[1] "гласови"
-
-#~ msgid "Users can select more than one answer."
-#~ msgstr "Корисниците можат да одберат повеќе од еден одговор."
-
-#~ msgid "Add a new choice"
-#~ msgstr "Додај нов избор"
-
-#~ msgid "Choice"
-#~ msgstr "Избор"

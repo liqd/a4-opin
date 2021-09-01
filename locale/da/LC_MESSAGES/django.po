@@ -3133,31 +3133,3 @@ msgstr "Download retningslinjer"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Indhold"
-
-#~ msgid "Address"
-#~ msgstr "Adresse"
-
-#~ msgid "Empty choices detected."
-#~ msgstr "Der er fundet tomme valg."
-
-#~ msgid "Voting phase"
-#~ msgstr "Afstemningsfase"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Afgiv stemmer og diskutér afstemningen."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Kun én stemme pr. Spørgsmål er tilladt pr. Bruger."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "Jeg accepterer <a href=\"%(terms_of_use_url)s\" target=\"blank"
-#~ "\">brugerbetingelserne</a>. "
-
-#~ msgid "Play video"
-#~ msgstr "Afspil video "

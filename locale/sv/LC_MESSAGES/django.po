@@ -3117,29 +3117,3 @@ msgstr "Hämta riktlinjer"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Innehåll"
-
-#~ msgid "Address"
-#~ msgstr "Adress"
-
-#~ msgid "Voting phase"
-#~ msgstr "Röstningsfas"
-
-#~ msgid "Cast votes and discuss the poll."
-#~ msgstr "Rösta röster och diskutera omröstningen."
-
-#~ msgid "Only one vote per question is allowed per user."
-#~ msgstr "Endast en röst per fråga är tillåten per användare."
-
-#~ msgid ""
-#~ "\n"
-#~ "                I accept the <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">terms of use</a>.\n"
-#~ "                "
-#~ msgstr ""
-#~ "\n"
-#~ "                Jag accepterar <a href=\"%(terms_of_use_url)s\" target="
-#~ "\"blank\">användarvillkoren</a>.\n"
-#~ "                "
-
-#~ msgid "Play video"
-#~ msgstr "Spela video"
