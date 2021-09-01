@@ -134,33 +134,24 @@ module.exports = {
       dependOn: 'adhocracy4'
     }
   },
-  // exposes exports of entry points
   output: {
-    library: {
-      name: '[name]',
-      type: 'this' // return value of entry point will be assigned this.
-    },
+    libraryTarget: 'this',
+    library: '[name]',
     path: path.resolve('./euth_wagtail/static'),
     publicPath: '/static/'
   },
   externals: {
     django: 'django'
   },
-  // enables assets property for loading
-  experiments: {
-    asset: true
-  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules\/(?!(adhocracy4)\/).*/, // exclude all dependencies but adhocracy4
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
-            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
-          }
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'].map(require.resolve),
+          plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
         }
       },
       {
@@ -216,7 +207,13 @@ module.exports = {
     ]
   },
   resolve: {
-    fallback: { path: require.resolve('path-browserify') },
+    fallback: {
+      // assert is polyfill of remark-gfm (comments markdown),
+      // functionality is not essential or explained and so doesn't
+      // require a new polyfill install, this can be reasssed in future
+      assert: false,
+      path: require.resolve('path-browserify')
+    },
     extensions: ['*', '.js', '.jsx', '.scss', '.css'],
     // when using `npm link`, dependencies are resolved against the linked
     // folder by default. This may result in dependencies being included twice.
