@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-29 11:35+0200\n"
+"POT-Creation-Date: 2021-09-01 15:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -420,50 +420,19 @@ msgstr ""
 msgid "More contact possibilities"
 msgstr "More contact possibilities"
 
-#: adhocracy4/dashboard/forms.py:105 adhocracy4/phases/models.py:69
-#: euth/memberships/templates/euth_memberships/includes/member_form.html:11
-#: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
-#: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
-msgid "Name"
-msgstr "Name"
-
-#: adhocracy4/dashboard/forms.py:107
-msgid "Address"
-msgstr "Address"
-
-#: adhocracy4/dashboard/forms.py:110
-#: euth/projects/templates/euth_projects/project_detail.html:117
-msgid "Telephone"
-msgstr "Telephone"
-
-#: adhocracy4/dashboard/forms.py:112
-#: euth/memberships/templates/euth_memberships/includes/member_form.html:12
-#: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
-#: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
-#: euth/projects/templates/euth_projects/project_detail.html:121
-#: euth_wagtail/templates/account/login.html:40
-#: euth_wagtail/templates/account/password_reset.html:26
-msgid "Email"
-msgstr "Email"
-
-#: adhocracy4/dashboard/forms.py:114
-#: euth/projects/templates/euth_projects/project_detail.html:126
-msgid "Website"
-msgstr "Website"
-
-#: adhocracy4/dashboard/forms.py:144 adhocracy4/phases/models.py:77
+#: adhocracy4/dashboard/forms.py:134 adhocracy4/phases/models.py:77
 msgid "End date"
 msgstr "End date"
 
-#: adhocracy4/dashboard/forms.py:144
+#: adhocracy4/dashboard/forms.py:134
 msgid "End time"
 msgstr "End time"
 
-#: adhocracy4/dashboard/forms.py:150 adhocracy4/phases/models.py:75
+#: adhocracy4/dashboard/forms.py:140 adhocracy4/phases/models.py:75
 msgid "Start date"
 msgstr "Start date"
 
-#: adhocracy4/dashboard/forms.py:150
+#: adhocracy4/dashboard/forms.py:140
 msgid "Start time"
 msgstr "Start time"
 
@@ -687,43 +656,43 @@ msgstr ""
 "detail pages. It should briefly state the goal of the module in max. 512 "
 "chars."
 
-#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:588
+#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "day"
 
-#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:588
+#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "days"
 
-#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:589
+#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:594
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "hour"
 
-#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:589
+#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:594
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "hours"
 
-#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:590
+#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:595
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "minute"
 
-#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:590
+#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:595
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "minutes"
 
-#: adhocracy4/modules/models.py:195 adhocracy4/projects/models.py:591
+#: adhocracy4/modules/models.py:195 adhocracy4/projects/models.py:596
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "second"
 
 #: adhocracy4/modules/models.py:195 adhocracy4/modules/models.py:206
-#: adhocracy4/projects/models.py:591 adhocracy4/projects/models.py:602
+#: adhocracy4/projects/models.py:596 adhocracy4/projects/models.py:607
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "seconds"
@@ -731,6 +700,13 @@ msgstr "seconds"
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr "Phases cannot run at the same time and must follow after each other."
+
+#: adhocracy4/phases/models.py:69
+#: euth/memberships/templates/euth_memberships/includes/member_form.html:11
+#: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
+#: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
+msgid "Name"
+msgstr "Name"
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:59
@@ -764,10 +740,6 @@ msgid "Duplicate choices detected."
 msgstr "Duplicate choices detected."
 
 #: adhocracy4/polls/api.py:101
-msgid "Empty choices detected."
-msgstr "Empty choices detected."
-
-#: adhocracy4/polls/api.py:103
 msgid "Multiple choice disabled for question."
 msgstr "Multiple choice disabled for question."
 
@@ -775,15 +747,15 @@ msgstr "Multiple choice disabled for question."
 msgid "Poll"
 msgstr "Poll"
 
-#: adhocracy4/polls/models.py:52
+#: adhocracy4/polls/models.py:53
 msgid "Explanation"
 msgstr "Explanation"
 
-#: adhocracy4/polls/models.py:81
+#: adhocracy4/polls/models.py:82
 msgid "Questions with open answers cannot have multiple choices."
 msgstr "Questions with open answers cannot have multiple choices."
 
-#: adhocracy4/polls/models.py:86
+#: adhocracy4/polls/models.py:87
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
@@ -791,33 +763,33 @@ msgstr ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
 
-#: adhocracy4/polls/models.py:151 adhocracy4/polls/models.py:268
+#: adhocracy4/polls/models.py:152 adhocracy4/polls/models.py:279
 msgid "Answer"
 msgstr "Answer"
 
-#: adhocracy4/polls/models.py:163
+#: adhocracy4/polls/models.py:164
 msgid "Only open questions can have answers."
 msgstr "Only open questions can have answers."
 
-#: adhocracy4/polls/models.py:200
+#: adhocracy4/polls/models.py:201
 msgid "Open questions cannot have choices."
 msgstr "Open questions cannot have choices."
 
-#: adhocracy4/polls/models.py:205
+#: adhocracy4/polls/models.py:206
 msgid ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 msgstr ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 
-#: adhocracy4/polls/models.py:212
+#: adhocracy4/polls/models.py:213
 msgid "Question already has \"other\" choice."
 msgstr "Question already has \"other\" choice."
 
-#: adhocracy4/polls/models.py:274
+#: adhocracy4/polls/models.py:285
 msgid "Other vote can only be created for vote on \"other\" choice."
 msgstr "Other vote can only be created for vote on \"other\" choice."
 
-#: adhocracy4/polls/models.py:295
+#: adhocracy4/polls/models.py:306
 msgid "other"
 msgstr "other"
 
@@ -843,6 +815,10 @@ msgstr "Item of type %(item)s for that module already exists"
 #: adhocracy4/polls/validators.py:25
 msgid "Choice has to belong to the question set in the url."
 msgstr "Choice has to belong to the question set in the url."
+
+#: adhocracy4/polls/validators.py:43
+msgid "Only one vote per choice is allowed per user."
+msgstr "Only one vote per choice is allowed per user."
 
 #: adhocracy4/projects/admin.py:8
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
@@ -882,15 +858,34 @@ msgstr ""
 msgid "Postal address"
 msgstr "Postal address"
 
-#: adhocracy4/projects/models.py:58
+#: adhocracy4/projects/models.py:54
+#: euth/memberships/templates/euth_memberships/includes/member_form.html:12
+#: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
+#: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
+#: euth/projects/templates/euth_projects/project_detail.html:121
+#: euth_wagtail/templates/account/login.html:40
+#: euth_wagtail/templates/account/password_reset.html:26
+msgid "Email"
+msgstr "Email"
+
+#: adhocracy4/projects/models.py:60
 msgid "Contact person"
 msgstr "Contact person"
 
-#: adhocracy4/projects/models.py:78
+#: adhocracy4/projects/models.py:67
+msgid "Phone"
+msgstr "Phone"
+
+#: adhocracy4/projects/models.py:72
+#: euth/projects/templates/euth_projects/project_detail.html:126
+msgid "Website"
+msgstr "Website"
+
+#: adhocracy4/projects/models.py:83
 msgid "Can your project be located on the map?"
 msgstr "Can your project be located on the map?"
 
-#: adhocracy4/projects/models.py:79
+#: adhocracy4/projects/models.py:84
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -898,15 +893,15 @@ msgstr ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 
-#: adhocracy4/projects/models.py:90
+#: adhocracy4/projects/models.py:95
 msgid "Administrative district"
 msgstr "Administrative district"
 
-#: adhocracy4/projects/models.py:174
+#: adhocracy4/projects/models.py:179
 msgid "Title of your project"
 msgstr "Title of your project"
 
-#: adhocracy4/projects/models.py:175
+#: adhocracy4/projects/models.py:180
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -914,11 +909,11 @@ msgstr ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
 
-#: adhocracy4/projects/models.py:191
+#: adhocracy4/projects/models.py:196
 msgid "Short description of your project"
 msgstr "Short description of your project"
 
-#: adhocracy4/projects/models.py:192
+#: adhocracy4/projects/models.py:197
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -926,11 +921,11 @@ msgstr ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
 
-#: adhocracy4/projects/models.py:200
+#: adhocracy4/projects/models.py:205
 msgid "Description of your project"
 msgstr "Description of your project"
 
-#: adhocracy4/projects/models.py:201
+#: adhocracy4/projects/models.py:206
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -940,11 +935,11 @@ msgstr ""
 "how the project’s participation will look like. It will be always visible in "
 "the „Info“ tab on your project’s page."
 
-#: adhocracy4/projects/models.py:209
+#: adhocracy4/projects/models.py:214
 msgid "Results of your project"
 msgstr "Results of your project"
 
-#: adhocracy4/projects/models.py:210
+#: adhocracy4/projects/models.py:215
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -954,32 +949,32 @@ msgstr ""
 "how you are planning to use the results. If the project is finished you "
 "should add a summary of the results."
 
-#: adhocracy4/projects/models.py:218
+#: adhocracy4/projects/models.py:223
 msgid "Access to the project"
 msgstr "Access to the project"
 
-#: adhocracy4/projects/models.py:223 adhocracy4/projects/models.py:230
+#: adhocracy4/projects/models.py:228 adhocracy4/projects/models.py:235
 #: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Header image"
 
-#: adhocracy4/projects/models.py:225
+#: adhocracy4/projects/models.py:230
 msgid "The image will be shown as a decorative background image."
 msgstr "The image will be shown as a decorative background image."
 
-#: adhocracy4/projects/models.py:233 adhocracy4/projects/models.py:241
+#: adhocracy4/projects/models.py:238 adhocracy4/projects/models.py:246
 msgid "Tile image"
 msgstr "Tile image"
 
-#: adhocracy4/projects/models.py:235
+#: adhocracy4/projects/models.py:240
 msgid "The image will be shown in the project tile."
 msgstr "The image will be shown in the project tile."
 
-#: adhocracy4/projects/models.py:254
+#: adhocracy4/projects/models.py:259
 msgid "Project is archived"
 msgstr "Project is archived"
 
-#: adhocracy4/projects/models.py:255
+#: adhocracy4/projects/models.py:260
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
@@ -987,11 +982,11 @@ msgstr ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:265
 msgid "Project topics"
 msgstr "Project topics"
 
-#: adhocracy4/projects/models.py:261
+#: adhocracy4/projects/models.py:266
 msgid "Add topics to your project."
 msgstr "Add topics to your project."
 
@@ -2206,7 +2201,7 @@ msgstr "No projects found"
 msgid "Edit your organisation details"
 msgstr "Edit your organisation details"
 
-#: euth/organisations/templates/euth_organisations/organisation_form.html:52
+#: euth/organisations/templates/euth_organisations/organisation_form.html:57
 msgid "save changes"
 msgstr "save changes"
 
@@ -2304,6 +2299,10 @@ msgstr "Participation"
 #: euth/projects/templates/euth_projects/project_detail.html:105
 msgid "info"
 msgstr "info"
+
+#: euth/projects/templates/euth_projects/project_detail.html:117
+msgid "Telephone"
+msgstr "Telephone"
 
 #: euth/projects/templates/euth_projects/project_detail.html:138
 msgid "Welcome!"
@@ -2623,15 +2622,15 @@ msgstr "Georgian"
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:431
 msgid "suggestion"
 msgstr "suggestion"
 
-#: euth_wagtail/settings/base.py:434
+#: euth_wagtail/settings/base.py:432
 msgid "note"
 msgstr "note"
 
-#: euth_wagtail/settings/base.py:435
+#: euth_wagtail/settings/base.py:433
 msgid "question"
 msgstr "question"
 
@@ -3040,6 +3039,12 @@ msgstr "Download guidelines"
 #: home/templates/home/manuals_section_page.html:40
 msgid "Contents"
 msgstr "Contents"
+
+#~ msgid "Address"
+#~ msgstr "Address"
+
+#~ msgid "Empty choices detected."
+#~ msgstr "Empty choices detected."
 
 #~ msgid "Voting phase"
 #~ msgstr "Voting phase"
