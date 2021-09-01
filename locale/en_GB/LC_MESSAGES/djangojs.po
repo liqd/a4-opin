@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-30 13:37+0200\n"
+"POT-Creation-Date: 2021-09-01 15:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -427,6 +427,11 @@ msgstr "Save"
 msgid "Multiple answers are possible."
 msgstr "Multiple answers are possible."
 
+#: adhocracy4/polls/assets/PollQuestion.jsx:81
+#: adhocracy4/polls/assets/PollQuestion.jsx:120
+msgid "other"
+msgstr "other"
+
 #: adhocracy4/polls/assets/PollQuestions.jsx:13
 msgid "Your answer has been saved."
 msgstr "Your answer has been saved."
@@ -449,23 +454,23 @@ msgstr "To poll"
 msgid "Change answer"
 msgstr "Change answer"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:126
+#: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Submit answer"
 msgstr "Submit answer"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:132
+#: adhocracy4/polls/assets/PollQuestions.jsx:128
 msgid "Please login to answer"
 msgstr "Please login to answer"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:142
+#: adhocracy4/polls/assets/PollQuestions.jsx:138
 msgid "Show results"
 msgstr "Show results"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:148
+#: adhocracy4/polls/assets/PollQuestions.jsx:144
 msgid "Show preliminary results"
 msgstr "Show preliminary results"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:169
+#: adhocracy4/polls/assets/PollQuestions.jsx:165
 msgid "Please enter your answer in this field."
 msgstr "Please enter your answer in this field."
 

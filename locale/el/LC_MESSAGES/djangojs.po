@@ -2,45 +2,50 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Theodoros G. Karounos <karounos@eellak.gr>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Lindenlaub, 2020
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-30 13:37+0200\n"
+"POT-Creation-Date: 2021-09-01 15:04+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "Τοποθετήστε το πτυσσόμενο στοιχείο"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "Τίτλος"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "Σώμα κειμένου"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "Συρραπτικό στοιχείο"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:23
 #, javascript-format
 msgid "hide one reply"
@@ -49,6 +54,7 @@ msgstr[0] "απόκρυψη μιας απάντησης"
 msgstr[1] "απόκρυψη %s απαντήσεωνg"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4/comments/static/comments/Comment.jsx:25
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
@@ -56,14 +62,20 @@ msgstr[0] "δείτε μια απάντηση"
 msgstr[1] "βλέπε %s απαντήσεις"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/comments/static/comments/Comment.jsx:30
 msgid "Answer"
 msgstr "Απάντηση"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:414
+#: adhocracy4/comments/static/comments/Comment.jsx:31
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 msgid "Your reply here"
 msgstr "Η απάντησή σας εδώ"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:32
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
@@ -78,14 +90,20 @@ msgstr ""
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:265
+#: adhocracy4/comments/static/comments/Comment.jsx:96
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 msgid "Moderator"
 msgstr "Συντονιστής "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:260
+#: adhocracy4/comments/static/comments/Comment.jsx:105
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 msgid "Latest edit on"
 msgstr "Τελευταία επεξεργασία"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:147
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 #: adhocracy4/comments/static/comments/Comment.jsx:147
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 msgid "Do you really want to delete this comment?"
@@ -99,6 +117,10 @@ msgstr "Θέλετε πραγματικά να διαγράψετε αυτό τ�
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:152
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:157
+#: adhocracy4/comments/static/comments/Comment.jsx:148
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 msgid "Delete"
 msgstr "Διαγράφω"
 
@@ -107,14 +129,21 @@ msgstr "Διαγράφω"
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
+#: adhocracy4/comments/static/comments/Comment.jsx:149
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
+#: adhocracy4/comments_async/static/modals/modal.jsx:58
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "Απορρίπτω "
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:165
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentBox.jsx:165
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 msgid "Your comment here"
 msgstr "Το σχόλιό σας εδώ"
 
+#: adhocracy4/comments/static/comments/CommentBox.jsx:168
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
 msgid "comment"
 msgid_plural "comments"
@@ -124,9 +153,15 @@ msgstr[1] "σχόλια"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:76
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:48
 msgid "save changes"
 msgstr "αποθηκεύστε τις αλλαγές"
 
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:79
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:51
@@ -136,9 +171,14 @@ msgstr "Ματαίωση"
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:107
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:107
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 msgid "post"
 msgstr "Θέση"
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:38
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:117
 msgid "Please login to comment"
@@ -146,9 +186,13 @@ msgstr "Παρακαλούμε συνδεθείτε για να σχολιάσε
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:129
+#: adhocracy4/comments/static/comments/CommentForm.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:129
 msgid "The currently active phase doesn't allow to comment."
 msgstr "Η τρέχουσα ενεργή φάση δεν επιτρέπει την παρατήρηση."
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:123
 msgid "Only invited users can actively participate."
@@ -156,41 +200,52 @@ msgstr "Μόνο οι προσκεκλημένοι χρήστες μπορούν
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:18
 msgid "Edit"
 msgstr "Επεξεργασία"
 
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 msgid "Report"
 msgstr "Κανω ΑΝΑΦΟΡΑ"
 
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
+#: adhocracy4/comments_async/static/comments_async/category_list.jsx:6
 msgid "Choose categories for your comment"
 msgstr "Επιλέξτε κατηγορίες για το σχόλιό σας"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 msgid "Entry successfully created"
 msgstr "Η καταχώριση δημιουργήθηκε με επιτυχία"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Read more..."
 msgstr "Διαβάστε περισσότερα..."
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Read less"
 msgstr "Διαβάστε λιγότερα"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Share"
 msgstr "Μερίδιο"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid " Report"
 msgstr "Κανω ΑΝΑΦΟΡΑ"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "hide comments"
 msgstr "απόκρυψη σχολίων"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #, javascript-format
 msgid "1 comment"
@@ -199,38 +254,49 @@ msgstr[0] "1 σχόλιο"
 msgstr[1] "1 %s σχόλια"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 msgctxt "verb"
 msgid "Comment"
 msgstr "Σχόλιο "
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:295
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
 msgid "Share link"
 msgstr "Μοιράζομαι ένα σύνδεσμο"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:335
 msgid "Categories: "
 msgstr "Κατηγορίες"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
 msgstr "Νεότερο"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
 msgstr "Most up votes"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
 msgstr "Οι περισσότερες ψήφοι "
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
 msgstr "Οι περισσότερες απαντήσεις"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
 msgstr "Τελευταία συζήτηση"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
@@ -241,27 +307,38 @@ msgstr "όλα"
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:503
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:72
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:44
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:96
 msgid "Write contribution"
 msgstr "Γράψτε συνεισφορά"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:519
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:519
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:523
 msgid "Search contributions"
 msgstr "Αναζήτηση συνεισφορών"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:521
 msgid "Clear search"
 msgstr "Εκκαθάριση αναζήτησης"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
 msgid "display: "
 msgstr "απεικόνιση:"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
 msgid "sorted by: "
 msgstr "Ταξινόμηση κατά"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
 msgid "entry"
 msgid_plural "entries"
@@ -269,47 +346,58 @@ msgstr[0] "είσοδος"
 msgstr[1] "καταχωρήσεις"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "βρέθηκε εγγραφή για"
 msgstr[1] "βρέθηκαν καταχωρήσεις για"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
 msgid "Filters"
 msgstr "Φίλτρα"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
 msgid "Show filters"
 msgstr "Εμφάνιση φίλτρων"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
 msgid "Hide Filters"
 msgstr "Απόκρυψη φίλτρων"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
 msgid "Hide filters"
 msgstr "Απόκρυψη φίλτρων"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:104
 msgid " characters"
 msgstr "χαρακτήρες"
 
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:108
 msgid "Comment"
 msgstr "Σχόλιο"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 msgid "Recommend comment"
 msgstr "Προτείνετε σχόλιο"
 
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 msgid "Is recommended"
 msgstr "Προτείνεται"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 msgid "Submit"
 msgstr "υποβάλλουν"
 
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 msgid ""
 "Thanks for the feedback. It will be checked by the moderators as soon as "
@@ -320,35 +408,45 @@ msgstr ""
 
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:71
 #: adhocracy4/reports/static/reports/ReportModal.jsx:61
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:71
+#: adhocracy4/reports/static/reports/ReportModal.jsx:61
 msgid "Your message"
 msgstr "Το μήνυμά σου"
 
+#: adhocracy4/comments_async/static/modals/report_modal.jsx:84
+#: adhocracy4/reports/static/reports/ReportModal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:84
 #: adhocracy4/reports/static/reports/ReportModal.jsx:62
 msgid "Send Report"
 msgstr "Αποστολή αναφοράς"
 
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 msgid "Copy"
 msgstr "αντίγραφο"
 
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 msgid "Copied"
 msgstr "Copied"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
+#: adhocracy4/follows/static/follows/FollowButton.jsx:27
 msgid "You will no longer be updated via email."
 msgstr "Δεν θα ενημερώνεστε πλέον μέσω email."
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:29
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
 msgid "You will be updated via email."
 msgstr "Θα ενημερωθείτε μέσω email. "
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
+#: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
 msgstr "Ακολουθηστε"
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:64
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
 msgid "Following"
 msgstr "ΕΠΟΜΕΝΟ"
@@ -436,14 +534,18 @@ msgstr "Αποθηκεύσετε"
 msgid "Multiple answers are possible."
 msgstr "Πολλαπλές απαντήσεις είναι δυνατές."
 
+#: adhocracy4/polls/assets/PollQuestion.jsx:81
+#: adhocracy4/polls/assets/PollQuestion.jsx:120
+msgid "other"
+msgstr ""
+
 #: adhocracy4/polls/assets/PollQuestions.jsx:13
 msgid "Your answer has been saved."
 msgstr "Η απάντησή σας έχει αποθηκευτεί."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:18
 msgid ""
-"Your answer could not be saved due to a server error. Please try again "
-"later."
+"Your answer could not be saved due to a server error. Please try again later."
 msgstr ""
 "Η απάντησή σας δεν μπόρεσε να αποθηκευτεί λόγω σφάλματος του διακομιστή. "
 "Προσπαθήστε ξανά αργότερα."
@@ -460,23 +562,23 @@ msgstr "Για δημοσκόπηση"
 msgid "Change answer"
 msgstr "Αλλαγή απάντησης"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:126
+#: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Submit answer"
 msgstr "Υποβολή απάντησης"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:132
+#: adhocracy4/polls/assets/PollQuestions.jsx:128
 msgid "Please login to answer"
 msgstr "Παρακαλώ συνδεθείτε για να απαντήσετε"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:142
+#: adhocracy4/polls/assets/PollQuestions.jsx:138
 msgid "Show results"
 msgstr "Εμφάνιση αποτελεσμάτων"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:148
+#: adhocracy4/polls/assets/PollQuestions.jsx:144
 msgid "Show preliminary results"
 msgstr "Εμφάνιση προκαταρκτικών αποτελεσμάτων"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:169
+#: adhocracy4/polls/assets/PollQuestions.jsx:165
 msgid "Please enter your answer in this field."
 msgstr "Εισάγετε την απάντησή σας σε αυτό το πεδίο."
 
@@ -524,6 +626,7 @@ msgstr "κανείς δεν έχει απαντήσει σε αυτή την ε�
 msgid "Your choice"
 msgstr "Επιλογή σου"
 
+#: adhocracy4/reports/static/reports/ReportModal.jsx:60
 #: adhocracy4/reports/static/reports/ReportModal.jsx:60
 msgid "Thank you! We are taking care of it."
 msgstr "Ευχαριστώ! Την φροντίζουμε."
