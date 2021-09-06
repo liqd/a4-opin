@@ -217,10 +217,6 @@ module.exports = {
   },
   resolve: {
     fallback: {
-      // assert is polyfill of remark-gfm (comments markdown),
-      // functionality is not essential or explained and so doesn't
-      // require a new polyfill install, this can be reasssed in future
-      assert: false,
       path: require.resolve('path-browserify')
     },
     extensions: ['*', '.js', '.jsx', '.scss', '.css'],
