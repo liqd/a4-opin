@@ -8,13 +8,13 @@
     width: 100%;
     padding: 0.5*$spacer $spacer;
     text-align: left;
+    text-decoration: none;
+    color: $brand-brand1;
 
-    & > a {
-        text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+        color: darken($brand-brand1, 10%);
+        background-color: $body-bg;
     }
 }
-
-// commenting out to test on dev as seems un-needed
-// .dropdown-menu > :last-child > a {
-//     margin-bottom: $spacer;
-// }

@@ -88,11 +88,8 @@
             overflow-x: hidden;
         }
 
-        .dropdown-menu > li {
-            border-bottom: 2px solid $gray-lighter;
-            width: 100%;
-            padding: 0.5*$spacer $spacer;
-            text-align: left;
+        .dropdown-menu a {
+            @extend .dropdown-item;
         }
     }
 
