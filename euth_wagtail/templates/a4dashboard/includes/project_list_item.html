@@ -42,19 +42,18 @@
                       ...
                         </button>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-item">
-                                    <form method="post" class="">
+                                <li>
+                                    <form method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="project_pk" value="{{ project.pk }}">
-                                        <button type="submit" name="duplicate" value="{{ project }}"
-                                                class="">
+                                        <button class="dropdown-item" type="submit" name="duplicate" value="{{ project }}">
                                             <i class="far fa-copy" aria-hidden="true"></i>
                                             {% trans 'Duplicate' %}
                                         </button>
                                     </form>
                                 </li>
-                                <li class="dropdown-item">
-                                    <a href="#" class="u-fontweight-normal" data-bs-toggle="modal" data-bs-target="#project{{ project.pk }}DeleteModal">
+                                <li>
+                                    <a href="#" class="dropdown-item u-fontweight-normal" data-bs-toggle="modal" data-bs-target="#project{{ project.pk }}DeleteModal">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                         {% trans 'delete' %}
                                     </a>

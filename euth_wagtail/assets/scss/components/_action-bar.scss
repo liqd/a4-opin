@@ -9,7 +9,6 @@
 }
 
 .custom-dropdown-menu {
-    border-radius: 3px;
     border: solid 1px $gray;
 
     .divider {
@@ -44,7 +43,7 @@
     .navbar {
         padding: 0.5*$spacer 0;
 
-        li .dropdown-menu {
+        li.dropdown-menu {
             @extend .custom-dropdown-menu;
         }
     }

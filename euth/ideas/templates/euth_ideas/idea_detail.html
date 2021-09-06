@@ -25,11 +25,11 @@
                               <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="drop">
-                            <li class="dropdown-item">
-                                <a href="{% url 'idea-update' idea.slug %}">{% trans 'Edit' %}</a>
+                            <li>
+                                <a href="{% url 'idea-update' idea.slug %}" class="dropdown-item">{% trans 'Edit' %}</a>
                             </li>
-                            <li class="dropdown-item">
-                                <a href="" data-bs-toggle="modal" data-bs-target="#myModal">{% trans 'Delete' %}</a>
+                            <li>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#myModal" class="dropdown-item">{% trans 'Delete' %}</a>
                             </li>
                         </ul>
                     </li>

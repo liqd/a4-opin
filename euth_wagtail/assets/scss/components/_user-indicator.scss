@@ -6,20 +6,6 @@
     margin: -80px 0 0; /* negative fixed header height */
 }
 
-.user-indicator > li > a {
-    min-width: 180px;
-    position: relative;
-    margin-left: 0;
-
-    .inner {
-        border: 2px solid $brand-brand1;
-        display: block;
-        padding: 10px;
-        position: relative;
-        white-space: nowrap;
-    }
-}
-
 .user-indicator .btngroup .dropdown-item {
     border-bottom: none;
     width: 100%;
@@ -36,8 +22,9 @@
 }
 
 .user-indicator {
-    .dropdown-item > a:active {
+    a.dropdown-item:active {
         color: $body-bg !important;
+        background-color: $brand-brand1 !important;
     }
 }
 
@@ -53,14 +40,11 @@
     margin-right: 10px;
 }
 
-.user-indicator .open a.dropdown-toggle {
-    background-color: darken($brand-brand5, 10);
-}
-
 .user-indicator .dropdown-menu {
     width: 100%;
     border-radius: 0;
     background: $body-bg;
+    overflow-x: hidden;
 }
 
 .user-indicator .btngroup {
