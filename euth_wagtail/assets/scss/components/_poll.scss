@@ -47,6 +47,11 @@ $checkbox-size: 25px;
 
     &--answered {
         left: 2*$spacer;
+        width: 92%;
+
+        @media (min-width: $screen-md-min) {
+            width: 97%;
+        }
     }
 
     input[type="checkbox"]:checked + span {
@@ -132,7 +137,6 @@ $checkbox-size: 25px;
 
 .poll__btn--link {
     text-decoration: underline;
-    margin-left: 10px;
 }
 
 .poll > .poll__btn--link {
