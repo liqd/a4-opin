@@ -5,13 +5,11 @@
 <div class="container-narrow">
     <div class="action-bar">
         <nav class="navbar navbar-default navbar-static">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'project-detail' paragraph.document.module.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project-detail' paragraph.document.module.project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                </li>
+            </ul>
         </nav>
     </div>
     <h1>{{ paragraph.name }}</h1>
