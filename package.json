@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",
     "adhocracy4": "github:liqd/adhocracy4#db8e96e19e1af4e0a7d2371445da38789f009539",
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "bootstrap": "5.0.2",
     "css-loader": "6.2.0",
     "datepicker": "git+https://github.com/liqd/datePicker.git",
