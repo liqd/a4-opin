@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:16+0200\n"
+"POT-Creation-Date: 2021-09-09 16:33+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
@@ -296,10 +296,10 @@ msgstr "Τελευταία συζήτηση"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:545
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:545
 msgid "all"
 msgstr "όλα"
 
@@ -326,49 +326,47 @@ msgstr "Αναζήτηση συνεισφορών"
 msgid "Clear search"
 msgstr "Εκκαθάριση αναζήτησης"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:537
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:537
 msgid "display: "
 msgstr "απεικόνιση:"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:566
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:566
 msgid "sorted by: "
 msgstr "Ταξινόμηση κατά"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] "είσοδος"
 msgstr[1] "καταχωρήσεις"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "βρέθηκε εγγραφή για"
 msgstr[1] "βρέθηκαν καταχωρήσεις για"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Filters"
 msgstr "Φίλτρα"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Show filters"
 msgstr "Εμφάνιση φίλτρων"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide Filters"
 msgstr "Απόκρυψη φίλτρων"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide filters"
 msgstr "Απόκρυψη φίλτρων"
 

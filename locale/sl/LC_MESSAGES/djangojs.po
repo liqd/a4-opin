@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:16+0200\n"
+"POT-Creation-Date: 2021-09-09 16:33+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
@@ -305,10 +305,10 @@ msgstr "Zadnja razprava"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:545
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:51
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:310
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:541
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:545
 msgid "all"
 msgstr "vse"
 
@@ -335,20 +335,18 @@ msgstr "Iskanje prispevkov"
 msgid "Clear search"
 msgstr "Počisti iskanje"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:533
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:558
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:537
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:537
 msgid "display: "
 msgstr "zaslon:"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:582
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:566
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:566
 msgid "sorted by: "
 msgstr "razvrščeno po:"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:603
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:587
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] "vstop"
@@ -356,8 +354,8 @@ msgstr[1] "vnosi"
 msgstr[2] "vstop"
 msgstr[3] "vnosi"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:607
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:591
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "vnos najden za"
@@ -365,23 +363,23 @@ msgstr[1] "vnos najden za"
 msgstr[2] "vnos najden za"
 msgstr[3] "najdenih vnosov za"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Filters"
 msgstr "Filtri"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:611
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:595
 msgid "Show filters"
 msgstr "Pokaži filtre"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide Filters"
 msgstr "Skrij filtre"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:614
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:598
 msgid "Hide filters"
 msgstr "Skrij filtre"
 
