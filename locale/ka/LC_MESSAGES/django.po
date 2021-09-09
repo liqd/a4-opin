@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-01 15:04+0200\n"
+"POT-Creation-Date: 2021-09-09 16:16+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
@@ -206,9 +206,9 @@ msgstr "დახურული"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:28
-#: euth/ideas/templates/euth_ideas/idea_detail.html:29
-#: euth/maps/templates/euth_maps/mapidea_detail.html:37
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:27
+#: euth/ideas/templates/euth_ideas/idea_detail.html:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html:36
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:13
@@ -219,7 +219,7 @@ msgstr "რედაქტირება"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:52
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:51
 msgid "Duplicate"
 msgstr "დუბლიკატი"
 
@@ -260,8 +260,8 @@ msgstr "სურათის წაშლა"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:71
-#: euth/ideas/templates/euth_ideas/idea_form.html:63
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
+#: euth/ideas/templates/euth_ideas/idea_form.html:61
 msgid "Upload a picture"
 msgstr "სურათის ატვირთვა"
 
@@ -322,8 +322,8 @@ msgstr "კატეგორიების რედაქტირება"
 #: adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45
 #: adhocracy4/exports/mixins/items.py:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:119
-#: euth/ideas/templates/euth_ideas/idea_form.html:82
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
+#: euth/ideas/templates/euth_ideas/idea_form.html:80
 msgid "Category"
 msgstr "კატეგორია"
 
@@ -343,11 +343,11 @@ msgstr "კომენტარი"
 
 #: adhocracy4/comments/models.py:54
 #: adhocracy4/exports/mixins/comments.py:46
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:91
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:28
-#: euth/documents/templates/euth_documents/paragraph_detail.html:20
-#: euth/ideas/templates/euth_ideas/idea_detail.html:74
-#: euth/maps/templates/euth_maps/mapidea_detail.html:83
+#: euth/documents/templates/euth_documents/paragraph_detail.html:18
+#: euth/ideas/templates/euth_ideas/idea_detail.html:72
+#: euth/maps/templates/euth_maps/mapidea_detail.html:81
 #: euth_wagtail/templates/a4polls/poll_detail.html:11
 msgid "Comments"
 msgstr "კომენტარები"
@@ -789,8 +789,8 @@ msgid "Name"
 msgstr "სახელი"
 
 #: adhocracy4/phases/models.py:71
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:59
-#: euth/ideas/templates/euth_ideas/idea_form.html:53
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
+#: euth/ideas/templates/euth_ideas/idea_form.html:51
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "აღწერა"
@@ -903,7 +903,7 @@ msgstr "არჩევანი უნდა მიეკუთვნოს URL
 
 #: adhocracy4/polls/validators.py:43
 msgid "Only one vote per choice is allowed per user."
-msgstr ""
+msgstr "თითოეული მომხმარებლისთვის მხოლოდ ერთი ხმის უფლება ნებადართულია."
 
 #: adhocracy4/projects/admin.py:8
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
@@ -959,7 +959,7 @@ msgstr "აკონტაქტო პირი"
 
 #: adhocracy4/projects/models.py:67
 msgid "Phone"
-msgstr ""
+msgstr "ტელეფონი"
 
 #: adhocracy4/projects/models.py:72
 #: euth/projects/templates/euth_projects/project_detail.html:126
@@ -1167,8 +1167,8 @@ msgstr ""
 "თქვენი პროფილის თქვენს მიერ წარმოდგენილი ინფორმაცია ნაჩვენები იქნება OPIN."
 "me- ის ყველა მომხმარებლისთვის."
 
-#: euth/accounts/templates/euth_accounts/profile_form.html:50
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:113
+#: euth/accounts/templates/euth_accounts/profile_form.html:54
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:111
 msgid "Save changes"
 msgstr "ცვლილებების შენახვა"
 
@@ -1663,8 +1663,8 @@ msgstr "დარწმუნებული ხარ, რომ გსურ�
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:20
 #: euth/ideas/templates/euth_ideas/includes/modal.html:20
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:59
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:58
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
 msgid "delete"
 msgstr "წაშლა"
 
@@ -1673,36 +1673,36 @@ msgstr "წაშლა"
 msgid "abort"
 msgstr "გაუქმება"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:15
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:19
-#: euth/documents/templates/euth_documents/paragraph_detail.html:11
-#: euth/ideas/templates/euth_ideas/idea_detail.html:15
-#: euth/ideas/templates/euth_ideas/idea_form.html:12
-#: euth/maps/templates/euth_maps/mapidea_detail.html:24
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:16
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:14
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
+#: euth/documents/templates/euth_documents/paragraph_detail.html:10
+#: euth/ideas/templates/euth_ideas/idea_detail.html:14
+#: euth/ideas/templates/euth_ideas/idea_form.html:11
+#: euth/maps/templates/euth_maps/mapidea_detail.html:23
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:15
 msgid "back to project"
 msgstr "პროექტში დაბრუნება"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:31
-#: euth/ideas/templates/euth_ideas/idea_detail.html:32
-#: euth/maps/templates/euth_maps/mapidea_detail.html:40
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:30
+#: euth/ideas/templates/euth_ideas/idea_detail.html:30
+#: euth/maps/templates/euth_maps/mapidea_detail.html:39
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:25
 #: euth_wagtail/templates/includes/delete_modal.html:19
 msgid "Delete"
 msgstr "წაშლა"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:49
-#: euth/ideas/templates/euth_ideas/idea_detail.html:48
-#: euth/maps/templates/euth_maps/mapidea_detail.html:60
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:47
+#: euth/ideas/templates/euth_ideas/idea_detail.html:46
+#: euth/maps/templates/euth_maps/mapidea_detail.html:58
 msgid "Moderator"
 msgstr "მოდერატორი"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:65
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:89
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:63
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:87
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:57
 msgid "Downloads"
 msgstr "ჩამოტვირთვები"
 
@@ -1714,21 +1714,21 @@ msgstr "ახალი თემის შექმნა"
 msgid "Update topic"
 msgstr "თემის განახლება"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:28
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
 msgstr "ახალი თემის შექმნა ამ პროექტისთვის"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:32
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
 msgstr "თემის განახლება"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:50
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
 msgstr "თემის სათაური"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:96
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:61
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
 msgid ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
@@ -1737,23 +1737,23 @@ msgstr ""
 "შეგიძლიათ ატვირთოთ მაქსიმუმ %(fileupload_max)s დოკუმენტები. დაშვებული "
 "ფორმატებია %(allowed_file_types)s."
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:109
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 msgid "Upload another document"
 msgstr "სხვა დოკუმენტის ატვირთვა"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:133
-#: euth/ideas/templates/euth_ideas/idea_form.html:96
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
+#: euth/ideas/templates/euth_ideas/idea_form.html:94
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "პოსტი"
 
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:135
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:139
+#: euth/ideas/templates/euth_ideas/idea_form.html:98
 #: euth/ideas/templates/euth_ideas/idea_form.html:100
-#: euth/ideas/templates/euth_ideas/idea_form.html:102
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:80
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
 msgid "cancel"
 msgstr "უარყოფა"
 
@@ -1952,15 +1952,15 @@ msgstr "გამოიყენე იდეის შეგროვები�
 msgid "Create a new proposal"
 msgstr "ახალი წინადადების შექმნა"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:21
+#: euth/ideas/templates/euth_ideas/idea_form.html:19
 msgid "create new proposal for this project"
 msgstr "ახალი შემოთვაზების შექმნა ამ პროექტითვის"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:25
+#: euth/ideas/templates/euth_ideas/idea_form.html:23
 msgid "update idea"
 msgstr "იდეის განახლება"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:44
+#: euth/ideas/templates/euth_ideas/idea_form.html:42
 msgid "Title of the proposal"
 msgstr "წინადადების სათაური"
 
@@ -2208,7 +2208,7 @@ msgid "Add event"
 msgstr "ღონისძიების დამატება"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:101
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
 msgid "You can add additional files after saving the current file."
 msgstr ""
 "თქვენ შეგიძლიათ დამატებითი ფაილების დამატება მიმდინარე ფაილების შენახვის "
@@ -2238,7 +2238,7 @@ msgstr "არაფერი აჩვენე"
 msgid "Edit offlinephase content"
 msgstr "ხაზგარეშე შინაარსის რედაქტირება"
 
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:25
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:23
 msgid "update offlinephase"
 msgstr "განაახლეთ ხაზგარეშე"
 
@@ -2643,22 +2643,22 @@ msgstr "მომხმარებელი"
 msgid "Admin"
 msgstr "ადმინისტრატორი"
 
-#: euth/users/templates/euth_users/indicator_menu.html:34
+#: euth/users/templates/euth_users/indicator_menu.html:36
 msgid "logout"
 msgstr "გამოსვლა"
 
-#: euth/users/templates/euth_users/indicator_menu.html:40
+#: euth/users/templates/euth_users/indicator_menu.html:42
 msgid "Login / Register"
 msgstr "შესვლა/რეგისტრაცია"
 
-#: euth/users/templates/euth_users/indicator_menu.html:44
+#: euth/users/templates/euth_users/indicator_menu.html:46
 #: euth_wagtail/templates/account/login.html:16
 #: euth_wagtail/templates/account/login.html:62
 #: euth_wagtail/templates/account/signup.html:16
 msgid "login"
 msgstr "შესვლა"
 
-#: euth/users/templates/euth_users/indicator_menu.html:47
+#: euth/users/templates/euth_users/indicator_menu.html:49
 #: euth_wagtail/templates/account/login.html:20
 #: euth_wagtail/templates/account/signup.html:12
 #: euth_wagtail/templates/account/signup.html:97
@@ -2802,7 +2802,7 @@ msgstr "თარგის არჩევა"
 msgid "use this template"
 msgstr "გამოიყენეთ ეს შაბლონი"
 
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:74
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:73
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
 msgstr " Are you sure you want to delete the project '%(project_name)s'? "

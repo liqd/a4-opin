@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-01 15:04+0200\n"
+"POT-Creation-Date: 2021-09-09 16:16+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
@@ -500,11 +500,11 @@ msgstr "Teilnehmende können eine eigene Antwort eintragen"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:94
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:95
 msgid "Other"
-msgstr ""
+msgstr "Andere"
 
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:112
 msgid "New answer"
-msgstr ""
+msgstr "Neue Antwort"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:163
 msgid "The poll has been updated."
@@ -516,15 +516,15 @@ msgstr "Die Umfrage konnte nicht aktualisiert werden"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:196
 msgid "New question"
-msgstr ""
+msgstr "Neue Frage"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:202
 msgid "Multiple choice question"
-msgstr ""
+msgstr "Multiple Choice Frage"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:207
 msgid "Open question"
-msgstr ""
+msgstr "Offene Frage"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:279
 msgid "Save"
@@ -532,25 +532,27 @@ msgstr "speichern"
 
 #: adhocracy4/polls/assets/PollQuestion.jsx:15
 msgid "Multiple answers are possible."
-msgstr ""
+msgstr "Mehrere Antworten sind möglich."
 
 #: adhocracy4/polls/assets/PollQuestion.jsx:81
 #: adhocracy4/polls/assets/PollQuestion.jsx:120
 msgid "other"
-msgstr ""
+msgstr "Andere"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:13
 msgid "Your answer has been saved."
-msgstr ""
+msgstr "Deine Antwort wurde gespeichert."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:18
 msgid ""
 "Your answer could not be saved due to a server error. Please try again later."
 msgstr ""
+"Deine Antwort konnte nicht gesichert werden, wegen eines Server Fehlers. "
+"Bitte versuche es später nochmal."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:23
 msgid "Your answer is invalid or empty. Please try again."
-msgstr ""
+msgstr "Deine Antwort ist ungültig oder leer. Bitte versuche es erneut"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:41
 msgid "To poll"
@@ -558,19 +560,19 @@ msgstr "Zur Umfrage"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:47
 msgid "Change answer"
-msgstr ""
+msgstr "Ändere deine Antwort"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Submit answer"
-msgstr ""
+msgstr "Antwort einreichen"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:128
 msgid "Please login to answer"
-msgstr ""
+msgstr "Bitte einloggen um zu antworten"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:138
 msgid "Show results"
-msgstr ""
+msgstr "Zeige Ergebnisse"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:144
 msgid "Show preliminary results"
@@ -578,45 +580,45 @@ msgstr "Vorläufige Ergebnisse anzeigen"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:165
 msgid "Please enter your answer in this field."
-msgstr ""
+msgstr "Bitte trage deine Antwort in dieses Feld ein."
 
 #: adhocracy4/polls/assets/PollResults.jsx:65
 msgid "Hide other answers"
-msgstr ""
+msgstr "Andere Antworten ausblenden"
 
 #: adhocracy4/polls/assets/PollResults.jsx:67
 msgid "Show other answers"
-msgstr ""
+msgstr "Andere Antworten anzeigen"
 
 #: adhocracy4/polls/assets/PollResults.jsx:81
 #, javascript-format
 msgid "%s participant gave 1 answer."
-msgstr ""
+msgstr "%sder Teilnehmenden gaben 1 Antwort."
 
 #: adhocracy4/polls/assets/PollResults.jsx:83
 #: adhocracy4/polls/assets/PollResults.jsx:85
 #, javascript-format
 msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%sder Teilnehmenden gaben %s der Anwtorten"
+msgstr[1] "%sder Teilnehmenden gaben %sAntworten."
 
 #: adhocracy4/polls/assets/PollResults.jsx:87
 msgid ""
 " For multiple choice questions the percentages may add up to more than 100%."
-msgstr ""
+msgstr "Für Multiple Choice Fragen kann es zu über 100% kommen."
 
 #: adhocracy4/polls/assets/PollResults.jsx:89
 #: adhocracy4/polls/assets/PollResults.jsx:98
 #, javascript-format
 msgid "1 person has answered."
 msgid_plural "%s people have answered."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 Teilnehmende*r hat geantwortet."
+msgstr[1] "%sder Teilnehmenden haben geantwortet."
 
 #: adhocracy4/polls/assets/PollResults.jsx:100
 msgid "noone has answered this question"
-msgstr ""
+msgstr "Niemand hat auf die Frage geantwortet"
 
 #: adhocracy4/polls/assets/PollResults.jsx:132
 msgid "Your choice"

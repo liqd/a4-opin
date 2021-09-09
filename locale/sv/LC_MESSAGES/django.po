@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-01 15:04+0200\n"
+"POT-Creation-Date: 2021-09-09 16:16+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
@@ -205,9 +205,9 @@ msgstr "privat"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:48
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:28
-#: euth/ideas/templates/euth_ideas/idea_detail.html:29
-#: euth/maps/templates/euth_maps/mapidea_detail.html:37
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:27
+#: euth/ideas/templates/euth_ideas/idea_detail.html:27
+#: euth/maps/templates/euth_maps/mapidea_detail.html:36
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:13
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:13
@@ -218,7 +218,7 @@ msgstr "Redigera"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:57
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:52
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:51
 msgid "Duplicate"
 msgstr "Duplicera"
 
@@ -259,8 +259,8 @@ msgstr "Ta bort bilden"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:71
-#: euth/ideas/templates/euth_ideas/idea_form.html:63
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
+#: euth/ideas/templates/euth_ideas/idea_form.html:61
 msgid "Upload a picture"
 msgstr "Ladda upp en bild"
 
@@ -324,8 +324,8 @@ msgstr "Redigera kategorier"
 #: adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45
 #: adhocracy4/exports/mixins/items.py:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:119
-#: euth/ideas/templates/euth_ideas/idea_form.html:82
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
+#: euth/ideas/templates/euth_ideas/idea_form.html:80
 msgid "Category"
 msgstr "Kategori"
 
@@ -345,11 +345,11 @@ msgstr "Kommentar"
 
 #: adhocracy4/comments/models.py:54
 #: adhocracy4/exports/mixins/comments.py:46
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:91
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:28
-#: euth/documents/templates/euth_documents/paragraph_detail.html:20
-#: euth/ideas/templates/euth_ideas/idea_detail.html:74
-#: euth/maps/templates/euth_maps/mapidea_detail.html:83
+#: euth/documents/templates/euth_documents/paragraph_detail.html:18
+#: euth/ideas/templates/euth_ideas/idea_detail.html:72
+#: euth/maps/templates/euth_maps/mapidea_detail.html:81
 #: euth_wagtail/templates/a4polls/poll_detail.html:11
 msgid "Comments"
 msgstr "Kommentarer"
@@ -548,11 +548,11 @@ msgstr "Kommentarräkning"
 
 #: adhocracy4/exports/mixins/comments.py:77
 msgid "Reply to Comment"
-msgstr ""
+msgstr "Svara på kommentar"
 
 #: adhocracy4/exports/mixins/comments.py:95
 msgid "Reply to Reference"
-msgstr ""
+msgstr "Svara på Referens"
 
 #: adhocracy4/exports/mixins/general.py:14
 #: euth/exports/mixins.py:45
@@ -589,19 +589,19 @@ msgstr "Etiketter"
 
 #: adhocracy4/exports/mixins/items.py:46
 msgid "Reference No."
-msgstr ""
+msgstr "Referensnummer"
 
 #: adhocracy4/exports/mixins/items.py:65
 msgid "Moderator feedback"
-msgstr ""
+msgstr "Feedback från moderatorn"
 
 #: adhocracy4/exports/mixins/items.py:67
 msgid "Official Statement"
-msgstr ""
+msgstr "Officiell redogörelse"
 
 #: adhocracy4/exports/mixins/items.py:89
 msgid "Remark"
-msgstr ""
+msgstr "Anmärkning"
 
 #: adhocracy4/exports/mixins/rates.py:15
 msgid "Positive ratings"
@@ -790,8 +790,8 @@ msgid "Name"
 msgstr "Namn"
 
 #: adhocracy4/phases/models.py:71
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:59
-#: euth/ideas/templates/euth_ideas/idea_form.html:53
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
+#: euth/ideas/templates/euth_ideas/idea_form.html:51
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Beskrivning"
@@ -807,23 +807,23 @@ msgstr "Antingen båda eller inget datum måste anges."
 
 #: adhocracy4/polls/api.py:71
 msgid "Please specify your answer."
-msgstr ""
+msgstr "Specificera ditt svar."
 
 #: adhocracy4/polls/api.py:88
 msgid "Key error for {}"
-msgstr ""
+msgstr "Nyckelfel för {}"
 
 #: adhocracy4/polls/api.py:90
 msgid "Choice not found."
-msgstr ""
+msgstr "Valet hittades inte."
 
 #: adhocracy4/polls/api.py:98
 msgid "Duplicate choices detected."
-msgstr ""
+msgstr "Dubbla val har upptäckts."
 
 #: adhocracy4/polls/api.py:101
 msgid "Multiple choice disabled for question."
-msgstr ""
+msgstr "Flervalsfrågorna är inaktiverade."
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -832,57 +832,61 @@ msgstr "Enkät"
 
 #: adhocracy4/polls/models.py:53
 msgid "Explanation"
-msgstr ""
+msgstr "Förklaring"
 
 #: adhocracy4/polls/models.py:82
 msgid "Questions with open answers cannot have multiple choices."
-msgstr ""
+msgstr "Frågor med öppna svar kan inte ha flera valmöjligheter."
 
 #: adhocracy4/polls/models.py:87
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
 msgstr ""
+"En fråga med valmöjligheter kan inte bli en öppen fråga. Ta bort "
+"valmöjligheter eller lägg till en ny öppen fråga."
 
 #: adhocracy4/polls/models.py:152
 #: adhocracy4/polls/models.py:279
 msgid "Answer"
-msgstr ""
+msgstr "Svar"
 
 #: adhocracy4/polls/models.py:164
 msgid "Only open questions can have answers."
-msgstr ""
+msgstr "Endast öppna frågor kan få svar."
 
 #: adhocracy4/polls/models.py:201
 msgid "Open questions cannot have choices."
-msgstr ""
+msgstr "Öppna frågor kan inte ha valmöjligheter."
 
 #: adhocracy4/polls/models.py:206
 msgid ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 msgstr ""
+"\"Annat\" kan inte vara det enda valet. Använd en öppen fråga eller lägg "
+"till fler alternativ."
 
 #: adhocracy4/polls/models.py:213
 msgid "Question already has \"other\" choice."
-msgstr ""
+msgstr "Frågan har redan ett \"annat\" alternativ."
 
 #: adhocracy4/polls/models.py:285
 msgid "Other vote can only be created for vote on \"other\" choice."
-msgstr ""
+msgstr "Annan omröstning kan endast skapas för omröstning om \"annat\" val."
 
 #: adhocracy4/polls/models.py:306
 msgid "other"
-msgstr ""
+msgstr "andra"
 
 #: adhocracy4/polls/phases.py:16
 msgctxt "A4: voting phase name"
 msgid "Voting phase"
-msgstr ""
+msgstr "Omröstningsfasen"
 
 #: adhocracy4/polls/phases.py:19
 msgctxt "A4: voting phase description"
 msgid "Answer the questions and comment on the poll."
-msgstr ""
+msgstr "Svara på frågorna och kommentera omröstningen."
 
 #: adhocracy4/polls/phases.py:21
 msgid "polls"
@@ -899,7 +903,7 @@ msgstr "Valet måste tillhöra frågan i url."
 
 #: adhocracy4/polls/validators.py:43
 msgid "Only one vote per choice is allowed per user."
-msgstr ""
+msgstr "Endast en röst per val är tillåten per användare."
 
 #: adhocracy4/projects/admin.py:8
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
@@ -955,7 +959,7 @@ msgstr "Kontaktperson"
 
 #: adhocracy4/projects/models.py:67
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: adhocracy4/projects/models.py:72
 #: euth/projects/templates/euth_projects/project_detail.html:126
@@ -1162,8 +1166,8 @@ msgid ""
 msgstr ""
 "Den information du ger i din profil visas för alla användare av OPIN.me."
 
-#: euth/accounts/templates/euth_accounts/profile_form.html:50
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:113
+#: euth/accounts/templates/euth_accounts/profile_form.html:54
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:111
 msgid "Save changes"
 msgstr "Spara ändringar"
 
@@ -1658,8 +1662,8 @@ msgstr "Är du säker på att du vill radera"
 
 #: euth/communitydebate/templates/euth_communitydebate/includes/modal.html:20
 #: euth/ideas/templates/euth_ideas/includes/modal.html:20
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:59
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:58
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:78
 msgid "delete"
 msgstr "radera"
 
@@ -1668,36 +1672,36 @@ msgstr "radera"
 msgid "abort"
 msgstr "avbryta"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:15
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:19
-#: euth/documents/templates/euth_documents/paragraph_detail.html:11
-#: euth/ideas/templates/euth_ideas/idea_detail.html:15
-#: euth/ideas/templates/euth_ideas/idea_form.html:12
-#: euth/maps/templates/euth_maps/mapidea_detail.html:24
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:16
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:14
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
+#: euth/documents/templates/euth_documents/paragraph_detail.html:10
+#: euth/ideas/templates/euth_ideas/idea_detail.html:14
+#: euth/ideas/templates/euth_ideas/idea_form.html:11
+#: euth/maps/templates/euth_maps/mapidea_detail.html:23
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:15
 msgid "back to project"
 msgstr "tillbaka till projektet"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:31
-#: euth/ideas/templates/euth_ideas/idea_detail.html:32
-#: euth/maps/templates/euth_maps/mapidea_detail.html:40
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:30
+#: euth/ideas/templates/euth_ideas/idea_detail.html:30
+#: euth/maps/templates/euth_maps/mapidea_detail.html:39
 #: euth/offlinephases/templates/euth_offlinephases/includes/dashboard_list_item.html:25
 #: euth_wagtail/templates/includes/delete_modal.html:19
 msgid "Delete"
 msgstr "Radera"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:49
-#: euth/ideas/templates/euth_ideas/idea_detail.html:48
-#: euth/maps/templates/euth_maps/mapidea_detail.html:60
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:47
+#: euth/ideas/templates/euth_ideas/idea_detail.html:46
+#: euth/maps/templates/euth_maps/mapidea_detail.html:58
 msgid "Moderator"
 msgstr "Moderator"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:65
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:89
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:63
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:87
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:57
 msgid "Downloads"
 msgstr "Nedladdningar"
 
@@ -1709,21 +1713,21 @@ msgstr "Skapa ett nytt ämne"
 msgid "Update topic"
 msgstr "Uppdatera ämnet"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:28
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
 msgid "create new topic for this project"
 msgstr "skapa ett nytt ämne för detta projekt"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:32
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
 msgid "update topic"
 msgstr "uppdatera ämnet"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:50
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
 msgid "Title of the topic"
 msgstr "Ämnesrubrik"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:96
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:61
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
 msgid ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
@@ -1732,23 +1736,23 @@ msgstr ""
 " Du kan ladda upp maximalt %(fileupload_max)s dokument. Tillåtna format är "
 "%(allowed_file_types)s. "
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:109
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
 msgid "Upload another document"
 msgstr "Ladda upp ett annat dokument"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:133
-#: euth/ideas/templates/euth_ideas/idea_form.html:96
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
+#: euth/ideas/templates/euth_ideas/idea_form.html:94
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "skicka"
 
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:135
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:139
+#: euth/ideas/templates/euth_ideas/idea_form.html:98
 #: euth/ideas/templates/euth_ideas/idea_form.html:100
-#: euth/ideas/templates/euth_ideas/idea_form.html:102
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:80
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
 msgid "cancel"
 msgstr "annullera"
 
@@ -1944,15 +1948,15 @@ msgstr "Använd alla funktioner i idésamlingen."
 msgid "Create a new proposal"
 msgstr "Skapa ett nytt förslag"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:21
+#: euth/ideas/templates/euth_ideas/idea_form.html:19
 msgid "create new proposal for this project"
 msgstr "skapa nytt förslag för det här projektet"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:25
+#: euth/ideas/templates/euth_ideas/idea_form.html:23
 msgid "update idea"
 msgstr "uppdatera idé"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:44
+#: euth/ideas/templates/euth_ideas/idea_form.html:42
 msgid "Title of the proposal"
 msgstr "Titel på förslaget"
 
@@ -2200,7 +2204,7 @@ msgid "Add event"
 msgstr "Lägg till händelse"
 
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:73
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:101
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:99
 msgid "You can add additional files after saving the current file."
 msgstr ""
 "Du kan lägga till ytterligare filer efter att ha sparat den aktuella filen."
@@ -2227,7 +2231,7 @@ msgstr "Inget att visa"
 msgid "Edit offlinephase content"
 msgstr "Redigera offlinefasinnehåll"
 
-#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:25
+#: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:23
 msgid "update offlinephase"
 msgstr "Uppdatera offlinefas"
 
@@ -2633,22 +2637,22 @@ msgstr "Användare"
 msgid "Admin"
 msgstr "Admin"
 
-#: euth/users/templates/euth_users/indicator_menu.html:34
+#: euth/users/templates/euth_users/indicator_menu.html:36
 msgid "logout"
 msgstr "logga ut"
 
-#: euth/users/templates/euth_users/indicator_menu.html:40
+#: euth/users/templates/euth_users/indicator_menu.html:42
 msgid "Login / Register"
 msgstr "Logga in / Registrera dig"
 
-#: euth/users/templates/euth_users/indicator_menu.html:44
+#: euth/users/templates/euth_users/indicator_menu.html:46
 #: euth_wagtail/templates/account/login.html:16
 #: euth_wagtail/templates/account/login.html:62
 #: euth_wagtail/templates/account/signup.html:16
 msgid "login"
 msgstr "logga in"
 
-#: euth/users/templates/euth_users/indicator_menu.html:47
+#: euth/users/templates/euth_users/indicator_menu.html:49
 #: euth_wagtail/templates/account/login.html:20
 #: euth_wagtail/templates/account/signup.html:12
 #: euth_wagtail/templates/account/signup.html:97
@@ -2792,7 +2796,7 @@ msgstr "Välj mall"
 msgid "use this template"
 msgstr "använd den här mallen"
 
-#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:74
+#: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:73
 #, python-format
 msgid " Are you sure you want to delete the project '%(project_name)s'? "
 msgstr "Är du säker på att du vill radera projektet '%(project_name)s'?"
@@ -2882,36 +2886,43 @@ msgstr ""
 #: euth_wagtail/templates/account/includes/howto.html:14
 #: euth_wagtail/templates/account/includes/howto.html:22
 msgid "How can I register my organisation and start a project?"
-msgstr ""
+msgstr "Hur kan jag registrera min organisation och starta ett projekt?"
 
 #: euth_wagtail/templates/account/includes/howto.html:8
 msgid "1. Register an account"
-msgstr ""
+msgstr "1. Registrera ett konto"
 
 #: euth_wagtail/templates/account/includes/howto.html:10
 msgid ""
 "Register as a user by following the steps on the left to create an account."
 msgstr ""
+"Registrera dig som användare genom att följa stegen till vänster för att "
+"skapa ett konto."
 
 #: euth_wagtail/templates/account/includes/howto.html:16
 msgid "2. Contact us"
-msgstr ""
+msgstr "2. Kontakta oss"
 
 #: euth_wagtail/templates/account/includes/howto.html:18
 msgid ""
 "Send us en e-mail via info@opin.me and provide your username, email address, "
 "organisation name and its location, a short description of your project."
 msgstr ""
+"Skicka oss ett e-postmeddelande via info@opin.me och ange ditt användarnamn, "
+"din e-postadress, organisationens namn och plats samt en kort beskrivning av "
+"ditt projekt."
 
 #: euth_wagtail/templates/account/includes/howto.html:24
 msgid "3. We will review your request."
-msgstr ""
+msgstr "3. Vi kommer att granska din begäran."
 
 #: euth_wagtail/templates/account/includes/howto.html:26
 msgid ""
 "Since we are in beta for the moment, we cannot accept all requests to use "
 "OPIN. You will receive a reply within 48 hours."
 msgstr ""
+"Eftersom vi för tillfället befinner oss i beta-stadiet kan vi inte acceptera "
+"alla förfrågningar om att använda OPIN. Du får ett svar inom 48 timmar."
 
 #: euth_wagtail/templates/account/login.html:8
 msgid "Login"
@@ -2919,7 +2930,7 @@ msgstr "Login"
 
 #: euth_wagtail/templates/account/login.html:18
 msgid "I do not have an account, "
-msgstr ""
+msgstr "Jag har inget konto, "
 
 #: euth_wagtail/templates/account/login.html:49
 #: euth_wagtail/templates/account/password_change.html:27
@@ -3021,7 +3032,7 @@ msgstr "Registrera ett konto"
 
 #: euth_wagtail/templates/account/signup.html:14
 msgid "I already have an account, "
-msgstr ""
+msgstr "Jag har redan ett konto, "
 
 #: euth_wagtail/templates/account/signup.html:88
 #, python-format
@@ -3031,6 +3042,10 @@ msgid ""
 "\"blank\">terms of use</a>.\n"
 "                        "
 msgstr ""
+"\n"
+"                Jag accepterar <a href=\"%(terms_of_use_url)s\" target="
+"\"blank\">användarvillkoren</a>.\n"
+"                "
 
 #: euth_wagtail/templates/account/snippets/already_logged_in.html:6
 msgid "Note"

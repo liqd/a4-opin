@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-01 15:04+0200\n"
+"POT-Creation-Date: 2021-09-09 16:16+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
@@ -61,10 +61,10 @@ msgstr[3] "skriti%sodgovarja"
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "si oglejte en odgovor"
+msgstr[1] "prikaži %s odgovore"
+msgstr[2] "prikaži %s odgovore"
+msgstr[3] "prikaži %s odgovore"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
 #: adhocracy4/comments/static/comments/Comment.jsx:30
@@ -468,7 +468,7 @@ msgstr "Sledim"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:69
 msgctxt "noun"
 msgid "Answer"
-msgstr ""
+msgstr "Odgovori"
 
 #: adhocracy4/polls/assets/EditPollChoice.jsx:27
 #: adhocracy4/polls/assets/EditPollChoice.jsx:33
@@ -484,7 +484,7 @@ msgstr "Vprašanje"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:119
 #: adhocracy4/polls/assets/HelptextForm.jsx:11
 msgid "Explanation"
-msgstr ""
+msgstr "Razlaga:"
 
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:45
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:50
@@ -502,20 +502,20 @@ msgstr "Premik navzdol"
 
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:46
 msgid "Participants can vote for more than one option (multiple choice)"
-msgstr ""
+msgstr "Udeleženci lahko glasujejo za več kot eno možnost (več možnosti)."
 
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:61
 msgid "Participants can add their own answer"
-msgstr ""
+msgstr "Udeleženci lahko dodajo svoj odgovor"
 
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:94
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:95
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:112
 msgid "New answer"
-msgstr ""
+msgstr "Nov odgovor"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:163
 msgid "The poll has been updated."
@@ -527,15 +527,15 @@ msgstr "Ankete ni bilo mogoče posodobiti."
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:196
 msgid "New question"
-msgstr ""
+msgstr "Novo vprašanje"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:202
 msgid "Multiple choice question"
-msgstr ""
+msgstr "Vprašanje z več možnostmi izbire"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:207
 msgid "Open question"
-msgstr ""
+msgstr "Odprto vprašanje"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:279
 msgid "Save"
@@ -543,25 +543,27 @@ msgstr "Shrani"
 
 #: adhocracy4/polls/assets/PollQuestion.jsx:15
 msgid "Multiple answers are possible."
-msgstr ""
+msgstr "Možnih je več odgovorov."
 
 #: adhocracy4/polls/assets/PollQuestion.jsx:81
 #: adhocracy4/polls/assets/PollQuestion.jsx:120
 msgid "other"
-msgstr ""
+msgstr "drugo"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:13
 msgid "Your answer has been saved."
-msgstr ""
+msgstr "Vaš odgovor je bil shranjen."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:18
 msgid ""
 "Your answer could not be saved due to a server error. Please try again later."
 msgstr ""
+"Vašega odgovora ni bilo mogoče shraniti zaradi napake strežnika. Poskusite "
+"znova pozneje."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:23
 msgid "Your answer is invalid or empty. Please try again."
-msgstr ""
+msgstr "Vaš odgovor je neveljaven ali prazen. Poskusite znova."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:41
 msgid "To poll"
@@ -569,19 +571,19 @@ msgstr "Anketirati"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:47
 msgid "Change answer"
-msgstr ""
+msgstr "Spremeni odgovor"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Submit answer"
-msgstr ""
+msgstr "Pošlji odgovor"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:128
 msgid "Please login to answer"
-msgstr ""
+msgstr "Prosimo, prijavite se, da odgovorite"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:138
 msgid "Show results"
-msgstr ""
+msgstr "Prikaži rezultate"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:144
 msgid "Show preliminary results"
@@ -589,35 +591,35 @@ msgstr "Prikaži predhodne rezultate"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:165
 msgid "Please enter your answer in this field."
-msgstr ""
+msgstr "V to polje vpišite svoj odgovor."
 
 #: adhocracy4/polls/assets/PollResults.jsx:65
 msgid "Hide other answers"
-msgstr ""
+msgstr "Skrij druge odgovore"
 
 #: adhocracy4/polls/assets/PollResults.jsx:67
 msgid "Show other answers"
-msgstr ""
+msgstr "Prikaži druge odgovore"
 
 #: adhocracy4/polls/assets/PollResults.jsx:81
 #, javascript-format
 msgid "%s participant gave 1 answer."
-msgstr ""
+msgstr "%sudeleženec je podal 1 odgovor."
 
 #: adhocracy4/polls/assets/PollResults.jsx:83
 #: adhocracy4/polls/assets/PollResults.jsx:85
 #, javascript-format
 msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%sudeleženec je dal%sodgovori."
+msgstr[1] "%sudeleženec je dal%sodgovori."
+msgstr[2] "%sudeleženec je dal%sodgovori."
+msgstr[3] "%sudeleženci so dali%sodgovori."
 
 #: adhocracy4/polls/assets/PollResults.jsx:87
 msgid ""
 " For multiple choice questions the percentages may add up to more than 100%."
-msgstr ""
+msgstr " Pri vprašanjih z več možnostmi izbire lahko odstotki presežejo 100 %."
 
 #: adhocracy4/polls/assets/PollResults.jsx:89
 #: adhocracy4/polls/assets/PollResults.jsx:98
@@ -631,7 +633,7 @@ msgstr[3] ""
 
 #: adhocracy4/polls/assets/PollResults.jsx:100
 msgid "noone has answered this question"
-msgstr ""
+msgstr "nihče ni odgovoril na to vprašanje"
 
 #: adhocracy4/polls/assets/PollResults.jsx:132
 msgid "Your choice"
