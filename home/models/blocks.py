@@ -197,7 +197,7 @@ class HighlitedColumnBlock(core_blocks.StructBlock):
 
 class VideoBlock(core_blocks.StructBlock):
 
-    title = core_blocks.CharBlock(classname="full title")
+    title = core_blocks.CharBlock(classname="full title", required=False)
     video = embed_blocks.EmbedBlock()
 
     class Meta:
