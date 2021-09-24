@@ -3,7 +3,7 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",
-    "adhocracy4": "github:liqd/adhocracy4#opin-v2109.1",
+    "adhocracy4": "github:liqd/adhocracy4#opin-v2110",
     "axios": "0.21.4",
     "bootstrap": "5.0.2",
     "css-loader": "6.2.0",
