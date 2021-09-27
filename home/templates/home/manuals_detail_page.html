@@ -30,13 +30,15 @@
                            {% image block.value original class="img-fluid" %}
                       {% elif block.block_type == 'heading' %}
                           <h2>{{ block }}</h2>
+                      {% elif block.block_type == 'rich_text' or block.block_type == 'paragraph' %}
+                          <div class="rich-text">{{ block }}</div>
                       {% else %}
                           {{ block }}
                       {% endif %}
                   </div>
               </div>
             {% else %}
-              <div class="col-12">
+              <div class="offset-md-1 col-md-10">
                 {{ block }}
               </div>
             {% endif %}

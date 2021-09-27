@@ -1,6 +1,8 @@
 {% load i18n wagtailimages_tags wagtailembeds_tags %}
 <section class="video-block block">
-    <h3 class="block-title">{{ self.title }}</h3>
+    {% if self.title %}
+      <h3 class="block-title">{{ self.title }}</h3>
+    {% endif %}
     <div class="ratio ratio-16x9">
         {% embed self.video.url "500" %}
     </div>
