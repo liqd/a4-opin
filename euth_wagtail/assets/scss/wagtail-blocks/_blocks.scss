@@ -13,7 +13,6 @@
 }
 
 .rich-text {
-    padding-bottom: $block-vpadding;
     text-align: left;
 
     h2,
@@ -27,6 +26,11 @@
     p {
         margin: 0 0 $font-size-large;
     }
+}
+
+.rich-text__iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .tile-block__tile {

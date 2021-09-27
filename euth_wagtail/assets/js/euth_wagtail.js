@@ -82,6 +82,10 @@ $(document).ready(function () {
     prevArrow: '<button class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
     nextArrow: '<button class="slick-next"><i class="fa fa-chevron-right"></i></button>'
   })
+
+  // This function adds bootstrap ratio class to iframes added by wagtail richtext
+  $('.rich-text iframe').addClass('rich-text__iframe')
+  $('.rich-text__iframe').parent('div').addClass('ratio ratio-16x9')
 })
 
 export function showFileName () {
