@@ -11,6 +11,7 @@ SECRET_KEY = 'b*1ljsb!x7@d_o$sohx-&q-7n*#r=lwhy542zxk(e=fj%ey3xp'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+CAPTCHA_URL = 'https://captcheck.netsyms.com/api.php'
 
 try:
     import debug_toolbar

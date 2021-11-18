@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'euth.maps',
     'euth.follows',
     'euth.blueprints',
+    'euth.captcha',
     'euth.contrib',
     'euth.communitydebate'
 ]
