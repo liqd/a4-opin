@@ -20,7 +20,7 @@
             {% block form %}
             <form class="form-inner" role="form" name="RegisterForm" action="{% url 'account_signup' %}" method="post" >
             {% endblock %}
-
+                {{ form.media }}
                 {% csrf_token %}
 
                 {% block help_text %}
@@ -91,6 +91,8 @@
                     </label>
                     {{ form.terms_of_use.errors }}
                 </div>
+
+                {% include 'euth_contrib/includes/form_field.html' with field=form.captcha %}
 
                 <input type="hidden" id="{{ form.timezone.id_for_label }}" name="timezone" value="" />
 

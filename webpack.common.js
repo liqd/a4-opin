@@ -32,6 +32,12 @@ module.exports = {
       './euth_wagtail/assets/scss/all.scss',
       './euth_wagtail/assets/js/app.js'
     ],
+    captcheck: {
+      import: [
+        './euth/captcha/assets/captcheck.js'
+      ],
+      dependOn: 'adhocracy4'
+    },
     datepicker: {
       import: [
         './euth_wagtail/assets/js/init-picker.js',

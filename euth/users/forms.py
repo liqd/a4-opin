@@ -3,6 +3,8 @@ from django.contrib.auth import forms as auth_forms
 from django.contrib.auth import get_user_model
 from pytz import common_timezones
 
+from euth.captcha.fields import CaptcheckCaptchaField
+
 User = get_user_model()
 
 
@@ -11,6 +13,7 @@ class SignUpForm(auth_forms.UserCreationForm):
 
     terms_of_use = forms.BooleanField()
     timezone = forms.CharField(widget=forms.HiddenInput(), required=False)
+    captcha = CaptcheckCaptchaField(label='I am not a robot')
 
     def clean_timezone(self):
         timezone = self.cleaned_data['timezone']
