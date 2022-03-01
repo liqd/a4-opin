@@ -66,7 +66,8 @@ def test_register(client, signup_url):
             'email': email,
             'password1': 'password',
             'password2': 'password',
-            'terms_of_use': 'on'
+            'terms_of_use': 'on',
+            'captcha': 'testpass:0',
         }
     )
     assert response.status_code == 302
@@ -103,6 +104,7 @@ def test_register_with_next(client, signup_url):
             'password2': 'password',
             'terms_of_use': 'on',
             'next': '/en/projects/pppp/',
+            'captcha': 'testpass:0',
         }
     )
     assert response.status_code == 302
@@ -135,7 +137,8 @@ def test_reregister_same_username(client, signup_url):
         'email': 'testuser@liqd.de',
         'password1': 'password',
         'password2': 'password',
-        'terms_of_use': 'on'
+        'terms_of_use': 'on',
+        'captcha': 'testpass:0',
     }
     response = client.post(signup_url, data)
     assert response.status_code == 302
