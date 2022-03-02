@@ -1,7 +1,7 @@
 # CMS for EUTH Project
 
 ![Build Status](https://github.com/liqd/a4-opin/actions/workflows/django.yml/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/liqd/a4-opin/badge.svg?branch=master)](https://coveralls.io/github/liqd/a4-opin?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/liqd/a4-opin/badge.svg?branch=main)](https://coveralls.io/github/liqd/a4-opin?branch=main)
 
 ## Requires
 
