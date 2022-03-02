@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.urls import path
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    url(r'^project-delete/(?P<pk>[-\w_]+)/$',
-        views.ProjectDeleteView.as_view(),
-        name='project-delete'),
-    url(r'^$',
-        views.ProjectListView.as_view(), name='project-list')
+    re_path(r'^project-delete/(?P<pk>[-\w_]+)/$',
+            views.ProjectDeleteView.as_view(),
+            name='project-delete'),
+    path('', views.ProjectListView.as_view(), name='project-list')
 ]
