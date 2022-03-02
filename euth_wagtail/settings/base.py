@@ -161,6 +161,8 @@ DATABASES = {
     }
 }
 
+# default primary key field
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Auth
 # https://docs.djangoproject.com/en/1.8/topics/auth/customizing/
