@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 urlpatterns = [
-    url(r'^(?P<pk>\d+)/$',
-        views.OfflineEventDetailView.as_view(), name='offlineevent-detail'),
+    path('<int:pk>/', views.OfflineEventDetailView.as_view(),
+         name='offlineevent-detail'),
 ]

@@ -1,21 +1,21 @@
-from django.conf.urls import include
-from django.conf.urls import url
+from django.urls import include
+from django.urls import path
 
 from . import views
 
 urlpatterns = [
-    url(
-        r'^$',
+    path(
+        '',
         views.dashboard_default,
         name='account'),
-    url(
-        r'^profile/$',
+    path(
+        'profile/',
         views.AccountProfileView.as_view(),
         name='account-profile'),
-    url(
-        r'^social/',
+    path(
+        'social/',
         include('allauth.socialaccount.urls')),
-    url(
-        r'',
+    path(
+        '',
         include('allauth.account.urls')),
 ]
