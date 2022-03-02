@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:33+0200\n"
+"POT-Creation-Date: 2022-03-02 13:42+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
@@ -67,17 +67,13 @@ msgid "Answer"
 msgstr "Antwort verfassen"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 msgid "Your reply here"
 msgstr "Verfasse deine Antwort hier"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -90,50 +86,32 @@ msgstr ""
 "entspricht."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 msgid "Moderator"
 msgstr "Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 msgid "Latest edit on"
 msgstr "Zuletzt bearbeitet: "
 
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 msgid "Do you really want to delete this comment?"
 msgstr "Willst du diesen Kommentar wirklich löschen?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:152
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 msgid "Delete"
 msgstr "Löschen"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "Abbrechen"
 
@@ -260,16 +238,6 @@ msgctxt "verb"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
-msgid "Share link"
-msgstr "Link teilen"
-
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
-msgid "Categories: "
-msgstr "Kategorien:"
-
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
@@ -391,11 +359,6 @@ msgstr "Empfohlene Kommentare"
 msgid "Is recommended"
 msgstr "Empfohlen"
 
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
-msgid "Submit"
-msgstr "Einreichen"
-
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 msgid ""
@@ -466,26 +429,6 @@ msgstr "entfernen"
 msgid "Question"
 msgstr "Frage"
 
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:36
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:119
-#: adhocracy4/polls/assets/HelptextForm.jsx:11
-msgid "Explanation"
-msgstr "Erklärung"
-
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:45
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:50
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:129
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:134
-msgid "Move up"
-msgstr "hoch"
-
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:57
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:62
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:141
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:146
-msgid "Move down"
-msgstr "runter"
-
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:46
 msgid "Participants can vote for more than one option (multiple choice)"
 msgstr ""
@@ -494,15 +437,6 @@ msgstr ""
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:61
 msgid "Participants can add their own answer"
 msgstr "Teilnehmende können eine eigene Antwort eintragen"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:94
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:95
-msgid "Other"
-msgstr "Andere"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:112
-msgid "New answer"
-msgstr "Neue Antwort"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:163
 msgid "The poll has been updated."
@@ -528,12 +462,17 @@ msgstr "Offene Frage"
 msgid "Save"
 msgstr "speichern"
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:15
+#: adhocracy4/polls/assets/HelptextForm.jsx:11
+msgid "Explanation"
+msgstr "Erklärung"
+
+#: adhocracy4/polls/assets/PollQuestion.jsx:18
 msgid "Multiple answers are possible."
 msgstr "Mehrere Antworten sind möglich."
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:81
-#: adhocracy4/polls/assets/PollQuestion.jsx:120
+#: adhocracy4/polls/assets/PollQuestion.jsx:84
+#: adhocracy4/polls/assets/PollQuestion.jsx:123
+#: adhocracy4/polls/assets/PollResults.jsx:135
 msgid "other"
 msgstr "Andere"
 
@@ -557,6 +496,7 @@ msgid "To poll"
 msgstr "Zur Umfrage"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:47
+#: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Change answer"
 msgstr "Ändere deine Antwort"
 
@@ -635,6 +575,18 @@ msgstr "Schließen"
 msgid "Please set all values for your project."
 msgstr "Bitte fülle alle Werte für dein Projekt aus."
 
+#: euth/captcha/assets/captcheck.js:29
+msgid "Image mode"
+msgstr ""
+
+#: euth/captcha/assets/captcheck.js:30
+msgid "Text mode"
+msgstr ""
+
+#: euth/captcha/assets/captcheck.js:31
+msgid "Switch between image and text question"
+msgstr ""
+
 #: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
 msgstr "Maximale Anzahl der hochgeladenen Dokumente erreicht. "
@@ -675,3 +627,24 @@ msgstr "speichern"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Entfolgen"
+
+#~ msgid "Share link"
+#~ msgstr "Link teilen"
+
+#~ msgid "Categories: "
+#~ msgstr "Kategorien:"
+
+#~ msgid "Submit"
+#~ msgstr "Einreichen"
+
+#~ msgid "Move up"
+#~ msgstr "hoch"
+
+#~ msgid "Move down"
+#~ msgstr "runter"
+
+#~ msgid "Other"
+#~ msgstr "Andere"
+
+#~ msgid "New answer"
+#~ msgstr "Neue Antwort"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:33+0200\n"
+"POT-Creation-Date: 2022-03-02 13:42+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -70,17 +70,13 @@ msgid "Answer"
 msgstr "Svar"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:414
 msgid "Your reply here"
 msgstr "Tast dit svar her"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:288
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -92,50 +88,32 @@ msgstr ""
 "slettes, hvis det ikke overholder vores diskussionsregler (netiquette)."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:265
 msgid "Moderator"
 msgstr "Ordstyrer/Mødeleder/Mægler/Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:260
 msgid "Latest edit on"
 msgstr "Sidste udgave af"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 #: adhocracy4/comments/static/comments/Comment.jsx:147
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 msgid "Do you really want to delete this comment?"
 msgstr "Er du sikker på, at du vil slette kommentaren?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:152
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:148
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:22
 msgid "Delete"
 msgstr "Slet"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:149
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:244
 #: adhocracy4/comments_async/static/modals/modal.jsx:58
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "Afbryd"
 
@@ -264,16 +242,6 @@ msgctxt "verb"
 msgid "Comment"
 msgstr "kommentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:295
-msgid "Share link"
-msgstr "dele link"
-
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:335
-msgid "Categories: "
-msgstr "Kategorier: "
-
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
@@ -395,11 +363,6 @@ msgstr "Anbefal kommentar"
 msgid "Is recommended"
 msgstr "Anbefales"
 
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
-#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
-msgid "Submit"
-msgstr "Indsend"
-
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 #: adhocracy4/comments_async/static/modals/report_modal.jsx:62
 msgid ""
@@ -470,26 +433,6 @@ msgstr "fjerne"
 msgid "Question"
 msgstr "Spørgsmål"
 
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:36
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:119
-#: adhocracy4/polls/assets/HelptextForm.jsx:11
-msgid "Explanation"
-msgstr "Forklaring"
-
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:45
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:50
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:129
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:134
-msgid "Move up"
-msgstr "Flyt op"
-
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:57
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:62
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:141
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:146
-msgid "Move down"
-msgstr "Flyt ned"
-
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:46
 msgid "Participants can vote for more than one option (multiple choice)"
 msgstr "Deltagerne kan stemme på mere end én mulighed (multiple choice)"
@@ -497,15 +440,6 @@ msgstr "Deltagerne kan stemme på mere end én mulighed (multiple choice)"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:61
 msgid "Participants can add their own answer"
 msgstr "Deltagerne kan tilføje deres eget svar"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:94
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:95
-msgid "Other"
-msgstr "Andre"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:112
-msgid "New answer"
-msgstr "Nyt svar"
 
 #: adhocracy4/polls/assets/EditPollQuestions.jsx:163
 msgid "The poll has been updated."
@@ -531,12 +465,17 @@ msgstr "Åbent spørgsmål"
 msgid "Save"
 msgstr "Gemme"
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:15
+#: adhocracy4/polls/assets/HelptextForm.jsx:11
+msgid "Explanation"
+msgstr "Forklaring"
+
+#: adhocracy4/polls/assets/PollQuestion.jsx:18
 msgid "Multiple answers are possible."
 msgstr "Der er mulighed for flere svar."
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:81
-#: adhocracy4/polls/assets/PollQuestion.jsx:120
+#: adhocracy4/polls/assets/PollQuestion.jsx:84
+#: adhocracy4/polls/assets/PollQuestion.jsx:123
+#: adhocracy4/polls/assets/PollResults.jsx:135
 msgid "other"
 msgstr "andre"
 
@@ -560,6 +499,7 @@ msgid "To poll"
 msgstr "At afstemme"
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:47
+#: adhocracy4/polls/assets/PollQuestions.jsx:122
 msgid "Change answer"
 msgstr "Ændre svar"
 
@@ -639,6 +579,18 @@ msgstr "Tæt"
 msgid "Please set all values for your project."
 msgstr "Indstil venligst alle værdierne for dit projekt. "
 
+#: euth/captcha/assets/captcheck.js:29
+msgid "Image mode"
+msgstr ""
+
+#: euth/captcha/assets/captcheck.js:30
+msgid "Text mode"
+msgstr ""
+
+#: euth/captcha/assets/captcheck.js:31
+msgid "Switch between image and text question"
+msgstr ""
+
 #: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
 msgstr "Det maksimale antal upload-dokumenter er nået."
@@ -679,3 +631,24 @@ msgstr "Gem"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Følg ikke længere"
+
+#~ msgid "Share link"
+#~ msgstr "dele link"
+
+#~ msgid "Categories: "
+#~ msgstr "Kategorier: "
+
+#~ msgid "Submit"
+#~ msgstr "Indsend"
+
+#~ msgid "Move up"
+#~ msgstr "Flyt op"
+
+#~ msgid "Move down"
+#~ msgstr "Flyt ned"
+
+#~ msgid "Other"
+#~ msgstr "Andre"
+
+#~ msgid "New answer"
+#~ msgstr "Nyt svar"

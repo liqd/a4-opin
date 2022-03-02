@@ -9,17 +9,17 @@
 # Luca Thüer, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# David Jinjikhadze <david.jinjikhadze@gmail.com>, 2020
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
+# David Jinjikhadze <david.jinjikhadze@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:33+0200\n"
+"POT-Creation-Date: 2022-03-02 13:42+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
+"Last-Translator: David Jinjikhadze <david.jinjikhadze@gmail.com>, 2021\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr "გამოქვეყნება"
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 #: adhocracy4/dashboard/templates/a4dashboard/includes/progress.html:31
 msgid "Unpublish"
-msgstr "გამოაქვეყნა"
+msgstr "გაუქმება"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:4
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:7
@@ -154,8 +154,7 @@ msgid ""
 "After saving the draft project you can further customize and edit your "
 "project and eventually publish it."
 msgstr ""
-"პროექტების შენახვის შემდეგ თქვენ შეძლებთ თქვენი პროექტების შეცვლას და "
-"საბოლოოდ გამოქვეყნებას."
+"შენახვის შემდეგ თქვენ შეძლებთ თქვენი პროექტების შეცვლას და გამოქვეყნებას."
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
 #: adhocracy4/dashboard/templates/a4dashboard/project_create_form.html:25
@@ -227,7 +226,7 @@ msgstr "დუბლიკატი"
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
 #: euth_wagtail/templates/a4dashboard/project_list.html:23
 msgid "We could not find any projects."
-msgstr "ჩვენ ვერც პროექტების მოძიება ვერ მოხერხდა."
+msgstr "პროექტების მოძიება ვერ მოხერხდა."
 
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
 #: adhocracy4/dashboard/filter.py:11
@@ -238,6 +237,7 @@ msgstr "ძიება"
 
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
+#: euth/contrib/templates/euth_contrib/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
 msgstr "ეს ველი სავალდებულოა"
@@ -251,7 +251,7 @@ msgstr "ეს ველი სავალდებულოა"
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
 #: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
 msgid "Remove category"
-msgstr "კატეგორიების წაშლა"
+msgstr "კატეგორიიბის წაშლა"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:8
@@ -274,7 +274,7 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"თქვენი სურათი ატვირთულია / წაიშლება თქვენი ცვლილებების შენახვის შემდეგ \n"
+"თქვენი სურათი აიტვირთება/ წაიშლება თქვენი ცვლილებების შენახვის შემდეგ \n"
 "ამ გვერდის ბოლოს."
 
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
@@ -284,26 +284,26 @@ msgid ""
 "labels. If you create any, each contribution can be assigned\n"
 "to one or more of them. This way, content can be classified."
 msgstr ""
-"ამ განყოფილებაში თქვენ შეგიძლიათ შექმნათ ფილმები. თუ თქვენ შექმნით, თითოეული "
+"ამ განყოფილებაში თქვენ შეგიძლიათ შექმნათ ლეიბლი. თუ თქვენ შექმნით, თითოეული "
 "წვლილი შეიძლება გადაეცეს ერთ ან მეტს. ამ გზით, შინაარსი შეიძლება "
 "კლასიფიცირებული იყოს."
 
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 #: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
 msgid "Add label"
-msgstr "ლეიბლის დამატება"
+msgstr "ეტიკეტის დამატება"
 
 #: adhocracy4/polls/templates/a4polls/poll_404.html:8
 #: adhocracy4/polls/templates/a4polls/poll_404.html:8
 msgid ""
 "Participation is not possible at the moment. The poll has not been set up "
 "yet."
-msgstr "ამ ეტაპზე მონაწილეობა შეუძლებელია. გამოკითხვა არ არის დადგენილი."
+msgstr "ამ ეტაპზე მონაწილეობა შეუძლებელია. გამოკითხვა არ არის დაწყებული."
 
 #: adhocracy4/polls/templates/a4polls/poll_404.html:15
 #: adhocracy4/polls/templates/a4polls/poll_404.html:15
 msgid "Setup the poll by adding questions and answers in the dashboard."
-msgstr "შედგენა გამოკითხვის მეშვეობით დასმულ კითხვებზე და პასუხებში."
+msgstr "მოაწყვე გამოკითხვა, გამოაქვეყნე შეკითხვები და პასუხებში პანელზე."
 
 #: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
 #: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
@@ -334,7 +334,7 @@ msgstr "კატეგორიის სახელი"
 
 #: adhocracy4/categories/forms.py:39
 msgid "Category icon"
-msgstr "კატეგორიის ხატი"
+msgstr "კატეგორიის ნიშანი"
 
 #: adhocracy4/comments/models.py:53
 msgctxt "noun"
@@ -355,12 +355,12 @@ msgstr "კომენტარები"
 #: adhocracy4/comments/models.py:74
 #: adhocracy4/comments_async/serializers.py:151
 msgid "deleted by creator"
-msgstr "წაშლილი შემოქმედი"
+msgstr "წაშლილია ავტორის მიერ"
 
 #: adhocracy4/comments/models.py:77
 #: adhocracy4/comments_async/serializers.py:153
 msgid "deleted by moderator"
-msgstr "წაიშალა მოდერატორი"
+msgstr "წაიშალა მოდერატორის მიერ"
 
 #: adhocracy4/comments/serializers.py:52
 #: adhocracy4/comments/serializers.py:151
@@ -386,7 +386,7 @@ msgstr "მოდული განახლებულია"
 
 #: adhocracy4/dashboard/dashboard.py:13
 msgid "Basic settings"
-msgstr "ძირითადი პარამეტრები"
+msgstr "ძირითადი პარამეტრების"
 
 #: adhocracy4/dashboard/dashboard.py:15
 msgid "Edit basic settings"
@@ -431,11 +431,11 @@ msgstr "ფაზის ინფორმაციის რედაქტი�
 
 #: adhocracy4/dashboard/dashboard.py:64
 msgid "Areasettings"
-msgstr "ფართობი პარამეტრები"
+msgstr "სივრცის პარამეტრები"
 
 #: adhocracy4/dashboard/dashboard.py:65
 msgid "Edit areasettings"
-msgstr "ფართობი პარამეტრების რედაქტირება"
+msgstr "სივრცის პარამეტრების რედაქტირება"
 
 #: adhocracy4/dashboard/filter.py:15
 msgid "Archived"
@@ -466,7 +466,7 @@ msgstr "მხოლოდ მოწვეული მომხმარებ�
 #: adhocracy4/dashboard/forms.py:86
 #: euth/projects/templates/euth_projects/project_detail.html:109
 msgid "Contact for questions"
-msgstr "დაუკავშირდით კითხვებს"
+msgstr "შეკითხვების შემთხვევაში დაგვიკავშირდით"
 
 #: adhocracy4/dashboard/forms.py:87
 msgid ""
@@ -474,13 +474,13 @@ msgid ""
 "this project and to whom they can address possible questions. The contact "
 "person will be shown in the information tab on the project page."
 msgstr ""
-"გთხოვთ დაასახელოთ საკონტაქტო პირი. მომხმარებელი მაშინ იცის, ვინ ახორციელებს "
-"ამ პროექტს და ვის შეუძლია მათთვის შესაძლო კითხვებზე საუბარი. საკონტაქტო პირი "
-"პროექტის გვერდზე განთავსდება ინფორმაციის ჩანართში."
+"გთხოვთ დაასახელოთ საკონტაქტო პირი. მომხმარებელს ეცოდინება ვინ ახორციელებს ამ "
+"პროექტს და ვის შეუძლია მიმართოს შეკითხვების შემთხვევაში. საკონტაქტო პირის "
+"ინფორმაცია განთავსდება პროექტის გვერდზე."
 
 #: adhocracy4/dashboard/forms.py:92
 msgid "More contact possibilities"
-msgstr "მეტი კონტაქტი შესაძლებლობები"
+msgstr "სხვა საკონტაქტო ინფორმაცია"
 
 #: adhocracy4/dashboard/forms.py:134
 #: adhocracy4/phases/models.py:77
@@ -489,7 +489,7 @@ msgstr "დასრულების თარიღი"
 
 #: adhocracy4/dashboard/forms.py:134
 msgid "End time"
-msgstr "დროის დასასრული"
+msgstr "დასრულების დრო"
 
 #: adhocracy4/dashboard/forms.py:140
 #: adhocracy4/phases/models.py:75
@@ -502,7 +502,7 @@ msgstr "დაწყების დრო"
 
 #: adhocracy4/dashboard/mixins.py:207
 msgid "Project successfully duplicated."
-msgstr "პროექტი წარმატებით დუბლირებული."
+msgstr "პროექტის ასლი შეიქმნა."
 
 #: adhocracy4/dashboard/views.py:69
 msgid "Project successfully created."
@@ -555,7 +555,7 @@ msgstr "მინიშნებაზე პასუხი"
 #: adhocracy4/exports/mixins/general.py:14
 #: euth/exports/mixins.py:45
 msgid "Creator"
-msgstr "შემოქმედი"
+msgstr "ავტორი"
 
 #: adhocracy4/exports/mixins/general.py:16
 #: euth/exports/mixins.py:47
@@ -569,12 +569,12 @@ msgstr "ბმული"
 #: adhocracy4/exports/mixins/general.py:49
 #: euth/exports/mixins.py:10
 msgid "Location (Longitude)"
-msgstr "საიდან (გრძედი)"
+msgstr "მდებარეობა (გრძედი)"
 
 #: adhocracy4/exports/mixins/general.py:51
 #: euth/exports/mixins.py:12
 msgid "Location (Latitude)"
-msgstr "საიდან (გრძედი)"
+msgstr "მდებარეობა (განედი)"
 
 #: adhocracy4/exports/mixins/general.py:53
 msgid "Location label"
@@ -583,11 +583,11 @@ msgstr "მდებარეობის ეტიკეტი"
 #: adhocracy4/exports/mixins/items.py:29
 #: adhocracy4/labels/dashboard.py:13
 msgid "Labels"
-msgstr "იარლიყები"
+msgstr "ეტიკეტები"
 
 #: adhocracy4/exports/mixins/items.py:46
 msgid "Reference No."
-msgstr "მითითების ნომერი"
+msgstr "მინიჭებული ნომერი"
 
 #: adhocracy4/exports/mixins/items.py:65
 msgid "Moderator feedback"
@@ -603,7 +603,7 @@ msgstr "შენიშვნა"
 
 #: adhocracy4/exports/mixins/rates.py:15
 msgid "Positive ratings"
-msgstr "დადებითი რეიტინგი"
+msgstr "დადებითი რეიტინგები"
 
 #: adhocracy4/exports/mixins/rates.py:17
 msgid "Negative ratings"
@@ -621,9 +621,9 @@ msgid ""
 "{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
 "The file size should be max. {max_size_mb} MB."
 msgstr ""
-"{help_prefix}ეს უნდა იყოს მინ. {min_resolution[0]} პიქსელის ფართო და "
-"{min_resolution[1]} პიქსელის სიმაღლე. დასაშვებია ფაილის ფორმატები "
-"{fileformats_str}. ზომა უნდა იყოს მაქსიმალური. {max_size_mb} მბ."
+"{help_prefix}ეს უნდა იყოს მინ. {min_resolution[0]} გამოსახულების სიგანე და "
+"{min_resolution[1]} გამოსახულების სიმაღლე. დასაშვებიაფაილის ფორმატებია "
+"{fileformats_str}. ზომა უნდა იყოს მაქსიმუმ. {max_size_mb} მბ."
 
 #: adhocracy4/images/fields.py:91
 #, python-brace-format
@@ -633,33 +633,32 @@ msgstr "{image_name} საავტორო უფლებები"
 #: adhocracy4/images/fields.py:94
 #, python-brace-format
 msgid "Copyright shown in the {image_name}."
-msgstr "საავტორო უფლებები ნაჩვენები {image_name}."
+msgstr "საავტორო უფლებები მითითებულია{image_name}."
 
-#: adhocracy4/images/validators.py:20
+#: adhocracy4/images/validators.py:21
 #: euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
-msgstr "მხარდაჭერილი ფაილის ფორმატი. მხარდაჭერილი ფორმატები {}."
+msgstr "მხარდაჭერის არმქონე ფაილის ფორმატი. მხარდაჭერილი ფორმატებია {}."
 
-#: adhocracy4/images/validators.py:27
+#: adhocracy4/images/validators.py:28
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
-msgstr "სურათი უნდა იყოს ყველაზე მეტად {max_size}მბ "
+msgstr "სურათი უნდა იყოს მაქსიმუმ {max_size}მბ "
 
-#: adhocracy4/images/validators.py:30
+#: adhocracy4/images/validators.py:36
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
-msgstr "სურათი უნდა იყოს მინიმუმამდე {min_width} პიქსელი ფართო"
+msgstr "სურათი უნდა იყოს მინიმუმ {min_width} პიქსელი ფართობის"
 
-#: adhocracy4/images/validators.py:33
+#: adhocracy4/images/validators.py:44
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
-msgstr "სურათი უნდა იყოს მინიმუმამდე {min_height}პიქსელი მაღალია  "
+msgstr "სურათი უნდა იყოს მინიმუმ {min_height}პიქსელი სიმაღლის მქონე"
 
-#: adhocracy4/images/validators.py:43
+#: adhocracy4/images/validators.py:54
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
-msgstr ""
-"გამოსახულების ასპექტის თანაფარდობა უნდა იყოს {aspect_width}:{aspect_height}"
+msgstr "გამოსახულების პროპორცია უნდა იყოს {aspect_width}:{aspect_height}"
 
 #: adhocracy4/images/widgets.py:25
 msgid "Select a picture from your local folder."
@@ -667,11 +666,11 @@ msgstr "აირჩიეთ სურათი თქვენი საქა
 
 #: adhocracy4/labels/dashboard.py:15
 msgid "Edit labels"
-msgstr "ლეიბლების რედაქტირება"
+msgstr "ეტიკეტის რედაქტირება"
 
 #: adhocracy4/labels/forms.py:17
 msgid "Label"
-msgstr "ლეიბლი"
+msgstr "ეტიკეტი"
 
 #: adhocracy4/maps/admin.py:14
 #: adhocracy4/maps/models.py:11
@@ -700,7 +699,7 @@ msgstr "გთხოვთ, მოითმინოთ პოლიგონი
 
 #: adhocracy4/maps/models.py:12
 msgid "Please draw an area on the map."
-msgstr "გთხოვთ, მოითმინოთ რუკაზე."
+msgstr "გთხოვთ, მონიშნოთ ტერიტორია რუკაზე."
 
 #: adhocracy4/modules/models.py:67
 msgid "Title of the module"
@@ -711,8 +710,8 @@ msgid ""
 "This title will appear in the timeline and the header on the module and "
 "project detail pages. It should be max. 512 characters long"
 msgstr ""
-"ეს სათაური გამოჩნდება ვადებს და სათაურს მოდულისა და პროექტების დეტალურ "
-"გვერდებზე. ეს უნდა იყოს მაქსიმალური. 512 სიმბოლო"
+"ეს სათაური გამოჩნდება დროის წრფეზე და სათაური მოდულში და პროექტების "
+"დეტალების გვერდებზე. ის უნდა იყოს მაქსიმუმ 512 სიმბოლო"
 
 #: adhocracy4/modules/models.py:76
 msgid "Short description of the module"
@@ -724,20 +723,20 @@ msgid ""
 "detail pages. It should briefly state the goal of the module in max. 512 "
 "chars."
 msgstr ""
-"ეს მოკლე აღწერა გამოჩნდება მოდულის სათაურში და პროექტის დეტალურ გვერდებზე. "
-"მოკლედ უნდა აღინიშნოს მაქსიმალური მოდულის მიზანი. 512 სიმბოლო."
+"ეს მოკლე აღწერა გამოჩნდება მოდულის სათაურში და პროექტის დეტალების გვერდებზე. "
+"მან მოკლედ უნდა აღწეროს მოდულის მიზანი. მაქს. 512 სიმბოლო."
 
 #: adhocracy4/modules/models.py:192
 #: adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
-msgstr "დღეს"
+msgstr "დღე"
 
 #: adhocracy4/modules/models.py:192
 #: adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
-msgstr "დღის განმავლობაში"
+msgstr "დღე"
 
 #: adhocracy4/modules/models.py:193
 #: adhocracy4/projects/models.py:594
@@ -767,7 +766,7 @@ msgstr "წუთი"
 #: adhocracy4/projects/models.py:596
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
-msgstr "მეორე"
+msgstr "წამი"
 
 #: adhocracy4/modules/models.py:195
 #: adhocracy4/modules/models.py:206
@@ -775,11 +774,11 @@ msgstr "მეორე"
 #: adhocracy4/projects/models.py:607
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
-msgstr "წამი"
+msgstr "წამები"
 
 #: adhocracy4/phases/forms.py:23
 msgid "Phases cannot run at the same time and must follow after each other."
-msgstr "ფაზები ვერ იმუშავებს ერთდროულად და უნდა მიჰყვეს ერთმანეთს. "
+msgstr "თითოეული ფაზა უნდა იწყებოდეს სხვა ფაზის დასრულების შემდეგ. . "
 
 #: adhocracy4/phases/models.py:69
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -802,7 +801,7 @@ msgstr "დასრულების თარიღი არ შეიძლ
 #: adhocracy4/phases/models.py:100
 #: adhocracy4/phases/models.py:104
 msgid "Either both or no date has to be set."
-msgstr "ან ორივე არ უნდა დადგეს თარიღი. "
+msgstr "მიუთითეთ ორი თარიღი ან საერთოდ არ მიუთითეთ თარიღი. "
 
 #: adhocracy4/polls/api.py:71
 msgid "Please specify your answer."
@@ -814,15 +813,15 @@ msgstr "ძირითადი შეცდომა {}"
 
 #: adhocracy4/polls/api.py:90
 msgid "Choice not found."
-msgstr "არჩევანი ვერ მოიძებნა."
+msgstr "ვერ მოიძებნა."
 
 #: adhocracy4/polls/api.py:98
 msgid "Duplicate choices detected."
-msgstr "აღმოჩენილია დუბლიკატი არჩევანი."
+msgstr "აღმოჩენილია განმეორებული არჩევანი."
 
 #: adhocracy4/polls/api.py:101
 msgid "Multiple choice disabled for question."
-msgstr "მრავალჯერადი არჩევანი გათიშულია კითხვისთვის."
+msgstr "მრავალი პასუხის მითითების ფუნქცია გათიშულია კითხვისთვის."
 
 #: adhocracy4/polls/dashboard.py:14
 #: euth/blueprints/blueprints.py:313
@@ -831,19 +830,19 @@ msgstr "გამოკითხვა"
 
 #: adhocracy4/polls/models.py:53
 msgid "Explanation"
-msgstr "Explanation"
+msgstr "ახსნა"
 
 #: adhocracy4/polls/models.py:82
 msgid "Questions with open answers cannot have multiple choices."
-msgstr "კითხვებს ღია პასუხებით არ შეიძლება ჰქონდეს მრავალჯერადი არჩევანი."
+msgstr "კითხვებს ღია პასუხებით არ შეიძლება ჰქონდეს მრავალი არჩევანი."
 
 #: adhocracy4/polls/models.py:87
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
 msgstr ""
-"არჩევანის მქონე კითხვა არ შეიძლება გახდეს ღია კითხვა. წაშალეთ არჩევანი ან "
-"დაამატეთ ახალი ღია შეკითხვა."
+"არჩევანის მქონე კითხვა არ შეიძლება გადაკეთდეს ღია კითხვად. წაშალეთ არჩევანი "
+"ან დაამატეთ ახალი ღია შეკითხვა."
 
 #: adhocracy4/polls/models.py:152
 #: adhocracy4/polls/models.py:279
@@ -852,11 +851,11 @@ msgstr "პასუხი"
 
 #: adhocracy4/polls/models.py:164
 msgid "Only open questions can have answers."
-msgstr "მხოლოდ ღია კითხვებს შეუძლიათ პასუხი."
+msgstr "მხოლოდ ღია კითხვებზე შეიძლება პასუხის მითითება."
 
 #: adhocracy4/polls/models.py:201
 msgid "Open questions cannot have choices."
-msgstr "ღია კითხვებს არ აქვთ არჩევანი."
+msgstr "ღია კითხვებს არ შეიძლება ჰქონდეს მრავალი არჩევანი."
 
 #: adhocracy4/polls/models.py:206
 msgid ""
@@ -1623,6 +1622,14 @@ msgstr[1] ""
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:52
 msgid "Learn More"
 msgstr "გაიგე მეტი"
+
+#: euth/captcha/fields.py:37 euth/captcha/fields.py:45
+msgid "Something about the answer to the captcha was wrong."
+msgstr ""
+
+#: euth/captcha/fields.py:50
+msgid "Your answer to the captcha was wrong."
+msgstr ""
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
 #: euth/organisations/filters.py:11 euth/projects/filters.py:10
@@ -2661,7 +2668,7 @@ msgstr "შესვლა"
 #: euth/users/templates/euth_users/indicator_menu.html:49
 #: euth_wagtail/templates/account/login.html:20
 #: euth_wagtail/templates/account/signup.html:12
-#: euth_wagtail/templates/account/signup.html:97
+#: euth_wagtail/templates/account/signup.html:99
 msgid "register"
 msgstr "რეგისტრაცია"
 
@@ -2679,55 +2686,55 @@ msgstr "წლის"
 msgid "%(username)s follows no projects at the moment."
 msgstr "%(username)s მომდევნო ეტაპზე არ არის პროექტების განხორციელება."
 
-#: euth_wagtail/settings/base.py:275
+#: euth_wagtail/settings/base.py:276
 msgid "English"
 msgstr "ინგლისური"
 
-#: euth_wagtail/settings/base.py:276
+#: euth_wagtail/settings/base.py:277
 msgid "German"
 msgstr "გერმანული"
 
-#: euth_wagtail/settings/base.py:277
+#: euth_wagtail/settings/base.py:278
 msgid "Italien"
 msgstr "იტალია"
 
-#: euth_wagtail/settings/base.py:278
+#: euth_wagtail/settings/base.py:279
 msgid "French"
 msgstr "ფრანგული"
 
-#: euth_wagtail/settings/base.py:279
+#: euth_wagtail/settings/base.py:280
 msgid "Swedish"
 msgstr "შვედური"
 
-#: euth_wagtail/settings/base.py:280
+#: euth_wagtail/settings/base.py:281
 msgid "Slovene"
 msgstr "სლოვენი"
 
-#: euth_wagtail/settings/base.py:281
+#: euth_wagtail/settings/base.py:282
 msgid "Danish"
 msgstr "დანიური"
 
-#: euth_wagtail/settings/base.py:282
+#: euth_wagtail/settings/base.py:283
 msgid "Greek"
 msgstr "ბერძნული"
 
-#: euth_wagtail/settings/base.py:283
+#: euth_wagtail/settings/base.py:284
 msgid "Georgian"
 msgstr "ქართული"
 
-#: euth_wagtail/settings/base.py:284
+#: euth_wagtail/settings/base.py:285
 msgid "Macedonian"
 msgstr "მაკედონური"
 
-#: euth_wagtail/settings/base.py:431
+#: euth_wagtail/settings/base.py:432
 msgid "suggestion"
 msgstr "შეთავაზება"
 
-#: euth_wagtail/settings/base.py:432
+#: euth_wagtail/settings/base.py:433
 msgid "note"
 msgstr "შენიშვნა"
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:434
 msgid "question"
 msgstr "კითხვა"
 
@@ -2951,7 +2958,7 @@ msgid "reset password"
 msgstr "პაროლის გადატვირთვა"
 
 #: euth_wagtail/templates/account/login.html:67
-#: euth_wagtail/templates/account/signup.html:104
+#: euth_wagtail/templates/account/signup.html:106
 msgid "Login with social account"
 msgstr "შესვლა სოციალური ანგარიშით"
 
