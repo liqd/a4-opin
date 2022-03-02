@@ -1,6 +1,6 @@
 from django.urls import Resolver404
 from django.urls import resolve
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 
 default_app_config = 'euth.users.apps.Config'
 
@@ -23,7 +23,9 @@ def sanitize_next(request):
 
     if url_name in _get_account_url_names():
         nextparam = request.GET.get('next') or request.POST.get('next')
-        next = nextparam if is_safe_url(nextparam, allowed_hosts=None) else '/'
+        next = nextparam \
+            if url_has_allowed_host_and_scheme(nextparam, allowed_hosts=None) \
+            else '/'
     else:
         next = request.get_full_path()
     return next
