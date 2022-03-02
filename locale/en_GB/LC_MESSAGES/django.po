@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 16:33+0200\n"
+"POT-Creation-Date: 2022-03-02 13:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,6 +191,7 @@ msgid "Search"
 msgstr "Search"
 
 #: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
+#: euth/contrib/templates/euth_contrib/includes/form_field.html:5
 #: euth_wagtail/templates/a4forms/includes/form_field.html:5
 msgid "This field is required"
 msgstr "This field is required"
@@ -566,26 +567,26 @@ msgstr "{image_name} copyright"
 msgid "Copyright shown in the {image_name}."
 msgstr "Copyright shown in the {image_name}."
 
-#: adhocracy4/images/validators.py:20 euth/contrib/validators.py:20
+#: adhocracy4/images/validators.py:21 euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Unsupported file format. Supported formats are {}."
 
-#: adhocracy4/images/validators.py:27
+#: adhocracy4/images/validators.py:28
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
 msgstr "Image should be at most {max_size} MB"
 
-#: adhocracy4/images/validators.py:30
+#: adhocracy4/images/validators.py:36
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
 msgstr "Image must be at least {min_width} pixels wide"
 
-#: adhocracy4/images/validators.py:33
+#: adhocracy4/images/validators.py:44
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
 msgstr "Image must be at least {min_height} pixels high"
 
-#: adhocracy4/images/validators.py:43
+#: adhocracy4/images/validators.py:54
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr "Image aspect ratio should be {aspect_width}:{aspect_height}"
@@ -1532,6 +1533,14 @@ msgstr[1] ""
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:52
 msgid "Learn More"
 msgstr "Learn More"
+
+#: euth/captcha/fields.py:37 euth/captcha/fields.py:45
+msgid "Something about the answer to the captcha was wrong."
+msgstr "Something about the answer to the captcha was wrong."
+
+#: euth/captcha/fields.py:50
+msgid "Your answer to the captcha was wrong."
+msgstr "Your answer to the captcha was wrong."
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
 #: euth/organisations/filters.py:11 euth/projects/filters.py:10
@@ -2564,7 +2573,7 @@ msgstr "login"
 #: euth/users/templates/euth_users/indicator_menu.html:49
 #: euth_wagtail/templates/account/login.html:20
 #: euth_wagtail/templates/account/signup.html:12
-#: euth_wagtail/templates/account/signup.html:97
+#: euth_wagtail/templates/account/signup.html:99
 msgid "register"
 msgstr "register"
 
@@ -2582,55 +2591,55 @@ msgstr "Bio"
 msgid "%(username)s follows no projects at the moment."
 msgstr "%(username)s follows no projects at the moment."
 
-#: euth_wagtail/settings/base.py:275
+#: euth_wagtail/settings/base.py:276
 msgid "English"
 msgstr "English"
 
-#: euth_wagtail/settings/base.py:276
+#: euth_wagtail/settings/base.py:277
 msgid "German"
 msgstr "German"
 
-#: euth_wagtail/settings/base.py:277
+#: euth_wagtail/settings/base.py:278
 msgid "Italien"
 msgstr "Italien"
 
-#: euth_wagtail/settings/base.py:278
+#: euth_wagtail/settings/base.py:279
 msgid "French"
 msgstr "French"
 
-#: euth_wagtail/settings/base.py:279
+#: euth_wagtail/settings/base.py:280
 msgid "Swedish"
 msgstr "Swedish"
 
-#: euth_wagtail/settings/base.py:280
+#: euth_wagtail/settings/base.py:281
 msgid "Slovene"
 msgstr "Slovene"
 
-#: euth_wagtail/settings/base.py:281
+#: euth_wagtail/settings/base.py:282
 msgid "Danish"
 msgstr "Danish"
 
-#: euth_wagtail/settings/base.py:282
+#: euth_wagtail/settings/base.py:283
 msgid "Greek"
 msgstr "Greek"
 
-#: euth_wagtail/settings/base.py:283
+#: euth_wagtail/settings/base.py:284
 msgid "Georgian"
 msgstr "Georgian"
 
-#: euth_wagtail/settings/base.py:284
+#: euth_wagtail/settings/base.py:285
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: euth_wagtail/settings/base.py:431
+#: euth_wagtail/settings/base.py:432
 msgid "suggestion"
 msgstr "suggestion"
 
-#: euth_wagtail/settings/base.py:432
+#: euth_wagtail/settings/base.py:433
 msgid "note"
 msgstr "note"
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:434
 msgid "question"
 msgstr "question"
 
@@ -2852,7 +2861,7 @@ msgid "reset password"
 msgstr "reset password"
 
 #: euth_wagtail/templates/account/login.html:67
-#: euth_wagtail/templates/account/signup.html:104
+#: euth_wagtail/templates/account/signup.html:106
 msgid "Login with social account"
 msgstr "Login with social account"
 
