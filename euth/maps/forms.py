@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from adhocracy4.categories import forms as category_forms
 from adhocracy4.maps import widgets

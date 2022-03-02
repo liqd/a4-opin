@@ -2,7 +2,7 @@
 
 ## Languages
 
-  - source code uses en_GB (arguments to ugettext == msg_id )
+  - source code uses en_GB (arguments to gettext == msg_id )
      - lower case (except for first word of title or sentence)
   - support many languages with transifex (en, de, it, fr,
     sv, sl, da, el, ka, mk as of 10/2017)

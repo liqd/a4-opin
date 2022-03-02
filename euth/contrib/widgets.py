@@ -5,7 +5,7 @@ from django.template import loader
 from django.utils import formats
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext
+from django.utils.translation import gettext
 
 
 class DateInput(widgets.DateInput):
@@ -57,7 +57,7 @@ class FileUploadWidget(widgets.ClearableFileInput):
         has_file_set = self.is_initial(value)
         is_required = self.is_required
 
-        file_placeholder = ugettext('Select a file from your local folder.')
+        file_placeholder = gettext('Select a file from your local folder.')
         file_input = super().render(name, None, {
             'id': name,
             'class': 'form-control form-control-file'
