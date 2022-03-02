@@ -9,6 +9,9 @@
 
 ## Workflow
 
+### Install the transifex client if you haven't already
+- see https://github.com/transifex/cli for instructions
+
 ### Extracting strings from source code
 
   - required if msg_ids were added or changed
