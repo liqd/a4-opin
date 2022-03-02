@@ -1,11 +1,9 @@
 $sectionslist-gutter: 14px;
 
 .sectionslist {
-    background-color: $brand-brand5;
-
     ul {
         list-style: none;
-        padding: 100px 0;
+        padding: $block-vpadding 0;
         display: flex;
         align-items: stretch;
         margin: 0 -($sectionslist-gutter/2);
@@ -33,6 +31,12 @@ $sectionslist-gutter: 14px;
     @media screen and (max-width: $screen-xs-max) {
         flex-basis: 100%;
     }
+}
+
+.sectionslist-tile {
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid $border-color;
+    flex-grow: 1;
 }
 
 .sectionslist-image {

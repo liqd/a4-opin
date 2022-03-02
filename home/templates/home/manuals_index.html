@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container">
-        <h1>{{ page.translated_title }}</h1>
+        <h1 class="block-title">{{ page.translated_title }}</h1>
     </div>
 
     {% if page.subpages %}
@@ -15,20 +15,22 @@
             <ul>
                 {% for subpage in page.subpages %}
                 <li class="sectionslist-section">
-                    {% image subpage.image max-220x220 as image %}
-                    <a href="{% pageurl subpage %}">
-                        <div class="sectionslist-image {{ subpage.color }}"
-                             style="background-image: url({{ image.url }});"
-                             aria-labelledby="card-title-{{ forloop.counter }}"></div>
-                    </a>
-                    <div class="sectionslist-body">
-                        <h2 id="card-title-{{ forloop.counter }}">
-                            <a href="{% pageurl subpage %}">{{ subpage.translated_title }}</a>
-                        </h2>
-                        <p>
-                            {{ subpage.description }}
-                        </p>
-                    </div>
+                    <div class="sectionslist-tile">
+                        {% image subpage.image max-220x220 as image %}
+                        <a href="{% pageurl subpage %}">
+                            <div class="sectionslist-image {{ subpage.color }}"
+                                 style="background-image: url({{ image.url }});"
+                                 aria-labelledby="card-title-{{ forloop.counter }}"></div>
+                        </a>
+                        <div class="sectionslist-body">
+                            <h2 id="card-title-{{ forloop.counter }}">
+                                <a href="{% pageurl subpage %}">{{ subpage.translated_title }}</a>
+                            </h2>
+                            <p>
+                                {{ subpage.description }}
+                            </p>
+                        </div>
+                      </div>
                 </li>
                 {% endfor %}
             </ul>
