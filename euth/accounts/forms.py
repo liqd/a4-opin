@@ -2,7 +2,7 @@ import collections
 from datetime import date
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from euth.contrib import widgets
 from euth.users.models import User

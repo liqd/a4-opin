@@ -5,7 +5,7 @@ from django.core import validators
 from django.db import models
 from django.templatetags.static import static
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django_countries import fields as countries_fields
 from pytz import common_timezones
 

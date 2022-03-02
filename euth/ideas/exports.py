@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from adhocracy4.exports import mixins as a4_export_mixins
 from adhocracy4.exports import views as a4_export_views

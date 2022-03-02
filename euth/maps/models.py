@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from adhocracy4.maps import fields as map_fields
 from euth.ideas import models as idea_models

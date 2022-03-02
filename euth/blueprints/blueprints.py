@@ -2,7 +2,7 @@ from collections import namedtuple
 from enum import Enum
 from enum import unique
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from adhocracy4.polls import phases as poll_phases
 from euth.communitydebate import phases as communitydebate_phases
