@@ -42,7 +42,8 @@ $sectionslist-gutter: 14px;
 .sectionslist-image {
     height: 250px;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: center;
+    background-size: cover;
 
     &.blue {
         background-color: $brand-brand1;
