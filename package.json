@@ -52,7 +52,7 @@
     "lint-staged": "12.3.5",
     "markdownlint-cli": "0.31.1",
     "postcss": "8.4.8",
-    "stylelint": "13.13.1",
+    "stylelint": "14.5.3",
     "stylelint-config-standard": "22.0.0",
     "stylelint-declaration-strict-value": "1.8.0",
     "webpack": "5.70.0",
