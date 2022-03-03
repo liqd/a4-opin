@@ -213,14 +213,14 @@ CKEDITOR_CONFIGS = {
 }
 
 BLEACH_LIST = {
-    'default' : {
-        'tags': ['p','strong','em','u','ol','li','ul','a'],
+    'default': {
+        'tags': ['p', 'strong', 'em', 'u', 'ol', 'li', 'ul', 'a'],
         'attributes': {
             'a': ['href', 'rel'],
         },
     },
     'image-editor': {
-        'tags': ['p','strong','em','u','ol','li','ul','a','img'],
+        'tags': ['p', 'strong', 'em', 'u', 'ol', 'li', 'ul', 'a', 'img'],
         'attributes': {
             'a': ['href', 'rel'],
             'img': ['src', 'alt', 'style']
@@ -285,18 +285,19 @@ LANGUAGES = [
     ('el', _('Greek')),
     ('ka', _('Georgian')),
     ('mk', _('Macedonian')),
+    ('bg', _('Bulgarian')),
 ]
 
 PARLER_LANGUAGES = {
-    1:[{'code': language_code } for language_code, language in LANGUAGES]
+    1: [{'code': language_code} for language_code, language in LANGUAGES]
 }
 
 PARLER_ENABLE_CACHING = False
 
 # fixtures
 
-FIXTURE_DIRS = [ os.path.join(PROJECT_DIR, 'fixtures') ]
-FILE_ALIASES  = {
+FIXTURE_DIRS = [os.path.join(PROJECT_DIR, 'fixtures')]
+FILE_ALIASES = {
     '*': {
         'fileformats': (
             ('.png', 'image/png'),
@@ -314,7 +315,7 @@ FILE_ALIASES  = {
 }
 IMAGE_ALIASES = {
     '*': {
-        'max_size': 5*10**6,
+        'max_size': 5 * 10**6,
         'fileformats': ('image/png', 'image/jpeg', 'image/gif')
     },
     'heroimage': {'min_resolution': (1300, 600)},
@@ -403,11 +404,11 @@ ACTIONABLE = [
 A4_MAP_ATTRIBUTION = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 A4_MAP_BASEURL = 'https://{s}.tile.openstreetmap.org/'
 A4_MAP_BOUNDING_BOX = [
-    [[34.95799531086792,-28.388671875],
-     [71.35706654962706,-28.388671875],
-     [71.35706654962706,50.88867187499999],
-     [34.95799531086792,50.88867187499999],
-     [34.95799531086792,-28.388671875]]
+    [[34.95799531086792, -28.388671875],
+     [71.35706654962706, -28.388671875],
+     [71.35706654962706, 50.88867187499999],
+     [34.95799531086792, 50.88867187499999],
+     [34.95799531086792, -28.388671875]]
 ]
 
 # Adhocracy4
