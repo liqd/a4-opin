@@ -2,29 +2,71 @@
 <div class="block block-highlighted_column_block">
     <!-- single column template checks to ensure doesn't dispay additional columns -->
     {% if self.column_count == "12" %}
-      {% for item in self.column|slice:":1" %}
-        {% if item.highlight == "highlight" %}
-          <div class="m-cover m-highlight"></div>
-        {% elif item.highlight == "highlight-purple" %}
-          <div class="m-cover m-highlight-purple"></div>
-        {% elif item.highlight == "highlight-green" %}
-          <div class="m-cover m-highlight-green"></div>
-        {% else %}
-          <div class="m-cover"></div>
-        {% endif %}
+      {% for item in self.column %}
+        {% if forloop.counter0 < 1 %}
 
-          <div class="container">
-            <div class="container-inner">
-              <div class="row">
+          {% if item.highlight == "highlight" %}
+            <div class="m-cover m-highlight"></div>
+          {% elif item.highlight == "highlight-purple" %}
+            <div class="m-cover m-highlight-purple"></div>
+          {% elif item.highlight == "highlight-green" %}
+            <div class="m-cover m-highlight-green"></div>
+          {% else %}
+            <div class="m-cover"></div>
+          {% endif %}
+
+            <div class="container">
+              <div class="container-inner">
+                <div class="row">
+                {% if item.highlight == "highlight" %}
+                  <div class="col-12 m-highlight">
+                {% elif item.highlight == "highlight-purple" %}
+                  <div class="col-12 m-highlight-purple">
+                {% elif item.highlight == "highlight-green" %}
+                  <div class="col-12 m-highlight-green">
+                {% else %}
+                  <div class="col-12">
+                {% endif %}
+                  {% if item.title %}
+                    <h3 class="block-title">{{ item.title }}</h3>
+                  {% endif %}
+                  {% if item.text %}
+                    <span class="block-body">
+                      {{ item.text }}
+                    </span>
+                  {% endif %}
+                  {% if item.button.internal_link %}
+                    <a class="btn btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text }}</a>
+                  {% elif item.button.external_link %}
+                    <a class="btn btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text }}</a>
+                  {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    <!-- 2 column template -->
+    {% else %}
+      <div class="container">
+        <div class="row justify-content-between">
+          {% for item in self.column %}
+            {% if forloop.counter0 < 2 %}
+
               {% if item.highlight == "highlight" %}
-                <div class="col-12 m-highlight">
+                <div class="m-highlight {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div> <!-- background colour either side of container -->
+                <div class="col-sm-5 m-highlight py-5 py-sm-0">
               {% elif item.highlight == "highlight-purple" %}
-                <div class="col-12 m-highlight-purple">
+                <div class="m-highlight-purple {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div>
+                <div class="col-sm-5 m-highlight-purple py-5 py-sm-0">
               {% elif item.highlight == "highlight-green" %}
-                <div class="col-12 m-highlight-green">
+                <div class="m-highlight-green {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div>
+                <div class="col-sm-5 m-highlight-green py-5 py-sm-0">
               {% else %}
-                <div class="col-12">
+                <div class="col-sm-5">
               {% endif %}
+
                 {% if item.title %}
                   <h3 class="block-title">{{ item.title }}</h3>
                 {% endif %}
@@ -34,50 +76,13 @@
                   </span>
                 {% endif %}
                 {% if item.button.internal_link %}
-                  <a class="btn btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text }}</a>
+                  <a class="btn btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</a>
                 {% elif item.button.external_link %}
-                  <a class="btn btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text }}</a>
+                  <a class="btn btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text}}</a>
                 {% endif %}
+
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      {% endfor %}
-    <!-- 2 column template -->
-    {% else %}
-      <div class="container">
-        <div class="row justify-content-between">
-          {% for item in self.column|slice:":2" %}
-            {% if item.highlight == "highlight" %}
-              <div class="m-highlight {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div> <!-- background colour either side of container -->
-              <div class="col-sm-5 m-highlight py-5 py-sm-0">
-            {% elif item.highlight == "highlight-purple" %}
-              <div class="m-highlight-purple {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div>
-              <div class="col-sm-5 m-highlight-purple py-5 py-sm-0">
-            {% elif item.highlight == "highlight-green" %}
-              <div class="m-highlight-green {% if forloop.first %} m-before {% else %} m-after {% endif %}d-none d-sm-block"></div>
-              <div class="col-sm-5 m-highlight-green py-5 py-sm-0">
-            {% else %}
-              <div class="col-sm-5">
             {% endif %}
-
-              {% if item.title %}
-                <h3 class="block-title">{{ item.title }}</h3>
-              {% endif %}
-              {% if item.text %}
-                <span class="block-body">
-                  {{ item.text }}
-                </span>
-              {% endif %}
-              {% if item.button.internal_link %}
-                <a class="btn btn-ghost" href="{{ item.button.internal_link.url }}">{{ item.button.link_text}}</a>
-              {% elif item.button.external_link %}
-                <a class="btn btn-ghost" href="{{ item.button.external_link }}">{{ item.button.link_text}}</a>
-              {% endif %}
-
-              </div>
           {% endfor %}
         </div>
       </div>
