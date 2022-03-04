@@ -313,8 +313,7 @@ blueprints = [
          title=_('Poll'),
          description=_('Run customizable, multi-step polls on OPIN to get '
                        'detailed opinions on topics from the public or your '
-                       'members. Via the OPIN polling app for iOS and Android '
-                       'these polls are also accessible on smartphones.'),
+                       'members.'),
          content=[
              poll_phases.VotingPhase(),
          ],
