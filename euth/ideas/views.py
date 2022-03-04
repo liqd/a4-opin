@@ -23,10 +23,7 @@ class IdeaListView(
     filter_set = IdeaFilterSet
 
     def get_queryset(self):
-        return super().get_queryset().filter(module=self.module) \
-            .annotate_positive_rating_count() \
-            .annotate_negative_rating_count() \
-            .annotate_comment_count()
+        return super().get_queryset().filter(module=self.module)
 
 
 class IdeaDetailView(PermissionRequiredMixin, generic.DetailView):
