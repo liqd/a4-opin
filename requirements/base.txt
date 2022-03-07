@@ -5,7 +5,7 @@ git+git://github.com/liqd/adhocracy4.git@30dd44ce9b23343fe7749237f84ea7a0440ece2
 bcrypt==3.2.0
 brotli==1.0.9
 django-cloudflare-push==0.2.1
-django-countries==7.3.1
+django-countries==7.3.2
 django-sites==0.11
 django-parler==2.3
 feedparser==6.0.8
