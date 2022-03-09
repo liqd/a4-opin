@@ -1,5 +1,7 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
   "plugins": [
     "stylelint-declaration-strict-value"
   ],
@@ -39,6 +41,17 @@
       "ignoreKeywords": ["inherit", "transparent"]
     }],
 
-    "declaration-empty-line-before": null
+    "declaration-empty-line-before": null,
+
+    "scss/at-extend-no-missing-placeholder": null,
+    "selector-class-pattern": null,
+    "scss/double-slash-comment-whitespace-inside": null,
+    "scss/no-global-function-names": null,
+    "number-max-precision": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "property-no-vendor-prefix": null,
+    "value-keyword-case": null
   }
 }
