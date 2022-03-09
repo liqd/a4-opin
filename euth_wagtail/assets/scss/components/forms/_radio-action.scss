@@ -23,20 +23,20 @@
     }
 
     &.accept:before {
-        content: "\f00c"; //check
+        content: "\f00c"; // check
         border: 2px solid $brand-success;
         color: $brand-success;
     }
 
     &.decline:before,
     &.delete:before {
-        content: "\f00d"; //times
+        content: "\f00d"; // times
         border: 2px solid $brand-danger;
         color: $brand-danger;
     }
 
     &.delete:before {
-        content: "\f235"; //user-times
+        content: "\f235"; // user-times
     }
 
     :checked + &.accept:before {

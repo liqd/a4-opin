@@ -1,4 +1,4 @@
-//Poll
+// Poll
 
 $checkbox-size: 25px;
 
@@ -184,7 +184,7 @@ $checkbox-size: 25px;
     background-color: $gray-lighter;
     margin-bottom: 0.5 * $spacer;
 
-    //slick overwrites - nested for specificity
+    // slick overwrites - nested for specificity
     .slick-prev,
     .slick-next {
         position: absolute;
@@ -196,7 +196,7 @@ $checkbox-size: 25px;
         border-radius: 100%;
         color: $body-bg;
         background-color: $brand-primary;
-        z-index: 1; //for when tile links overlap
+        z-index: 1; // for when tile links overlap
     }
 
     .slick-prev {
