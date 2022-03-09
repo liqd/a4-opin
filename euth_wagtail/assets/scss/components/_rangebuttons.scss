@@ -31,7 +31,7 @@
 
         background: $gray;
 
-        content: '';
+        content: "";
     }
 
     &:last-child:before {
@@ -69,7 +69,7 @@
         border-radius: 100%;
         margin: auto;
 
-        content: ' ';
+        content: " ";
         transition: background 0.25s linear;
     }
 

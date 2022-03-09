@@ -38,7 +38,7 @@
 }
 
 .editpoll__menu-container {
-    margin: 0.25*$spacer 0;
+    margin: 0.25 * $spacer 0;
 
     & > * {
         width: 100%;
@@ -52,7 +52,7 @@
 }
 
 .editpoll__btn--question {
-    margin: 0.5*$spacer 0;
+    margin: 0.5 * $spacer 0;
 }
 
 .editpoll__question-container {
@@ -91,6 +91,6 @@
 
     .editpoll__btn--question {
         margin: 0;
-        margin-right: 0.5*$spacer;
+        margin-right: 0.5 * $spacer;
     }
 }

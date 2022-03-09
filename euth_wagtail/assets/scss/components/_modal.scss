@@ -5,7 +5,7 @@
     &:before {
         height: 100px;
         margin-bottom: 40px;
-        background: url(/static/images/attention.svg) no-repeat center top;
+        background: url("/static/images/attention.svg") no-repeat center top;
         background-size: contain;
         content: "";
         display: block;
@@ -61,7 +61,7 @@
     }
 
     .modal-body {
-        padding: 0 60px 0 60px;
+        padding: 0 60px;
 
         .input-group {
             padding-bottom: 30px;
@@ -104,7 +104,7 @@
 }
 
 .modal-url-bar-button {
-    padding: 0.375*$spacer 0.75*$spacer; // reset to bootstrap
+    padding: 0.375 * $spacer 0.75 * $spacer; // reset to bootstrap
 }
 
 .modal--close {

@@ -41,7 +41,7 @@
     }
 
     .navbar {
-        padding: 0.5*$spacer 0;
+        padding: 0.5 * $spacer 0;
 
         li.dropdown-menu {
             @extend .custom-dropdown-menu;

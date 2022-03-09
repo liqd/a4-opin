@@ -1,6 +1,6 @@
 .block-title,
 .page-title {
-    margin: 0 0 25px 0;
+    margin: 0 0 25px;
     text-align: center;
 }
 
@@ -41,7 +41,7 @@
     }
 
     .card-body {
-        padding: 2*$spacer $spacer 1.5*$spacer $spacer;
+        padding: 2 * $spacer $spacer 1.5 * $spacer $spacer;
     }
 
     .block-title {
@@ -82,6 +82,7 @@
 
     &.m-highlight-purple {
         background: #3c487d;
+
         // padding: 140px 0; why?
 
         img {
