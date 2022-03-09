@@ -57,7 +57,7 @@
 
 .skinny-form-header {
     padding-top: 200px;
-    background: $brand-brand1 url('/static/images/logo.svg') no-repeat center 40%;
+    background: $brand-brand1 url("/static/images/logo.svg") no-repeat center 40%;
     background-size: 35%;
 
     .nav-tabs {
@@ -69,7 +69,7 @@
         text-align: center;
         text-transform: uppercase;
         width: 50%;
-        padding: 0.5*$spacer;
+        padding: 0.5 * $spacer;
 
         &:first-child {
             margin: 0;

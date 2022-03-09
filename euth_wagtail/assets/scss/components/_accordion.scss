@@ -35,7 +35,7 @@
 
     .accordion-link {
         font-size: $font-size-small;
-        padding: 20px 20px;
+        padding: 20px;
         position: relative;
         color: $gray-darker;
         display: block;
@@ -74,6 +74,7 @@
     .accordion-link {
         font-size: $font-size-medium;
         padding: 15px 50px 12px 15px;
+
         // border: 1px solid $brand-brand1;
         position: relative;
         color: $body-bg;
@@ -99,6 +100,6 @@
     }
 
     .card-body {
-        padding: 0 22px 22px 22px;
+        padding: 0 22px 22px;
     }
 }

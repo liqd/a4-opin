@@ -10,7 +10,7 @@
 
 .org-grid {
     .col-sm-6 {
-        padding: 0 10px 20px 10px;
+        padding: 0 10px 20px;
     }
 
     .col-sm-6:nth-child(3n+1) {
@@ -90,7 +90,7 @@
     }
 
     .content:before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         left: 50%;

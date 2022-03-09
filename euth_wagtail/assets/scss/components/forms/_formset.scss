@@ -1,6 +1,6 @@
 @media (min-width: $breakpoint) {
     .formset {
-        @include grid-width(6;
+        @include grid-width(6);
     }
 }
 
@@ -18,7 +18,7 @@
 }
 
 .formset__delete {
-    @include visually-hidden(;
+    @include visually-hidden;
 
     & ~ .formset__delete-label {
         position: absolute;

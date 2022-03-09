@@ -1,4 +1,3 @@
-
 :target:before {
     content: "";
     display: block;
@@ -64,7 +63,7 @@
 @media screen and (min-width: $screen-xs-min) {
     .user-indicator > .btngroup,
     .user-indicator > .dropdown {
-        margin-top: 0.4*$spacer;
+        margin-top: 0.4 * $spacer;
     }
 
     .user-indicator .btngroup > a {

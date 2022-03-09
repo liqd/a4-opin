@@ -53,7 +53,7 @@ $checkbox-size: 25px;
 }
 
 .poll-row__radio:checked + .radio__text:after {
-    content: '\f00c'; // check
+    content: "\f00c"; // check
     transform: scale(1);
     opacity: 1;
 }

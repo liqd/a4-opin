@@ -1,9 +1,9 @@
 .dashboard-header {
     background-color: $brand-brand5;
-    padding-top: 2*$spacer;
+    padding-top: 2 * $spacer;
 
     .navbar-brand {
-        margin-top: -(1.5*$spacer);
+        margin-top: -(1.5 * $spacer);
     }
 
     .dropdown {
@@ -27,7 +27,7 @@
 
 .dashboard-header-indicator {
     color: $body-bg;
-    padding: 1px 7px 2px 7px;
+    padding: 1px 7px 2px;
 }
 
 .dashboard-header-no-tabs {
@@ -82,7 +82,7 @@
 }
 
 .dashboard-content-heading {
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
     font-size: 24px;
 }
 

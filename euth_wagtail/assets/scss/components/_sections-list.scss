@@ -6,7 +6,7 @@ $sectionslist-gutter: 14px;
         padding: $block-vpadding 0;
         display: flex;
         align-items: stretch;
-        margin: 0 -($sectionslist-gutter/2);
+        margin: 0 - ($sectionslist-gutter / 2);
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -15,7 +15,7 @@ $sectionslist-gutter: 14px;
 .sectionslist-section {
     flex-basis: 25%;
     text-align: center;
-    padding: 0 $sectionslist-gutter/2;
+    padding: 0 $sectionslist-gutter / 2;
     margin-bottom: $sectionslist-gutter;
     display: flex;
     flex-direction: column;
@@ -73,6 +73,7 @@ $sectionslist-gutter: 14px;
 .sectionslist-body {
     background-color: $body-bg;
     padding: 15px;
+
     // stretch the body all the way down
     flex-grow: 1;
 }
