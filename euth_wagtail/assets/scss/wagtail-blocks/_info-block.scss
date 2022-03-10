@@ -7,6 +7,10 @@
         @extend .container-narrow;
     }
 
+    h3 {
+        margin-top: 3 * $spacer;
+    }
+
     .info-box-text {
         margin-bottom: 0;
 

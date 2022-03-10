@@ -63,7 +63,8 @@
         color: $body-bg;
     }
 
-    &.m-boxed.m-variation {
+    &.m-boxed,
+    .m-boxed.m-variation {
         color: $gray-dark;
     }
 
@@ -110,6 +111,7 @@
 
         .container-inner {
             @extend .container-medium;
+            color: $body-bg;
             padding: $block-vpadding 0;
             background: $brand-brand3;
         }
