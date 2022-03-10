@@ -182,7 +182,7 @@ class ParagraphBox extends React.Component {
       <div className="general-form">
         <form onSubmit={this.submitDocument.bind(this)}>
           <div className="row">
-            <div className="col-sm-9">
+            <div className="col-md-9 offset-md-1">
               <div className="form-group">
                 <label>{django.gettext('Title:')}</label>
                 <input
@@ -217,7 +217,7 @@ class ParagraphBox extends React.Component {
             }
           </FlipMove>
           <div className="row">
-            <div className="col-md-9">
+            <div className="col-md-9 offset-md-1">
               <button
                 className="btn btn-hover-success btn-wide"
                 onClick={this.appendParagraph.bind(this)}
@@ -229,20 +229,24 @@ class ParagraphBox extends React.Component {
           </div>
           {this.state.successMessage
             ? <div className="row">
-              <div className="col-md-9">
+              <div className="col-md-9 offset-md-1">
                 <p className="alert alert-success ">
                   {this.state.successMessage}
                 </p>
               </div>
             </div> /* eslint-disable-line */
             : null}
-          <button
-            id="submit-button"
-            className="btn btn-primary"
-            type="submit"
-          >
-            {django.gettext('save')}
-          </button>
+          <div className="row">
+            <div className="col-md-9 offset-md-1">
+              <button
+                id="submit-button"
+                className="btn btn-primary"
+                type="submit"
+              >
+                {django.gettext('save')}
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     )

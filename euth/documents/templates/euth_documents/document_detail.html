@@ -4,14 +4,19 @@
 {% block phase_content %}
 <div>
     <article class="commenting-text">
-        <h3>{{ object.name }}</h3>
+        <div class="row">
+            <div class="col-md-9 offset-md-1">
+                <h3>{{ object.name }}</h3>
+            </div>
+        </div>
+
         {% for paragraph in object.paragraphs.all %}
         <section class="row commenting-paragraph">
-            <div class="col-sm-9 paragraph">
+            <div class="col-md-9 offset-md-1 paragraph">
                 <h4>{{ paragraph.name }}</h4>
                 {{ paragraph.text|safe }}
             </div>
-            <div class="col-sm-3 comment-count">
+            <div class="col-md-2 comment-count">
                 <div>
                     <a href="{% url 'paragraph-detail' paragraph.pk %}">
                         <span>{{ paragraph.comments.all|length }} <i class="far fa-comment" aria-hidden="true"></i></span>
@@ -24,12 +29,17 @@
     </article>
 
     {% if object %}
-    <div class="black-divider">
-        {% trans 'Comments'%}
+    <div class="row">
+        <div class="col-md-9 offset-md-1">
+          <div class="black-divider">
+              {% trans 'Comments'%}
+          </div>
+          <div>
+              {% react_comments_async object %}
+          </div>
+        </div>
     </div>
-    <div>
-        {% react_comments_async object %}
-    </div>
+
     {% endif %}
 
 </div>

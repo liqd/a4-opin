@@ -60,7 +60,7 @@ class Paragraph extends React.Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-9">
+          <div className="col-md-9 offset-md-1">
             <button
               className="btn btn-hover-success btn-wide"
               onClick={this.add.bind(this)}
@@ -74,7 +74,7 @@ class Paragraph extends React.Component {
           className="section row commenting-paragraph"
           id={'paragraphs' + this.props.id}
         >
-          <div className="col-sm-9 paragraph">
+          <div className="col-md-9 offset-md-1 paragraph">
             <div className="form-group">
               <label
                 className="form-label"
@@ -115,7 +115,7 @@ class Paragraph extends React.Component {
             </div>
           </div>
 
-          <div className="col-sm-3 comment-count">
+          <div className="col-md-2 comment-count">
             <div className="action-bar">
               {this.props.moveParagraphUp /* eslint-disable indent, react/jsx-indent */
                 ? <button
