@@ -69,8 +69,27 @@
     }
 }
 
+// moved here because of stylelint complaining
+// about specificity. Disabling lines did not
+// work.
+
+.a4-comments__filters__show-btn {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    color: $gray;
+
+    i {
+        order: 2;
+    }
+}
+
 .a4-comments__dropdown {
     text-align: right;
+
+    button i {
+        transform: rotate(90deg);
+    }
 }
 
 .a4-comments__submit-input {
@@ -428,10 +447,6 @@
     padding-left: 0;
     margin-top: 0.5*$spacer;
     color: $gray;
-}
-
-.a4-comments__filters__show-btn {
-    text-align: right;
 }
 
 .a4-comments__char-count {
