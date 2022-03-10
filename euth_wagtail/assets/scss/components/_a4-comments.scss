@@ -107,13 +107,13 @@
     border-left: 2px solid $brand-primary;
 }
 
-.a4-comments__text,
-.a4-comments__author {
+.a4-comments__text {
     overflow-wrap: break-word;
     white-space: pre-wrap;
 }
 
 .a4-comments__submission-date {
+    display: block;
     font-style: italic;
     font-size: $font-size-base;
 }
@@ -133,6 +133,12 @@
 .a4-comments__author {
     display: inline-block;
     margin: 0 (0.25*$spacer) 0 0;
+    font-size: $font-size-large;
+    font-family: $font-family-sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .a4-comments__moderator {
@@ -436,4 +442,11 @@
 
 .a4-comments__loading {
     text-align: center;
+}
+
+.a4-comments__action-bar-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5 * $spacer;
+    padding-bottom: 0.5 * $spacer;
 }
