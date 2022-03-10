@@ -52,7 +52,7 @@
     "husky": "7.0.4",
     "lint-staged": "12.3.5",
     "markdownlint-cli": "0.31.1",
-    "postcss": "8.4.7",
+    "postcss": "8.4.8",
     "stylelint": "13.13.1",
     "stylelint-config-standard": "22.0.0",
     "stylelint-declaration-strict-value": "1.8.0",
