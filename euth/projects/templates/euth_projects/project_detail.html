@@ -100,6 +100,7 @@
     </div>
 </nav>
 <div class="container">
+
     <article id="information" class="tab-panel">
         <div class="container-narrow">
             <h3 class="tab-panel-title">{% trans "info" %}</h3>
@@ -130,10 +131,10 @@
             </div>
         </div>
     </article>
-    <article id="participation" class="tab-panel active">
+
+    <article id="participation" class="tab-panel tab-panel-description active">
         {% url 'offlineevent-detail' pk=object.pk as offlineevent_url %}
         {% if not request.get_full_path == offlineevent_url %}
-        <div class="tab-panel-description">
             {% if not view.phase %}
               {% trans 'Welcome!' as title %}
               {% trans 'This project has not started yet!' as text %}
@@ -176,7 +177,6 @@
                 <p class="idea-list-description">{{ view.phase.description }} </p>
             </div>
             {% endif %}
-            {% endif %}
 
             {% if view.project.is_private %}
             <div class="container-narrow">
@@ -192,10 +192,10 @@
                 </p>
             </div>
             {% endif %}
-
-            {% block phase_content %}{% endblock %}
-        </div>
+        {% endif %}
+        {% block phase_content %}{% endblock %}
     </article>
+
     <article id="result" class="tab-panel">
         <div class="container-narrow">
             <div class="tab-panel-description project usercontent">
