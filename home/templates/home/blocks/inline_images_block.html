@@ -1,7 +1,7 @@
 {% load i18n wagtailimages_tags base_tags %}
 <section class="inline-images-block block">
 <div class="container">
-    <div class="container-narrow">
+    <div class="container-narrow row">
     {% for item in self.inline_images %}
         <div class="col-md-{{self.columns}} inline-images-block-col {{ self.columns|clear_class:forloop.counter }}">
             <figure>
