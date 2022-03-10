@@ -8,8 +8,8 @@
 <div class="account__container">
     <div class="account__container--left">
         <div class="general-form">
-            <header class="form-inner">
-                <h1>{% trans "register" %}</h1>
+            <header class="form-inner pt-3 pt-md-5">
+                <h1>{% trans "Register" %}</h1>
                 <p>
                     {% trans "I already have an account, " %}
                     <a href="{% url 'account_login' %}?next={{redirect_field_value|urlencode}}">

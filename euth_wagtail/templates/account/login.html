@@ -12,65 +12,65 @@
     <div class="account__container--left">
         {% if not request.user.is_authenticated %}
             <div class="general-form">
-                <header class="form-inner">
-                    <h1>{% trans "login" %}</h1>
+                <div class="form-inner pt-3 pt-md-5">
+                    <h1>{% trans "Login" %}</h1>
                     <p>
                         {% trans "I do not have an account, " %}
                         <a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">
                             {% trans "register" %}
                         </a>
                     </p>
-                </header>
-                <form class="form-inner" role="form" name="LoginForm" action="{% url 'account_login' %}" method="post" >
-                    {% csrf_token %}
+                    <form role="form" name="LoginForm" action="{% url 'account_login' %}" method="post" >
+                        {% csrf_token %}
 
-                    {% if form.non_field_errors %}
-                        <div class="form-errors">
-                            {% for error in form.non_field_errors %}
-                            <p class="alert alert-danger">{{ error }}</p>
-                            {% endfor %}
+                        {% if form.non_field_errors %}
+                            <div class="form-errors">
+                                {% for error in form.non_field_errors %}
+                                <p class="alert alert-danger">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+
+                        <div class="form-group">
+                            <label class="form-label col-form-label" for="{{ form.username.id_for_label }}">{% trans "Email" %}</label>
+                            {% if form.login.errors %}
+                                {{ form.login|add_class:"form-control form-error" }}
+                            {% else %}
+                                {{ form.login|add_class:"form-control"}}
+                            {% endif %}
+                            {{ form.login.errors }}
                         </div>
-                    {% endif %}
+                        <div class="form-group">
+                            <label class="form-label col-form-label" for="{{ form.password.id_for_label }}">{% trans "Password" %}</label>
+                            {% if form.password.errors %}
+                                {{ form.password|add_class:"form-control form-error" }}
+                            {% else %}
+                                {{ form.password|add_class:"form-control"}}
+                            {% endif %}
+                            {{ form.password.errors }}
+                        </div>
 
-                    {% if redirect_field_value %}
-                      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
+                        <div class="form-group">
+                          <a href="{% url 'account_reset_password' %}" class="small">{% trans "reset password" %}</a>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label col-form-label" for="{{ form.username.id_for_label }}">{% trans "Email" %}</label>
-                        {% if form.login.errors %}
-                            {{ form.login|add_class:"form-control form-error" }}
-                        {% else %}
-                            {{ form.login|add_class:"form-control"}}
+                        <button type="submit" value="Login" class="btn btn-ghost btn-wide">{% trans "login" %}</button>
+                    </form>
+                    <div class="socialaccounts">
+                        {% get_providers as socialaccount_providers %}
+                        {% if socialaccount_providers %}
+                        <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
+                        <div class="socialaccount_ballot">
+                            <ul class="socialaccount_providers">
+                                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                            </ul>
+                        </div>
                         {% endif %}
-                        {{ form.login.errors }}
                     </div>
-                    <div class="form-group">
-                        <label class="form-label col-form-label" for="{{ form.password.id_for_label }}">{% trans "Password" %}</label>
-                        {% if form.password.errors %}
-                            {{ form.password|add_class:"form-control form-error" }}
-                        {% else %}
-                            {{ form.password|add_class:"form-control"}}
-                        {% endif %}
-                        {{ form.password.errors }}
-                    </div>
-
-                    <div class="form-group">
-                      <a href="{% url 'account_reset_password' %}" class="small">{% trans "reset password" %}</a>
-                    </div>
-
-                    <button type="submit" value="Login" class="btn btn-ghost btn-wide">{% trans "login" %}</button>
-                </form>
-                <div class="socialaccounts">
-                    {% get_providers as socialaccount_providers %}
-                    {% if socialaccount_providers %}
-                    <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
-                    <div class="socialaccount_ballot">
-                        <ul class="socialaccount_providers">
-                            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                        </ul>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         {% else %}

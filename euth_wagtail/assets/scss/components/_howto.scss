@@ -7,7 +7,7 @@
             rgba(37, 117, 161, 1) 80%,
             rgba(72, 168, 200, 1) 93%
         );
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: flex-start;
 }
@@ -18,17 +18,18 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+    & h2 {
+        color: $body-bg;
+        font-size: $font-size-xlarge;
+        text-align: center;
+        margin-bottom: 3 * $spacer;
+    }
 }
 
 .howto-item__container {
     color: $body-bg;
     padding: 0 2 * $spacer;
-
-    & h2 {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 3 * $spacer;
-    }
 
     & h3 {
         font-size: 18px;
@@ -96,6 +97,14 @@ img.howto-item__image {
 }
 
 @media (max-width: $screen-sm) {
+    .howto__container {
+        height: auto;
+    }
+
+    .howto-carousel__container {
+        padding-top: 3 * $spacer;
+    }
+
     img.howto-item__image {
         width: 75%;
         max-width: $screen-sm;

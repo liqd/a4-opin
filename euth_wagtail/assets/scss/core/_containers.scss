@@ -20,10 +20,7 @@
     justify-content: space-between;
 }
 
-.account__container--left {
-    width: 50%;
-}
-
+.account__container--left,
 .account__container--right {
     width: 50%;
 }
@@ -42,10 +39,7 @@ img {
         flex-direction: column;
     }
 
-    .account__container--left {
-        width: 100%;
-    }
-
+    .account__container--left,
     .account__container--right {
         width: 100%;
     }
