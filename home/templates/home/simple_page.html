@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load i18n wagtailimages_tags %}
 
+{% block title %}{{ page.translated_title }}{% endblock %}
+
 {% block content %}
 {% include "home/includes/simple_header.html" with image=page.intro_image title=page.translated_title intro=page.translated_intro %}
 <section class="page-body">
@@ -13,6 +15,8 @@
                  {% image block.value original class="img-fluid" %}
             {% elif block.block_type == 'heading' %}
                 <h2>{{ block }}</h2>
+            {% elif block.block_type == 'rich_text' or block.block_type == 'paragraph' %}
+                <div class="rich-text">{{ block }}</div>
             {% else %}
                 {{ block }}
             {% endif %}
