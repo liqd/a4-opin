@@ -43,11 +43,14 @@
 
 .a4-comments__filters__parent {
     margin: 1.5*$spacer 0 1.5*$spacer 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .a4-comments__filters__btn {
     min-width: 100%;
     margin-bottom: 0.5*$spacer;
+    border: 1px solid currentColor;
 
     .fa-check {
         font-size: $font-size-small;
@@ -59,13 +62,16 @@
     }
 }
 
-.input-group.a4-comments__filters__search {
+.a4-comments__filters__search {
     @extend .col-lg-6;
     padding-left: 0;
     margin-bottom: 0.5*$spacer;
+    width: 100%;
+    display: flex;
 
     @media screen and (min-width: $screen-md-min) {
         margin-bottom: 0;
+        width: 50%;
     }
 }
 
@@ -431,6 +437,8 @@
 }
 
 .a4-comments__filters {
+    order: 1;
+
     @media screen and (min-width: $screen-sm-min) {
         display: flex;
         justify-content: space-between;
@@ -441,6 +449,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    order: 2;
 }
 
 .a4-comments__filters__text {
@@ -464,4 +473,5 @@
     justify-content: space-between;
     padding-top: 0.5 * $spacer;
     padding-bottom: 0.5 * $spacer;
+    flex-wrap: wrap;
 }
