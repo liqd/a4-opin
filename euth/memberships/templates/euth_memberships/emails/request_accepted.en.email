@@ -16,5 +16,5 @@ Your membership request was approved by a moderator. You can now start your part
 {% block cta_label %}Go to project{% endblock %}
 
 {% block reason %}
-This	email	was	sent	to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
+This email was sent to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
 {% endblock %}

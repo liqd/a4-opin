@@ -74,8 +74,8 @@ class OfflineEventCreateView(
         form.instance.project = self.project
         with transaction.atomic():
             object = form.save()
-            intstances = upload_forms.save(commit=False)
-            for instance in intstances:
+            instances = upload_forms.save(commit=False)
+            for instance in instances:
                 instance.offlineevent = object
                 instance.save()
 
@@ -137,10 +137,10 @@ class OfflineEventUpdateView(ProjectMixin,
     def _process_formdata(self, form, upload_forms):
         with transaction.atomic():
             form.save()
-            intstances = upload_forms.save(commit=False)
+            instances = upload_forms.save(commit=False)
             for obj in upload_forms.deleted_objects:
                 obj.delete()
-            for instance in intstances:
+            for instance in instances:
                 instance.offlineevent = self.object
                 instance.save()
 
