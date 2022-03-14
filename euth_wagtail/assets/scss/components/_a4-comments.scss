@@ -90,6 +90,18 @@
     }
 }
 
+.a4-comments__dropdown-container {
+    margin-right: 2 * $spacer;
+
+    @media screen and (min-width: $screen-sm-min) {
+        margin-right: $spacer;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+        margin-right: 0;
+    }
+}
+
 .a4-comments__dropdown {
     text-align: right;
 
