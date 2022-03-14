@@ -6,28 +6,26 @@
 {% block content %}
     <header class="herounit herounit-sm herounit-{{ page.color }}">
         <div class="container">
-            <div class="herounit-header">
-                <div class="col-sm-9 offset-sm-3">
-                    <h1 class="{% if page.document %}col-sm-7{% endif %}">
-                        {% image page.image width-80 %}
-                        {{ page.translated_title }}
-                    </h1>
-                    {% if page.document %}
-                    {% if page.color == 'blue' %}
-                    <div class="herounit-btn__download col-sm-4 ">
-                        <a class="btn btn-dark-blue {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
-                            {% trans 'Download guidelines' %}
-                        </a>
-                    </div>
-                    {% else %}
-                    <div class="herounit-btn__download col-sm-4">
-                        <a class="btn btn-primary {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
-                            {% trans 'Download guidelines' %}
-                        </a>
-                    </div>
-                    {% endif %}
-                    {% endif %}
+            <div class="herounit-header row">
+                <h1 class="{% if page.document %}col-sm-7{% endif %}">
+                    {% image page.image width-80 %}
+                    {{ page.translated_title }}
+                </h1>
+                {% if page.document %}
+                {% if page.color == 'blue' %}
+                <div class="herounit-btn__download col-sm-4 ">
+                    <a class="btn btn-dark-blue {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
+                        {% trans 'Download guidelines' %}
+                    </a>
                 </div>
+                {% else %}
+                <div class="herounit-btn__download col-sm-4">
+                    <a class="btn btn-primary {% if page.image %} btn-round-hero-image {% else %} btn-round-hero {% endif %}" href="{{ page.document.url }}">
+                        {% trans 'Download guidelines' %}
+                    </a>
+                </div>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </header>
