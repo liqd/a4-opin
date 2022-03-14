@@ -15,5 +15,5 @@ Your membership has been declined by a moderator of the project "{{ request.proj
 {% block cta %}{% endblock %}
 
 {% block reason %}
-This	email	was	sent	to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
+This email was sent to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
 {% endblock %}

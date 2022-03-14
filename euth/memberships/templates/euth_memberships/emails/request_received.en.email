@@ -9,12 +9,12 @@ A user requested memberhip to your private project on {{ site.name }}
 {% endblock  %}
 
 {% block content %}
-For your private project {{ request.project.name }} {{ request.creator.username }} ({{ request.creator.email }}) has requsted access. By clicking the button below you can access your projects dashboard and allow or decline the requeste by {{ request.creator.username }}. If you accept the request {{ request.creator.username }} will become a member of the project and can than see all the content of the project and particpate if the phase allows it.
+For your private project {{ request.project.name }} {{ request.creator.username }} ({{ request.creator.email }}) has requested access. By clicking the button below you can access your projects dashboard and allow or decline the requeste by {{ request.creator.username }}. If you accept the request {{ request.creator.username }} will become a member of the project and can than see all the content of the project and particpate if the phase allows it.
 {% endblock %}
 
 {% block cta_url %}{{ email.get_host }}{% url 'a4dashboard:members' request.project.slug %}{% endblock %}
 {% block cta_label %}Go to dashboard{% endblock %}
 
 {% block reason %}
-This	email	was	sent	to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
+This email was sent to {{ receiver }}. You are receiving this email because you requested membership to the project with an {{ site.name }} account using this email address.
 {% endblock %}
