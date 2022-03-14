@@ -1,0 +1,31 @@
+{% load i18n contrib_tags %}
+
+<div class="pagination-row">
+    <nav>
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                {% combined_url_parameter request.GET page=page_obj.previous_page_number as url_par %}
+                <a class="page-link" href="{{ url_par }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+            {% limited_paginator page_obj as page_range %}
+            {% for number in page_range %}
+            {% combined_url_parameter request.GET page=number as url_par %}
+            <li class="page-item">
+                <a href="{{ url_par }}" class="page-link {% if page_obj.number == number %} page-current {% endif %}" >{{ number }}</a>
+            </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                {% combined_url_parameter request.GET page=page_obj.next_page_number as url_par %}
+                <a class="page-link" href="{{ url_par }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
