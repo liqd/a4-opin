@@ -197,6 +197,22 @@ $checkbox-size: 25px;
         color: $body-bg;
         background-color: $brand-primary;
         z-index: 1; // for when tile links overlap
+
+        &:before {
+            opacity: 100%;
+            font-family: "Font Awesome 5 Free", sans-serif;
+            font-weight: 900;
+            font-size: $font-size-xlarge;
+            line-height: 1.7rem;
+        }
+    }
+
+    .slick-prev:before {
+        content: "\f104"; // angle-left
+    }
+
+    .slick-next:before {
+        content: "\f105"; // angle-right
     }
 
     .slick-prev {
