@@ -95,8 +95,9 @@ class TopicCreateView(PermissionRequiredMixin, generic.CreateView):
                                        'successfully created'))
                 return response
 
-        upload_forms = forms.TopicFileUploadFormset(request.POST,
-                                                    request.FILES)
+        else:
+            upload_forms = forms.TopicFileUploadFormset(request.POST,
+                                                        request.FILES)
         return render(request, self.template_name,
                       self.get_context_data(upload_forms=upload_forms))
 
