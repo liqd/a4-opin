@@ -47,7 +47,7 @@ class UserList extends React.Component {
   }
 
   submitHandler (e) {
-    const checkedUsers = this.userlistRef.querySelectorAll(':checked')
+    const checkedUsers = this.userlistRef.current.querySelectorAll(':checked')
     const idsToBeActedOn = Array.prototype.map.call(checkedUsers,
       user => parseInt(user.dataset.userid)
     )
