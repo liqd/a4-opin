@@ -11,135 +11,137 @@
 
 {% block content %}
 <div class="container">
-    <div class="action-bar">
-        <nav class="navbar navbar-default navbar-static">
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    {% if mode == 'create' %}
-    <div class="black-divider">
-        {% trans 'create new topic for this project'%}
-    </div>
-    {% elif mode == 'update' %}
-    <div class="black-divider">
-        {% trans 'update topic'%}
-    </div>
-    {% endif %}
-    <div class="proposals-project">
-        <h3 class="sans-serif">
-            {{ project.name }}
-        </h3>
-        <p class="project-tile-teaser">{{ project.description | truncatechars:185 }}</p>
-        <div class="avatar-small">
-            <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
-            <div class="name">{{ project.organisation }}</div>
+    <div class="container-narrow">
+        <div class="action-bar">
+            <nav class="navbar navbar-default navbar-static">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'project-detail' project.slug %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {% trans 'back to project' %}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div>
-    <div class="general-form">
-        <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
-            {% csrf_token %}
-            {{ form.media }}
-            <div class="form-group">
-                <label class="form-label col-form-label" for="{{ form.name.id_for_label }}">{% trans 'Title of the topic'%}</label>
-                {% if form.name.errors %}
-                    {{ form.name|add_class:"form-control form-error" }}
-                {% else %}
-                    {{ form.name|add_class:"form-control"}}
-                {% endif %}
-                {{ form.name.errors }}
-            </div>
-            <div class="form-group">
-                <label class="form-label col-form-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
-                {% if form.name.errors %}
-                    {{ form.description|add_class:"form-control form-error" }}
-                {% else %}
-                    {{ form.description|add_class:"form-control"}}
-                {% endif %}
-                {{ form.description.errors }}
-            </div>
 
-            <div class="form-group">
-                <div class="input-group form-control-upload row">
-                    <div class="col-sm-8 col-md-9">
-                        <label class="form-label">{% trans 'Upload a picture'%}</label>
-                        {% if form.image.help_text %}
-                        <p><i>{{ form.image.help_text }}</i></p>
-                        {% endif %}
-                        {{ form.image|add_class:"form-control form-control-file"}}
+        {% if mode == 'create' %}
+        <div class="black-divider">
+            {% trans 'create new topic for this project'%}
+        </div>
+        {% elif mode == 'update' %}
+        <div class="black-divider">
+            {% trans 'update topic'%}
+        </div>
+        {% endif %}
+        <div class="proposals-project">
+            <h3 class="sans-serif">
+                {{ project.name }}
+            </h3>
+            <p class="project-tile-teaser">{{ project.description | truncatechars:185 }}</p>
+            <div class="avatar-small">
+                <img src="{{ project.organisation.logo|thumbnail_url:'avatar_small'}}"></img>
+                <div class="name">{{ project.organisation }}</div>
+            </div>
+        </div>
+        <div class="general-form">
+            <form enctype="multipart/form-data" action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                {{ form.media }}
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.name.id_for_label }}">{% trans 'Title of the topic'%}</label>
+                    {% if form.name.errors %}
+                        {{ form.name|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.name|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.name.errors }}
+                </div>
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.description.id_for_label }}">{% trans 'Description'%}</label>
+                    {% if form.name.errors %}
+                        {{ form.description|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.description|add_class:"form-control"}}
+                    {% endif %}
+                    {{ form.description.errors }}
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group form-control-upload row">
+                        <div class="col-sm-8 col-md-9">
+                            <label class="form-label">{% trans 'Upload a picture'%}</label>
+                            {% if form.image.help_text %}
+                            <p><i>{{ form.image.help_text }}</i></p>
+                            {% endif %}
+                            {{ form.image|add_class:"form-control form-control-file"}}
+                        </div>
+                    </div>
+                    {{ form.image.errors }}
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check">
+                        {{ form.right_of_use|add_class:"form-check-input" }}
+                        <label class="form-label form-check-label">{{ form.right_of_use.label }}</label>
+                    </div>
+                    {{ form.right_of_use.errors }}
+                </div>
+
+                <h3>{% trans 'Downloads' %}</h3>
+             <div class="js-formset category-formset"
+             data-prefix="{{ upload_forms.prefix }}">
+
+                {% with upload_forms.max_num as fileupload_max %}
+                {% getAllowedFileTypes as allowed_file_types %}
+                {{ upload_forms.management_form }}
+                <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
+                {% for form in upload_forms %}
+                    {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=form %}
+                {% endfor %}
+                {% endwith %}
+                <div class="js-form-template category-formset__template">
+                    {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=upload_forms.empty_form %}
+                </div>
+
+
+                <div class="category-formset__btn">
+                    <button class="btn btn--secondary btn--small btn--full js-add-form" type="button">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    {% trans 'Upload another document' %}
+                    </button>
+                    <div id="error-max-num-forms">
                     </div>
                 </div>
-                {{ form.image.errors }}
+
             </div>
 
-            <div class="form-group">
-                <div class="form-check">
-                    {{ form.right_of_use|add_class:"form-check-input" }}
-                    <label class="form-label form-check-label">{{ form.right_of_use.label }}</label>
-                </div>
-                {{ form.right_of_use.errors }}
-            </div>
-
-            <h3>{% trans 'Downloads' %}</h3>
-         <div class="js-formset category-formset"
-         data-prefix="{{ upload_forms.prefix }}">
-
-            {% with upload_forms.max_num as fileupload_max %}
-            {% getAllowedFileTypes as allowed_file_types %}
-            {{ upload_forms.management_form }}
-            <p>{% blocktrans %} You can upload a maximum of {{ fileupload_max }} documents. Allowed formats are {{ allowed_file_types }}. {% endblocktrans %}</p>
-            {% for form in upload_forms %}
-                {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=form %}
-            {% endfor %}
-            {% endwith %}
-            <div class="js-form-template category-formset__template">
-                {% include 'euth_communitydebate/includes/inline_fileupload_form.html' with form=upload_forms.empty_form %}
-            </div>
-
-
-            <div class="category-formset__btn">
-                <button class="btn btn--secondary btn--small btn--full js-add-form" type="button">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                {% trans 'Upload another document' %}
-                </button>
-                <div id="error-max-num-forms">
-                </div>
-            </div>
-
-        </div>
-
-            {% if form.show_categories %}
-            <div class="form-group">
-                <label class="form-label col-form-label" for="{{ form.category.id_for_label }}">{% trans 'Category'%}</label>
-                {% if form.category.errors %}
-                    {{ form.category|add_class:"form-control form-error" }}
-                {% else %}
-                    {{ form.category|add_class:"form-control"}}
-                {% endif %}
-                {{ form.category.errors }}
-            </div>
-            {% endif %}
-
-            {% block additional_fields %}{% endblock %}
-            {% block post_form %}
-            <div class="row button-row">
-                <div class="col-6 col-sm-2">
-                    <button type="submit" class="submit-button">{% trans 'post'%}</button>
-                </div>
-                <div class="col-6">
-                    {% if mode == 'create' %}
-                    <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
-                    {% elif mode == 'update' %}
-                    <a href="{% url 'topic-detail' topic.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                {% if form.show_categories %}
+                <div class="form-group">
+                    <label class="form-label col-form-label" for="{{ form.category.id_for_label }}">{% trans 'Category'%}</label>
+                    {% if form.category.errors %}
+                        {{ form.category|add_class:"form-control form-error" }}
+                    {% else %}
+                        {{ form.category|add_class:"form-control"}}
                     {% endif %}
+                    {{ form.category.errors }}
                 </div>
-            </div>
-            {% endblock %}
-        </form>
+                {% endif %}
+
+                {% block additional_fields %}{% endblock %}
+                {% block post_form %}
+                <div class="row button-row">
+                    <div class="col-6 col-sm-2">
+                        <button type="submit" class="submit-button">{% trans 'post'%}</button>
+                    </div>
+                    <div class="col-6">
+                        {% if mode == 'create' %}
+                        <a href="{% url 'project-detail' project.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                        {% elif mode == 'update' %}
+                        <a href="{% url 'topic-detail' topic.slug %}" class="cancel-button">{% trans 'cancel'%}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endblock %}
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
