@@ -2,8 +2,8 @@
 {% load i18n react_comments_async %}
 
 {% block phase_content %}
-<div>
-    <article class="commenting-text">
+<div class="container-medium">
+    <article class="commenting-text ps-md-3">
         <div class="row">
             <div class="col-md-9 offset-md-1">
                 <h3>{{ object.name }}</h3>
@@ -29,7 +29,7 @@
     </article>
 
     {% if object %}
-    <div class="row">
+    <div class="row ps-md-3">
         <div class="col-md-9 offset-md-1">
           <div class="black-divider">
               {% trans 'Comments'%}
