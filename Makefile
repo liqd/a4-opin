@@ -119,8 +119,8 @@ lint-fix:
 
 .PHONY: po
 po:
-	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d djangojs
-	$(VIRTUAL_ENV)/bin/python manage.py makemessages -d django
+	$(VIRTUAL_ENV)/bin/python manage.py makemessages --all -d djangojs --ignore '$(VIRTUAL_ENV)/*'
+	$(VIRTUAL_ENV)/bin/python manage.py makemessages --all -d django --ignore '$(CURDIR)/node_modules/adhocracy4/adhocracy4/*'
 	$(SED) -i 's%#: .*/adhocracy4%#: adhocracy4%' locale/*/LC_MESSAGES/django*.po
 	msgen locale/en_GB/LC_MESSAGES/django.po -o locale/en_GB/LC_MESSAGES/django.po
 	msgen locale/en_GB/LC_MESSAGES/djangojs.po -o locale/en_GB/LC_MESSAGES/djangojs.po
