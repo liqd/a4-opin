@@ -31,7 +31,11 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: auto !important;
+}
+
+p {
+    @include clearfix; // stops overlap of img added via ckeditor and floated
 }
 
 @media (max-width: $screen-sm) {
