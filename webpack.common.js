@@ -2,6 +2,11 @@ const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob')
+const PATHS = {
+  src: path.join(__dirname, 'src')
+}
 
 /** How do we use webpack to handle static files?
  *
@@ -243,6 +248,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
     }),
     new CopyWebpackPlugin({
       patterns: [{
