@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 13:42+0100\n"
+"POT-Creation-Date: 2022-03-15 18:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: adhocracy4/categories/dashboard.py:13
+msgid "Categories"
+msgstr "Categories"
+
+#: adhocracy4/categories/dashboard.py:15
+msgid "Edit categories"
+msgstr "Edit categories"
+
+#: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:16
+#: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins/items.py:14
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
+#: euth/ideas/templates/euth_ideas/idea_form.html:81
+msgid "Category"
+msgstr "Category"
+
+#: adhocracy4/categories/forms.py:38 adhocracy4/labels/forms.py:14
+msgid "Category name"
+msgstr "Category name"
+
+#: adhocracy4/categories/forms.py:39
+msgid "Category icon"
+msgstr "Category icon"
 
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:3
 msgid ""
@@ -31,6 +54,165 @@ msgstr ""
 #: adhocracy4/categories/templates/a4categories/includes/module_categories_form.html:21
 msgid "Add category"
 msgstr "Add category"
+
+#: adhocracy4/comments/models.py:54 adhocracy4/polls/exports.py:41
+msgctxt "noun"
+msgid "Comment"
+msgstr "Comment"
+
+#: adhocracy4/comments/models.py:55 adhocracy4/exports/mixins/comments.py:46
+#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
+#: euth/documents/templates/euth_documents/document_detail.html:35
+#: euth/documents/templates/euth_documents/paragraph_detail.html:18
+#: euth/ideas/templates/euth_ideas/idea_detail.html:72
+#: euth/maps/templates/euth_maps/mapidea_detail.html:81
+#: euth_wagtail/templates/a4polls/poll_detail.html:11
+msgid "Comments"
+msgstr "Comments"
+
+#: adhocracy4/comments/serializers.py:73 adhocracy4/comments/serializers.py:175
+msgid "Please choose a category"
+msgstr "Please choose a category"
+
+#: adhocracy4/comments/serializers.py:82
+#: adhocracy4/comments_async/serializers.py:92
+msgid "unknown user"
+msgstr "unknown user"
+
+#: adhocracy4/comments_async/serializers.py:17
+msgid "Please choose one or more categories."
+msgstr "Please choose one or more categories."
+
+#: adhocracy4/dashboard/components/forms/views.py:22
+msgid "The project has been updated."
+msgstr "The project has been updated."
+
+#: adhocracy4/dashboard/components/forms/views.py:47
+msgid "The module has been updated."
+msgstr "The module has been updated."
+
+#: adhocracy4/dashboard/dashboard.py:13
+msgid "Basic settings"
+msgstr "Basic settings"
+
+#: adhocracy4/dashboard/dashboard.py:15
+msgid "Edit basic settings"
+msgstr "Edit basic settings"
+
+#: adhocracy4/dashboard/dashboard.py:23
+#: euth/memberships/templates/euth_memberships/invite_base.html:10
+#: euth/memberships/templates/euth_memberships/request_detail.html:10
+#: euth/projects/templates/euth_projects/project_detail.html:96
+msgid "Information"
+msgstr "Information"
+
+#: adhocracy4/dashboard/dashboard.py:25
+msgid "Edit project information"
+msgstr "Edit project information"
+
+#: adhocracy4/dashboard/dashboard.py:33
+#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html:8
+#: euth/projects/templates/euth_projects/project_detail.html:98
+msgid "Result"
+msgstr "Result"
+
+#: adhocracy4/dashboard/dashboard.py:35
+msgid "Edit project result"
+msgstr "Edit project result"
+
+#: adhocracy4/dashboard/dashboard.py:43
+msgid "Basic information"
+msgstr "Basic information"
+
+#: adhocracy4/dashboard/dashboard.py:45
+msgid "Edit basic module information"
+msgstr "Edit basic module information"
+
+#: adhocracy4/dashboard/dashboard.py:53
+msgid "Phases"
+msgstr "Phases"
+
+#: adhocracy4/dashboard/dashboard.py:55
+msgid "Edit phases information"
+msgstr "Edit phases information"
+
+#: adhocracy4/dashboard/dashboard.py:64
+msgid "Area settings"
+msgstr "Area settings"
+
+#: adhocracy4/dashboard/dashboard.py:65
+msgid "Edit area settings"
+msgstr "Edit area settings"
+
+#: adhocracy4/dashboard/filter.py:11
+#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
+#: euth/contrib/filters.py:70
+msgid "Search"
+msgstr "Search"
+
+#: adhocracy4/dashboard/filter.py:15
+msgid "Archived"
+msgstr "Archived"
+
+#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
+msgid "All"
+msgstr "All"
+
+#: adhocracy4/dashboard/filter.py:20
+msgid "No"
+msgstr "No"
+
+#: adhocracy4/dashboard/filter.py:21
+#: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:11
+msgid "Yes"
+msgstr "Yes"
+
+#: adhocracy4/dashboard/forms.py:76
+msgid "All users can participate (public)."
+msgstr "All users can participate (public)."
+
+#: adhocracy4/dashboard/forms.py:78
+msgid "Only invited users can participate (private)."
+msgstr "Only invited users can participate (private)."
+
+#: adhocracy4/dashboard/forms.py:86
+#: euth/projects/templates/euth_projects/project_detail.html:110
+msgid "Contact for questions"
+msgstr "Contact for questions"
+
+#: adhocracy4/dashboard/forms.py:87
+msgid ""
+"Please name a contact person. The user will then know who is carrying out "
+"this project and to whom they can address possible questions. The contact "
+"person will be shown in the information tab on the project page."
+msgstr ""
+"Please name a contact person. The user will then know who is carrying out "
+"this project and to whom they can address possible questions. The contact "
+"person will be shown in the information tab on the project page."
+
+#: adhocracy4/dashboard/forms.py:92
+msgid "More contact possibilities"
+msgstr "More contact possibilities"
+
+#: adhocracy4/dashboard/forms.py:134 adhocracy4/phases/models.py:77
+msgid "End date"
+msgstr "End date"
+
+#: adhocracy4/dashboard/forms.py:134
+msgid "End time"
+msgstr "End time"
+
+#: adhocracy4/dashboard/forms.py:140 adhocracy4/phases/models.py:75
+msgid "Start date"
+msgstr "Start date"
+
+#: adhocracy4/dashboard/forms.py:140
+msgid "Start time"
+msgstr "Start time"
+
+#: adhocracy4/dashboard/mixins.py:207
+msgid "Project successfully duplicated."
+msgstr "Project successfully duplicated."
 
 #: adhocracy4/dashboard/templates/a4dashboard/base_dashboard.html:4
 #: euth_wagtail/templates/a4dashboard/base_dashboard.html:4
@@ -181,265 +363,9 @@ msgid "Duplicate"
 msgstr "Duplicate"
 
 #: adhocracy4/dashboard/templates/a4dashboard/project_list.html:65
-#: euth_wagtail/templates/a4dashboard/project_list.html:23
+#: euth_wagtail/templates/a4dashboard/project_list.html:28
 msgid "We could not find any projects."
 msgstr "We could not find any projects."
-
-#: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
-#: adhocracy4/dashboard/filter.py:11 euth/contrib/filters.py:70
-msgid "Search"
-msgstr "Search"
-
-#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
-#: euth/contrib/templates/euth_contrib/includes/form_field.html:5
-#: euth_wagtail/templates/a4forms/includes/form_field.html:5
-msgid "This field is required"
-msgstr "This field is required"
-
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:14
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
-#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
-msgid "Remove category"
-msgstr "Remove category"
-
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
-msgid "Remove the picture"
-msgstr "Remove the picture"
-
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
-#: euth/ideas/templates/euth_ideas/idea_form.html:61
-msgid "Upload a picture"
-msgstr "Upload a picture"
-
-#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
-msgid ""
-"\n"
-"            Your image will be uploaded/removed once you save your changes\n"
-"            at the end of this page.\n"
-"            "
-msgstr ""
-"\n"
-"            Your image will be uploaded/removed once you save your changes\n"
-"            at the end of this page.\n"
-"            "
-
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
-msgid ""
-"In this section, you can create\n"
-"labels. If you create any, each contribution can be assigned\n"
-"to one or more of them. This way, content can be classified."
-msgstr ""
-"In this section, you can create\n"
-"labels. If you create any, each contribution can be assigned\n"
-"to one or more of them. This way, content can be classified."
-
-#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
-msgid "Add label"
-msgstr "Add label"
-
-#: adhocracy4/polls/templates/a4polls/poll_404.html:8
-msgid ""
-"Participation is not possible at the moment. The poll has not been set up "
-"yet."
-msgstr ""
-"Participation is not possible at the moment. The poll has not been set up "
-"yet."
-
-#: adhocracy4/polls/templates/a4polls/poll_404.html:15
-msgid "Setup the poll by adding questions and answers in the dashboard."
-msgstr "Setup the poll by adding questions and answers in the dashboard."
-
-#: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
-msgid "Edit poll"
-msgstr "Edit poll"
-
-#: adhocracy4/categories/dashboard.py:13
-msgid "Categories"
-msgstr "Categories"
-
-#: adhocracy4/categories/dashboard.py:15
-msgid "Edit categories"
-msgstr "Edit categories"
-
-#: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:16
-#: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins/items.py:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
-#: euth/ideas/templates/euth_ideas/idea_form.html:80
-msgid "Category"
-msgstr "Category"
-
-#: adhocracy4/categories/forms.py:38 adhocracy4/labels/forms.py:14
-msgid "Category name"
-msgstr "Category name"
-
-#: adhocracy4/categories/forms.py:39
-msgid "Category icon"
-msgstr "Category icon"
-
-#: adhocracy4/comments/models.py:53
-msgctxt "noun"
-msgid "Comment"
-msgstr "Comment"
-
-#: adhocracy4/comments/models.py:54 adhocracy4/exports/mixins/comments.py:46
-#: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
-#: euth/documents/templates/euth_documents/document_detail.html:28
-#: euth/documents/templates/euth_documents/paragraph_detail.html:18
-#: euth/ideas/templates/euth_ideas/idea_detail.html:72
-#: euth/maps/templates/euth_maps/mapidea_detail.html:81
-#: euth_wagtail/templates/a4polls/poll_detail.html:11
-msgid "Comments"
-msgstr "Comments"
-
-#: adhocracy4/comments/models.py:74
-#: adhocracy4/comments_async/serializers.py:151
-msgid "deleted by creator"
-msgstr "deleted by creator"
-
-#: adhocracy4/comments/models.py:77
-#: adhocracy4/comments_async/serializers.py:153
-msgid "deleted by moderator"
-msgstr "deleted by moderator"
-
-#: adhocracy4/comments/serializers.py:52 adhocracy4/comments/serializers.py:151
-msgid "Please choose a category"
-msgstr "Please choose a category"
-
-#: adhocracy4/comments/serializers.py:61
-#: adhocracy4/comments_async/serializers.py:79
-msgid "unknown user"
-msgstr "unknown user"
-
-#: adhocracy4/comments_async/serializers.py:58
-msgid "Please choose one or more categories."
-msgstr "Please choose one or more categories."
-
-#: adhocracy4/dashboard/components/forms/views.py:22
-msgid "The project has been updated."
-msgstr "The project has been updated."
-
-#: adhocracy4/dashboard/components/forms/views.py:47
-msgid "The module has been updated."
-msgstr "The module has been updated."
-
-#: adhocracy4/dashboard/dashboard.py:13
-msgid "Basic settings"
-msgstr "Basic settings"
-
-#: adhocracy4/dashboard/dashboard.py:15
-msgid "Edit basic settings"
-msgstr "Edit basic settings"
-
-#: adhocracy4/dashboard/dashboard.py:23
-#: euth/memberships/templates/euth_memberships/invite_base.html:10
-#: euth/memberships/templates/euth_memberships/request_detail.html:10
-#: euth/projects/templates/euth_projects/project_detail.html:96
-msgid "Information"
-msgstr "Information"
-
-#: adhocracy4/dashboard/dashboard.py:25
-msgid "Edit project information"
-msgstr "Edit project information"
-
-#: adhocracy4/dashboard/dashboard.py:33
-#: euth/blueprints/templates/euth_blueprints/includes/breadcrumbs.html:8
-#: euth/projects/templates/euth_projects/project_detail.html:98
-msgid "Result"
-msgstr "Result"
-
-#: adhocracy4/dashboard/dashboard.py:35
-msgid "Edit project result"
-msgstr "Edit project result"
-
-#: adhocracy4/dashboard/dashboard.py:43
-msgid "Basic information"
-msgstr "Basic information"
-
-#: adhocracy4/dashboard/dashboard.py:45
-msgid "Edit basic module information"
-msgstr "Edit basic module information"
-
-#: adhocracy4/dashboard/dashboard.py:53
-msgid "Phases"
-msgstr "Phases"
-
-#: adhocracy4/dashboard/dashboard.py:55
-msgid "Edit phases information"
-msgstr "Edit phases information"
-
-#: adhocracy4/dashboard/dashboard.py:64
-msgid "Areasettings"
-msgstr "Areasettings"
-
-#: adhocracy4/dashboard/dashboard.py:65
-msgid "Edit areasettings"
-msgstr "Edit areasettings"
-
-#: adhocracy4/dashboard/filter.py:15
-msgid "Archived"
-msgstr "Archived"
-
-#: adhocracy4/dashboard/filter.py:19 adhocracy4/filters/widgets.py:32
-msgid "All"
-msgstr "All"
-
-#: adhocracy4/dashboard/filter.py:20
-msgid "No"
-msgstr "No"
-
-#: adhocracy4/dashboard/filter.py:21
-#: euth/offlinephases/templates/euth_offlinephases/offlineevent_confirm_delete.html:11
-msgid "Yes"
-msgstr "Yes"
-
-#: adhocracy4/dashboard/forms.py:76
-msgid "All users can participate (public)."
-msgstr "All users can participate (public)."
-
-#: adhocracy4/dashboard/forms.py:78
-msgid "Only invited users can participate (private)."
-msgstr "Only invited users can participate (private)."
-
-#: adhocracy4/dashboard/forms.py:86
-#: euth/projects/templates/euth_projects/project_detail.html:109
-msgid "Contact for questions"
-msgstr "Contact for questions"
-
-#: adhocracy4/dashboard/forms.py:87
-msgid ""
-"Please name a contact person. The user will then know who is carrying out "
-"this project and to whom they can address possible questions. The contact "
-"person will be shown in the information tab on the project page."
-msgstr ""
-"Please name a contact person. The user will then know who is carrying out "
-"this project and to whom they can address possible questions. The contact "
-"person will be shown in the information tab on the project page."
-
-#: adhocracy4/dashboard/forms.py:92
-msgid "More contact possibilities"
-msgstr "More contact possibilities"
-
-#: adhocracy4/dashboard/forms.py:134 adhocracy4/phases/models.py:77
-msgid "End date"
-msgstr "End date"
-
-#: adhocracy4/dashboard/forms.py:134
-msgid "End time"
-msgstr "End time"
-
-#: adhocracy4/dashboard/forms.py:140 adhocracy4/phases/models.py:75
-msgid "Start date"
-msgstr "Start date"
-
-#: adhocracy4/dashboard/forms.py:140
-msgid "Start time"
-msgstr "Start time"
-
-#: adhocracy4/dashboard/mixins.py:207
-msgid "Project successfully duplicated."
-msgstr "Project successfully duplicated."
 
 #: adhocracy4/dashboard/views.py:69
 msgid "Project successfully created."
@@ -493,7 +419,8 @@ msgstr "Reply to Reference"
 msgid "Creator"
 msgstr "Creator"
 
-#: adhocracy4/exports/mixins/general.py:16 euth/exports/mixins.py:47
+#: adhocracy4/exports/mixins/general.py:16 adhocracy4/polls/exports.py:42
+#: euth/exports/mixins.py:47
 msgid "Created"
 msgstr "Created"
 
@@ -541,10 +468,57 @@ msgstr "Positive ratings"
 msgid "Negative ratings"
 msgstr "Negative ratings"
 
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:5
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:23
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:35
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:47
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:59
+msgid "Export"
+msgstr "Export"
+
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:7
+msgid ""
+"You can export the results of your participation project as an excel file."
+msgstr ""
+"You can export the results of your participation project as an excel file."
+
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:19
+msgid "here you can export all ideas"
+msgstr "here you can export all ideas"
+
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:31
+msgid "here you can export all subjects"
+msgstr "here you can export all subjects"
+
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:43
+msgid "here you can export all answers"
+msgstr "here you can export all answers"
+
+#: adhocracy4/exports/templates/a4exports/export_dashboard.html:55
+msgid "here you can export all comments"
+msgstr "here you can export all comments"
+
+#: adhocracy4/filters/widgets.py:66
+msgid "Ordering"
+msgstr "Ordering"
+
 #: adhocracy4/forms/fields.py:18
 #, python-format
 msgid "Time of %(date_label)s"
 msgstr "Time of %(date_label)s"
+
+#: adhocracy4/forms/templates/a4forms/includes/form_field.html:5
+#: euth/contrib/templates/euth_contrib/includes/form_field.html:5
+#: euth_wagtail/templates/a4forms/includes/form_field.html:5
+msgid "This field is required"
+msgstr "This field is required"
+
+#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:14
+#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:15
+#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:18
+#: adhocracy4/forms/templates/a4forms/includes/inline_form.html:19
+msgid "Remove category"
+msgstr "Remove category"
 
 #: adhocracy4/images/fields.py:71
 #, python-brace-format
@@ -566,6 +540,28 @@ msgstr "{image_name} copyright"
 #, python-brace-format
 msgid "Copyright shown in the {image_name}."
 msgstr "Copyright shown in the {image_name}."
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html:8
+msgid "Remove the picture"
+msgstr "Remove the picture"
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html:12
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
+#: euth/ideas/templates/euth_ideas/idea_form.html:62
+msgid "Upload a picture"
+msgstr "Upload a picture"
+
+#: adhocracy4/images/templates/a4images/image_upload_widget.html:19
+msgid ""
+"\n"
+"            Your image will be uploaded/removed once you save your changes\n"
+"            at the end of this page.\n"
+"            "
+msgstr ""
+"\n"
+"            Your image will be uploaded/removed once you save your changes\n"
+"            at the end of this page.\n"
+"            "
 
 #: adhocracy4/images/validators.py:21 euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
@@ -602,6 +598,20 @@ msgstr "Edit labels"
 #: adhocracy4/labels/forms.py:17
 msgid "Label"
 msgstr "Label"
+
+#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:3
+msgid ""
+"In this section, you can create\n"
+"labels. If you create any, each contribution can be assigned\n"
+"to one or more of them. This way, content can be classified."
+msgstr ""
+"In this section, you can create\n"
+"labels. If you create any, each contribution can be assigned\n"
+"to one or more of them. This way, content can be classified."
+
+#: adhocracy4/labels/templates/a4labels/includes/module_labels_form.html:21
+msgid "Add label"
+msgstr "Add label"
 
 #: adhocracy4/maps/admin.py:14 adhocracy4/maps/models.py:11
 msgid "Polygon"
@@ -657,42 +667,42 @@ msgstr ""
 "detail pages. It should briefly state the goal of the module in max. 512 "
 "chars."
 
-#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:197 adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "day"
 
-#: adhocracy4/modules/models.py:192 adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:197 adhocracy4/projects/models.py:593
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "days"
 
-#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:198 adhocracy4/projects/models.py:594
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "hour"
 
-#: adhocracy4/modules/models.py:193 adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:198 adhocracy4/projects/models.py:594
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "hours"
 
-#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:199 adhocracy4/projects/models.py:595
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "minute"
 
-#: adhocracy4/modules/models.py:194 adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:199 adhocracy4/projects/models.py:595
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "minutes"
 
-#: adhocracy4/modules/models.py:195 adhocracy4/projects/models.py:596
+#: adhocracy4/modules/models.py:200 adhocracy4/projects/models.py:596
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "second"
 
-#: adhocracy4/modules/models.py:195 adhocracy4/modules/models.py:206
+#: adhocracy4/modules/models.py:200 adhocracy4/modules/models.py:211
 #: adhocracy4/projects/models.py:596 adhocracy4/projects/models.py:607
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
@@ -711,7 +721,7 @@ msgstr "Name"
 
 #: adhocracy4/phases/models.py:71
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
-#: euth/ideas/templates/euth_ideas/idea_form.html:51
+#: euth/ideas/templates/euth_ideas/idea_form.html:52
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Description"
@@ -744,9 +754,17 @@ msgstr "Duplicate choices detected."
 msgid "Multiple choice disabled for question."
 msgstr "Multiple choice disabled for question."
 
-#: adhocracy4/polls/dashboard.py:14 euth/blueprints/blueprints.py:313
+#: adhocracy4/polls/dashboard.py:15 euth/blueprints/blueprints.py:313
 msgid "Poll"
 msgstr "Poll"
+
+#: adhocracy4/polls/dashboard.py:42 euth/exports/dashboard.py:14
+msgid "Export Excel"
+msgstr "Export Excel"
+
+#: adhocracy4/polls/exports.py:40
+msgid "ID"
+msgstr "ID"
 
 #: adhocracy4/polls/models.py:53
 msgid "Explanation"
@@ -808,6 +826,22 @@ msgstr "Answer the questions and comment on the poll."
 msgid "polls"
 msgstr "polls"
 
+#: adhocracy4/polls/templates/a4polls/poll_404.html:8
+msgid ""
+"Participation is not possible at the moment. The poll has not been set up "
+"yet."
+msgstr ""
+"Participation is not possible at the moment. The poll has not been set up "
+"yet."
+
+#: adhocracy4/polls/templates/a4polls/poll_404.html:15
+msgid "Setup the poll by adding questions and answers in the dashboard."
+msgstr "Setup the poll by adding questions and answers in the dashboard."
+
+#: adhocracy4/polls/templates/a4polls/poll_dashboard.html:5
+msgid "Edit poll"
+msgstr "Edit poll"
+
 #: adhocracy4/polls/validators.py:15
 #, python-format
 msgid "Item of type %(item)s for that module already exists"
@@ -821,25 +855,25 @@ msgstr "Choice has to belong to the question set in the url."
 msgid "Only one vote per choice is allowed per user."
 msgstr "Only one vote per choice is allowed per user."
 
-#: adhocracy4/projects/admin.py:8
+#: adhocracy4/projects/admin.py:10
 #: euth_wagtail/templates/a4dashboard/base_dashboard_project.html:8
 msgid "Project"
 msgstr "Project"
 
-#: adhocracy4/projects/admin.py:47
+#: adhocracy4/projects/admin.py:65
 msgid "Information and result"
 msgstr "Information and result"
 
-#: adhocracy4/projects/admin.py:50
+#: adhocracy4/projects/admin.py:68
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
 msgid "Settings"
 msgstr "Settings"
 
-#: adhocracy4/projects/admin.py:54
+#: adhocracy4/projects/admin.py:72
 msgid "Images"
 msgstr "Images"
 
-#: adhocracy4/projects/admin.py:59
+#: adhocracy4/projects/admin.py:77
 msgid "Contact"
 msgstr "Contact"
 
@@ -863,8 +897,8 @@ msgstr "Postal address"
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
-#: euth/projects/templates/euth_projects/project_detail.html:121
-#: euth_wagtail/templates/account/login.html:40
+#: euth/projects/templates/euth_projects/project_detail.html:122
+#: euth_wagtail/templates/account/login.html:39
 #: euth_wagtail/templates/account/password_reset.html:26
 msgid "Email"
 msgstr "Email"
@@ -878,7 +912,7 @@ msgid "Phone"
 msgstr "Phone"
 
 #: adhocracy4/projects/models.py:72
-#: euth/projects/templates/euth_projects/project_detail.html:126
+#: euth/projects/templates/euth_projects/project_detail.html:127
 msgid "Website"
 msgstr "Website"
 
@@ -1326,18 +1360,16 @@ msgstr ""
 #: euth/blueprints/blueprints.py:314
 msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members."
 msgstr ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-"topics from the public or your members. Via the OPIN polling app for iOS and "
-"Android these polls are also accessible on smartphones."
+"topics from the public or your members."
 
-#: euth/blueprints/blueprints.py:334
+#: euth/blueprints/blueprints.py:333
 msgid "Community debate"
 msgstr "Community debate"
 
-#: euth/blueprints/blueprints.py:335
+#: euth/blueprints/blueprints.py:334
 msgid "Collect topics and questions to discuss, debate and prioritize them."
 msgstr "Collect topics and questions to discuss, debate and prioritize them."
 
@@ -1595,7 +1627,7 @@ msgstr "abort"
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
 #: euth/documents/templates/euth_documents/paragraph_detail.html:10
 #: euth/ideas/templates/euth_ideas/idea_detail.html:14
-#: euth/ideas/templates/euth_ideas/idea_form.html:11
+#: euth/ideas/templates/euth_ideas/idea_form.html:12
 #: euth/maps/templates/euth_maps/mapidea_detail.html:23
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:15
 msgid "back to project"
@@ -1660,15 +1692,15 @@ msgid "Upload another document"
 msgstr "Upload another document"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
-#: euth/ideas/templates/euth_ideas/idea_form.html:94
+#: euth/ideas/templates/euth_ideas/idea_form.html:95
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "post"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:135
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
-#: euth/ideas/templates/euth_ideas/idea_form.html:98
-#: euth/ideas/templates/euth_ideas/idea_form.html:100
+#: euth/ideas/templates/euth_ideas/idea_form.html:99
+#: euth/ideas/templates/euth_ideas/idea_form.html:101
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
 #: euth/maps/templates/euth_maps/mapidea_form.html:25
 #: euth_wagtail/templates/a4dashboard/includes/project_list_item.html:79
@@ -1683,15 +1715,15 @@ msgstr "Create Topic"
 msgid "No topics found"
 msgstr "No topics found"
 
-#: euth/communitydebate/views.py:97
+#: euth/communitydebate/views.py:94
 msgid "Topic successfully created"
 msgstr "Topic successfully created"
 
-#: euth/communitydebate/views.py:146
+#: euth/communitydebate/views.py:144
 msgid "Topic successfully updated"
 msgstr "Topic successfully updated"
 
-#: euth/communitydebate/views.py:157
+#: euth/communitydebate/views.py:155
 msgid "Your topic has been deleted"
 msgstr "Your topic has been deleted"
 
@@ -1788,7 +1820,7 @@ msgstr "Comment phase"
 msgid "Collect comments for the text."
 msgstr "Collect comments for the text."
 
-#: euth/documents/templates/euth_documents/document_detail.html:20
+#: euth/documents/templates/euth_documents/document_detail.html:25
 msgid "Add your comment"
 msgstr "Add your comment"
 
@@ -1799,10 +1831,6 @@ msgstr "Moderators are currently creating a document."
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"
 msgstr "Document for that module already exists"
-
-#: euth/exports/dashboard.py:14
-msgid "Export Excel"
-msgstr "Export Excel"
 
 #: euth/exports/mixins.py:32
 msgid "replies to"
@@ -1870,15 +1898,15 @@ msgstr "Use all features of the idea collection."
 msgid "Create a new proposal"
 msgstr "Create a new proposal"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:19
+#: euth/ideas/templates/euth_ideas/idea_form.html:20
 msgid "create new proposal for this project"
 msgstr "create new proposal for this project"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:23
+#: euth/ideas/templates/euth_ideas/idea_form.html:24
 msgid "update idea"
 msgstr "update idea"
 
-#: euth/ideas/templates/euth_ideas/idea_form.html:42
+#: euth/ideas/templates/euth_ideas/idea_form.html:43
 msgid "Title of the proposal"
 msgstr "Title of the proposal"
 
@@ -1891,7 +1919,7 @@ msgstr "Create Proposal"
 msgid "No proposals found"
 msgstr "No proposals found"
 
-#: euth/ideas/views.py:108
+#: euth/ideas/views.py:105
 msgid "Your Idea has been deleted"
 msgstr "Your Idea has been deleted"
 
@@ -2305,28 +2333,28 @@ msgstr "Event"
 msgid "Participation"
 msgstr "Participation"
 
-#: euth/projects/templates/euth_projects/project_detail.html:105
+#: euth/projects/templates/euth_projects/project_detail.html:106
 msgid "info"
 msgstr "info"
 
-#: euth/projects/templates/euth_projects/project_detail.html:117
+#: euth/projects/templates/euth_projects/project_detail.html:118
 msgid "Telephone"
 msgstr "Telephone"
 
-#: euth/projects/templates/euth_projects/project_detail.html:138
+#: euth/projects/templates/euth_projects/project_detail.html:139
 msgid "Welcome!"
 msgstr "Welcome!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:139
+#: euth/projects/templates/euth_projects/project_detail.html:140
 msgid "This project has not started yet!"
 msgstr "This project has not started yet!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:145
-#: euth/projects/templates/euth_projects/project_detail.html:149
+#: euth/projects/templates/euth_projects/project_detail.html:146
+#: euth/projects/templates/euth_projects/project_detail.html:150
 msgid "Thanks for participating!"
 msgstr "Thanks for participating!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:146
+#: euth/projects/templates/euth_projects/project_detail.html:147
 msgid ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
@@ -2334,7 +2362,7 @@ msgstr ""
 "This phase is already over. Thanks a lot to everyone for taking part in the "
 "project! The next phase will start soon."
 
-#: euth/projects/templates/euth_projects/project_detail.html:150
+#: euth/projects/templates/euth_projects/project_detail.html:151
 msgid ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
@@ -2342,11 +2370,11 @@ msgstr ""
 "This project is already over. Thanks a lot to everyone for taking part in "
 "the project!"
 
-#: euth/projects/templates/euth_projects/project_detail.html:162
+#: euth/projects/templates/euth_projects/project_detail.html:163
 msgid "This phase ends in"
 msgstr "This phase ends in"
 
-#: euth/projects/templates/euth_projects/project_detail.html:170
+#: euth/projects/templates/euth_projects/project_detail.html:171
 msgid "(Your Timezone: "
 msgstr "(Your Timezone: "
 
@@ -2564,15 +2592,13 @@ msgid "Login / Register"
 msgstr "Login / Register"
 
 #: euth/users/templates/euth_users/indicator_menu.html:46
-#: euth_wagtail/templates/account/login.html:16
-#: euth_wagtail/templates/account/login.html:62
+#: euth_wagtail/templates/account/login.html:61
 #: euth_wagtail/templates/account/signup.html:16
 msgid "login"
 msgstr "login"
 
 #: euth/users/templates/euth_users/indicator_menu.html:49
 #: euth_wagtail/templates/account/login.html:20
-#: euth_wagtail/templates/account/signup.html:12
 #: euth_wagtail/templates/account/signup.html:99
 msgid "register"
 msgstr "register"
@@ -2591,55 +2617,59 @@ msgstr "Bio"
 msgid "%(username)s follows no projects at the moment."
 msgstr "%(username)s follows no projects at the moment."
 
-#: euth_wagtail/settings/base.py:276
+#: euth_wagtail/settings/base.py:278
 msgid "English"
 msgstr "English"
 
-#: euth_wagtail/settings/base.py:277
+#: euth_wagtail/settings/base.py:279
 msgid "German"
 msgstr "German"
 
-#: euth_wagtail/settings/base.py:278
+#: euth_wagtail/settings/base.py:280
 msgid "Italien"
 msgstr "Italien"
 
-#: euth_wagtail/settings/base.py:279
+#: euth_wagtail/settings/base.py:281
 msgid "French"
 msgstr "French"
 
-#: euth_wagtail/settings/base.py:280
+#: euth_wagtail/settings/base.py:282
 msgid "Swedish"
 msgstr "Swedish"
 
-#: euth_wagtail/settings/base.py:281
+#: euth_wagtail/settings/base.py:283
 msgid "Slovene"
 msgstr "Slovene"
 
-#: euth_wagtail/settings/base.py:282
+#: euth_wagtail/settings/base.py:284
 msgid "Danish"
 msgstr "Danish"
 
-#: euth_wagtail/settings/base.py:283
+#: euth_wagtail/settings/base.py:285
 msgid "Greek"
 msgstr "Greek"
 
-#: euth_wagtail/settings/base.py:284
+#: euth_wagtail/settings/base.py:286
 msgid "Georgian"
 msgstr "Georgian"
 
-#: euth_wagtail/settings/base.py:285
+#: euth_wagtail/settings/base.py:287
 msgid "Macedonian"
 msgstr "Macedonian"
 
-#: euth_wagtail/settings/base.py:432
+#: euth_wagtail/settings/base.py:288
+msgid "Bulgarian"
+msgstr "Bulgarian"
+
+#: euth_wagtail/settings/base.py:435
 msgid "suggestion"
 msgstr "suggestion"
 
-#: euth_wagtail/settings/base.py:433
+#: euth_wagtail/settings/base.py:436
 msgid "note"
 msgstr "note"
 
-#: euth_wagtail/settings/base.py:434
+#: euth_wagtail/settings/base.py:437
 msgid "question"
 msgstr "question"
 
@@ -2800,9 +2830,7 @@ msgstr ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 
-#: euth_wagtail/templates/account/includes/howto.html:6
-#: euth_wagtail/templates/account/includes/howto.html:14
-#: euth_wagtail/templates/account/includes/howto.html:22
+#: euth_wagtail/templates/account/includes/howto.html:4
 msgid "How can I register my organisation and start a project?"
 msgstr "How can I register my organisation and start a project?"
 
@@ -2816,11 +2844,11 @@ msgid ""
 msgstr ""
 "Register as a user by following the steps on the left to create an account."
 
-#: euth_wagtail/templates/account/includes/howto.html:16
+#: euth_wagtail/templates/account/includes/howto.html:15
 msgid "2. Contact us"
 msgstr "2. Contact us"
 
-#: euth_wagtail/templates/account/includes/howto.html:18
+#: euth_wagtail/templates/account/includes/howto.html:17
 msgid ""
 "Send us en e-mail via info@opin.me and provide your username, email address, "
 "organisation name and its location, a short description of your project."
@@ -2828,11 +2856,11 @@ msgstr ""
 "Send us en e-mail via info@opin.me and provide your username, email address, "
 "organisation name and its location, a short description of your project."
 
-#: euth_wagtail/templates/account/includes/howto.html:24
+#: euth_wagtail/templates/account/includes/howto.html:22
 msgid "3. We will review your request."
 msgstr "3. We will review your request."
 
-#: euth_wagtail/templates/account/includes/howto.html:26
+#: euth_wagtail/templates/account/includes/howto.html:24
 msgid ""
 "Since we are in beta for the moment, we cannot accept all requests to use "
 "OPIN. You will receive a reply within 48 hours."
@@ -2841,6 +2869,7 @@ msgstr ""
 "OPIN. You will receive a reply within 48 hours."
 
 #: euth_wagtail/templates/account/login.html:8
+#: euth_wagtail/templates/account/login.html:16
 msgid "Login"
 msgstr "Login"
 
@@ -2848,7 +2877,7 @@ msgstr "Login"
 msgid "I do not have an account, "
 msgstr "I do not have an account, "
 
-#: euth_wagtail/templates/account/login.html:49
+#: euth_wagtail/templates/account/login.html:48
 #: euth_wagtail/templates/account/password_change.html:27
 #: euth_wagtail/templates/account/password_change.html:34
 #: euth_wagtail/templates/account/password_reset_from_key.html:37
@@ -2856,11 +2885,11 @@ msgstr "I do not have an account, "
 msgid "Password"
 msgstr "Password"
 
-#: euth_wagtail/templates/account/login.html:59
+#: euth_wagtail/templates/account/login.html:58
 msgid "reset password"
 msgstr "reset password"
 
-#: euth_wagtail/templates/account/login.html:67
+#: euth_wagtail/templates/account/login.html:66
 #: euth_wagtail/templates/account/signup.html:106
 msgid "Login with social account"
 msgstr "Login with social account"
@@ -2945,6 +2974,10 @@ msgstr "Set password"
 #: euth_wagtail/templates/account/signup.html:5
 msgid "Register an account"
 msgstr "Register an account"
+
+#: euth_wagtail/templates/account/signup.html:12
+msgid "Register"
+msgstr "Register"
 
 #: euth_wagtail/templates/account/signup.html:14
 msgid "I already have an account, "
@@ -3040,11 +3073,32 @@ msgstr "Login with "
 msgid "Latest projects on OPIN"
 msgstr "Latest projects on OPIN"
 
-#: home/templates/home/manuals_section_page.html:19
-#: home/templates/home/manuals_section_page.html:25
+#: home/templates/home/manuals_section_page.html:18
+#: home/templates/home/manuals_section_page.html:24
 msgid "Download guidelines"
 msgstr "Download guidelines"
 
-#: home/templates/home/manuals_section_page.html:40
+#: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contents"
+
+#~ msgid "deleted by creator"
+#~ msgstr "deleted by creator"
+
+#~ msgid "deleted by moderator"
+#~ msgstr "deleted by moderator"
+
+#~ msgid "Areasettings"
+#~ msgstr "Areasettings"
+
+#~ msgid "Edit areasettings"
+#~ msgstr "Edit areasettings"
+
+#~ msgid ""
+#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
+#~ "topics from the public or your members. Via the OPIN polling app for iOS "
+#~ "and Android these polls are also accessible on smartphones."
+#~ msgstr ""
+#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
+#~ "topics from the public or your members. Via the OPIN polling app for iOS "
+#~ "and Android these polls are also accessible on smartphones."
