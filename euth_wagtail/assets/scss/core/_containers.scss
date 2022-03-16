@@ -34,7 +34,7 @@ img {
     height: auto !important;
 }
 
-p {
+.tab-panel p {
     @include clearfix; // stops overlap of img added via ckeditor and floated
 }
 

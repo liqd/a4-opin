@@ -2,9 +2,9 @@
 {% if self.highlight == "highlight" %}
 <div class="info-block block m-highlight">
 {% elif self.highlight == "boxed" %}
-<div class="info-block block m-boxed">
+<div class="info-block block m-boxed{% if self.alignment == 'vertical' %}--vertical{% endif %}">
 {% elif self.highlight == "boxed2" %}
-<div class="info-block block m-boxed m-variation">
+<div class="info-block block m-variation m-boxed{% if self.alignment == 'vertical' %}--vertical{% endif %}">
 {% elif self.highlight == "highlight-purple" %}
 <div class="info-block block m-highlight-purple">
 {% else %}
@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-7">
                 {% if self.title %}
-    	            <h3 class="block-title">{{ self.title }}</h1>
+    	            <h2 class="block-title">{{ self.title }}</h2>
                 {% endif %}
 
                 <div class="info-box-text">
@@ -39,7 +39,7 @@
         {% else %}
     	<div class="container-inner">
             {% if self.title %}
-    	    <h1 class="block-title">{{ self.title }}</h1>
+    	    <h2 class="block-title">{{ self.title }}</h2>
             {% endif %}
 
     	    {% if self.image.width > 0 %}
