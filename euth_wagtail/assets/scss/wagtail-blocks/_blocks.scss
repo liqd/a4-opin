@@ -58,13 +58,16 @@
 
     &.m-highlight,
     &.m-boxed,
+    &.m-boxed--vertical,
     & input,
     & textarea {
         color: $body-bg;
     }
 
     &.m-boxed,
-    .m-boxed.m-variation {
+    .m-boxed.m-variation,
+    .m-boxed--veritical,
+    .m-boxed--vertical.m-variation {
         color: $gray-dark;
     }
 
@@ -107,7 +110,7 @@
         }
     }
 
-    &.m-boxed {
+    &.m-boxed--vertical {
         padding: 0;
 
         .container-inner {
