@@ -1,0 +1,22 @@
+{% extends 'email_base.'|add:part_type %}
+
+{% block subject %}Reset password request for {{ site.name }}{% endblock %}
+
+{% block headline %}Unknown user account{% endblock %}
+
+{% block content %}
+
+You receive this email because you or someone else requested a password reset for your user account.
+However, we have not found a user account with the email address {{ email }} in our database.
+
+Please register first using the link below.
+
+If you have not requested a new password, you can ignore this email.
+
+If you need help, please contact {{ contact_email }}.
+{% endblock %}
+
+{% block cta_url %}{{ signup_url }}{% endblock %}
+{% block cta_label %}Registrieren{% endblock %}
+
+{% block reason %}This email was sent to {{ email }}. You have received the e-mail because the reset of your password has been requested on {{ site.name }}.{% endblock %}
