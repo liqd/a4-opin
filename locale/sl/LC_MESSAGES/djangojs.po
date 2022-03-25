@@ -791,7 +791,7 @@ msgstr "Prenehaj slediti"
 
 #~ msgid ""
 #~ "Your answer could not be saved due to a server error. Please try again "
-#~ "later."Soy
+#~ "later."
 #~ msgstr ""
 #~ "Vašega odgovora ni bilo mogoče shraniti zaradi napake strežnika. "
 #~ "Poskusite znova pozneje."
