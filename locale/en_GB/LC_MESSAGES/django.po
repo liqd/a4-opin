@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-15 18:08+0100\n"
+"POT-Creation-Date: 2022-03-25 11:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Edit categories"
 
 #: adhocracy4/categories/fields.py:12 adhocracy4/categories/filters.py:16
 #: adhocracy4/categories/forms.py:45 adhocracy4/exports/mixins/items.py:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:117
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:118
 #: euth/ideas/templates/euth_ideas/idea_form.html:81
 msgid "Category"
 msgstr "Category"
@@ -63,10 +63,10 @@ msgstr "Comment"
 #: adhocracy4/comments/models.py:55 adhocracy4/exports/mixins/comments.py:46
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:35
-#: euth/documents/templates/euth_documents/paragraph_detail.html:18
+#: euth/documents/templates/euth_documents/paragraph_detail.html:23
 #: euth/ideas/templates/euth_ideas/idea_detail.html:72
 #: euth/maps/templates/euth_maps/mapidea_detail.html:81
-#: euth_wagtail/templates/a4polls/poll_detail.html:11
+#: euth_wagtail/templates/a4polls/poll_detail.html:10
 msgid "Comments"
 msgstr "Comments"
 
@@ -75,7 +75,7 @@ msgid "Please choose a category"
 msgstr "Please choose a category"
 
 #: adhocracy4/comments/serializers.py:82
-#: adhocracy4/comments_async/serializers.py:92
+#: adhocracy4/comments_async/serializers.py:97
 msgid "unknown user"
 msgstr "unknown user"
 
@@ -546,7 +546,7 @@ msgid "Remove the picture"
 msgstr "Remove the picture"
 
 #: adhocracy4/images/templates/a4images/image_upload_widget.html:12
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:69
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:70
 #: euth/ideas/templates/euth_ideas/idea_form.html:62
 msgid "Upload a picture"
 msgstr "Upload a picture"
@@ -720,7 +720,7 @@ msgid "Name"
 msgstr "Name"
 
 #: adhocracy4/phases/models.py:71
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:57
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:58
 #: euth/ideas/templates/euth_ideas/idea_form.html:52
 #: euth/offlinephases/models.py:54
 msgid "Description"
@@ -1624,8 +1624,8 @@ msgid "abort"
 msgstr "abort"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:14
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:18
-#: euth/documents/templates/euth_documents/paragraph_detail.html:10
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:19
+#: euth/documents/templates/euth_documents/paragraph_detail.html:15
 #: euth/ideas/templates/euth_ideas/idea_detail.html:14
 #: euth/ideas/templates/euth_ideas/idea_form.html:12
 #: euth/maps/templates/euth_maps/mapidea_detail.html:23
@@ -1648,7 +1648,7 @@ msgid "Moderator"
 msgstr "Moderator"
 
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:63
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:87
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:88
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_detail.html:13
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:34
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_detail.html:13
@@ -1664,19 +1664,19 @@ msgstr "Create a new topic"
 msgid "Update topic"
 msgstr "Update topic"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:26
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:27
 msgid "create new topic for this project"
 msgstr "create new topic for this project"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:30
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:31
 msgid "update topic"
 msgstr "update topic"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:48
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:49
 msgid "Title of the topic"
 msgstr "Title of the topic"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:94
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:95
 #: euth/offlinephases/templates/euth_offlinephases/offlineevent_form.html:36
 #: euth/offlinephases/templates/euth_offlinephases/offlinephase_form.html:59
 #, python-format
@@ -1687,18 +1687,18 @@ msgstr ""
 " You can upload a maximum of %(fileupload_max)s documents. Allowed formats "
 "are %(allowed_file_types)s. "
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:107
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:108
 msgid "Upload another document"
 msgstr "Upload another document"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:131
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:132
 #: euth/ideas/templates/euth_ideas/idea_form.html:95
 #: euth/maps/templates/euth_maps/mapidea_form.html:19
 msgid "post"
 msgstr "post"
 
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:135
-#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:137
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:136
+#: euth/communitydebate/templates/euth_communitydebate/topic_form.html:138
 #: euth/ideas/templates/euth_ideas/idea_form.html:99
 #: euth/ideas/templates/euth_ideas/idea_form.html:101
 #: euth/maps/templates/euth_maps/mapidea_form.html:23
@@ -1828,6 +1828,10 @@ msgstr "Add your comment"
 msgid "Moderators are currently creating a document."
 msgstr "Moderators are currently creating a document."
 
+#: euth/documents/templates/euth_documents/paragraph_detail.html:5
+msgid "Add a comment"
+msgstr "Add a comment"
+
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"
 msgstr "Document for that module already exists"
@@ -1911,7 +1915,7 @@ msgid "Title of the proposal"
 msgstr "Title of the proposal"
 
 #: euth/ideas/templates/euth_ideas/idea_list.html:12
-#: euth/maps/templates/euth_maps/mapidea_list.html:20
+#: euth/maps/templates/euth_maps/mapidea_list.html:21
 msgid "Create Proposal"
 msgstr "Create Proposal"
 
@@ -1967,7 +1971,7 @@ msgstr "Rating Phase"
 msgid "Get quantative feeback by rating the collected ideas on a map."
 msgstr "Get quantative feeback by rating the collected ideas on a map."
 
-#: euth/maps/templates/euth_maps/mapidea_list.html:26
+#: euth/maps/templates/euth_maps/mapidea_list.html:27
 msgid "view on list"
 msgstr "view on list"
 
@@ -2661,15 +2665,15 @@ msgstr "Macedonian"
 msgid "Bulgarian"
 msgstr "Bulgarian"
 
-#: euth_wagtail/settings/base.py:435
+#: euth_wagtail/settings/base.py:436
 msgid "suggestion"
 msgstr "suggestion"
 
-#: euth_wagtail/settings/base.py:436
+#: euth_wagtail/settings/base.py:437
 msgid "note"
 msgstr "note"
 
-#: euth_wagtail/settings/base.py:437
+#: euth_wagtail/settings/base.py:438
 msgid "question"
 msgstr "question"
 

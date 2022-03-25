@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-15 18:08+0100\n"
+"POT-Creation-Date: 2022-03-25 11:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,7 +262,7 @@ msgstr "display: "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:29
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:64
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:324
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:321
 msgid "all"
 msgstr "all"
 
@@ -276,7 +276,7 @@ msgid_plural "entries"
 msgstr[0] "entry"
 msgstr[1] "entries"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:93
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "entry found for "
@@ -500,9 +500,9 @@ msgstr "Your answer has been saved."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:18
 msgid ""
-"Your answer could not be saved due to a server error. Please try again later."
+"Your answer could not be saved. Please check the data you entered again."
 msgstr ""
-"Your answer could not be saved due to a server error. Please try again later."
+"Your answer could not be saved. Please check the data you entered again."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:23
 msgid "Your answer is invalid or empty. Please try again."
@@ -648,6 +648,13 @@ msgstr "save"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Unfollow"
+
+#~ msgid ""
+#~ "Your answer could not be saved due to a server error. Please try again "
+#~ "later."
+#~ msgstr ""
+#~ "Your answer could not be saved due to a server error. Please try again "
+#~ "later."
 
 #~ msgid "hide comments"
 #~ msgstr "hide comments"

@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Luca Thüer, 2018
@@ -12,38 +12,43 @@
 # Katharina Matzkeit <k.matzkeit+transifex@liqd.net>, 2020
 # David Jinjikhadze <david.jinjikhadze@gmail.com>, 2021
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-15 18:08+0100\n"
+"POT-Creation-Date: 2022-03-25 11:28+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ka\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 msgid "Insert Collapsible Item"
 msgstr "ჩასვით ობიექტი"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:14
 msgid "Title"
 msgstr "სათაური"
 
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:15
 msgid "Body text"
 msgstr "მთავარი ტექსტი"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
+#: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:37
 msgid "Collapsible element"
 msgstr "ელემენტი"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:23
 #, javascript-format
 msgid "hide one reply"
@@ -52,6 +57,7 @@ msgstr[0] "ერთი პასუხი დამალა"
 msgstr[1] "პასუხების %s -ის დამალვა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4/comments/static/comments/Comment.jsx:25
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
@@ -59,9 +65,12 @@ msgstr[0] "ერთი პასუხი ნახეთ"
 msgstr[1] "პასუხების %s -ის ნახვა"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/comments/static/comments/Comment.jsx:30
 msgid "Answer"
 msgstr "პასუხი"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:31
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 #: adhocracy4/comments/static/comments/Comment.jsx:31
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Your reply here"
@@ -70,15 +79,20 @@ msgstr "თქვენი პასუხი აქ"
 #: adhocracy4/comments/static/comments/Comment.jsx:32
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4/comments/static/comments/Comment.jsx:32
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
 "will be deleted if it does not meet our discussion rules (netiquette)."
 msgstr ""
-"გსურთ ამ კონტენტის შეტყობინება? თქვენი შეტყობინება გადაეგზავნება მოდერატორს."
-" მოდერატორი შეისწავლის შეტყობინების შინაარსს. შინაარსი წაიშლება, თუ ის არ "
+"გსურთ ამ კონტენტის შეტყობინება? თქვენი შეტყობინება გადაეგზავნება მოდერატორს. "
+"მოდერატორი შეისწავლის შეტყობინების შინაარსს. შინაარსი წაიშლება, თუ ის არ "
 "აკმაყოფილებს ჩვენს სადისკუსიო წესებს()."
 
+#: adhocracy4/comments/static/comments/Comment.jsx:96
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 #: adhocracy4/comments/static/comments/Comment.jsx:96
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 msgid "Moderator"
@@ -86,9 +100,13 @@ msgstr "მოდერატორი"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:263
+#: adhocracy4/comments/static/comments/Comment.jsx:105
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:263
 msgid "Latest edit on"
 msgstr "ბოლოს რედაქტირებული"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:110
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:257
 #: adhocracy4/comments/static/comments/Comment.jsx:110
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:257
 msgid "Deleted by creator on"
@@ -96,9 +114,13 @@ msgstr "წაშლილია შემქმნელის მიერ"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:112
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:259
+#: adhocracy4/comments/static/comments/Comment.jsx:112
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:259
 msgid "Deleted by moderator on"
 msgstr "წაშლილია მოდერატორის მიერ"
 
+#: adhocracy4/comments/static/comments/Comment.jsx:151
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 #: adhocracy4/comments/static/comments/Comment.jsx:151
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:238
 msgid "Do you really want to delete this comment?"
@@ -112,6 +134,10 @@ msgstr "ნამდვილად გსურთ ამ კომენტა
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:152
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:157
+#: adhocracy4/comments/static/comments/Comment.jsx:152
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:240
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
 msgid "Delete"
 msgstr "წაშლა"
 
@@ -119,14 +145,20 @@ msgstr "წაშლა"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:241
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
+#: adhocracy4/comments/static/comments/Comment.jsx:153
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "გაუქმება"
 
 #: adhocracy4/comments/static/comments/CommentBox.jsx:165
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentBox.jsx:165
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
 msgid "Your comment here"
 msgstr "თქვენი კომენტარი აქ"
 
+#: adhocracy4/comments/static/comments/CommentBox.jsx:168
 #: adhocracy4/comments/static/comments/CommentBox.jsx:168
 msgid "comment"
 msgid_plural "comments"
@@ -136,9 +168,15 @@ msgstr[1] "კომენტარები"
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
 msgid "save changes"
 msgstr "ცვლილებების შენახვა"
 
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
@@ -147,9 +185,13 @@ msgstr "უარყოფა"
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:37
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
+#: adhocracy4/comments/static/comments/CommentForm.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
 msgid "post"
 msgstr "განთავსება"
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:38
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
 #: adhocracy4/comments/static/comments/CommentForm.jsx:38
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
 msgid "Please login to comment"
@@ -157,9 +199,13 @@ msgstr "კომენტარის დასატოვებლად გ�
 
 #: adhocracy4/comments/static/comments/CommentForm.jsx:39
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
+#: adhocracy4/comments/static/comments/CommentForm.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
 msgid "The currently active phase doesn't allow to comment."
 msgstr "ამჟამად აქტიური ფაზა კომენტარს არ აკეთებს."
 
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
 #: adhocracy4/comments/static/comments/CommentForm.jsx:40
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
 msgid "Only invited users can actively participate."
@@ -167,49 +213,62 @@ msgstr "მხოლოდ მოწვეულ მომხმარებლ�
 
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
 msgid "Edit"
 msgstr "რედაქტირება"
 
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
 msgid "Report"
 msgstr "მოხსენება"
 
 #: adhocracy4/comments_async/static/comments_async/category_list.jsx:5
+#: adhocracy4/comments_async/static/comments_async/category_list.jsx:5
 msgid "Choose categories for your comment"
 msgstr "აირჩიეთ კატეგორიები თქვენი კომენტარისთვის"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Share link"
 msgstr "ბმულის გაზიარება"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Categories: "
 msgstr "კატეგორიები"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Entry successfully created"
 msgstr "შესვლა წარმატებით განხორციელდა"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Read more..."
 msgstr "მეტის წაკითხვა"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid "Read less"
 msgstr "ნაკლების წაკითხვა"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
 msgid "Share"
 msgstr "გაზიარება"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid " Report"
 msgstr "მოხსენება"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "hide replies"
 msgstr "პასუხების დამალვა"
 
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #, javascript-format
 msgid "1 reply"
@@ -218,80 +277,102 @@ msgstr[0] "1 პასუხი "
 msgstr[1] "%sპასუხობს"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 msgctxt "verb"
 msgid "Reply"
 msgstr "პასუხი "
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:261
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:261
 msgid "Blocked by moderator on"
 msgstr "დაბლოკილია მოდერატორის მიერ"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 msgid "Newest"
 msgstr "უახლესი"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:16
 msgid "Most up votes"
 msgstr "ყველაზე მეტი ხმა"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:17
 msgid "Most down votes"
 msgstr "ყველაზე ნაკლები ხმა"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:18
 msgid "Most answers"
 msgstr "ყველაზე მეტი პასუხი"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:19
 msgid "Last discussed"
 msgstr "ბოლოს განხილული"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:23
 msgid "Show filters"
 msgstr "ფილტრების ჩვენება"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:24
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:24
 msgid "Filters"
 msgstr "ფილტრები"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:25
 msgid "Hide filters"
 msgstr "ფილტრების დამალვა"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:26
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:26
 msgid "Search contributions"
 msgstr "კონტრიბუციის ძებნა"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:27
 msgid "Clear search"
 msgstr "ძებნის გასუფთავება"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:28
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:28
 msgid "display: "
 msgstr "ჩვენება"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:29
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:64
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:324
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:321
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:29
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:64
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:321
 msgid "all"
 msgstr "ყველა"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:30
 msgid "sorted by: "
 msgstr "დალაგებული"
 
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:90
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:90
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] "შესვლა "
 msgstr[1] "ჩანაწერები "
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:93
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "ჩანაწერი ნაპოვნია "
 msgstr[1] "ნაპოვნია მასალა "
 
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:8
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:7
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:10
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:8
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:7
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:10
@@ -301,66 +382,86 @@ msgstr "Შენი კომენტარი"
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
 msgid "Your reply"
 msgstr "Თქვენი პასუხი"
 
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
 msgid " characters"
 msgstr "მონაწილეები"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
 msgid "Comment"
 msgstr "კომენტარი"
 
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:31
 msgid "Recommend comment"
 msgstr "რეკომენდაცია"
 
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:35
 msgid "Is recommended"
 msgstr "რეკომენდირებულია"
 
+#: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:53
 msgid "Submit"
 msgstr "გაგზავნა"
 
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:23
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:23
 msgid "Copy"
 msgstr "კოპირება"
 
+#: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 #: adhocracy4/comments_async/static/modals/url_modal.jsx:24
 msgid "Copied"
 msgstr "კოპირებული"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:27
+#: adhocracy4/follows/static/follows/FollowButton.jsx:27
 msgid "You will no longer be updated via email."
 msgstr "სიახლეები აღარ გეცნობებათ იმეილის საშუალებით"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:29
+#: adhocracy4/follows/static/follows/FollowButton.jsx:29
 msgid "You will be updated via email."
 msgstr "სიახლეები გეცნობებათ იმეილის საშუალებით  "
 
+#: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: adhocracy4/follows/static/follows/FollowButton.jsx:63
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
 msgstr "გაყოლა"
 
 #: adhocracy4/follows/static/follows/FollowButton.jsx:64
+#: adhocracy4/follows/static/follows/FollowButton.jsx:64
 msgid "Following"
 msgstr "შემდეგ"
 
+#: adhocracy4/maps/static/a4maps/a4maps_address.js:87
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:87
 msgid "No matches found within the project area"
 msgstr "პროექტის ზონაში შესატყვისები ვერ მოიძებნა"
 
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:90
+#: adhocracy4/maps/static/a4maps/a4maps_address.js:90
 msgid "Did you mean:"
 msgstr "Იგულისხმე, რომ:"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:70
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:70
 msgid "Export polygon as GeoJSON"
 msgstr "პოლიგონის ექსპორტი GeoJSON-ად"
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:71
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:81
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:93
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:71
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:81
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:93
@@ -369,14 +470,17 @@ msgstr "პოლიგონის იმპორტი ფაილის ა
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
 #: adhocracy4/static/Alert.jsx:5
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
 msgid "Close"
 msgstr "დახურვა"
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:95
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:95
 msgid ""
 "Upload a polygon from a GeoJSON (.geojson) or a zipped Shapefile (.zip)."
 msgstr "ატვირთეთ პოლიგონი GeoJSON (.geojson) ან zipped Shapefile-დან (.zip)."
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:96
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:96
 msgid ""
 "Note that uploading Shapefiles is not supported with Internet Explorer 10"
@@ -385,34 +489,43 @@ msgstr ""
 "Explorer 10-ით"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:97
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:97
 msgid "Attention importing a file will delete the existing polygons."
 msgstr "ყურადღება მიაქციეთ ფაილის იმპორტს, წაშლის არსებულ პოლიგონებს."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:102
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:102
 msgid "Upload"
 msgstr "ატვირთვა"
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:109
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:109
 msgid "Cancel"
 msgstr "გაუქმება"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:143
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:143
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
 msgid "The uploaded file is not a valid shapefile."
 msgstr "ატვირთული ფაილი არ არის სწორი shapefile."
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:147
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:147
 msgid "The uploaded file could not be imported."
 msgstr "ატვირთული ფაილის იმპორტი ვერ მოხერხდა."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:161
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:161
 msgid "The uploaded file is not a valid geojson file."
 msgstr "ატვირთული ფაილი არ არის სწორი geojson ფაილი."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:166
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:166
 msgid "Invalid file format."
 msgstr "ფაილის ფორმატი არასწორია."
 
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:283
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:283
 msgid "Do you want to load this preset and delete all the existing polygons?"
 msgstr ""
@@ -512,11 +625,8 @@ msgstr "თქვენი პასუხი შენახულია."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:18
 msgid ""
-"Your answer could not be saved due to a server error. Please try again "
-"later."
+"Your answer could not be saved. Please check the data you entered again."
 msgstr ""
-"თქვენი პასუხის შენახვა ვერ მოხერხდა სერვერის შეცდომის გამო. Გთხოვთ სცადოთ "
-"მოგვიანებით."
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:23
 msgid "Your answer is invalid or empty. Please try again."
@@ -576,8 +686,8 @@ msgstr[1] "%sმონაწილეებმა მისცეს%sპას�
 msgid ""
 " For multiple choice questions the percentages may add up to more than 100%."
 msgstr ""
-"მრავალჯერადი არჩევანის კითხვებისთვის პროცენტული მაჩვენებელი შეიძლება 100%-ზე"
-" მეტს შეადგენდეს."
+"მრავალჯერადი არჩევანის კითხვებისთვის პროცენტული მაჩვენებელი შეიძლება 100%-ზე "
+"მეტს შეადგენდეს."
 
 #: adhocracy4/polls/assets/PollResults.jsx:69
 #: adhocracy4/polls/assets/PollResults.jsx:78
@@ -596,13 +706,16 @@ msgid "Your choice"
 msgstr "ენი არჩევანი"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
+#: adhocracy4/reports/static/reports/ReportModal.jsx:55
 msgid "Thank you! We are taking care of it."
 msgstr "მადლობთ! ჩვენ ზრუნავს მასზე."
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:56
+#: adhocracy4/reports/static/reports/ReportModal.jsx:56
 msgid "Your message"
 msgstr "ქვენი შეტყობინება"
 
+#: adhocracy4/reports/static/reports/ReportModal.jsx:57
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
 msgid "Send Report"
 msgstr "ანგარიშის გაგზავნა"
@@ -663,6 +776,13 @@ msgstr "შენახვა"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "გამოწერის გაუქმება"
+
+#~ msgid ""
+#~ "Your answer could not be saved due to a server error. Please try again "
+#~ "later."
+#~ msgstr ""
+#~ "თქვენი პასუხის შენახვა ვერ მოხერხდა სერვერის შეცდომის გამო. Გთხოვთ სცადოთ "
+#~ "მოგვიანებით."
 
 #~ msgid "hide comments"
 #~ msgstr "კომენტარების დამალვა"
