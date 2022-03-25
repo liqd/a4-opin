@@ -50,10 +50,13 @@
   - required if translators worked on transifex
   - update all languages except en_GB
 
-        tx pull -a
+        tx pull -a -f
 
-  - extract strings afterwards (again) to fix formatting differences
+  - Since translations files pulled from transifex have slightly different format, run
 
+        make po
+
+    to standardise.
 ### Compiling local translations
 
    - required to see translations on local server
