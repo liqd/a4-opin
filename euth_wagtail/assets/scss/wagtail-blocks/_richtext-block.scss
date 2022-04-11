@@ -20,14 +20,21 @@
     min-width: 100%;
 }
 
+.richtext-image.left,
+.richtext-image.right {
+    max-width: 100%;
+
+    @media screen and (min-width: $screen-sm-min) {
+        max-width: 65%;
+    }
+}
+
 .richtext-image.left {
-    max-width: 65%;
     float: left;
     margin-right: $spacer;
 }
 
 .richtext-image.right {
-    max-width: 65%;
     float: right;
     margin-left: $spacer;
 }
