@@ -1,6 +1,7 @@
 import 'slick-carousel'
 
 $(document).ready(function () {
+  // FIXME do we need this?
   // hide the all of the element with class collapsible_body
   $('.collapsible_body').hide()
   // toggle the component with class collapsible_body
@@ -8,6 +9,7 @@ $(document).ready(function () {
     $(this).next('.collapsible_body').slideToggle(600)
   })
 
+  // FIXME do we need this?
   if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show')
   $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
     if (history.pushState) {
@@ -88,6 +90,7 @@ $(document).ready(function () {
   $('.rich-text__iframe').parent('div').addClass('ratio ratio-16x9')
 })
 
+// show filename on FileUploadWidget on community debate module
 export function showFileName () {
   const string = $(this).val().match(/[^\\/]+$/)[0]
   $(this).parent().find('.form-control-file-dummy').val(string)
