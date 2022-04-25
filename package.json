@@ -39,7 +39,7 @@
     "@babel/eslint-parser": "7.17.0",
     "babel-loader": "8.2.5",
     "copy-webpack-plugin": "10.2.4",
-    "eslint": "8.12.0",
+    "eslint": "8.14.0",
     "eslint-config-standard": "16.0.3",
     "eslint-config-standard-jsx": "10.0.0",
     "eslint-plugin-import": "2.26.0",
