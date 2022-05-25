@@ -4,12 +4,6 @@
 {% load_site_menu "footer" as footer_menu_items %}
 <footer id="footer" class="footer">
     <div class="container">
-        <p class="h6 sans-serif">{% trans 'Connect with us' %}</p>
-        <ul id="socials" class="social-list">
-            <li class="facebook"><a href="https://www.facebook.com/opin.me/" title="facebook" target="_new"><i class="icon-facebook"></i></a></li>
-            <li class="twitter"><a href="http://twitter.com/euthnet" title="twitter" target="_new"><i class="icon-twitter"></i></a></li>
-            <li class="euth"><a href="https://www.instagram.com/opin.me/" title="euth.net" target="_new"><i class="icon-euth"></i></a></li>
-        </ul>
         <ul class="nav">
             {% for menuitem in footer_menu_items %}
             <li class="footer-item"><a href="{{ menuitem.url }}">{{ menuitem.translated_menu_title }}</a></li>
