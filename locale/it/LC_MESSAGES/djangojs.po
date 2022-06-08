@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Marie-Kathrin <m.siemer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Lindenlaub, 2020
+# Katharina Lindenlaub, 2022
+# Marie-Kathrin <m.siemer@liqd.net>, 2022
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 #
 #, fuzzy
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
@@ -23,7 +23,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
 #: adhocracy4/ckeditor/static/ckeditor_collapsible/plugin.js:12
@@ -52,6 +53,7 @@ msgid "hide one reply"
 msgid_plural "hide %s replies"
 msgstr[0] "nascondi una risposta"
 msgstr[1] "nascondi le %s risposte"
+msgstr[2] "nascondi le %s risposte"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:25
 #: adhocracy4/comments/static/comments/Comment.jsx:25
@@ -60,6 +62,7 @@ msgid "view one reply"
 msgid_plural "view %s replies"
 msgstr[0] "visualizza una risposta"
 msgstr[1] "guarda le %s risposte"
+msgstr[2] "guarda le %s risposte"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:30
 #: adhocracy4/comments/static/comments/Comment.jsx:30
@@ -67,17 +70,17 @@ msgid "Answer"
 msgstr "Risposta"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Your reply here"
 msgstr "La tua risposta qui"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -89,43 +92,43 @@ msgstr ""
 "verrà eliminato se non soddisfa le nostre regole di discussione (netiquette)."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
 msgid "Moderator"
 msgstr "Moderatore"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:263
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:263
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 msgid "Latest edit on"
 msgstr "Ultima modifica su"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:257
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
 #: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:257
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
 msgid "Deleted by creator on"
 msgstr "Cancellato dal creatore il"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:259
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
 #: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:259
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
 msgid "Deleted by moderator on"
 msgstr "Cancellato dal moderatore il"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 #: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 msgid "Do you really want to delete this comment?"
 msgstr "Vuoi veramente cancellare questo commento?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:152
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:240
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
@@ -133,17 +136,17 @@ msgstr "Vuoi veramente cancellare questo commento?"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:152
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:240
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
 msgid "Delete"
 msgstr "Elimina"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "abortire"
@@ -161,6 +164,7 @@ msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Commenti"
 msgstr[1] "Commenti"
+msgstr[2] "Commenti"
 
 #: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
@@ -225,62 +229,73 @@ msgstr "rapporto"
 msgid "Choose categories for your comment"
 msgstr "Scegli le categorie per il tuo commento"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Share link"
 msgstr "Condividi link"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Categories: "
 msgstr "Categorie: "
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Entry successfully created"
 msgstr "Voce creata con successo"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid "Read more..."
 msgstr "Leggi di più..."
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
 msgid "Read less"
 msgstr "Leggere di meno"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Share"
 msgstr "Condividi"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid " Report"
 msgstr "Segnala"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
-msgid "hide replies"
-msgstr "nascondere le risposte"
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
+msgid "Show moderator's statement"
+msgstr ""
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+msgid "Hide moderator's statement"
+msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
+msgid "hide replies"
+msgstr "nascondere le risposte"
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 #, javascript-format
 msgid "1 reply"
 msgid_plural "%s replies"
 msgstr[0] "1 risposta"
 msgstr[1] "%srisponde"
+msgstr[2] "%srisponde"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 msgctxt "verb"
 msgid "Reply"
 msgstr "Rispondi"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:261
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:261
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
 msgid "Blocked by moderator on"
 msgstr "Bloccato dal moderatore il"
 
@@ -359,6 +374,7 @@ msgid "entry"
 msgid_plural "entries"
 msgstr[0] "ingresso"
 msgstr[1] "voci"
+msgstr[2] "voci"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
@@ -366,6 +382,7 @@ msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "voce trovata per "
 msgstr[1] "voci trovate per "
+msgstr[2] "voci trovate per "
 
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:8
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:7
@@ -677,6 +694,7 @@ msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
 msgstr[0] "%sil partecipante ha dato%srisposte."
 msgstr[1] "%si partecipanti hanno dato%srisposte."
+msgstr[2] "%si partecipanti hanno dato%srisposte."
 
 #: adhocracy4/polls/assets/PollResults.jsx:67
 msgid ""
@@ -692,6 +710,7 @@ msgid "1 person has answered."
 msgid_plural "%s people have answered."
 msgstr[0] "1 persona ha risposto."
 msgstr[1] "%sla gente ha risposto."
+msgstr[2] "%sla gente ha risposto."
 
 #: adhocracy4/polls/assets/PollResults.jsx:80
 msgid "noone has answered this question"
@@ -772,35 +791,3 @@ msgstr "salvare"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Smetti"
-
-#~ msgid ""
-#~ "Your answer could not be saved due to a server error. Please try again "
-#~ "later."
-#~ msgstr ""
-#~ "Non è stato possibile salvare la tua risposta a causa di un errore del "
-#~ "server. Si prega di riprovare più tardi."
-
-#~ msgid "hide comments"
-#~ msgstr "hide comments"
-
-#~ msgid "1 comment"
-#~ msgid_plural "%s comments"
-#~ msgstr[0] "1 commento"
-#~ msgstr[1] "1 %s commenti"
-
-#~ msgctxt "verb"
-#~ msgid "Comment"
-#~ msgstr "Commento"
-
-#~ msgid "Write contribution"
-#~ msgstr "Scrivi contributo"
-
-#~ msgid "Hide Filters"
-#~ msgstr "Nascondere i filtri"
-
-#~ msgid ""
-#~ "Thanks for the feedback. It will be checked by the moderators as soon as "
-#~ "possible."
-#~ msgstr ""
-#~ "Grazie per il feedback. Sarà controllato dai moderatori il più presto "
-#~ "possibile."

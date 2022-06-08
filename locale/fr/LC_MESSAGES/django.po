@@ -4,27 +4,28 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Yves Müller <yves.mueller@liqd.de>, 2017
-# Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, 2017
 # Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Carmen BdS <carmen.bouleydesantiago@missionspubliques.com>, 2022
+# Yves Müller <yves.mueller@liqd.de>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2022\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: adhocracy4/categories/dashboard.py:13
 msgid "Categories"
@@ -1082,6 +1083,7 @@ msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] "%(number)d jour restant"
 msgstr[1] "%(number)d jours restants"
+msgstr[2] "%(number)d jours restants"
 
 #: adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
@@ -1618,6 +1620,9 @@ msgstr[0] ""
 "\n"
 "Ce modèle correspond à vos critères!"
 msgstr[1] ""
+"\n"
+"Ces modèles correspondent à vos critères!"
+msgstr[2] ""
 "\n"
 "Ces modèles correspondent à vos critères!"
 
@@ -3105,10 +3110,6 @@ msgstr ""
 "OPIN.me est une plate-forme pour la participation en ligne des jeunes "
 "exploitée par "
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Connecte-toi avec nous"
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
@@ -3161,23 +3162,3 @@ msgstr "Instructions de téléchargement"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contenu"
-
-#~ msgid "deleted by creator"
-#~ msgstr "Supprimé par l'auteur"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "Supprimé par le modérateur"
-
-#~ msgid "Areasettings"
-#~ msgstr "Paramètres de zone"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Modifier les paramètres de zone"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Créer un sondage ou un vote personnalisé sur OPIN pour recueillir "
-#~ "l'opinion de vos participants ou du public sur un sujet. "

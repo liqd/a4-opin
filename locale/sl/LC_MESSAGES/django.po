@@ -7,17 +7,17 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Anita Molka <anita.molka@razvoj.si>, 2022
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Anita Molka <anita.molka@razvoj.si>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Anita Molka <anita.molka@razvoj.si>, 2022\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -548,9 +548,9 @@ msgid ""
 "{min_resolution[1]} pixel tall. Allowed file formats are {fileformats_str}. "
 "The file size should be max. {max_size_mb} MB."
 msgstr ""
-"{help_prefix}Slika mora biti široka najmanj {min_resolution[0]} piksljev in "
-"visoka {min_resolution[1]} piksljev. Dovoljeni formati so {fileformats_str}. "
-"Največja dovoljena velikost datoteke je {max_size_mb} MB."
+"{help_prefix}Slika mora biti široka najmanj {min_resolution[0]} slikovnih "
+"pik in visoka {min_resolution[1]} slikovnih pik. Dovoljeni formati so "
+"{fileformats_str}. Največja dovoljena velikost datoteke je {max_size_mb} MB."
 
 #: adhocracy4/images/fields.py:91
 #, python-brace-format
@@ -596,12 +596,12 @@ msgstr "Največja dovoljena velikost slike je {max_size} MB"
 #: adhocracy4/images/validators.py:36
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
-msgstr "Slika mora biti široka vsaj {min_width} pikslov"
+msgstr "Slika mora biti široka vsaj {min_width} slikovnih pik"
 
 #: adhocracy4/images/validators.py:44
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
-msgstr "Slika mora biti visoka vsaj {min_height} pikslov"
+msgstr "Slika mora biti visoka vsaj {min_height} slikovnih pik"
 
 #: adhocracy4/images/validators.py:54
 #, python-brace-format
@@ -1881,7 +1881,7 @@ msgstr "Moderatorji pravkar ustvarjajo dokument."
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html:5
 msgid "Add a comment"
-msgstr ""
+msgstr "Dodaj komentar"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"
@@ -3088,10 +3088,6 @@ msgid "OPIN.me is an online platform for youth participation operated by"
 msgstr ""
 "OPIN.me je spletna platforma za mladinsko participacijo, ki jo upravlja"
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Povežite se z nami"
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Preklopi navigacijo"
@@ -3143,23 +3139,3 @@ msgstr "Prenesite navodila"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Vsebina"
-
-#~ msgid "deleted by creator"
-#~ msgstr "Avtor je vsebino izbrisal"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "Moderator je vsebino izbrisal"
-
-#~ msgid "Areasettings"
-#~ msgstr "Področne nastavitve"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Urejanje področnih nastavitev"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Na OPIN-u izvedite več stopenjske ankete po meri ter pridobite podrobna "
-#~ "mnenja javnosti ali vaših članov o posameznih temah. "
