@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3029,10 +3029,6 @@ msgstr ""
 msgid "OPIN.me is an online platform for youth participation operated by"
 msgstr "OPIN.me is an online platform for youth participation operated by"
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Connect with us"
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
@@ -3085,24 +3081,3 @@ msgstr "Download guidelines"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contents"
-
-#~ msgid "deleted by creator"
-#~ msgstr "deleted by creator"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "deleted by moderator"
-
-#~ msgid "Areasettings"
-#~ msgstr "Areasettings"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Edit areasettings"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."

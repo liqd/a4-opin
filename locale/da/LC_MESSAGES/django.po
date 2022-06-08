@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -3073,10 +3073,6 @@ msgstr ""
 msgid "OPIN.me is an online platform for youth participation operated by"
 msgstr "OPIN.me er en onlineplatform for ungdomsdeltagelse drevet af"
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Forbind dig med os "
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Skift navigation"
@@ -3130,23 +3126,3 @@ msgstr "Download retningslinjer"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Indhold"
-
-#~ msgid "deleted by creator"
-#~ msgstr "slettet af ophavsmand"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "slettet af moderator"
-
-#~ msgid "Areasettings"
-#~ msgstr "Areasettings"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Rediger områdesætninger"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Igangsæt brugerdefinerbare flertrins opinionsundersøgelser på OPIN for at "
-#~ "få detaljerede meninger fra offentligheden eller dine medlemmer. "

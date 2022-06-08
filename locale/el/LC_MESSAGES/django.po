@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
@@ -3113,10 +3113,6 @@ msgstr ""
 msgid "OPIN.me is an online platform for youth participation operated by"
 msgstr "Το OPIN.me είναι μια ηλεκτρονική πλατφόρμα για τη συμμετοχή των νέων"
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Συνδεθείτε μαζί μας"
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Εναλλαγή πλοήγησης"
@@ -3172,23 +3168,3 @@ msgstr "Κατεβάστε οδηγίες"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Περιεχόμενα"
-
-#~ msgid "deleted by creator"
-#~ msgstr "διαγράφεται από τον δημιουργό"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "διαγράφηκε από τον συντονιστή"
-
-#~ msgid "Areasettings"
-#~ msgstr "Περιοχές ρύθμισης"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Επεξεργαστείτε τις ρυθμίσεις περιοχής"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Εκτελέστε προσαρμόσιμες, πολλών βημάτων δημοσκοπήσεις στο OPIN για να "
-#~ "λάβετε λεπτομερείς απόψεις σχετικά με θέματα από το κοινό ή τα μέλη σας. "

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Yves Müller <yves.mueller@liqd.de>, 2017\n"
 "Language-Team: English (https://www.transifex.com/liqd/teams/68346/en/)\n"
@@ -2914,10 +2914,6 @@ msgstr ""
 #: euth_wagtail/templates/email_base.html:75
 #: euth_wagtail/templates/email_base.txt:10
 msgid "OPIN.me is an online platform for youth participation operated by"
-msgstr ""
-
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
 msgstr ""
 
 #: euth_wagtail/templates/includes/top_menu.html:26

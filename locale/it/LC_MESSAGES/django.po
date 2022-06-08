@@ -4,25 +4,26 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Marie-Kathrin <m.siemer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Marie-Kathrin <m.siemer@liqd.net>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Marie-Kathrin <m.siemer@liqd.net>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #: adhocracy4/categories/dashboard.py:13
 msgid "Categories"
@@ -1078,6 +1079,7 @@ msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] "%(number)d giorni restanti "
 msgstr[1] "%(number)d giorni restanti"
+msgstr[2] "%(number)d giorni restanti"
 
 #: adhocracy4/projects/templatetags/project_tags.py:19
 msgid "a few hours left"
@@ -1608,6 +1610,9 @@ msgstr[0] ""
 "\n"
 "Questi modelli corrispondono ai tuoi criteri!"
 msgstr[1] ""
+"\n"
+"Questi modelli corrispondono ai tuoi criteri!"
+msgstr[2] ""
 "\n"
 "Questi modelli corrispondono ai tuoi criteri!"
 
@@ -3091,10 +3096,6 @@ msgid "OPIN.me is an online platform for youth participation operated by"
 msgstr ""
 "OPIN.me è una piattaforma online per la partecipazione dei giovani gestita da"
 
-#: euth_wagtail/templates/includes/footer.html:7
-msgid "Connect with us"
-msgstr "Mettiti in comunicazione con noi"
-
 #: euth_wagtail/templates/includes/top_menu.html:26
 msgid "Toggle navigation"
 msgstr "Allineare la navigazione"
@@ -3148,23 +3149,3 @@ msgstr "Scarica le linee guida"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contenuto"
-
-#~ msgid "deleted by creator"
-#~ msgstr "cancellato dal creatore"
-
-#~ msgid "deleted by moderator"
-#~ msgstr "cancellato dal moderatore"
-
-#~ msgid "Areasettings"
-#~ msgstr "Impostazioni dell'area"
-
-#~ msgid "Edit areasettings"
-#~ msgstr "Modifica le impostazioni dell'area"
-
-#~ msgid ""
-#~ "Run customizable, multi-step polls on OPIN to get detailed opinions on "
-#~ "topics from the public or your members. Via the OPIN polling app for iOS "
-#~ "and Android these polls are also accessible on smartphones."
-#~ msgstr ""
-#~ "Esegui sondaggi su più passaggi personalizzabili su OPIN per ottenere "
-#~ "opinioni dettagliate su argomenti del pubblico o dei tuoi membri."

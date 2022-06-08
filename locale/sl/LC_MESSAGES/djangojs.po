@@ -7,18 +7,18 @@
 # Yves Müller <yves.mueller@liqd.de>, 2017
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Anita Molka <anita.molka@razvoj.si>, 2022
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 # Sabina Mollenhauer, 2022
+# Anita Molka <anita.molka@razvoj.si>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-25 11:28+0100\n"
+"POT-Creation-Date: 2022-06-08 17:35+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Sabina Mollenhauer, 2022\n"
+"Last-Translator: Anita Molka <anita.molka@razvoj.si>, 2022\n"
 "Language-Team: Slovenian (https://www.transifex.com/liqd/teams/68346/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -73,17 +73,17 @@ msgid "Answer"
 msgstr "Odgovori"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 #: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Your reply here"
 msgstr "Odgovori tukaj"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 #: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 #: adhocracy4/reports/static/reports/react_reports.jsx:20
 msgid ""
 "You want to report this content? Your message will be sent to the "
@@ -95,43 +95,43 @@ msgstr ""
 "izbrisana, če ne ustreza našim pravilom razprave (bontonu)."
 
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
 #: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
 msgid "Moderator"
 msgstr "Moderator"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:263
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 #: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:263
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
 msgid "Latest edit on"
 msgstr "Zadnje urejanje"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:257
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
 #: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:257
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
 msgid "Deleted by creator on"
 msgstr "Izbrisal ustvarjalec dne"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:259
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
 #: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:259
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
 msgid "Deleted by moderator on"
 msgstr "Izbrisal moderator na"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 #: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:238
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
 msgid "Do you really want to delete this comment?"
 msgstr "Ali res želite izbrisati ta komentar?"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:152
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:240
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
 #: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
@@ -139,17 +139,17 @@ msgstr "Ali res želite izbrisati ta komentar?"
 #: adhocracy4/polls/assets/EditPollQuestion.jsx:157
 #: adhocracy4/comments/static/comments/Comment.jsx:152
 #: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:240
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
 #: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
 msgid "Delete"
 msgstr "Izbriši"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 #: adhocracy4/static/Modal.jsx:59
 #: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:241
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "Prekini"
@@ -233,48 +233,58 @@ msgstr "Prijavi"
 msgid "Choose categories for your comment"
 msgstr "Izberite kategorijo za vaš komentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Share link"
 msgstr "Deli povezavo"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Categories: "
 msgstr "Kategorije:"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Entry successfully created"
 msgstr "Vnos uspešno ustvarjen"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid "Read more..."
 msgstr "Preberi več..."
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
 msgid "Read less"
 msgstr "Preberi manj"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Share"
 msgstr "Deli"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid " Report"
 msgstr "Prijavi"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
-msgid "hide replies"
-msgstr "skriti odgovore"
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
+msgid "Show moderator's statement"
+msgstr ""
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+msgid "Hide moderator's statement"
+msgstr ""
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
+msgid "hide replies"
+msgstr "skriti odgovore"
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
 #, javascript-format
 msgid "1 reply"
 msgid_plural "%s replies"
@@ -283,14 +293,14 @@ msgstr[1] "%s odgovore"
 msgstr[2] "%s odgovore"
 msgstr[3] "%s odgovorov"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 msgctxt "verb"
 msgid "Reply"
 msgstr "Odgovori"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:261
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:261
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
 msgid "Blocked by moderator on"
 msgstr "Blokiran s strani moderatorja na"
 
@@ -637,6 +647,8 @@ msgstr "Vaš odgovor je bil shranjen."
 msgid ""
 "Your answer could not be saved. Please check the data you entered again."
 msgstr ""
+"Vašega odgovora ni mogoče shraniti. Prosimo ponovno preverite podatke, ki "
+"ste jih vnesli.  "
 
 #: adhocracy4/polls/assets/PollQuestions.jsx:23
 msgid "Your answer is invalid or empty. Please try again."
@@ -788,37 +800,3 @@ msgstr "Shrani"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Prenehaj slediti"
-
-#~ msgid ""
-#~ "Your answer could not be saved due to a server error. Please try again "
-#~ "later."
-#~ msgstr ""
-#~ "Vašega odgovora ni bilo mogoče shraniti zaradi napake strežnika. "
-#~ "Poskusite znova pozneje."
-
-#~ msgid "hide comments"
-#~ msgstr "Skrij komentarje"
-
-#~ msgid "1 comment"
-#~ msgid_plural "%s comments"
-#~ msgstr[0] "1 komentar"
-#~ msgstr[1] "1 komentar"
-#~ msgstr[2] "1 komentar"
-#~ msgstr[3] "%skomentarji"
-
-#~ msgctxt "verb"
-#~ msgid "Comment"
-#~ msgstr "Komentiraj"
-
-#~ msgid "Write contribution"
-#~ msgstr "Napišite prispevek"
-
-#~ msgid "Hide Filters"
-#~ msgstr "Skrij filtre"
-
-#~ msgid ""
-#~ "Thanks for the feedback. It will be checked by the moderators as soon as "
-#~ "possible."
-#~ msgstr ""
-#~ "Hvala za povratne informacije. Administratorji bodo vaše sporočilo "
-#~ "preverili v najkrajšem možnem času."
