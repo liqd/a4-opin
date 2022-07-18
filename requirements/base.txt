@@ -2,7 +2,7 @@
 git+https://github.com/liqd/adhocracy4.git@opin-v2204#egg=adhocracy4
 
 # Additional requirements
-bcrypt==3.2.0
+bcrypt==3.2.2
 brotli==1.0.9
 django-cloudflare-push==0.2.1
 django-countries==7.3.2
