@@ -5,17 +5,17 @@
 #
 # Translators:
 # Pepa Veleva, 2022
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 # Pepa Veleva, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-08 17:35+0200\n"
+"POT-Creation-Date: 2022-10-26 16:39+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Pepa Veleva, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Bulgarian (https://www.transifex.com/liqd/teams/68346/bg/)\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -262,12 +262,12 @@ msgstr "Докладвай "
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:29
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:29
 msgid "Show moderator's statement"
-msgstr ""
+msgstr "Покажи становището на модератора"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:30
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:30
 msgid "Hide moderator's statement"
-msgstr ""
+msgstr "Скрий становището на модератора"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:36
@@ -280,7 +280,7 @@ msgstr "скрий отговорите"
 msgid "1 reply"
 msgid_plural "%s replies"
 msgstr[0] " отговори"
-msgstr[1] "%s отговори"
+msgstr[1] "%s отговори "
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:42
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:42
@@ -472,7 +472,7 @@ msgstr "Експортиране на полигон като GeoJSON"
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:81
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:93
 msgid "Import polygon via file upload"
-msgstr "Импортиране на полигона чрез качване на файл"
+msgstr "Импортиране на полигон чрез качване на файл"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
 #: adhocracy4/static/Alert.jsx:5
@@ -687,8 +687,8 @@ msgstr "%s участник даде 1 отговор."
 #, javascript-format
 msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s участник даде %s отговор."
+msgstr[1] "%s участник даде %s отговор."
 
 #: adhocracy4/polls/assets/PollResults.jsx:67
 msgid ""
@@ -700,8 +700,8 @@ msgstr "За въпроси с множествен избор проценти�
 #, javascript-format
 msgid "1 person has answered."
 msgid_plural "%s people have answered."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 човек е отговорил."
+msgstr[1] "%sхората са отговорили."
 
 #: adhocracy4/polls/assets/PollResults.jsx:80
 msgid "noone has answered this question"

@@ -5,15 +5,16 @@
 #
 # Translators:
 # Pepa Veleva, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-08 17:35+0200\n"
+"POT-Creation-Date: 2022-10-26 16:39+0200\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Pepa Veleva, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Bulgarian (https://www.transifex.com/liqd/teams/68346/bg/)\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -790,7 +791,7 @@ msgstr "Множество избори не са възможни за въпр
 #: adhocracy4/polls/dashboard.py:15
 #: euth/blueprints/blueprints.py:313
 msgid "Poll"
-msgstr "Гласуване"
+msgstr "Анкета"
 
 #: adhocracy4/polls/dashboard.py:42
 #: euth/exports/dashboard.py:14
@@ -799,7 +800,7 @@ msgstr "Експортиране на Excel"
 
 #: adhocracy4/polls/exports.py:40
 msgid "ID"
-msgstr ""
+msgstr "документ за самоличнос"
 
 #: adhocracy4/polls/models.py:53
 msgid "Explanation"
@@ -956,14 +957,14 @@ msgstr "Уеб страница"
 
 #: adhocracy4/projects/models.py:83
 msgid "Can your project be located on the map?"
-msgstr "Може ли твоят проект да бъде посочен на картата?"
+msgstr "Може ли вашия проект да бъде посочен на картата?"
 
 #: adhocracy4/projects/models.py:84
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
 msgstr ""
-"Намери своя проект. Щракни вътре в маркираната област или въведи адрес, за "
+"Намери вашия проект. Щракни вътре в маркираната област или въведи адрес, за "
 "да зададеш маркера. Зададен маркер може да се плъзга, когато се натисне."
 
 #: adhocracy4/projects/models.py:95
@@ -984,7 +985,7 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:196
 msgid "Short description of your project"
-msgstr "Кратко описание на твоя проект"
+msgstr "Кратко описание на вашия проект"
 
 #: adhocracy4/projects/models.py:197
 msgid ""
@@ -996,7 +997,7 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:205
 msgid "Description of your project"
-msgstr "Описание на твоя проект"
+msgstr "Описание на вашия проект"
 
 #: adhocracy4/projects/models.py:206
 msgid ""
@@ -1010,7 +1011,7 @@ msgstr ""
 
 #: adhocracy4/projects/models.py:214
 msgid "Results of your project"
-msgstr "Резултати от твоя проект"
+msgstr "Резултати от вашия проект"
 
 #: adhocracy4/projects/models.py:215
 msgid ""
@@ -1039,7 +1040,7 @@ msgstr "Изображението ще бъде показано като де�
 #: adhocracy4/projects/models.py:238
 #: adhocracy4/projects/models.py:246
 msgid "Tile image"
-msgstr ""
+msgstr "Изображение на плочка"
 
 #: adhocracy4/projects/models.py:240
 msgid "The image will be shown in the project tile."
@@ -1444,7 +1445,7 @@ msgstr "Какъв е обхватът на проекта?"
 
 #: euth/blueprints/forms.py:60
 msgid "How long do you want your project to be?"
-msgstr "Колко дълъг искаш да бъде твоят проект?"
+msgstr "Колко дълъг искаш да бъде вашия проект?"
 
 #: euth/blueprints/forms.py:67
 msgid "How easy can you access your participants?"
@@ -1520,7 +1521,7 @@ msgstr "Вземи вдъхновение и съвети за"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:69
 msgid "setting up your participation project"
-msgstr "настройване на твоя проект за участие"
+msgstr "настройване на вашия проект за участие"
 
 #: euth/blueprints/templates/euth_blueprints/includes/infopage.html:70
 msgid "activation and motivation of participants"
@@ -1547,7 +1548,7 @@ msgstr "Инструмент за подкрепа при вземане на р
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:10
 msgid "What do you want to do in your participation project?"
-msgstr "Какво искаш да направите във вашия проект за участие?"
+msgstr "Какво искате да направите във вашия проект за участие?"
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-aim.html:12
 msgid "My Aim"
@@ -1575,7 +1576,7 @@ msgid ""
 "to make your project a success!"
 msgstr ""
 "Въпросите по-долу ни помагат да преценим усилията, които ще трябва да "
-"инвестирате, за да постигнете успех на вашия проект!"
+"инвестирате, за да постигнете успех с вашия проект!"
 
 #: euth/blueprints/templates/euth_blueprints/includes/step-finetuning.html:9
 msgid ""
@@ -1595,7 +1596,11 @@ msgid_plural ""
 "            These templates match your criterias!\n"
 "            "
 msgstr[0] ""
+"\n"
+"Тези шаблони отговарят на вашите критерии!"
 msgstr[1] ""
+"\n"
+"Тези шаблони отговарят на вашите критерии!"
 
 #: euth/blueprints/templates/euth_blueprints/result.html:38
 #: euth_wagtail/templates/a4dashboard/blueprint_list.html:52
@@ -1604,11 +1609,11 @@ msgstr "Научи повече"
 
 #: euth/captcha/fields.py:37 euth/captcha/fields.py:45
 msgid "Something about the answer to the captcha was wrong."
-msgstr ""
+msgstr "Нещо в отговора на captcha беше грешен."
 
 #: euth/captcha/fields.py:50
 msgid "Your answer to the captcha was wrong."
-msgstr ""
+msgstr "Вашият отговор на captcha беше грешен."
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
 #: euth/organisations/filters.py:11 euth/projects/filters.py:10
@@ -1968,11 +1973,11 @@ msgstr "MapIdeas с коментари"
 
 #: euth/maps/forms.py:25
 msgid "Please locate your proposal on the map."
-msgstr "Моля, отбележи твоето предложение на картата."
+msgstr "Моля, отбележи твоето/вашето предложение на картата."
 
 #: euth/maps/models.py:9
 msgid "Where can your idea be located on a map?"
-msgstr "Къде може да бъде разположена твоята идея на карта?"
+msgstr "Къде може да бъде разположена твоята/вашата идея на карта?"
 
 #: euth/maps/models.py:10
 msgid ""
