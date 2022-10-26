@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
+# Marie-Kathrin <m.siemer@liqd.net>, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Lindenlaub, 2022
-# Marie-Kathrin <m.siemer@liqd.net>, 2022
+# Katharina Lindenlaub, 2020
 # Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 #
 #, fuzzy
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-08 17:35+0200\n"
+"POT-Creation-Date: 2022-10-26 16:39+0200\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/liqd/teams/68346/it/)\n"
