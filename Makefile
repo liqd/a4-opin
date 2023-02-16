@@ -41,7 +41,7 @@ help:
 
 .PHONY: install
 install:
-	npm install --no-save --legacy-peer-deps
+	npm install --no-save
 	npm run build
 	if [ ! -f $(VIRTUAL_ENV)/bin/python3 ]; then python3 -m venv $(VIRTUAL_ENV); fi
 	$(VIRTUAL_ENV)/bin/python3 -m pip install --upgrade -r requirements/dev.txt
