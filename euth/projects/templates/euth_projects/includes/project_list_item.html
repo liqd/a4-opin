@@ -1,9 +1,9 @@
-{% load i18n project_tags thumbnail follow_tags %}
+{% load i18n project_class_tags thumbnail follow_tags %}
 {% get_class project as class %}
 <div class="teaserlist-item {{ class }} {% if not project.image %} no-image {% endif %}"
      style="{% if project.image %}background-image: url({{ project.image|thumbnail_url:'heroimage_preview' }}){% endif %}">
     <div class="teaserlist-body">
-        {% get_days project.days_left as days %}
+        {% get_days project as days %}
         <p>
             {% if project.is_private %}
                 <span class="badge badge-private">{% trans 'private' %}</span>

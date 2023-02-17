@@ -1,4 +1,4 @@
-{% load thumbnail react_follows project_tags i18n rules %}
+{% load thumbnail react_follows project_class_tags i18n rules %}
 
 <header class="herounit" style="{% if project.image %}
                background-image: url({{ project.image |thumbnail_url:'heroimage' }});
@@ -7,7 +7,7 @@
         <div class="container-narrow">
             <div class="herounit-header">
 
-                {% get_days project.days_left as days %}
+                {% get_days project as days %}
                 <p>
                     {% if project.is_private %}
                     <span class="badge badge-private">{% trans 'private' %}</span>

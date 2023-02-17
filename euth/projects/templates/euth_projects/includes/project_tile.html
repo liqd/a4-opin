@@ -1,4 +1,4 @@
-{% load i18n project_tags project_class_tags thumbnail static %}
+{% load i18n project_class_tags thumbnail static %}
 {% get_class project as class %}
 
 <div class="project-tile project-tile-{{ class }} {% if not project.image %} project-tile-no-image {% endif %}">
@@ -6,7 +6,7 @@
        style="background-image: url('{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}{% static "images/placeholder.png" %}{% endif %}');" {% if open_in_new_tab %}target="_blank"{% endif %}>
         <img src="{% if project.image %} {{ project.image|thumbnail_url:'project_thumbnail' }} {% else %}{% static "images/placeholder.png" %}{% endif %}" class="project-tile-image img-fluid">
 
-        {% get_days project.days_left as days %}
+        {% get_days project as days %}
         {% if project.is_archived %}
         <p class="badge badge-archived">{% trans 'archived' %}</p>
         {% elif project.is_private %}
