@@ -25,7 +25,7 @@
     "react-flip-move": "3.0.4",
     "react-popper": "^2.3.0",
     "react-slick": "^0.29.0",
-    "sass-loader": "12.6.0",
+    "sass-loader": "13.2.0",
     "slick-carousel": "git+https://github.com/liqd/slick#pm-2019-07-overwrites",
     "terser-webpack-plugin": "5.3.3",
     "typeahead.js": "0.11.1"
