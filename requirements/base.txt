@@ -26,4 +26,4 @@ django-filter==21.1
 django-widget-tweaks==1.4.12
 djangorestframework==3.13.1
 rules==3.2.1
-XlsxWriter==3.0.3
+XlsxWriter==3.0.8
