@@ -85,7 +85,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
             [
                 edit_handlers.FieldPanel('title_' + lang_code),
                 edit_handlers.FieldPanel('intro_' + lang_code),
-                edit_handlers.StreamFieldPanel('body_' + lang_code)
+                edit_handlers.FieldPanel('body_' + lang_code)
             ],
             heading=lang,
             classname="collapsible collapsed"
@@ -165,7 +165,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
             [
                 edit_handlers.FieldPanel('title_' + lang_code),
                 edit_handlers.FieldPanel('intro_' + lang_code),
-                edit_handlers.StreamFieldPanel('body_' + lang_code)
+                edit_handlers.FieldPanel('body_' + lang_code)
             ],
             heading=lang,
             classname="collapsible collapsed"
