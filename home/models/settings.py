@@ -1,6 +1,6 @@
 from django.db import models
 from wagtail.admin import edit_handlers
-from wagtail.contrib.settings.models import BaseSetting
+from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.models import register_setting
 
 from euth.blueprints.names import BlueprintNames
@@ -31,7 +31,7 @@ class BlueprintSettingsMeta(models.base.ModelBase):
 
 
 @register_setting
-class HelpPages(BaseSetting, metaclass=BlueprintSettingsMeta):
+class HelpPages(BaseSiteSetting, metaclass=BlueprintSettingsMeta):
     guidelines_page = models.ForeignKey(
         'wagtailcore.Page',
         on_delete=models.SET_NULL,

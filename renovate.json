@@ -28,6 +28,10 @@
       {
         "matchPackageNames": ["Django"],
         "allowedVersions": "=3.2"
+      },
+      {
+        "matchPackageNames": ["wagtail"],
+        "allowedVersions": "=4.1"
       }
     ],
 
