@@ -72,7 +72,7 @@ module.exports = {
     a4maps_display_point: {
       import: [
         'leaflet/dist/leaflet.css',
-        'mapbox-gl/dist/mapbox-gl.css',
+        'maplibre-gl/dist/maplibre-gl.css',
         'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_point.js'
       ],
       dependOn: 'adhocracy4'
@@ -80,7 +80,7 @@ module.exports = {
     a4maps_display_points: {
       import: [
         'leaflet/dist/leaflet.css',
-        'mapbox-gl/dist/mapbox-gl.css',
+        'maplibre-gl/dist/maplibre-gl.css',
         'leaflet.markercluster/dist/MarkerCluster.css',
         'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_points.js'
       ],
@@ -89,7 +89,7 @@ module.exports = {
     a4maps_choose_point: {
       import: [
         'leaflet/dist/leaflet.css',
-        'mapbox-gl/dist/mapbox-gl.css',
+        'maplibre-gl/dist/maplibre-gl.css',
         'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_point.js'
       ],
       dependOn: 'adhocracy4'
@@ -97,7 +97,7 @@ module.exports = {
     a4maps_choose_polygon: {
       import: [
         'leaflet/dist/leaflet.css',
-        'mapbox-gl/dist/mapbox-gl.css',
+        'maplibre-gl/dist/maplibre-gl.css',
         'leaflet-draw/dist/leaflet.draw.css',
         'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_polygon.js'
       ],
