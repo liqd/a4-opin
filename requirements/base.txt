@@ -1,5 +1,5 @@
 # A4
-git+https://github.com/liqd/adhocracy4.git@mB-v2206.1#egg=adhocracy4
+git+https://github.com/liqd/adhocracy4.git@opin-v2302#egg=adhocracy4
 
 # Additional requirements
 bcrypt==3.2.2
@@ -17,22 +17,13 @@ wagtail==2.16.1
 whitenoise==6.0.0
 
 # Inherited a4-core requirements
-bleach==4.1.0
 Django==3.2.18
-django-allauth==0.49.0
-django-autoslug==1.9.8
+django-allauth==0.52.0
+git+https://github.com/liqd/django-autoslug.git@liqd2212#egg=django-autoslug
 django-background-tasks==1.2.5
-django-ckeditor==6.2.0
-django-enumfield==2.0.2
+django-ckeditor==6.5.1
 django-filter==21.1
-django-multiselectfield==0.1.12
 django-widget-tweaks==1.4.12
 djangorestframework==3.13.1
-easy-thumbnails==2.8.5
-html5lib==1.1
-jsonfield==3.1.0
-psycopg2==2.9.3
-python-dateutil==2.8.2
-python-magic==0.4.25
 rules==3.2.1
 XlsxWriter==3.0.3
