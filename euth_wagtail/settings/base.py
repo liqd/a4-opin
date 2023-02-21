@@ -365,6 +365,10 @@ EMAIL_SUBJECT_PREFIX = '[OPIN] '
 
 WAGTAIL_SITE_NAME = "euth_wagtail"
 
+# Base URL to use when referring to full URLs within the Wagtail admin backend -
+# e.g. in notification emails. Don't include '/admin' or a trailing slash
+WAGTAILADMIN_BASE_URL = "http://localhost:8000"
+
 # Authentification
 
 LOGIN_URL = 'account_login'
