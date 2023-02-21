@@ -1,9 +1,8 @@
 from django.db import models
 from wagtail import blocks as core_blocks
-from wagtail.admin import edit_handlers
+from wagtail.admin import panels
 from wagtail.fields import StreamField
 from wagtail.images import blocks as image_blocks
-from wagtail.images import edit_handlers as image_edit_handlers
 from wagtail.models import Page
 
 from adhocracy4.projects import models as prj_models
@@ -75,26 +74,26 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         verbose_name = "Homepage"
 
     general_panels = [
-        edit_handlers.FieldPanel('title', classname='title'),
-        edit_handlers.FieldPanel('slug'),
-        image_edit_handlers.FieldPanel('image'),
+        panels.FieldPanel('title', classname='title'),
+        panels.FieldPanel('slug'),
+        panels.FieldPanel('image'),
     ]
 
     content_panels = [
-        edit_handlers.MultiFieldPanel(
+        panels.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_' + lang_code),
-                edit_handlers.FieldPanel('intro_' + lang_code),
-                edit_handlers.FieldPanel('body_' + lang_code)
+                panels.FieldPanel('title_' + lang_code),
+                panels.FieldPanel('intro_' + lang_code),
+                panels.FieldPanel('body_' + lang_code)
             ],
             heading=lang,
             classname="collapsible collapsed"
         ) for lang_code, lang in LANGUAGES
     ]
 
-    edit_handler = edit_handlers.TabbedInterface([
-        edit_handlers.ObjectList(content_panels, heading='Content'),
-        edit_handlers.ObjectList(general_panels, heading='General')
+    edit_handler = panels.TabbedInterface([
+        panels.ObjectList(content_panels, heading='Content'),
+        panels.ObjectList(general_panels, heading='General')
     ])
 
     parent_page_types = []
@@ -151,28 +150,33 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
 
     body = translations.TranslatedField(
         'body',
-        StreamField(block_types, null=True, blank=True, verbose_name='body', use_json_field=True),
+        StreamField(
+            block_types,
+            null=True,
+            blank=True,
+            verbose_name='body',
+            use_json_field=True),
     )
 
     general_panels = [
-        edit_handlers.FieldPanel('title', classname='title'),
-        edit_handlers.FieldPanel('slug'),
-        image_edit_handlers.FieldPanel('intro_image')
+        panels.FieldPanel('title', classname='title'),
+        panels.FieldPanel('slug'),
+        panels.FieldPanel('intro_image')
     ]
 
     content_panels = [
-        edit_handlers.MultiFieldPanel(
+        panels.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('title_' + lang_code),
-                edit_handlers.FieldPanel('intro_' + lang_code),
-                edit_handlers.FieldPanel('body_' + lang_code)
+                panels.FieldPanel('title_' + lang_code),
+                panels.FieldPanel('intro_' + lang_code),
+                panels.FieldPanel('body_' + lang_code)
             ],
             heading=lang,
             classname="collapsible collapsed"
         ) for lang_code, lang in LANGUAGES
     ]
 
-    edit_handler = edit_handlers.TabbedInterface([
-        edit_handlers.ObjectList(content_panels, heading='Content'),
-        edit_handlers.ObjectList(general_panels, heading='General')
+    edit_handler = panels.TabbedInterface([
+        panels.ObjectList(content_panels, heading='Content'),
+        panels.ObjectList(general_panels, heading='General')
     ])

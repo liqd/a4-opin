@@ -3,8 +3,7 @@ from django.db import models
 from django.urls import reverse
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.admin import edit_handlers
-from wagtail.images import edit_handlers as image_edit_handlers
+from wagtail.admin import panels
 from wagtail.models import Orderable
 from wagtail.snippets.models import register_snippet
 
@@ -22,10 +21,10 @@ class RSSImport(translations.TranslatedModel):
     )
 
     panels = [
-        edit_handlers.FieldPanel('url'),
-        edit_handlers.MultiFieldPanel(
+        panels.FieldPanel('url'),
+        panels.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('rss_title_' + lang_code)
+                panels.FieldPanel('rss_title_' + lang_code)
                 for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
@@ -81,8 +80,8 @@ class LinkFields(models.Model):
             return reverse(self.link_view)
 
     panels = [
-        edit_handlers.PageChooserPanel('link_page'),
-        edit_handlers.FieldPanel('link_view'),
+        panels.PageChooserPanel('link_page'),
+        panels.FieldPanel('link_view'),
     ]
 
     class Meta:
@@ -104,10 +103,10 @@ class MenuItem(LinkFields, metaclass=translations.TranslatedModelMetaclass):
         return self.title
 
     panels = [
-        edit_handlers.FieldPanel('menu_title_en'),
-        edit_handlers.MultiFieldPanel(
+        panels.FieldPanel('menu_title_en'),
+        panels.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel('menu_title_' + lang_code)
+                panels.FieldPanel('menu_title_' + lang_code)
                 for lang_code, _language in LANGUAGES
             ],
             heading="Translations",
@@ -128,8 +127,8 @@ class NavigationMenu(ClusterableModel):
 
 
 NavigationMenu.panels = [
-    edit_handlers.FieldPanel('menu_name', classname='full title'),
-    edit_handlers.InlinePanel('menu_items', label="Menu Items")
+    panels.FieldPanel('menu_name', classname='full title'),
+    panels.InlinePanel('menu_items', label="Menu Items")
 ]
 
 
@@ -182,29 +181,29 @@ class PageCollection(translations.TranslatedModel):
     page_count = 17
 
     panels = [
-        edit_handlers.MultiFieldPanel([
-            edit_handlers.FieldPanel(
+        panels.MultiFieldPanel([
+            panels.FieldPanel(
                 'title_{}'.format(lang_code)
             ) for lang_code, lang in LANGUAGES
         ],
             heading="Title",
         ),
-        edit_handlers.MultiFieldPanel(
+        panels.MultiFieldPanel(
             [
-                edit_handlers.FieldPanel(
+                panels.FieldPanel(
                     'intro_text_{}'.format(lang_code)
                 ) for lang_code, lang in LANGUAGES
             ],
             heading='intro_text'),
-        edit_handlers.MultiFieldPanel([
-            edit_handlers.PageChooserPanel(
+        panels.MultiFieldPanel([
+            panels.PageChooserPanel(
                 'page_{}'.format(x)
             ) for x in range(1, page_count + 1)
         ],
             classname="collapsible collapsed",
             heading="Pages",
         ),
-        image_edit_handlers.FieldPanel('image'),
+        panels.FieldPanel('image'),
     ]
 
     def __str__(self):
