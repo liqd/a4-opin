@@ -131,7 +131,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
         edit_handlers.FieldPanel('slug'),
         edit_handlers.FieldPanel('color'),
         image_edit_handlers.FieldPanel('image'),
-        doc_edit_handlers.DocumentChooserPanel('document')
+        doc_edit_handlers.FieldPanel('document')
     ]
 
     content_panels = [
