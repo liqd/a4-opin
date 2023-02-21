@@ -77,7 +77,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
     general_panels = [
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
-        image_edit_handlers.ImageChooserPanel('image'),
+        image_edit_handlers.FieldPanel('image'),
     ]
 
     content_panels = [
@@ -157,7 +157,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
     general_panels = [
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
-        image_edit_handlers.ImageChooserPanel('intro_image')
+        image_edit_handlers.FieldPanel('intro_image')
     ]
 
     content_panels = [
