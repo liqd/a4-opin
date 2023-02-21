@@ -67,7 +67,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
 
     body = translations.TranslatedField(
         'body',
-        StreamField(block_types, null=True, blank=True),
+        StreamField(block_types, null=True, blank=True, use_json_field=True),
         overwrite_fallback={'blank': False},
     )
 
@@ -151,7 +151,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
 
     body = translations.TranslatedField(
         'body',
-        StreamField(block_types, null=True, blank=True, verbose_name='body'),
+        StreamField(block_types, null=True, blank=True, verbose_name='body', use_json_field=True),
     )
 
     general_panels = [

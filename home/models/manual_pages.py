@@ -39,7 +39,13 @@ class ManualsIndex(Page, metaclass=translations.TranslatedPageMetaclass):
 
     body = translations.TranslatedField(
         'body',
-        StreamField(block_types, null=True, blank=True, verbose_name="body"),
+        StreamField(
+            block_types,
+            null=True,
+            blank=True,
+            verbose_name="body",
+            use_json_field=True
+        ),
     )
 
     subpage_types = [
@@ -93,7 +99,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
                 template='home/blocks/page_collection_block.html'
             )
         )
-    ])
+    ], use_json_field=True)
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -197,7 +203,7 @@ class ManualsDetailPage(Page, metaclass=translations.TranslatedPageMetaclass):
 
     body = translations.TranslatedField(
         'body',
-        StreamField(block_types, null=True, blank=True, verbose_name="body")
+        StreamField(block_types, null=True, blank=True, verbose_name="body", use_json_field=True)
     )
 
     content_panels = [
