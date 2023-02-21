@@ -4,8 +4,8 @@ from django.urls import reverse
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail.admin import edit_handlers
-from wagtail.core.models import Orderable
 from wagtail.images import edit_handlers as image_edit_handlers
+from wagtail.models import Orderable
 from wagtail.snippets.models import register_snippet
 
 from contrib import translations

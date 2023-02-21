@@ -10,11 +10,11 @@ from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
 from django.views.i18n import JavaScriptCatalog
 from rest_framework import routers
+from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps import views as wagtail_sitemap_views
 from wagtail.contrib.sitemaps.sitemap_generator import \
     Sitemap as WagtailSitemap
-from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from adhocracy4.api import routers as a4routers
