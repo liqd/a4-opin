@@ -135,7 +135,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
     ]
 
     content_panels = [
-        edit_handlers.StreamFieldPanel('body'),
+        edit_handlers.FieldPanel('body'),
     ] + [
         edit_handlers.MultiFieldPanel(
             [
@@ -205,7 +205,7 @@ class ManualsDetailPage(Page, metaclass=translations.TranslatedPageMetaclass):
             [
                 edit_handlers.FieldPanel('title_' + lang_code),
                 edit_handlers.FieldPanel('description_' + lang_code),
-                edit_handlers.StreamFieldPanel('body_' + lang_code),
+                edit_handlers.FieldPanel('body_' + lang_code),
             ],
             heading=lang,
             classname="collapsible collapsed"
