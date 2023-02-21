@@ -204,7 +204,7 @@ class PageCollection(translations.TranslatedModel):
             classname="collapsible collapsed",
             heading="Pages",
         ),
-        image_edit_handlers.ImageChooserPanel('image'),
+        image_edit_handlers.FieldPanel('image'),
     ]
 
     def __str__(self):

@@ -130,7 +130,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
         edit_handlers.FieldPanel('color'),
-        image_edit_handlers.ImageChooserPanel('image'),
+        image_edit_handlers.FieldPanel('image'),
         doc_edit_handlers.DocumentChooserPanel('document')
     ]
 
@@ -239,7 +239,7 @@ class ManualsDetailPage(Page, metaclass=translations.TranslatedPageMetaclass):
         edit_handlers.FieldPanel('title', classname='title'),
         edit_handlers.FieldPanel('slug'),
         edit_handlers.FieldPanel('color'),
-        image_edit_handlers.ImageChooserPanel('image'),
+        image_edit_handlers.FieldPanel('image'),
     ]
 
     edit_handler = edit_handlers.TabbedInterface([
