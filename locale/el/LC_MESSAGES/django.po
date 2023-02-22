@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 16:39+0200\n"
+"POT-Creation-Date: 2023-02-22 17:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
@@ -31,21 +31,21 @@ msgstr "Κατηγορίες"
 msgid "Edit categories"
 msgstr "Επεξεργασία κατηγοριών"
 
-#: adhocracy4/categories/fields.py:12
+#: adhocracy4/categories/fields.py:11
 #: adhocracy4/categories/filters.py:16
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins/items.py:14
+#: adhocracy4/categories/forms.py:43
+#: adhocracy4/exports/mixins/items.py:15
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:118
 #: euth/ideas/templates/euth_ideas/idea_form.html:81
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: adhocracy4/categories/forms.py:38
+#: adhocracy4/categories/forms.py:37
 #: adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "Ονομα κατηγορίας"
 
-#: adhocracy4/categories/forms.py:39
+#: adhocracy4/categories/forms.py:38
 msgid "Category icon"
 msgstr "Εικονίδιο κατηγορίας"
 
@@ -63,14 +63,14 @@ msgstr ""
 msgid "Add category"
 msgstr "Προσθήκη κατηγορίας"
 
-#: adhocracy4/comments/models.py:54
-#: adhocracy4/polls/exports.py:41
+#: adhocracy4/comments/models.py:35
+#: adhocracy4/polls/exports.py:40
 msgctxt "noun"
 msgid "Comment"
 msgstr "Σχόλιο "
 
-#: adhocracy4/comments/models.py:55
-#: adhocracy4/exports/mixins/comments.py:46
+#: adhocracy4/comments/models.py:36
+#: adhocracy4/exports/mixins/comments.py:48
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:35
 #: euth/documents/templates/euth_documents/paragraph_detail.html:23
@@ -80,25 +80,30 @@ msgstr "Σχόλιο "
 msgid "Comments"
 msgstr "Σχόλια"
 
-#: adhocracy4/comments/serializers.py:73
-#: adhocracy4/comments/serializers.py:175
+#: adhocracy4/comments/serializers.py:78
+#: adhocracy4/comments/serializers.py:178
 msgid "Please choose a category"
 msgstr "Παρακαλώ επιλέξτε κατηγορία"
 
-#: adhocracy4/comments/serializers.py:82
-#: adhocracy4/comments_async/serializers.py:97
+#: adhocracy4/comments/serializers.py:87
+#: adhocracy4/comments_async/serializers.py:92
 msgid "unknown user"
 msgstr "Αγνωστος χρήστης"
 
-#: adhocracy4/comments_async/serializers.py:17
+#: adhocracy4/comments_async/api.py:139
+#: adhocracy4/polls/api.py:115
+msgid "Please agree to the organisation's terms of use."
+msgstr ""
+
+#: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
 msgstr "Επιλέξτε μία ή περισσότερες κατηγορίες. "
 
-#: adhocracy4/dashboard/components/forms/views.py:22
+#: adhocracy4/dashboard/components/forms/views.py:24
 msgid "The project has been updated."
 msgstr "Το έργο έχει ενημερωθεί. "
 
-#: adhocracy4/dashboard/components/forms/views.py:47
+#: adhocracy4/dashboard/components/forms/views.py:51
 msgid "The module has been updated."
 msgstr "Η ενότητα ενημερώθηκε. "
 
@@ -166,7 +171,7 @@ msgid "Archived"
 msgstr "Αρχειοθετημένα"
 
 #: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/filters/widgets.py:33
 msgid "All"
 msgstr "Ολα"
 
@@ -179,20 +184,20 @@ msgstr "Οχι"
 msgid "Yes"
 msgstr "Ναί"
 
-#: adhocracy4/dashboard/forms.py:76
+#: adhocracy4/dashboard/forms.py:79
 msgid "All users can participate (public)."
 msgstr "Όλοι οι χρήστες μπορούν να συμμετέχουν (δημόσια)."
 
-#: adhocracy4/dashboard/forms.py:78
+#: adhocracy4/dashboard/forms.py:82
 msgid "Only invited users can participate (private)."
 msgstr "Μόνο προσκεκλημένοι χρήστες μπορούν να συμμετέχουν (ιδιωτικά)."
 
-#: adhocracy4/dashboard/forms.py:86
+#: adhocracy4/dashboard/forms.py:91
 #: euth/projects/templates/euth_projects/project_detail.html:110
 msgid "Contact for questions"
 msgstr "Επικοινωνία για ερωτήσεις"
 
-#: adhocracy4/dashboard/forms.py:87
+#: adhocracy4/dashboard/forms.py:93
 msgid ""
 "Please name a contact person. The user will then know who is carrying out "
 "this project and to whom they can address possible questions. The contact "
@@ -203,29 +208,29 @@ msgstr ""
 "ερωτήσεις. Το άτομο επικοινωνίας θα εμφανιστεί στην καρτέλα πληροφοριών στη "
 "σελίδα του έργου."
 
-#: adhocracy4/dashboard/forms.py:92
+#: adhocracy4/dashboard/forms.py:99
 msgid "More contact possibilities"
 msgstr "Περισσότερες δυνατότητες επικοινωνίας"
 
-#: adhocracy4/dashboard/forms.py:134
-#: adhocracy4/phases/models.py:77
+#: adhocracy4/dashboard/forms.py:144
+#: adhocracy4/phases/models.py:66
 msgid "End date"
 msgstr "Ημερομηνία λήξης"
 
-#: adhocracy4/dashboard/forms.py:134
+#: adhocracy4/dashboard/forms.py:144
 msgid "End time"
 msgstr "Τέλος χρόνου"
 
-#: adhocracy4/dashboard/forms.py:140
-#: adhocracy4/phases/models.py:75
+#: adhocracy4/dashboard/forms.py:150
+#: adhocracy4/phases/models.py:64
 msgid "Start date"
 msgstr "Ημερομηνία έναρξης"
 
-#: adhocracy4/dashboard/forms.py:140
+#: adhocracy4/dashboard/forms.py:150
 msgid "Start time"
 msgstr "Ωρα έναρξης"
 
-#: adhocracy4/dashboard/mixins.py:207
+#: adhocracy4/dashboard/mixins.py:209
 msgid "Project successfully duplicated."
 msgstr "Το έργο αναπαραχθεί με επιτυχία."
 
@@ -382,110 +387,110 @@ msgstr "Αντίγραφο"
 msgid "We could not find any projects."
 msgstr "Δεν μπορούσαμε να βρούμε σχέδια."
 
-#: adhocracy4/dashboard/views.py:69
+#: adhocracy4/dashboard/views.py:73
 msgid "Project successfully created."
 msgstr "Το έργο δημιουργήθηκε με επιτυχία."
 
-#: adhocracy4/dashboard/views.py:154
+#: adhocracy4/dashboard/views.py:164
 msgid "Invalid action"
 msgstr "Μη έγκυρη ενέργεια"
 
-#: adhocracy4/dashboard/views.py:171
+#: adhocracy4/dashboard/views.py:181
 msgid "Project is already published"
 msgstr "Το έργο έχει ήδη δημοσιευθεί"
 
-#: adhocracy4/dashboard/views.py:176
+#: adhocracy4/dashboard/views.py:186
 msgid "Project cannot be published. No module is added."
 msgstr "Δεν είναι δυνατή η δημοσίευση του έργου. Δεν προστίθεται ενότητα. "
 
-#: adhocracy4/dashboard/views.py:191
+#: adhocracy4/dashboard/views.py:202
 msgid "Project cannot be published. Required fields are missing."
 msgstr ""
 "Δεν είναι δυνατή η δημοσίευση του έργου. Απαιτούνται τα απαιτούμενα πεδία."
 
-#: adhocracy4/dashboard/views.py:200
+#: adhocracy4/dashboard/views.py:211
 msgid "Project cannot be published."
 msgstr "Δεν είναι δυνατή η δημοσίευση του έργου."
 
-#: adhocracy4/dashboard/views.py:211
+#: adhocracy4/dashboard/views.py:221
 msgid "the project has been published."
 msgstr "το έργο έχει δημοσιευτεί. "
 
-#: adhocracy4/dashboard/views.py:216
+#: adhocracy4/dashboard/views.py:226
 msgid "Project is already unpublished"
 msgstr "Το έργο έχει ήδη αδημοσίευτο"
 
-#: adhocracy4/dashboard/views.py:225
+#: adhocracy4/dashboard/views.py:234
 msgid "the project has been unpublished."
 msgstr "το έργο δεν έχει δημοσιευτεί. "
 
-#: adhocracy4/exports/mixins/comments.py:16
+#: adhocracy4/exports/mixins/comments.py:17
 msgid "Comment count"
 msgstr "Καταμέτρηση σχολίων"
 
-#: adhocracy4/exports/mixins/comments.py:77
+#: adhocracy4/exports/mixins/comments.py:80
 msgid "Reply to Comment"
 msgstr "Απάντηση στο σχόλιο"
 
-#: adhocracy4/exports/mixins/comments.py:95
+#: adhocracy4/exports/mixins/comments.py:99
 msgid "Reply to Reference"
 msgstr "Απάντηση στην αναφορά"
 
-#: adhocracy4/exports/mixins/general.py:14
+#: adhocracy4/exports/mixins/general.py:15
 #: euth/exports/mixins.py:45
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: adhocracy4/exports/mixins/general.py:16
-#: adhocracy4/polls/exports.py:42
+#: adhocracy4/exports/mixins/general.py:17
+#: adhocracy4/polls/exports.py:41
 #: euth/exports/mixins.py:47
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
-#: adhocracy4/exports/mixins/general.py:34
+#: adhocracy4/exports/mixins/general.py:36
 msgid "Link"
 msgstr "Σύνδεσμος"
 
-#: adhocracy4/exports/mixins/general.py:49
+#: adhocracy4/exports/mixins/general.py:52
 #: euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "Τοποθεσία (Γεωγραφικό μήκος)"
 
-#: adhocracy4/exports/mixins/general.py:51
+#: adhocracy4/exports/mixins/general.py:54
 #: euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "Τοποθεσία (Latitude)"
 
-#: adhocracy4/exports/mixins/general.py:53
+#: adhocracy4/exports/mixins/general.py:56
 msgid "Location label"
 msgstr "Ετικέτα τοποθεσίας"
 
-#: adhocracy4/exports/mixins/items.py:29
+#: adhocracy4/exports/mixins/items.py:31
 #: adhocracy4/labels/dashboard.py:13
 msgid "Labels"
 msgstr "Ετικέτες"
 
-#: adhocracy4/exports/mixins/items.py:46
+#: adhocracy4/exports/mixins/items.py:49
 msgid "Reference No."
 msgstr "Αριθμός αναφοράς."
 
-#: adhocracy4/exports/mixins/items.py:65
-msgid "Moderator feedback"
-msgstr "Ανατροφοδότηση συντονιστή"
+#: adhocracy4/exports/mixins/items.py:69
+msgid "Status"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:67
-msgid "Official Statement"
-msgstr "Επίσημη δήλωση"
+#: adhocracy4/exports/mixins/items.py:71
+msgid "Feedback"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:89
+#: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
 msgstr "Παρατήρηση"
 
-#: adhocracy4/exports/mixins/rates.py:15
+#: adhocracy4/exports/mixins/rates.py:16
 msgid "Positive ratings"
 msgstr "Θετικές αξιολογήσεις"
 
-#: adhocracy4/exports/mixins/rates.py:17
+#: adhocracy4/exports/mixins/rates.py:18
 msgid "Negative ratings"
 msgstr "Αρνητικές αξιολογήσεις"
 
@@ -520,11 +525,11 @@ msgstr "εδώ μπορείτε να εξάγετε όλες τις απαντή
 msgid "here you can export all comments"
 msgstr "εδώ μπορείτε να εξάγετε όλα τα σχόλια"
 
-#: adhocracy4/filters/widgets.py:66
+#: adhocracy4/filters/widgets.py:76
 msgid "Ordering"
 msgstr "Παραγγελία"
 
-#: adhocracy4/forms/fields.py:18
+#: adhocracy4/forms/fields.py:19
 #, python-format
 msgid "Time of %(date_label)s"
 msgstr "Ώρα του %(date_label)s"
@@ -542,7 +547,7 @@ msgstr "Αυτό το πεδίο απαιτείται"
 msgid "Remove category"
 msgstr "Κατάργηση κατηγορίας"
 
-#: adhocracy4/images/fields.py:71
+#: adhocracy4/images/fields.py:70
 #, python-brace-format
 msgid ""
 "{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
@@ -554,12 +559,12 @@ msgstr ""
 "είναι{fileformats_str}. Το μέγεθος του αρχείου θα πρέπει να είναι το "
 "μέγιστο. {max_size_mb} MB."
 
-#: adhocracy4/images/fields.py:91
+#: adhocracy4/images/fields.py:87
 #, python-brace-format
 msgid "{image_name} copyright"
 msgstr "{image_name}πνευματική ιδιοκτησία"
 
-#: adhocracy4/images/fields.py:94
+#: adhocracy4/images/fields.py:90
 #, python-brace-format
 msgid "Copyright shown in the {image_name}."
 msgstr "Τα πνευματικά δικαιώματα που εμφανίζονται στο{image_name}."
@@ -586,33 +591,43 @@ msgstr ""
 "σας \n"
 "στο τέλος αυτής της σελίδας."
 
-#: adhocracy4/images/validators.py:21
+#: adhocracy4/images/validators.py:26
 #: euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Μη υποστηριζόμενη μορφή αρχείου. Οι υποστηριζόμενες μορφές είναι {}."
 
-#: adhocracy4/images/validators.py:28
+#: adhocracy4/images/validators.py:33
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
 msgstr "Η εικόνα πρέπει να είναι το πολύ {max_size} MB"
 
-#: adhocracy4/images/validators.py:36
+#: adhocracy4/images/validators.py:41
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
 msgstr "Η εικόνα πρέπει να έχει πλάτος τουλάχιστον {min_width} pixel "
 
-#: adhocracy4/images/validators.py:44
+#: adhocracy4/images/validators.py:49
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
 msgstr "Η εικόνα πρέπει να είναι τουλάχιστον {min_height}εικονοστοιχεία"
 
-#: adhocracy4/images/validators.py:54
+#: adhocracy4/images/validators.py:55
+#, python-brace-format
+msgid "Image must be at most {max_width} pixels wide"
+msgstr ""
+
+#: adhocracy4/images/validators.py:58
+#, python-brace-format
+msgid "Image must be at most {max_height} pixels high"
+msgstr ""
+
+#: adhocracy4/images/validators.py:67
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr ""
 "Ο λόγος διαστάσεων εικόνας πρέπει να είναι {aspect_width}:{aspect_height}"
 
-#: adhocracy4/images/widgets.py:25
+#: adhocracy4/images/widgets.py:28
 msgid "Select a picture from your local folder."
 msgstr "Επιλέξτε μια εικόνα από τον τοπικό σας φάκελο."
 
@@ -620,7 +635,8 @@ msgstr "Επιλέξτε μια εικόνα από τον τοπικό σας �
 msgid "Edit labels"
 msgstr "Επεξεργασία ετικετών"
 
-#: adhocracy4/labels/forms.py:17
+#: adhocracy4/labels/filters.py:10
+#: adhocracy4/labels/forms.py:16
 msgid "Label"
 msgstr "Επιγραφή"
 
@@ -640,12 +656,12 @@ msgstr ""
 msgid "Add label"
 msgstr "Προσθήκη ετικέτας"
 
-#: adhocracy4/maps/admin.py:14
+#: adhocracy4/maps/admin.py:15
 #: adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: adhocracy4/maps/admin.py:16
+#: adhocracy4/maps/admin.py:19
 msgid ""
 "Enter a valid GeoJSON object. To initialize a new areasetting enter the "
 "string \"false\" without quotation marks."
@@ -653,27 +669,27 @@ msgstr ""
 "Εισαγάγετε ένα έγκυρο αντικείμενο GeoJSON. Για να εκκινήσετε μια νέα "
 "περιοχή, πληκτρολογήστε τη συμβολοσειρά \"false\" χωρίς εισαγωγικά."
 
-#: adhocracy4/maps/fields.py:17
+#: adhocracy4/maps/fields.py:16
 msgid "Geometry as GeoJSON"
 msgstr "Γεωμετρία ως GeoJSON"
 
-#: adhocracy4/maps/fields.py:35
+#: adhocracy4/maps/fields.py:34
 msgid "Please add a Marker on the map"
 msgstr "Προσθέστε ένα δείκτη στο χάρτη"
 
-#: adhocracy4/maps/fields.py:40
+#: adhocracy4/maps/fields.py:39
 msgid "Please draw a Polygon on the map"
 msgstr "Σχεδιάστε ένα πολύγωνο στο χάρτη"
 
-#: adhocracy4/maps/models.py:12
+#: adhocracy4/maps/models.py:11
 msgid "Please draw an area on the map."
 msgstr "Σχεδιάστε μια περιοχή στον χάρτη."
 
-#: adhocracy4/modules/models.py:67
+#: adhocracy4/modules/models.py:74
 msgid "Title of the module"
 msgstr "Τίτλος της ενότητας"
 
-#: adhocracy4/modules/models.py:68
+#: adhocracy4/modules/models.py:76
 msgid ""
 "This title will appear in the timeline and the header on the module and "
 "project detail pages. It should be max. 512 characters long"
@@ -682,11 +698,11 @@ msgstr ""
 "σελίδες λεπτομερειών του δομοστοιχείου και του έργου. Θα πρέπει να είναι "
 "μέγιστο. 512 χαρακτήρες"
 
-#: adhocracy4/modules/models.py:76
+#: adhocracy4/modules/models.py:85
 msgid "Short description of the module"
 msgstr "Σύντομη περιγραφή της ενότητας"
 
-#: adhocracy4/modules/models.py:77
+#: adhocracy4/modules/models.py:87
 msgid ""
 "This short description will appear on the header of the module and project "
 "detail pages. It should briefly state the goal of the module in max. 512 "
@@ -696,103 +712,121 @@ msgstr ""
 "λεπτομερειών μονάδας και έργου. Θα πρέπει να αναφέρει σύντομα το στόχο της "
 "μονάδας σε max. 512 χαρακτήρες."
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "ημέρα"
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
+#: adhocracy4/modules/models.py:231
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "ημέρες"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "ώρα"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
+#: adhocracy4/modules/models.py:232
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "ώρες"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "λεπτό"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
+#: adhocracy4/modules/models.py:233
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "λεπτά"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/projects/models.py:596
+#: adhocracy4/modules/models.py:227
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "δεύτερος"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/modules/models.py:211
-#: adhocracy4/projects/models.py:596
-#: adhocracy4/projects/models.py:607
+#: adhocracy4/modules/models.py:227
+#: adhocracy4/modules/models.py:234
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "δευτερολέπτων"
 
-#: adhocracy4/phases/forms.py:23
+#: adhocracy4/modules/models.py:231
+msgctxt "abbreviation for day(s)"
+msgid "D"
+msgstr ""
+
+#: adhocracy4/modules/models.py:232
+msgctxt "abbreviation for hour(s)"
+msgid "H"
+msgstr ""
+
+#: adhocracy4/modules/models.py:233
+msgctxt "abbreviation for minute(s)"
+msgid "M"
+msgstr ""
+
+#: adhocracy4/modules/models.py:234
+msgctxt "abbreviation for second(s)"
+msgid "S"
+msgstr ""
+
+#: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
 "Οι φάσεις δεν μπορούν να εκτελούνται ταυτόχρονα και πρέπει να ακολουθούν ο "
 "ένας τον άλλο. "
 
-#: adhocracy4/phases/models.py:69
+#: adhocracy4/phases/forms.py:31
+msgid "Phases need to be in same order as in form."
+msgstr ""
+
+#: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
 msgid "Name"
 msgstr "Ονομα"
 
-#: adhocracy4/phases/models.py:71
+#: adhocracy4/phases/models.py:60
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:58
 #: euth/ideas/templates/euth_ideas/idea_form.html:52
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: adhocracy4/phases/models.py:95
+#: adhocracy4/phases/models.py:84
 msgid "End date can not be before start date."
 msgstr ""
 "Η ημερομηνία λήξης δεν μπορεί να είναι πριν από την ημερομηνία έναρξης. "
 
-#: adhocracy4/phases/models.py:100
-#: adhocracy4/phases/models.py:104
+#: adhocracy4/phases/models.py:88
+#: adhocracy4/phases/models.py:92
 msgid "Either both or no date has to be set."
 msgstr "Πρέπει να ορίσετε και τις δύο ή καθόλου ημερομηνία. "
 
-#: adhocracy4/polls/api.py:71
+#: adhocracy4/polls/api.py:155
 msgid "Please specify your answer."
 msgstr "Προσδιορίστε την απάντησή σας."
 
-#: adhocracy4/polls/api.py:88
+#: adhocracy4/polls/api.py:169
 msgid "Key error for {}"
 msgstr "Σφάλμα κλειδιού για {}"
 
-#: adhocracy4/polls/api.py:90
+#: adhocracy4/polls/api.py:171
 msgid "Choice not found."
 msgstr "Η επιλογή δεν βρέθηκε."
 
-#: adhocracy4/polls/api.py:98
+#: adhocracy4/polls/api.py:190
 msgid "Duplicate choices detected."
 msgstr "Εντοπίστηκαν διπλές επιλογές."
 
-#: adhocracy4/polls/api.py:101
+#: adhocracy4/polls/api.py:193
 msgid "Multiple choice disabled for question."
 msgstr "Απενεργοποίηση πολλαπλών επιλογών για την ερώτηση."
 
@@ -801,25 +835,25 @@ msgstr "Απενεργοποίηση πολλαπλών επιλογών για 
 msgid "Poll"
 msgstr "Ψηφοφορία"
 
-#: adhocracy4/polls/dashboard.py:42
+#: adhocracy4/polls/dashboard.py:44
 #: euth/exports/dashboard.py:14
 msgid "Export Excel"
 msgstr "Εξαγωγή Excel"
 
-#: adhocracy4/polls/exports.py:40
+#: adhocracy4/polls/exports.py:39
 msgid "ID"
 msgstr "ID"
 
-#: adhocracy4/polls/models.py:53
+#: adhocracy4/polls/models.py:41
 msgid "Explanation"
 msgstr "Επεξήγηση"
 
-#: adhocracy4/polls/models.py:82
+#: adhocracy4/polls/models.py:68
 msgid "Questions with open answers cannot have multiple choices."
 msgstr ""
 "Οι ερωτήσεις με ανοικτές απαντήσεις δεν μπορούν να έχουν πολλαπλές επιλογές."
 
-#: adhocracy4/polls/models.py:87
+#: adhocracy4/polls/models.py:77
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
@@ -827,35 +861,35 @@ msgstr ""
 "Η ερώτηση με επιλογές δεν μπορεί να γίνει ανοικτή ερώτηση. Διαγράψτε τις "
 "επιλογές ή προσθέστε νέα ανοικτή ερώτηση."
 
-#: adhocracy4/polls/models.py:152
-#: adhocracy4/polls/models.py:279
+#: adhocracy4/polls/models.py:140
+#: adhocracy4/polls/models.py:258
 msgid "Answer"
 msgstr "Απάντηση"
 
-#: adhocracy4/polls/models.py:164
+#: adhocracy4/polls/models.py:151
 msgid "Only open questions can have answers."
 msgstr "Μόνο οι ανοιχτές ερωτήσεις μπορούν να έχουν απαντήσεις."
 
-#: adhocracy4/polls/models.py:201
+#: adhocracy4/polls/models.py:187
 msgid "Open questions cannot have choices."
 msgstr "Οι ανοικτές ερωτήσεις δεν μπορούν να έχουν επιλογές."
 
-#: adhocracy4/polls/models.py:206
+#: adhocracy4/polls/models.py:193
 msgid ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 msgstr ""
 "Το \"άλλο\" δεν μπορεί να είναι η μόνη επιλογή. Χρησιμοποιήστε ανοιχτή "
 "ερώτηση ή προσθέστε περισσότερες επιλογές."
 
-#: adhocracy4/polls/models.py:213
+#: adhocracy4/polls/models.py:204
 msgid "Question already has \"other\" choice."
 msgstr "Η ερώτηση έχει ήδη την επιλογή \"άλλο\"."
 
-#: adhocracy4/polls/models.py:285
+#: adhocracy4/polls/models.py:265
 msgid "Other vote can only be created for vote on \"other\" choice."
 msgstr "Άλλη ψήφος μπορεί να δημιουργηθεί μόνο για ψήφο σε \"άλλη\" επιλογή."
 
-#: adhocracy4/polls/models.py:306
+#: adhocracy4/polls/models.py:287
 msgid "other"
 msgstr "άλλα"
 
@@ -864,12 +898,12 @@ msgctxt "A4: voting phase name"
 msgid "Voting phase"
 msgstr "Φάση ψηφοφορίας"
 
-#: adhocracy4/polls/phases.py:19
+#: adhocracy4/polls/phases.py:18
 msgctxt "A4: voting phase description"
 msgid "Answer the questions and comment on the poll."
 msgstr "Απαντήστε στις ερωτήσεις και σχολιάστε τη δημοσκόπηση."
 
-#: adhocracy4/polls/phases.py:21
+#: adhocracy4/polls/phases.py:20
 msgid "polls"
 msgstr "δημοσκοπήσεις"
 
@@ -891,17 +925,21 @@ msgstr ""
 msgid "Edit poll"
 msgstr "Επεξεργασία δημοσκόπησης"
 
-#: adhocracy4/polls/validators.py:15
+#: adhocracy4/polls/validators.py:16
 #, python-format
 msgid "Item of type %(item)s for that module already exists"
 msgstr "Υπάρχει ήδη %(item)s στοιχείο στοιχείου για την ενότητα αυτή"
 
-#: adhocracy4/polls/validators.py:25
+#: adhocracy4/polls/validators.py:28
+msgid "Question has to belong to the poll set in the url."
+msgstr ""
+
+#: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
 msgstr ""
 "Η επιλογή πρέπει να ανήκει στο ερώτημα που έχει τεθεί στη διεύθυνση URL."
 
-#: adhocracy4/polls/validators.py:43
+#: adhocracy4/polls/validators.py:57
 msgid "Only one vote per choice is allowed per user."
 msgstr "Επιτρέπεται μόνο μία ψήφος ανά επιλογή ανά χρήστη."
 
@@ -910,20 +948,20 @@ msgstr "Επιτρέπεται μόνο μία ψήφος ανά επιλογή 
 msgid "Project"
 msgstr "Εργο"
 
-#: adhocracy4/projects/admin.py:65
+#: adhocracy4/projects/admin.py:63
 msgid "Information and result"
 msgstr "Πληροφορίες και αποτελέσματα"
 
-#: adhocracy4/projects/admin.py:68
+#: adhocracy4/projects/admin.py:69
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: adhocracy4/projects/admin.py:72
+#: adhocracy4/projects/admin.py:81
 msgid "Images"
 msgstr "Εικόνες"
 
-#: adhocracy4/projects/admin.py:77
+#: adhocracy4/projects/admin.py:93
 msgid "Contact"
 msgstr "Επικοινωνία"
 
@@ -931,7 +969,7 @@ msgstr "Επικοινωνία"
 msgid "public"
 msgstr "δημόσιο "
 
-#: adhocracy4/projects/models.py:43
+#: adhocracy4/projects/models.py:42
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
@@ -944,7 +982,7 @@ msgstr ""
 msgid "Postal address"
 msgstr "ταχυδρομική διεύθυνση"
 
-#: adhocracy4/projects/models.py:54
+#: adhocracy4/projects/models.py:52
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -954,24 +992,24 @@ msgstr "ταχυδρομική διεύθυνση"
 msgid "Email"
 msgstr "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ"
 
-#: adhocracy4/projects/models.py:60
+#: adhocracy4/projects/models.py:55
 msgid "Contact person"
 msgstr "Υπεύθυνος επικοινωνίας"
 
-#: adhocracy4/projects/models.py:67
+#: adhocracy4/projects/models.py:59
 msgid "Phone"
 msgstr "Τηλέφωνο"
 
-#: adhocracy4/projects/models.py:72
+#: adhocracy4/projects/models.py:62
 #: euth/projects/templates/euth_projects/project_detail.html:127
 msgid "Website"
 msgstr "Δικτυακός τόπος"
 
-#: adhocracy4/projects/models.py:83
+#: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
 msgstr "Μπορεί το έργο σας να βρίσκεται στον χάρτη;"
 
-#: adhocracy4/projects/models.py:84
+#: adhocracy4/projects/models.py:74
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -980,15 +1018,15 @@ msgstr ""
 "πληκτρολογήστε μια διεύθυνση για να ορίσετε το δείκτη. Ένας δείκτης μπορεί "
 "να σύρεται όταν πατηθεί."
 
-#: adhocracy4/projects/models.py:95
+#: adhocracy4/projects/models.py:86
 msgid "Administrative district"
 msgstr "Διοικητική περιοχή"
 
-#: adhocracy4/projects/models.py:179
+#: adhocracy4/projects/models.py:166
 msgid "Title of your project"
 msgstr "Τίτλος του έργου σας"
 
-#: adhocracy4/projects/models.py:180
+#: adhocracy4/projects/models.py:168
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -996,11 +1034,11 @@ msgstr ""
 "Αυτός ο τίτλος θα εμφανιστεί στην κάρτα του teaser και στην κορυφή της "
 "σελίδας λεπτομερειών του έργου. Θα πρέπει να είναι μέγιστο. 120 χαρακτήρες"
 
-#: adhocracy4/projects/models.py:196
+#: adhocracy4/projects/models.py:181
 msgid "Short description of your project"
 msgstr "Σύντομη περιγραφή του έργου σας"
 
-#: adhocracy4/projects/models.py:197
+#: adhocracy4/projects/models.py:183
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -1009,11 +1047,11 @@ msgstr ""
 "teaser. Θα πρέπει να αναφέρει σύντομα το στόχο του έργου σε max. 250 "
 "χαρακτήρες."
 
-#: adhocracy4/projects/models.py:205
+#: adhocracy4/projects/models.py:192
 msgid "Description of your project"
 msgstr "Περιγραφή του έργου σας"
 
-#: adhocracy4/projects/models.py:206
+#: adhocracy4/projects/models.py:194
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -1023,11 +1061,11 @@ msgstr ""
 "του έργου, πώς θα μοιάζει η συμμετοχή του σχεδίου. Θα είναι πάντοτε ορατό "
 "στην καρτέλα \"Πληροφορίες\" στη σελίδα του έργου σας."
 
-#: adhocracy4/projects/models.py:214
+#: adhocracy4/projects/models.py:203
 msgid "Results of your project"
 msgstr "Αποτελέσματα του έργου σας"
 
-#: adhocracy4/projects/models.py:215
+#: adhocracy4/projects/models.py:205
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -1037,34 +1075,34 @@ msgstr ""
 "και πώς σκοπεύετε να χρησιμοποιήσετε τα αποτελέσματα. Εάν ολοκληρωθεί το "
 "έργο, θα πρέπει να προσθέσετε μια περίληψη των αποτελεσμάτων."
 
-#: adhocracy4/projects/models.py:223
+#: adhocracy4/projects/models.py:212
 msgid "Access to the project"
 msgstr "Πρόσβαση στο έργο"
 
-#: adhocracy4/projects/models.py:228
-#: adhocracy4/projects/models.py:235
+#: adhocracy4/projects/models.py:217
+#: adhocracy4/projects/models.py:223
 #: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Εικόνα επικεφαλίδας"
 
-#: adhocracy4/projects/models.py:230
+#: adhocracy4/projects/models.py:218
 msgid "The image will be shown as a decorative background image."
 msgstr "Η εικόνα θα εμφανιστεί ως εικόνα διακοσμητικού φόντου."
 
-#: adhocracy4/projects/models.py:238
-#: adhocracy4/projects/models.py:246
+#: adhocracy4/projects/models.py:226
+#: adhocracy4/projects/models.py:232
 msgid "Tile image"
 msgstr "Εικόνα κεραμιδιών"
 
-#: adhocracy4/projects/models.py:240
+#: adhocracy4/projects/models.py:227
 msgid "The image will be shown in the project tile."
 msgstr "Η εικόνα θα εμφανιστεί στην πλακέτα του έργου."
 
-#: adhocracy4/projects/models.py:259
+#: adhocracy4/projects/models.py:245
 msgid "Project is archived"
 msgstr "Το έργο αρχειοθετείται"
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:247
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
@@ -1072,34 +1110,36 @@ msgstr ""
 "Τα αρχειοθετημένα έργα δεν εμφανίζονται στην επισκόπηση του έργου. Για τους "
 "εκκινητές έργων εξακολουθούν να είναι ορατοί στον πίνακα ελέγχου. "
 
-#: adhocracy4/projects/models.py:265
+#: adhocracy4/projects/models.py:253
 msgid "Project topics"
 msgstr "Θέματα του έργου"
 
-#: adhocracy4/projects/models.py:266
+#: adhocracy4/projects/models.py:253
 msgid "Add topics to your project."
 msgstr "Προσθέστε θέματα στο έργο σας."
 
 #: adhocracy4/projects/templatetags/project_tags.py:12
+#: euth/projects/templatetags/project_class_tags.py:44
 #, python-format
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] "%(number)d μέρες που απομένουν"
 msgstr[1] "%(number)dμέρες που απομένουν "
 
-#: adhocracy4/projects/templatetags/project_tags.py:19
+#: adhocracy4/projects/templatetags/project_tags.py:17
+#: euth/projects/templatetags/project_class_tags.py:51
 msgid "a few hours left"
 msgstr "λίγες ώρες αργότερα"
 
-#: adhocracy4/projects/utils.py:45
+#: adhocracy4/projects/utils.py:46
 msgid "{}. Online Participation"
 msgstr "{}. Συμμετοχή στο Διαδίκτυο "
 
-#: adhocracy4/projects/utils.py:54
+#: adhocracy4/projects/utils.py:55
 msgid "Online Participation"
 msgstr "Συμμετοχή στο Διαδίκτυο "
 
-#: adhocracy4/reports/templatetags/react_reports.py:29
+#: adhocracy4/reports/templatetags/react_reports.py:28
 msgid "Report"
 msgstr "Κανω ΑΝΑΦΟΡΑ"
 
@@ -2153,8 +2193,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"Αυτό είναι ένα ιδιωτικό έργο. Έχετε υποβάλει αίτηση για συμμετοχή σε"
-"%(date)s. Το αίτημά σας αναμένει μετριοπάθεια."
+"Αυτό είναι ένα ιδιωτικό έργο. Έχετε υποβάλει αίτηση για συμμετοχή "
+"σε%(date)s. Το αίτημά σας αναμένει μετριοπάθεια."
 
 #: euth/memberships/templates/euth_memberships/request_detail.html:24
 #: euth/memberships/templates/euth_memberships/request_detail.html:41
@@ -2742,15 +2782,15 @@ msgstr "Μακεδόνας"
 msgid "Bulgarian"
 msgstr "Βουλγαρική"
 
-#: euth_wagtail/settings/base.py:436
+#: euth_wagtail/settings/base.py:440
 msgid "suggestion"
 msgstr "πρόταση"
 
-#: euth_wagtail/settings/base.py:437
+#: euth_wagtail/settings/base.py:441
 msgid "note"
 msgstr "Σημείωση"
 
-#: euth_wagtail/settings/base.py:438
+#: euth_wagtail/settings/base.py:442
 msgid "question"
 msgstr "ερώτηση"
 
@@ -2907,8 +2947,8 @@ msgstr "Ενεργοποίηση λογαριασμού"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Αυτός ο σύνδεσμος επιβεβαίωσης ηλεκτρονικού ταχυδρομείου έληξε ή είναι "
 "άκυρος. Δημιουργήστε <a href=\"%(email_url)s\">ένα νέο αίτημα επιβεβαίωσης "
@@ -3076,8 +3116,8 @@ msgstr "Έχω ήδη λογαριασμό, "
 #, python-format
 msgid ""
 "\n"
-"                        I accept the <a href=\"%(terms_of_use_url)s\" target="
-"\"blank\">terms of use</a>.\n"
+"                        I accept the <a href=\"%(terms_of_use_url)s\" "
+"target=\"blank\">terms of use</a>.\n"
 "                        "
 msgstr ""
 "\n"
@@ -3168,3 +3208,9 @@ msgstr "Κατεβάστε οδηγίες"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Περιεχόμενα"
+
+#~ msgid "Moderator feedback"
+#~ msgstr "Ανατροφοδότηση συντονιστή"
+
+#~ msgid "Official Statement"
+#~ msgstr "Επίσημη δήλωση"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 16:39+0200\n"
+"POT-Creation-Date: 2023-02-22 17:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/liqd/teams/68346/da/)\n"
@@ -48,40 +48,40 @@ msgstr "Krops tekst"
 msgid "Collapsible element"
 msgstr "Sammenfoldeligt element"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:23
-#: adhocracy4/comments/static/comments/Comment.jsx:23
+#: adhocracy4/comments/static/comments/Comment.jsx:22
+#: adhocracy4/comments/static/comments/Comment.jsx:22
 #, javascript-format
 msgid "hide one reply"
 msgid_plural "hide %s replies"
 msgstr[0] "skjul et svar"
 msgstr[1] "skjul %s svar"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:25
-#: adhocracy4/comments/static/comments/Comment.jsx:25
+#: adhocracy4/comments/static/comments/Comment.jsx:24
+#: adhocracy4/comments/static/comments/Comment.jsx:24
 #, javascript-format
 msgid "view one reply"
 msgid_plural "view %s replies"
 msgstr[0] "se et svar"
 msgstr[1] "se %s svar"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:30
-#: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/comments/static/comments/Comment.jsx:29
+#: adhocracy4/comments/static/comments/Comment.jsx:29
 msgid "Answer"
 msgstr "Svar"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
-#: adhocracy4/comments/static/comments/Comment.jsx:31
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments/static/comments/Comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
 msgid "Your reply here"
 msgstr "Tast dit svar her"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
-#: adhocracy4/reports/static/reports/react_reports.jsx:20
-#: adhocracy4/comments/static/comments/Comment.jsx:32
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
-#: adhocracy4/reports/static/reports/react_reports.jsx:20
+#: adhocracy4/comments/static/comments/Comment.jsx:31
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:18
+#: adhocracy4/reports/static/reports/react_reports.jsx:22
+#: adhocracy4/comments/static/comments/Comment.jsx:31
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:18
+#: adhocracy4/reports/static/reports/react_reports.jsx:22
 msgid ""
 "You want to report this content? Your message will be sent to the "
 "moderation. The moderation will look at the reported content. The content "
@@ -91,137 +91,141 @@ msgstr ""
 "moderationen. Modereringen vil se på det rapporterede indhold. Indholdet "
 "slettes, hvis det ikke overholder vores diskussionsregler (netiquette)."
 
-#: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
-#: adhocracy4/comments/static/comments/Comment.jsx:96
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:273
+#: adhocracy4/comments/static/comments/Comment.jsx:95
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
+#: adhocracy4/comments/static/comments/Comment.jsx:95
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
 msgid "Moderator"
 msgstr "Ordstyrer/Mødeleder/Mægler/Moderator"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
-#: adhocracy4/comments/static/comments/Comment.jsx:105
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:268
+#: adhocracy4/comments/static/comments/Comment.jsx:104
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:35
+#: adhocracy4/comments/static/comments/Comment.jsx:104
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:35
 msgid "Latest edit on"
 msgstr "Sidste udgave af"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
-#: adhocracy4/comments/static/comments/Comment.jsx:110
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:262
+#: adhocracy4/comments/static/comments/Comment.jsx:109
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:32
+#: adhocracy4/comments/static/comments/Comment.jsx:109
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:32
 msgid "Deleted by creator on"
 msgstr "Slettet af ophavsmand den"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
-#: adhocracy4/comments/static/comments/Comment.jsx:112
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:264
+#: adhocracy4/comments/static/comments/Comment.jsx:111
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
+#: adhocracy4/comments/static/comments/Comment.jsx:111
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "Deleted by moderator on"
 msgstr "Slettet af moderator den"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
-#: adhocracy4/comments/static/comments/Comment.jsx:151
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:243
+#: adhocracy4/comments/static/comments/Comment.jsx:152
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
+#: adhocracy4/comments/static/comments/Comment.jsx:152
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
 msgid "Do you really want to delete this comment?"
 msgstr "Er du sikker på, at du vil slette kommentaren?"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:152
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:68
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:73
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:152
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:157
-#: adhocracy4/comments/static/comments/Comment.jsx:152
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:245
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:7
+#: adhocracy4/comments/static/comments/Comment.jsx:153
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:72
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:77
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:154
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:159
+#: adhocracy4/comments/static/comments/Comment.jsx:153
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:72
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:77
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:154
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:159
 msgid "Delete"
 msgstr "Slet"
 
-#: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
+#: adhocracy4/comments/static/comments/Comment.jsx:154
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:31
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
-#: adhocracy4/static/Modal.jsx:59
-#: adhocracy4/comments/static/comments/Comment.jsx:153
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:246
+#: adhocracy4/static/Modal.jsx:53
+#: adhocracy4/comments/static/comments/Comment.jsx:154
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:31
 #: adhocracy4/comments_async/static/modals/moderate_modal.jsx:54
 msgid "Abort"
 msgstr "Afbryd"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:165
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
-#: adhocracy4/comments/static/comments/CommentBox.jsx:165
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments/static/comments/CommentBox.jsx:164
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
+#: adhocracy4/comments/static/comments/CommentBox.jsx:164
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:33
 msgid "Your comment here"
 msgstr "Skriv din kommentar her"
 
-#: adhocracy4/comments/static/comments/CommentBox.jsx:168
-#: adhocracy4/comments/static/comments/CommentBox.jsx:168
+#: adhocracy4/comments/static/comments/CommentBox.jsx:167
+#: adhocracy4/comments/static/comments/CommentBox.jsx:167
 msgid "comment"
 msgid_plural "comments"
 msgstr[0] "Kommentarer"
 msgstr[1] "Kommentarer"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:34
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
 msgid "save changes"
 msgstr "Gem ændringer"
 
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
-#: adhocracy4/comments/static/comments/CommentEditForm.jsx:36
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:11
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:10
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:12
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:11
+#: adhocracy4/comments/static/comments/CommentEditForm.jsx:35
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:12
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:11
 msgid "cancel"
 msgstr "Annuller"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:37
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
-#: adhocracy4/comments/static/comments/CommentForm.jsx:37
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
+#: adhocracy4/comments/static/comments/CommentForm.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
+#: adhocracy4/comments/static/comments/CommentForm.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
 msgid "post"
 msgstr "Post/Beskeder/Send/Slå op"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:38
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
-#: adhocracy4/comments/static/comments/CommentForm.jsx:38
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
+#: adhocracy4/comments/static/comments/CommentForm.jsx:40
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
 msgid "Please login to comment"
 msgstr "Log ind for at kommentere"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
-#: adhocracy4/comments/static/comments/CommentForm.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
+#: adhocracy4/comments/static/comments/CommentForm.jsx:41
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:18
+#: adhocracy4/comments/static/comments/CommentForm.jsx:41
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:18
 msgid "The currently active phase doesn't allow to comment."
 msgstr ""
 "Det er ikke muligt at kommentere i denne fase/Denne side tillader ikke "
 "kommentarer"
 
-#: adhocracy4/comments/static/comments/CommentForm.jsx:40
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
-#: adhocracy4/comments/static/comments/CommentForm.jsx:40
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:16
+#: adhocracy4/comments/static/comments/CommentForm.jsx:42
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
+#: adhocracy4/comments/static/comments/CommentForm.jsx:42
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:17
 msgid "Only invited users can actively participate."
 msgstr "Kun inviterede brugere kan deltage aktivt."
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:6
-#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:6
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:5
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:5
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:5
+#: adhocracy4/comments_async/static/comments_async/comment_manage_dropdown.jsx:5
 msgid "Edit"
 msgstr "Rediger"
 
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
-#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:8
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
+#: adhocracy4/comments/static/comments/CommentManageDropdown.jsx:7
 msgid "Report"
 msgstr "Reporter/Anmeld"
 
@@ -230,74 +234,74 @@ msgstr "Reporter/Anmeld"
 msgid "Choose categories for your comment"
 msgstr "Vælg kategorier til din kommentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:21
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:19
 msgid "Share link"
 msgstr "dele link"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:20
 msgid "Categories: "
 msgstr "Kategorier: "
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:22
 msgid "Entry successfully created"
 msgstr "Indgang med succes oprettet"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:23
 msgid "Read more..."
 msgstr "Læs mere..."
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:24
 msgid "Read less"
 msgstr "Læs mindre"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:25
 msgid "Share"
 msgstr "Del"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:26
 msgid " Report"
 msgstr "Rapport"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:29
-msgid "Show moderator's statement"
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:27
+msgid "Show moderator's feedback"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:30
-msgid "Hide moderator's statement"
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:28
+msgid "Hide moderator's feedback"
 msgstr ""
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:36
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:34
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:34
+msgid "Blocked by moderator on"
+msgstr "Blokeret af moderator den"
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:37
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:37
 msgid "hide replies"
 msgstr "skjule svar"
 
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:39
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:38
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:38
+msgctxt "verb"
+msgid "Reply"
+msgstr "Svar"
+
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:47
+#: adhocracy4/comments_async/static/comments_async/comment.jsx:47
 #, javascript-format
 msgid "1 reply"
 msgid_plural "%s replies"
 msgstr[0] "1 svar"
 msgstr[1] "%ssvar"
-
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:42
-msgctxt "verb"
-msgid "Reply"
-msgstr "Svar"
-
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
-#: adhocracy4/comments_async/static/comments_async/comment.jsx:266
-msgid "Blocked by moderator on"
-msgstr "Blokeret af moderator den"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
@@ -355,11 +359,11 @@ msgid "display: "
 msgstr "display: "
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:29
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:64
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:321
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:48
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:276
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:29
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:64
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:321
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:48
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:276
 msgid "all"
 msgstr "alle"
 
@@ -368,45 +372,50 @@ msgstr "alle"
 msgid "sorted by: "
 msgstr "sorteret efter: "
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:90
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:90
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
+msgid "Highlighted"
+msgstr ""
+
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
 msgid "entry"
 msgid_plural "entries"
 msgstr[0] "indgang"
 msgstr[1] "indgange"
 
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
-#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:483
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:406
+#: adhocracy4/comments_async/static/comments_async/comment_box.jsx:406
 msgid "entry found for "
 msgid_plural "entries found for "
 msgstr[0] "fundet for "
 msgstr[1] "fundet for "
 
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:8
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:10
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:8
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:7
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:10
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
 msgid "Your comment"
 msgstr "Din kommentar"
 
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
-#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:9
-#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
+#: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
+#: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
 msgid "Your reply"
 msgstr "Dit svar"
 
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
 msgid " characters"
 msgstr " tegn"
 
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
-#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:14
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
+#: adhocracy4/comments_async/static/comments_async/comment_form.jsx:15
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -435,24 +444,24 @@ msgstr "Kopier"
 msgid "Copied"
 msgstr "Kopieret"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:27
-#: adhocracy4/follows/static/follows/FollowButton.jsx:27
+#: adhocracy4/follows/static/follows/FollowButton.jsx:26
+#: adhocracy4/follows/static/follows/FollowButton.jsx:26
 msgid "You will no longer be updated via email."
 msgstr "Du vil ikke længere blive opdateret via e-mail."
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:29
-#: adhocracy4/follows/static/follows/FollowButton.jsx:29
+#: adhocracy4/follows/static/follows/FollowButton.jsx:28
+#: adhocracy4/follows/static/follows/FollowButton.jsx:28
 msgid "You will be updated via email."
 msgstr "Du vil blive opdateret via e-mail."
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:63
-#: adhocracy4/follows/static/follows/FollowButton.jsx:63
+#: adhocracy4/follows/static/follows/FollowButton.jsx:62
+#: adhocracy4/follows/static/follows/FollowButton.jsx:62
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Follow"
 msgstr "Følg"
 
-#: adhocracy4/follows/static/follows/FollowButton.jsx:64
-#: adhocracy4/follows/static/follows/FollowButton.jsx:64
+#: adhocracy4/follows/static/follows/FollowButton.jsx:63
+#: adhocracy4/follows/static/follows/FollowButton.jsx:63
 msgid "Following"
 msgstr "Følger"
 
@@ -481,7 +490,7 @@ msgid "Import polygon via file upload"
 msgstr "Import af polygon via upload af fil"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
-#: adhocracy4/static/Alert.jsx:5
+#: adhocracy4/static/Alert.jsx:6
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
 msgid "Close"
 msgstr "Tæt"
@@ -513,210 +522,276 @@ msgstr ""
 msgid "Upload"
 msgstr "Upload"
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:109
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:109
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:110
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:110
 msgid "Cancel"
 msgstr "Annuller"
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:143
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:143
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:148
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:148
 msgid "The uploaded file is not a valid shapefile."
 msgstr "Den uploadede fil er ikke en gyldig shapefile."
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:147
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:147
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:150
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:150
 msgid "The uploaded file could not be imported."
 msgstr "Den uploadede fil kunne ikke importeres."
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:161
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:161
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:164
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:164
 msgid "The uploaded file is not a valid geojson file."
 msgstr "Den uploadede fil er ikke en gyldig geojson-fil."
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:166
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:166
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:169
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:169
 msgid "Invalid file format."
 msgstr "Ugyldigt filformat."
 
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:283
-#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:283
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:286
+#: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:286
 msgid "Do you want to load this preset and delete all the existing polygons?"
 msgstr ""
 "Vil du indlæse denne forindstilling og slette alle de eksisterende polygoner?"
 
-#: adhocracy4/polls/assets/EditPollChoice.jsx:9
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:69
+#: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
+#: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
+msgid "person supports this proposal."
+msgid_plural "persons support this proposal."
+msgstr[0] ""
+msgstr[1] ""
+
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
 msgctxt "noun"
 msgid "Answer"
 msgstr "Svar"
 
-#: adhocracy4/polls/assets/EditPollChoice.jsx:27
-#: adhocracy4/polls/assets/EditPollChoice.jsx:33
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:29
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:35
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:29
+#: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:35
 msgid "remove"
 msgstr "fjerne"
 
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:16
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:19
-msgid "Question"
-msgstr "Spørgsmål"
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
+msgid " New Question"
+msgstr ""
 
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:36
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:119
-#: adhocracy4/polls/assets/HelptextForm.jsx:11
-msgid "Explanation"
-msgstr "Forklaring"
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
+msgid "Multiple Choice question"
+msgstr ""
 
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:45
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:50
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:129
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:134
-msgid "Move up"
-msgstr "Flyt op"
-
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:57
-#: adhocracy4/polls/assets/EditPollOpenQuestion.jsx:62
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:141
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:146
-msgid "Move down"
-msgstr "Flyt ned"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:46
-msgid "Participants can vote for more than one option (multiple choice)"
-msgstr "Deltagerne kan stemme på mere end én mulighed (multiple choice)"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:61
-msgid "Participants can add their own answer"
-msgstr "Deltagerne kan tilføje deres eget svar"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:94
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:95
-msgid "Other"
-msgstr "Andre"
-
-#: adhocracy4/polls/assets/EditPollQuestion.jsx:112
-msgid "New answer"
-msgstr "Nyt svar"
-
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:163
-msgid "The poll has been updated."
-msgstr "Undersøgelsen er blevet opdateret."
-
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:177
-msgid "The poll could not be updated."
-msgstr "Undersøgelsen kunne ikke opdateres."
-
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:196
-msgid "New question"
-msgstr "Nyt spørgsmål"
-
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:202
-msgid "Multiple choice question"
-msgstr "Multiple choice-spørgsmål"
-
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:207
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
+#: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
 msgid "Open question"
 msgstr "Åbent spørgsmål"
 
-#: adhocracy4/polls/assets/EditPollQuestions.jsx:279
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:179
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:179
+msgid "The poll has been updated."
+msgstr "Undersøgelsen er blevet opdateret."
+
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
+msgid "The poll could not be updated. Please check the data you entered again."
+msgstr ""
+
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
+#: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
 msgid "Save"
 msgstr "Gemme"
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:18
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:17
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:19
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:17
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:19
+msgid "Question"
+msgstr "Spørgsmål"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:39
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:120
+#: adhocracy4/polls/static/PollDashboard/HelptextForm.jsx:11
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:39
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:120
+#: adhocracy4/polls/static/PollDashboard/HelptextForm.jsx:11
+msgid "Explanation"
+msgstr "Forklaring"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:49
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:54
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:131
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:136
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:49
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:54
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:131
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:136
+msgid "Move up"
+msgstr "Flyt op"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:61
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:66
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:143
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:148
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:61
+#: adhocracy4/polls/static/PollDashboard/EditPollOpenQuestion.jsx:66
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:143
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:148
+msgid "Move down"
+msgstr "Flyt ned"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:47
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:47
+msgid "Participants can vote for more than one option (multiple choice)"
+msgstr "Deltagerne kan stemme på mere end én mulighed (multiple choice)"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:62
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:62
+msgid "Participants can add their own answer"
+msgstr "Deltagerne kan tilføje deres eget svar"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:95
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:96
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:95
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:96
+msgid "Other"
+msgstr "Andre"
+
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:113
+#: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:113
+msgid "New answer"
+msgstr "Nyt svar"
+
+#: adhocracy4/polls/static/PollDetail/PollQuestion.jsx:7
+#: adhocracy4/polls/static/PollDetail/PollQuestion.jsx:7
 msgid "Multiple answers are possible."
 msgstr "Der er mulighed for flere svar."
 
-#: adhocracy4/polls/assets/PollQuestion.jsx:84
-#: adhocracy4/polls/assets/PollQuestion.jsx:123
-#: adhocracy4/polls/assets/PollResults.jsx:113
+#: adhocracy4/polls/static/PollDetail/PollQuestion.jsx:8
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:111
+#: adhocracy4/polls/static/PollDetail/PollQuestion.jsx:8
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:111
 msgid "other"
 msgstr "andre"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:13
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:16
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:16
 msgid "Your answer has been saved."
 msgstr "Dit svar er blevet gemt."
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:18
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:22
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:22
 msgid ""
 "Your answer could not be saved. Please check the data you entered again."
 msgstr ""
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:23
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
 msgid "Your answer is invalid or empty. Please try again."
 msgstr "Dit svar er ugyldigt eller tomt. Prøv venligst igen."
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:42
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:53
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:53
 msgid "To poll"
 msgstr "At afstemme"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:48
-#: adhocracy4/polls/assets/PollQuestions.jsx:125
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:63
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:143
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:63
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:143
 msgid "Change answer"
 msgstr "Ændre svar"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:125
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:143
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:143
 msgid "Submit answer"
 msgstr "Indsend svar"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:131
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:149
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:149
 msgid "Please login to answer"
 msgstr "Log ind for at svare"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:141
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:159
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:159
 msgid "Show results"
 msgstr "Vis resultater"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:147
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:165
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:165
 msgid "Show preliminary results"
 msgstr "Vis foreløbige resultater"
 
-#: adhocracy4/polls/assets/PollQuestions.jsx:168
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:186
+#: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:186
 msgid "Please enter your answer in this field."
 msgstr "Indtast venligst dit svar i dette felt."
 
-#: adhocracy4/polls/assets/PollResults.jsx:45
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:45
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:45
 msgid "Hide other answers"
 msgstr "Skjul andre svar"
 
-#: adhocracy4/polls/assets/PollResults.jsx:47
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:47
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:47
 msgid "Show other answers"
 msgstr "Vis andre svar"
 
-#: adhocracy4/polls/assets/PollResults.jsx:61
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:61
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:61
 #, javascript-format
 msgid "%s participant gave 1 answer."
 msgstr "%s deltageren gav 1 svar."
 
-#: adhocracy4/polls/assets/PollResults.jsx:63
-#: adhocracy4/polls/assets/PollResults.jsx:65
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:63
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:63
 #, javascript-format
 msgid "%s participant gave %s answers."
 msgid_plural "%s participants gave %s answers."
 msgstr[0] "%sdeltageren gav%ssvar."
 msgstr[1] "%sdeltagerne gav%ssvar."
 
-#: adhocracy4/polls/assets/PollResults.jsx:67
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:65
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:65
 msgid ""
 " For multiple choice questions the percentages may add up to more than 100%."
 msgstr ""
 " Ved multiple choice-spørgsmål kan procentsatserne blive mere end 100 %."
 
-#: adhocracy4/polls/assets/PollResults.jsx:69
-#: adhocracy4/polls/assets/PollResults.jsx:78
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:67
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:76
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:67
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:76
 #, javascript-format
 msgid "1 person has answered."
 msgid_plural "%s people have answered."
 msgstr[0] "1 person has answered."
 msgstr[1] "%sfolk har svaret."
 
-#: adhocracy4/polls/assets/PollResults.jsx:80
-msgid "noone has answered this question"
-msgstr "ingen har besvaret dette spørgsmål"
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
+msgid "no one has answered this question"
+msgstr ""
 
-#: adhocracy4/polls/assets/PollResults.jsx:110
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
+#: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
 msgid "Your choice"
 msgstr "Dit valg"
+
+#: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
+#: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
+msgid "Click to vote up"
+msgstr ""
+
+#: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
+#: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
+msgid "Click to vote down"
+msgstr ""
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
@@ -732,6 +807,16 @@ msgstr "Din besked"
 #: adhocracy4/reports/static/reports/ReportModal.jsx:57
 msgid "Send Report"
 msgstr "Send rapport"
+
+#: adhocracy4/static/TermsOfUseCheckbox.jsx:5
+msgid ""
+"Yes, I have read and agree to this organisation's %(linkStart)s terms of use "
+"%(linkEnd)s."
+msgstr ""
+
+#: adhocracy4/static/TermsOfUseCheckbox.jsx:6
+msgid "You can still manage all your preferences on User Agreements."
+msgstr ""
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
@@ -789,3 +874,15 @@ msgstr "Gem"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Følg ikke længere"
+
+#~ msgid "The poll could not be updated."
+#~ msgstr "Undersøgelsen kunne ikke opdateres."
+
+#~ msgid "New question"
+#~ msgstr "Nyt spørgsmål"
+
+#~ msgid "Multiple choice question"
+#~ msgstr "Multiple choice-spørgsmål"
+
+#~ msgid "noone has answered this question"
+#~ msgstr "ingen har besvaret dette spørgsmål"

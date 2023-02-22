@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 16:39+0200\n"
+"POT-Creation-Date: 2023-02-22 17:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: Bulgarian (https://www.transifex.com/liqd/teams/68346/bg/)\n"
@@ -30,21 +30,21 @@ msgstr "Категории"
 msgid "Edit categories"
 msgstr "Редактиране на категории"
 
-#: adhocracy4/categories/fields.py:12
+#: adhocracy4/categories/fields.py:11
 #: adhocracy4/categories/filters.py:16
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins/items.py:14
+#: adhocracy4/categories/forms.py:43
+#: adhocracy4/exports/mixins/items.py:15
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:118
 #: euth/ideas/templates/euth_ideas/idea_form.html:81
 msgid "Category"
 msgstr "Категория"
 
-#: adhocracy4/categories/forms.py:38
+#: adhocracy4/categories/forms.py:37
 #: adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "Име на категория"
 
-#: adhocracy4/categories/forms.py:39
+#: adhocracy4/categories/forms.py:38
 msgid "Category icon"
 msgstr "Икона на категория"
 
@@ -62,14 +62,14 @@ msgstr ""
 msgid "Add category"
 msgstr "Добави категория"
 
-#: adhocracy4/comments/models.py:54
-#: adhocracy4/polls/exports.py:41
+#: adhocracy4/comments/models.py:35
+#: adhocracy4/polls/exports.py:40
 msgctxt "noun"
 msgid "Comment"
 msgstr "Коментар"
 
-#: adhocracy4/comments/models.py:55
-#: adhocracy4/exports/mixins/comments.py:46
+#: adhocracy4/comments/models.py:36
+#: adhocracy4/exports/mixins/comments.py:48
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:35
 #: euth/documents/templates/euth_documents/paragraph_detail.html:23
@@ -79,25 +79,30 @@ msgstr "Коментар"
 msgid "Comments"
 msgstr "Коментари"
 
-#: adhocracy4/comments/serializers.py:73
-#: adhocracy4/comments/serializers.py:175
+#: adhocracy4/comments/serializers.py:78
+#: adhocracy4/comments/serializers.py:178
 msgid "Please choose a category"
 msgstr "Моля, избери категория"
 
-#: adhocracy4/comments/serializers.py:82
-#: adhocracy4/comments_async/serializers.py:97
+#: adhocracy4/comments/serializers.py:87
+#: adhocracy4/comments_async/serializers.py:92
 msgid "unknown user"
 msgstr "неизвестен потребител"
 
-#: adhocracy4/comments_async/serializers.py:17
+#: adhocracy4/comments_async/api.py:139
+#: adhocracy4/polls/api.py:115
+msgid "Please agree to the organisation's terms of use."
+msgstr ""
+
+#: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
 msgstr "Моля те, избери една или повече категории."
 
-#: adhocracy4/dashboard/components/forms/views.py:22
+#: adhocracy4/dashboard/components/forms/views.py:24
 msgid "The project has been updated."
 msgstr "Проектът е актуализиран."
 
-#: adhocracy4/dashboard/components/forms/views.py:47
+#: adhocracy4/dashboard/components/forms/views.py:51
 msgid "The module has been updated."
 msgstr "Модулът е актуализиран."
 
@@ -165,7 +170,7 @@ msgid "Archived"
 msgstr "Архивирано"
 
 #: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/filters/widgets.py:33
 msgid "All"
 msgstr "Всички"
 
@@ -178,20 +183,20 @@ msgstr "Не"
 msgid "Yes"
 msgstr "Да"
 
-#: adhocracy4/dashboard/forms.py:76
+#: adhocracy4/dashboard/forms.py:79
 msgid "All users can participate (public)."
 msgstr "Всички потребители могат да участват (публично)."
 
-#: adhocracy4/dashboard/forms.py:78
+#: adhocracy4/dashboard/forms.py:82
 msgid "Only invited users can participate (private)."
 msgstr "Само поканени потребители могат да участват (частно)."
 
-#: adhocracy4/dashboard/forms.py:86
+#: adhocracy4/dashboard/forms.py:91
 #: euth/projects/templates/euth_projects/project_detail.html:110
 msgid "Contact for questions"
 msgstr "Свържи се за въпроси"
 
-#: adhocracy4/dashboard/forms.py:87
+#: adhocracy4/dashboard/forms.py:93
 msgid ""
 "Please name a contact person. The user will then know who is carrying out "
 "this project and to whom they can address possible questions. The contact "
@@ -201,29 +206,29 @@ msgstr ""
 "този проект и към кого може да отправи възможни въпроси. Лицето за контакт "
 "ще бъде показано в раздела с информация на страницата на проекта."
 
-#: adhocracy4/dashboard/forms.py:92
+#: adhocracy4/dashboard/forms.py:99
 msgid "More contact possibilities"
 msgstr "Повече възможности за контакт"
 
-#: adhocracy4/dashboard/forms.py:134
-#: adhocracy4/phases/models.py:77
+#: adhocracy4/dashboard/forms.py:144
+#: adhocracy4/phases/models.py:66
 msgid "End date"
 msgstr "Крайна дата"
 
-#: adhocracy4/dashboard/forms.py:134
+#: adhocracy4/dashboard/forms.py:144
 msgid "End time"
 msgstr "Край на периода"
 
-#: adhocracy4/dashboard/forms.py:140
-#: adhocracy4/phases/models.py:75
+#: adhocracy4/dashboard/forms.py:150
+#: adhocracy4/phases/models.py:64
 msgid "Start date"
 msgstr "Начална дата"
 
-#: adhocracy4/dashboard/forms.py:140
+#: adhocracy4/dashboard/forms.py:150
 msgid "Start time"
 msgstr "Начален час"
 
-#: adhocracy4/dashboard/mixins.py:207
+#: adhocracy4/dashboard/mixins.py:209
 msgid "Project successfully duplicated."
 msgstr "Проектът е дублиран успешно."
 
@@ -380,109 +385,109 @@ msgstr "Дублиране"
 msgid "We could not find any projects."
 msgstr "Не можахме да намерим никакви проекти."
 
-#: adhocracy4/dashboard/views.py:69
+#: adhocracy4/dashboard/views.py:73
 msgid "Project successfully created."
 msgstr "Проектът е създаден успешно."
 
-#: adhocracy4/dashboard/views.py:154
+#: adhocracy4/dashboard/views.py:164
 msgid "Invalid action"
 msgstr "Невалидно действие"
 
-#: adhocracy4/dashboard/views.py:171
+#: adhocracy4/dashboard/views.py:181
 msgid "Project is already published"
 msgstr "Проектът вече е публикуван"
 
-#: adhocracy4/dashboard/views.py:176
+#: adhocracy4/dashboard/views.py:186
 msgid "Project cannot be published. No module is added."
 msgstr "Проектът не може да бъде публикуван. Не е добавен модул."
 
-#: adhocracy4/dashboard/views.py:191
+#: adhocracy4/dashboard/views.py:202
 msgid "Project cannot be published. Required fields are missing."
 msgstr "Проектът не може да бъде публикуван. Липсват задължителните полета."
 
-#: adhocracy4/dashboard/views.py:200
+#: adhocracy4/dashboard/views.py:211
 msgid "Project cannot be published."
 msgstr "Проектът не може да бъде публикуван. "
 
-#: adhocracy4/dashboard/views.py:211
+#: adhocracy4/dashboard/views.py:221
 msgid "the project has been published."
 msgstr "проектът е публикуван."
 
-#: adhocracy4/dashboard/views.py:216
+#: adhocracy4/dashboard/views.py:226
 msgid "Project is already unpublished"
 msgstr "Проектът вече не е публикуван"
 
-#: adhocracy4/dashboard/views.py:225
+#: adhocracy4/dashboard/views.py:234
 msgid "the project has been unpublished."
 msgstr "проектът е непубликуван."
 
-#: adhocracy4/exports/mixins/comments.py:16
+#: adhocracy4/exports/mixins/comments.py:17
 msgid "Comment count"
 msgstr "Брой коментари"
 
-#: adhocracy4/exports/mixins/comments.py:77
+#: adhocracy4/exports/mixins/comments.py:80
 msgid "Reply to Comment"
 msgstr "Отговор на Коментар"
 
-#: adhocracy4/exports/mixins/comments.py:95
+#: adhocracy4/exports/mixins/comments.py:99
 msgid "Reply to Reference"
 msgstr "Отговор на Препратка"
 
-#: adhocracy4/exports/mixins/general.py:14
+#: adhocracy4/exports/mixins/general.py:15
 #: euth/exports/mixins.py:45
 msgid "Creator"
 msgstr "Създател"
 
-#: adhocracy4/exports/mixins/general.py:16
-#: adhocracy4/polls/exports.py:42
+#: adhocracy4/exports/mixins/general.py:17
+#: adhocracy4/polls/exports.py:41
 #: euth/exports/mixins.py:47
 msgid "Created"
 msgstr "Създаден"
 
-#: adhocracy4/exports/mixins/general.py:34
+#: adhocracy4/exports/mixins/general.py:36
 msgid "Link"
 msgstr "Връзка"
 
-#: adhocracy4/exports/mixins/general.py:49
+#: adhocracy4/exports/mixins/general.py:52
 #: euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "Местоположение (Географска дължина)"
 
-#: adhocracy4/exports/mixins/general.py:51
+#: adhocracy4/exports/mixins/general.py:54
 #: euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "Местоположение (Географска ширина)"
 
-#: adhocracy4/exports/mixins/general.py:53
+#: adhocracy4/exports/mixins/general.py:56
 msgid "Location label"
 msgstr "Етикет за местоположение"
 
-#: adhocracy4/exports/mixins/items.py:29
+#: adhocracy4/exports/mixins/items.py:31
 #: adhocracy4/labels/dashboard.py:13
 msgid "Labels"
 msgstr "Етикети"
 
-#: adhocracy4/exports/mixins/items.py:46
+#: adhocracy4/exports/mixins/items.py:49
 msgid "Reference No."
 msgstr "Референтен номер."
 
-#: adhocracy4/exports/mixins/items.py:65
-msgid "Moderator feedback"
-msgstr "Обратна връзка от Модератора"
+#: adhocracy4/exports/mixins/items.py:69
+msgid "Status"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:67
-msgid "Official Statement"
-msgstr "Официално изявление"
+#: adhocracy4/exports/mixins/items.py:71
+msgid "Feedback"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:89
+#: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
 msgstr "Забележка"
 
-#: adhocracy4/exports/mixins/rates.py:15
+#: adhocracy4/exports/mixins/rates.py:16
 msgid "Positive ratings"
 msgstr "Положителни оценки"
 
-#: adhocracy4/exports/mixins/rates.py:17
+#: adhocracy4/exports/mixins/rates.py:18
 msgid "Negative ratings"
 msgstr "Отрицателни оценки"
 
@@ -517,11 +522,11 @@ msgstr "тук можеш да експортираш всички отгово�
 msgid "here you can export all comments"
 msgstr "тук можеш да експортираш всички коментари"
 
-#: adhocracy4/filters/widgets.py:66
+#: adhocracy4/filters/widgets.py:76
 msgid "Ordering"
 msgstr "Поръчване"
 
-#: adhocracy4/forms/fields.py:18
+#: adhocracy4/forms/fields.py:19
 #, python-format
 msgid "Time of %(date_label)s"
 msgstr "Време на %(date_label)s"
@@ -539,7 +544,7 @@ msgstr "Това поле е задължително"
 msgid "Remove category"
 msgstr "Премахване на категория"
 
-#: adhocracy4/images/fields.py:71
+#: adhocracy4/images/fields.py:70
 #, python-brace-format
 msgid ""
 "{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
@@ -551,12 +556,12 @@ msgstr ""
 "{fileformats_str}. Големината на файловете трябва да е максимум "
 "{max_size_mb} МБ."
 
-#: adhocracy4/images/fields.py:91
+#: adhocracy4/images/fields.py:87
 #, python-brace-format
 msgid "{image_name} copyright"
 msgstr "{image_name}авторско право"
 
-#: adhocracy4/images/fields.py:94
+#: adhocracy4/images/fields.py:90
 #, python-brace-format
 msgid "Copyright shown in the {image_name}."
 msgstr "Авторското право е показано в {image_name}."
@@ -582,33 +587,43 @@ msgstr ""
 "Твоето изображение ще бъде качено/премахнато, след като запазиш промените \n"
 " в края на тази страница."
 
-#: adhocracy4/images/validators.py:21
+#: adhocracy4/images/validators.py:26
 #: euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Неподдържан файлов формат. Поддържаните формати са {}."
 
-#: adhocracy4/images/validators.py:28
+#: adhocracy4/images/validators.py:33
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
 msgstr "Изображението трябва да е най-много {max_size} МБ"
 
-#: adhocracy4/images/validators.py:36
+#: adhocracy4/images/validators.py:41
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
 msgstr "Изображението трябва да е най-малко {min_width} пиксела широко"
 
-#: adhocracy4/images/validators.py:44
+#: adhocracy4/images/validators.py:49
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
 msgstr "Изображението трябва да е най-малко {min_height} пиксела високо"
 
-#: adhocracy4/images/validators.py:54
+#: adhocracy4/images/validators.py:55
+#, python-brace-format
+msgid "Image must be at most {max_width} pixels wide"
+msgstr ""
+
+#: adhocracy4/images/validators.py:58
+#, python-brace-format
+msgid "Image must be at most {max_height} pixels high"
+msgstr ""
+
+#: adhocracy4/images/validators.py:67
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr ""
 "Съотношението на изображението трябва да бъде {aspect_width}:{aspect_height}"
 
-#: adhocracy4/images/widgets.py:25
+#: adhocracy4/images/widgets.py:28
 msgid "Select a picture from your local folder."
 msgstr "Избери снимка от твоята локална папка."
 
@@ -616,7 +631,8 @@ msgstr "Избери снимка от твоята локална папка."
 msgid "Edit labels"
 msgstr "Редактиране на етикети"
 
-#: adhocracy4/labels/forms.py:17
+#: adhocracy4/labels/filters.py:10
+#: adhocracy4/labels/forms.py:16
 msgid "Label"
 msgstr "Етикет"
 
@@ -635,12 +651,12 @@ msgstr ""
 msgid "Add label"
 msgstr "Добави етикет"
 
-#: adhocracy4/maps/admin.py:14
+#: adhocracy4/maps/admin.py:15
 #: adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Полигон"
 
-#: adhocracy4/maps/admin.py:16
+#: adhocracy4/maps/admin.py:19
 msgid ""
 "Enter a valid GeoJSON object. To initialize a new areasetting enter the "
 "string \"false\" without quotation marks."
@@ -648,27 +664,27 @@ msgstr ""
 "Въведи валиден GeoJSON обект. За да инициализираш нова настройка за области, "
 "въведи поредицата \"false\" без кавички."
 
-#: adhocracy4/maps/fields.py:17
+#: adhocracy4/maps/fields.py:16
 msgid "Geometry as GeoJSON"
 msgstr "Геометрия като GeoJSON"
 
-#: adhocracy4/maps/fields.py:35
+#: adhocracy4/maps/fields.py:34
 msgid "Please add a Marker on the map"
 msgstr "Моля, добави Маркер на картата"
 
-#: adhocracy4/maps/fields.py:40
+#: adhocracy4/maps/fields.py:39
 msgid "Please draw a Polygon on the map"
 msgstr "Моля, начертай Полигон на картата"
 
-#: adhocracy4/maps/models.py:12
+#: adhocracy4/maps/models.py:11
 msgid "Please draw an area on the map."
 msgstr "Моля, начертай област на картата."
 
-#: adhocracy4/modules/models.py:67
+#: adhocracy4/modules/models.py:74
 msgid "Title of the module"
 msgstr "Заглавие на модула"
 
-#: adhocracy4/modules/models.py:68
+#: adhocracy4/modules/models.py:76
 msgid ""
 "This title will appear in the timeline and the header on the module and "
 "project detail pages. It should be max. 512 characters long"
@@ -676,11 +692,11 @@ msgstr ""
 "Това име ще се появи във времевата линия и заглавната част на страниците с "
 "подробности за модула и проекта. Трябва да е с максимална дължина 512 знака"
 
-#: adhocracy4/modules/models.py:76
+#: adhocracy4/modules/models.py:85
 msgid "Short description of the module"
 msgstr "Кратко описание на модула"
 
-#: adhocracy4/modules/models.py:77
+#: adhocracy4/modules/models.py:87
 msgid ""
 "This short description will appear on the header of the module and project "
 "detail pages. It should briefly state the goal of the module in max. 512 "
@@ -690,101 +706,119 @@ msgstr ""
 "подробности за модула и проекта. Направи кратко описание на целта на модула "
 "в максимум 512 знака."
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "ден"
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
+#: adhocracy4/modules/models.py:231
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "дни"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "час"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
+#: adhocracy4/modules/models.py:232
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "часове"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "минута"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
+#: adhocracy4/modules/models.py:233
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "минути"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/projects/models.py:596
+#: adhocracy4/modules/models.py:227
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "секунда"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/modules/models.py:211
-#: adhocracy4/projects/models.py:596
-#: adhocracy4/projects/models.py:607
+#: adhocracy4/modules/models.py:227
+#: adhocracy4/modules/models.py:234
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "секунди"
 
-#: adhocracy4/phases/forms.py:23
+#: adhocracy4/modules/models.py:231
+msgctxt "abbreviation for day(s)"
+msgid "D"
+msgstr ""
+
+#: adhocracy4/modules/models.py:232
+msgctxt "abbreviation for hour(s)"
+msgid "H"
+msgstr ""
+
+#: adhocracy4/modules/models.py:233
+msgctxt "abbreviation for minute(s)"
+msgid "M"
+msgstr ""
+
+#: adhocracy4/modules/models.py:234
+msgctxt "abbreviation for second(s)"
+msgid "S"
+msgstr ""
+
+#: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
 "Фазите не могат да протичат едновременно и трябва да следват една след друга."
 
-#: adhocracy4/phases/models.py:69
+#: adhocracy4/phases/forms.py:31
+msgid "Phases need to be in same order as in form."
+msgstr ""
+
+#: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
 msgid "Name"
 msgstr "Име"
 
-#: adhocracy4/phases/models.py:71
+#: adhocracy4/phases/models.py:60
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:58
 #: euth/ideas/templates/euth_ideas/idea_form.html:52
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Описание"
 
-#: adhocracy4/phases/models.py:95
+#: adhocracy4/phases/models.py:84
 msgid "End date can not be before start date."
 msgstr "Крайната дата не може да бъде преди началната дата."
 
-#: adhocracy4/phases/models.py:100
-#: adhocracy4/phases/models.py:104
+#: adhocracy4/phases/models.py:88
+#: adhocracy4/phases/models.py:92
 msgid "Either both or no date has to be set."
 msgstr "Трябва да се зададе и двете, или никаква дата."
 
-#: adhocracy4/polls/api.py:71
+#: adhocracy4/polls/api.py:155
 msgid "Please specify your answer."
 msgstr "Моля, посочи отговора си."
 
-#: adhocracy4/polls/api.py:88
+#: adhocracy4/polls/api.py:169
 msgid "Key error for {}"
 msgstr "Ключова грешка за {}"
 
-#: adhocracy4/polls/api.py:90
+#: adhocracy4/polls/api.py:171
 msgid "Choice not found."
 msgstr "Изборът не е намерен."
 
-#: adhocracy4/polls/api.py:98
+#: adhocracy4/polls/api.py:190
 msgid "Duplicate choices detected."
 msgstr "Открити са дублиращи се избори."
 
-#: adhocracy4/polls/api.py:101
+#: adhocracy4/polls/api.py:193
 msgid "Multiple choice disabled for question."
 msgstr "Множество избори не са възможни за въпроса."
 
@@ -793,26 +827,26 @@ msgstr "Множество избори не са възможни за въпр
 msgid "Poll"
 msgstr "Анкета"
 
-#: adhocracy4/polls/dashboard.py:42
+#: adhocracy4/polls/dashboard.py:44
 #: euth/exports/dashboard.py:14
 msgid "Export Excel"
 msgstr "Експортиране на Excel"
 
-#: adhocracy4/polls/exports.py:40
+#: adhocracy4/polls/exports.py:39
 msgid "ID"
 msgstr "документ за самоличнос"
 
-#: adhocracy4/polls/models.py:53
+#: adhocracy4/polls/models.py:41
 msgid "Explanation"
 msgstr "Обяснение"
 
-#: adhocracy4/polls/models.py:82
+#: adhocracy4/polls/models.py:68
 msgid "Questions with open answers cannot have multiple choices."
 msgstr ""
 "Въпросите с отворени отговори не могат да имат множество възможности за "
 "избор."
 
-#: adhocracy4/polls/models.py:87
+#: adhocracy4/polls/models.py:77
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
@@ -820,35 +854,35 @@ msgstr ""
 "Въпросът с избор не може да стане отворен въпрос. Изтрий изборите или добави "
 "нов отворен въпрос."
 
-#: adhocracy4/polls/models.py:152
-#: adhocracy4/polls/models.py:279
+#: adhocracy4/polls/models.py:140
+#: adhocracy4/polls/models.py:258
 msgid "Answer"
 msgstr "Отговор"
 
-#: adhocracy4/polls/models.py:164
+#: adhocracy4/polls/models.py:151
 msgid "Only open questions can have answers."
 msgstr "Само отворените въпроси могат да имат отговори."
 
-#: adhocracy4/polls/models.py:201
+#: adhocracy4/polls/models.py:187
 msgid "Open questions cannot have choices."
 msgstr "Отворените въпроси не могат да имат избор."
 
-#: adhocracy4/polls/models.py:206
+#: adhocracy4/polls/models.py:193
 msgid ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 msgstr ""
 "\"Друго\" не може да бъде единственият избор. Използвай отворен въпрос или "
 "добави повече възможности за избор."
 
-#: adhocracy4/polls/models.py:213
+#: adhocracy4/polls/models.py:204
 msgid "Question already has \"other\" choice."
 msgstr "Въпросът вече има \"друг\" избор."
 
-#: adhocracy4/polls/models.py:285
+#: adhocracy4/polls/models.py:265
 msgid "Other vote can only be created for vote on \"other\" choice."
 msgstr "Друг вот може да се създаде само за гласуване на \"друг\" избор."
 
-#: adhocracy4/polls/models.py:306
+#: adhocracy4/polls/models.py:287
 msgid "other"
 msgstr "друг"
 
@@ -857,12 +891,12 @@ msgctxt "A4: voting phase name"
 msgid "Voting phase"
 msgstr "Фаза на гласуване"
 
-#: adhocracy4/polls/phases.py:19
+#: adhocracy4/polls/phases.py:18
 msgctxt "A4: voting phase description"
 msgid "Answer the questions and comment on the poll."
 msgstr "Отговори на въпросите и коментирай анкетата."
 
-#: adhocracy4/polls/phases.py:21
+#: adhocracy4/polls/phases.py:20
 msgid "polls"
 msgstr "анкети"
 
@@ -881,16 +915,20 @@ msgstr ""
 msgid "Edit poll"
 msgstr "Редактиране на анкетата"
 
-#: adhocracy4/polls/validators.py:15
+#: adhocracy4/polls/validators.py:16
 #, python-format
 msgid "Item of type %(item)s for that module already exists"
 msgstr "Тип артикул %(item)s за този модул вече съществува"
 
-#: adhocracy4/polls/validators.py:25
+#: adhocracy4/polls/validators.py:28
+msgid "Question has to belong to the poll set in the url."
+msgstr ""
+
+#: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
 msgstr "Изборът трябва да принадлежи на въпроса, зададен в уеб-адреса."
 
-#: adhocracy4/polls/validators.py:43
+#: adhocracy4/polls/validators.py:57
 msgid "Only one vote per choice is allowed per user."
 msgstr "Допуска се само един глас за избор на потребител."
 
@@ -899,20 +937,20 @@ msgstr "Допуска се само един глас за избор на по
 msgid "Project"
 msgstr "Проект"
 
-#: adhocracy4/projects/admin.py:65
+#: adhocracy4/projects/admin.py:63
 msgid "Information and result"
 msgstr "Информация и резултат"
 
-#: adhocracy4/projects/admin.py:68
+#: adhocracy4/projects/admin.py:69
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
 msgid "Settings"
 msgstr "Настройки"
 
-#: adhocracy4/projects/admin.py:72
+#: adhocracy4/projects/admin.py:81
 msgid "Images"
 msgstr "Изображения"
 
-#: adhocracy4/projects/admin.py:77
+#: adhocracy4/projects/admin.py:93
 msgid "Contact"
 msgstr "Контакт"
 
@@ -920,7 +958,7 @@ msgstr "Контакт"
 msgid "public"
 msgstr "публично"
 
-#: adhocracy4/projects/models.py:43
+#: adhocracy4/projects/models.py:42
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
@@ -932,7 +970,7 @@ msgstr ""
 msgid "Postal address"
 msgstr "Пощенски адрес"
 
-#: adhocracy4/projects/models.py:54
+#: adhocracy4/projects/models.py:52
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -942,24 +980,24 @@ msgstr "Пощенски адрес"
 msgid "Email"
 msgstr "е-поща"
 
-#: adhocracy4/projects/models.py:60
+#: adhocracy4/projects/models.py:55
 msgid "Contact person"
 msgstr "Лице за контакт"
 
-#: adhocracy4/projects/models.py:67
+#: adhocracy4/projects/models.py:59
 msgid "Phone"
 msgstr "Телефонен номер"
 
-#: adhocracy4/projects/models.py:72
+#: adhocracy4/projects/models.py:62
 #: euth/projects/templates/euth_projects/project_detail.html:127
 msgid "Website"
 msgstr "Уеб страница"
 
-#: adhocracy4/projects/models.py:83
+#: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
 msgstr "Може ли вашия проект да бъде посочен на картата?"
 
-#: adhocracy4/projects/models.py:84
+#: adhocracy4/projects/models.py:74
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -967,15 +1005,15 @@ msgstr ""
 "Намери вашия проект. Щракни вътре в маркираната област или въведи адрес, за "
 "да зададеш маркера. Зададен маркер може да се плъзга, когато се натисне."
 
-#: adhocracy4/projects/models.py:95
+#: adhocracy4/projects/models.py:86
 msgid "Administrative district"
 msgstr "Административен район"
 
-#: adhocracy4/projects/models.py:179
+#: adhocracy4/projects/models.py:166
 msgid "Title of your project"
 msgstr "Заглавие на твоя проект"
 
-#: adhocracy4/projects/models.py:180
+#: adhocracy4/projects/models.py:168
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -983,11 +1021,11 @@ msgstr ""
 "Това заглавие ще се появи на тийзър картата и в горната част на страницата с "
 "подробности за проекта. Трябва да е с максимална дължина от 120 знака"
 
-#: adhocracy4/projects/models.py:196
+#: adhocracy4/projects/models.py:181
 msgid "Short description of your project"
 msgstr "Кратко описание на вашия проект"
 
-#: adhocracy4/projects/models.py:197
+#: adhocracy4/projects/models.py:183
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
@@ -995,11 +1033,11 @@ msgstr ""
 "Това кратко описание ще се появи в началото на проекта и в тийзъра. Трябва "
 "накратко да посочи целта на проекта в максимум 250 знака."
 
-#: adhocracy4/projects/models.py:205
+#: adhocracy4/projects/models.py:192
 msgid "Description of your project"
 msgstr "Описание на вашия проект"
 
-#: adhocracy4/projects/models.py:206
+#: adhocracy4/projects/models.py:194
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -1009,11 +1047,11 @@ msgstr ""
 "изглежда участието в проекта. Винаги ще се вижда в раздела „Информация“ на "
 "страницата на твоя проект."
 
-#: adhocracy4/projects/models.py:214
+#: adhocracy4/projects/models.py:203
 msgid "Results of your project"
 msgstr "Резултати от вашия проект"
 
-#: adhocracy4/projects/models.py:215
+#: adhocracy4/projects/models.py:205
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -1023,34 +1061,34 @@ msgstr ""
 "планираш да използваш резултатите. Ако проектът е завършен, трябва да "
 "добавиш обобщение на резултатите."
 
-#: adhocracy4/projects/models.py:223
+#: adhocracy4/projects/models.py:212
 msgid "Access to the project"
 msgstr "Достъп до проекта"
 
-#: adhocracy4/projects/models.py:228
-#: adhocracy4/projects/models.py:235
+#: adhocracy4/projects/models.py:217
+#: adhocracy4/projects/models.py:223
 #: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Заглавно изображение"
 
-#: adhocracy4/projects/models.py:230
+#: adhocracy4/projects/models.py:218
 msgid "The image will be shown as a decorative background image."
 msgstr "Изображението ще бъде показано като декоративно фоново изображение."
 
-#: adhocracy4/projects/models.py:238
-#: adhocracy4/projects/models.py:246
+#: adhocracy4/projects/models.py:226
+#: adhocracy4/projects/models.py:232
 msgid "Tile image"
 msgstr "Изображение на плочка"
 
-#: adhocracy4/projects/models.py:240
+#: adhocracy4/projects/models.py:227
 msgid "The image will be shown in the project tile."
 msgstr "Изображението ще бъде показано в плочката/банера на проекта."
 
-#: adhocracy4/projects/models.py:259
+#: adhocracy4/projects/models.py:245
 msgid "Project is archived"
 msgstr "Проектът е архивиран"
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:247
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
@@ -1058,34 +1096,36 @@ msgstr ""
 "Архивираните проекти не се показват в прегледа на проекта. За инициаторите "
 "на проекти те все още се виждат в таблото."
 
-#: adhocracy4/projects/models.py:265
+#: adhocracy4/projects/models.py:253
 msgid "Project topics"
 msgstr "Теми на проекта"
 
-#: adhocracy4/projects/models.py:266
+#: adhocracy4/projects/models.py:253
 msgid "Add topics to your project."
 msgstr "Добави теми към вашия проект."
 
 #: adhocracy4/projects/templatetags/project_tags.py:12
+#: euth/projects/templatetags/project_class_tags.py:44
 #, python-format
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
 msgstr[0] "%(number)d дни остават"
 msgstr[1] "%(number)dдни остават "
 
-#: adhocracy4/projects/templatetags/project_tags.py:19
+#: adhocracy4/projects/templatetags/project_tags.py:17
+#: euth/projects/templatetags/project_class_tags.py:51
 msgid "a few hours left"
 msgstr "остават няколко часа"
 
-#: adhocracy4/projects/utils.py:45
+#: adhocracy4/projects/utils.py:46
 msgid "{}. Online Participation"
 msgstr "{}. Онлайн Участие"
 
-#: adhocracy4/projects/utils.py:54
+#: adhocracy4/projects/utils.py:55
 msgid "Online Participation"
 msgstr "Онлайн Участие"
 
-#: adhocracy4/reports/templatetags/react_reports.py:29
+#: adhocracy4/reports/templatetags/react_reports.py:28
 msgid "Report"
 msgstr "Доклад"
 
@@ -2713,15 +2753,15 @@ msgstr "Северна Македония"
 msgid "Bulgarian"
 msgstr "Български"
 
-#: euth_wagtail/settings/base.py:436
+#: euth_wagtail/settings/base.py:440
 msgid "suggestion"
 msgstr "предположение"
 
-#: euth_wagtail/settings/base.py:437
+#: euth_wagtail/settings/base.py:441
 msgid "note"
 msgstr "забележка"
 
-#: euth_wagtail/settings/base.py:438
+#: euth_wagtail/settings/base.py:442
 msgid "question"
 msgstr "въпрос"
 
@@ -2876,8 +2916,8 @@ msgstr "Активирай акаунт"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Тази връзка за потвърждение по е-поща е изтекла или е невалидна. Моля те <a "
 "href=\"%(email_url)s\"> издаде е нова заявка за потвърждение на е-поща </a>."
@@ -3041,8 +3081,8 @@ msgstr "Вече имам акаунт,"
 #, python-format
 msgid ""
 "\n"
-"                        I accept the <a href=\"%(terms_of_use_url)s\" target="
-"\"blank\">terms of use</a>.\n"
+"                        I accept the <a href=\"%(terms_of_use_url)s\" "
+"target=\"blank\">terms of use</a>.\n"
 "                        "
 msgstr ""
 "\n"
@@ -3129,3 +3169,9 @@ msgstr "Изтегли насоки"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Съдържание"
+
+#~ msgid "Moderator feedback"
+#~ msgstr "Обратна връзка от Модератора"
+
+#~ msgid "Official Statement"
+#~ msgstr "Официално изявление"

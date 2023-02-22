@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-26 16:39+0200\n"
+"POT-Creation-Date: 2023-02-22 17:12+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
@@ -35,21 +35,21 @@ msgstr "Catégories/Etiquettes"
 msgid "Edit categories"
 msgstr "Modifier les catégories"
 
-#: adhocracy4/categories/fields.py:12
+#: adhocracy4/categories/fields.py:11
 #: adhocracy4/categories/filters.py:16
-#: adhocracy4/categories/forms.py:45
-#: adhocracy4/exports/mixins/items.py:14
+#: adhocracy4/categories/forms.py:43
+#: adhocracy4/exports/mixins/items.py:15
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:118
 #: euth/ideas/templates/euth_ideas/idea_form.html:81
 msgid "Category"
 msgstr "Etiquette"
 
-#: adhocracy4/categories/forms.py:38
+#: adhocracy4/categories/forms.py:37
 #: adhocracy4/labels/forms.py:14
 msgid "Category name"
 msgstr "Nom de la catégorie"
 
-#: adhocracy4/categories/forms.py:39
+#: adhocracy4/categories/forms.py:38
 msgid "Category icon"
 msgstr "Icône de catégorie"
 
@@ -67,14 +67,14 @@ msgstr ""
 msgid "Add category"
 msgstr "Ajouter une catégorie"
 
-#: adhocracy4/comments/models.py:54
-#: adhocracy4/polls/exports.py:41
+#: adhocracy4/comments/models.py:35
+#: adhocracy4/polls/exports.py:40
 msgctxt "noun"
 msgid "Comment"
 msgstr "Commentaire"
 
-#: adhocracy4/comments/models.py:55
-#: adhocracy4/exports/mixins/comments.py:46
+#: adhocracy4/comments/models.py:36
+#: adhocracy4/exports/mixins/comments.py:48
 #: euth/communitydebate/templates/euth_communitydebate/topic_detail.html:89
 #: euth/documents/templates/euth_documents/document_detail.html:35
 #: euth/documents/templates/euth_documents/paragraph_detail.html:23
@@ -84,25 +84,30 @@ msgstr "Commentaire"
 msgid "Comments"
 msgstr "Réactions"
 
-#: adhocracy4/comments/serializers.py:73
-#: adhocracy4/comments/serializers.py:175
+#: adhocracy4/comments/serializers.py:78
+#: adhocracy4/comments/serializers.py:178
 msgid "Please choose a category"
 msgstr "Veuillez choisir une catégorie"
 
-#: adhocracy4/comments/serializers.py:82
-#: adhocracy4/comments_async/serializers.py:97
+#: adhocracy4/comments/serializers.py:87
+#: adhocracy4/comments_async/serializers.py:92
 msgid "unknown user"
 msgstr "Utilisateur inconnu"
 
-#: adhocracy4/comments_async/serializers.py:17
+#: adhocracy4/comments_async/api.py:139
+#: adhocracy4/polls/api.py:115
+msgid "Please agree to the organisation's terms of use."
+msgstr ""
+
+#: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
 msgstr "Veuillez choisir une ou plusieurs catégories."
 
-#: adhocracy4/dashboard/components/forms/views.py:22
+#: adhocracy4/dashboard/components/forms/views.py:24
 msgid "The project has been updated."
 msgstr "Le projet a été mis à jour."
 
-#: adhocracy4/dashboard/components/forms/views.py:47
+#: adhocracy4/dashboard/components/forms/views.py:51
 msgid "The module has been updated."
 msgstr "Le module a été mis à jour."
 
@@ -170,7 +175,7 @@ msgid "Archived"
 msgstr "Archivé"
 
 #: adhocracy4/dashboard/filter.py:19
-#: adhocracy4/filters/widgets.py:32
+#: adhocracy4/filters/widgets.py:33
 msgid "All"
 msgstr "Tous"
 
@@ -183,20 +188,20 @@ msgstr "Non"
 msgid "Yes"
 msgstr "Oui"
 
-#: adhocracy4/dashboard/forms.py:76
+#: adhocracy4/dashboard/forms.py:79
 msgid "All users can participate (public)."
 msgstr "Tous les utilisateurs peuvent participer (processus public)."
 
-#: adhocracy4/dashboard/forms.py:78
+#: adhocracy4/dashboard/forms.py:82
 msgid "Only invited users can participate (private)."
 msgstr "Seuls les utilisateurs invités peuvent participer (processus privé)."
 
-#: adhocracy4/dashboard/forms.py:86
+#: adhocracy4/dashboard/forms.py:91
 #: euth/projects/templates/euth_projects/project_detail.html:110
 msgid "Contact for questions"
 msgstr "Contact pour des questions"
 
-#: adhocracy4/dashboard/forms.py:87
+#: adhocracy4/dashboard/forms.py:93
 msgid ""
 "Please name a contact person. The user will then know who is carrying out "
 "this project and to whom they can address possible questions. The contact "
@@ -207,29 +212,29 @@ msgstr ""
 "personne à contacter sera affichée dans l’onglet informations de la page du "
 "projet."
 
-#: adhocracy4/dashboard/forms.py:92
+#: adhocracy4/dashboard/forms.py:99
 msgid "More contact possibilities"
 msgstr "Plus de possibilités de contact"
 
-#: adhocracy4/dashboard/forms.py:134
-#: adhocracy4/phases/models.py:77
+#: adhocracy4/dashboard/forms.py:144
+#: adhocracy4/phases/models.py:66
 msgid "End date"
 msgstr "Date de fin"
 
-#: adhocracy4/dashboard/forms.py:134
+#: adhocracy4/dashboard/forms.py:144
 msgid "End time"
 msgstr "Heure de fin"
 
-#: adhocracy4/dashboard/forms.py:140
-#: adhocracy4/phases/models.py:75
+#: adhocracy4/dashboard/forms.py:150
+#: adhocracy4/phases/models.py:64
 msgid "Start date"
 msgstr "Date de début"
 
-#: adhocracy4/dashboard/forms.py:140
+#: adhocracy4/dashboard/forms.py:150
 msgid "Start time"
 msgstr "Heure de début"
 
-#: adhocracy4/dashboard/mixins.py:207
+#: adhocracy4/dashboard/mixins.py:209
 msgid "Project successfully duplicated."
 msgstr "Projet dupliqué avec succès."
 
@@ -386,110 +391,110 @@ msgstr "Dupliquer"
 msgid "We could not find any projects."
 msgstr "Nous n'avons trouvé aucun projet."
 
-#: adhocracy4/dashboard/views.py:69
+#: adhocracy4/dashboard/views.py:73
 msgid "Project successfully created."
 msgstr "Projet créé avec succès."
 
-#: adhocracy4/dashboard/views.py:154
+#: adhocracy4/dashboard/views.py:164
 msgid "Invalid action"
 msgstr "Action invalide"
 
-#: adhocracy4/dashboard/views.py:171
+#: adhocracy4/dashboard/views.py:181
 msgid "Project is already published"
 msgstr "Le projet est déjà publié"
 
-#: adhocracy4/dashboard/views.py:176
+#: adhocracy4/dashboard/views.py:186
 msgid "Project cannot be published. No module is added."
 msgstr "Le projet ne peut pas être publié. Aucun module n'est ajouté."
 
-#: adhocracy4/dashboard/views.py:191
+#: adhocracy4/dashboard/views.py:202
 msgid "Project cannot be published. Required fields are missing."
 msgstr ""
 "Le projet ne peut pas être publié. Les champs obligatoires sont manquants."
 
-#: adhocracy4/dashboard/views.py:200
+#: adhocracy4/dashboard/views.py:211
 msgid "Project cannot be published."
 msgstr "Le projet ne peut pas être publié."
 
-#: adhocracy4/dashboard/views.py:211
+#: adhocracy4/dashboard/views.py:221
 msgid "the project has been published."
 msgstr "le projet a été publié."
 
-#: adhocracy4/dashboard/views.py:216
+#: adhocracy4/dashboard/views.py:226
 msgid "Project is already unpublished"
 msgstr "Le projet est déjà inédit"
 
-#: adhocracy4/dashboard/views.py:225
+#: adhocracy4/dashboard/views.py:234
 msgid "the project has been unpublished."
 msgstr "le projet n'a pas été publié."
 
-#: adhocracy4/exports/mixins/comments.py:16
+#: adhocracy4/exports/mixins/comments.py:17
 msgid "Comment count"
 msgstr "compteur de commentaire"
 
-#: adhocracy4/exports/mixins/comments.py:77
+#: adhocracy4/exports/mixins/comments.py:80
 msgid "Reply to Comment"
 msgstr "Répondre à un commentaire"
 
-#: adhocracy4/exports/mixins/comments.py:95
+#: adhocracy4/exports/mixins/comments.py:99
 msgid "Reply to Reference"
 msgstr "Réponse à la référence"
 
-#: adhocracy4/exports/mixins/general.py:14
+#: adhocracy4/exports/mixins/general.py:15
 #: euth/exports/mixins.py:45
 msgid "Creator"
 msgstr "Créateur"
 
-#: adhocracy4/exports/mixins/general.py:16
-#: adhocracy4/polls/exports.py:42
+#: adhocracy4/exports/mixins/general.py:17
+#: adhocracy4/polls/exports.py:41
 #: euth/exports/mixins.py:47
 msgid "Created"
 msgstr "Créé"
 
-#: adhocracy4/exports/mixins/general.py:34
+#: adhocracy4/exports/mixins/general.py:36
 msgid "Link"
 msgstr "Lien "
 
-#: adhocracy4/exports/mixins/general.py:49
+#: adhocracy4/exports/mixins/general.py:52
 #: euth/exports/mixins.py:10
 msgid "Location (Longitude)"
 msgstr "Emplacement (Longitude)"
 
-#: adhocracy4/exports/mixins/general.py:51
+#: adhocracy4/exports/mixins/general.py:54
 #: euth/exports/mixins.py:12
 msgid "Location (Latitude)"
 msgstr "Emplacement (Latitude)"
 
-#: adhocracy4/exports/mixins/general.py:53
+#: adhocracy4/exports/mixins/general.py:56
 msgid "Location label"
 msgstr "Etiquette d'emplacement"
 
-#: adhocracy4/exports/mixins/items.py:29
+#: adhocracy4/exports/mixins/items.py:31
 #: adhocracy4/labels/dashboard.py:13
 msgid "Labels"
 msgstr "Étiquettes"
 
-#: adhocracy4/exports/mixins/items.py:46
+#: adhocracy4/exports/mixins/items.py:49
 msgid "Reference No."
 msgstr "Numéro de référence"
 
-#: adhocracy4/exports/mixins/items.py:65
-msgid "Moderator feedback"
-msgstr "Commentaires du modérateur"
+#: adhocracy4/exports/mixins/items.py:69
+msgid "Status"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:67
-msgid "Official Statement"
-msgstr "Déclaration officielle"
+#: adhocracy4/exports/mixins/items.py:71
+msgid "Feedback"
+msgstr ""
 
-#: adhocracy4/exports/mixins/items.py:89
+#: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
 msgstr "Remarque"
 
-#: adhocracy4/exports/mixins/rates.py:15
+#: adhocracy4/exports/mixins/rates.py:16
 msgid "Positive ratings"
 msgstr "Evaluations positives"
 
-#: adhocracy4/exports/mixins/rates.py:17
+#: adhocracy4/exports/mixins/rates.py:18
 msgid "Negative ratings"
 msgstr "Evaluation négative"
 
@@ -524,11 +529,11 @@ msgstr "ici vous pouvez exporter toutes les réponses"
 msgid "here you can export all comments"
 msgstr "ici vous pouvez exporter tous les commentaires"
 
-#: adhocracy4/filters/widgets.py:66
+#: adhocracy4/filters/widgets.py:76
 msgid "Ordering"
 msgstr "Commander"
 
-#: adhocracy4/forms/fields.py:18
+#: adhocracy4/forms/fields.py:19
 #, python-format
 msgid "Time of %(date_label)s"
 msgstr "Temps de %(date_label)s"
@@ -546,7 +551,7 @@ msgstr "Ce champ est requis"
 msgid "Remove category"
 msgstr "Supprimer la catégorie"
 
-#: adhocracy4/images/fields.py:71
+#: adhocracy4/images/fields.py:70
 #, python-brace-format
 msgid ""
 "{help_prefix} It must be min. {min_resolution[0]} pixel wide and "
@@ -557,12 +562,12 @@ msgstr ""
 "large et {min_resolution[1]} pixel de haut. Les formats acceptés sont "
 "{fileformats_str}. La taille maximal du fichier est de {max_size_mb} MB"
 
-#: adhocracy4/images/fields.py:91
+#: adhocracy4/images/fields.py:87
 #, python-brace-format
 msgid "{image_name} copyright"
 msgstr "{image_name} copyright"
 
-#: adhocracy4/images/fields.py:94
+#: adhocracy4/images/fields.py:90
 #, python-brace-format
 msgid "Copyright shown in the {image_name}."
 msgstr "Copyright s'appliquant à {image_name}."
@@ -588,34 +593,44 @@ msgstr ""
 "Votre image sera sauvegardée/supprimée une fois que vous aurez enregistrer "
 "les changements au bas de cette page."
 
-#: adhocracy4/images/validators.py:21
+#: adhocracy4/images/validators.py:26
 #: euth/contrib/validators.py:20
 msgid "Unsupported file format. Supported formats are {}."
 msgstr "Format non accepté. Les formats acceptés sont {}."
 
-#: adhocracy4/images/validators.py:28
+#: adhocracy4/images/validators.py:33
 #, python-brace-format
 msgid "Image should be at most {max_size} MB"
 msgstr "La taille maximale de l'image doit être de  {max_size}  MB"
 
-#: adhocracy4/images/validators.py:36
+#: adhocracy4/images/validators.py:41
 #, python-brace-format
 msgid "Image must be at least {min_width} pixels wide"
 msgstr "La largeur minimale de l'image doit être de {min_width}  pixels "
 
-#: adhocracy4/images/validators.py:44
+#: adhocracy4/images/validators.py:49
 #, python-brace-format
 msgid "Image must be at least {min_height} pixels high"
 msgstr "La hauteur minimale de l'image doit être de {min_height} pixels "
 
-#: adhocracy4/images/validators.py:54
+#: adhocracy4/images/validators.py:55
+#, python-brace-format
+msgid "Image must be at most {max_width} pixels wide"
+msgstr ""
+
+#: adhocracy4/images/validators.py:58
+#, python-brace-format
+msgid "Image must be at most {max_height} pixels high"
+msgstr ""
+
+#: adhocracy4/images/validators.py:67
 #, python-brace-format
 msgid "Image aspect ratio should be {aspect_width}:{aspect_height}"
 msgstr ""
 "Le rapport hauteur/largeur de l'image doit être de {aspect_width}:"
 "{aspect_height}"
 
-#: adhocracy4/images/widgets.py:25
+#: adhocracy4/images/widgets.py:28
 msgid "Select a picture from your local folder."
 msgstr "Choisir une photo à partir de vos fichiers"
 
@@ -623,7 +638,8 @@ msgstr "Choisir une photo à partir de vos fichiers"
 msgid "Edit labels"
 msgstr "éditer les étiquettes"
 
-#: adhocracy4/labels/forms.py:17
+#: adhocracy4/labels/filters.py:10
+#: adhocracy4/labels/forms.py:16
 msgid "Label"
 msgstr "Étiquette"
 
@@ -641,12 +657,12 @@ msgstr ""
 msgid "Add label"
 msgstr "Ajouter une étiquette"
 
-#: adhocracy4/maps/admin.py:14
+#: adhocracy4/maps/admin.py:15
 #: adhocracy4/maps/models.py:11
 msgid "Polygon"
 msgstr "Polygone"
 
-#: adhocracy4/maps/admin.py:16
+#: adhocracy4/maps/admin.py:19
 msgid ""
 "Enter a valid GeoJSON object. To initialize a new areasetting enter the "
 "string \"false\" without quotation marks."
@@ -654,27 +670,27 @@ msgstr ""
 "Entrez un objet GeoJSON valide. Pour initialiser un nouveau areasetting, "
 "entrez la chaîne \"false\" sans guillemets."
 
-#: adhocracy4/maps/fields.py:17
+#: adhocracy4/maps/fields.py:16
 msgid "Geometry as GeoJSON"
 msgstr "Géométrie par GeoJSON"
 
-#: adhocracy4/maps/fields.py:35
+#: adhocracy4/maps/fields.py:34
 msgid "Please add a Marker on the map"
 msgstr "Svp placez un repère sur la carte"
 
-#: adhocracy4/maps/fields.py:40
+#: adhocracy4/maps/fields.py:39
 msgid "Please draw a Polygon on the map"
 msgstr "Svp tracez un polygone sur la carte"
 
-#: adhocracy4/maps/models.py:12
+#: adhocracy4/maps/models.py:11
 msgid "Please draw an area on the map."
 msgstr "Veuillez dessiner une zone sur la carte."
 
-#: adhocracy4/modules/models.py:67
+#: adhocracy4/modules/models.py:74
 msgid "Title of the module"
 msgstr "Titre du module"
 
-#: adhocracy4/modules/models.py:68
+#: adhocracy4/modules/models.py:76
 msgid ""
 "This title will appear in the timeline and the header on the module and "
 "project detail pages. It should be max. 512 characters long"
@@ -682,11 +698,11 @@ msgstr ""
 "Ce titre apparaîtra dans la timeline et l'en-tête sur les pages de détails "
 "du module et du projet. Cela devrait être max. 512 caractères de long."
 
-#: adhocracy4/modules/models.py:76
+#: adhocracy4/modules/models.py:85
 msgid "Short description of the module"
 msgstr "Brève description du module"
 
-#: adhocracy4/modules/models.py:77
+#: adhocracy4/modules/models.py:87
 msgid ""
 "This short description will appear on the header of the module and project "
 "detail pages. It should briefly state the goal of the module in max. 512 "
@@ -696,101 +712,119 @@ msgstr ""
 "module et du projet. Il devrait indiquer brièvement l'objectif du module "
 "dans max. 512 caractères."
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "day"
 msgstr "jour"
 
-#: adhocracy4/modules/models.py:197
-#: adhocracy4/projects/models.py:593
+#: adhocracy4/modules/models.py:224
+#: adhocracy4/modules/models.py:231
 #: euth/projects/templatetags/time_delta_tags.py:16
 msgid "days"
 msgstr "jours"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hour"
 msgstr "heure"
 
-#: adhocracy4/modules/models.py:198
-#: adhocracy4/projects/models.py:594
+#: adhocracy4/modules/models.py:225
+#: adhocracy4/modules/models.py:232
 #: euth/projects/templatetags/time_delta_tags.py:17
 msgid "hours"
 msgstr "heures"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minute"
 msgstr "minute"
 
-#: adhocracy4/modules/models.py:199
-#: adhocracy4/projects/models.py:595
+#: adhocracy4/modules/models.py:226
+#: adhocracy4/modules/models.py:233
 #: euth/projects/templatetags/time_delta_tags.py:18
 msgid "minutes"
 msgstr "minutes"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/projects/models.py:596
+#: adhocracy4/modules/models.py:227
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "second"
 msgstr "seconde"
 
-#: adhocracy4/modules/models.py:200
-#: adhocracy4/modules/models.py:211
-#: adhocracy4/projects/models.py:596
-#: adhocracy4/projects/models.py:607
+#: adhocracy4/modules/models.py:227
+#: adhocracy4/modules/models.py:234
 #: euth/projects/templatetags/time_delta_tags.py:19
 msgid "seconds"
 msgstr "secondes"
 
-#: adhocracy4/phases/forms.py:23
+#: adhocracy4/modules/models.py:231
+msgctxt "abbreviation for day(s)"
+msgid "D"
+msgstr ""
+
+#: adhocracy4/modules/models.py:232
+msgctxt "abbreviation for hour(s)"
+msgid "H"
+msgstr ""
+
+#: adhocracy4/modules/models.py:233
+msgctxt "abbreviation for minute(s)"
+msgid "M"
+msgstr ""
+
+#: adhocracy4/modules/models.py:234
+msgctxt "abbreviation for second(s)"
+msgid "S"
+msgstr ""
+
+#: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
 msgstr ""
 "Les phases ne peuvent pas se dérouler en même temps et doivent se succéder."
 
-#: adhocracy4/phases/models.py:69
+#: adhocracy4/phases/forms.py:31
+msgid "Phases need to be in same order as in form."
+msgstr ""
+
+#: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:11
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:11
 msgid "Name"
 msgstr "Nom"
 
-#: adhocracy4/phases/models.py:71
+#: adhocracy4/phases/models.py:60
 #: euth/communitydebate/templates/euth_communitydebate/topic_form.html:58
 #: euth/ideas/templates/euth_ideas/idea_form.html:52
 #: euth/offlinephases/models.py:54
 msgid "Description"
 msgstr "Description"
 
-#: adhocracy4/phases/models.py:95
+#: adhocracy4/phases/models.py:84
 msgid "End date can not be before start date."
 msgstr "La date de fin ne peut pas être antérieure à la date de début."
 
-#: adhocracy4/phases/models.py:100
-#: adhocracy4/phases/models.py:104
+#: adhocracy4/phases/models.py:88
+#: adhocracy4/phases/models.py:92
 msgid "Either both or no date has to be set."
 msgstr "Soit les deux, soit aucune date ne doit être fixée."
 
-#: adhocracy4/polls/api.py:71
+#: adhocracy4/polls/api.py:155
 msgid "Please specify your answer."
 msgstr "Veuillez préciser votre réponse."
 
-#: adhocracy4/polls/api.py:88
+#: adhocracy4/polls/api.py:169
 msgid "Key error for {}"
 msgstr "Erreur de clé pour {}"
 
-#: adhocracy4/polls/api.py:90
+#: adhocracy4/polls/api.py:171
 msgid "Choice not found."
 msgstr "Choix non trouvé."
 
-#: adhocracy4/polls/api.py:98
+#: adhocracy4/polls/api.py:190
 msgid "Duplicate choices detected."
 msgstr "Des choix en double ont été détectés."
 
-#: adhocracy4/polls/api.py:101
+#: adhocracy4/polls/api.py:193
 msgid "Multiple choice disabled for question."
 msgstr "Choix multiple désactivé pour la question."
 
@@ -799,26 +833,26 @@ msgstr "Choix multiple désactivé pour la question."
 msgid "Poll"
 msgstr "Sondage"
 
-#: adhocracy4/polls/dashboard.py:42
+#: adhocracy4/polls/dashboard.py:44
 #: euth/exports/dashboard.py:14
 msgid "Export Excel"
 msgstr "Exporter Excel"
 
-#: adhocracy4/polls/exports.py:40
+#: adhocracy4/polls/exports.py:39
 msgid "ID"
 msgstr "ID"
 
-#: adhocracy4/polls/models.py:53
+#: adhocracy4/polls/models.py:41
 msgid "Explanation"
 msgstr "Explication"
 
-#: adhocracy4/polls/models.py:82
+#: adhocracy4/polls/models.py:68
 msgid "Questions with open answers cannot have multiple choices."
 msgstr ""
 "Les questions à réponses ouvertes ne peuvent pas comporter de choix "
 "multiples."
 
-#: adhocracy4/polls/models.py:87
+#: adhocracy4/polls/models.py:77
 msgid ""
 "Question with choices cannot become open question. Delete choices or add new "
 "open question."
@@ -826,36 +860,36 @@ msgstr ""
 "Une question avec des choix ne peut pas devenir une question ouverte. "
 "Supprimez les choix ou ajoutez une nouvelle question ouverte."
 
-#: adhocracy4/polls/models.py:152
-#: adhocracy4/polls/models.py:279
+#: adhocracy4/polls/models.py:140
+#: adhocracy4/polls/models.py:258
 msgid "Answer"
 msgstr "Répondre"
 
-#: adhocracy4/polls/models.py:164
+#: adhocracy4/polls/models.py:151
 msgid "Only open questions can have answers."
 msgstr "Seules les questions ouvertes peuvent avoir des réponses."
 
-#: adhocracy4/polls/models.py:201
+#: adhocracy4/polls/models.py:187
 msgid "Open questions cannot have choices."
 msgstr "Les questions ouvertes ne peuvent pas avoir de choix."
 
-#: adhocracy4/polls/models.py:206
+#: adhocracy4/polls/models.py:193
 msgid ""
 "\"Other\" cannot be the only choice. Use open question or add more choices."
 msgstr ""
 "\"Autre\" ne peut pas être le seul choix. Utilisez une question ouverte ou "
 "ajoutez d'autres choix."
 
-#: adhocracy4/polls/models.py:213
+#: adhocracy4/polls/models.py:204
 msgid "Question already has \"other\" choice."
 msgstr "La question comporte déjà le choix \"autre\"."
 
-#: adhocracy4/polls/models.py:285
+#: adhocracy4/polls/models.py:265
 msgid "Other vote can only be created for vote on \"other\" choice."
 msgstr ""
 "Un autre vote ne peut être créé que pour un vote sur un \"autre\" choix."
 
-#: adhocracy4/polls/models.py:306
+#: adhocracy4/polls/models.py:287
 msgid "other"
 msgstr "Autre"
 
@@ -864,12 +898,12 @@ msgctxt "A4: voting phase name"
 msgid "Voting phase"
 msgstr "Phase de vote"
 
-#: adhocracy4/polls/phases.py:19
+#: adhocracy4/polls/phases.py:18
 msgctxt "A4: voting phase description"
 msgid "Answer the questions and comment on the poll."
 msgstr "Répondez aux questions et commentez le sondage."
 
-#: adhocracy4/polls/phases.py:21
+#: adhocracy4/polls/phases.py:20
 msgid "polls"
 msgstr "scrutins"
 
@@ -891,16 +925,20 @@ msgstr ""
 msgid "Edit poll"
 msgstr "Modifier le sondage"
 
-#: adhocracy4/polls/validators.py:15
+#: adhocracy4/polls/validators.py:16
 #, python-format
 msgid "Item of type %(item)s for that module already exists"
 msgstr "L'élément de type %(item)s pour ce module existe déjà."
 
-#: adhocracy4/polls/validators.py:25
+#: adhocracy4/polls/validators.py:28
+msgid "Question has to belong to the poll set in the url."
+msgstr ""
+
+#: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
 msgstr "Le choix doit appartenir à la question posée dans l'url."
 
-#: adhocracy4/polls/validators.py:43
+#: adhocracy4/polls/validators.py:57
 msgid "Only one vote per choice is allowed per user."
 msgstr "Un seul vote par choix est autorisé par utilisateur."
 
@@ -909,20 +947,20 @@ msgstr "Un seul vote par choix est autorisé par utilisateur."
 msgid "Project"
 msgstr "Projet"
 
-#: adhocracy4/projects/admin.py:65
+#: adhocracy4/projects/admin.py:63
 msgid "Information and result"
 msgstr "Information et résultat"
 
-#: adhocracy4/projects/admin.py:68
+#: adhocracy4/projects/admin.py:69
 #: euth/organisations/templates/euth_organisations/organisation_form.html:4
 msgid "Settings"
 msgstr "Paramètres"
 
-#: adhocracy4/projects/admin.py:72
+#: adhocracy4/projects/admin.py:81
 msgid "Images"
 msgstr "Images"
 
-#: adhocracy4/projects/admin.py:77
+#: adhocracy4/projects/admin.py:93
 msgid "Contact"
 msgstr "Contact"
 
@@ -930,7 +968,7 @@ msgstr "Contact"
 msgid "public"
 msgstr "public"
 
-#: adhocracy4/projects/models.py:43
+#: adhocracy4/projects/models.py:42
 msgid ""
 "Phone numbers can only contain digits, spaces and the following characters: "
 "-, +, (, ). It has to be between 8 and 20 characters long."
@@ -943,7 +981,7 @@ msgstr ""
 msgid "Postal address"
 msgstr "adresse postale"
 
-#: adhocracy4/projects/models.py:54
+#: adhocracy4/projects/models.py:52
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_invite_form.html:12
 #: euth/memberships/templates/euth_memberships/includes/membership_request_form.html:12
@@ -953,24 +991,24 @@ msgstr "adresse postale"
 msgid "Email"
 msgstr "E-mail"
 
-#: adhocracy4/projects/models.py:60
+#: adhocracy4/projects/models.py:55
 msgid "Contact person"
 msgstr "Contact"
 
-#: adhocracy4/projects/models.py:67
+#: adhocracy4/projects/models.py:59
 msgid "Phone"
 msgstr "Téléphone"
 
-#: adhocracy4/projects/models.py:72
+#: adhocracy4/projects/models.py:62
 #: euth/projects/templates/euth_projects/project_detail.html:127
 msgid "Website"
 msgstr "Site Internet"
 
-#: adhocracy4/projects/models.py:83
+#: adhocracy4/projects/models.py:72
 msgid "Can your project be located on the map?"
 msgstr "Votre projet peut-il être situé sur la carte?"
 
-#: adhocracy4/projects/models.py:84
+#: adhocracy4/projects/models.py:74
 msgid ""
 "Locate your project. Click inside the marked area or type in an address to "
 "set the marker. A set marker can be dragged when pressed."
@@ -979,15 +1017,15 @@ msgstr ""
 "une adresse pour définir le marqueur. Un marqueur de jeu peut être déplacé "
 "lorsque vous appuyez dessus."
 
-#: adhocracy4/projects/models.py:95
+#: adhocracy4/projects/models.py:86
 msgid "Administrative district"
 msgstr "District administratif"
 
-#: adhocracy4/projects/models.py:179
+#: adhocracy4/projects/models.py:166
 msgid "Title of your project"
 msgstr "Titre de votre projet"
 
-#: adhocracy4/projects/models.py:180
+#: adhocracy4/projects/models.py:168
 msgid ""
 "This title will appear on the teaser card and on top of the project detail "
 "page. It should be max. 120 characters long"
@@ -995,22 +1033,22 @@ msgstr ""
 "Ce titre apparaitra sur la bannière et en haut de votre « page projet”. Il "
 "doit être de 120 carctères max. "
 
-#: adhocracy4/projects/models.py:196
+#: adhocracy4/projects/models.py:181
 msgid "Short description of your project"
 msgstr "Courte description de votre projet "
 
-#: adhocracy4/projects/models.py:197
+#: adhocracy4/projects/models.py:183
 msgid ""
 "This short description will appear on the header of the project and in the "
 "teaser. It should briefly state the goal of the project in max. 250 chars."
 msgstr ""
 "Cette description apparaitra dans la banière du projet. Max 250 caractères"
 
-#: adhocracy4/projects/models.py:205
+#: adhocracy4/projects/models.py:192
 msgid "Description of your project"
 msgstr "Courte description de votre projet"
 
-#: adhocracy4/projects/models.py:206
+#: adhocracy4/projects/models.py:194
 msgid ""
 "This description should tell participants what the goal of the project is, "
 "how the project’s participation will look like. It will be always visible in "
@@ -1020,11 +1058,11 @@ msgstr ""
 "consistera la participation. Elle sera toujours présente sur votre page sous "
 "l’onglet info. "
 
-#: adhocracy4/projects/models.py:214
+#: adhocracy4/projects/models.py:203
 msgid "Results of your project"
 msgstr "Résultats de votre projet"
 
-#: adhocracy4/projects/models.py:215
+#: adhocracy4/projects/models.py:205
 msgid ""
 "Here you should explain what the expected outcome of the project will be and "
 "how you are planning to use the results. If the project is finished you "
@@ -1034,34 +1072,34 @@ msgstr ""
 "et comment ils seront utilisés. Si le projet est achevé vous devriez ajouter "
 "un résumé des résultats. "
 
-#: adhocracy4/projects/models.py:223
+#: adhocracy4/projects/models.py:212
 msgid "Access to the project"
 msgstr "Accéder/aller au projet"
 
-#: adhocracy4/projects/models.py:228
-#: adhocracy4/projects/models.py:235
+#: adhocracy4/projects/models.py:217
+#: adhocracy4/projects/models.py:223
 #: euth/organisations/models.py:37
 msgid "Header image"
 msgstr "Image d'en-tête"
 
-#: adhocracy4/projects/models.py:230
+#: adhocracy4/projects/models.py:218
 msgid "The image will be shown as a decorative background image."
 msgstr "L'image constituera un arrière-plan décoratif"
 
-#: adhocracy4/projects/models.py:238
-#: adhocracy4/projects/models.py:246
+#: adhocracy4/projects/models.py:226
+#: adhocracy4/projects/models.py:232
 msgid "Tile image"
 msgstr "Image de tuile"
 
-#: adhocracy4/projects/models.py:240
+#: adhocracy4/projects/models.py:227
 msgid "The image will be shown in the project tile."
 msgstr "L'image sera affichée dans la vignette du projet."
 
-#: adhocracy4/projects/models.py:259
+#: adhocracy4/projects/models.py:245
 msgid "Project is archived"
 msgstr "Le projet est archivé"
 
-#: adhocracy4/projects/models.py:260
+#: adhocracy4/projects/models.py:247
 msgid ""
 "Archived projects are not shown in the project overview. For project "
 "initiators they are still visible in the dashboard."
@@ -1069,15 +1107,16 @@ msgstr ""
 "Les projets archivés n'apparaissent pas dans l'aperçu des projets. Pour les "
 "initiateurs de projets, ils sont toujours visibles dans le tableau de bord."
 
-#: adhocracy4/projects/models.py:265
+#: adhocracy4/projects/models.py:253
 msgid "Project topics"
 msgstr "Sujets de projet"
 
-#: adhocracy4/projects/models.py:266
+#: adhocracy4/projects/models.py:253
 msgid "Add topics to your project."
 msgstr "Ajoutez des sujets à votre projet."
 
 #: adhocracy4/projects/templatetags/project_tags.py:12
+#: euth/projects/templatetags/project_class_tags.py:44
 #, python-format
 msgid "%(number)d day left"
 msgid_plural "%(number)d days left"
@@ -1085,19 +1124,20 @@ msgstr[0] "%(number)d jour restant"
 msgstr[1] "%(number)d jours restants"
 msgstr[2] "%(number)d jours restants"
 
-#: adhocracy4/projects/templatetags/project_tags.py:19
+#: adhocracy4/projects/templatetags/project_tags.py:17
+#: euth/projects/templatetags/project_class_tags.py:51
 msgid "a few hours left"
 msgstr "Plus que quelques heures"
 
-#: adhocracy4/projects/utils.py:45
+#: adhocracy4/projects/utils.py:46
 msgid "{}. Online Participation"
 msgstr "{}. Participation en ligne"
 
-#: adhocracy4/projects/utils.py:54
+#: adhocracy4/projects/utils.py:55
 msgid "Online Participation"
 msgstr "Participation en ligne"
 
-#: adhocracy4/reports/templatetags/react_reports.py:29
+#: adhocracy4/reports/templatetags/react_reports.py:28
 msgid "Report"
 msgstr "Signaler"
 
@@ -2741,15 +2781,15 @@ msgstr "Macédonien"
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: euth_wagtail/settings/base.py:436
+#: euth_wagtail/settings/base.py:440
 msgid "suggestion"
 msgstr "suggestion"
 
-#: euth_wagtail/settings/base.py:437
+#: euth_wagtail/settings/base.py:441
 msgid "note"
 msgstr "note"
 
-#: euth_wagtail/settings/base.py:438
+#: euth_wagtail/settings/base.py:442
 msgid "question"
 msgstr "question"
 
@@ -2904,11 +2944,11 @@ msgstr "Activer mon compte"
 #: euth_wagtail/templates/account/email_confirm.html:31
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a href="
-"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"Ce lien de confirmation a expiré ou est invalide. Veuillez<a href="
-"\"%(email_url)s\"> demander un nouvel e-mail de confirmation</a>. "
+"Ce lien de confirmation a expiré ou est invalide. Veuillez<a "
+"href=\"%(email_url)s\"> demander un nouvel e-mail de confirmation</a>. "
 
 #: euth_wagtail/templates/account/includes/howto.html:4
 msgid "How can I register my organisation and start a project?"
@@ -3034,8 +3074,8 @@ msgid ""
 "a>."
 msgstr ""
 "Le lien de réinitialisation du mot de passe est invalide, il a probablement "
-"déjà été utilisé. Veuillez envoyer une demande pour <a href="
-"\"%(passwd_reset_url)s\">un nouveau lien de réinitialisation du mot de "
+"déjà été utilisé. Veuillez envoyer une demande pour <a "
+"href=\"%(passwd_reset_url)s\">un nouveau lien de réinitialisation du mot de "
 "passe</a>. "
 
 #: euth_wagtail/templates/account/password_reset_from_key.html:48
@@ -3071,8 +3111,8 @@ msgstr "J'ai déjà un compte, "
 #, python-format
 msgid ""
 "\n"
-"                        I accept the <a href=\"%(terms_of_use_url)s\" target="
-"\"blank\">terms of use</a>.\n"
+"                        I accept the <a href=\"%(terms_of_use_url)s\" "
+"target=\"blank\">terms of use</a>.\n"
 "                        "
 msgstr ""
 "\n"
@@ -3162,3 +3202,9 @@ msgstr "Instructions de téléchargement"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contenu"
+
+#~ msgid "Moderator feedback"
+#~ msgstr "Commentaires du modérateur"
+
+#~ msgid "Official Statement"
+#~ msgstr "Déclaration officielle"
