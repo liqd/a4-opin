@@ -5,7 +5,7 @@ git+https://github.com/liqd/adhocracy4.git@opin-v2302#egg=adhocracy4
 bcrypt==3.2.2
 brotli==1.0.9
 django-cloudflare-push==0.2.2
-django-countries==7.3.2
+django-countries==7.5.1
 django-sites==0.11
 django-parler==2.3
 feedparser==6.0.10
