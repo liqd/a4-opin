@@ -24,7 +24,7 @@ django-background-tasks==1.2.5
 django-ckeditor==6.5.1
 django-filter==21.1
 django-widget-tweaks==1.4.12
-djangorestframework==3.13.1
+djangorestframework==3.14.0
 psycopg2==2.9.5
 rules==3.3
 XlsxWriter==3.0.8
