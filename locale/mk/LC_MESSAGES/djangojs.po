@@ -10,16 +10,16 @@
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Lindenlaub, 2020
 # Marice Treneska <marice@sega.org.mk>, 2021
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -270,12 +270,12 @@ msgstr "Пријави"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Show moderator's feedback"
-msgstr ""
+msgstr "Прикажи ги повратните информации од модераторот"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid "Hide moderator's feedback"
-msgstr ""
+msgstr "Сокриј ги повратните информации од модераторот"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
@@ -373,7 +373,7 @@ msgstr "подредени по: "
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 msgid "Highlighted"
-msgstr ""
+msgstr "Истакнато"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
@@ -555,8 +555,8 @@ msgstr ""
 #: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
 msgid "person supports this proposal."
 msgid_plural "persons support this proposal."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "лице го поддржува овој предлог."
+msgstr[1] "лица го поддржуваат овој предлог."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
 #: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
@@ -576,12 +576,12 @@ msgstr "отстрани"
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 msgid " New Question"
-msgstr ""
+msgstr "Ново прашање"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 msgid "Multiple Choice question"
-msgstr ""
+msgstr "Прашање со повеќекратен избор"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
@@ -597,6 +597,8 @@ msgstr "Анкетата е ажурирана."
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
 msgid "The poll could not be updated. Please check the data you entered again."
 msgstr ""
+"Анкетата не можеше да се ажурира. Проверете ги податоците што ги внесовте "
+"повторно."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
@@ -686,6 +688,8 @@ msgstr "Вашиот одговор е зачуван."
 msgid ""
 "Your answer could not be saved. Please check the data you entered again."
 msgstr ""
+"Вашиот одговор не може да се зачува. Проверете ги податоците што ги внесовте "
+"повторно."
 
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
@@ -774,7 +778,7 @@ msgstr[1] "%sлуѓе одговорија."
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 msgid "no one has answered this question"
-msgstr ""
+msgstr "никој не одговорил на ова прашање"
 
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
@@ -784,12 +788,12 @@ msgstr "Твојот избор"
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 msgid "Click to vote up"
-msgstr ""
+msgstr "Кликнете за да гласате против"
 
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 msgid "Click to vote down"
-msgstr ""
+msgstr "Кликнете за да гласате против"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
@@ -811,10 +815,14 @@ msgid ""
 "Yes, I have read and agree to this organisation's %(linkStart)s terms of use "
 "%(linkEnd)s."
 msgstr ""
+"Да, прочитав и се согласувам со оваа организација%(linkStart)sусловите за "
+"користење%(linkEnd)s."
 
 #: adhocracy4/static/TermsOfUseCheckbox.jsx:6
 msgid "You can still manage all your preferences on User Agreements."
 msgstr ""
+"Сè уште можете да управувате со сите ваши преференции на Договорите за "
+"корисници."
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
@@ -872,6 +880,12 @@ msgstr "зачувај"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Отследи"
+
+#~ msgid "Show moderator's statement"
+#~ msgstr "Прикажи ја изјавата на модераторот"
+
+#~ msgid "Hide moderator's statement"
+#~ msgstr "Сокриј ја изјавата на модераторот"
 
 #~ msgid "The poll could not be updated."
 #~ msgstr "Анкетата не може да се ажурира."

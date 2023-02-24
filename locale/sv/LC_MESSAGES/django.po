@@ -9,16 +9,16 @@
 # Luca Thüer, 2018
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -96,7 +96,7 @@ msgstr "okänd användare"
 #: adhocracy4/comments_async/api.py:139
 #: adhocracy4/polls/api.py:115
 msgid "Please agree to the organisation's terms of use."
-msgstr ""
+msgstr "Godkänn organisationens användarvillkor."
 
 #: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
@@ -157,11 +157,11 @@ msgstr "Redigera faser information"
 
 #: adhocracy4/dashboard/dashboard.py:64
 msgid "Area settings"
-msgstr ""
+msgstr "Områdesinställningar"
 
 #: adhocracy4/dashboard/dashboard.py:65
 msgid "Edit area settings"
-msgstr ""
+msgstr "Redigera områdesinställningar"
 
 #: adhocracy4/dashboard/filter.py:11
 #: adhocracy4/filters/templates/a4filters/widgets/free_text_filter.html:15
@@ -477,11 +477,11 @@ msgstr "Referensnummer"
 
 #: adhocracy4/exports/mixins/items.py:69
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: adhocracy4/exports/mixins/items.py:71
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
@@ -501,32 +501,33 @@ msgstr "Negativa betyg"
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:47
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:59
 msgid "Export"
-msgstr ""
+msgstr "Exportera"
 
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:7
 msgid ""
 "You can export the results of your participation project as an excel file."
 msgstr ""
+"Du kan exportera resultaten av ditt deltagandeprojekt som en Excel-fil."
 
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:19
 msgid "here you can export all ideas"
-msgstr ""
+msgstr "Här kan du exportera alla idéer."
 
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:31
 msgid "here you can export all subjects"
-msgstr ""
+msgstr "Här kan du exportera alla ämnen."
 
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:43
 msgid "here you can export all answers"
-msgstr ""
+msgstr "Här kan du exportera alla svar."
 
 #: adhocracy4/exports/templates/a4exports/export_dashboard.html:55
 msgid "here you can export all comments"
-msgstr ""
+msgstr "Här kan du exportera alla kommentarer."
 
 #: adhocracy4/filters/widgets.py:76
 msgid "Ordering"
-msgstr ""
+msgstr "Beställning av"
 
 #: adhocracy4/forms/fields.py:19
 #, python-format
@@ -611,12 +612,12 @@ msgstr "Bilden måste vara minst {min_height} pixlar hög"
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr ""
+msgstr "Bilden får vara högst{max_width}pixlar bred"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr ""
+msgstr "Bilden måste vara minst {max_height} pixlar hög"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
@@ -751,22 +752,22 @@ msgstr "sekunder"
 #: adhocracy4/modules/models.py:231
 msgctxt "abbreviation for day(s)"
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #: adhocracy4/modules/models.py:232
 msgctxt "abbreviation for hour(s)"
 msgid "H"
-msgstr ""
+msgstr "H"
 
 #: adhocracy4/modules/models.py:233
 msgctxt "abbreviation for minute(s)"
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #: adhocracy4/modules/models.py:234
 msgctxt "abbreviation for second(s)"
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
@@ -774,7 +775,7 @@ msgstr "Faser kan inte köras samtidigt och måste följa efter varandra."
 
 #: adhocracy4/phases/forms.py:31
 msgid "Phases need to be in same order as in form."
-msgstr ""
+msgstr "Faserna måste vara i samma ordning som i formuläret."
 
 #: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -831,7 +832,7 @@ msgstr "Exportera Excel"
 
 #: adhocracy4/polls/exports.py:39
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: adhocracy4/polls/models.py:41
 msgid "Explanation"
@@ -919,7 +920,7 @@ msgstr "Typ av typ %(item)s för den modulen finns redan"
 
 #: adhocracy4/polls/validators.py:28
 msgid "Question has to belong to the poll set in the url."
-msgstr ""
+msgstr "Frågan måste tillhöra den omröstning som anges i webbadressen."
 
 #: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
@@ -1442,6 +1443,8 @@ msgid ""
 "Run customizable, multi-step polls on OPIN to get detailed opinions on "
 "topics from the public or your members."
 msgstr ""
+"Kör anpassningsbara omröstningar i flera steg på OPIN för att få detaljerade "
+"åsikter om ämnen från allmänheten eller dina medlemmar."
 
 #: euth/blueprints/blueprints.py:333
 msgid "Community debate"
@@ -1646,11 +1649,11 @@ msgstr "Veta Mer"
 
 #: euth/captcha/fields.py:37 euth/captcha/fields.py:45
 msgid "Something about the answer to the captcha was wrong."
-msgstr ""
+msgstr "Något i svaret på captcha-symbolen var fel."
 
 #: euth/captcha/fields.py:50
 msgid "Your answer to the captcha was wrong."
-msgstr ""
+msgstr "Ditt svar på captcha var fel."
 
 #: euth/communitydebate/filters.py:11 euth/ideas/filters.py:10
 #: euth/organisations/filters.py:11 euth/projects/filters.py:10
@@ -1906,7 +1909,7 @@ msgstr "Moderatorer skapar för närvarande ett dokument."
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html:5
 msgid "Add a comment"
-msgstr ""
+msgstr "Lägg till en kommentar"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"
@@ -2742,7 +2745,7 @@ msgstr "Makedonska"
 
 #: euth_wagtail/settings/base.py:288
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgariska"
 
 #: euth_wagtail/settings/base.py:440
 msgid "suggestion"
@@ -3062,7 +3065,7 @@ msgstr "Registrera ett konto"
 
 #: euth_wagtail/templates/account/signup.html:12
 msgid "Register"
-msgstr ""
+msgstr "Registrera"
 
 #: euth_wagtail/templates/account/signup.html:14
 msgid "I already have an account, "

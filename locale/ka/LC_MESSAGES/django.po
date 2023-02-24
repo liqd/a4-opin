@@ -9,17 +9,17 @@
 # Luca Thüer, 2018
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 # David Jinjikhadze <david.jinjikhadze@gmail.com>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: David Jinjikhadze <david.jinjikhadze@gmail.com>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Georgian (https://www.transifex.com/liqd/teams/68346/ka/)\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "უცნობი მომხმარებელი"
 #: adhocracy4/comments_async/api.py:139
 #: adhocracy4/polls/api.py:115
 msgid "Please agree to the organisation's terms of use."
-msgstr ""
+msgstr "გთხოვთ დაეთანხმოთ ორგანიზაციის გამოყენების პირობებს."
 
 #: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
@@ -478,11 +478,11 @@ msgstr "მინიჭებული ნომერი"
 
 #: adhocracy4/exports/mixins/items.py:69
 msgid "Status"
-msgstr ""
+msgstr "სტატუსი"
 
 #: adhocracy4/exports/mixins/items.py:71
 msgid "Feedback"
-msgstr ""
+msgstr "უკუკავშირი"
 
 #: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
@@ -614,12 +614,12 @@ msgstr "სურათი უნდა იყოს მინიმუმ {min_
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr ""
+msgstr "სურათი უნდა იყოს მაქსიმუმ{max_width}პიქსელების სიგანე"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr ""
+msgstr "სურათი უნდა იყოს მაქსიმუმ{max_height}პიქსელი მაღალი"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
@@ -753,22 +753,22 @@ msgstr "წამები"
 #: adhocracy4/modules/models.py:231
 msgctxt "abbreviation for day(s)"
 msgid "D"
-msgstr ""
+msgstr "დ"
 
 #: adhocracy4/modules/models.py:232
 msgctxt "abbreviation for hour(s)"
 msgid "H"
-msgstr ""
+msgstr "ჰ"
 
 #: adhocracy4/modules/models.py:233
 msgctxt "abbreviation for minute(s)"
 msgid "M"
-msgstr ""
+msgstr "მ"
 
 #: adhocracy4/modules/models.py:234
 msgctxt "abbreviation for second(s)"
 msgid "S"
-msgstr ""
+msgstr "ს"
 
 #: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
@@ -776,7 +776,7 @@ msgstr "თითოეული ფაზა უნდა იწყებოდ
 
 #: adhocracy4/phases/forms.py:31
 msgid "Phases need to be in same order as in form."
-msgstr ""
+msgstr "ფაზები უნდა იყოს იმავე თანმიმდევრობით, როგორც ფორმაში."
 
 #: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -919,7 +919,7 @@ msgstr "ამ მოდულისთვის %(item)s (ელემენტ
 
 #: adhocracy4/polls/validators.py:28
 msgid "Question has to belong to the poll set in the url."
-msgstr ""
+msgstr "შეკითხვა უნდა ეკუთვნოდეს url-ში დაყენებულ გამოკითხვას."
 
 #: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."

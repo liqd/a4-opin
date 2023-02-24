@@ -10,16 +10,16 @@
 # Philipp Munck <p.munck+1@liqd.net>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Marice Treneska <marice@sega.org.mk>, 2021
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "непознат корисник"
 #: adhocracy4/comments_async/api.py:139
 #: adhocracy4/polls/api.py:115
 msgid "Please agree to the organisation's terms of use."
-msgstr ""
+msgstr "Ве молиме, согласете се со условите за користење на организацијата."
 
 #: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
@@ -478,11 +478,11 @@ msgstr "Референтен број"
 
 #: adhocracy4/exports/mixins/items.py:69
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: adhocracy4/exports/mixins/items.py:71
 msgid "Feedback"
-msgstr ""
+msgstr "Повратни информации"
 
 #: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
@@ -615,12 +615,12 @@ msgstr "Сликата мора да биде најмалку {min_height} пи
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr ""
+msgstr "Image must be at most{max_width}pixels wide"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr ""
+msgstr "Сликата мора да биде најмногу{max_height}pixels high"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
@@ -757,22 +757,22 @@ msgstr "секунди"
 #: adhocracy4/modules/models.py:231
 msgctxt "abbreviation for day(s)"
 msgid "D"
-msgstr ""
+msgstr "г"
 
 #: adhocracy4/modules/models.py:232
 msgctxt "abbreviation for hour(s)"
 msgid "H"
-msgstr ""
+msgstr "Х"
 
 #: adhocracy4/modules/models.py:233
 msgctxt "abbreviation for minute(s)"
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #: adhocracy4/modules/models.py:234
 msgctxt "abbreviation for second(s)"
 msgid "S"
-msgstr ""
+msgstr "С"
 
 #: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
@@ -781,7 +781,7 @@ msgstr ""
 
 #: adhocracy4/phases/forms.py:31
 msgid "Phases need to be in same order as in form."
-msgstr ""
+msgstr "Фазите треба да бидат по ист редослед како во формата."
 
 #: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -926,7 +926,7 @@ msgstr "Веќе постои елемент од %(item)s s за тој мод�
 
 #: adhocracy4/polls/validators.py:28
 msgid "Question has to belong to the poll set in the url."
-msgstr ""
+msgstr "Прашањето мора да припаѓа на анкетата поставена во URL-то."
 
 #: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
@@ -1922,7 +1922,7 @@ msgstr "Модераторите во моментот креираат доку
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html:5
 msgid "Add a comment"
-msgstr ""
+msgstr "Додај коментар"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"

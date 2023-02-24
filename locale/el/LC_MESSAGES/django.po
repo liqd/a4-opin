@@ -6,16 +6,16 @@
 # Translators:
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +93,7 @@ msgstr "Αγνωστος χρήστης"
 #: adhocracy4/comments_async/api.py:139
 #: adhocracy4/polls/api.py:115
 msgid "Please agree to the organisation's terms of use."
-msgstr ""
+msgstr "Συμφωνήστε με τους όρους χρήσης του οργανισμού."
 
 #: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
@@ -476,11 +476,11 @@ msgstr "Αριθμός αναφοράς."
 
 #: adhocracy4/exports/mixins/items.py:69
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 #: adhocracy4/exports/mixins/items.py:71
 msgid "Feedback"
-msgstr ""
+msgstr "Ανατροφοδότηση"
 
 #: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
@@ -614,12 +614,12 @@ msgstr "Η εικόνα πρέπει να είναι τουλάχιστον {min
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr ""
+msgstr "Η εικόνα πρέπει να είναι το πολύ {max_width}πλάτος pixel"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr ""
+msgstr "Η εικόνα πρέπει να είναι το πολύ{max_height}pixels ύψος"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
@@ -759,22 +759,22 @@ msgstr "δευτερολέπτων"
 #: adhocracy4/modules/models.py:231
 msgctxt "abbreviation for day(s)"
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #: adhocracy4/modules/models.py:232
 msgctxt "abbreviation for hour(s)"
 msgid "H"
-msgstr ""
+msgstr "H"
 
 #: adhocracy4/modules/models.py:233
 msgctxt "abbreviation for minute(s)"
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #: adhocracy4/modules/models.py:234
 msgctxt "abbreviation for second(s)"
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
@@ -784,7 +784,7 @@ msgstr ""
 
 #: adhocracy4/phases/forms.py:31
 msgid "Phases need to be in same order as in form."
-msgstr ""
+msgstr "Οι φάσεις πρέπει να είναι με την ίδια σειρά όπως στο έντυπο."
 
 #: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -932,7 +932,7 @@ msgstr "Υπάρχει ήδη %(item)s στοιχείο στοιχείου γι�
 
 #: adhocracy4/polls/validators.py:28
 msgid "Question has to belong to the poll set in the url."
-msgstr ""
+msgstr "Η ερώτηση πρέπει να ανήκει στη δημοσκόπηση που έχει οριστεί στο url."
 
 #: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
@@ -1930,7 +1930,7 @@ msgstr "Οι συντονιστές δημιουργούν ένα έγγραφο
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html:5
 msgid "Add a comment"
-msgstr ""
+msgstr "Προσθέστε ένα σχόλιο"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"

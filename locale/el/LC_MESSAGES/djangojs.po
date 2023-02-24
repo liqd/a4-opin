@@ -8,16 +8,16 @@
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Lindenlaub, 2020
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/liqd/teams/68346/el/)\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -267,12 +267,12 @@ msgstr "Κανω ΑΝΑΦΟΡΑ"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Show moderator's feedback"
-msgstr ""
+msgstr "Εμφάνιση των σχολίων του συντονιστή"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid "Hide moderator's feedback"
-msgstr ""
+msgstr "Απόκρυψη των σχολίων του συντονιστή"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
@@ -370,7 +370,7 @@ msgstr "Ταξινόμηση κατά"
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 msgid "Highlighted"
-msgstr ""
+msgstr "Επισημαίνεται"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
@@ -554,8 +554,8 @@ msgstr ""
 #: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
 msgid "person supports this proposal."
 msgid_plural "persons support this proposal."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "υποστηρίζει την πρόταση αυτή."
+msgstr[1] "υποστηρίζουν την πρόταση αυτή."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
 #: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
@@ -575,12 +575,12 @@ msgstr "αφαιρώ"
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 msgid " New Question"
-msgstr ""
+msgstr "Νέα ερώτηση"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 msgid "Multiple Choice question"
-msgstr ""
+msgstr "Ερώτηση πολλαπλής επιλογής"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
@@ -596,6 +596,8 @@ msgstr "Η δημοσκόπηση έχει ενημερωθεί."
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
 msgid "The poll could not be updated. Please check the data you entered again."
 msgstr ""
+"Η δημοσκόπηση δεν μπορούσε να ενημερωθεί. Παρακαλούμε ελέγξτε ξανά τα "
+"δεδομένα που καταχωρήσατε."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
@@ -686,6 +688,8 @@ msgstr "Η απάντησή σας έχει αποθηκευτεί."
 msgid ""
 "Your answer could not be saved. Please check the data you entered again."
 msgstr ""
+"Η απάντησή σας δεν θα μπορούσε να σωθεί. Ελέγξτε ξανά τα δεδομένα που "
+"καταχωρήσατε."
 
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
@@ -774,7 +778,7 @@ msgstr[1] "%sοι άνθρωποι απάντησαν."
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 msgid "no one has answered this question"
-msgstr ""
+msgstr "κανείς δεν έχει απαντήσει σε αυτό το ερώτημα"
 
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
@@ -784,12 +788,12 @@ msgstr "Επιλογή σου"
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 msgid "Click to vote up"
-msgstr ""
+msgstr "Κάντε κλικ για να ψηφίσετε"
 
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 msgid "Click to vote down"
-msgstr ""
+msgstr "Κάντε κλικ για να μειώσετε την ψήφο σας"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
@@ -811,10 +815,14 @@ msgid ""
 "Yes, I have read and agree to this organisation's %(linkStart)s terms of use "
 "%(linkEnd)s."
 msgstr ""
+"Ναι, έχω διαβάσει και συμφωνώ με τους όρους αυτού του οργανισμού."
+"%(linkStart)sόροι χρήσης%(linkEnd)s."
 
 #: adhocracy4/static/TermsOfUseCheckbox.jsx:6
 msgid "You can still manage all your preferences on User Agreements."
 msgstr ""
+"Μπορείτε ακόμα να διαχειριστείτε όλες τις προτιμήσεις σας στις Συμφωνίες "
+"χρήστη."
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
@@ -872,6 +880,12 @@ msgstr "αποθηκεύσετε"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Απαγορεύεται η παρακολούθηση"
+
+#~ msgid "Show moderator's statement"
+#~ msgstr "Εμφάνιση της δήλωσης του συντονιστή"
+
+#~ msgid "Hide moderator's statement"
+#~ msgstr "Απόκρυψη της δήλωσης του συντονιστή"
 
 #~ msgid "The poll could not be updated."
 #~ msgstr "Η δημοσκόπηση δεν ήταν δυνατή η ενημέρωση."

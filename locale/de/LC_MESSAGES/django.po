@@ -9,17 +9,17 @@
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Schmid, 2021
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
 # Sabina Mollenhauer, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
-"Last-Translator: Sabina Mollenhauer, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: German (https://www.transifex.com/liqd/teams/68346/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "unbekannte*r Nutzer*in"
 #: adhocracy4/comments_async/api.py:139
 #: adhocracy4/polls/api.py:115
 msgid "Please agree to the organisation's terms of use."
-msgstr ""
+msgstr "Bitte stimme den Nutzungsbedingungen der Organisation zu."
 
 #: adhocracy4/comments_async/serializers.py:15
 msgid "Please choose one or more categories."
@@ -479,11 +479,11 @@ msgstr "Referenz-Nr."
 
 #: adhocracy4/exports/mixins/items.py:69
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: adhocracy4/exports/mixins/items.py:71
 msgid "Feedback"
-msgstr ""
+msgstr "Rückmeldung"
 
 #: adhocracy4/exports/mixins/items.py:95
 msgid "Remark"
@@ -615,12 +615,12 @@ msgstr "Das Bild muss mindestens {min_height} Pixel hoch sein."
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr ""
+msgstr "Das Bild darf höchstens{max_width}Pixel breit sein"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr ""
+msgstr "Das Bild darf höchstens{max_height}Pixel hoch sein"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
@@ -759,22 +759,22 @@ msgstr "Sekunden"
 #: adhocracy4/modules/models.py:231
 msgctxt "abbreviation for day(s)"
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #: adhocracy4/modules/models.py:232
 msgctxt "abbreviation for hour(s)"
 msgid "H"
-msgstr ""
+msgstr "H"
 
 #: adhocracy4/modules/models.py:233
 msgctxt "abbreviation for minute(s)"
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #: adhocracy4/modules/models.py:234
 msgctxt "abbreviation for second(s)"
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: adhocracy4/phases/forms.py:24
 msgid "Phases cannot run at the same time and must follow after each other."
@@ -784,6 +784,7 @@ msgstr ""
 #: adhocracy4/phases/forms.py:31
 msgid "Phases need to be in same order as in form."
 msgstr ""
+"Die Phasen müssen in der gleichen Reihenfolge wie im Formular angegeben sein."
 
 #: adhocracy4/phases/models.py:59
 #: euth/memberships/templates/euth_memberships/includes/member_form.html:11
@@ -931,7 +932,7 @@ msgstr "Item vom Typ %(item)s für dieses Modul existiert bereits"
 
 #: adhocracy4/polls/validators.py:28
 msgid "Question has to belong to the poll set in the url."
-msgstr ""
+msgstr "Die Frage muss zu der in der Url angegebenen Umfrage gehören."
 
 #: adhocracy4/polls/validators.py:39
 msgid "Choice has to belong to the question set in the url."
@@ -1926,7 +1927,7 @@ msgstr "Die Moderator*innen erstellen gerade ein Dokument."
 
 #: euth/documents/templates/euth_documents/paragraph_detail.html:5
 msgid "Add a comment"
-msgstr ""
+msgstr "Einen Kommentar hinzufügen"
 
 #: euth/documents/validators.py:14
 msgid "Document for that module already exists"

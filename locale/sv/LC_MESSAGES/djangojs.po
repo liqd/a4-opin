@@ -10,16 +10,16 @@
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Lindenlaub, 2020
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2021
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2021\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Swedish (https://www.transifex.com/liqd/teams/68346/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -109,14 +109,14 @@ msgstr "Senast ändrad"
 #: adhocracy4/comments/static/comments/Comment.jsx:109
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:32
 msgid "Deleted by creator on"
-msgstr ""
+msgstr "Radat av skaparen den"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:111
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 #: adhocracy4/comments/static/comments/Comment.jsx:111
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:33
 msgid "Deleted by moderator on"
-msgstr ""
+msgstr "Radat av moderatorn den"
 
 #: adhocracy4/comments/static/comments/Comment.jsx:152
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:29
@@ -269,36 +269,36 @@ msgstr "Rapportera"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Show moderator's feedback"
-msgstr ""
+msgstr "Visa moderatorns feedback"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid "Hide moderator's feedback"
-msgstr ""
+msgstr "Dölj moderatorns feedback"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
 msgid "Blocked by moderator on"
-msgstr ""
+msgstr "Blockerad av moderator på"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:37
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:37
 msgid "hide replies"
-msgstr ""
+msgstr "dölja svaren"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:38
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:38
 msgctxt "verb"
 msgid "Reply"
-msgstr ""
+msgstr "Svara"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:47
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:47
 #, javascript-format
 msgid "1 reply"
 msgid_plural "%s replies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 svar"
+msgstr[1] "%s svar"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:15
@@ -372,7 +372,7 @@ msgstr "sorterat efter:"
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 msgid "Highlighted"
-msgstr ""
+msgstr "Uppmärksammat"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
@@ -395,7 +395,7 @@ msgstr[1] "poster hittade för"
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:8
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:11
 msgid "Your comment"
-msgstr ""
+msgstr "Din kommentar"
 
 #: adhocracy4/comments_async/static/comments_async/comment_category_edit_form.jsx:10
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
@@ -404,7 +404,7 @@ msgstr ""
 #: adhocracy4/comments_async/static/comments_async/comment_edit_form.jsx:9
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:12
 msgid "Your reply"
-msgstr ""
+msgstr "Ditt svar"
 
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
 #: adhocracy4/comments_async/static/comments_async/comment_form.jsx:13
@@ -465,17 +465,17 @@ msgstr "Följer"
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:87
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:87
 msgid "No matches found within the project area"
-msgstr ""
+msgstr "Inga matcher hittades inom projektområdet."
 
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:90
 #: adhocracy4/maps/static/a4maps/a4maps_address.js:90
 msgid "Did you mean:"
-msgstr ""
+msgstr "Menade du:"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:70
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:70
 msgid "Export polygon as GeoJSON"
-msgstr ""
+msgstr "Exportera polygon som GeoJSON"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:71
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:81
@@ -484,7 +484,7 @@ msgstr ""
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:81
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:93
 msgid "Import polygon via file upload"
-msgstr ""
+msgstr "Importera polygon via filuppladdning"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:88
 #: adhocracy4/static/Alert.jsx:6
@@ -497,61 +497,67 @@ msgstr "Stänga"
 msgid ""
 "Upload a polygon from a GeoJSON (.geojson) or a zipped Shapefile (.zip)."
 msgstr ""
+"Ladda upp en polygon från en GeoJSON (.geojson) eller en zippad Shapefile (."
+"zip)."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:96
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:96
 msgid ""
 "Note that uploading Shapefiles is not supported with Internet Explorer 10"
 msgstr ""
+"Observera att uppladdning av Shapefiler inte stöds av Internet Explorer 10."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:97
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:97
 msgid "Attention importing a file will delete the existing polygons."
 msgstr ""
+"Om du är uppmärksam på att importera en fil raderas de befintliga "
+"polygonerna."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:102
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:102
 msgid "Upload"
-msgstr ""
+msgstr "Ladda upp"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:110
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:110
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:148
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:145
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:148
 msgid "The uploaded file is not a valid shapefile."
-msgstr ""
+msgstr "Den uppladdade filen är inte en giltig shapefile."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:150
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:150
 msgid "The uploaded file could not be imported."
-msgstr ""
+msgstr "Den uppladdade filen kunde inte importeras."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:164
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:164
 msgid "The uploaded file is not a valid geojson file."
-msgstr ""
+msgstr "Den uppladdade filen är inte en giltig geojson-fil."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:169
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:169
 msgid "Invalid file format."
-msgstr ""
+msgstr "Invalid file format."
 
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:286
 #: adhocracy4/maps/static/a4maps/a4maps_choose_polygon_with_preset.js:286
 msgid "Do you want to load this preset and delete all the existing polygons?"
 msgstr ""
+"Vill du ladda den här förinställningen och radera alla befintliga polygoner?"
 
 #: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
 #: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
 msgid "person supports this proposal."
 msgid_plural "persons support this proposal."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "person stöder detta förslag."
+msgstr[1] "personer stöder detta förslag."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
 #: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
@@ -571,12 +577,12 @@ msgstr "avlägsna"
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 msgid " New Question"
-msgstr ""
+msgstr "Ny fråga"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 msgid "Multiple Choice question"
-msgstr ""
+msgstr "Fråga med flera valmöjligheter"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
@@ -592,6 +598,7 @@ msgstr "Undersökningen har uppdaterats."
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
 msgid "The poll could not be updated. Please check the data you entered again."
 msgstr ""
+"Omröstningen kunde inte uppdateras. Kontrollera de uppgifter du angett igen."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
@@ -679,7 +686,7 @@ msgstr "Ditt svar har sparats."
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:22
 msgid ""
 "Your answer could not be saved. Please check the data you entered again."
-msgstr ""
+msgstr "Ditt svar kunde inte sparas. Kontrollera de uppgifter du angett igen."
 
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
 #: adhocracy4/polls/static/PollDetail/PollQuestions.jsx:28
@@ -766,7 +773,7 @@ msgstr[1] "%smänniskor har svarat."
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 msgid "no one has answered this question"
-msgstr ""
+msgstr "Ingen har svarat på denna fråga."
 
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
@@ -776,12 +783,12 @@ msgstr "Ditt val"
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 msgid "Click to vote up"
-msgstr ""
+msgstr "Klicka för att rösta upp"
 
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 msgid "Click to vote down"
-msgstr ""
+msgstr "Klicka för att rösta ner"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
@@ -803,10 +810,13 @@ msgid ""
 "Yes, I have read and agree to this organisation's %(linkStart)s terms of use "
 "%(linkEnd)s."
 msgstr ""
+"Ja, jag har läst och godkänner organisationens "
+"%(linkStart)sAnvändarvillkor%(linkEnd)s."
 
 #: adhocracy4/static/TermsOfUseCheckbox.jsx:6
 msgid "You can still manage all your preferences on User Agreements."
 msgstr ""
+"Du kan fortfarande hantera alla dina inställningar under Användaravtal."
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
@@ -814,15 +824,15 @@ msgstr "Sätta alla värden för ditt projekt."
 
 #: euth/captcha/assets/captcheck.js:29
 msgid "Image mode"
-msgstr ""
+msgstr "Bildläge"
 
 #: euth/captcha/assets/captcheck.js:30
 msgid "Text mode"
-msgstr ""
+msgstr "Textläge"
 
 #: euth/captcha/assets/captcheck.js:31
 msgid "Switch between image and text question"
-msgstr ""
+msgstr "Växla mellan bild- och textfrågor"
 
 #: euth/communitydebate/static/js/fileupload_formset.js:32
 msgid "Maximum number of upload documents reached."
@@ -864,6 +874,12 @@ msgstr "spara"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Avfölj"
+
+#~ msgid "Show moderator's statement"
+#~ msgstr "Visa moderatorns uttalande"
+
+#~ msgid "Hide moderator's statement"
+#~ msgstr "Dölj moderatorns uttalande"
 
 #~ msgid "The poll could not be updated."
 #~ msgstr "Undersökningen kunde inte uppdateras."
