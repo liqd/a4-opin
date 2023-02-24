@@ -10,16 +10,16 @@
 # SabineJulia <sabine.lebek@liqd.de>, 2018
 # Gereon Rahnfeld <gereon.rahnfeld@liqd.de>, 2019
 # Katharina Lindenlaub, 2020
-# Katharina Matzkeit <k.matzkeit@liqd.net>, 2022
+# Katharina Matzkeit <k.matzkeit@liqd.net>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-22 17:12+0100\n"
+"POT-Creation-Date: 2023-02-24 09:10+0100\n"
 "PO-Revision-Date: 2016-10-19 13:43+0000\n"
-"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2022\n"
+"Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: French (https://www.transifex.com/liqd/teams/68346/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -273,12 +273,12 @@ msgstr "Rapport"
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:27
 msgid "Show moderator's feedback"
-msgstr ""
+msgstr "Afficher les commentaires du modérateur"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:28
 msgid "Hide moderator's feedback"
-msgstr ""
+msgstr "Cacher les commentaires du modérateur"
 
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
 #: adhocracy4/comments_async/static/comments_async/comment.jsx:34
@@ -377,7 +377,7 @@ msgstr "Classer par"
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:71
 msgid "Highlighted"
-msgstr ""
+msgstr "Surligné"
 
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
 #: adhocracy4/comments_async/static/comments_async/comment_box.jsx:100
@@ -564,9 +564,9 @@ msgstr ""
 #: adhocracy4/maps/static/a4maps/a4maps_display_points.js:100
 msgid "person supports this proposal."
 msgid_plural "persons support this proposal."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "personne soutient cette proposition."
+msgstr[1] "personnes soutiennent cette proposition."
+msgstr[2] "personnes soutiennent cette proposition."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollChoice.jsx:9
 #: adhocracy4/polls/static/PollDashboard/EditPollQuestion.jsx:70
@@ -586,12 +586,12 @@ msgstr "ôter"
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:5
 msgid " New Question"
-msgstr ""
+msgstr "Nouvelle question"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:6
 msgid "Multiple Choice question"
-msgstr ""
+msgstr "Question à choix multiple"
 
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
 #: adhocracy4/polls/static/PollDashboard/EditPollDropdown.jsx:7
@@ -607,6 +607,8 @@ msgstr "Le sondage a été mis à jour."
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:195
 msgid "The poll could not be updated. Please check the data you entered again."
 msgstr ""
+"Le sondage n'a pas pu être mis à jour. Veuillez vérifier à nouveau les "
+"données que vous avez saisies."
 
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
 #: adhocracy4/polls/static/PollDashboard/EditPollManagement.jsx:262
@@ -788,7 +790,7 @@ msgstr[2] "%sles gens ont répondu."
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:78
 msgid "no one has answered this question"
-msgstr ""
+msgstr "personne n'a répondu à cette question"
 
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
 #: adhocracy4/polls/static/PollDetail/PollResults.jsx:108
@@ -798,12 +800,12 @@ msgstr "Votre choix"
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:9
 msgid "Click to vote up"
-msgstr ""
+msgstr "Cliquez pour voter vers le haut"
 
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 #: adhocracy4/ratings/static/ratings/react_ratings.jsx:10
 msgid "Click to vote down"
-msgstr ""
+msgstr "Cliquez pour voter contre"
 
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
 #: adhocracy4/reports/static/reports/ReportModal.jsx:55
@@ -825,10 +827,14 @@ msgid ""
 "Yes, I have read and agree to this organisation's %(linkStart)s terms of use "
 "%(linkEnd)s."
 msgstr ""
+"Oui, j'ai lu et j'accepte le règlement de cette organisation."
+"%(linkStart)sconditions d'utilisation%(linkEnd)s."
 
 #: adhocracy4/static/TermsOfUseCheckbox.jsx:6
 msgid "You can still manage all your preferences on User Agreements."
 msgstr ""
+"Vous pouvez toujours gérer toutes vos préférences sur les accords "
+"d'utilisation."
 
 #: euth/blueprints/static/euth_blueprintsuggest/js/blueprintsuggest.js:76
 msgid "Please set all values for your project."
@@ -886,6 +892,12 @@ msgstr "Enregistrer"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Se désabonner"
+
+#~ msgid "Show moderator's statement"
+#~ msgstr "Afficher la déclaration du modérateur"
+
+#~ msgid "Hide moderator's statement"
+#~ msgstr "Cacher la déclaration du modérateur"
 
 #~ msgid "The poll could not be updated."
 #~ msgstr "Le sondage n'a pas pu être mis à jour."
