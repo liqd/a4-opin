@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 09:10+0100\n"
+"POT-Creation-Date: 2023-02-27 09:24+0100\n"
 "PO-Revision-Date: 2016-10-19 13:42+0000\n"
 "Last-Translator: Katharina Matzkeit <k.matzkeit@liqd.net>, 2023\n"
 "Language-Team: Macedonian (https://www.transifex.com/liqd/teams/68346/mk/)\n"
@@ -615,12 +615,12 @@ msgstr "Сликата мора да биде најмалку {min_height} пи
 #: adhocracy4/images/validators.py:55
 #, python-brace-format
 msgid "Image must be at most {max_width} pixels wide"
-msgstr "Image must be at most{max_width}pixels wide"
+msgstr "Image must be at most{max_width}широки пиксели"
 
 #: adhocracy4/images/validators.py:58
 #, python-brace-format
 msgid "Image must be at most {max_height} pixels high"
-msgstr "Сликата мора да биде најмногу{max_height}pixels high"
+msgstr "Сликата мора да биде најмногу{max_height}пиксели високи"
 
 #: adhocracy4/images/validators.py:67
 #, python-brace-format
