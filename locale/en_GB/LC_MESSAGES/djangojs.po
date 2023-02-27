@@ -685,21 +685,3 @@ msgstr "save"
 #: euth/follows/static/follows/FollowButton.jsx:48
 msgid "Unfollow"
 msgstr "Unfollow"
-
-#~ msgid "Show moderator's statement"
-#~ msgstr "Show moderator's statement"
-
-#~ msgid "Hide moderator's statement"
-#~ msgstr "Hide moderator's statement"
-
-#~ msgid "The poll could not be updated."
-#~ msgstr "The poll could not be updated."
-
-#~ msgid "New question"
-#~ msgstr "New question"
-
-#~ msgid "Multiple choice question"
-#~ msgstr "Multiple choice question"
-
-#~ msgid "noone has answered this question"
-#~ msgstr "noone has answered this question"
