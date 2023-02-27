@@ -3124,9 +3124,3 @@ msgstr "Download guidelines"
 #: home/templates/home/manuals_section_page.html:38
 msgid "Contents"
 msgstr "Contents"
-
-#~ msgid "Moderator feedback"
-#~ msgstr "Moderator feedback"
-
-#~ msgid "Official Statement"
-#~ msgstr "Official Statement"
