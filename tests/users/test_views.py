@@ -7,7 +7,8 @@ from django.core import mail
 from django.urls import reverse
 
 from euth.users import models
-from tests.helpers import redirect_target
+
+# from tests.helpers import redirect_target
 
 User = auth.get_user_model()
 
@@ -56,113 +57,116 @@ def test_logout_with_next(user, client, logout_url):
     assert '_auth_user_id' not in client.session
 
 
-@pytest.mark.django_db
-def test_register(client, signup_url):
-    assert EmailAddress.objects.count() == 0
-    email = 'testuser@liqd.de'
-    response = client.post(
-        signup_url, {
-            'username': 'testuser',
-            'email': email,
-            'password1': 'password',
-            'password2': 'password',
-            'terms_of_use': 'on',
-            'captcha': 'testpass:0',
-        }
-    )
-    assert response.status_code == 302
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    assert len(mail.outbox) == 1
-    confirmation_url = re.search(
-        r'(http://testserver/.*/)',
-        str(mail.outbox[0].body)
-    ).group(0)
-
-    confirm_email_response = client.get(confirmation_url)
-    assert confirm_email_response.status_code == 200
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    confirm_email_response = client.post(confirmation_url)
-    assert confirm_email_response.status_code == 302
-    assert EmailAddress.objects.filter(
-        email=email, verified=True
-    ).count() == 1
-
-
-@pytest.mark.django_db
-def test_register_with_next(client, signup_url):
-    assert EmailAddress.objects.count() == 0
-    email = 'testuser2@liqd.de'
-    response = client.post(
-        signup_url, {
-            'username': 'testuser2',
-            'email': email,
-            'password1': 'password',
-            'password2': 'password',
-            'terms_of_use': 'on',
-            'next': '/en/projects/pppp/',
-            'captcha': 'testpass:0',
-        }
-    )
-    assert response.status_code == 302
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    assert len(mail.outbox) == 1
-    confirmation_url = re.search(
-        r'(http://testserver/.*/?next=/en/projects/pppp/)',
-        str(mail.outbox[0].body)
-    ).group(0)
-    confirm_email_response = client.get(confirmation_url)
-    assert confirm_email_response.status_code == 200
-    assert EmailAddress.objects.filter(
-        email=email, verified=False
-    ).count() == 1
-    confirm_email_response = client.post(confirmation_url)
-    assert confirm_email_response.status_code == 302
-    assert redirect_target(confirm_email_response) == "project-detail"
-    assert EmailAddress.objects.filter(
-        email=email, verified=True
-    ).count() == 1
+# @pytest.mark.django_db
+# def test_register(client, signup_url):
+#     assert EmailAddress.objects.count() == 0
+#     email = 'testuser@liqd.de'
+#     response = client.post(
+#         signup_url, {
+#             'username': 'testuser',
+#             'email': email,
+#             'password1': 'password',
+#             'password2': 'password',
+#             'terms_of_use': 'on',
+#             'captcha': 'testpass:0',
+#         }
+#     )
+#     assert response.status_code == 302
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=False
+#     ).count() == 1
+#     assert len(mail.outbox) == 1
+#     confirmation_url = re.search(
+#         r'(http://testserver/.*/)',
+#         str(mail.outbox[0].body)
+#     ).group(0)
+#     confirm_email_response = client.get(confirmation_url)
+#     assert confirm_email_response.status_code == 200
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=False
+#     ).count() == 1
+#     confirm_email_response = client.post(confirmation_url)
+#     assert confirm_email_response.status_code == 302
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=True
+#     ).count() == 1
 
 
-@pytest.mark.django_db
-def test_reregister_same_username(client, signup_url):
-    assert EmailAddress.objects.count() == 0
-    data = {
-        'username': 'testuser3',
-        'email': 'testuser3@liqd.de',
-        'password1': 'password',
-        'password2': 'password',
-        'terms_of_use': 'on',
-        'captcha': 'testpass:0',
-    }
-    response = client.post(signup_url, data)
-    assert response.status_code == 302
-    assert EmailAddress.objects.count() == 1
-    data['email'] = 'anotheremail@liqd.de'
-    response = client.post(signup_url, data)
-    assert response.status_code == 302
-    assert EmailAddress.objects.count() == 1
+# @pytest.mark.django_db
+# def test_register_with_next(client, signup_url):
+#     assert EmailAddress.objects.count() == 0
+#     email = 'testuser2@liqd.de'
+#     response = client.post(
+#         signup_url, {
+#             'username': 'testuser2',
+#             'email': email,
+#             'password1': 'password',
+#             'password2': 'password',
+#             'terms_of_use': 'on',
+#             'next': '/en/projects/pppp/',
+#             'captcha': 'testpass:0',
+#         }
+#     )
+#     assert response.status_code == 302
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=False
+#     ).count() == 1
+#     assert len(mail.outbox) == 1
+#     confirmation_url = re.search(
+#         r'(http://testserver/.*/?next=/en/projects/pppp/)',
+#         str(mail.outbox[0].body)
+#     ).group(0)
+#     confirm_email_response = client.get(confirmation_url)
+#     assert confirm_email_response.status_code == 200
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=False
+#     ).count() == 1
+#     confirm_email_response = client.post(confirmation_url)
+#     assert confirm_email_response.status_code == 302
+#     assert redirect_target(confirm_email_response) == "project-detail"
+#     assert EmailAddress.objects.filter(
+#         email=email, verified=True
+#     ).count() == 1
+
+
+# @pytest.mark.django_db
+# def test_reregister_same_username(client, signup_url):
+#     assert EmailAddress.objects.count() == 0
+#     data = {
+#         'username': 'testuser3',
+#         'email': 'testuser3@liqd.de',
+#         'password1': 'password',
+#         'password2': 'password',
+#         'terms_of_use': 'on',
+#         'captcha': 'testpass:0',
+#     }
+#     response = client.post(signup_url, data)
+#     assert response.status_code == 302
+#     assert EmailAddress.objects.count() == 1
+#     data['email'] = 'anotheremail@liqd.de'
+#     response = client.post(signup_url, data)
+#     assert response.status_code == 302
+#     assert EmailAddress.objects.count() == 1
 
 
 @pytest.mark.django_db
 def test_register_invalid(client, signup_url):
+    # check registration is disabled
+    # uncomment wrong password if registration is enabled
     username = 'testuser4'
     response = client.post(
         signup_url + '?next=/', {
             'username': username,
             'email': 'testuser4@liqd.de',
             'password1': 'password',
-            'password2': 'wrong_password',
+            'password2': 'password',
+            # 'password2': 'wrong_password',
             'terms_of_use': 'on'
         }
     )
     assert response.status_code == 200
     assert models.User.objects.filter(username=username).count() == 0
+    assert EmailAddress.objects.count() == 0
 
 
 @pytest.mark.django_db
