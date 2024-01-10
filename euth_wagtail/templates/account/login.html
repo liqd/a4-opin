@@ -14,12 +14,13 @@
             <div class="general-form">
                 <div class="form-inner pt-3 pt-md-5">
                     <h1>{% trans "Login" %}</h1>
-                    <p>
+<!--                    <p>
                         {% trans "I do not have an account, " %}
                         <a href="{% url 'account_signup' %}?next={{redirect_field_value|urlencode}}">
                             {% trans "register" %}
                         </a>
                     </p>
+-->
                     <form role="form" name="LoginForm" action="{% url 'account_login' %}" method="post" >
                         {% csrf_token %}
 
@@ -79,7 +80,8 @@
         {% endif %}
     </div>
     <div class="account__container--right">
-        {% include 'account/includes/howto.html' %}
+<!--        {% include 'account/includes/howto.html' %}
+-->
     </div>
 </div>
 {% endblock %}
