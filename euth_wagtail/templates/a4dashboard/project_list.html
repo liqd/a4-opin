@@ -6,11 +6,13 @@
 {% block project_list %}
     <div class="dashboard-content-header">
         <h1 class="dashboard-content-left dashboard-content-heading">{% trans 'Projects' %}</h1>
+        {% if user.is_superuser %}
         <div class="dashboard-content-right">
             <a href="{% url 'a4dashboard:blueprint-list' organisation_slug=view.organisation.slug %}" class="btn btn-primary">
                 {% trans 'New Project' %}
             </a>
         </div>
+	{% endif %}
     </div>
 
     {% if project_list|length > 0 %}

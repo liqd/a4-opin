@@ -44,8 +44,7 @@ def test_initiator_list_projects(client, project):
         'organisation_slug': project.organisation.slug,
     })
     response = client.get(url)
-    assert response.status_code == 200
-    assert project in list(response.context_data['project_list']) == [project]
+    assert response.status_code == 403
 
 
 @pytest.mark.django_db
@@ -57,17 +56,8 @@ def test_initiator_create_project(client, organisation):
         'blueprint_slug': 'brainstorming'
     })
     response = client.get(url)
-    assert response.status_code == 200
-
-    response = client.post(url, {
-        'name': 'Project name',
-        'description': 'Project info'
-    })
-    assert response.status_code == 302
-    assert redirect_target(response) == 'project-edit'
-    project = organisation.project_set.first()
-    assert project.is_draft
-    assert project.name == 'Project name'
+    # only admins can create new projects
+    assert response.status_code == 403
 
 
 @pytest.mark.django_db
@@ -317,22 +307,15 @@ def test_dashboard_organisation_delete_language(client, organisation):
         organisation.save()
 
 
-'''
 @pytest.mark.django_db
 def test_dashboard_blueprint(client, organisation):
-    from euth.blueprints.blueprints import blueprints
+    user = organisation.initiators.first()
+    client.login(username=user.email, password='password')
     url = reverse('a4dashboard:blueprint-list', kwargs={
         'organisation_slug': organisation.slug
     })
-    user = organisation.initiators.first()
     response = client.get(url)
-    assert response.status_code == 302
-    assert redirect_target(response) == 'account_login'
-    client.login(username=user.email, password='password')
-    response = client.get(url)
-    assert response.status_code == 200
-    assert response.context_data['view'].blueprints == blueprints
-'''
+    assert response.status_code == 403
 
 
 @pytest.mark.django_db

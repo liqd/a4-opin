@@ -20,7 +20,9 @@
         <ul class="dashboard-header-tabs nav nav-tabs float-end" role="tablist">
          {% url 'a4dashboard:organisation-edit' organisation_slug=view.organisation.slug as organisation_edit_url %}
             <li role="presentation" class="dashboard-header-tab {% if not request.get_full_path == organisation_edit_url %} active {% endif %}">
+		{% if request.user.is_superuser %}
                 <a href="{% url 'a4dashboard:project-list' organisation_slug=view.organisation.slug %}" class="nav-link dashboard-header-link" aria-controls="projects" role="presentation" >{% trans 'Projects' %}</a>
+		{% endif %}
             </li>
             <li role="presentation" class="dashboard-header-tab {% if request.get_full_path == organisation_edit_url %} active {% endif %}">
                 <a href="{{ organisation_edit_url }}" class="nav-link dashboard-header-link" aria-controls="organisation" role="presentation" >{% trans 'Organisation' %}</a>

@@ -16,7 +16,11 @@
         <ul class="dropdown-menu" aria-labelledby="dLabel">
             {% for organisation in orgs %}
                 <li>
+                    {% if user.is_superuser %}
                     <a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}" class="dropdown-item">{{ organisation.name }}</a>
+                    {% else %}
+                    <a href="{% url 'a4dashboard:organisation-edit' organisation_slug=organisation.slug %}" class="dropdown-item">{{ organisation.name }}</a>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>

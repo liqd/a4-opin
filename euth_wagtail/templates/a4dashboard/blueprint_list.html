@@ -1,29 +1,31 @@
 {% extends "a4dashboard/base_dashboard.html" %}
 {% load i18n static %}
 
-{% block title %}{% trans "New Project" %} &mdash; {{ block.super }}{% endblock%}
+{% if user.is_superuser %}
+{% block title %}{% translate "New Project" %} &mdash; {{ block.super }}{% endblock%}
+{% endif %}
 
 {% block dashboard_content %}
 <div class="container dashboard-content row">
     <div class="col-md-10 offset-md-1">
         <h1 class="dashboard-content-heading">
-            {% trans "What kind of project would you like to create?" %}
+            {% translate "What kind of project would you like to create?" %}
         </h1>
 
         <div class="blueprint-list">
 
             <div class="dst-tile">
                 <img src="{% static 'images/placeholder_transparent.png' %}" alt="Decision support tool">
-                <h2 class="sans-serif h4">{% trans 'Not sure which template?' %}</h2>
+                <h2 class="sans-serif h4">{% translate 'Not sure which template?' %}</h2>
                 <div class="dst-description">
-                    <h3 class="h5">{% trans "Try the Decision Support Tool (DST)!" %}</h3>
-                    {% trans "In just three minutes you'll find out which process suits your needs. It's easy." %}
+                    <h3 class="h5">{% translate "Try the Decision Support Tool (DST)!" %}</h3>
+                    {% translate "In just three minutes you'll find out which process suits your needs. It's easy." %}
                 </div>
 
                 <div class="dst-footer">
                     <a href="{% url 'blueprints-form' organisation_slug=view.organisation.slug %}"
                        class="btn btn-primary">
-                        {% trans 'Choose template'%}
+                        {% translate 'Choose template'%}
                     </a>
                 </div>
             </div>
@@ -46,10 +48,10 @@
                 <div class="blueprint-footer">
                     <a href="{% url 'a4dashboard:project-create' organisation_slug=view.organisation.slug blueprint_slug=blueprint_slug %}"
                        class="btn btn-primary">
-                        {% trans 'use this template' %}
+                        {% translate 'use this template' %}
                     </a>
 
-                    <button class="btn-link" type="button" data-bs-toggle="modal" data-bs-target="#dst-infopage-{{ blueprint_slug }}">{% trans 'Learn More' %}</button>
+                    <button class="btn-link" type="button" data-bs-toggle="modal" data-bs-target="#dst-infopage-{{ blueprint_slug }}">{% translate 'Learn More' %}</button>
                 </div>
 
                 {% include 'euth_blueprints/includes/infopage.html'%}
