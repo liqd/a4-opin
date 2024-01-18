@@ -1,8 +1,8 @@
 {% load i18n thumbnail avatar %}
 
 <ul class="nav navbar-nav navbar-right ms-sm-auto user-indicator order-sm-2" id="user-indicator">
-    <li class="dropdown">
     {% if request.user.is_authenticated %}
+    <li class="dropdown">
         <div class="btngroup btngroup-primary ms-sm-3">
             <a href="{% url 'profile' request.user.username %}" class="btn userindicator-profile">
                 <span class="circled circled-xs" style="background-image: url({% get_avatar request.user 'org_avatar_small' %});"></span>
@@ -43,17 +43,8 @@
             </ul>
         </div>
     {% else %}
-        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="inner">{% trans "Login"%}<i class="fa fa-caret-down ps-1" aria-hidden="true"></i></span>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="{% url 'account_login' %}?next={{ redirect_field_value|urlencode }}" class="dropdown-item">{% trans "login" %}</a>
-            </li>
-<!--           <li>
-                <a href="{% url 'account_signup' %}?next={{ redirect_field_value|urlencode }}" class="dropdown-item">{% trans "register" %}</a>
-            </li>
--->
-        </ul>
-    {% endif %}
+    <li class="nav-item">
+        <a href="{% url 'account_login' %}?next={{ redirect_field_value|urlencode }}" class="nav-link px-3">{% trans "login" %}</a>
     </li>
+    {% endif %}
 </ul>
