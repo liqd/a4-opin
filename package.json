@@ -27,7 +27,7 @@
     "react-markdown": "8.0.4",
     "react-router-dom": "6.8.2",
     "react-slick": "0.29.0",
-    "sass": "1.58.3",
+    "sass": "1.72.0",
     "sass-loader": "13.2.0",
     "slick-carousel": "git+https://github.com/liqd/slick#pm-2019-07-overwrites",
     "typeahead.js": "0.11.1"
