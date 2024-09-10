@@ -23,7 +23,6 @@ from adhocracy4.polls.api import PollViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
-from euth.blueprints import urls as blueprints_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
@@ -74,7 +73,6 @@ urlpatterns += i18n_patterns(
     path('profile/', include(user_urls)),
     path('orgs/', include(organisations_urls)),
     path('projects/', include(project_urls)),
-    path('blueprints/', include(blueprints_urls)),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     re_path(r'^sitemap\.xml$', wagtail_sitemap_views.index,
             {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
