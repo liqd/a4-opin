@@ -27,8 +27,6 @@ from euth.blueprints import urls as blueprints_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
-from euth.memberships import projects_urls as memberships_project_urls
-from euth.memberships import urls as memberships_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as project_urls
 from euth.projects.api import ProjectViewSet
@@ -76,8 +74,6 @@ urlpatterns += i18n_patterns(
     path('profile/', include(user_urls)),
     path('orgs/', include(organisations_urls)),
     path('projects/', include(project_urls)),
-    path('projects/', include(memberships_project_urls)),
-    path('memberships/', include(memberships_urls)),
     path('blueprints/', include(blueprints_urls)),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     re_path(r'^sitemap\.xml$', wagtail_sitemap_views.index,
