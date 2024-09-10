@@ -89,7 +89,6 @@ INSTALLED_APPS = [
     'euth.users',
     'euth.actions',
     'euth.organisations',
-    'euth.projects',
     'euth.ideas',
     'euth.dashboard',
     'euth.accounts',

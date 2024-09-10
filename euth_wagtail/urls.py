@@ -27,8 +27,6 @@ from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
 from euth.organisations import urls as organisations_urls
-from euth.projects import urls as project_urls
-from euth.projects.api import ProjectViewSet
 from euth.users import urls as user_urls
 from euth.users.api import UserViewSet
 
@@ -37,7 +35,6 @@ from . import urls_accounts
 router = routers.DefaultRouter()
 router.register(r'polls', PollViewSet, basename='polls')
 router.register(r'reports', ReportViewSet, basename='reports')
-router.register(r'projects', ProjectViewSet, basename='projects')
 router.register(r'users', UserViewSet, basename='users')
 
 ct_router = a4routers.ContentTypeDefaultRouter()
@@ -72,7 +69,6 @@ urlpatterns += i18n_patterns(
     path('dashboard/', include(dashboard_urls)),
     path('profile/', include(user_urls)),
     path('orgs/', include(organisations_urls)),
-    path('projects/', include(project_urls)),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     re_path(r'^sitemap\.xml$', wagtail_sitemap_views.index,
             {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
