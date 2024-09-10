@@ -85,21 +85,11 @@ INSTALLED_APPS = [
     'adhocracy4.dashboard',
     'adhocracy4.polls',
     'adhocracy4.organisations',
-
     'euth.users',
-    'euth.actions',
     'euth.organisations',
-    'euth.ideas',
-    'euth.dashboard',
     'euth.accounts',
-    'euth.memberships',
-    'euth.documents',
-    'euth.offlinephases',
-    'euth.maps',
-    'euth.follows',
     'euth.captcha',
     'euth.contrib',
-    'euth.communitydebate'
 ]
 
 MIDDLEWARE = [
