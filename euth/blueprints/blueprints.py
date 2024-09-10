@@ -5,7 +5,6 @@ from enum import unique
 from django.utils.translation import gettext_lazy as _
 
 from adhocracy4.polls import phases as poll_phases
-from euth.documents import phases as documents_phases
 from euth.ideas import phases as ideas_phases
 from euth.maps import phases as map_phases
 
@@ -286,27 +285,6 @@ blueprints = [
          complexity=COMPLEXITY_VECTOR_AC,
          type=BlueprintNames.agenda_setting.name
      )),
-    (BlueprintNames.commenting_text.value,
-     Blueprint(
-         title=_('Text Review'),
-         description=_('Let participants discuss individual paragraphs of a '
-                       'text. This is ideal for discussing position papers or '
-                       'a mission statements with many people.'),
-         content=[
-             documents_phases.CreateDocumentPhase(),
-             documents_phases.CommentPhase(),
-         ],
-         image='images/text_review.png',
-         settings_model=None,
-         requirements=Requirements(
-             aims=[Aim.work_document],
-             results=None,
-             experience=None,
-             motivation=None
-         ),
-         complexity=COMPLEXITY_VECTOR_F,
-         type=BlueprintNames.commenting_text.name
-     )),
     (BlueprintNames.a4_poll.value,
      Blueprint(
          title=_('Poll'),
@@ -337,5 +315,4 @@ fallbacks = {
     Aim.design_place: BlueprintNames.map_brainstorming.value,
     Aim.run_survey: BlueprintNames.a4_poll.value,
     Aim.run_competition: BlueprintNames.agenda_setting.value,
-    Aim.work_document: BlueprintNames.commenting_text.value,
 }
