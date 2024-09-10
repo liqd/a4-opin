@@ -35,7 +35,6 @@ from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
 from euth.memberships import urls as memberships_urls
-from euth.offlinephases import urls as offlinephases_urls
 from euth.organisations import urls as organisations_urls
 from euth.projects import urls as project_urls
 from euth.projects.api import ProjectViewSet
@@ -87,7 +86,6 @@ urlpatterns += i18n_patterns(
     path('projects/', include(project_urls)),
     path('projects/', include(memberships_project_urls)),
     path('paragraphs/', include(paragraph_urls)),
-    path('offlineevents/', include(offlinephases_urls)),
     path('ideas/', include(ideas_urls)),
     path('maps/', include(maps_urls)),
     path('memberships/', include(memberships_urls)),
