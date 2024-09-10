@@ -27,8 +27,6 @@ from euth.blueprints import urls as blueprints_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
-from euth.documents import urls as paragraph_urls
-from euth.documents.api import DocumentViewSet
 from euth.follows.api import FollowViewSet
 from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
@@ -54,7 +52,6 @@ ct_router.register(r'comments', CommentViewSet, basename='comments')
 ct_router.register(r'ratings', RatingViewSet, basename='ratings')
 
 module_router = a4routers.ModuleDefaultRouter()
-module_router.register(r'documents', DocumentViewSet, basename='documents')
 
 sitemaps = {
     'adhocracy4': Adhocracy4Sitemap,
@@ -84,7 +81,6 @@ urlpatterns += i18n_patterns(
     path('orgs/', include(organisations_urls)),
     path('projects/', include(project_urls)),
     path('projects/', include(memberships_project_urls)),
-    path('paragraphs/', include(paragraph_urls)),
     path('ideas/', include(ideas_urls)),
     path('maps/', include(maps_urls)),
     path('memberships/', include(memberships_urls)),
