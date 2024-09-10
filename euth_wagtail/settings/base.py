@@ -95,7 +95,6 @@ INSTALLED_APPS = [
     'euth.accounts',
     'euth.memberships',
     'euth.documents',
-    'euth.exports',
     'euth.offlinephases',
     'euth.maps',
     'euth.follows',
