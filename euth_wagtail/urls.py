@@ -27,7 +27,6 @@ from euth.blueprints import urls as blueprints_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
-from euth.follows.api import FollowViewSet
 from euth.ideas import urls as ideas_urls
 from euth.maps import urls as maps_urls
 from euth.memberships import projects_urls as memberships_project_urls
@@ -41,7 +40,6 @@ from euth.users.api import UserViewSet
 from . import urls_accounts
 
 router = routers.DefaultRouter()
-router.register(r'follows', FollowViewSet, basename='follows')
 router.register(r'polls', PollViewSet, basename='polls')
 router.register(r'reports', ReportViewSet, basename='reports')
 router.register(r'projects', ProjectViewSet, basename='projects')
