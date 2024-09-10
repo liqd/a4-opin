@@ -25,8 +25,6 @@ from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
-from euth.dashboard import urls as dashboard_urls
-from euth.organisations import urls as organisations_urls
 
 from . import urls_accounts
 
@@ -63,8 +61,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('accounts/', include(accounts_urls)),
-    path('dashboard/', include(dashboard_urls)),
-    path('orgs/', include(organisations_urls)),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     re_path(r'^sitemap\.xml$', wagtail_sitemap_views.index,
             {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
