@@ -98,7 +98,6 @@ INSTALLED_APPS = [
     'euth.offlinephases',
     'euth.maps',
     'euth.follows',
-    'euth.blueprints',
     'euth.captcha',
     'euth.contrib',
     'euth.communitydebate'
