@@ -5,8 +5,6 @@ from enum import unique
 from django.utils.translation import gettext_lazy as _
 
 from adhocracy4.polls import phases as poll_phases
-from euth.ideas import phases as ideas_phases
-from euth.maps import phases as map_phases
 
 from .names import BlueprintNames
 
@@ -184,107 +182,6 @@ Blueprint = namedtuple(
 
 
 blueprints = [
-    (BlueprintNames.brainstorming.value,
-     Blueprint(
-         title=_('Brainstorming'),
-         description=_('Collect ideas, questions and input concerning '
-                       'a problem or a question from a wide array of people.'),
-         content=[
-             ideas_phases.CollectPhase(),
-         ],
-         image='images/brainstorming.png',
-         settings_model=None,
-         requirements=Requirements(
-             aims=[Aim.collect_ideas, Aim.discuss_topic],
-             results=[Result.collect_ideas],
-             experience=Experience.no_projects,
-             motivation=Motivation.not_found
-         ),
-         complexity=COMPLEXITY_VECTOR_AC,
-         type=BlueprintNames.brainstorming.name
-     )),
-    (BlueprintNames.map_brainstorming.value,
-     Blueprint(
-         title=_('Spatial Brainstorming'),
-         description=_('Collect ideas, questions and input concerning a '
-                       'problem or a question from a wide array of people.'),
-         content=[
-             map_phases.CollectPhase(),
-         ],
-         image='images/spatial_brainstorming.png',
-         settings_model=('a4maps', 'AreaSettings'),
-         requirements=Requirements(
-             aims=[Aim.design_place],
-             results=[Result.collect_ideas],
-             experience=Experience.no_projects,
-             motivation=Motivation.not_found
-         ),
-         complexity=COMPLEXITY_VECTOR_AC,
-         type=BlueprintNames.map_brainstorming.name
-     )),
-    (BlueprintNames.idea_challenge.value,
-     Blueprint(
-         title=_('Idea Challenge'),
-         description=_('Run a challenge and find the best ideas to solve '
-                       'a particular problem.'),
-         content=[
-             ideas_phases.CollectPhase(),
-             ideas_phases.RatingPhase(),
-         ],
-         image='images/challenge.png',
-         settings_model=None,
-         requirements=Requirements(
-             aims=[Aim.run_competition, Aim.run_survey],
-             results=list(Result),
-             experience=Experience.one_project,
-             motivation=Motivation.low
-         ),
-         complexity=COMPLEXITY_VECTOR_BD,
-         type=BlueprintNames.idea_challenge.name
-     )),
-    (BlueprintNames.map_idea_challenge.value,
-     Blueprint(
-         title=_('Spatial Idea Challenge'),
-         description=_('Run a challenge concerning a certain area or space in '
-                       'your community and find the best ideas to solve a '
-                       'particular problem.'),
-         content=[
-             map_phases.CollectPhase(),
-             map_phases.RatingPhase(),
-         ],
-         image='images/spatial_challenge.png',
-         settings_model=('a4maps', 'AreaSettings'),
-         requirements=Requirements(
-             aims=[Aim.design_place],
-             results=list(Result),
-             experience=Experience.one_project,
-             motivation=Motivation.low
-         ),
-         complexity=COMPLEXITY_VECTOR_BD,
-         type=BlueprintNames.map_idea_challenge.name
-     )),
-    (BlueprintNames.agenda_setting.value,
-     Blueprint(
-         title=_('Agenda Setting'),
-         description=_('You can involve everyone in planning a meeting. '
-                       'Collect ideas for an upcoming event and let your '
-                       'participants vote on the topics you want to tackle.'),
-         content=[
-             ideas_phases.CollectPhase(),
-             ideas_phases.RatingPhase(),
-         ],
-         image='images/agenda_setting.png',
-         settings_model=None,
-         requirements=Requirements(
-             aims=[Aim.collect_ideas, Aim.discuss_topic,
-                   Aim.run_survey, Aim.agenda_setting],
-             results=list(Result),
-             experience=Experience.one_project,
-             motivation=Motivation.low
-         ),
-         complexity=COMPLEXITY_VECTOR_AC,
-         type=BlueprintNames.agenda_setting.name
-     )),
     (BlueprintNames.a4_poll.value,
      Blueprint(
          title=_('Poll'),
@@ -309,10 +206,5 @@ blueprints = [
 
 
 fallbacks = {
-    Aim.collect_ideas: BlueprintNames.brainstorming.value,
-    Aim.discuss_topic: BlueprintNames.brainstorming.value,
-    Aim.agenda_setting: BlueprintNames.agenda_setting.value,
-    Aim.design_place: BlueprintNames.map_brainstorming.value,
     Aim.run_survey: BlueprintNames.a4_poll.value,
-    Aim.run_competition: BlueprintNames.agenda_setting.value,
 }
