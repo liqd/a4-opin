@@ -22,17 +22,6 @@
                     <a href="{% url 'account-profile' %}" class="dropdown-item"><i class="fa fa-cog"></i><span class="dropdown-text">{% trans "Account Settings" %}</span></a>
                 </li>
 
-                {% for organisation in request.user.organisations %}
-                    <li>
-                        {% if request.user.is_superuser %}
-                        <a href="{% url 'a4dashboard:project-list' organisation_slug=organisation.slug %}" class="dropdown-item">
-                        {% else %}
-                        <a href="{% url 'a4dashboard:organisation-edit' organisation_slug=organisation.slug %}" class="dropdown-item">
-                        {% endif %}
-                            <img src="{{ organisation.logo|thumbnail_url:'org_avatar_small' }}" alt="" width="20"><span class="dropdown-text">{{ organisation.name }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
                 <li class="p-0">
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
