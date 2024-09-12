@@ -16,8 +16,6 @@ from wagtail.documents import urls as wagtaildocs_urls
 from euth.accounts import urls as accounts_urls
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 
-from . import urls_accounts
-
 sitemaps = {
     'wagtail': WagtailSitemap,
     'static': StaticSitemap
@@ -41,10 +39,6 @@ urlpatterns += i18n_patterns(
             {'sitemaps': sitemaps}, name='sitemaps'),
     path('', include(wagtail_urls)),
 )
-
-urlpatterns += [
-    path('accounts/', include(urls_accounts)),
-]
 
 if settings.DEBUG:
     from django.conf.urls.static import static

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static widget_tweaks socialaccount i18n %}
+{% load static widget_tweaks i18n %}
 
 {% block title %}{% trans 'Register an account' %}{% endblock %}
 
@@ -99,19 +99,6 @@
                 <button type="submit" value="Register" class="btn btn-ghost btn-wide">{% trans "register" %}</button>
             </form>
 
-            {% block socialaccounts %}
-            <div class="socialaccounts">
-                {% get_providers as socialaccount_providers %}
-                {% if socialaccount_providers %}
-                <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
-                <div class="socialaccount_ballot">
-                    <ul class="socialaccount_providers">
-                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                    </ul>
-                </div>
-                {% endif %}
-            </div>
-            {% endblock %}
         </div>
     </div>
     <div class="account__container--right">
