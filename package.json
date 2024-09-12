@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",
     "@maplibre/maplibre-gl-leaflet": "0.0.19",
-    "adhocracy4": "github:liqd/adhocracy4#opin-v2302",
+    "adhocracy4": "github:liqd/adhocracy4#jd-2024-9-opin-disable-generic-signals",
     "bootstrap": "5.2.3",
     "css-loader": "6.7.3",
     "datepicker": "git+https://github.com/liqd/datePicker.git",

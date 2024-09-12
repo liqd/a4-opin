@@ -6,7 +6,6 @@ from rest_framework.test import APIClient
 
 from adhocracy4.test import factories as a4_factories
 from adhocracy4.test import helpers
-from tests.memberships import factories as member_factories
 from tests.organisations import factories as org_factories
 
 from . import factories
@@ -22,8 +21,6 @@ register(a4_factories.GroupFactory)
 register(a4_factories.ProjectFactory)
 register(a4_factories.ModuleFactory)
 register(factories.PhaseFactory)
-register(member_factories.RequestFactory, 'membership_request')
-register(member_factories.InviteFactory)
 
 
 def pytest_configure(config):

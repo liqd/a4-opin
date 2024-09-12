@@ -23,40 +23,22 @@ from adhocracy4.polls.api import PollViewSet
 from adhocracy4.ratings.api import RatingViewSet
 from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
-from euth.blueprints import urls as blueprints_urls
-from euth.communitydebate import urls as communitydebate_urls
 from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 from euth.dashboard import urls as dashboard_urls
-from euth.documents import urls as paragraph_urls
-from euth.documents.api import DocumentViewSet
-from euth.follows.api import FollowViewSet
-from euth.ideas import urls as ideas_urls
-from euth.maps import urls as maps_urls
-from euth.memberships import projects_urls as memberships_project_urls
-from euth.memberships import urls as memberships_urls
-from euth.offlinephases import urls as offlinephases_urls
 from euth.organisations import urls as organisations_urls
-from euth.projects import urls as project_urls
-from euth.projects.api import ProjectViewSet
-from euth.users import urls as user_urls
-from euth.users.api import UserViewSet
 
 from . import urls_accounts
 
 router = routers.DefaultRouter()
-router.register(r'follows', FollowViewSet, basename='follows')
 router.register(r'polls', PollViewSet, basename='polls')
 router.register(r'reports', ReportViewSet, basename='reports')
-router.register(r'projects', ProjectViewSet, basename='projects')
-router.register(r'users', UserViewSet, basename='users')
 
 ct_router = a4routers.ContentTypeDefaultRouter()
 ct_router.register(r'comments', CommentViewSet, basename='comments')
 ct_router.register(r'ratings', RatingViewSet, basename='ratings')
 
 module_router = a4routers.ModuleDefaultRouter()
-module_router.register(r'documents', DocumentViewSet, basename='documents')
 
 sitemaps = {
     'adhocracy4': Adhocracy4Sitemap,
@@ -82,22 +64,12 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('accounts/', include(accounts_urls)),
     path('dashboard/', include(dashboard_urls)),
-    path('profile/', include(user_urls)),
     path('orgs/', include(organisations_urls)),
-    path('projects/', include(project_urls)),
-    path('projects/', include(memberships_project_urls)),
-    path('paragraphs/', include(paragraph_urls)),
-    path('offlineevents/', include(offlinephases_urls)),
-    path('ideas/', include(ideas_urls)),
-    path('maps/', include(maps_urls)),
-    path('memberships/', include(memberships_urls)),
-    path('blueprints/', include(blueprints_urls)),
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     re_path(r'^sitemap\.xml$', wagtail_sitemap_views.index,
             {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemaps'}),
     re_path(r'^sitemap-(?P<section>.+)\.xml$', wagtail_sitemap_views.sitemap,
             {'sitemaps': sitemaps}, name='sitemaps'),
-    path('communitydebate/', include(communitydebate_urls)),
     path('', include(wagtail_urls)),
 )
 
