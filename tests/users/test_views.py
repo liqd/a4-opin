@@ -215,33 +215,3 @@ def test_reset_password_error(client):
     })
     assert response.status_code == 200
     assert len(mail.outbox) == 0
-
-
-@pytest.mark.django_db
-def test_profile(client, user):
-    url = reverse('profile', kwargs={'slug': user.username})
-    response = client.get(url)
-    assert response.status_code == 200
-    assert response.context['user'] == user
-
-
-'''
-@pytest.mark.django_db
-def test_profile_edit(client, user):
-    client.login(email=user.email, password='password')
-    url = reverse('account-profile')
-
-    response = client.post(url, {
-        'city': 'Kings Landing',
-        'username': user.username,
-    })
-
-    assert response.status_code == 302
-
-    profile_url = reverse('profile', kwargs={'slug': user.username})
-    profile_response = client.get(profile_url)
-
-    assert profile_response.status_code == 200
-    assert profile_response.context['user'] == user
-    assert profile_response.context['user'].city == 'Kings Landing'
-'''

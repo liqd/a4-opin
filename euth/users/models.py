@@ -146,10 +146,6 @@ class User(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         verbose_name = _("User")
         verbose_name_plural = _("Users")
 
-    def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('profile', kwargs={'slug': str(self.username)})
-
     def __str__(self):
         return self.get_full_name()
 
