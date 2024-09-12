@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'easy_thumbnails',
     'parler',
-    'background_task',
 
     'django.contrib.sites',
     'django.contrib.admin',
