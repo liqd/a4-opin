@@ -47,9 +47,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'easy_thumbnails',
     'parler',
-    'ckeditor',
-    'ckeditor_uploader',
-
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,10 +61,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'micawber.contrib.mcdjango',
 
     'euth.users',
-    'euth.organisations',
     'euth.accounts',
     'euth.captcha',
     'euth.contrib',
@@ -143,92 +138,6 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_RESTRICT_BY_USER = 'username'
-CKEDITOR_ALLOW_NONIMAGE_FILES = False
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'width': '100%',
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList'],
-            ['Link', 'Unlink']
-        ]
-    },
-    'image-editor': {
-        'width': '100%',
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['Image'],
-            ['NumberedList', 'BulletedList'],
-            ['Link', 'Unlink']
-        ]
-    },
-    'collapsible-image-editor': {
-        'width': '100%',
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['Image'],
-            ['NumberedList', 'BulletedList'],
-            ['Link', 'Unlink'],
-            ['CollapsibleItem']
-        ]
-    }
-}
-
-BLEACH_LIST = {
-    'default': {
-        'tags': ['p', 'strong', 'em', 'u', 'ol', 'li', 'ul', 'a'],
-        'attributes': {
-            'a': ['href', 'rel'],
-        },
-    },
-    'image-editor': {
-        'tags': ['p', 'strong', 'em', 'u', 'ol', 'li', 'ul', 'a', 'img'],
-        'attributes': {
-            'a': ['href', 'rel'],
-            'img': ['src', 'alt', 'style']
-        },
-        'styles': [
-            'float',
-            'margin',
-            'padding',
-            'width',
-            'height',
-            'margin-bottom',
-            'margin-top',
-            'margin-left',
-            'margin-right',
-        ],
-    },
-    'collapsible-image-editor': {
-        'tags': ['p', 'strong', 'em', 'u', 'ol', 'li', 'ul', 'a', 'img',
-                 'div'],
-        'attributes': {
-            'a': ['href', 'rel'],
-            'img': ['src', 'alt', 'style'],
-            'div': ['class']
-        },
-        'styles': [
-            'float',
-            'margin',
-            'padding',
-            'width',
-            'height',
-            'margin-bottom',
-            'margin-top',
-            'margin-left',
-            'margin-right',
-        ]
-    }
-}
-
-MICAWBER_PROVIDERS = 'euth.contrib.oembed.oembed_providers'
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -265,49 +174,7 @@ PARLER_ENABLE_CACHING = False
 # fixtures
 
 FIXTURE_DIRS = [os.path.join(PROJECT_DIR, 'fixtures')]
-FILE_ALIASES = {
-    '*': {
-        'fileformats': (
-            ('.png', 'image/png'),
-            ('.jpeg', 'image/jpeg'),
-            ('.pdf', 'application/pdf'),
-            ('.doc', 'application/msword'),
-            ('.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'),
-            ('.txt', 'text/plain'),
-            ('.md', 'text/markdown'),
-            ('.xls', 'application/msexcel'),
-            ('.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
-            ('.ppt', 'application/mspowerpoint')
-        )
-    }
-}
-IMAGE_ALIASES = {
-    '*': {
-        'max_size': 5 * 10**6,
-        'fileformats': ('image/png', 'image/jpeg', 'image/gif')
-    },
-    'heroimage': {'min_resolution': (1300, 600)},
-    'logo': {'min_resolution': (200, 200), 'aspect_ratio': (1, 1)},
-    'avatar': {'min_resolution': (200, 200)},
-    'idea_image': {'min_resolution': (400, 200)},
-    'tileimage': {'min_resolution': (500, 300)},
-}
 
-THUMBNAIL_ALIASES = {
-    '': {
-        'heroimage': {'size': (1500, 500), 'crop': 'smart'},
-        'heroimage_preview': {'size': (880, 220), 'crop': 'smart'},
-        'project_thumbnail': {'size': (520, 330), 'crop': 'smart'},
-        'idea_image': {'size': (400, 0), 'crop': 'scale'},
-        'idea_thumbnail': {'size': (240, 240), 'crop': 'smart'},
-        'map_thumbnail': {'size': (400, 200), 'crop': 'smart'},
-        'organisation_thumbnail': {'size': (740, 540), 'crop': 'smart'},
-        'avatar': {'size': (60, 60), 'crop': 'smart'},
-        'avatar_small': {'size': (60, 60), 'crop': 'smart'},
-        'org_avatar_small': {'size': (60, 60), 'crop': 'scale'},
-        'org_avatar_medium': {'size': (200, 200), 'crop': 'scale'},
-    }
-}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -367,57 +234,4 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
     )
-}
-
-ACTIONABLE = [
-    ('euth_ideas', 'Idea'),
-    ('a4comments', 'Comment')
-]
-
-A4_MAP_ATTRIBUTION = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-A4_MAP_BASEURL = 'https://{s}.tile.openstreetmap.org/'
-A4_MAP_BOUNDING_BOX = [
-    [[34.95799531086792, -28.388671875],
-     [71.35706654962706, -28.388671875],
-     [71.35706654962706, 50.88867187499999],
-     [34.95799531086792, 50.88867187499999],
-     [34.95799531086792, -28.388671875]]
-]
-
-# Adhocracy4
-
-A4_ORGANISATIONS_MODEL = 'euth_organisations.Organisation'
-
-A4_CATEGORIZABLE = (
-    ('euth_communitydebate', 'topic'),
-    ('euth_ideas', 'idea'),
-    ('euth_maps', 'mapidea')
-)
-
-A4_COMMENTABLES = (
-)
-
-A4_COMMENT_CATEGORIES = (
-    ('sug', _('suggestion')),
-    ('not', _('note')),
-    ('que', _('question'))
-)
-
-A4_RATEABLES = (
-    ('euth_communitydebate', 'topic'),
-    ('euth_ideas', 'idea'),
-    ('euth_maps', 'mapidea'),
-    ('a4comments', 'comment'),
-)
-
-A4_REPORTABLES = (
-    ('euth_communitydebate', 'topic'),
-    ('euth_ideas', 'ideas'),
-    ('euth_maps', 'mapidea'),
-    ('a4comments', 'comment'),
-)
-
-A4_DASHBOARD = {
-    'PROJECT_DASHBOARD_CLASS': 'adhocracy4.dashboard.ProjectDashboard',
-    'BLUEPRINTS': 'euth.blueprints.blueprints.blueprints'
 }
