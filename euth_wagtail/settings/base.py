@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'rules.apps.AutodiscoverRulesConfig',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    'micawber.contrib.mcdjango',
 
     'euth.users',
     'euth.accounts',
