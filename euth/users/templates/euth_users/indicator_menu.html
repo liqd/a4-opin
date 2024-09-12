@@ -17,10 +17,6 @@
                     </li>
                 {% endif %}
 
-                <li>
-                    <a href="{% url 'account-profile' %}" class="dropdown-item"><i class="fa fa-cog"></i><span class="dropdown-text">{% trans "Account Settings" %}</span></a>
-                </li>
-
                 <li class="p-0">
                     <form class="logout-button-form" action="{% url 'account_logout' %}" method="post" >
                         {% csrf_token %}
