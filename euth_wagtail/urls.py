@@ -9,7 +9,6 @@ from django.urls import re_path
 from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
 from django.views.i18n import JavaScriptCatalog
-from rest_framework import routers
 from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps import views as wagtail_sitemap_views
@@ -17,29 +16,12 @@ from wagtail.contrib.sitemaps.sitemap_generator import \
     Sitemap as WagtailSitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
-from adhocracy4.api import routers as a4routers
-from adhocracy4.comments_async.api import CommentViewSet
-from adhocracy4.polls.api import PollViewSet
-from adhocracy4.ratings.api import RatingViewSet
-from adhocracy4.reports.api import ReportViewSet
 from euth.accounts import urls as accounts_urls
-from euth.contrib.sitemaps.adhocracy4_sitemap import Adhocracy4Sitemap
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 
 from . import urls_accounts
 
-router = routers.DefaultRouter()
-router.register(r'polls', PollViewSet, basename='polls')
-router.register(r'reports', ReportViewSet, basename='reports')
-
-ct_router = a4routers.ContentTypeDefaultRouter()
-ct_router.register(r'comments', CommentViewSet, basename='comments')
-ct_router.register(r'ratings', RatingViewSet, basename='ratings')
-
-module_router = a4routers.ModuleDefaultRouter()
-
 sitemaps = {
-    'adhocracy4': Adhocracy4Sitemap,
     'wagtail': WagtailSitemap,
     'static': StaticSitemap
 }
@@ -48,9 +30,6 @@ urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('api/', include(router.urls)),
-    path('api/', include(ct_router.urls)),
-    path('api/', include(module_router.urls)),
     path('upload/', login_required(ck_views.upload), name='ckeditor_upload'),
     path('browse/',
          never_cache(login_required(ck_views.browse)), name='ckeditor_browse'),
