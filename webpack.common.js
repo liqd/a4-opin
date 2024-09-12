@@ -45,85 +45,10 @@ module.exports = {
       ],
       dependOn: 'adhocracy4'
     },
-    user_search: {
-      import: [
-        'typeahead.js/dist/typeahead.jquery.min.js',
-        './euth/users/static/users/js/user_search.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
     flatpickr: {
       import: [
         './euth_wagtail/assets/js/init-picker.js',
         'datepicker/css/datepicker.min.css'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    leaflet: {
-      import: [
-        'leaflet',
-        'leaflet/dist/leaflet.css',
-        'leaflet.markercluster',
-        'leaflet.markercluster/dist/MarkerCluster.css'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    // A4 dependencies - we want all of them to go through webpack
-    a4maps_display_point: {
-      import: [
-        'leaflet/dist/leaflet.css',
-        'maplibre-gl/dist/maplibre-gl.css',
-        'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_point.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    a4maps_display_points: {
-      import: [
-        'leaflet/dist/leaflet.css',
-        'maplibre-gl/dist/maplibre-gl.css',
-        'leaflet.markercluster/dist/MarkerCluster.css',
-        'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_display_points.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    a4maps_choose_point: {
-      import: [
-        'leaflet/dist/leaflet.css',
-        'maplibre-gl/dist/maplibre-gl.css',
-        'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_point.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    a4maps_choose_polygon: {
-      import: [
-        'leaflet/dist/leaflet.css',
-        'maplibre-gl/dist/maplibre-gl.css',
-        'leaflet-draw/dist/leaflet.draw.css',
-        'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_choose_polygon.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    category_formset: {
-      import: [
-        'adhocracy4/adhocracy4/categories/assets/category_formset.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    image_uploader: {
-      import: [
-        'adhocracy4/adhocracy4/images/assets/image_uploader.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    select_dropdown_init: {
-      import: [
-        'adhocracy4/adhocracy4/categories/assets/select_dropdown_init.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    fileupload_formset: {
-      import: [
-        './euth/communitydebate/static/js/fileupload_formset.js'
       ],
       dependOn: 'adhocracy4'
     },
