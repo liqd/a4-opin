@@ -2,7 +2,6 @@
 
 {% load account %}
 {% load i18n %}
-{% load socialaccount %}
 {% load widget_tweaks %}
 
 {% block title %}{% trans 'Login' %}{% endblock %}
@@ -61,17 +60,6 @@
 
                         <button type="submit" value="Login" class="btn btn-ghost btn-wide">{% trans "login" %}</button>
                     </form>
-                    <div class="socialaccounts">
-                        {% get_providers as socialaccount_providers %}
-                        {% if socialaccount_providers %}
-                        <p class="h6 text-uppercase sans-serif">{% trans "Login with social account" %}</h6>
-                        <div class="socialaccount_ballot">
-                            <ul class="socialaccount_providers">
-                                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                            </ul>
-                        </div>
-                        {% endif %}
-                    </div>
                 </div>
             </div>
         {% else %}

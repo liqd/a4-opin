@@ -1,12 +1,9 @@
-from ckeditor_uploader import views as ck_views
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.contrib.auth.decorators import login_required
 from django.urls import include
 from django.urls import path
 from django.urls import re_path
-from django.views.decorators.cache import never_cache
 from django.views.generic import TemplateView
 from django.views.i18n import JavaScriptCatalog
 from wagtail import urls as wagtail_urls
@@ -19,8 +16,6 @@ from wagtail.documents import urls as wagtaildocs_urls
 from euth.accounts import urls as accounts_urls
 from euth.contrib.sitemaps.static_sitemap import StaticSitemap
 
-from . import urls_accounts
-
 sitemaps = {
     'wagtail': WagtailSitemap,
     'static': StaticSitemap
@@ -30,9 +25,6 @@ urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('upload/', login_required(ck_views.upload), name='ckeditor_upload'),
-    path('browse/',
-         never_cache(login_required(ck_views.browse)), name='ckeditor_browse'),
     re_path(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt',
         content_type="text/plain"), name="robots_file"),
@@ -47,10 +39,6 @@ urlpatterns += i18n_patterns(
             {'sitemaps': sitemaps}, name='sitemaps'),
     path('', include(wagtail_urls)),
 )
-
-urlpatterns += [
-    path('accounts/', include(urls_accounts)),
-]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
