@@ -5,7 +5,6 @@ from wagtail.fields import StreamField
 from wagtail.images import blocks as image_blocks
 from wagtail.models import Page
 
-from adhocracy4.projects import models as prj_models
 from contrib import translations
 from euth_wagtail.settings import LANGUAGES
 
@@ -101,10 +100,6 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         'home.SimplePage',
         'home.ManualsIndex'
     ]
-
-    @property
-    def featured_projects(self):
-        return prj_models.Project.objects.featured()
 
 
 class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
