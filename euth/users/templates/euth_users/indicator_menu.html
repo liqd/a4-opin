@@ -4,8 +4,7 @@
     {% if request.user.is_authenticated %}
     <li class="dropdown">
         <div class="btngroup btngroup-primary ms-sm-3">
-            <a href="{% url 'profile' request.user.username %}" class="btn userindicator-profile">
-                <span class="circled circled-xs" style="background-image: url({% get_avatar request.user 'org_avatar_small' %});"></span>
+            <a class="btn userindicator-profile">
                 {{ request.user.username }}
             </a>
             <a href="#" class="dropdown-toggle btn" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
