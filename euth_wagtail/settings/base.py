@@ -67,39 +67,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'micawber.contrib.mcdjango',
 
-    'adhocracy4.administrative_districts',
-    'adhocracy4.images',
-    'adhocracy4.forms',
-    'adhocracy4.phases',
-    'adhocracy4.projects',
-    'adhocracy4.ratings',
-    'adhocracy4.reports',
-    'adhocracy4.modules',
-    'adhocracy4.categories',
-    'adhocracy4.comments',
-    'adhocracy4.comments_async',
-    'adhocracy4.maps',
-    'adhocracy4.filters',
-    'adhocracy4.rules',
-    'adhocracy4.ckeditor',
-    'adhocracy4.dashboard',
-    'adhocracy4.polls',
-    'adhocracy4.organisations',
-
     'euth.users',
-    'euth.actions',
     'euth.organisations',
-    'euth.ideas',
-    'euth.dashboard',
     'euth.accounts',
-    'euth.memberships',
-    'euth.documents',
-    'euth.offlinephases',
-    'euth.maps',
-    'euth.follows',
     'euth.captcha',
     'euth.contrib',
-    'euth.communitydebate'
 ]
 
 MIDDLEWARE = [
@@ -424,13 +396,6 @@ A4_CATEGORIZABLE = (
 )
 
 A4_COMMENTABLES = (
-    ('euth_communitydebate', 'topic'),
-    ('euth_ideas', 'idea'),
-    ('euth_maps', 'mapidea'),
-    ('euth_documents', 'paragraph'),
-    ('euth_documents', 'document'),
-    ('a4comments', 'comment'),
-    ('a4polls', 'poll')
 )
 
 A4_COMMENT_CATEGORIES = (
