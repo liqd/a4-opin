@@ -25,7 +25,6 @@ module.exports = {
       '@fortawesome/fontawesome-free/scss/brands.scss',
       '@fortawesome/fontawesome-free/scss/regular.scss',
       '@fortawesome/fontawesome-free/scss/solid.scss',
-      'immutability-helper',
       'slick-carousel/slick/slick.min.js',
       'slick-carousel/slick/slick.css',
       './euth_wagtail/assets/js/modernizr-custom.js',
@@ -35,20 +34,6 @@ module.exports = {
     captcheck: {
       import: [
         './euth/captcha/assets/captcheck.js'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    datepicker: {
-      import: [
-        './euth_wagtail/assets/js/init-picker.js',
-        'datepicker/css/datepicker.min.css'
-      ],
-      dependOn: 'adhocracy4'
-    },
-    flatpickr: {
-      import: [
-        './euth_wagtail/assets/js/init-picker.js',
-        'datepicker/css/datepicker.min.css'
       ],
       dependOn: 'adhocracy4'
     },
@@ -148,8 +133,7 @@ module.exports = {
     modules: [path.resolve('./node_modules')],
     alias: {
       bootstrap$: 'bootstrap/dist/js/bootstrap.bundle.min.js',
-      jquery$: 'jquery/dist/jquery.min.js',
-      a4maps_common$: 'adhocracy4/adhocracy4/maps/static/a4maps/a4maps_common.js'
+      jquery$: 'jquery/dist/jquery.min.js'
     }
   },
   plugins: [
