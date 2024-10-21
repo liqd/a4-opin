@@ -30,3 +30,18 @@ try:
     from .local import *
 except ImportError:
     pass
+
+if os.getenv("DATABASE") == "postgresql":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "django",
+            "USER": "django",
+            "PASSWORD": "",
+            "HOST": "",
+            "PORT": "",
+            "OPTIONS": {},
+        }
+    }
+
+
