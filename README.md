@@ -3,6 +3,14 @@
 ![Build Status](https://github.com/liqd/a4-opin/actions/workflows/django.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/liqd/a4-opin/badge.svg?branch=main)](https://coveralls.io/github/liqd/a4-opin?branch=main)
 
+# WARNING
+Since commit da29d7fabdeaa1594d5fdd0fe24eceab143e004d this project is being
+refactored towards a wagtail only project to be used as an informational
+website, all participation parts are being removed.
+
+**DO NOT UPGRADE to the main branch or any version beyond v2401 or
+otherwise you will lose data**.
+
 ## Requires
 
  * nodejs (+ npm)
