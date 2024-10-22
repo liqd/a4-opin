@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'widget_tweaks',
-    'easy_thumbnails',
     'parler',
 
     'django.contrib.sites',
@@ -71,7 +70,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django_cloudflare_push.middleware.push_middleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -130,7 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 AUTH_USER_MODEL = 'euth_users.User'
 
 AUTHENTICATION_BACKENDS = (
-    'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
