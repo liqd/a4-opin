@@ -4,9 +4,7 @@ from django.urls import reverse
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 
-from adhocracy4.test import factories as a4_factories
 from adhocracy4.test import helpers
-from tests.organisations import factories as org_factories
 
 from . import factories
 
@@ -14,13 +12,6 @@ register(factories.UserFactory)
 register(factories.UserFactory, 'user2')
 register(factories.AdminFactory, 'admin')
 register(factories.ContentTypeFactory)
-
-register(org_factories.OrganisationFactory)
-register(org_factories.OrganisationFactory, 'other_organisation')
-register(a4_factories.GroupFactory)
-register(a4_factories.ProjectFactory)
-register(a4_factories.ModuleFactory)
-register(factories.PhaseFactory)
 
 
 def pytest_configure(config):
