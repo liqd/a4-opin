@@ -47,7 +47,6 @@ class LinkFields(models.Model):
     )
 
     allowed_views = (
-        ('organisation-list', 'List of Organisations'),
     )
 
     link_view = models.CharField(
