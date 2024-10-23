@@ -1,4 +1,4 @@
-{% load i18n static url_translations wagtailcore_tags userindicator base_tags %}
+{% load i18n static url_translations wagtailcore_tags base_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 {% load_site_menu "topmenu" as top_menu_items %}
 
@@ -32,8 +32,6 @@
         <div class="collapse navbar-collapse navbar-nav navbar-right ms-sm-auto" id="navbar-collapse">
 
             <ul class="navbar-nav ms-sm-auto">
-              {% userindicator_menu %}
-
               <li class="nav-item dropdown order-sm-1 px-3" id="language-selector"">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ LANGUAGE_CODE }}

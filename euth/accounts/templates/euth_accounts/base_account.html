@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail avatar %}
+{% load i18n %}
 
 {% block meta_viewport %}{% endblock %}
 
@@ -8,9 +8,6 @@
     <div class="container">
         <ul class="nav navbar-nav">
             <div class="dashboard-header-indicator" id="dLabel">
-                <span class="dashboard-header-logo">
-                    <img src="{% get_avatar request.user 'avatar_small' %}" alt="">
-                </span>
                 <span class="dropdown-title">{{ request.user.username }}</span>
             </div>
         </ul>
