@@ -17,7 +17,7 @@ db_url = urlparse(os.environ['DATABASE_URL'])
 if db_url.scheme == 'postgres':
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': unquote(db_url.path.strip('/')),
             'USER': unquote(db_url.username),
             'PASSWORD': unquote(db_url.password),
