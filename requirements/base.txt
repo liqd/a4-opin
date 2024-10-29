@@ -7,7 +7,7 @@ django-parler==2.3
 feedparser==6.0.10
 micawber==0.5.4
 sentry-sdk==1.15.0
-wagtail==4.2
+wagtail==5.0.2
 whitenoise==6.4.0
 Django==3.2.20
 django-allauth==0.52.0

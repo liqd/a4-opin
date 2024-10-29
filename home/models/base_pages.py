@@ -73,7 +73,7 @@ class HomePage(Page, metaclass=translations.TranslatedPageMetaclass):
         verbose_name = "Homepage"
 
     general_panels = [
-        panels.FieldPanel('title', classname='title'),
+        panels.TitleFieldPanel('title', classname='title'),
         panels.FieldPanel('slug'),
         panels.FieldPanel('image'),
     ]
@@ -154,7 +154,7 @@ class SimplePage(Page, metaclass=translations.TranslatedPageMetaclass):
     )
 
     general_panels = [
-        panels.FieldPanel('title', classname='title'),
+        panels.TitleFieldPanel('title', classname='title'),
         panels.FieldPanel('slug'),
         panels.FieldPanel('intro_image')
     ]

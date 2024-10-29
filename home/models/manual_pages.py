@@ -61,7 +61,7 @@ class ManualsIndex(Page, metaclass=translations.TranslatedPageMetaclass):
     ]
 
     general_panels = [
-        panels.FieldPanel('title', classname='title'),
+        panels.TitleFieldPanel('title', classname='title'),
         panels.FieldPanel('slug'),
     ]
 
@@ -131,7 +131,7 @@ class ManualsSectionPage(Page, metaclass=translations.TranslatedPageMetaclass):
     )
 
     general_panels = [
-        panels.FieldPanel('title', classname='title'),
+        panels.TitleFieldPanel('title', classname='title'),
         panels.FieldPanel('slug'),
         panels.FieldPanel('color'),
         panels.FieldPanel('image'),
@@ -244,7 +244,7 @@ class ManualsDetailPage(Page, metaclass=translations.TranslatedPageMetaclass):
     )
 
     general_panels = [
-        panels.FieldPanel('title', classname='title'),
+        panels.TitleFieldPanel('title', classname='title'),
         panels.FieldPanel('slug'),
         panels.FieldPanel('color'),
         panels.FieldPanel('image'),
