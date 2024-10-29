@@ -18,6 +18,7 @@ otherwise you will lose data**.
  * libmagic
  * libjpeg
  * libpq (only if postgres should be used)
+ * sqlite3 [with JSON1 enabled](https://code.djangoproject.com/wiki/JSON1Extension)
 
 ## Setup and development
 
