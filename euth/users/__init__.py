@@ -2,8 +2,6 @@ from django.urls import Resolver404
 from django.urls import resolve
 from django.utils.http import url_has_allowed_host_and_scheme
 
-default_app_config = 'euth.users.apps.Config'
-
 USERNAME_REGEX = r'^[\w]+[ \w.@+-]*$'
 
 

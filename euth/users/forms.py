@@ -1,7 +1,8 @@
+from zoneinfo import available_timezones
+
 from django import forms
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth import get_user_model
-from pytz import common_timezones
 
 from euth.captcha.fields import CaptcheckCaptchaField
 
@@ -17,7 +18,7 @@ class SignUpForm(auth_forms.UserCreationForm):
 
     def clean_timezone(self):
         timezone = self.cleaned_data['timezone']
-        if timezone not in common_timezones:
+        if timezone not in available_timezones():
             timezone = ""
         return timezone
 
