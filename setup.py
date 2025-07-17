@@ -11,5 +11,4 @@ setup(name='euth_wagtail',
       install_requires=[
           'Django',
           'wagtail',
-          'django_bower'
       ])
