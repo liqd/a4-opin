@@ -3,7 +3,7 @@
   "repository": "https://github.com/liqd/euth_wagtail.git",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",
-    "bootstrap": "5.2.3",
+    "bootstrap": "5.3.8",
     "css-loader": "6.7.3",
     "jquery": "3.6.3",
     "js-cookie": "3.0.5",
