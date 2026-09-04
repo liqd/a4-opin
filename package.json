@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",
     "bootstrap": "5.2.3",
-    "css-loader": "6.7.3",
+    "css-loader": "6.11.0",
     "jquery": "3.6.3",
     "js-cookie": "3.0.5",
     "mini-css-extract-plugin": "2.7.5",
