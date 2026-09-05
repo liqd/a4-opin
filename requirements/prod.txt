@@ -1,4 +1,4 @@
 -r base.txt
-django-redis==5.2.0
+django-redis==5.4.0
 gunicorn==20.1.0
 hiredis==2.2.2
